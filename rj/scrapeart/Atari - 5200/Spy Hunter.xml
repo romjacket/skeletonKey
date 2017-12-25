@@ -1,9 +1,0 @@
-<Game>
-<Name>Spy Hunter</Name>
-	<Plot>The game begins with the player driving the fictitious G-6155 Interceptor. Enemy vehicles try to destroy the player's car or to force it off the road. Points are scored for distance traveled (a counter increments the score while the car is moving) and for destroying enemy vehicles. There is an initial lead-in time during which the player has an unlimited supply of cars. After the lead-in time expires the player must earn extra cars by obtaining high scores. The first extra car is generally earned at a default value of 30,000 points, but this value can vary depending on settings for a given machine. Up to 3 additional cars are awarded at similar increments.</Plot>
-<banner1>http://images.launchbox-app.com/f04ba611-a3aa-4636-93b5-f821a14226db.jpg</banner1>
-<boxback1>http://images.launchbox-app.com/52d2d4bd-e55b-4e76-9967-7db0d5319327.jpg</boxback1>
-<boxart1>http://images.launchbox-app.com/6f4f7b94-a034-479d-b4ea-fed338c68bf9.jpg</boxart1>
-<clearlogo1>http://images.launchbox-app.com/813e43f2-b447-4525-9822-45c3ecbd20cb.png</clearlogo1>
-	<Genre>Racing; Shooter</Genre>
-</Game>

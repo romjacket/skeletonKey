@@ -1,9 +1,0 @@
-<Game>
-<Name>Boogie</Name>
-	<Plot>As the name implies, Boogie is not a game but a music demo.  This prototype displays the 5200 splash screen while continuously playing a "boogie" tune.  The music is somewhat interesting, and shows off the 5200's music abilities fairly well.  It's unknown whether this prototype was made simply as a learning tool, or if some kind of music game was being planned.</Plot>
-<media1>http://images.launchbox-app.com/bd10b51a-55ed-449b-b7d5-51351482f739.jpg</media1>
-<snapshot1>http://images.launchbox-app.com/a4eef6ab-e8e6-4fba-b30d-49935cfb4e2e.png</snapshot1>
-<snapshot2>http://images.launchbox-app.com/f71026b9-59a6-4a0b-acaa-955759d6b8aa.png</snapshot2>
-	<Genre>Music</Genre>
-	<Developer>Atari</Developer>
-</Game>

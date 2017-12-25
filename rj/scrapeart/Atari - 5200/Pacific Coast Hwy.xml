@@ -1,7 +1,0 @@
-<Game>
-<Name>Pacific Coast Hwy</Name>
-	<Plot>Pacific Coast Highway is a Frogger variant that makes a few changes from the arcade original. The objective is still to guide an animal (here a tortoise or a rabbit depending on what instructions you read) across first a highway where various cars have to be avoided and then a river where the turtle has to jump between boats passing by. Unlike the arcade game the road and river sections take place on different screens but are still considered a single level. Once both have been completed the game moves on to the next difficulty level. From the second level the sidewalk in the middle of the screen start rolling. The game can be played by a single player or by two players simultaneously.</Plot>
-<banner1>http://images.launchbox-app.com/1c4097c8-a1cc-4342-b36a-b7023c0e323b.jpg</banner1>
-<boxback1>http://images.launchbox-app.com/7480a6f2-b473-411b-af71-c499d450f4e0.jpg</boxback1>
-<boxart1>http://images.launchbox-app.com/d1a165ed-e762-43c1-88d8-09ae9085b8a1.jpg</boxart1>
-</Game>
