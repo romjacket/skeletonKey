@@ -1,0 +1,11 @@
+<Game>
+<Name>John Anderson's Rally Speedway</Name>
+	<ReleaseDate>1983</ReleaseDate>
+	<Plot>This racing game is viewed from above, with the circuits comprising junctions, multiple paths and a variety of corner types. There are also hazards off the road to accelerate and steer your vehicle away from.  Icy and wet roads are available, which affect the car's handling. There are 5 available maximum speeds, 3 levels of acceleration, and an 'Only on a computer mode' in which the hazards are merely decoration to drive through. A track editor is also on offer.</Plot>
+	<nPlayers>2</nPlayers>
+<boxback1>http://images.launchbox-app.com/0d631fe9-a373-4910-819c-416e3b87dc2e.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/43f26626-6600-4af9-9e96-c82d1a82463f.jpg</boxart1>
+	<Genre>Racing</Genre>
+	<Developer>Scott Adams</Developer>
+	<Publisher>Commodore</Publisher>
+</Game>

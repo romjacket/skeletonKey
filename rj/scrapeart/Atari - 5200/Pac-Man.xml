@@ -1,0 +1,13 @@
+<Game>
+<Name>Pac-Man</Name>
+	<Plot>The player controls Pac-Man through a maze, eating pac-dots. When all dots are eaten, Pac-Man is taken to the next stage, between some stages one of three intermission animations plays. Four enemies (Blinky, Pinky, Inky and Clyde) roam the maze, trying to catch Pac-Man. If an enemy touches Pac-Man, a life is lost. When all lives have been lost, the game ends.</Plot>
+	<nPlayers>2</nPlayers>
+<banner1>http://images.launchbox-app.com/001b1d85-3991-407b-9549-05b4bbe31847.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/4e4f185a-65e9-4f58-a9d9-c25414c3c85a.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/5a97ae96-15b2-4216-92e8-fe2c98bdd33c.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/0ce4c15b-ed8b-4dbd-8e00-cda5e36fff3f.png</clearlogo1>
+<fanart1>http://images.launchbox-app.com/097ebae7-7a8d-406e-a5cc-b73530809866.jpg</fanart1>
+	<Genre>Action; Puzzle</Genre>
+	<Developer>Namco</Developer>
+	<Publisher>Atari</Publisher>
+</Game>

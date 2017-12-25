@@ -336,8 +336,7 @@ RJLNCHP=X
 
 [retroArch]
 RJPRECFG=
-RJPOSTCFG=
-RJROMXT= .m3u
+RJEMUOPTS=<-L<"[libretrodir]\[core]"<
 RJEXTRARC=0
 
 [DosBox]

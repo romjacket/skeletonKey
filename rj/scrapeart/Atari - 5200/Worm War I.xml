@@ -1,0 +1,9 @@
+<Game>
+<Name>Worm War I</Name>
+	<Plot>Giant worms attack the city of Teriyaki, and it's the player's job to protect it. The player commands a tank at the bottom of the screen. The tank can move left or right while constantly moving forward. The player can control the forward speed by pushing up or down on the joystick.</Plot>
+<banner1>http://images.launchbox-app.com/203d61b7-1fbc-4bba-b542-2f53a45c9be1.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/656a77c7-974e-492f-9c70-8497754bc2b6.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/4904c6cd-8efb-46a2-9b42-200562d5ac59.jpg</boxart1>
+	<Developer>Sirius Software</Developer>
+	<Publisher>Fox Video Games</Publisher>
+</Game>

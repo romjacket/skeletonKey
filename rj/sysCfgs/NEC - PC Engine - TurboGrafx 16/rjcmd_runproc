@@ -1,0 +1,4 @@
+%DMX%"%DAMVAR%" -mount dt, 0, "%GAMDIR%\%ROMF%"
+%LAUNCH% "%EMUL%\%EMUZ%.exe"[RUNOPTS][ROMIN][RUNARGS]
+%CCMDY%
+%RLOC%popd

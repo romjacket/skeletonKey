@@ -1,0 +1,13 @@
+<Game>
+<Name>Jawbreaker</Name>
+	<ReleaseDate>1982-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>You're loose in a candy factory! Quickly move the chomping set of teeth to eat up all the candy bars. Be careful, the happy faces may get you! Clear the screen and it's time for some quick hygiene - a tooth brush will clean your teeth to get you ready for your next romp through the candy factory.</Plot>
+	<nPlayers>1</nPlayers>
+<banner1>http://images.launchbox-app.com/4a2319bf-5a64-4392-9348-d2cc75072884.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/8c909ea7-fa9b-4ed4-8db0-0b484de1b2c1.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/d7c8ac3d-3f5e-4f6a-80bd-ea01227c2310.jpg</boxart1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Tigervision</Developer>
+	<Publisher>Tigervision</Publisher>
+</Game>

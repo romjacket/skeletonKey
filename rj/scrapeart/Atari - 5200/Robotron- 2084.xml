@@ -1,0 +1,32 @@
+<Game>
+<Name>Robotron- 2084</Name>
+				<plot>Overview:Robotron: 2084 is often credited as a major inspiration for more recent eight-way directional shooters (though there were earlier dual-stick shooters such as Gun Fight and Sheriff). Although the game is fairly simple, the variety of enemies and strategies is notable. Current popular games, such as Geometry Wars, Everyday Shooter, and Super Stardust HD, all borrow their basic gameplay elements from Robotron.Gameplay:ControlsRobotron: 2084 is a top-down eight-way directional shooter, meaning that two separate control sticks are used. The left stick controls the movement of the character, while the right stick controls the direction of the shooting. While this is a style of gameplay fairly common in more recent shooter games, this was not the case the time of the game's creation.ObjectEnemies appear in "waves," which function as the game's stages. The object of each wave is to destroy all of the enemies on the screen. However, each level also has a certain number of civilians. Saving civilians, while not necessary to advance to the next wave, will greatly increase the number of points the player can acquire. In the vein of most arcade games, the object of the game is to obtain as many points as possible.There is a fairly large variety of enemies within the game. The first type merely advance toward the player, but those in the later levels have more complex attacks which are difficult to avoid. The speed of the game also increases the longer the player is in the wave. The speed does reset if the player loses a life, however. The game resets after 255 waves back to wave 1.Every 5 waves, the player encounters a screen filled with a greatly increased number of humans to save. It is in these waves that the greatest number of points can be acquired. The human civiilans are hunted down in the game by the 'hulk' enemy. However, a glitch in the original programming means that these 'hulks' will all gravitate toward a single civilian, largely ignoring all the others. If this single human can be kept alive, then it is possilbe to collect a much greater number of the others, and achieve a dramatically increased score in the process. This feature was essentially a bug in the game, but ultimately gave rise to a key tactic in playing the game.</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Atari, Inc.</Developer>
+				<nplayers>1-2 Sim</nplayers>
+				<rating>3.9</rating>
+				<thegamesdb_id>5210</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/robotron-2084</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/robotron-2084/3030-11233/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5210-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5210-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27235-robotron-2084-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/54914-robotron-2084-atari-5200-screenshot-atari-logo-and-game-title.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/54915-robotron-2084-atari-5200-screenshot-title-screen.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/54916-robotron-2084-atari-5200-screenshot-a-game-in-progress.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/54917-robotron-2084-atari-5200-screenshot-more-robots-appear-as-the.jpg</snapshot4>
+				<snapshot5>http://www.mobygames.com/images/shots/l/54918-robotron-2084-atari-5200-screenshot-yikes-watch-out-for-those.jpg</snapshot5>
+				<snapshot6>http://static.giantbomb.com/uploads/scale_large/0/6763/400343-s_robotron2084_8.png</snapshot6>
+				<snapshot7>http://static.giantbomb.com/uploads/scale_large/0/6763/400342-s_robotron2084_7.png</snapshot7>
+				<snapshot8>http://static.giantbomb.com/uploads/scale_large/0/6763/400341-s_robotron2084_6.png</snapshot8>
+				<snapshot9>http://static.giantbomb.com/uploads/scale_large/0/6763/400338-s_robotron2084_5.png</snapshot9>
+				<snapshot10>http://static.giantbomb.com/uploads/scale_large/0/6763/400337-s_robotron2084_4.png</snapshot10>
+				<banner1>http://thegamesdb.net/banners/graphical/5210-g.jpg</banner1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5210.png</clearlogo1>
+<Notes>You are a mutant human, who by some freak of nature has the ability to shoot energy pulses from his body in eight different directions! Your job is simple: save humanity from their own creation -- the ROBOTRONS! The gameplay is pretty unique for the time. You can move and fire in any of eight directions. You get thrown in a room with various evil baddies strewn about, you've got to kill all the robots while at the same time finding some way to grab humans and avoid death.</Notes>
+<banner2>http://images.launchbox-app.com/4925eae2-3e67-4844-b939-2b94a461f7a3.jpg<banner2>
+<boxart14>http://images.launchbox-app.com/a562ed00-ae19-4457-8698-01a73af877df.jpg<boxart14>
+<clearlogo2>http://images.launchbox-app.com/fe6f0c9f-3907-4197-92b3-aa437531e1af.png<clearlogo2>
+<Publisher>Atari</Publisher>
+</game>

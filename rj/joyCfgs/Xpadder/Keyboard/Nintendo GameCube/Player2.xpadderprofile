@@ -1,0 +1,40 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=2015.01.01
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2StickDeadZones=103,103
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=O
+Set1Button2Slots=Comma
+Set1Button3Slots=P
+Set1Button4Slots=Dot
+Set1Button5Slots=NumPad /
+Set1Button6Slots=NumPad *
+Set1Button7SetSelect=1
+Set1Button8Slots=NumPad Enter
+Set1DPadUpSlots=NumPad 8
+Set1DPadRightSlots=NumPad 6
+Set1DPadDownSlots=NumPad 2
+Set1DPadLeftSlots=NumPad 4
+Set1Stick1UpSlots=B
+Set1Stick1RightSlots=N
+Set1Stick1DownSlots=Space
+Set1Stick1LeftSlots=V
+Set1Stick2UpSlots=8
+Set1Stick2RightSlots=Minus
+Set1Stick2DownSlots=9
+Set1Stick2LeftSlots=0
+Set1TriggerRightSlots=M
+Set2Button7SetSelect=0
+Set2DPadUpSlots=Left Control,Equals
+Set2DPadRightSlots=Left Control,F7
+Set2DPadDownSlots=Left Control,Minus
+Set2DPadLeftSlots=Left Control,F5
+Set2TriggerRightSlots=Left Control,F12

@@ -1,0 +1,34 @@
+<Game>
+<Name>Pole Position</Name>
+				<plot>Pole Position is the conversion of the arcade racing game. Enter the Grand Prix, race against other racing cars to achieve the highest score possible in the shortest amount of time.Before the player can enter the Grand Prix, the player must first qualify by competing in the Qualifying Lap within 73 seconds or less. If the player however, does not qualify in the Qualifying Lap, the player may continue to race until the Race Timer runs after 90 seconds. The player will score 50 point per 5 meters and additionally 50 points for every racing car passed. When the time runs out - Game Over. The player will have to restart the Qualifying Lap.Qualifying will enable the player to start in one of the eight available positions. The faster the lap time was, the better the starting position in addition to bonus score points. The number one starting position, is the Pole Position.During the Grand Prix, the player will compete against the Race Timer as well as against other racing cars. If the player fails to beat the Race Timer in any lap, the player drops out of the race - Game Over. Completing the race by reaching finishing line will grant the player 200 points per each second left on the Race Timer, bonus score for distance covered, and passing bonus points.Scoring:1. Every 5 meters driven: 50 pointsPassing Car Bonus: 50 points per racing carTime Bonus: 200 points per second left on the Race TimerPositions1. Pole Position - Lap Time: 58"50 seconds - 4,000 points2nd Position - Lap Time: 60"00 seconds - 2,000 points3rd Position - Lap Time: 62"00 seconds - 1,400 points4th Position - Lap Time: 64"00 seconds - 1,000 points5th Position - Lap Time: 66"00 seconds - 800 points6th Position - Lap Time: 68"00 seconds - 600 points7th Position - Lap Time: 70"00 seconds - 400 points8th Position - Lap Time: 73"00 seconds - 200 points</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Driving, Racing</genre>
+				<Developer>Atari, Inc.</Developer>
+				<nplayers>1</nplayers>
+				<rating>3.8</rating>
+				<VideoURL>kdXNpEUT54o</VideoURL>
+				<thegamesdb_id>5194</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/pole-position</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/pole-position/3030-10087/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5194-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5194-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27444-pole-position-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/55833-pole-position-atari-5200-screenshot-atari-logo-and-game-title.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/55834-pole-position-atari-5200-screenshot-title-screen.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/55835-pole-position-atari-5200-screenshot-prepare-to-qualify.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/55836-pole-position-atari-5200-screenshot-racing.jpg</snapshot4>
+				<snapshot5>http://www.mobygames.com/images/shots/l/55837-pole-position-atari-5200-screenshot-whoa-sharp-turn-here.jpg</snapshot5>
+				<snapshot6>http://static.giantbomb.com/uploads/scale_large/0/3568/548813-poleposition_vec_00.png</snapshot6>
+				<snapshot7>http://static.giantbomb.com/uploads/scale_large/0/3568/548811-poleposition_c64_01.gif</snapshot7>
+				<snapshot8>http://static.giantbomb.com/uploads/scale_large/0/3568/548810-poleposition_c64_00.gif</snapshot8>
+				<snapshot9>http://static.giantbomb.com/uploads/scale_large/0/3568/548805-poleposition_5200_00.gif</snapshot9>
+				<snapshot10>http://static.giantbomb.com/uploads/scale_large/1/15568/504992-pole_position__1983___atari__5.png</snapshot10>
+				<banner1>http://thegamesdb.net/banners/graphical/5194-g.jpg</banner1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5194.png</clearlogo1>
+<Notes>In this game, the player controls a Formula One race car. The player completes a time trial lap within a certain amount of time to qualify for an F1 race at the Fuji Racetrack. After qualifying, the player races against other cars in a championship race.</Notes>
+<VideoURL2>kdXNpEUT54o</VideoURL2>
+<banner2>http://images.launchbox-app.com/d52ddeb7-dd27-43bc-ae06-5a0138612b0e.jpg<banner2>
+<boxart14>http://images.launchbox-app.com/776a4aff-4f47-4af6-bbaa-6ad1971c579e.jpg<boxart14>
+<clearlogo2>http://images.launchbox-app.com/516cf3df-d8fe-4eea-aac9-141aad42207d.png<clearlogo2>
+<Publisher>Atari</Publisher>
+</game>

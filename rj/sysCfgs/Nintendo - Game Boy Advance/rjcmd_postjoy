@@ -1,0 +1,16 @@
+%XPT%%XPSTRT% "%XPADDER%" /m "[XPDLOC]%FETYPE%.xpadderprofile" nolayout2
+
+%XPALT%pushd "%AMDIR%"
+%XPALT%for /f "tokens=1,2 delims=: " %%a in ('type "%AMDIR%lst.ini"') do if "%%~a"=="Index" set JNUM=%%~b&&if "%%~b" GEQ "2" for /f "tokens=1,2,3* delims= " %%i in ("--profile-controller 2 --profile %AMDIR%nolayout2.amgp") do (
+%XPALT%set AMCP2=%%~i %%~j %%~k
+%XPALT%set AMCV=%%~l
+%XPALT%)
+%XPALT%if "%AMCV%" NEQ "" for %%a in ("%AMCV%") do set AMCV=%%a
+%XPALT%%XPSTRT% "%ANTMIC%" --hidden --profile-controller 1 --profile "[AMLOC]%FETYPE%.amgp" %AMCP2% %AMCV%
+%XPALT%popd
+%CCMDZ%
+%DMX%cmd /c "%DAMVAR%" -unmount dt, 0
+if "%WINE%"=="" goto :END
+taskkill /f /im cmd.exe
+:END
+FOR /F "tokens=2 delims= " %%A IN ('TASKLIST /FI "imagename eq cmd.exe" /v^| find /i "LAUNCHER"') DO TASKKILL /F /PID %%A

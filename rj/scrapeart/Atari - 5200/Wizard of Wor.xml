@@ -1,0 +1,28 @@
+<Game>
+<Name>Wizard of Wor</Name>
+				<plot>Gameplay:Gameplay: consists of a never-ending series of maze-like dungeons, randomly drawn from a large pool of pre-set designs. Each dungeon has doors on either side that warp around to the other side (similar to Pac-Man) Players control "Worriors", and must clear each dungeon of monsters.This game has single-player or simultaneous two-player co-op gameplay. Player One takes the yellow Worrior (right-hand side), and Player Two takes the blue Worrior (left-hand side). In the arcade version's single-player mode, the blue Worrior is controlled by the CPU. Wizard of Wor ScreenThe enemies consist of:Burwor (Blue)Garwor (Yellow)Thorwor (Red)WorlukWizard of WorIf a player or monster uses one of the doors, it closes, temporarily sealing the tunnel. On the Atari 2600 version, the tunnel simply opens and closes periodically.Like Asteroids, the game's enemies move to an audible tempo that increases over time; the longer players take to clear a dungeon, the faster the enemies will move.There are 3 types of Worling - Burwor, Garwor, and Thorwor - in ascending order of speed and viciousness. All Worlings can shoot at the players. Garwor and Thorwor can turn invisible, only becoming visible again when they enter the same corridor as a player. All monsters, including invisible ones, are displayed as blips on the radar display at the bottom of the screen. Players must use this radar to keep track of invisible Worlings.Once a dungeon is cleared of all monsters, from the second dungeon on, there is a random chance that the winged Worluk - the Wizard's familiar - may appear. Worluk appears at a random position in the maze, and makes for an exit tunnel. If the players manage to bullseye Worluk before it escapes, the next level is a "Double Score Dungeon" granting a 2x score-multiplier for that level.If the players manage to kill Worluk, there is a random chance that the angry Wizard of Wor will then appear. The Wizard teleports around the maze randomly, casting deadly lighting bolts, until either the Wizard or a player is killed.On the Bally Astrocade, this game was released as "The Incredible Wizard." The port there makes some graphical cuts and eliminates the CPU-controlled player, but the sound is astoundingly similar to the arcade release.</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>CBS Electronics</Developer>
+				<nplayers>1</nplayers>
+				<thegamesdb_id>5227</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/wizard-of-wor</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/wizard-of-wor/3030-18684/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5227-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5227-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27401-wizard-of-wor-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/55343-wizard-of-wor-atari-5200-screenshot-title-screen.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/55344-wizard-of-wor-atari-5200-screenshot-a-game-in-progress.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/55345-wizard-of-wor-atari-5200-screenshot-a-worluk-is-here.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/55346-wizard-of-wor-atari-5200-screenshot-yikes-an-enemy-is-chasing.jpg</snapshot4>
+				<snapshot5>http://www.mobygames.com/images/shots/l/55347-wizard-of-wor-atari-5200-screenshot-game-over.jpg</snapshot5>
+				<snapshot6>http://static.giantbomb.com/uploads/scale_large/0/5312/500729-wizard_of_wor_01.gif</snapshot6>
+				<snapshot7>http://static.giantbomb.com/uploads/scale_large/1/14811/368573-wizard_of_wor.png</snapshot7>
+				<fanart1>http://thegamesdb.net/banners/fanart/original/5227-1.jpg</fanart1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5227.png</clearlogo1>
+<Notes>Wizard of Wor is an arcade shooter played from a top-down point of view. The player controls a warrior who is trapped in a dungeon. The goal is to earn as many points as possible by shooting the numerous enemy creatures which wander about the maze like corridors. The creatures wander about at various speeds, may shoot darts at the player, and some even have the ability to disappear temporarily. At the bottom of the screen the player has a radar which can be used to locate creatures that are invisible.</Notes>
+<boxart11>http://images.launchbox-app.com/5895289b-16dc-4712-9392-595b7f143c4b.jpg<boxart11>
+<clearlogo2>http://images.launchbox-app.com/00596a75-fb0d-46e1-a62b-77de720ad505.png<clearlogo2>
+<rating>2.75</rating>
+<Publisher>CBS</Publisher>
+</game>

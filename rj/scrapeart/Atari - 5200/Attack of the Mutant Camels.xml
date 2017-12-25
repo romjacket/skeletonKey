@@ -1,0 +1,13 @@
+<Game>
+<Name>Attack of the Mutant Camels</Name>
+	<ReleaseDate>1983-07-15T00:00:00-07:00</ReleaseDate>
+	<Plot>The player controls a small jetplane and has the task of killing giant yellow camels before they reach the home base. Doing so requires several dozens of shots. The camels retaliate by shooting fireballs from their mouth. Each camel required several shots to destroy; if a camel reached the base, the game was over. Once all camels on a level had been killed, the player had to survive a "hyperspace" sequence which required avoiding high-speed missiles. Upon successful completion, the next level presented a new wave of camels, with slightly harder gameplay.</Plot>
+	<nPlayers>1</nPlayers>
+<banner1>http://images.launchbox-app.com/463f2a6a-eb60-41d5-a472-952b3f8cc251.jpg</banner1>
+<banner2>http://images.launchbox-app.com/9159ff9b-a97f-4b71-a330-8a96cfb11cee.jpg</banner2>
+<boxback1>http://images.launchbox-app.com/5ee9fbae-4748-4482-b5a4-76945d7d51fc.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/1031af60-7a65-47b4-a478-0d2746e00de8.jpg</boxart1>
+	<Genre>Shooter</Genre>
+	<Developer>LLamasoft</Developer>
+	<Publisher>LLamasoft</Publisher>
+</Game>

@@ -1,0 +1,10 @@
+<Game>
+<Name>Claim Jumper</Name>
+	<ReleaseDate>1982-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Two players each control a "cowboy". A gold bar appears randomly on the screen, and if either cowboy takes it to the assay office at the top of the screen, the goal vanishes and a ten dollar bill appears nearby. Each player has his own bank in which to deposit the money, and after ten bills have been deposited, the player receives a house worth 20,000 points. A second house is worth 30,000 additional points. The two cowboys can shoot each other, the victim going to one of two hospitals in the upper corners of the screen. Following the two cowboys are snakes and tumbleweeds; the snakes follow one cowboy, the tumbleweeds the other. If caught, a cowboy will be paralyzed for a few seconds. However, if he shoots whatever is chasing him, it is converted into whatever chases his opponent: snakes into tumbleweeds; tumbleweeds into snakes.</Plot>
+<banner1>http://images.launchbox-app.com/007976dc-2242-44d3-b7c3-8b1b18c18cb7.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/b8d0ff82-bb2b-4ba9-9690-1b861b7e4304.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/9f68d653-3fc8-435b-a4a8-ed98dd93b0ee.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/cd18fd3d-f8c2-4905-8c4c-e699103fe365.png</clearlogo1>
+	<Publisher>Synapse Software Corporation</Publisher>
+</Game>

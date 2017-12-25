@@ -1,0 +1,21 @@
+<Game>
+<Name>Road Runner (Prototype)</Name>
+				<plot>An unreleased prototype game staring the popular Road Runner cartoon character. Thought to have been based on perhaps a port of the arcade game Locomotion before being re skinned with Roadrunner and Wiley E Coyote.At the start of each level a birdseed truck will weave its way through the maze dropping off piles of birdseed as it goes.  The goal of Roadrunner is to move the tiles around so Wiley Coyote eats as much birdseed as he can before the Roadrunner gets it.  Each tile contains a portion of the road which Wiley and the Roadrunner walk on, by sliding the tiles around you can make paths leading to the piles of birdseed or to the tunnels on the side of the board.  The tunnels connect one side of the screen to the other, and can be useful for warping across the screen.  Unfortunately some of these tunnel entrances are really just painted on, so if Wiley attempts to enter one he'll knock himself out.  The only way to tell if a tunnel is real is to watch the Roadrunner and see which tunnels he takes.Wiley can die if he either runs off the end of the tile or runs into a false tunnel.  The Roadrunner appears to be able to back up from dead end track pieces and tunnels so he is impossible to kill, but you can trap him on two dead end pieces and complete the level at your leisure.  Once all the birdseed is gone the game moves to the next level.  If you happen to run into the Roadrunner you will score 10 points, and you the Roadrunner will be transported back to your starting points.  Wiley also scores 35 points for each tile he crosses, and 50 points for each pile of birdseed he collects.- Excerpt from AtariProtos.com</plot>
+				<releasedate>3/6/1983</releasedate>
+				<genre>Action, Puzzle</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1</nplayers>
+				<VideoURL>hBz7-YfqosA</VideoURL>
+				<thegamesdb_id>34489</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/34489-1.jpg</boxart1>
+				<snapshot1>http://thegamesdb.net/banners/screenshots/34489-1.jpg</snapshot1>
+				<snapshot2>http://thegamesdb.net/banners/screenshots/34489-2.jpg</snapshot2>
+
+<Notes>An unreleased prototype game staring the popular Road Runner cartoon character. Thought to have been based on perhaps a port of the arcade game Locomotion before being re skinned with Roadrunner and Wiley E Coyote. At the start of each level a birdseed truck will weave its way through the maze dropping off piles of birdseed as it goes.  The goal of Roadrunner is to move the tiles around so Wiley Coyote eats as much birdseed as he can before the Roadrunner gets it.  Each tile contains a portion of the road which Wiley and the Roadrunner walk on, by sliding the tiles around you can make paths leading to the piles of birdseed or to the tunnels on the side of the board.  The tunnels connect one side of the screen to the other, and can be useful for warping across the screen.  Unfortunately some of these tunnel entrances are really just painted on, so if Wiley attempts to enter one he'll knock himself out.  The only way to tell if a tunnel is real is to watch the Roadrunner and see which tunnels he takes. Wiley can die if he either runs off the end of the tile or runs into a false tunnel.  The Roadrunner appears to be able to back up from dead end track pieces and tunnels so he is impossible to kill, but you can trap him on two dead end pieces and complete the level at your leisure.  Once all the birdseed is gone the game moves to the next level.  If you happen to run into the Roadrunner you will score 10 points, and you the Roadrunner will be transported back to your starting points.  Wiley also scores 35 points for each tile he crosses, and 50 points for each pile of birdseed he collects. - Excerpt from AtariProtos.com</Notes>
+<VideoURL2>hBz7-YfqosA</VideoURL2>
+<boxart4>http://images.launchbox-app.com/c7de5ace-6b40-417c-9a8e-e69ddd7d242e.jpg<boxart4>
+<clearlogo1>http://images.launchbox-app.com/822c3551-c9e9-4967-9ae0-8298df1e0a89.png<clearlogo1>
+<snapshot1>http://images.launchbox-app.com/2a2351e2-a883-4697-ad95-4f3bb7a135ec.jpg<snapshot1>
+<snapshot2>http://images.launchbox-app.com/db4952b3-8ed6-4a5e-bf2c-a9583b977b01.jpg<snapshot2>
+<Publisher>Atari</Publisher>
+</game>

@@ -1,0 +1,10 @@
+<Game>
+<Name>Yellow Submarine</Name>
+	<Plot>This prototype is simply a movement demo featuring the famous Beatles yellow submarine.  Using the joystick you can move the submarine in all eight directions until you get bored and shut it off.  There are no borders, and the sub will wrap around to the other side of the screen after a second or two.</Plot>
+<media1>http://images.launchbox-app.com/f7e3c957-1bdb-4f3e-926c-f4324e1e8b5f.jpg</media1>
+<snapshot1>http://images.launchbox-app.com/29c9c544-96a6-4dbe-909f-0bb820e85099.png</snapshot1>
+<snapshot2>http://images.launchbox-app.com/3730f3d0-2523-4dc0-8f90-e9411d0a285f.png</snapshot2>
+<snapshot3>http://images.launchbox-app.com/e0c3984b-32d4-4526-9025-06b51d8d4f07.png</snapshot3>
+	<Genre>Vehicle Simulation</Genre>
+	<Developer>Atari</Developer>
+</Game>

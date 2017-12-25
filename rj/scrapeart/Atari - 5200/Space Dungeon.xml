@@ -1,0 +1,33 @@
+<Game>
+<Name>Space Dungeon</Name>
+				<plot>Space Dungeon is an arcade style shooter. You control a spaceship within the space dungeon which consists of numerous rooms. Located throughout are treasures, and your goal is to collect as many of these treasures as you can and then proceed to the dungeons exit (called "collect bonus"). You don't need to collect every treasure to complete a level, but more bonus points are earned the more treasures you collect. Many of the rooms contain dangerous enemies, including death squares, guards, enforcers, pikers, and more. To fight off the enemies, your spaceship is equipped with a laser which can fire in eight different directions. To help find your way around, a map at the top of the screen will indicate where you are, where you've been, and what rooms visited so far still have enemies in them. Also located in the dungeons is a thief; the thief has the same goal as you, and will try to steal the treasures before you can. The thief can't be destroyed, but shooting it will cause it to drop any treasures it may be carrying. If you lose a spaceship at any point by crashing into an enemy or enemy fire, you will be sent back to the starting location and all the treasure you were carrying will be left in the room where you died. The game ends when you have lost all of your reserve spaceships.</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Atari, Inc.</Developer>
+				<nplayers>1-2 Sim</nplayers>
+				<rating>3.8</rating>
+				<thegamesdb_id>5213</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/space-dungeon</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/space-dungeon/3030-19413/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5213-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5213-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27647-space-dungeon-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/55791-space-dungeon-atari-5200-screenshot-atari-logo-and-game-title.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/55792-space-dungeon-atari-5200-screenshot-title-screen.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/55793-space-dungeon-atari-5200-screenshot-a-game-in-progress.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/55794-space-dungeon-atari-5200-screenshot-located-some-heavily-guarded.jpg</snapshot4>
+				<snapshot5>http://www.mobygames.com/images/shots/l/55795-space-dungeon-atari-5200-screenshot-the-collect-bonus.jpg</snapshot5>
+				<snapshot6>http://www.mobygames.com/images/shots/l/55796-space-dungeon-atari-5200-screenshot-level-one-complete.jpg</snapshot6>
+				<snapshot7>http://www.mobygames.com/images/shots/l/55798-space-dungeon-atari-5200-screenshot-shooting-at-enemies.jpg</snapshot7>
+				<snapshot8>http://static.giantbomb.com/uploads/scale_large/10/101045/1439880-sd11.png</snapshot8>
+				<snapshot9>http://static.giantbomb.com/uploads/scale_large/10/101045/1439879-sd10.png</snapshot9>
+				<snapshot10>http://static.giantbomb.com/uploads/scale_large/10/101045/1439878-sd9.png</snapshot10>
+				<banner1>http://thegamesdb.net/banners/graphical/5213-g.jpg</banner1>
+<Notes>In Space Dungeon for the Atari 5200, you are the commander of a space archaeological expedition, gathering up the scant remains of a distant planet. Your mission is to collect these treasures, which hold the key to the planet's destruction, and take them to a crystal-powered computer. Scientists believe that the information garnered from the cosmic chunks could save Earth from a fate similar to that of the destroyed planet.</Notes>
+<banner2>http://images.launchbox-app.com/c2606062-a12c-42fc-9c75-24e891d3aed4.jpg<banner2>
+<boxart14>http://images.launchbox-app.com/820cfcb9-7f4c-4f37-b840-ba0cda182b3e.jpg<boxart14>
+<clearlogo1>http://images.launchbox-app.com/541f139d-365e-4f8d-abf4-c71abc7d39e5.png<clearlogo1>
+<snapshot1>http://images.launchbox-app.com/118208a1-8ec5-4fa9-a5f7-534ae1a3f9e4.PNG<snapshot1>
+<snapshot2>http://images.launchbox-app.com/5844b3c8-3d6c-4bec-920b-8ba8aab03d38.PNG<snapshot2>
+<Publisher>Atari</Publisher>
+</game>

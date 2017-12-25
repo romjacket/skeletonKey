@@ -1,0 +1,22 @@
+for /f "delims=" %%a in ('dir /B /A-D [CMDLINEGET]') do (
+set ROMF=%%~a
+set ROM=%%~na
+set ROMX=%%~xa
+set ROMFN=%%~nxa
+CALL :RUN
+)
+exit /b
+
+[RUNVARS]
+CMDLINE="[CMDLINELOC]"
+ROMF="[ROMF]"
+ROM="[ROM]"
+ROMX="[ROMX]"
+ROMFN="[ROMFN]"
+
+[INIVARSEND]
+
+:RUN
+%CCMDB%
+%RLOC%pushd "%EMUL%"
+[RLOOPINJ]

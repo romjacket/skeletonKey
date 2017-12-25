@@ -1616,7 +1616,7 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\rj\*.tdb"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.tmp"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\*.ini"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, rd /s/q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, rd /s /q "%GITD%\rj\netArt\*"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy rj "%GITD%\rj" /s /e /w:1 /r:1 /xf syscfgs`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy joyimg "%GITD%\joyimg" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\scrapeArt\*.7z" "%GITD%\scrapaArt"`n,%SKELD%\!gitupdate.cmd

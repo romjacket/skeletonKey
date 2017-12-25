@@ -1,0 +1,10 @@
+<Game>
+<Name>Klax</Name>
+	<Plot>Klax features a conveyor belt at the top of the screen. It constantly rolls toward the playing area, delivering a steady supply of blocks. The player controls a small device which sits at the interface between the conveyor belt and the playing area, and can be moved left and right to catch the blocks and either deposit them in the playing area or push them back up the conveyor belt. The device can hold up to five blocks. A block which is not caught and placed in the playing area or pushed back up the belt is considered a drop. The blocks are solid colours, but there is also a flashing block which can be used as a wildcard on any colour.</Plot>
+<banner1>http://images.launchbox-app.com/5277086b-94f9-4937-ae57-f1d9986e38ef.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/8317b44e-95c8-46b1-99b0-ccaa667ebd15.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/98b5ceb1-cead-473a-83ed-9195f5c3efb1.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/4792c39e-2d5e-4bdf-bf65-ad675584d50c.png</clearlogo1>
+	<Developer>Atari</Developer>
+	<Publisher>Atari</Publisher>
+</Game>

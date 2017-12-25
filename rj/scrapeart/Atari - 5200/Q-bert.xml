@@ -1,0 +1,29 @@
+<Game>
+<Name>Q-bert</Name>
+				<plot>Gameplay:The goal of Q*Bert is to navigate Q*Bert around an isometric pyramid structure. Each hop on a cube of the pyramid changes the color of its surface. The game will specify what color the entire pyramid must be changed to in order to advance. Multicolored discs alongside the pyramid allow for a quick getaway, but disappear once used.Arcade CabinetThe game designers wanted to add the sound of Q*Bert hitting the ground after falling off of the pyramid, so a pinball "knocker" (the solenoid that alerts the player that they've won a free game) was incorporated into the cabinet.Enemies:The most common foe Q*Bert will encounter is Coily the snake, who hops down the pyramid structure. Once he reaches the bottom, he "uncoils" and chases after Q*Bert until he finishes the level or is killed. Red balls also bounce down the pyramid structure that Q*Bert must avoid. Slick and Sam are two more enemies that run around the structure changing the colors of the pyramid back to their original colors, slowing Q*Bert's progress. Unlike the other enemies in the game, Q*Bert can get rid of Slick and Sam by jumping on them.Other VersionsFaster Harder More Challenging Q*Bert was to be the tougher successor to the original game. Changes, such as moving multicolored discs, lived up to the name, but the product was canceled before being released.</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Parker Brothers</Developer>
+				<nplayers>1-2 Sim</nplayers>
+				<rating>4.0</rating>
+				<VideoURL>D62C-u7gz-o</VideoURL>
+				<thegamesdb_id>5196</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/qbert</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/qbert/3030-20782/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5196-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5196-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27254-q-bert-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/54944-q-bert-atari-5200-screenshot-title-screen.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/54945-q-bert-atari-5200-screenshot-gameplay-on-the-first-level.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/54946-q-bert-atari-5200-screenshot-watch-out-for-red-ball-and-purple.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/54948-q-bert-atari-5200-screenshot-the-snake-in-hot-pursuit.jpg</snapshot4>
+				<snapshot5>http://www.mobygames.com/images/shots/l/54949-q-bert-atari-5200-screenshot-that-green-guy-will-change-tiles.jpg</snapshot5>
+				<fanart1>http://thegamesdb.net/banners/fanart/original/5196-1.jpg</fanart1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5196.png</clearlogo1>
+<Notes>Q*bert is an isometric platform game with puzzle elements where the player controls the titular protagonist from a third-person perspective. Q*bert starts each game at the top of a pyramid of cubes, and moves by jumping diagonally from cube to cube. Landing on a cube causes it to change color, and changing every cube to the target color allows the player to progress to the next stage.</Notes>
+<VideoURL2>D62C-u7gz-o</VideoURL2>
+<boxart9>http://images.launchbox-app.com/f340d664-bf4c-43b9-9916-65061ead46aa.jpg<boxart9>
+<clearlogo2>http://images.launchbox-app.com/e8efdc22-dbc4-495e-a2b5-f133d33e2436.png<clearlogo2>
+<snapshot1>http://images.launchbox-app.com/74aec340-6619-4578-b959-b2e5ff8a56bf.png<snapshot1>
+<snapshot2>http://images.launchbox-app.com/994768c2-f331-4786-b178-dc9f036e2b29.png<snapshot2>
+</game>

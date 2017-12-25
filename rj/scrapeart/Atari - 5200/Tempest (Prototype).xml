@@ -1,0 +1,14 @@
+<Game>
+<Name>Tempest (Prototype)</Name>
+				<plot>Tempest is a shooter using wire-frame graphics. Each Wireway is taken on in turn, and has a network of lines guiding the movement paths of both yourself and the aliens. You remain on the outside and keep shooting as the aliens move towards you. Any that reach the outside are fatal to touch, thus limiting your range of movement greatly if 2 or more achieve this. Some aliens move sideways - in dealing with these, plan ahead allowing for the time your shots to take to travel.</plot>
+				<Developer>Atari</Developer>
+				<thegamesdb_id>5224</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5224-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5224-1.jpg</boxback1>
+				<banner1>http://thegamesdb.net/banners/graphical/5224-g.jpg</banner1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5224.png</clearlogo1>
+<Notes>Tempest is a shooter using wire-frame graphics. Each Wireway is taken on in turn, and has a network of lines guiding the movement paths of both yourself and the aliens. You remain on the outside and keep shooting as the aliens move towards you. Any that reach the outside are fatal to touch, thus limiting your range of movement greatly if 2 or more achieve this. Some aliens move sideways - in dealing with these, plan ahead allowing for the time your shots to take to travel.</Notes>
+<banner2>http://images.launchbox-app.com/17252c55-d55c-49b9-b8b7-6c22838d1e7c.jpg<banner2>
+<boxart3>http://images.launchbox-app.com/3bd42293-bcac-4a56-b077-21224d4fbe8a.jpg<boxart3>
+<clearlogo2>http://images.launchbox-app.com/5c051fa6-e7ad-4425-b534-8cdcb6464e51.png<clearlogo2>
+</game>

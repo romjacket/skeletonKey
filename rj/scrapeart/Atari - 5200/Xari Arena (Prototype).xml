@@ -1,0 +1,19 @@
+<Game>
+<Name>Xari Arena (Prototype)</Name>
+				<plot>An unreleased prototype game for the Atari 5200.Your goal is to destroy all the Xari's that come out of the well in the center of the screen before they can destroy all your blocks. You can use the joystick or the trackball controller.Each player resembles a hollow paddle (like a capsule), which you can move around your side of the screen.  Your paddle can catch and hold up to three fireballs (the little star looking things that the Xari's shoot), and each stored fireball allows you to destroy one Xari by running into it.  If you hit a Xari without any fireballs stored in your paddle, it is temporarily stunned and you cannot catch or deflect any shots for a few seconds.  If you already have three fireballs stored up, your paddle will start reflecting the fireballs back at the Xari's (a great tactic for those hard to reach guys that won't come near you) and at your partner (which is not so good).  You can choose to reflect shots even if you don't have three fireballs stored up by pressing the bottom controller button.If things start to get out of control you can activate your fire extinguisher (using the top controller button) to temporarily protect your blocks.  The fire extinguisher coats your blocks with foam and will destroy any shots that touch it.  the foam moves quickly down your blocks and only lasts for a few seconds so you have to use it wisely (like when fireballs get behind your blocks).  You get one new fire extinguisher each level, which can be stored for later use.</plot>
+				<releasedate>20/9/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1-2 Alt</nplayers>
+				<VideoURL>88d4-1dOMW0</VideoURL>
+				<thegamesdb_id>34494</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/34494-1.jpg</boxart1>
+				<snapshot1>http://thegamesdb.net/banners/screenshots/34494-1.jpg</snapshot1>
+				<snapshot2>http://thegamesdb.net/banners/screenshots/34494-2.jpg</snapshot2>
+
+<Notes>An unreleased prototype game for the Atari 5200. Your goal is to destroy all the Xari's that come out of the well in the center of the screen before they can destroy all your blocks. You can use the joystick or the trackball controller. Each player resembles a hollow paddle (like a capsule), which you can move around your side of the screen.  Your paddle can catch and hold up to three fireballs (the little star looking things that the Xari's shoot), and each stored fireball allows you to destroy one Xari by running into it.  If you hit a Xari without any fireballs stored in your paddle, it is temporarily stunned and you cannot catch or deflect any shots for a few seconds.  If you already have three fireballs stored up, your paddle will start reflecting the fireballs back at the Xari's (a great tactic for those hard to reach guys that won't come near you) and at your partner (which is not so good).  You can choose to reflect shots even if you don't have three fireballs stored up by pressing the bottom controller button. If things start to get out of control you can activate your fire extinguisher (using the top controller button) to temporarily protect your blocks.  The fire extinguisher coats your blocks with foam and will destroy any shots that touch it.  the foam moves quickly down your blocks and only lasts for a few seconds so you have to use it wisely (like when fireballs get behind your blocks).  You get one new fire extinguisher each level, which can be stored for later use.</Notes>
+<VideoURL2>88d4-1dOMW0</VideoURL2>
+<snapshot1>http://images.launchbox-app.com/dc3d5aeb-ecf3-4aaf-9ca7-2cce19865f0c.jpg<snapshot1>
+<snapshot2>http://images.launchbox-app.com/0fbd5584-b14d-4daa-a83a-079dc2cfa483.jpg<snapshot2>
+<Publisher>Atari</Publisher>
+</game>

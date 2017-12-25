@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-23 8:14 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-24 7:04 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,8 +11,8 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2017-12-23 8:14 PM
-VERSION= v0.99.0.03
+RELEASE= 2017-12-24 7:04 PM
+VERSION= 
 RASTABLE= 1.6.9
 
 FileReadLine,HOSTINGURL,arcorg.set,2
@@ -2809,7 +2809,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x371 y115 w191 h117 vRJGRPI, Launchers
 Gui,Font,Normal
 Gui, Add, CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR, Create ;Launcher Creation
-Gui, Add, CheckBox, x492 y125 h13 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
+Gui, Add, CheckBox, x467 y122 w90 h20 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
 Gui, Add, Radio, x487 y144 h13 vRJRad4B gRJRad4B Disabled, Global
 Gui, Add, Radio, x487 y160 h13 vRJRad4A gRJRad4A checked  Disabled, Per-Game
 Gui, Add, Text, x379 y149 vRJTXTB, Emulators
@@ -3912,9 +3912,10 @@ Return
  
 Emulator_Add:
 multisel= 
+guicontrolget,romf,,LOCROMPOP
 Loop, Parse, romf,`n|
 	{
-		multisel+= 1		
+		multisel+=1		
 		if (multisel > 1)
 			{
 				break
@@ -5721,7 +5722,7 @@ guicontrolget, LOCFLDRS,,LOCFLDRS
 guicontrolget, LOCPLSTS,,LOCPLSTS
 guicontrol,,HOPT,%LOCPLSTS%
 guicontrol,,DOPT,%LOCFLDRS%
-guicontrolget,romf,,LOCROMPOP
+guicontrolget,romOVf,,LOCROMPOP
 
 if (LOCFLDRS = 1)
 	{
@@ -5732,8 +5733,10 @@ if (LOCFLDRS = 1)
 					LOCASSETDDL:= isofldr1
 				}
 		guicontrol,,OPTDDL,|%LOCASSETDDL%||%SWAPPOP%
-				gosub, OPTDDL
-		guicontrolget,romf,,LOCROMPOP
+		guicontrolget,romOVf,,LOCROMPOP
+		gosub, OPTDDL
+		romf= %romOVf%
+		
 	}
 if (LOCPLSTS = 1)
 	{	
@@ -23510,18 +23513,35 @@ return
 
 
 EmulationStationFECBXD:
+guicontrolget,SYSREORDER,,FELBXA
 guicontrolget,SYSNAMEREP,,FECBXD
 if (sysfnd = "")
 	{
 		return
 	}
 blockinput,on
-iniread,sysreplace,EScfg.ini,GLOBAL,%FECBXD%
+iniread,sysreplace,EScfg.ini,GLOBAL,%SYSREORDER%
 inidelete,EScfg.ini,GLOBAL,%FECBXD%
-IniWrite,%sysreplace%,EScfg.ini,GLOBAL,%SYSNAMEREP%
 blockinput,off
 FECBXD= %SYSNAMEREP%
+ESRELST= 
+IniRead, ESQLIST,EScfg.ini,ORDER,system_order
+IniDelete,EScfg.ini,GLOBAL,%SYSREORDER%
+IniWrite,%sysreplace%,EScfg.ini,GLOBAL,%SYSNAMEREP%
+Loop, Parse, ESQLIST,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if (A_LoopField = SYSREORDER)
+			{
+				ESRELST.= SYSNAMEREP . "|"
+			}
+		ESRELST.= A_LoopField . "|"
+	}
 guicontrolget,FECBXD,,FECBXD
+guicontrol,,FELBXA,|%ESRELST%
 return
 
 
@@ -28766,6 +28786,18 @@ return
 RJLNCHOVR:
 gui,submit,nohide
 guicontrolget,RJLNCHOVR,,RJLNCHOVR
+if (RJLNCHOVR = 0)
+	{
+		gui, font, s9 normal
+		guicontrol, font, RJLNCHOVR
+		guicontrol,,RJLNCHOVR,Overwrite
+	}
+if (RJLNCHOVR = 1)
+	{
+		gui, font, s11 bold	
+		guicontrol, font, RJLNCHOVR
+		guicontrol,,RJLNCHOVR,Overwrite
+	}
 IniWrite,%RJLNCHOVR%,rj\cur.ini,%RJSYSDD%,RJLNCHCFGOW
 return
 
@@ -29958,6 +29990,95 @@ gui,submit,nohide
 guicontrolget, RJEMUTG,,RJEMUPRECFG
 iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUPRESET
 gosub, EMUCFGCOPY
+gosub, EMUPPSTPOP
+return
+
+
+
+EMUPPSTPOP:
+lkupa= 
+lkupb= 
+lkupc= 
+lkupd= 
+lkupe= 
+lkupf= 
+iniread, lkupa, emuCfgPresets.set, %RJEMUTG%, RJEMUOPTS 
+if (lkupa = "ERROR")
+	{
+		guicontrol,,RJEOPTSCBX,||%INJOPT%
+		inidelete,RJEMUOPTS,rj\cur.ini,%RJSYSDD%
+	}
+if (lkupa <> "ERROR")
+	{
+		guicontrol,,RJEOPTSCBX,|%lkupa%||%INJOPT%
+		iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
+	}
+
+iniread, lkupb, emuCfgPresets.set, %RJEMUTG%, RJEMUARGS
+if (lkupb = "ERROR")
+	{
+		guicontrol,,RRJEARGSCBX,||%INJARG%
+		inidelete,RJEMUARGS,rj\cur.ini,%RJSYSDD%
+	}
+if (lkupb <> "ERROR")
+	{
+		guicontrol,,RRJEARGSCBX,|%lkupb%||%INJARG%
+		iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
+	}
+
+iniread, lkupc, emuCfgPresets.set, %RJEMUTG%, RJPRECFG
+if (lkupc = "ERROR")
+	{
+		guicontrol,,RJPRECFGCBX,|
+	}
+if (lkupc <> "ERROR")
+	{
+		guicontrol,,RJPRECFGCBX,|%lkupc%||%RJPRECFGR%
+	}
+iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJPRECFG
+
+iniread, lkupd, emuCfgPresets.set, %RJEMUTG%, RJPOSTCFG
+if (lkupd = "ERROR")
+	{
+		guicontrol,,RJPOSTCFGCBX,|
+	}
+if (lkupd <> "ERROR")
+	{
+		guicontrol,,RJPOSTCFGCBX,|%lkupd%||%RJPOSTCFG%
+	}
+iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJPOSTCFG
+
+iniread, lkupd, emuCfgPresets.set, %RJEMUTG%, RJEXTRARC
+if (lkupd <> "ERROR")
+	{
+		guicontrol,,RJENXTRARC,0
+		if (lkupd <> 0)
+			{
+				guicontrol,,RJENXTRARC,1
+			}
+	}
+iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJEXTRARC
+
+iniread, lkupe, emuCfgPresets.set, %RJEMUTG%, RJRUNDIR
+if (lkupd <> "ERROR")
+	{
+		if (lkupd = 1)
+			{
+				guicontrol,,RJRAD1A,1
+			}
+		if (lkupd <> 1)
+			{
+				guicontrol,,RJRAD1B,1
+			}
+	}
+iniWrite, %lkupe%,rj\cur.ini,%RJSYSDD%,RJRUNDIR
+
+iniread, lkupf, emuCfgPresets.set, %RJEMUTG%, RJROMXT
+if (lkupf <> "ERROR")
+	{
+		guicontrol,,RJEMUXTCBX,|%lkupf%||%RJEMUXTCBX%
+		iniWrite, %lkupf%,rj\cur.ini,%RJSYSDD%,RJROMXT
+	}
 return
 
 ;{;;;;;;;; INCLUDE / EXCLUDE  ;;;;;;;;;;
@@ -30685,8 +30806,14 @@ return
 RJLNCHCFGOW:
 gui,submit,nohide
 guicontrol,,RJLNCHOVR,0
+gui, font, s9 normal	
+guicontrol, font, RJLNCHOVR
+guicontrol,,RJLNCHOVR,Overwrite
 if (rjaval2 = 1)
 	{
+		gui, font, s11 bold	
+		guicontrol, font, RJLNCHOVR
+		guicontrol,,RJLNCHOVR,Overwrite
 		guicontrol,,RJLNCHOVR,1
 	}
 return

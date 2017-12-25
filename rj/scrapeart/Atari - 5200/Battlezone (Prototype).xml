@@ -1,0 +1,22 @@
+<Game>
+<Name>Battlezone (Prototype)</Name>
+				<plot>A port of the arcade game Battlezone for Atari 5200. Like the arcade game you drive a tank around and shoot enemy tanks while trying to avoid their fire in a 3d environment. It was unfortunately never released and only exists in prototype form. The prototype seems mostly finished but the hit detection seems off at times and not perfected. It also replaces some of the vector based graphics of the arcade with raster likely due to limitations of the Atari 5200. You can also play this with two joysticks which is said to help with controlling the game versus single if you get used to it.</plot>
+				<releasedate>15/9/1983</releasedate>
+				<genre>Action, Shooter</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1</nplayers>
+				<VideoURL>LsYDnNiEuIA</VideoURL>
+				<thegamesdb_id>34467</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/34467-1.jpg</boxart1>
+				<snapshot1>http://thegamesdb.net/banners/screenshots/34467-1.jpg</snapshot1>
+				<snapshot2>http://thegamesdb.net/banners/screenshots/34467-2.jpg</snapshot2>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/34467.png</clearlogo1>
+
+<Notes>A port of the arcade game Battlezone for Atari 5200. Like the arcade game you drive a tank around and shoot enemy tanks while trying to avoid their fire in a 3d environment. It was unfortunately never released and only exists in prototype form. The prototype seems mostly finished but the hit detection seems off at times and not perfected. It also replaces some of the vector based graphics of the arcade with raster likely due to limitations of the Atari 5200. You can also play this with two joysticks which is said to help with controlling the game versus single if you get used to it.</Notes>
+<VideoURL2>LsYDnNiEuIA</VideoURL2>
+<boxart4>http://images.launchbox-app.com/b3f28b04-9e86-4f79-8a43-3f042bb70906.jpg<boxart4>
+<clearlogo2>http://images.launchbox-app.com/80981b20-90eb-43e6-9a78-81644fbeca66.png<clearlogo2>
+<snapshot1>http://images.launchbox-app.com/5508de94-c843-40af-b6b3-01920f825c7c.jpg<snapshot1>
+<snapshot2>http://images.launchbox-app.com/64514e8f-4858-42b1-b3ae-e7d019200517.jpg<snapshot2>
+<Publisher>Atari</Publisher>
+</game>

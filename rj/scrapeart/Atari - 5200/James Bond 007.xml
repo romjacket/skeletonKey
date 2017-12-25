@@ -1,0 +1,14 @@
+<Game>
+<Name>James Bond 007</Name>
+	<ReleaseDate>1984-11-02T00:00:00-07:00</ReleaseDate>
+	<Plot>When it comes to fast-paced action and intrigue, nobody does it better than Bond. James Bond. But you can try when you reenact scenes from four great James Bond movie classics. 007's specially designed vehicle will take you on the ride of your life--over land, in the air, and under the sea! Through it all you must avoid obstacles, avert enemies, and accomplish four different missions!</Plot>
+	<nPlayers>1</nPlayers>
+<boxback1>http://images.launchbox-app.com/5495ed88-2866-4662-a88e-ebfea380d9b2.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/f84063ee-8edf-40cb-b563-4c1eaaea53de.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/8cf23e54-a270-4c58-a7d0-a06ab18d52c6.png</clearlogo1>
+<fanart1>http://images.launchbox-app.com/23969e97-a8e5-41c5-bd3e-2c47caf1a783.jpg</fanart1>
+	<Rating>0</Rating>
+	<Genre>Action</Genre>
+	<Developer>Parker Bros</Developer>
+	<Publisher>Parker Bros</Publisher>
+</Game>

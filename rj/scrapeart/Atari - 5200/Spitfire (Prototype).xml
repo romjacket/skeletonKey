@@ -1,0 +1,11 @@
+<Game>
+<Name>Spitfire (Prototype)</Name>
+				<plot>Of all the prototypes that have passed through my hands over the years, Spitfire is definitely one of the strangest.  Part Zaxxon and part Star Raiders, Spitfire appears to have been Atari's first attempt into the realm of 3D shooters.  While the current known prototype may not be very complete (approx. 50%), it shows that the 5200 was indeed capable of 3D graphics.According to the dictionary, a Spitfire is a plane from World War II.  From the name of the game one would expect at WWII simulation game, but instead Spitfire is actually a Zaxxon style game with some elements of Star Raiders thrown in.  From the first screen it's obvious that the programmer was keen on 3D as all the text is in the same 3D style.  After selecting a skill level (0-2) with the * key, you are presented with the game map.The game map appears as a grid of 20x13 octagons (that's 260 octagons!).  While this may look a bit overwhelming, only the first three rows of octagons are ever used.  While the units may be spaced out over the map, this doesn't make any difference since your target is selected with the * key (perhaps you may have had to fly to your target in later versions?).  After selecting a target its statistics will be displayed in the status bar at the bottom of the screen.  In addition to the size of the target (Very Small, Small, Large, or Very Large), the status bar displays the possible elements on that target.</plot>
+				<releasedate>1/1/1983</releasedate>
+				<genre>Shooter</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1</nplayers>
+				<ESRB>E - Everyone</ESRB>
+				<thegamesdb_id>37037</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/37037-1.png</boxart1>
+</game>

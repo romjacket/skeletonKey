@@ -1,0 +1,27 @@
+<Game>
+<Name>Meteorites</Name>
+				<plot>Meteorites is an arcade action game featuring gameplay similar to Asteroids. You control a spaceship surrounded by numerous asteroids; your goal is to destroy them! Each time you shoot an asteroid, it will break up into smaller asteroids. Eventually the pieces will be small enough that you can destroy them. When you have destroyed all of the asteroids, you will move on to the next, more difficult level. To make the game more difficult, a flying saucer will also appear from time to time and try to shoot your spaceship. To get out of trouble quickly, your spaceship also may enter hyperspace transporting you to a new location on the screen. Be careful, though, sometimes the new location is worse than the one you left!</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Electra Concepts International Corp.</Developer>
+				<nplayers>1-2 Sim</nplayers>
+				<rating>2.5</rating>
+				<thegamesdb_id>5180</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/meteorites</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/meteorites/3030-20114/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5180-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5180-1.jpg</boxback1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/55912-meteorites-atari-5200-screenshot-title-screen.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/55913-meteorites-atari-5200-screenshot-watch-out-for-those-asteroids.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/55914-meteorites-atari-5200-screenshot-the-flying-saucer-can-cause.jpg</snapshot3>
+				<snapshot4>http://www.mobygames.com/images/shots/l/55915-meteorites-atari-5200-screenshot-game-over.jpg</snapshot4>
+				<snapshot5>http://static.giantbomb.com/uploads/scale_large/10/101045/1439867-m3.png</snapshot5>
+				<snapshot6>http://static.giantbomb.com/uploads/scale_large/10/101045/1439866-m2.png</snapshot6>
+				<snapshot7>http://static.giantbomb.com/uploads/scale_large/10/101045/1439865-m1.png</snapshot7>
+				<banner1>http://thegamesdb.net/banners/graphical/5180-g.jpg</banner1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5180.png</clearlogo1>
+<Notes>Meteorites is an arcade action game featuring gameplay similar to Asteroids. You control a spaceship surrounded by numerous asteroids; your goal is to destroy them! Each time you shoot an asteroid, it will break up into smaller asteroids. Eventually the pieces will be small enough that you can destroy them. When you have destroyed all of the asteroids, you will move on to the next, more difficult level. To make the game more difficult, a flying saucer will also appear from time to time and try to shoot your spaceship. To get out of trouble quickly, your spaceship also may enter hyperspace transporting you to a new location on the screen. Be careful, though, sometimes the new location is worse than the one you left!</Notes>
+<banner2>http://images.launchbox-app.com/7bdbb53a-7b59-49f3-a7fd-173066cbdb96.jpg<banner2>
+<boxart10>http://images.launchbox-app.com/c8d4bce4-9f4f-4591-a180-dd973388c1ce.jpg<boxart10>
+<clearlogo2>http://images.launchbox-app.com/79a44690-a121-42be-a6f0-501aba8de1d6.png<clearlogo2>
+</game>

@@ -1,0 +1,15 @@
+<Game>
+<Name>Barroom Baseball (Prototype)</Name>
+				<plot>Barroom Baseball was a prototype game coded by Atari in 1983 for use within Atari 5200 arcade machines but it was never released. The game itself is essentially RealSports Baseball modified to remove some of the game options. It was also intended to be a timed game, requiring additional coins or tokens in order to continue with the game. As with RealSports Baseball, Barroom Baseball includes steals, nine different pitch types, hit-and-run plays, synthesized speech, a detailed scoreboard, tag-ups, dirt-colored base paths, the ability to control the speed of pitches and swings of the bat, and other such bells, whistles, and necessities</plot>
+				<releasedate>1/1/1983</releasedate>
+				<genre>Sports</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1-2 Alt</nplayers>
+				<ESRB>E - Everyone</ESRB>
+				<thegamesdb_id>37033</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/37033-1.png</boxart1>
+
+<Notes>Barroom Baseball is an interesting prototype in that it was never intended for home use.  As the name suggests Barroom Baseball was a special version of Realsports Baseball modified for use in 5200 arcade units.  These special 5200's were modified to run off of a coin operated timer and were intended for use in bars and in Latin American countries where such machines were popular.  It is unknown if any of these units were actually produced, but according to internal company memos at least one may have been field tested.  To date no other specially modified games have been found.</Notes>
+<snapshot1>http://images.launchbox-app.com/804fb62b-aebb-4a84-8770-3d86194c1760.png<snapshot1>
+<snapshot2>http://images.launchbox-app.com/39f83053-bf4e-4205-b34f-07bfc6b9ce60.png<snapshot2>
+</game>

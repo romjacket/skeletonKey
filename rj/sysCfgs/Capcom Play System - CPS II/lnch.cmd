@@ -11,7 +11,7 @@ set CCMDA=%6%
 set CCMDB=%7%
 set CCMDY=%8%
 set CCMDZ=%9%
-for %%a in ("[FRLOC]") do set FRLOC=%%~a
+for %%a in ("") do set FRLOC=%%~a
 PLYRN1=
 PLYRN2=
 
@@ -43,8 +43,8 @@ if "%JYTP%"=="1" set XPALT=
 
 pushd "%~dp0"
 
-for %%A in ("C:\Emulators\FinalBurnAlpha") do SET EMUL=%%~A
-for %%A in ("fba.exe") do SET EMUZ=%%~nA
+for %%A in ("C:\Emulators\Mame") do SET EMUL=%%~A
+for %%A in ("Mame64.exe") do SET EMUZ=%%~nA
 for %%A in ("%~dpn0") do SET GAMNAM=%%~A
 for %%A in ("%EMUL:~0,2%") do SET EMUDIR=%%~A
 for %%A in ("%CD%") do SET GAMDIR=%%~A
@@ -67,8 +67,8 @@ If "%PLYRN2%"=="" SET PLYRN2=Player2
 goto :CPY
 
 [INIVARS]
-EMUL="C:\Emulators\FinalBurnAlpha"
-EMUZ="fba.exe"
+EMUL="C:\Emulators\Mame"
+EMUZ="Mame64.exe"
 GAMNAM="[GAMNAM]"
 ANTIMIC="C:\Emulators\Antimicro\antimicro.exe"
 XPADDER="C:\Emulators\Xpadder\XPadder.exe"

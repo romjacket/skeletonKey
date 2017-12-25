@@ -1,0 +1,13 @@
+<Game>
+<Name>Crystal Castles</Name>
+	<ReleaseDate>1983-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Bentley Bear is trapped in the Crystal Castles! To get out, he will need to collect all of the gems located throughout the castle. The game is played with an isometric view of the multi platformed castle.</Plot>
+	<nPlayers>2</nPlayers>
+<banner1>http://images.launchbox-app.com/04ca9786-ae56-4343-b44e-88b6c9f111fd.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/ec071b53-d336-4759-8de9-4fedd9d59c0a.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/b456390e-99c8-4ddd-a748-ae6f29df0312.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/ccdfc192-183a-4685-8208-38feae637603.png</clearlogo1>
+	<Rating>4</Rating>
+	<Developer>Atari, Inc</Developer>
+	<Publisher>Atari, Inc</Publisher>
+</Game>

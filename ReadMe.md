@@ -1,6 +1,6 @@
-skeletonKey v0.99.0.03
+skeletonKey 
 
- 2017-12-23 8:14 PM
+ 2017-12-24 7:04 PM
  
 by romjacket 
 
@@ -31,7 +31,7 @@ SK-Deploy.ahk
 
 SKey-Deploy.ahk:  
 
-In order to deploy this tool you will need:
+To deploy your own installer and binary including this tool you will need:
 
 		NSIS: Nullsoft Scriptable Install System
 				https://sourceforge.net/projects/nsis/
@@ -41,9 +41,9 @@ In order to deploy this tool you will need:
 				
 				
 
-donate 5 bucks!  I'll use it!
-
-http://romjacket.mudlord.info/arigatokudasai.html
+donate 5 bucks!  OR ELSE!
+ 
+                 http://romjacket.mudlord.info/arigatokudasai.html
 
 more emulation-related software here:  
 

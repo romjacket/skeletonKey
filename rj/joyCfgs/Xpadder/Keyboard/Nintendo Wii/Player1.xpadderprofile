@@ -1,0 +1,65 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=2015.01.01
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2StickDeadZones=103,103
+Set2TriggerDeadZones=25,25
+Set3StickDeadZones=103,103
+Set3TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=2
+Set1Button2Slots=Left Shift
+Set1Button3Slots=1
+Set1Button4Slots=Left Control
+Set1Button5Slots=R
+Set1Button6Slots=T
+Set1Button7Slots=Q
+Set1Button7SetSelect=2
+Set1Button8Slots=E
+Set1Button10Toggle=1
+Set1Button10SetSelect=1
+Set1DPadUpSlots=Arrow Up
+Set1DPadRightSlots=Arrow Right
+Set1DPadDownSlots=Arrow Down
+Set1DPadLeftSlots=Arrow Left
+Set1Stick1UpSlots=Mouse Move Up
+Set1Stick1UpMouseSpeed=92
+Set1Stick1RightSlots=Mouse Move Right
+Set1Stick1RightMouseSpeed=92
+Set1Stick1DownSlots=Mouse Move Down
+Set1Stick1DownMouseSpeed=92
+Set1Stick1LeftSlots=Mouse Move Left
+Set1Stick1LeftMouseSpeed=92
+Set1Stick2UpSlots=W
+Set1Stick2RightSlots=D
+Set1Stick2DownSlots=S
+Set1Stick2LeftSlots=A
+Set1TriggerLeftSlots=Left Mouse Button (1)
+Set1TriggerRightSlots=Right Mouse Button (2)
+Set2Button8Slots=Enter
+Set2Button10Toggle=1
+Set2Button10SetSelect=0
+Set2DPadUpSlots=V
+Set2DPadRightSlots=C
+Set2DPadDownSlots=B
+Set2DPadLeftSlots=C
+Set2Stick1UpSlots=T
+Set2Stick1RightSlots=H
+Set2Stick1DownSlots=G
+Set2Stick1LeftSlots=F
+Set2Stick2UpSlots=2
+Set2Stick2DownSlots=X
+Set3Button7SetSelect=0
+Set3Button10Slots=F4
+Set3DPadUpSlots=Left Control,Equals
+Set3DPadRightSlots=Left Control,F7
+Set3DPadDownSlots=Left Control,Minus
+Set3DPadLeftSlots=Left Control,F5
+Set3TriggerLeftSlots=Escape,PAUSE 1.10s,Alt
+Set3TriggerRightSlots=Left Control,F12

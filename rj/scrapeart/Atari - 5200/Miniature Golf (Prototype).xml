@@ -1,0 +1,21 @@
+<Game>
+<Name>Miniature Golf (Prototype)</Name>
+				<plot>Unreleased prototype game by Steve Baker for the Atari 5200. However it was completed and is fully playable. Due to the Hi-Res mode used the game has some odd choices for colors but other than that is quite well done and simulates Miniature Golf very well. Control is handled entirely by the keypad, so the non-centering 5200 joystick doesn't hinder the gameplay.  Pushing the # and * keys changes the direction the ball will be hit (represented by an arrow) and the 1-9 keys are used to indicate the power of the swing (1=lowest and 9=highest).</plot>
+				<releasedate>10/2/1983</releasedate>
+				<genre>Sports</genre>
+				<Developer>Atari</Developer>
+				<nplayers>1-2 Alt</nplayers>
+				<VideoURL>gNJuO19kEgM</VideoURL>
+				<thegamesdb_id>34488</thegamesdb_id>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/34488-1.jpg</boxart1>
+				<snapshot1>http://thegamesdb.net/banners/screenshots/34488-1.jpg</snapshot1>
+				<snapshot2>http://thegamesdb.net/banners/screenshots/34488-2.jpg</snapshot2>
+
+<Notes>Unreleased prototype game by Steve Baker for the Atari 5200. However it was completed and is fully playable. Due to the Hi-Res mode used the game has some odd choices for colors but other than that is quite well done and simulates Miniature Golf very well.  Control is handled entirely by the keypad, so the non-centering 5200 joystick doesn't hinder the gameplay.  Pushing the # and * keys changes the direction the ball will be hit (represented by an arrow) and the 1-9 keys are used to indicate the power of the swing (1=lowest and 9=highest).</Notes>
+<VideoURL2>gNJuO19kEgM</VideoURL2>
+<boxart4>http://images.launchbox-app.com/3b94b29a-119e-47ce-a497-d46af2b73374.jpg<boxart4>
+<clearlogo1>http://images.launchbox-app.com/da400d10-8b19-4806-a574-2e451a785e75.png<clearlogo1>
+<snapshot1>http://images.launchbox-app.com/30fdf580-1e5e-4dce-9145-5ed24b45b74a.jpg<snapshot1>
+<snapshot2>http://images.launchbox-app.com/a468a3ed-fc93-404d-b4aa-3f76e8bc81c2.jpg<snapshot2>
+<Publisher>Atari</Publisher>
+</game>

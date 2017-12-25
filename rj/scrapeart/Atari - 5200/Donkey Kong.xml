@@ -1,0 +1,14 @@
+<Game>
+<Name>Donkey Kong</Name>
+	<Plot>In Donkey Kong, Jumpman must rescue a damsel in distress, Lady, from a giant ape named Donkey Kong. The hero and ape later became two of Nintendo's most popular characters. The game is divided into four different one-screen stages. Each represents 25 meters of the structure Donkey Kong has climbed, one stage being 25 meters higher than the previous. The final screen occurs at 100 m.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>cOK7lMYKHXI</VideoURL>
+<banner1>http://images.launchbox-app.com/75ee4344-2286-4b69-a545-dbac840c87e5.jpg</banner1>
+<boxback1>http://images.launchbox-app.com/4eaef78b-69d7-4cd3-bcc1-ec4307c52ba4.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/a360834e-2c63-45e1-a97d-329a51be581d.jpg</boxart1>
+<clearlogo1>http://images.launchbox-app.com/b8770533-8706-4254-8e01-9a0dd578f751.png</clearlogo1>
+<fanart1>http://images.launchbox-app.com/26a1bbea-429c-4ca2-b416-9a6f065927f8.jpg</fanart1>
+	<Genre>Platform</Genre>
+	<Developer>Nintendo</Developer>
+	<Publisher>Nintendo</Publisher>
+</Game>

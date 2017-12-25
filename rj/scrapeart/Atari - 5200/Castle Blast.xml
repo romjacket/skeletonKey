@@ -1,0 +1,26 @@
+<Game>
+<Name>Castle Blast</Name>
+	<ReleaseDate>2002-08-10T00:00:00-07:00</ReleaseDate>
+	<Plot>Castle Blast is shoot'em up based on the 5th screen of Atari's 2600 Phoenix where you take on the mothership. Castle Blast is Ronen Habot's first foray into programming the Atari 5200. Ronen used this experience as a means to write a tutorial on Atari 5200 programming to assist others who might want to write games for the system. Castle Blast made its debut at the 2002 Classic Gaming Expo, where it was sold with a box, manual and cart. AtariAge held a Castle Blast Label Contest in April, 2002. Castle Blast may be ordered directly from the author, Ronen Habot, by visiting the Castle Blast Development Page. The object of this game is to destroy the Castle on the Mothership. You fire Vertical Trajectory Missiles, or VTMs, at the shield on the bottom of the Mothership. When you penetrate the shield, then blast the Castle. To score extra points, you can also shoot the enemy spaceships flying overhead. If you destroy the Castle, you advance to the next level, where you will need to contend with Focused Energy Beams, or FEBs, fired from the Mothership. There will also be stars appearing in the sky, making it harder to target the spaceships. If you manage to obliterate the Castle again, you will proceed to the next level, which adds ground-based tanks assaulting you. You have Horizontal Trajectory Missiles, or HTMs, to deal with this new enemy but do not lose sight of your primary goal. Your joystick moves you left or right. The lower button fires VTMs, the upper button fires HTMs.</Plot>
+	<nPlayers>1</nPlayers>
+<banner1>http://images.launchbox-app.com/c6a19305-f2e1-49a1-878f-d196c17211cc.jpg</banner1>
+<3dbox1>http://images.launchbox-app.com/bcc53612-3207-41d7-842b-dbbeb7ff7254.png</3dbox1>
+<boxback1>http://images.launchbox-app.com/1aeb1b84-77b2-477e-90ab-45ea83adeb17.jpg</boxback1>
+<boxart1>http://images.launchbox-app.com/4c00a616-657b-45a6-b8e3-4502cc860c7a.jpg</boxart1>
+<media1>http://images.launchbox-app.com/c5dbb63e-dce2-476c-9dea-41f5f48337c6.png</media1>
+<clearlogo1>http://images.launchbox-app.com/4929f9c2-aab5-460e-aa1e-a9924a5ebde0.png</clearlogo1>
+<fanart1>http://images.launchbox-app.com/154031cd-7599-4049-b165-0ae3f69028f3.jpg</fanart1>
+<snapshot1>http://images.launchbox-app.com/1cffc483-176e-4564-ad7e-560a68f6e695.PNG</snapshot1>
+<snapshot2>http://images.launchbox-app.com/3eafbcd3-00f9-41f2-a717-f6c2eb49f2c7.jpg</snapshot2>
+<snapshot3>http://images.launchbox-app.com/b4035afe-efee-45cd-817c-a2ff52a0a979.jpg</snapshot3>
+<snapshot4>http://images.launchbox-app.com/be27d3aa-e53d-48d1-8ead-cc53213987d2.jpg</snapshot4>
+<snapshot5>http://images.launchbox-app.com/eb517377-82d0-4a8c-afe7-c8dc5fd85bc1.jpg</snapshot5>
+<snapshot6>http://images.launchbox-app.com/868c2599-edf5-4fbf-92f8-7b52747ca5b0.jpg</snapshot6>
+<snapshot7>http://images.launchbox-app.com/b4fe5bff-fa2a-4d17-bc7f-f08e082feee2.jpg</snapshot7>
+<snapshot8>http://images.launchbox-app.com/41f0f3fe-311f-4a33-8cbc-69f9f4b9dcce.jpg</snapshot8>
+<snapshot9>http://images.launchbox-app.com/9e424a80-b9ed-40d2-ba92-3555727efb56.jpg</snapshot9>
+	<ESRB>EC - Early Childhood</ESRB>
+	<Genre>Action; Flight Simulator</Genre>
+	<Developer>Ronen Habot</Developer>
+	<Publisher>Self-Published</Publisher>
+</Game>

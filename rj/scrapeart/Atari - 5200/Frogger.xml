@@ -1,0 +1,29 @@
+<Game>
+<Name>Frogger</Name>
+				<plot>Overview:Frogger is a top-down, multi-stage action game. The player controls frogs home, while avoiding obstacles. The arcade game's popularity lead to many ports, remakes, and sequels.Gameplay:Frogger about to cross the road.  The objective in Frogger is controlling frogs home using a four-way joystick. Gameplay is timed, and successful completion requires navigating several contiguous stages in each level.First, the frog must cross a highway while avoiding various automobiles. Lanes of traffic operate in alternating directions, and at different speeds. Getting squashed by a vehicle causes the player to lose one life, and restart the level.A median separates the highway from a river. In later stages, the median is occupied by a snake which will also cause the player to lose a life if touched. The river contains alternating lanes of turtles and logs, moving in alternate directions, and at different speeds. The turtles move in groups of two or three, and every other group submerges regularly. The player must navigate over the turtles while above water to reach logs in various configurations, and repeat the process until reaching home.Timing is critical as the player navigates the frog into one of five home slots. Missing the slot, or reaching the edge of the screen before leaping home loses the player one life, and restarts the stage. Once a home slot is filled, the stage restarts, and play resumes until all home slots are filled, causing the next level to start.Score is kept as each frog progresses toward home, points are tallied. Additionally, optional bonus points are gained by rescuing a lady frog atop a log by hopping over her, and bringing her into a home slot without dying. Further bonus points are earned through catching briefly-appearing flies in home slots, and finishing stages early.Later stages present the player with additional challenges from faster moving obstacles, faster submersing turtles, alligators occupying home slots briefly, snakes moving along logs, and trickier log configurations.Legacy:The popular 1990s show Seinfeld had an episode almost entirely dedicated to Frogger. In the episode George Costanza learns that a pizza place he visited frequently as a child is closing down which will lead to the unplugging of a Frogger arcade machine and the loss of his high score. At the end of the episode, from a top down view identical to the game, we see George maneuver the arcade cabinet through traffic to reach the other side of the street.</plot>
+				<releasedate>7/7/1983</releasedate>
+				<genre>Action</genre>
+				<Developer>Parker Brothers</Developer>
+				<nplayers>1-2 Alt</nplayers>
+				<thegamesdb_id>5156</thegamesdb_id>
+				<mobygames_url>http://www.mobygames.com/game/atari-5200/frogger</mobygames_url>
+				<giantbomb_url>http://www.giantbomb.com/frogger/3030-11903/</giantbomb_url>
+				<boxart1>http://thegamesdb.net/banners/boxart/original/front/5156-1.jpg</boxart1>
+<boxback1>http://thegamesdb.net/banners/boxart/original/back/5156-1.jpg</boxback1>
+<media1>http://www.mobygames.com/images/covers/l/27269-frogger-atari-5200-media.jpg</media1>
+				<snapshot1>http://www.mobygames.com/images/shots/l/54977-frogger-atari-5200-screenshot-title-screen-and-setting-game.jpg</snapshot1>
+				<snapshot2>http://www.mobygames.com/images/shots/l/54978-frogger-atari-5200-screenshot-a-game-in-progress.jpg</snapshot2>
+				<snapshot3>http://www.mobygames.com/images/shots/l/54979-frogger-atari-5200-screenshot-hopping-across-the-water.jpg</snapshot3>
+				<snapshot4>http://static.giantbomb.com/uploads/scale_large/1/14761/1633844-5a433c75_f5b9_4d18_b0fa_022318797a41.png</snapshot4>
+				<snapshot5>http://static.giantbomb.com/uploads/scale_large/1/14761/1633843-374f3bd4_c361_4900_ab7f_2982632402d7.png</snapshot5>
+				<snapshot6>http://static.giantbomb.com/uploads/scale_large/1/14761/1633842-f0fd6f2d_6d9e_4f0d_9597_507e3dff2e2c.png</snapshot6>
+				<snapshot7>http://static.giantbomb.com/uploads/scale_large/0/3358/663260-image021.png</snapshot7>
+				<snapshot8>http://static.giantbomb.com/uploads/scale_large/1/15568/496315-frogger__1982___parker_bros__1.png</snapshot8>
+				<snapshot9>http://static.giantbomb.com/uploads/scale_large/1/15568/496314-frogger__1982___parker_bros__2.png</snapshot9>
+				<snapshot10>http://static.giantbomb.com/uploads/scale_large/1/15568/496313-frogger__1982___parker_bros__4.png</snapshot10>
+				<fanart1>http://thegamesdb.net/banners/fanart/original/5156-1.jpg</fanart1>
+				<clearlogo1>http://thegamesdb.net/banners/clearlogo/5156.png</clearlogo1>
+<Notes>Your task in this arcade conversion is to guide a frog across a treacherous road and river, and to safety at the top of the screen. Both these sections are fraught with a variety of hazards, each of which will kill the frog and cost you a life if contact is made.</Notes>
+<boxart14>http://images.launchbox-app.com/f300baf7-0fde-4d00-8ace-2fbd73e5fc28.jpg<boxart14>
+<clearlogo2>http://images.launchbox-app.com/3c9602d1-2821-462b-8c5f-1873119ff2af.png<clearlogo2>
+</game>
