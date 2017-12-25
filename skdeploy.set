@@ -70,8 +70,6 @@ Section "" ; empty string makes it hidden, so would starting with -
   File "[SOURCE]\gam\*.gam"
   SetOutPath $INSTDIR\joyImg
   File "[SOURCE]\joyImg\*.png"
-  SetOutPath $INSTDIR\rj
-  File "[SOURCE]\rj\*.set"
   SetOutPath $INSTDIR\rj\joyCfgs
   File /r "[SOURCE]\rj\joyCfgs"
   SetOutPath $INSTDIR\rj\emuCfgs
