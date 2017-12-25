@@ -1,0 +1,192 @@
+
+[Plugin]
+Audio Dll=Audio\Jabo_Dsound.dll
+Audio Dll Ver=
+Controller Dll=1.6 Plugins\NRage_Input_V2.dll
+Controller Dll Ver=N-Rage Input Plugin V2 2.3c
+Graphics Dll=[PJLIB]
+Graphics Dll Ver=[PJPLUG]
+RSP Dll Ver=RSP Plugin 1.7.0.9
+
+[default]
+Auto Full Screen=1
+Basic Mode=0
+Current Language=English
+Direct3D8-2xSai=1
+Display Frame Rate=0
+[LOW1]
+[LOW2]
+[LOW3]
+[LOW4]
+[HIGH1]
+[HIGH2]
+[HIGH3]
+
+[Rom Browser]
+Left=363
+Maximized=0
+Top=144
+
+[Main Window]
+Left=363
+Top=144
+
+[Glide64]
+card_id=0
+clock=0
+clock_24_hr=0
+ghq_cache_save=1
+ghq_cache_size=0
+ghq_cmpr=0
+ghq_enht=0
+ghq_enht_cmpr=0
+ghq_enht_f16bpp=0
+ghq_enht_gz=1
+ghq_enht_nobg=0
+ghq_enht_tile=0
+ghq_fltr=0
+ghq_hirs=0
+ghq_hirs_altcrc=1
+ghq_hirs_cmpr=0
+ghq_hirs_dump=0
+ghq_hirs_f16bpp=0
+ghq_hirs_gz=1
+ghq_hirs_let_texartists_fly=0
+ghq_hirs_tile=0
+resolution=7
+show_fps=8
+ssformat=1
+texenh_options=0
+vsync=[GLVSYNC]
+wrpAnisotropic=[GLANIS]
+wrpFBO=[FBO]
+wrpResolution=4
+wrpVRAM=0
+
+[Recent File]
+Recent Rom 0=[ROMPTH]\[ROM]
+
+[DirectInput-Controller 0]
+A=46
+Analog Down=208
+Analog Left=203
+Analog Right=205
+Analog Up=200
+B=45
+C-Down=207
+C-Left=211
+C-Right=209
+C-Up=199
+Dead Zone=2500
+Digital Down=37
+Digital Left=36
+Digital Right=38
+Digital Up=23
+GUID=00000000-0000-0000-0000-000000000000
+L=30
+Present=1
+R=31
+Range=100
+Start=28
+Type=2
+Z=44
+
+[DirectInput-Controller 1]
+A=0
+Analog Down=0
+Analog Left=0
+Analog Right=0
+Analog Up=0
+B=0
+C-Down=0
+C-Left=0
+C-Right=0
+C-Up=0
+Dead Zone=2500
+Digital Down=0
+Digital Left=0
+Digital Right=0
+Digital Up=0
+GUID=00000000-0000-0000-0000-000000000000
+L=0
+Present=0
+R=0
+Range=100
+Start=0
+Type=2
+Z=0
+
+[DirectInput-Controller 2]
+A=0
+Analog Down=0
+Analog Left=0
+Analog Right=0
+Analog Up=0
+B=0
+C-Down=0
+C-Left=0
+C-Right=0
+C-Up=0
+Dead Zone=2500
+Digital Down=0
+Digital Left=0
+Digital Right=0
+Digital Up=0
+GUID=00000000-0000-0000-0000-000000000000
+L=0
+Present=0
+R=0
+Range=100
+Start=0
+Type=2
+Z=0
+
+[DirectInput-Controller 3]
+A=0
+Analog Down=0
+Analog Left=0
+Analog Right=0
+Analog Up=0
+B=0
+C-Down=0
+C-Left=0
+C-Right=0
+C-Up=0
+Dead Zone=2500
+Digital Down=0
+Digital Left=0
+Digital Right=0
+Digital Up=0
+GUID=00000000-0000-0000-0000-000000000000
+L=0
+Present=0
+R=0
+Range=100
+Start=0
+Type=2
+Z=0
+
+[Directory]
+Instant Save=[ROMPTH]\.sstates\
+Instant Save - Use Selected=1
+Plugin=[EMUPTH]\Plugin\
+Plugin - Use Selected=1
+Save=[ROMPTH]\.Mem\
+Save - Use Selected=1
+Snap Shot=[ROMPTH]\.snaps\
+Snap Shot - Use Selected=1
+Texture Dir=[ROMPTH]\.Mem\
+Texture Dir - Use Selected=1
+
+[Direct3D8]
+Anisotropic=[ANIS]
+DumpTextures=0
+EmulateBuffer=0
+ForceBlend=0
+ForceCombiner=0
+FullscreenHeight=[REZY]
+FullscreenWidth=[REZX]
+Multisample=[SAMP]
+SoftwareEmu=0
+Vsync=[VSYNC]
+WindowType=3

@@ -1,0 +1,514 @@
+<peripherals>
+		<peripheral port="gameport1" device="[JOY1]"/>
+		<peripheral port="gameport2" device="[JOY2]"/>
+	</peripherals>
+
+	<categories default="ORIGINAL">
+		<category id="ORIGINAL" name="Original"/>
+		<category id="HOMEBREW" name="Homebrew"/>
+		<category id="PATCHED" name="Patched"/>
+	</categories>
+
+	<authors default="?">
+		<author id="AH" name="Alex Herbert" url="http://www.herbs64.com/"/>
+		<author id="AN" name="Alex Nicholson" url="http://www.vectorzoa.com/"/>
+		<author id="CA" name="Craig Aker" url="http://members.cox.net/~caker137/"/>
+		<author id="CS" name="Chris Salomon"/>
+		<author id="FC" name="Franck Chevassu" url="http://vectrex-emu.blogspot.com/"/>
+		<author id="GCE" name="GCE Vectrex"/>
+		<author id="GP" name="George Pelonis" url="http://www.furyunlimited.com/"/>
+		<author id="JD" name="John Dondzila" url="http://www.classicgamecreations.com/"/>
+		<author id="KT" name="Kristof Tuts" url="http://www.kristofsnewvectrexgames.comli.com"/>
+		<author id="M+N" name="METALVOTZE &amp; Nuance" url="http://www.ihlaid.de/"/>
+		<author id="MB" name="Michael Borrmann"/>
+		<author id="MP" name="Manu Pärssinen" url="http://www.pelikonepeijoonit.net/"/>
+		<author id="RS" name="Revival Studios" url="http://www.revival-studios.com/"/>
+		<author id="VK" name="Ville Krumlinde" url="http://www.emix8.org/"/>
+		<author id="VOZ" name="METALVOTZE" url="http://www.ihlaid.de/"/>
+		<author id="?" name="Unknown"/>
+	</authors>
+
+	<systems default="FASTBOOT">
+		<rom id="ORIGINAL" name="Original System ROM" path="data/roms/system/System.bin"/>
+		<rom id="FASTBOOT" name="FastBoot System ROM" path="data/roms/system/FastBoot.bin"/>
+		<rom id="SKIPBOOT" name="SkipBoot System ROM" path="data/roms/system/SkipBoot.bin"/>
+	</systems>
+
+	<cartridgeMenus>
+		<cartridgeMenu id="VFM12" mode="VECFLASH" name="Standard VecFlash Menu 1.2" path="data/roms/menu/vfm.men" counterSize="1" namesSize="12"/>
+		<cartridgeMenu id="VMM14" mode="VECMULTI" name="Standard VecMulti Menu 1.4.2" path="data/roms/menu/vmm.men" counterSize="2" namesSize="13"/>
+		<cartridgeMenu id="AUTOVF" mode="VECFLASH" name="Automatic Launcher for VecFlash" path="data/roms/menu/vfm_auto.men.jverom" counterSize="0" namesSize="1"/>
+	</cartridgeMenus>
+
+	<games selected="GRAVITREX">
+
+		<separator label="Standard games"/>
+
+		<game id="ARMORATTACK" name="Armor Attack">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Armor_Attack.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Armor_Attack.html"/>
+			<overlay tx="0.0" ty="0.02" sx="0.935" sy="0.935" passes="2" mipmap="true" path="data/packs/ArmorAttack.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="BEDLAM" name="Bedlam">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Bedlam.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Bedlam.html"/>
+			<overlay tx="0.0" ty="0.04" sx="0.94" sy="0.975" passes="2" mipmap="true" path="data/packs/Bedlam.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="BERZERK" name="Berzerk">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Berzerk.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Berzerk.html"/>
+			<overlay tx="0.0" ty="-0.02" sx="0.97" sy="0.97" passes="2" mipmap="true" path="data/packs/Berzerk.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="BLITZ" name="Blitz!">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Blitz.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Blitz.html"/>
+			<overlay tx="0.0" ty="0.02" sx="0.96" sy="0.93" passes="2" mipmap="true" path="data/packs/Blitz.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="COSMICCHASM" name="Cosmic Chasm">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Cosmic_Chasm.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Cosmic_Chasm.html"/>
+			<overlay tx="-0.01" ty="0.035" sx="0.915" sy="0.845" passes="2" mipmap="true" path="data/packs/CosmicChasm.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="DARKTOWER" name="Dark Tower">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Dark_Tower.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Dark_Tower.html"/>
+			<overlay tx="0.0" ty="0.02" sx="0.96" sy="0.96" passes="1" mipmap="true" path="data/packs/DarkTower.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="1.7" blurred="0.8"/>
+		</game>
+
+		<game id="NARZOD" name="Fortress of Narzod">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Fortress_of_Narzod.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Narzod.html"/>
+			<overlay tx="0.0050" ty="0.06" sx="1.0" sy="0.975" passes="2" mipmap="true" path="data/packs/Narzod.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="HEADSUP" name="Heads Up - Action Soccer">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Heads_Up.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Heads_Up.html"/>
+			<overlay tx="0.0" ty="0.055" sx="0.965" sy="0.965" passes="2" mipmap="true" path="data/packs/HeadsUp.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="HYPERCHASE" name="Hyperchase (Analog Controls)">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Hyperchase.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Hyperchase.html"/>
+			<overlay tx="0.0" ty="0.0" sx="0.965" sy="0.96" passes="2" mipmap="true" path="data/packs/Hyperchase.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="MINESTORM" name="MineStorm">
+			<roms system="DEFAULT"/>
+			<info author="GCE" date="1982" doc="data/docs/Minestorm.html"/>
+			<overlay tx="0.0" ty="0.0" sx="0.945" sy="0.945" passes="2" mipmap="true" path="data/packs/Minestorm.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="MINESTORM2" name="MineStorm II">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Minestorm2.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Minestorm.html"/>
+			<overlay tx="0.0" ty="0.0" sx="0.945" sy="0.945" passes="2" mipmap="true" path="data/packs/Minestorm.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="POLARRESCUE" name="Polar Rescue">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Polar_Rescue.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Polar_Rescue.html"/>
+			<overlay tx="0.0" ty="0.06" sx="0.97" sy="1.0" passes="2" mipmap="true" path="data/packs/PolarRescue.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.4"/>
+		</game>
+
+		<game id="POLEPOSITION" name="Pole Position">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Pole_Position.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Pole_Position.html"/>
+			<overlay tx="0.0" ty="0.035" sx="0.94" sy="0.965" passes="2" mipmap="true" path="data/packs/Pole.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.0"/>
+		</game>
+
+		<game id="RIPOFF" name="Rip-Off">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Rip_Off.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Rip_Off.html"/>
+			<overlay tx="0.0" ty="0.0" sx="0.94" sy="0.93" passes="2" mipmap="true" path="data/packs/Ripoff.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="SCRAMBLE" name="Scramble">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Scramble.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Scramble.html"/>
+			<overlay tx="0.0" ty="0.015" sx="0.97" sy="1.0" passes="2" mipmap="true" path="data/packs/Scramble.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="SOLARQUEST" name="Solar Quest">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Solar_Quest.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Solar_Quest.html"/>
+			<overlay tx="0.0" ty="0.02" sx="0.93" sy="0.945" passes="2" mipmap="true" path="data/packs/Solar.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="SPACEWARS" name="Space Wars">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Space_Wars.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Space_Wars.html"/>
+			<overlay tx="0.0" ty="0.025" sx="0.925" sy="0.925" passes="2" mipmap="true" path="data/packs/Space.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="SPIKE" name="Spike">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Spike.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Spike.html"/>
+			<overlay tx="0.0" ty="-0.0050" sx="1.0" sy="0.94" passes="2" mipmap="true" path="data/packs/Spike.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="STARCASTLE" name="Star Castle">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Star_Castle.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Star_Castle.html"/>
+			<overlay tx="0.0" ty="0.01" sx="0.88" sy="0.905" passes="2" mipmap="true" path="data/packs/StarCastle.png"/>
+			<persistence enabled="true" history="30"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="STARHAWK" name="Star Hawk">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Star_Hawk.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Star_Hawk.html"/>
+			<overlay tx="0.0" ty="0.02" sx="0.98" sy="0.97" passes="2" mipmap="true" path="data/packs/Starhawk.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="0.9"/>
+		</game>
+
+		<game id="STARTREK" name="Star Trek">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Star_Trek.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Star_Trek.html"/>
+			<overlay tx="0.0" ty="0.015" sx="1.0" sy="1.01" passes="2" mipmap="true" path="data/packs/StarTrek.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="TEST" name="Test Cartridge">
+			<roms system="ORIGINAL" cartridge="data/roms/cartridge/Test_Rev4.bin"/>
+			<info author="GCE" version="rev. 4"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="TOURDEFRANCE" name="Tour de France">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Tour_de_France.bin"/>
+			<info author="GCE" date="1983"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="WEBWARS" name="Web Wars">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Web_Wars.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Web_Wars.html"/>
+			<overlay tx="0.0" ty="0.04" sx="0.935" sy="0.935" passes="2" mipmap="true" path="data/packs/WebWars.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<separator label="Homebrew games"/>
+
+		<game id="GRAVITREX" name="Gravitrex">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Gravitrex.bin"/>
+			<info category="HOMEBREW" author="JD" date="2002"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="NEBULA" name="Nebula Commander">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Nebula.bin"/>
+			<info category="HOMEBREW" author="CA" date="2005" doc="data/docs/Nebula.html"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PATRIOTS" name="Patriots">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Patriots.bin"/>
+			<info category="HOMEBREW" author="JD" date="1996"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PATRIOTS3" name="Patriots III">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Patriots3.bin"/>
+			<info category="HOMEBREW" author="JD" date="2002"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PROTECTOR" name="Protector">
+			<roms system="SKIPBOOT">
+				<cartridge path="data/roms/homebrew/py050712.zip" zipPath="py050712.bin"/>
+			</roms>
+			<hack enabled="false" interlaced="false" rampDelay1="40.0" rampDelay2="1.0"/>
+			<info category="HOMEBREW" author="AH" version="Freeware Edition -- NOT public domain" date="2005"/>
+			<overlay tx="0.03" ty="0.05" sx="0.99" sy="1.0" passes="1" mipmap="true" path="data/packs/Protector.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="REVECTOR" name="Revector">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Revector.bin"/>
+			<info category="HOMEBREW" author="CA" date="2004" doc="data/docs/Revector.html"/>
+			<persistence enabled="true" history="30"/>
+			<shininess normal="2.0" blurred="1.0"/>
+		</game>
+
+		<game id="SPACEFRENZY" name="Space Frenzy">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Space_Frenzy.bin"/>
+			<info category="HOMEBREW" author="JD" date="2006"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.0"/>
+		</game>
+
+		<game id="SPIKEHOPPIN" name="Spike Hoppin'">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Spike_Hoppin.bin"/>
+			<info category="HOMEBREW" author="JD" date="1998"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="STARSLING" name="Star Sling 4k  (Analog Controls)">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/SSlingTE.bin.jverom"/>
+			<info category="HOMEBREW" author="AN" version="Turbo Edition v1.0 -- NOT public domain" date="2006" doc="data/docs/StarSling4k.html"/>
+			<overlay tx="0.0" ty="-0.035" sx="0.965" sy="0.965" passes="1" mipmap="true" path="data/packs/StarSling4k.png"/>
+			<persistence enabled="true" history="60"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="THRUST" name="Thrust">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Thrust.bin"/>
+			<info category="HOMEBREW" author="VK" version="1.01" date="30/11/2004" doc="data/docs/Thrust.html"/>
+			<overlay tx="0.0" ty="0.035" sx="1.0" sy="0.975" passes="1" mipmap="true" path="data/packs/Thrust.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="VFROGGER" name="V-Frogger">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/VFrogger.bin"/>
+			<info category="HOMEBREW" author="CS" date="1998"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="VECFU" name="Vec Fu">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/VecFu.bin"/>
+			<info category="HOMEBREW" author="MB" date="2010"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="VECMANIA64" name="Vecmania 64K">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Vecmania.bin.jverom"/>
+			<info category="HOMEBREW" author="JD" version="Dual-Banked cartridge" date="1999"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="VECTOPIA64" name="Vectopia 64K">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Vectopia.bin.jverom"/>
+			<info category="HOMEBREW" author="JD" version="Dual-Banked cartridge" date="2001"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="VECTOR21" name="Vector 21">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Vector21.bin"/>
+			<info category="HOMEBREW" author="GP" version="Freeware Edition -- NOT public domain" date="2006"/>
+			<overlay tx="0.0" ty="0.095" sx="0.995" sy="0.995" passes="1" mipmap="true" path="data/packs/Vector21.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="WOTR" name="War of the Robots">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/WOTR.bin"/>
+			<info category="HOMEBREW" author="GP" version="Freeware Edition -- NOT public domain" date="2003"/>
+			<overlay tx="0.0" ty="-0.0050" sx="0.92" sy="0.935" passes="1" mipmap="true" path="data/packs/WOTR.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="BTTQ" name="War of the Robots - Bow to the Queen">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/BTTQ.bin"/>
+			<info category="HOMEBREW" author="GP" version="Freeware Edition -- NOT public domain" date="2003"/>
+			<overlay tx="0.0" ty="-0.0050" sx="0.92" sy="0.935" passes="1" mipmap="true" path="data/packs/WOTR.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="WORMHOLE" name="Wormhole">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Wormhole.bin"/>
+			<info category="HOMEBREW" author="JD" date="2001"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.0"/>
+		</game>
+
+		<separator label="VecVoice enabled games"/>
+
+		<game id="VERZERK" name="Verzerk (VecVoice enabled Berzerk)">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/Verzerk.bin"/>
+			<requirement port="gameport2" device="VECVOICE"/>
+			<info category="PATCHED" author="AH" version="Patched version of Berzerk" date="2002" doc="data/docs/Berzerk.html"/>
+			<overlay tx="0.0" ty="-0.02" sx="0.97" sy="0.97" passes="2" mipmap="true" path="data/packs/Berzerk.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="YASI" name="YASI">
+			<roms system="SKIPBOOT">
+				<cartridge path="data/roms/homebrew/py050712.zip" zipPath="py050712.bin"/>
+			</roms>
+			<hack enabled="true" interlaced="true" rampDelay1="45.0" rampDelay2="1.0"/>
+			<requirement port="gameport2" device="VECVOICE"/>
+			<info category="HOMEBREW" author="AH" version="Freeware Edition -- NOT public domain" date="2003"/>
+			<overlay tx="0.0" ty="0.0" sx="0.97" sy="0.97" passes="1" mipmap="true" path="data/packs/Yasi.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="3.0"/>
+		</game>
+
+		<separator label="Lightpen games"/>
+
+		<game id="ANIMACTION" name="Animaction">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Animaction.bin"/>
+			<ram address="$2000" size="$800"/>
+			<requirement port="gameport2" device="LIGHTPEN"/>
+			<info author="GCE" date="1983" doc="data/docs/Animaction.html"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="ARTMASTER" name="Art Master">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Art_Master.bin"/>
+			<requirement port="gameport2" device="LIGHTPEN"/>
+			<info author="GCE" date="1983" doc="data/docs/Art_Master.html"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="ANALYZER" name="Engine Analyzer">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Engine_Analyzer.bin"/>
+			<requirement port="gameport1" device="LIGHTPEN"/>
+			<info author="GCE" date="1983"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="MELODYMASTER" name="Melody Master">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Melody_Master.bin"/>
+			<requirement port="gameport2" device="LIGHTPEN"/>
+			<info author="GCE" date="1983" doc="data/docs/Melody_Master.html"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<separator label="Technical Demos"/>
+
+		<game id="3DDEMO" name="3D Demo">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/demo/3D_demo.bin"/>
+			<info category="HOMEBREW" author="CS" date="1998"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="BRESENHAM" name="Bresenham">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/demo/bnz17.bin"/>
+			<info category="HOMEBREW" author="VOZ" version="Buenzli's 2008 release" date="2008"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="LINEART" name="Lineart">
+			<roms system="SKIPBOOT">
+				<cartridge bankMode="MULTI" menu="AUTOVF">
+					<bank path="data/roms/homebrew/demo/lineart.zip" zipPath="lineart01.bin" label="LineArt Demo"/>
+					<bank path="data/roms/homebrew/demo/lineart.zip" zipPath="lineart02.bin"/>
+					<bank path="data/roms/homebrew/demo/lineart.zip" zipPath="lineart03.bin"/>
+					<bank path="data/roms/homebrew/demo/lineart.zip" zipPath="lineart04.bin"/>
+				</cartridge>
+			</roms>
+			<info category="HOMEBREW" author="M+N" version="Breakpoint's 2010 release" date="2010"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="OLDSKOOL" name="OldskOOl">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/demo/oldskool.bin"/>
+			<info category="HOMEBREW" author="MP" version="The Alternative Party 2002 release" date="2002"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PERFVX" name="Performance VX">
+			<roms system="FASTBOOT">
+				<cartridge path="data/roms/homebrew/demo/performance_vx.zip" zipPath="revival_performancevx.bin"/>
+			</roms>
+			<info category="HOMEBREW" author="RS"/>
+			<overlay tx="0.0" ty="0.0" sx="0.97" sy="0.97" passes="1" mipmap="true" path="data/packs/PerformanceVX.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PSII" name="Pimmelsafari II">
+			<roms system="DEFAULT" cartridge="data/roms/homebrew/demo/pimmelsafari2.bin"/>
+			<info category="HOMEBREW" author="VOZ" version="Buenzli's 2005 release" date="2005"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<separator label="Games having emulation issues" color="#C08080"/>
+
+		<game id="CLEANSWEEP" name="Clean Sweep">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Clean_Sweep.bin"/>
+			<info author="GCE" date="1982" doc="data/docs/Clean_Sweep.html"/>
+			<overlay tx="0.0" ty="0.015" sx="1.0" sy="0.985" passes="2" mipmap="true" path="data/packs/CleanSweep.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+		<game id="PITCHERSDUEL" name="Pitcher's Duel">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Pitchers_Duel.bin"/>
+			<hack enabled="false" interlaced="false" rampDelay1="19.64" rampDelay2="1.0"/>
+			<info author="GCE" date="1983" doc="data/docs/Pitchers_Duel.html"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.4"/>
+		</game>
+
+		<game id="SPINBALL" name="Spinball">
+			<roms system="DEFAULT" cartridge="data/roms/cartridge/Spinball.bin"/>
+			<info author="GCE" date="1983" doc="data/docs/Spinball.html"/>
+			<overlay tx="0.0050" ty="0.035" sx="0.975" sy="1.01" passes="2" mipmap="true" path="data/packs/Spinball.png"/>
+			<persistence enabled="true" history="20"/>
+			<shininess normal="2.0" blurred="1.5"/>
+		</game>
+
+	</games>
+
+</configuration>

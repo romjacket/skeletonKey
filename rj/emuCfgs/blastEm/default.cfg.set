@@ -1,0 +1,221 @@
+
+bindings {
+	keys {
+		up gamepads.1.up
+		down gamepads.1.down
+		left gamepads.1.left
+		right gamepads.1.right
+		a gamepads.1.a
+		s gamepads.1.b
+		d gamepads.1.c
+		q gamepads.1.x
+		w gamepads.1.y
+		e gamepads.1.z
+		f gamepads.1.mode
+		enter gamepads.1.start
+
+		r ui.release_mouse
+		[ ui.vdp_debug_mode
+		] ui.vdp_debug_pal
+		u ui.enter_debugger
+		p ui.screenshot
+		esc ui.exit
+		` ui.save_state
+		0 ui.set_speed.0
+		1 ui.set_speed.1
+		2 ui.set_speed.2
+		3 ui.set_speed.3
+		4 ui.set_speed.4
+		5 ui.set_speed.5
+		6 ui.set_speed.6
+		7 ui.set_speed.7
+		= ui.next_speed
+		- ui.prev_speed
+		f11 ui.toggle_fullscreen
+		tab ui.soft_reset
+		rctrl ui.toggle_keyboard_captured
+	}
+	pads {
+		0 {
+			dpads {
+				0 {
+					up gamepads.1.up
+					down gamepads.1.down
+					left gamepads.1.left
+					right gamepads.1.right
+				}
+			}
+			buttons {
+				a gamepads.1.a
+				b gamepads.1.b
+				rightshoulder gamepads.1.c
+				x gamepads.1.x
+				y gamepads.1.y
+				leftshoulder gamepads.1.z
+				back gamepads.1.mode
+				start gamepads.1.start
+				guide ui.exit
+				leftstick ui.save_state
+			}
+			axes {
+				lefty.positive gamepads.1.down
+				lefty.negative gamepads.1.up
+				leftx.positive gamepads.1.right
+				leftx.negative gamepads.1.left
+				lefttrigger ui.prev_speed
+				righttrigger ui.next_speed
+			}
+		}
+		1 {
+			dpads {
+				0 {
+					up gamepads.2.up
+					down gamepads.2.down
+					left gamepads.2.left
+					right gamepads.2.right
+				}
+			}
+			buttons {
+				#this is exactly the same mapping as above, but with PS4 style names
+				cross gamepads.2.a
+				circle gamepads.2.b
+				r1 gamepads.2.c
+				square gamepads.2.x
+				triangle gamepads.2.y
+				l1 gamepads.2.z
+				share gamepads.2.mode
+				options gamepads.2.start
+				guide ui.exit
+				l3 ui.save_state
+			}
+			axes {
+				lefty.positive gamepads.2.down
+				lefty.negative gamepads.2.up
+				leftx.positive gamepads.2.right
+				leftx.negative gamepads.2.left
+				l2 ui.prev_speed
+				r2 ui.next_speed
+			}
+		}
+	}
+	mice {
+		0 {
+			motion mouse.1.motion
+			buttons {
+				1 mouse.1.left
+				2 mouse.1.middle
+				3 mouse.1.right
+				4 mouse.1.start
+			}
+		}
+		#having the second host mouse also mapped to the first emulated
+		#mouse is useful for laptop users with an external mouse
+		1 {
+			motion mouse.1.motion
+			buttons {
+				1 mouse.1.left
+				2 mouse.1.middle
+				3 mouse.1.right
+				4 mouse.1.start
+			}
+		}
+	}
+}
+
+io {
+	devices {
+		1 gamepad6.1
+		2 gamepad6.2
+	}
+}
+
+video {
+	#special value "stretch" will cause aspect to match window aspect ratio
+	aspect 4:3
+	width 640
+	vertex_shader default.v.glsl
+	fragment_shader default.f.glsl
+	scanlines off
+	vsync off
+	fullscreen off
+	#setting gl to off, will force use of the SDL2 fallback renderer
+	#this is useful for those running on machines with Open GL 2.0 unavailable
+	#so the warning doesn't display on startup
+	gl on
+	ntsc {
+		overscan {
+			#these values will result in square pixels in H40 mode
+			top 2
+			bottom 1
+			#if you want to completely hide the border instead
+			#comment out those two lines and uncomment these
+			#top 11
+			#bottom 8
+			
+			#these values will completely hide the horizontal border
+			left 13
+			right 14
+		}
+	}
+	pal {
+		overscan {
+			#these values will produce the same size border in V30 mode
+			#as the default NTSC settings will produce in V24 mode
+			#this results in a slightly vertically squished picture
+			#which is probably approximately correct on a properly calibrated TV
+			top 21
+			bottom 17
+			#for square pixels and zero border in V30 mode
+			#coment out those two lines and uncomment these
+			#top 30
+			#bottom 24
+			
+			#these values will completely hide the horizontal border
+			left 13
+			right 14
+		}
+	}
+}
+
+audio {
+	rate 48000
+	buffer 512
+	lowpass_cutoff 3390
+}
+
+clocks {
+	m68k_divider 7
+	max_cycles 3420
+	speeds {
+		0 100
+		1 150
+		2 200
+		3 300
+		4 400
+		5 25
+		6 50
+		7 75
+	}
+}
+
+ui {
+	#specifies the ROM that implements the Menu UI
+	rom menu.bin
+	#starting path for ROM browsing, accepts special variables $HOME, $EXEDIR
+	#and variables defined in the OS environment
+	initial_path $HOME
+	#path for storing internal screenshots, accepts the same variables as initial_path
+	screenshot_path $HOME
+	#see strftime for the format specifiers valid in screenshot_template
+	screenshot_template blastem_%Y%m%d_%H%M%S.ppm
+	#path template for saving SRAM, EEPROM and savestates
+	#accepts special variables $HOME, $EXEDIR, $USERDATA, $ROMNAME
+	save_path $USERDATA/blastem/$ROMNAME
+}
+
+system {
+	ram_init zero
+	default_region U
+}
+
+

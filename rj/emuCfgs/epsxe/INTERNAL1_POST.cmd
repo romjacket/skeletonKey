@@ -1,0 +1,3 @@
+for /f "tokens=3 Delims= " %%a in ('REG QUERY "HKEY_CURRENT_USER\Software\epsxe\config" /v "GamepadType"') do echo.set PADCFG=%%~a>>INTERNAL1_SET.cmd
+for /f "tokens=3 Delims= " %%a in ('REG QUERY "HKEY_CURRENT_USER\Software\epsxe\config" /v "Pad1"') do echo.set PAD1TYPE=%%~a>>INTERNAL1_SET.cmd
+for /f "tokens=3 Delims= " %%a in ('REG QUERY "HKEY_CURRENT_USER\Software\epsxe\config" /v "Multitap1"') do echo.set MULTITAP1=%%~a>>INTERNAL1_SET.cmd

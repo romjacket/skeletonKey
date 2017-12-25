@@ -1,0 +1,20 @@
+﻿[main]
+transformZ = [TRANZ]
+listSorting = [SORT]
+modifier = [MODT]
+snapPng = true
+snapJpg = false
+rotate = 0
+DynamicVB = [DYNVB]
+disableFog = [FOGOFF]
+norotateoverride = 1
+useFilter = [FILT]
+slowpoke = false
+blitperf = 70000000
+
+[resolution]
+wWidth = [REZX]
+wHeight = [REZY]
+fWidth = [REZX]
+fHeight = [REZY]
+frequency = [FREQ]

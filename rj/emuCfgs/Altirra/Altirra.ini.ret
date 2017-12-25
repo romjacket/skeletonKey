@@ -1,0 +1,237 @@
+; Altirra settings file. EDIT AT YOUR OWN RISK.
+
+[Settings]
+"Console: Font family" = "Lucida Console"
+"Console: Font size" = -10
+"Startup: Reuse program instance" = 0
+"Display: DirectDraw" = 1
+"Display: Direct3D9" = 1
+"Display: 3D" = [DX11]
+"Display: OpenGL" = [OGL]
+"Simulator: Error mode" = 0
+"Display: Full screen mode width" = 0
+"Display: Full screen mode height" = 0
+"Display: Full screen mode refresh rate" = 0
+"Console: Font point size tenths" = 75
+"Console: Cartridge switch" = 1
+"DragonCart: Enabled" = 0
+"Kernel path" = ""
+"Kernel type" = ""
+"Basic path" = ""
+"Kernel mode" = 0
+"Hardware mode" = 1
+"BASIC enabled" = 0
+"PAL mode" = 0
+"SECAM mode" = 0
+"Memory mode" = 4
+"Turbo mode" = 0
+"Pause when inactive" = 1
+"Pause when inactive" = 1
+"Memory: Axlon size" = 0
+"Memory: High banks" = 0
+"Memory: MapRAM" = 0
+"Memory: Ultimate1MB" = 0
+"Memory: Randomize on start" = 0
+"Kernel: Floating-point patch enabled" = 0
+"Kernel: Fast boot enabled" = 1
+"Cassette: SIO patch enabled" = 1
+"Cassette: Auto-boot enabled" = 1
+"Cassette: Load data as audio" = 0
+"Audio: Volume" = 1056964608
+"Audio: Mute" = 0
+"Audio: Latency" = 80
+"Audio: Extra buffer" = 100
+"Audio: Api" = 0
+"Audio: Show debug info" = 0
+"POKEY: Burst mode" = 0
+"GTIA: Artifacting mode" = [ARTIF]
+"GTIA: Overscan mode" = 1
+"GTIA: PAL extended height" = 0
+"GTIA: Frame blending" = [BLEND]
+"GTIA: Interlace" = 0
+"GTIA: Scanlines" = [SCAN]
+"GTIA: VBXE support" = 0
+"GTIA: VBXE shared memory" = 0
+"GTIA: VBXE alternate page" = 0
+"Disk: SIO patch enabled" = 1
+"Disk: SIO override detection enabled" = 0
+"Disk: Accurate sector timing" = 0
+"Disk: Drive sounds" = 0
+"Disk: Emulation mode" = 0
+"Disk: Sector counter enabled" = 0
+"Audio: Dual POKEYs enabled" = 0
+"Audio: Non-linear mixing" = 1
+"SoundBoard: Enabled" = 0
+"SoundBoard: Memory base" = 53952
+"SlightSID: Enabled" = 0
+"Covox: Enabled" = 0
+"XEP80: Enabled" = 0
+"CPU: History enabled" = 0
+"CPU: Pathfinding enabled" = 0
+"CPU: Stop on BRK" = 0
+"CPU: Allow NMI blocking" = 0
+"CPU: Allow illegal instructions" = 1
+"CPU: Chip type" = 0
+"CPU: Clock multiplier" = 1
+"CPU: Shadow ROMs" = 1
+"CPU: Shadow cartridges" = 0
+"Hard disk: Host path" = ""
+"Hard disk: Host path 3" = ""
+"Hard disk: Host path 4" = ""
+"Hard disk: Host path 5" = ""
+"Hard disk: Enabled" = 0
+"Hard disk: Read only" = 0
+"Hard disk: Burst IO enabled" = 1
+"Hard disk: Long name encoding" = 0
+"PCLink: Enabled" = 0
+"Display: Filter mode" = [FILT]
+"Display: Filter sharpness" = 2
+"Display: Stretch mode" = [STRETCH]
+"Video: Enhanced text mode" = 0
+"View: Show FPS" = 0
+"View: Vertical sync" = [SYNC]
+"View: 80-column view enabled" = 0
+"View: 80-column view autoswitching enabled" = 0
+"Printer: Enabled" = 0
+"Misc: R-Time 8 Enabled" = 0
+"Serial Ports: Enabled" = 0
+"Console: Keyboard present" = 1
+"Console: Force self test" = 0
+"Keyboard: Raw mode" = 0
+"Keyboard: Arrow key mode" = 0
+"Keyboard: Allow shift on cold reset" = 0
+"Keyboard: Enable function keys" = 0
+"Keyboard: Layout Mode" = 0
+"Light Pen: Adjust X" = 0
+"Light Pen: Adjust Y" = 0
+"Mouse: Auto-capture" = 1
+"Speed: Frame rate modifier" = 100
+"Speed: Frame rate mode" = 0
+"Debugger: Break on EXE run address" = 0
+
+[Input maps]
+"Input map 0" = [02 00 00 00 1F 00 00 00 01 00 00 00 05 00 00 00 FF FF FF FF 41 00 72 00 72 00 6F 00 77 00 20 00 4B 00 65 00 79 00 73 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 00 00 01 00 00 00 00 00 00 00 25 00 00 00 00 00 00 00 02 01 00 00 27 00 00 00 00 00 00 00 03 01 00 00 26 00 00 00 00 00 00 00 00 01 00 00 28 00 00 00 00 00 00 00 01 01 00 00 A2 00 00 00 00 00 00 00 00 00 00 00]
+"Input map 1" = [02 00 00 00 1F 00 00 00 01 00 00 00 05 00 00 00 FF FF FF FF 41 00 72 00 72 00 6F 00 77 00 20 00 4B 00 65 00 79 00 73 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 32 00 29 00 00 00 01 00 00 00 01 00 00 00 64 00 00 00 00 00 00 00 02 01 00 00 66 00 00 00 00 00 00 00 03 01 00 00 68 00 00 00 00 00 00 00 00 01 00 00 62 00 00 00 00 00 00 00 01 01 00 00 A3 00 00 00 00 00 00 00 00 00 00 00]
+"Input map 2" = [02 00 00 00 1C 00 00 00 01 00 00 00 0C 00 00 00 FF FF FF FF 47 00 61 00 6D 00 65 00 70 00 61 00 64 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 01 00 00 00 00 00 00 00 0E 21 00 00 00 00 00 00 00 01 00 00 0F 21 00 00 00 00 00 00 01 01 00 00 0C 21 00 00 00 00 00 00 02 01 00 00 0D 21 00 00 00 00 00 00 03 01 00 00 02 21 00 00 00 00 00 00 00 01 00 00 03 21 00 00 00 00 00 00 01 01 00 00 00 21 00 00 00 00 00 00 02 01 00 00 01 21 00 00 00 00 00 00 03 01 00 00 00 28 00 00 00 00 00 00 00 00 00 00 01 28 00 00 00 00 00 00 00 00 00 00 02 28 00 00 00 00 00 00 00 00 00 00 03 28 00 00 00 00 00 00 00 00 00 00]
+"Input map 3" = [02 00 00 00 1E 00 00 00 01 00 00 00 0C 00 00 00 00 00 00 00 47 00 61 00 6D 00 65 00 70 00 61 00 64 00 20 00 31 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 01 00 00 00 00 00 00 00 0E 21 00 00 00 00 00 00 00 01 00 00 0F 21 00 00 00 00 00 00 01 01 00 00 0C 21 00 00 00 00 00 00 02 01 00 00 0D 21 00 00 00 00 00 00 03 01 00 00 02 21 00 00 00 00 00 00 00 01 00 00 03 21 00 00 00 00 00 00 01 01 00 00 00 21 00 00 00 00 00 00 02 01 00 00 01 21 00 00 00 00 00 00 03 01 00 00 00 28 00 00 00 00 00 00 00 00 00 00 01 28 00 00 00 00 00 00 00 00 00 00 02 28 00 00 00 00 00 00 00 00 00 00 03 28 00 00 00 00 00 00 00 00 00 00]
+"Input map 4" = [02 00 00 00 1E 00 00 00 01 00 00 00 0C 00 00 00 01 00 00 00 47 00 61 00 6D 00 65 00 70 00 61 00 64 00 20 00 32 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 32 00 29 00 01 00 00 00 01 00 00 00 0E 21 00 00 00 00 00 00 00 01 00 00 0F 21 00 00 00 00 00 00 01 01 00 00 0C 21 00 00 00 00 00 00 02 01 00 00 0D 21 00 00 00 00 00 00 03 01 00 00 02 21 00 00 00 00 00 00 00 01 00 00 03 21 00 00 00 00 00 00 01 01 00 00 00 21 00 00 00 00 00 00 02 01 00 00 01 21 00 00 00 00 00 00 03 01 00 00 00 28 00 00 00 00 00 00 00 00 00 00 01 28 00 00 00 00 00 00 00 00 00 00 02 28 00 00 00 00 00 00 00 00 00 00 03 28 00 00 00 00 00 00 00 00 00 00]
+"Input map 5" = [02 00 00 00 0C 00 00 00 00 00 00 00 00 00 00 00 FF FF FF FF 49 00 6E 00 70 00 75 00 74 00 20 00 6D 00 61 00 70 00 20 00 31 00 32 00]
+"Input map 6" = [02 00 00 00 24 00 00 00 01 00 00 00 15 00 00 00 FF FF FF FF 4B 00 65 00 79 00 62 00 6F 00 61 00 72 00 64 00 20 00 2D 00 3E 00 20 00 35 00 32 00 30 00 30 00 20 00 43 00 6F 00 6E 00 74 00 72 00 6F 00 6C 00 6C 00 65 00 72 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 05 00 00 00 00 00 00 00 25 00 00 00 00 00 00 00 02 01 00 00 27 00 00 00 00 00 00 00 03 01 00 00 26 00 00 00 00 00 00 00 00 01 00 00 28 00 00 00 00 00 00 00 01 01 00 00 A2 00 00 00 00 00 00 00 00 00 00 00 A0 00 00 00 00 00 00 00 01 00 00 00 30 00 00 00 00 00 00 00 00 04 00 00 31 00 00 00 00 00 00 00 01 04 00 00 32 00 00 00 00 00 00 00 02 04 00 00 33 00 00 00 00 00 00 00 03 04 00 00 34 00 00 00 00 00 00 00 04 04 00 00 35 00 00 00 00 00 00 00 05 04 00 00 36 00 00 00 00 00 00 00 06 04 00 00 37 00 00 00 00 00 00 00 07 04 00 00 38 00 00 00 00 00 00 00 08 04 00 00 39 00 00 00 00 00 00 00 09 04 00 00 BD 00 00 00 00 00 00 00 0A 04 00 00 BB 00 00 00 00 00 00 00 0B 04 00 00 71 00 00 00 00 00 00 00 0C 04 00 00 72 00 00 00 00 00 00 00 0D 04 00 00 73 00 00 00 00 00 00 00 0E 04 00 00]
+"Input map 7" = [02 00 00 00 1A 00 00 00 01 00 00 00 02 00 00 00 FF FF FF FF 4D 00 6F 00 75 00 73 00 65 00 20 00 2D 00 3E 00 20 00 50 00 61 00 64 00 64 00 6C 00 65 00 20 00 41 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 02 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 08 00 00 00 18 00 00 00 00 00 00 00 00 00 00]
+"Input map 8" = [02 00 00 00 1A 00 00 00 01 00 00 00 04 00 00 00 FF FF FF FF 4D 00 6F 00 75 00 73 00 65 00 20 00 2D 00 3E 00 20 00 53 00 54 00 20 00 4D 00 6F 00 75 00 73 00 65 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 03 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 08 00 00 01 10 00 00 00 00 00 00 01 08 00 00 00 18 00 00 00 00 00 00 00 00 00 00 02 18 00 00 00 00 00 00 01 00 00 00]
+"Input map 9" = [02 00 00 00 1A 00 00 00 01 00 00 00 04 00 00 00 FF FF FF FF 4D 00 6F 00 75 00 73 00 65 00 20 00 2D 00 3E 00 20 00 53 00 54 00 20 00 4D 00 6F 00 75 00 73 00 65 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 32 00 29 00 03 00 00 00 01 00 00 00 00 10 00 00 00 00 00 00 00 08 00 00 01 10 00 00 00 00 00 00 01 08 00 00 00 18 00 00 00 00 00 00 00 00 00 00 02 18 00 00 00 00 00 00 01 00 00 00]
+"Input map 10" = [02 00 00 00 1B 00 00 00 01 00 00 00 0D 00 00 00 FF FF FF FF 4E 00 75 00 6D 00 70 00 61 00 64 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 28 00 70 00 6F 00 72 00 74 00 20 00 31 00 29 00 00 00 01 00 00 00 00 00 00 00 61 00 00 00 00 00 00 00 02 01 00 00 61 00 00 00 00 00 00 00 01 01 00 00 62 00 00 00 00 00 00 00 01 01 00 00 63 00 00 00 00 00 00 00 01 01 00 00 63 00 00 00 00 00 00 00 03 01 00 00 64 00 00 00 00 00 00 00 02 01 00 00 66 00 00 00 00 00 00 00 03 01 00 00 67 00 00 00 00 00 00 00 02 01 00 00 67 00 00 00 00 00 00 00 00 01 00 00 68 00 00 00 00 00 00 00 00 01 00 00 69 00 00 00 00 00 00 00 00 01 00 00 69 00 00 00 00 00 00 00 03 01 00 00 60 00 00 00 00 00 00 00 00 00 00 00]
+"Active maps" = [ACTVM]
+"Input map 11" = [02 00 00 00 31 00 00 00 05 00 00 00 22 00 00 00 FF FF FF FF 58 00 62 00 6F 00 78 00 20 00 33 00 36 00 30 00 20 00 43 00 6F 00 6E 00 74 00 72 00 6F 00 6C 00 6C 00 65 00 72 00 20 00 2D 00 3E 00 20 00 4A 00 6F 00 79 00 73 00 74 00 69 00 63 00 6B 00 20 00 2F 00 20 00 50 00 61 00 64 00 64 00 6C 00 65 00 20 00 28 00 38 00 30 00 30 00 2F 00 58 00 4C 00 29 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 0C 21 03 00 00 00 00 00 02 01 00 00 0D 21 03 00 00 00 00 00 03 01 00 00 0E 21 03 00 00 00 00 00 00 01 00 00 0F 21 03 00 00 00 00 00 01 01 00 00 00 21 03 00 00 00 00 00 02 01 00 00 01 21 03 00 00 00 00 00 03 01 00 00 02 21 03 00 00 00 00 00 00 01 00 00 03 21 03 00 00 00 00 00 01 01 00 00 00 28 03 00 00 00 00 00 00 00 00 00 01 28 03 00 00 00 00 00 00 00 51 00 0C 21 07 00 01 00 00 00 02 01 00 00 0D 21 07 00 01 00 00 00 03 01 00 00 0E 21 07 00 01 00 00 00 00 01 00 00 0F 21 07 00 01 00 00 00 01 01 00 00 00 21 07 00 01 00 00 00 02 01 00 00 01 21 07 00 01 00 00 00 03 01 00 00 02 21 07 00 01 00 00 00 00 01 00 00 03 21 07 00 01 00 00 00 01 01 00 00 00 28 07 00 01 00 00 00 00 00 00 00 01 28 07 00 01 00 00 00 00 00 51 00 00 28 0A 00 02 00 00 00 00 00 00 00 01 28 0A 00 02 00 00 00 00 00 51 00 00 20 0B 00 02 00 00 00 00 08 00 00 00 20 0F 00 02 00 00 00 00 08 54 00 0C 21 0F 00 02 00 00 00 02 01 54 00 0D 21 0F 00 02 00 00 00 03 01 54 00 03 20 0F 00 02 00 00 00 01 08 00 00 04 20 0F 00 02 00 00 00 02 08 00 00 08 28 00 00 03 00 00 00 00 09 02 00 09 28 00 00 03 00 00 00 01 09 02 00 02 28 00 00 04 00 00 00 02 02 00 00 04 28 00 00 04 00 00 00 03 02 00 00 06 28 00 00 04 00 00 00 01 02 00 00 07 28 00 00 04 00 00 00 00 02 00 00]
+
+[ROM Images]
+"OS-A" = "[ATOSA]"
+"OS-B" = "[ATOSB]"
+"XL" = "[ATXL]"
+"XEGS" = ""
+"Other" = "otheros.rom"
+"5200" = "[5200B]"
+"Basic" = "[ATBAS]"
+"Game" = ""
+"KMKJZIDE" = "hdbios.rom"
+"KMKJZIDEV2" = ""
+"KMKJZIDEV2_SDX" = ""
+"SIDE_SDX" = ""
+"1200XL" = "atari1200xl.rom"
+
+[Colors]
+"Use separate color profiles" = 1
+
+[NTSC]
+"Hue Start" = -1035206656
+"Hue Range" = 1137786880
+"Brightness" = 0
+"Contrast" = 1065353216
+"Saturation" = 1050056343
+"Artifact Hue" = 1119879168
+"Artifact Saturation" = 1076929495
+"Artifact Bias" = 1051931443
+"PAL quirks" = 0
+
+[PAL]
+"Hue Start" = -1044905984
+"Hue Range" = 1135624192
+"Brightness" = 0
+"Contrast" = 1065353216
+"Saturation" = 1049918177
+"Artifact Hue" = 1119879168
+"Artifact Saturation" = 1076929495
+"Artifact Bias" = 1051931443
+"PAL quirks" = 1
+
+[Window Placement]
+"Main window" = [96 00 00 00 64 00 00 00 16 03 00 00 44 02 00 00 00 00 00 00]
+
+[Pane layouts]
+"Standard" = "{1*}"
+[Saved filespecs]
+"6c6f6164" = "[ROMPTH]\"
+"63617274" = ""
+"6469736b" = "[ROMPTH]\"
+"72766964" = "[ROMPTH]\.snaps\"
+"7363726e" = "[ROMPTH]\.snaps\"
+
+[MRU List]
+"A" = "[ROMPTH]\[ROM]"
+"Order" = "ABC"
+"B" = "[ROMPTH]\[ROMB]"
+"C" = "[ROMPTH]\[ROMC]"
+[Mounted Images]
+"Disk 0" = "[ROMPTH]\[ROM]"
+"Disk 1" = "[ROMPTH]\[ROMB]"
+"Disk 2" = "[ROMPTH]\[ROMC]"
+
+[User\AccelTables2\0]
+"00000077" = "Debug.RunStop"
+"00000079" = "Debug.StepOver"
+"0000007a" = "Debug.StepInto"
+"0002007a" = "Debug.StepOut"
+"00040031" = "Pane.Display"
+"00040032" = "Pane.Console"
+"00040033" = "Pane.Registers"
+"00040034" = "Pane.Disassembly"
+"00040035" = "Pane.CallStack"
+"00040036" = "Pane.History"
+"00040037" = "Pane.Memory1"
+"00040038" = "Pane.PrinterOutput"
+"00040042" = "File.BootImage"
+"0004004f" = "File.OpenImage"
+"00040074" = "File.QuickSaveState"
+"00040076" = "File.QuickLoadState"
+"00060030" = "Pane.ProfileView"
+"00060044" = "Disk.DrivesDialog"
+"00060048" = "Cheat.CheatDialog"
+"0006004f" = "Debug.OpenSourceFile"
+"00090003" = "Debug.Break"
+"00050059" = "Disk.RotateNext"
+"00050000" = "Disk.RotatePrev"
+
+[User\AccelTables2\1]
+"00000070" = "System.PulseWarpOn"
+"00000074" = "System.WarmReset"
+"00000078" = "System.TogglePause"
+"0000007b" = "Input.CaptureMouse"
+"00010076" = "Video.ToggleStandardNTSCPAL"
+"00010077" = "View.NextGTIAVisMode"
+"00020074" = "System.ColdReset"
+"00020077" = "View.NextANTICVisMode"
+"00040008" = "System.ToggleSlowMotion"
+"0004000d" = "View.ToggleFullScreen"
+"00040079" = "Edit.SaveFrame"
+"00050031" = "Audio.ToggleChannel1"
+"00050032" = "Audio.ToggleChannel2"
+"00050033" = "Audio.ToggleChannel3"
+"00050034" = "Audio.ToggleChannel4"
+"00060043" = "Edit.CopyText"
+"0006004d" = "Edit.CopyFrame"
+"00060056" = "Edit.PasteText"
+"00100070" = "System.PulseWarpOff"
+
+[User\AccelTables2\2]
+"00000074" = "Debug.Run"
+"00000078" = "Debug.ToggleBreakpoint"

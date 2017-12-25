@@ -1,0 +1,75 @@
+[Options]
+
+#Fixes VRAM size detection
+FixMemoryDetection = true
+
+#Enables VSync, paramater specifies the minimum number of video frames that are displayed before a buffer swap will occur
+VSyncInterval = 0
+
+#Hides cursor in window
+HideCursor = false
+
+#Use Playstation Emulation Cheater plugin
+UsePEC = false
+
+#Disables PEC and emulator save states (ie. F1/F2/F3 keys)
+HardcoreMode = false
+
+#Fixes fullscreen aspect ratio, default disabled because it's buggy
+FixFullscreenAspect = false
+
+#Disable sound plugin FPS auto limit
+DisableSetFrameLimit = false
+
+[GTEAccuracy]
+
+#Enables GTE Accuracy Hack
+GTEAccuracy = true
+
+#Clears GTE vertex cache on VRAM reads, fixes some 2D screens
+GTECacheClear = true
+
+[Window]
+
+#Moves window to X position
+WindowX = -1
+
+#Moves window to Y position
+WindowY = -1
+
+#Set window on-top flag
+WindowOnTop = false
+
+[ResHack]
+
+#Internal resolution X multiplier, recommended max: 8
+MulX = 8
+
+#Internal resolution Y multiplier, recommended max: 12
+MulY = 8
+
+[xBRZ]
+
+#xBRZ scale, max 6
+xBRZScale = 2
+
+#Number of texels in batch for xBRZ scaler
+BatchSize = 1024
+
+#Maxium number of threads
+MaxSlicesCount = 12
+
+#Deposterize, usefull for games with heavy dithering like Silent Hill
+Deposterize = true
+
+#Use nearest neighbour scaler for FBE, requires "2: Standard" setting for FBE!
+FastFBE = true
+
+#Forces nearest neighbour scaler
+ForceNearest = false
+
+#Texture Cache size (in textures count!) for upscaled textures so texture is upscaled only once - fast!
+TextureCacheSize = 128
+
+[Version]
+Config = 240

@@ -1,0 +1,453 @@
+.:7800 BIOS (U).rom:A010EDF:.:-
+.:7800 BIOS (U).rom:D5B61170:.:-
+.:7800 BIOS (U).rom:5D13730C:.:->
+.:bios_CD_U.bin:9F6F6276:.:->
+.:keropi\cgrom.dat:9F3195F1.:->
+.:keropi\iplrom.dat:72BDF532.:->
+.:cx4.data.rom:B6E76A6A>
+.:cx4.rom:B6E76A6A>
+.:disksys.rom:1C7AE5D5:.:-
+.:disksys.rom:4DF24A6C:.:-
+.:disksys.rom:5E607DCF:.:->
+.:dsp1.data.rom:C8347CBD>
+.:dsp1.program.rom:DB9A4C92>
+.:dsp1.rom:E359F184>
+.:dsp1b.data.rom:37A252C6>
+.:dsp1b.program.rom:66A73998>
+.:dsp1b.rom:465C4E1C>
+.:dsp2.data.rom:B3893C70>
+.:dsp2.program.rom:0C1CF838>
+.:dsp2.rom:9A984974>
+.:dsp3.data.rom:8B41A2BD>
+.:dsp3.program.rom:F29BE51C>
+.:dsp3.rom:D4A38EE7>
+.:dsp4.data.rom:EFA8B9B2>
+.:dsp4.program.rom:14B77AE3>
+.:dsp4.rom:E15384C0>
+.:eu_mcd1_9210.bin:34D3CCE1:.:-:.:-
+.:eu_mcd1_9210.bin:4D5CB8DA:.:-:.:-
+.:eu_mcd1_9210.bin:0507B590:.:-:.:-
+.:eu_mcd1_9210.bin:D344F125:.:-:.:-
+.:eu_mcd1_9210.bin:529AC15A:.:-:.:->
+.:gba_bios.bin:81977335:.:-:.:->
+.:japan-j3.bin:DFF6D41F:.:-:.:->
+.:jp_mcd1_9112.bin:2B19972F:.:-:.:-
+.:jp_mcd1_9112.bin:D21FE71D:.:-:.:-
+.:jp_mcd1_9112.bin:DD6CC972:.:-:.:-
+.:jp_mcd1_9112.bin:9D2DA8F2:.:-:.:-
+.:jp_mcd1_9112.bin:79F85384:.:-:.:-
+.:jp_mcd1_9112.bin:F18DDE5B:.:-:.:-
+.:jp_mcd1_9112.bin:00EEDB3A:.:-:.:-
+.:jp_mcd1_9112.bin:550F30BB:.:-:.:->
+.:lynxboot.img:0D973C9D:.:-
+.:lynxboot.img:E1FFECB6:.:-
+.:lynxboot.img:B2AA7578:.:-
+.:lynxboot.img:0D973C9D:.:->
+.:mpr-17933.bin:4AFCF0FA:.:->
+.:neo-epo.bin:D27A71F1>
+.:neo-po.bin:16D0C132>
+.:neodebug.bin:698EBB7D>
+.:o2rom.bin:8016A315>
+.:panafz10.bin:D5CBC509
+.:panafz10.bin:C8C8FF89
+.:panafz10.bin:B6F5028B
+.:panafz10.bin:58242CEE>
+.:pcfx.bios:76FFB97A:.:->
+.:ProSystem.dat:9402D164:.:->
+.:rtc.ram:16CF848D.:>
+.:np2\BIOS.ROM:34A19A59.:>
+.:np2\font.bmp:D271798B.:>
+.:saturn_bios.bin:224B752C:Setting\Saturn:->
+.:scph5500.bin:EC541CD0:bios:-:.:-:bios:.:-
+.:scph5500.bin:3B601FC8:bios:-:.:-:bios:.:-
+.:scph5500.bin:FF3EEB8C:bios:-:.:-:bios:.:->
+.:scph5501.bin:502224B6:bios:-:.:-:bios:.:-
+.:scph5501.bin:37157331:bios:-:.:-:bios:.:-
+.:scph5501.bin:8D8CB7E4:bios:-:.:-:bios:.:->
+.:scph5502.bin:4D9E7C86:bios:-:.:-:bios:.:-
+.:scph5502.bin:318178BF:bios:-:.:-:bios:.:-
+.:scph5502.bin:D786F0B9:bios:-:.:-:bios:.:->
+.:sega1003.bin:B3C63C25>
+.:sega_100.bin:2ABA43C2:Setting\Saturn:->
+.:sega_100a.bin:F90F0089:Setting\Saturn:->
+.:sega_101.bin:4AFCF0FA:Setting\Saturn:-
+.:sega_101.bin:224B752C:Setting\Saturn:->
+.:sgb.boot.rom:EC8A83B9:.:->
+.:st010.data.rom:216081B2>
+.:st010.program.rom:691CBB4F>
+.:st010.rom:8FC29D4C>
+.:st011.data.rom:803256A7>
+.:st011.program.rom:A741E9FB>
+.:st011.rom:84AAB2AE>
+.:st018.data.rom:B5255459>
+.:st018.program.rom:F73D5E10>
+.:st018.rom:5C403CC5>
+.:syscard3.pce:FF2A5EC3:.:-
+.:syscard3.pce:2B5B75FE:.:-
+.:syscard3.pce:6D9A73EF:.:-
+.:syscard3.pce:3F9F95A4:.:-
+.:syscard3.pce:52520BC6:.:-
+.:syscard3.pce:283B74E0:.:-
+.:syscard3.pce:64F78E3C:.:->
+.:usa_2slt.bin:E72943DE:.:->
+.:us_scd1_9210.bin:290F8E33:.:-
+.:us_scd1_9210.bin:2E49D72C:.:-
+.:us_scd1_9210.bin:9F6F6276:.:-
+.:us_scd1_9210.bin:8AF65F58:.:-
+.:us_scd1_9210.bin:E7E3AFE2:.:-
+.:us_scd1_9210.bin:50CD3D23:.:-
+.:us_scd1_9210.bin:3B10CF41:.:-
+.:us_scd1_9210.bin:9F6F6276:.:-
+.:us_scd1_9210.bin:C6D10268:.:->
+.:bios7.bin:1280F0D5.:->
+.:bios9.bin:2AB23573.:->
+.:firmware.bin:6133798D->
+Databases:colecodb.xml:5C42B5D1>
+Databases:msxcaswavdb.xml:4AE56BF2>
+Databases:msxromdb.xml:ED4C6720>
+Databases:msxsysromdb.xml:A11837C3>
+Databases:segadb.xml:AD813665>
+Databases:svidb.xml:84D48F54>
+dc:DC - BIOS (All).bin:89F2B1A1:-:-:Data:-
+dc:DC - BIOS (All).bin:61D5613F:-:-:Data:->
+dc:DC - Flash (All).bin:C611B498:-:-:Data:-
+dc:DC - Flash (All).bin:E0D202A2:-:-:Data:->
+dc:DC - Utopia CD Loader V1.1.cdi:2AF8BE5C>
+dc:DC - Utopia CD Loader V1.1.nrg:CB515077>
+dc:DC - VMS BIOS (Full).bin:C7C77B3C:-:Data>
+dc:dc101d_us.bin:05EFF2BB:-:-:Data:->
+dc:dc_boot.bin:89F2B1A1:-:-:Data:->
+dc:dc_flash.bin:C611B498:-:-:Data:->
+dc:dc_nvmem.bin:05EFF2BB:-:-:Data:->
+dc:fsca-table.bin:5D905DE4:.:-:Data:->
+dc:vmu_save_A1.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_A2.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_B1.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_B2.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_C1.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_C2.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_D1.bin:7EE8CDCD:-:-:Data:->
+dc:vmu_save_D2.bin:7EE8CDCD:-:-:Data:->
+Machines\COL - Bit Corporation Dina:config.ini:AD177B1C>
+Machines\COL - Bit Corporation Dina:czz50-1.rom:696C101A>
+Machines\COL - Bit Corporation Dina:czz50-2.rom:6538DD32>
+Machines\COL - ColecoVision:coleco.rom:3AA93EF3>
+Machines\COL - ColecoVision:config.ini:D3DE69D9>
+Machines\COL - ColecoVision with Opcode Memory Extension:coleco.rom:3AA93EF3>
+Machines\COL - ColecoVision with Opcode Memory Extension:config.ini:4233F38D>
+Machines\COL - Spectravideo SVI-603 Coleco:config.ini:F8B7F23B>
+Machines\COL - Spectravideo SVI-603 Coleco:SVI603.ROM:19E91B82>
+Machines\Forte II Games - Pesadelo:config.ini:BCD41DE3>
+Machines\Forte II Games - Pesadelo:pesadelo.rom:1AE2F724>
+Machines\MSX:config.ini:FB7EA5D9>
+Machines\MSX - Al Alamiah AX-170:config.ini:F9FE3F94>
+Machines\MSX - Arabic:config.ini:E0F1C37D>
+Machines\MSX - Brazilian:config.ini:EAFC0CEB>
+Machines\MSX - C-BIOS:cbios.txt:582C06D2>
+Machines\MSX - C-BIOS:cbios_logo_msx1.rom:F969E424>
+Machines\MSX - C-BIOS:cbios_main_msx1.rom:F0050785>
+Machines\MSX - C-BIOS:config.ini:4C4104DD>
+Machines\MSX - Canon V-10:config.ini:9AC28DE1>
+Machines\MSX - Canon V-20:config.ini:A859DD0B>
+Machines\MSX - Daewoo DPC-100:config.ini:77A5003F>
+Machines\MSX - Daewoo DPC-180:config.ini:09B64445>
+Machines\MSX - Daewoo DPC-200:config.ini:29B291CD>
+Machines\MSX - Daewoo DPC-200E:config.ini:20643071>
+Machines\MSX - Estonian:config.ini:C8F96701>
+Machines\MSX - Frael Bruc 100-1:config.ini:135089A8>
+Machines\MSX - French:config.ini:4A086035>
+Machines\MSX - German:config.ini:FE7AA493>
+Machines\MSX - Goldstar FC-200:config.ini:ACF2101E>
+Machines\MSX - Gradiente Expert 1.0:config.ini:D6104239>
+Machines\MSX - Gradiente Expert 1.1:config.ini:FB9E90B4>
+Machines\MSX - Gradiente Expert 1.3:config.ini:B7F821ED>
+Machines\MSX - Gradiente Expert DDPlus:config.ini:01F45D95>
+Machines\MSX - Gradiente Expert Plus:config.ini:F15A946B>
+Machines\MSX - Japanese:config.ini:6C4D184C>
+Machines\MSX - JVC HC-7GB:config.ini:8A857A78>
+Machines\MSX - Korean:config.ini:77CF5559>
+Machines\MSX - Mitsubishi ML-F80:config.ini:D08091C7>
+Machines\MSX - Mitsubishi ML-FX1:config.ini:70C19A2F>
+Machines\MSX - National CF-1200:config.ini:AF296A1D>
+Machines\MSX - National CF-2000:config.ini:E935AD5F>
+Machines\MSX - National CF-2700:config.ini:1E1252FE>
+Machines\MSX - National CF-3000:config.ini:C406C3DD>
+Machines\MSX - National CF-3300:config.ini:B1FDB3B2>
+Machines\MSX - National FS-1300:config.ini:9F3C19AD>
+Machines\MSX - National FS-4000:config.ini:2CCAC7AE>
+Machines\MSX - Olympia PHC-2:config.ini:B6EEB005>
+Machines\MSX - Olympia PHC-28:config.ini:102592BF>
+Machines\MSX - Panasonic CF-2700G:config.ini:0E77F49F>
+Machines\MSX - Philips NMS-801:config.ini:302E63E8>
+Machines\MSX - Philips VG-8000:config.ini:F88548E0>
+Machines\MSX - Philips VG-8010:config.ini:960CAC22>
+Machines\MSX - Philips VG-8010F:config.ini:51957B67>
+Machines\MSX - Philips VG-8020-00:config.ini:111C72AF>
+Machines\MSX - Philips VG-8020-20:config.ini:388304D6>
+Machines\MSX - Philips VG-8020F:config.ini:FB6CAC1C>
+Machines\MSX - Pioneer PX-7:config.ini:34A4A905>
+Machines\MSX - Pioneer PX-V60:config.ini:1FCB7015>
+Machines\MSX - Russian:config.ini:98863885>
+Machines\MSX - Sanyo MPC-100:config.ini:C72BAE29>
+Machines\MSX - Sanyo MPC-64:config.ini:1CE7A6AF>
+Machines\MSX - Sanyo PHC-28L:config.ini:DFACBF5E>
+Machines\MSX - Sanyo PHC-28S:config.ini:98842945>
+Machines\MSX - Sanyo Wavy MPC-10:config.ini:41B32477>
+Machines\MSX - Sharp Epcom HotBit 1.1:config.ini:CA568852>
+Machines\MSX - Sharp Epcom HotBit 1.2:config.ini:22B6E359>
+Machines\MSX - Sharp Epcom HotBit 1.3b:config.ini:BF6BEB70>
+Machines\MSX - Sharp Epcom HotBit 1.3p:config.ini:E2677AF7>
+Machines\MSX - Sony HB-10P:config.ini:ED471739>
+Machines\MSX - Sony HB-201:config.ini:8FE12434>
+Machines\MSX - Sony HB-201P:config.ini:6FAB5EE0>
+Machines\MSX - Sony HB-20P:config.ini:B50F35DB>
+Machines\MSX - Sony HB-501P:config.ini:301881E4>
+Machines\MSX - Sony HB-55D:config.ini:9B6D45EA>
+Machines\MSX - Sony HB-55P:config.ini:62D74324>
+Machines\MSX - Sony HB-75D:config.ini:C7C00A93>
+Machines\MSX - Sony HB-75P:config.ini:F7A2EB39>
+Machines\MSX - Spanish:config.ini:0FE6F34C>
+Machines\MSX - Spectravideo SVI-728:config.ini:3A44E91F>
+Machines\MSX - Spectravideo SVI-738:config.ini:B123EB6D>
+Machines\MSX - Spectravideo SVI-738 Henrik Gilvad:config.ini:5B607874>
+Machines\MSX - Spectravideo SVI-738 Swedish:config.ini:9118AD4E>
+Machines\MSX - Swedish:config.ini:779B3BAA>
+Machines\MSX - Talent DPC-200:config.ini:075F91D6>
+Machines\MSX - Talent DPC-200A:config.ini:4EAD381D>
+Machines\MSX - Toshiba HX-10:config.ini:34C70DA4>
+Machines\MSX - Toshiba HX-10S:config.ini:F77F58FD>
+Machines\MSX - Toshiba HX-20:config.ini:6889993B>
+Machines\MSX - Yamaha CX5M-1:config.ini:0039CBDE>
+Machines\MSX - Yamaha CX5M-128:config.ini:B3E1ECAE>
+Machines\MSX - Yamaha CX5M-2:config.ini:BFE16742>
+Machines\MSX - Yamaha CX5MII:config.ini:BAA6720E>
+Machines\MSX - Yamaha YIS303:config.ini:E3C8308D>
+Machines\MSX - Yamaha YIS503:config.ini:513B3D55>
+Machines\MSX - Yamaha YIS503F:config.ini:F5339B4D>
+Machines\MSX - Yamaha YIS503II:config.ini:6B90864E>
+Machines\MSX - Yamaha YIS503IIR:config.ini:3209D68F>
+Machines\MSX - Yamaha YIS503IIR Estonian:config.ini:FCA636B9>
+Machines\MSX - Yamaha YIS503M:config.ini:ED147BD7>
+Machines\MSX - Yashica YC-64:config.ini:C581CC8F>
+Machines\MSX - Yeno DPC-64:config.ini:DD81F0B1>
+Machines\MSX - Yeno MX64:config.ini:B3F889B5>
+Machines\MSX2:config.ini:11543FA2>
+Machines\MSX2 - Al Alamiah AX-350:config.ini:42E63ED1>
+Machines\MSX2 - Al Alamiah AX-370:config.ini:8A8E9736>
+Machines\MSX2 - Arabic:config.ini:9C397EB5>
+Machines\MSX2 - Brazilian:config.ini:B0259AB1>
+Machines\MSX2 - C-BIOS:cbios.txt:582C06D2>
+Machines\MSX2 - C-BIOS:cbios_logo_msx2.rom:4C5485AA>
+Machines\MSX2 - C-BIOS:cbios_main_msx2.rom:EC2FE089>
+Machines\MSX2 - C-BIOS:cbios_sub.rom:F7A597E1>
+Machines\MSX2 - C-BIOS:config.ini:080B6B1E>
+Machines\MSX2 - Daewoo CPC-300:config.ini:52530CCC>
+Machines\MSX2 - Daewoo CPC-300E:config.ini:E2832AE3>
+Machines\MSX2 - Daewoo CPC-400:config.ini:9AF2E00A>
+Machines\MSX2 - Daewoo CPC-400S:config.ini:8D968A40>
+Machines\MSX2 - Estonian:config.ini:19952725>
+Machines\MSX2 - French:config.ini:A64FF87B>
+Machines\MSX2 - German:config.ini:BCB1D3B4>
+Machines\MSX2 - Gradiente Expert 2.0:config.ini:DF6DAF1A>
+Machines\MSX2 - Japanese:config.ini:17FC45D5>
+Machines\MSX2 - Korean:config.ini:F0F95424>
+Machines\MSX2 - National FS-4500:config.ini:FDE93321>
+Machines\MSX2 - National FS-4600:config.ini:E3EBCCED>
+Machines\MSX2 - National FS-4700:config.ini:EC1468D3>
+Machines\MSX2 - National FS-5000:config.ini:E611066F>
+Machines\MSX2 - National FS-5500F1:config.ini:8D95D4E6>
+Machines\MSX2 - National FS-5500F2:config.ini:7F8063E8>
+Machines\MSX2 - Only PSG:config.ini:73100086>
+Machines\MSX2 - Panasonic FS-A1:config.ini:8EB6EB2F>
+Machines\MSX2 - Panasonic FS-A1 (a):config.ini:4A942A29>
+Machines\MSX2 - Panasonic FS-A1F:config.ini:3499459A>
+Machines\MSX2 - Panasonic FS-A1FM:config.ini:ADF5CAF0>
+Machines\MSX2 - Panasonic FS-A1MK2:config.ini:D3CA7D2F>
+Machines\MSX2 - Philips NMS-8220:config.ini:0EBE4397>
+Machines\MSX2 - Philips NMS-8220 (a):config.ini:A93DE8C0>
+Machines\MSX2 - Philips NMS-8245:config.ini:EC7F14C6>
+Machines\MSX2 - Philips NMS-8245F:config.ini:7475B435>
+Machines\MSX2 - Philips NMS-8250:config.ini:A1628665>
+Machines\MSX2 - Philips NMS-8255:config.ini:C66C35F0>
+Machines\MSX2 - Philips NMS-8280:config.ini:69A285B4>
+Machines\MSX2 - Philips NMS-8280G:config.ini:0A2FE875>
+Machines\MSX2 - Philips VG-8230:config.ini:DEA2D08E>
+Machines\MSX2 - Philips VG-8235:config.ini:5AC10507>
+Machines\MSX2 - Philips VG-8235F:config.ini:2EA76906>
+Machines\MSX2 - Philips VG-8240:config.ini:87A1EE46>
+Machines\MSX2 - Russian:config.ini:D599144F>
+Machines\MSX2 - Sanyo Wavy MPC-25FD:config.ini:517437A9>
+Machines\MSX2 - Sanyo Wavy PHC-23:config.ini:AC750030>
+Machines\MSX2 - Sharp Epcom HotBit 2.0:config.ini:4028BD85>
+Machines\MSX2 - Sony HB-F1:config.ini:3D4977E9>
+Machines\MSX2 - Sony HB-F1II:config.ini:4C57996C>
+Machines\MSX2 - Sony HB-F1XD:config.ini:ADCE47DD>
+Machines\MSX2 - Sony HB-F1XDMK2:config.ini:9B54D48B>
+Machines\MSX2 - Sony HB-F500:config.ini:6138ABF7>
+Machines\MSX2 - Sony HB-F500P:config.ini:D284F5D7>
+Machines\MSX2 - Sony HB-F700D:config.ini:C57083E9>
+Machines\MSX2 - Sony HB-F700F:config.ini:CF0E9203>
+Machines\MSX2 - Sony HB-F700P:config.ini:4D9BD42F>
+Machines\MSX2 - Sony HB-F700S:config.ini:42DACD30>
+Machines\MSX2 - Sony HB-F900:config.ini:6D1A1F65>
+Machines\MSX2 - Sony HB-F900 (a):config.ini:5C0720A6>
+Machines\MSX2 - Sony HB-F9P:config.ini:DAAC01C9>
+Machines\MSX2 - Sony HB-F9P Russian:config.ini:70C34C64>
+Machines\MSX2 - Sony HB-F9S:config.ini:29CDD686>
+Machines\MSX2 - Sony HB-G900AP:config.ini:6255227F>
+Machines\MSX2 - Sony HB-G900P:config.ini:B1590BFA>
+Machines\MSX2 - Spanish:config.ini:E8135C5E>
+Machines\MSX2 - Spectravideo SVI-738-2 CUC:config.ini:A8F63614>
+Machines\MSX2 - Spectravideo SVI-738-2 JP Grobler:config.ini:608C4306>
+Machines\MSX2 - Spectravideo SVI-738-2 LC Grosso:config.ini:1489EE4C>
+Machines\MSX2 - Swedish:config.ini:DFA548EF>
+Machines\MSX2 - Talent TPC-310:config.ini:8C4167EE>
+Machines\MSX2 - Toshiba HX-23:config.ini:27723BF9>
+Machines\MSX2 - Toshiba HX-23F:config.ini:425CE987>
+Machines\MSX2 - Virtual Haesung Console:config.ini:62DBFCE5>
+Machines\MSX2 - Yamaha CX7M:config.ini:9212C2DB>
+Machines\MSX2 - Yamaha CX7M-128:config.ini:BB7DA292>
+Machines\MSX2+:config.ini:8609E07E>
+Machines\MSX2+ - Brazilian:config.ini:19FE4C08>
+Machines\MSX2+ - C-BIOS:cbios.txt:582C06D2>
+Machines\MSX2+ - C-BIOS:cbios_logo_msx2+.rom:1C7429C6>
+Machines\MSX2+ - C-BIOS:cbios_main_msx2+.rom:AE23C039>
+Machines\MSX2+ - C-BIOS:cbios_music.rom:15C6CE2B>
+Machines\MSX2+ - C-BIOS:cbios_sub.rom:F7A597E1>
+Machines\MSX2+ - C-BIOS:config.ini:463E6FFC>
+Machines\MSX2+ - Ciel Expert 3 IDE:config.ini:8EA96669>
+Machines\MSX2+ - Ciel Expert 3 Turbo:config.ini:7AB7592C>
+Machines\MSX2+ - European:config.ini:390CA8FD>
+Machines\MSX2+ - European:KANJI.rom:1F6406FB>
+Machines\MSX2+ - European:Msx2pe.rom:76C46FE0>
+Machines\MSX2+ - European:Msx2pexte.rom:2852B383>
+Machines\MSX2+ - European:MSX2PMUS.rom:456E494E>
+Machines\MSX2+ - European:MSXKANJI.rom:B4FC574D>
+Machines\MSX2+ - European:PANASONICDISK.rom:17FA392B>
+Machines\MSX2+ - European:XBASIC2.rom:2825B1A0>
+Machines\MSX2+ - Gradiente Expert AC88+:config.ini:054C631D>
+Machines\MSX2+ - Gradiente Expert DDX+:config.ini:746D1F27>
+Machines\MSX2+ - MSXPLAYer 2003:config.ini:63683601>
+Machines\MSX2+ - Panasonic FS-A1FX:config.ini:6FD91ED9>
+Machines\MSX2+ - Panasonic FS-A1WSX:config.ini:C2C572FB>
+Machines\MSX2+ - Panasonic FS-A1WX:config.ini:B2CFD854>
+Machines\MSX2+ - Panasonic FS-A1WX (a):config.ini:3D191A4B>
+Machines\MSX2+ - Sanyo Wavy PHC-35J:config.ini:D71D6C2A>
+Machines\MSX2+ - Sanyo Wavy PHC-70FD1:config.ini:589092E3>
+Machines\MSX2+ - Sanyo Wavy PHC-70FD2:config.ini:DA69E434>
+Machines\MSX2+ - Sony HB-F1XDJ:config.ini:46EDD0BA>
+Machines\MSX2+ - Sony HB-F1XV:config.ini:E079EDDD>
+Machines\MSX2+ - Sony HB-F9S+:config.ini:C3B50B71>
+Machines\MSXturboR:config.ini:1F62C680>
+Machines\MSXturboR - European:config.ini:9435070A>
+Machines\MSXturboR - Panasonic FS-A1GT:config.ini:5835F149>
+Machines\MSXturboR - Panasonic FS-A1ST:config.ini:158717D0>
+Machines\MSXturboR - Panasonic FS-A1ST (a):config.ini:3158CDF2>
+Machines\MSXturboR - Panasonic FS-A1ST (b):config.ini:B72BEA18>
+Machines\SEGA - SC-3000:config.ini:B74A08E6>
+Machines\SEGA - SF-7000:config.ini:BA727732>
+Machines\SEGA - SF-7000:sf7000.rom:D76810B8>
+Machines\SEGA - SG-1000:config.ini:6C26E357>
+Machines\Shared Roms:ARAB1.ROM:339CD1AA>
+Machines\Shared Roms:ARABIC.rom:C0D8FC85>
+Machines\Shared Roms:BEERIDE.ROM:584B1250>
+Machines\Shared Roms:FMPAC.rom:0E84505D>
+Machines\Shared Roms:GCVMX80.ROM:47B843CA>
+Machines\Shared Roms:HANGUL.rom:B663C605>
+Machines\Shared Roms:KANJI.rom:1F6406FB>
+Machines\Shared Roms:MICROSOLDISK.ROM:232222BE>
+Machines\Shared Roms:MOONSOUND.rom:2A9D8D43>
+Machines\Shared Roms:MSX.rom:A317E6B4>
+Machines\Shared Roms:MSX2.rom:6CDAF3A5>
+Machines\Shared Roms:MSX2AR.ROM:EA306155>
+Machines\Shared Roms:MSX2AREXT.ROM:7C7540B7>
+Machines\Shared Roms:MSX2BR.rom:6BACDCE4>
+Machines\Shared Roms:MSX2BREXT.rom:08CED880>
+Machines\Shared Roms:MSX2EXT.rom:66237ECF>
+Machines\Shared Roms:MSX2FR.rom:C0577A50>
+Machines\Shared Roms:MSX2FREXT.rom:E235D5C8>
+Machines\Shared Roms:MSX2G.rom:8FA060E2>
+Machines\Shared Roms:MSX2GEXT.rom:41E36D03>
+Machines\Shared Roms:MSX2HAN.rom:A8EAD5E3>
+Machines\Shared Roms:MSX2J.rom:9B3E7B97>
+Machines\Shared Roms:MSX2JEXT.rom:43E7A7FC>
+Machines\Shared Roms:MSX2KR.rom:53850907>
+Machines\Shared Roms:MSX2KREXT.rom:2BA104A3>
+Machines\Shared Roms:MSX2P.rom:19771608>
+Machines\Shared Roms:MSX2PEXT.rom:B8BA44D3>
+Machines\Shared Roms:MSX2PMUS.rom:456E494E>
+Machines\Shared Roms:MSX2R.rom:E7D08E29>
+Machines\Shared Roms:MSX2R2.ROM:D0C20F54>
+Machines\Shared Roms:MSX2REXT.rom:34D21778>
+Machines\Shared Roms:MSX2SE.rom:5648EEEB>
+Machines\Shared Roms:MSX2SP.rom:C2B889A5>
+Machines\Shared Roms:MSX2SPEXT.rom:DC0951BD>
+Machines\Shared Roms:MSXAR.ROM:BD95C436>
+Machines\Shared Roms:MSXBR.rom:EFB4B972>
+Machines\Shared Roms:MSXDOS23.ROM:D25FC001>
+Machines\Shared Roms:MSXFR.rom:6E692FA1>
+Machines\Shared Roms:MSXG.rom:7E2B32DD>
+Machines\Shared Roms:MSXHAN.rom:938DB440>
+Machines\Shared Roms:MSXJ.rom:071135E0>
+Machines\Shared Roms:MSXKANJI.rom:B4FC574D>
+Machines\Shared Roms:MSXKR.rom:3AB0CD3B>
+Machines\Shared Roms:MSXR.rom:5095AE3D>
+Machines\Shared Roms:MSXR2.ROM:67872F40>
+Machines\Shared Roms:MSXSE.ROM:C8CCDAA0>
+Machines\Shared Roms:MSXSP.rom:FED7506F>
+Machines\Shared Roms:MSXTR.ROM:937C8DBB>
+Machines\Shared Roms:MSXTREXT.ROM:70AEA0FE>
+Machines\Shared Roms:MSXTRMUS.ROM:F5F93437>
+Machines\Shared Roms:MSXTROPT.ROM:50D11F60>
+Machines\Shared Roms:NATIONALDISK.rom:1E7D6512>
+Machines\Shared Roms:NOVAXIS.rom:ECF385F2>
+Machines\Shared Roms:nowindDos1.rom:0A7A7A5B>
+Machines\Shared Roms:nowindDos2.rom:D64DEE77>
+Machines\Shared Roms:PAINT.rom:18956E3A>
+Machines\Shared Roms:PANASONICDISK.rom:17FA392B>
+Machines\Shared Roms:PHILIPSDISK.rom:CA3307D3>
+Machines\Shared Roms:RS232.ROM:3353DCC6>
+Machines\Shared Roms:Shared.txt:71689EC0>
+Machines\Shared Roms:SUNRISEIDE.rom:C3438B15>
+Machines\Shared Roms:SWP.rom:076F40FC>
+Machines\Shared Roms:XBASIC2.rom:2825B1A0>
+Machines\SVI - Spectravideo SVI-318:config.ini:F05BF1E4>
+Machines\SVI - Spectravideo SVI-318:svi318.rom:98D48655>
+Machines\SVI - Spectravideo SVI-328:config.ini:89A71896>
+Machines\SVI - Spectravideo SVI-328:svi328.rom:709904E9>
+Machines\SVI - Spectravideo SVI-328 80 Column:config.ini:FDAED247>
+Machines\SVI - Spectravideo SVI-328 80 Column:svi328a.rom:BC433DF6>
+Machines\SVI - Spectravideo SVI-328 80 Column:svi806.rom:850BC232>
+Machines\SVI - Spectravideo SVI-328 80 Swedish:config.ini:F12A70FD>
+Machines\SVI - Spectravideo SVI-328 80 Swedish:svi328a.rom:BC433DF6>
+Machines\SVI - Spectravideo SVI-328 80 Swedish:svi806se.rom:DAEA8956>
+Machines\SVI - Spectravideo SVI-328 MK2:config.ini:4F3F32BE>
+Machines\SVI - Spectravideo SVI-328 MK2:svi328a.rom:BC433DF6>
+Machines\SVI - Spectravideo SVI-328 MK2:svi806.rom:850BC232>
+PPSSPP:ppge_atlas.zim:1E8709C1>
+PPSSPP\flash0\font:arib.pgf:16493569>
+PPSSPP\flash0\font:jpn0.pgf:428A1A18>
+PPSSPP\flash0\font:kr0.pgf:640EC9CF>
+PPSSPP\flash0\font:ltn0.pgf:63694424>
+PPSSPP\flash0\font:ltn1.pgf:19F82761>
+PPSSPP\flash0\font:ltn10.pgf:6A1C1701>
+PPSSPP\flash0\font:ltn11.pgf:E3A63AE0>
+PPSSPP\flash0\font:ltn12.pgf:0F2C3DFE>
+PPSSPP\flash0\font:ltn13.pgf:EA735706>
+PPSSPP\flash0\font:ltn14.pgf:2B6B3111>
+PPSSPP\flash0\font:ltn15.pgf:4FEF9779>
+PPSSPP\flash0\font:ltn2.pgf:6440B952>
+PPSSPP\flash0\font:ltn3.pgf:CB843E28>
+PPSSPP\flash0\font:ltn4.pgf:57E74B60>
+PPSSPP\flash0\font:ltn5.pgf:B7ADC5AD>
+PPSSPP\flash0\font:ltn6.pgf:649214C7>
+PPSSPP\flash0\font:ltn7.pgf:8305B511>
+PPSSPP\flash0\font:ltn8.pgf:48437F2D>
+PPSSPP\flash0\font:ltn9.pgf:ACA2ABCE>
+PPSSPP\flash0\font:zh_gb.pgf:8E873D4C>
+_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero):data.rom:D3D26F16>
+_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero):Tengai Makyou Zero (Japan).srm:54E74103>
+_Extras\SNES SPC1170 (Momotarou Dentetsu Happy):data.rom:ED1E5493>
+_Extras\SNES SPC1170 (Momotarou Dentetsu Happy):Momotarou Dentetsu Happy (Japan).srm:9F978CFB>
+_Extras\SNES SPC1170 (Super Power League 4):data.rom:E8A36E80>
+_Extras\SNES SPC1170 (Super Power League 4):Super Power League 4 (Japan).srm:7F4243FD>

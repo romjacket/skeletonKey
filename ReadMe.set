@@ -1,0 +1,50 @@
+skeletonKey [CURV]
+
+ [VERSION]
+ 
+by romjacket 
+
+skeletonkey.exe
+
+This tool is a unified interface for ROMs, emulators and frontends.
+
+Official files are found at GITHUB
+http://github.com/romjacket/skeletonkey
+
+
+  
+
+
+################  USAGE  ##################
+
+Nearly all options have a hover-tool-tip which explains their function.
+
+A quick-start wizard will allow users to get up and running quickly.
+
+###########################################
+
+Source files are ".ahk" and included is the deployment tool:
+
+SK-Deploy.ahk
+
+# Deployment.
+
+SKey-Deploy.ahk:  
+
+In order to deploy this tool you will need:
+
+		NSIS: Nullsoft Scriptable Install System
+				https://sourceforge.net/projects/nsis/
+
+		AutoHotkey 1.1 or newer:
+				https://autohotkey.com/download/
+				
+				
+
+donate 5 bucks!  I'll use it!
+
+http://romjacket.mudlord.info/arigatokudasai.html
+
+more emulation-related software here:  
+
+http://romjacket.mudlord.info/

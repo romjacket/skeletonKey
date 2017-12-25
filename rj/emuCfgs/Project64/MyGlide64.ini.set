@@ -1,0 +1,1647 @@
+;_____________________________________________________________________
+; SETTINGS:
+; This section contains the plugin settings, such as
+; resolution.
+;
+; resolution - specifies which resolution to use
+;  Resolutions are as follows:
+; 0  - 320, 200
+; 1  - 320, 240
+; 2  - 400, 256
+; 3  - 512, 384
+; 4  - 640, 200
+; 5  - 640, 350
+; 6  - 640, 400
+; 7  - 640, 480
+; 8  - 800, 600
+; 9  - 960, 720
+; 10 - 856, 480
+; 11 - 512, 256
+; 12 - 1024, 768
+; 13 - 1280, 1024
+; 14 - 1600, 1200
+; 15 - 400, 300
+; 16 - 1152, 864
+; 17 - 1280, 960
+; 18 - 1600, 1024
+; 19 - 1792, 1344
+; 20 - 1856, 1392
+; 21 - 1920, 1080
+; 22 - 1920, 1440
+; 23 - 2048, 1536
+; 24 - 2048, 2048
+; Note: some video cards or monitors do not support all
+; resolutions!
+;
+; Note#2:For compatibility issues always distribute this
+; file with the resolution: 640, 480 (7)  
+;
+
+[SETTINGS]
+card_id = 0
+resolution=7
+filter_cache = 0
+autodetect_ucode = 1
+ucode = 2
+wireframe = 0
+wfmode=1
+filtering = 1
+depthmode = 0
+fog = 1
+buff_clear = 1
+vsync=0
+swapmode = 1
+run_in_window = 0
+show_fps = 0
+clock = 0
+clock_24_hr = 0
+custom_ini = 1
+hotkeys = 0
+ssformat=1
+logging = 0
+log_clear = 0
+unk_as_red = 0
+log_unk = 0
+unk_clear = 0
+new_swap = 1
+flame_corona = 0
+fb_smart = 1
+fb_read_always = 0
+fb_hires = 1
+motionblur = 1
+elogging = 0
+lodmode = 0
+fb_get_info = 0
+fb_render = 1
+detect_cpu_write = 0
+read_back_to_screen = 0
+advanced_options = 1
+texenh_options = 1
+ghq_fltr = 0
+ghq_cmpr = 0
+ghq_enht = 0
+ghq_hirs=0
+ghq_enht_cmpr = 0
+ghq_enht_tile = 0
+ghq_enht_f16bpp = 0
+ghq_enht_gz=1
+ghq_enht_nobg=1
+ghq_hirs_cmpr=1
+ghq_hirs_tile = 0
+ghq_hirs_f16bpp = 0
+ghq_hirs_gz = 1
+ghq_hirs_altcrc = 1
+ghq_cache_save=1
+ghq_cache_size=300
+ghq_hirs_let_texartists_fly=1
+ghq_hirs_dump = 0
+wrpResolution=0
+wrpVRAM=400
+wrpFBO=0
+wrpAnisotropic=0
+lang_id=58
+
+; UCODE:
+; These are ucode crcs used in the uCode detector.
+; If a crc is not found here, the plugin will ask you
+; to add it. All these values are in hexadecimal.
+;
+; uCodes:
+; -1 - Unknown, display error
+; 0 - RSP SW 2.0X (Super Mario 64)
+; 1 - F3DEX 1.XX (Star Fox 64)
+; 2 - F3DEX 2.XX (The Legend of Zelda: Ocarina of Time)
+; 3 - F3DEX ? (WaveRace)
+; 4 - RSP SW 2.0D EXT (Star Wars: Shadows of the Empire)
+; 5 - RSP SW 2.0 (Diddy Kong Racing); 
+; 6 - S2DEX 1.XX  (Yoshi's Story - SimCity 2000)
+; 7 - RSP SW PD (Perfect Dark)
+; 8 - F3DEXBG 2.08 (Conker's Bad Fur Day)
+
+[UCODE]
+006bd77f=0
+03044b84=2
+030f4b84=2
+05165579=1
+05777c62=1
+057e7c62=1
+07200895=0
+0bf36d36=9
+0d7bbffb=-1 
+0d7cbffb=5
+0ff79527=2
+0ff795bf=-1 
+1118b3e0=1
+168e9cd5=2
+1a1e18a0=2
+1a1e1920=2
+1a62dbaf=2
+1a62dc2f=2
+1de712ff=1
+1ea9e30f=6
+1f120bbb=21
+21f91834=2
+21f91874=2
+22099872=2
+24cd885b=1
+26a7879a=1
+299d5072=6
+2b291027=2
+2b5a89c2=6
+2c7975d6=1
+2d3fe3f1=1
+2f71d1d5=2
+2f7dd1d5=2
+327b933d=1
+339872a6=1
+377359b6=2
+3a1c2b34=0
+3a1cbac3=0
+3f7247fb=0
+3ff1a4ca=1
+4165e1fd=0
+4340ac9b=1
+440cfad6=1
+47d46e86=7
+485abff2=2
+4fe6df78=1
+5182f610=0
+5257cd2a=1
+5414030c=1
+5414030d=1
+559ff7d4=1
+5b5d36e3=4
+5b5d3763=3
+5d1d6f53=0
+5d3099f1=2
+5df1408c=1
+5ef4e34a=1
+6075e9eb=1
+60c1dcc4=1
+6124a508=2
+630a61fb=2
+63be08b1=5
+63be08b3=5
+64ed27e5=1
+65201989=2
+65201a09=2
+66c0b10a=1
+679e1205=2
+6bb745c9=6
+6d8f8f8a=2
+6e4d50af=0
+6eaa1da8=1
+72a4f34e=1
+73999a23=1
+74af0a74=6
+753be4a5=2
+794c3e28=6
+7df75834=1
+7f2d0a2e=1
+82f48073=1
+841ce10f=1
+844b55b5=-1
+863e1ca7=1
+86b1593e=-1
+8805ffea=1
+8d5735b2=1
+8d5735b3=1
+8ec3e124=-1
+93d11f7b=2
+93d11ffb=2
+93d1ff7b=2
+9551177b=2
+955117fb=2
+95cd0062=2
+97d1b58a=1
+a2d0f88e=2
+a346a5cc=1
+aa86cb1d=2
+aae4a5b9=2
+ad0a6292=2
+ad0a6312=2
+ae08d5b9=0
+b1821ed3=1
+b4577b9c=1
+b54e7f93=0
+b62f900f=2
+ba65ea1e=2
+ba86cb1d=8
+bc03e969=0
+bc45382e=2
+be78677c=1
+bed8b069=1
+c3704e41=1
+c46dbc3d=1
+c99a4c6c=1
+c901ce73=2
+c901cef3=2
+cb8c9b6c=2
+cee7920f=1
+cfa35a45=2
+d1663234=1
+d20dedbf=6
+d2a9f59c=1
+d41db5f7=1
+d5604971=0
+d57049a5=1
+d5c4dc96=-1
+d5d68b1f=0
+d67c2f8b=0
+d802ec04=1
+da13ab96=2
+de7d67d4=2
+e1290fa2=2
+e41ec47e=0
+e65cb4ad=2
+e89c2b92=1
+e9231df2=1
+ec040469=1
+ee47381b=1
+ef54ee35=1
+f9893f70=21
+fb816260=1
+ff372492=21
+
+
+
+; Game specific settings
+;
+; In the [DEFAULT] section there are the default options for a game, which can
+; be overriden in the section with the game's internal name.
+
+[DEFAULT]
+filtering = 0
+fog = 1
+buff_clear = 1
+swapmode = 1
+lodmode = 0
+fb_smart = 0
+fb_hires = 1
+fb_get_info = 0
+fb_read_always = 0
+fb_render = 1
+fb_crc_mode = 1
+read_back_to_screen = 0
+detect_cpu_write = 0
+alt_tex_size = 0
+use_sts1_only = 0
+PPL = 0
+fast_crc = 1
+force_microcheck = 0
+force_quad3d = 0
+optimize_texrect = 1
+hires_buf_clear = 1
+fb_read_alpha = 0
+ignore_previous = 0
+force_calc_sphere = 0
+texture_correction = 1
+increase_texrect_edge = 0
+decrease_fillrect_edge = 0
+stipple_mode = 2
+stipple_pattern = 1041204192
+clip_zmax = 1
+clip_zmin = 0
+correct_viewport = 0
+aspect=1
+zmode_compare_less = 0
+old_style_adither = 0
+n64_z_scale = 0
+
+;[1080 SNOWBOARDING]
+[1080\ SNOWBOARDING]
+alt_tex_size = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[AERO FIGHTERS ASSAUL]
+;fb_crc_mode = 2
+;clip_zmin = 1
+fb_smart = 1
+fb_hires = 1
+
+[AIDYN_CHRONICLES]
+fb_smart = 1
+fb_hires = 1
+
+[All-Star Baseball 20] 
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+;detect_cpu_write = 1
+;fb_read_always = 1
+
+[All-Star Baseball 99]
+filtering = 1
+buff_clear = 0
+swapmode = 2
+
+[All Star Baseball 99]
+filtering = 1
+buff_clear = 0
+swapmode = 2
+
+[All-Star Baseball '0]
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+;detect_cpu_write = 1
+;fb_read_always = 1
+
+[ARMYMENAIRCOMBAT]
+increase_texrect_edge = 1
+filtering = 1
+
+[Army Men Sarge]
+filtering = 1
+
+[ARMYMEN SARGE 2]
+filtering = 1
+
+[BAKU-BOMBERMAN]
+fb_smart = 1
+fb_hires = 1
+
+[BAKUBOMB2]
+filtering = 1
+
+[Banjo-Kazooie]
+fast_crc = 2
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+fb_read_always = 1
+
+[BANJO KAZOOIE 2]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[BANJO TOOIE]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[BASS HUNTER 64]
+buff_clear = 0
+swapmode = 2
+
+[BATTLEZONE]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[BEETLE ADVENTURE JP]
+n64_z_scale = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[Beetle Adventure Rac]
+n64_z_scale = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[BIOFREAKS]
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+
+[BioHazard II]
+detect_cpu_write = 1
+n64_z_scale = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[Blast Corps]
+filtering = 1
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[Blastdozer]
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[blitz2k]
+lodmode = 2
+
+[Body Harvest]
+clip_zmin = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+fb_read_always = 1
+
+[BOMBERMAN HERO]
+increase_texrect_edge = 1
+filtering = 1
+
+[BOMBERMAN64E]
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[BOMBERMAN64U]
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[BOMBERMAN64U2]
+filtering = 1
+swapmode = 2
+
+[Bottom of the 9th]
+optimize_texrect = 0
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[BRUNSWICKBOWLING]
+buff_clear = 0
+swapmode = 0
+
+[Bust A Move 3 DX]
+filtering = 1
+
+[Bust A Move 2]
+filtering = 1
+
+[CARMAGEDDON64]
+filtering = 1
+
+[CASTLEVANIA]
+old_style_adither = 1
+
+[CASTLEVANIA2]
+fb_smart = 1
+fb_hires = 1
+
+[CENTRE COURT TENNIS]
+;aspect = 2
+;fb_smart = 1
+;fb_hires = 1
+
+[Chameleon Twist2]
+filtering = 1
+
+[CHOPPER_ATTACK]
+filtering = 1
+
+[CITY TOUR GP]
+force_microcheck = 1
+filtering = 1
+
+[Command&Conquer]
+aspect = 2
+filtering = 1
+fog = 0
+detect_cpu_write = 1
+
+[CONKER BFD]
+lodmode = 1
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+fb_crc_mode = 2
+
+[Cruis'n USA]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[CRUIS'N WORLD]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[CruisnExotica]
+filtering = 1
+buff_clear = 0
+swapmode = 0
+
+[custom robo]
+fb_smart = 1
+fb_hires = 1
+
+[CUSTOMROBOV2]
+fb_smart = 1
+fb_hires = 1
+
+[DARK RIFT]
+force_microcheck = 1
+
+[DeadlyArts]
+fb_smart = 1
+fb_hires = 1
+clip_zmin = 1
+
+;Densha de Go
+[ÃÞÝ¼¬ÃÞGO!64]
+;increase_texrect_edge = 1
+
+[DERBYSTALLION 64]
+fb_crc_mode = 2
+detect_cpu_write = 1
+
+[Donald Duck Goin' Qu]
+detect_cpu_write = 1
+
+[Donald Duck Quack At]
+detect_cpu_write = 1
+
+[Donkey Kong 64]
+fb_smart = 1
+fb_hires = 1
+
+[Doom64]
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+;Doraemon 3
+[ÄÞ×´ÓÝ3\ ÉËÞÀÉÏÁSOS!]
+clip_zmin = 1
+
+;[Doraemon - Mittsu no Seireiseki]
+[ÄÞ×´ÓÝ Ð¯ÂÉ¾²Ú²¾·]
+read_back_to_screen = 1
+fb_smart = 1
+fb_hires = 1
+
+[DR.MARIO 64]
+fb_crc_mode = 2
+optimize_write = 1
+read_back_to_screen = 1
+fb_smart = 1
+fb_hires = 0
+
+[Dual heroes JAPAN]
+filtering = 1
+swapmode = 0
+
+[Dual heroes PAL]
+filtering = 1
+swapmode = 0
+
+[Dual heroes USA]
+filtering = 1
+swapmode = 0
+
+[EARTHWORM JIM 3D]
+filtering = 1
+buff_clear = 0
+
+;Eikou no Saint Andrew
+[´²º³É¾ÝÄ±ÝÄÞØ­°½]
+correct_viewport = 1
+
+[Eltail]
+filtering = 2
+
+[EXCITEBIKE64]
+fb_smart = 1
+fb_hires = 1
+
+[extreme_g]
+fb_smart = 1
+fb_hires = 1
+
+[extremeg]
+fb_smart = 1
+fb_hires = 1
+
+[´¸½ÄØ°ÑG2]
+depthmode = 0
+fb_smart = 1
+fb_hires = 1
+fb_clear = 1
+
+[Extreme G 2]
+fb_smart = 1
+fb_hires = 1
+
+[F1 POLE POSITION 64]
+clip_zmin = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[F1RacingChampionship]
+buff_clear = 0
+swapmode = 0
+
+[F1 WORLD GRAND PRIX]
+buff_clear = 0
+
+[F1 WORLD GRAND PRIX2]
+buff_clear = 0
+
+[F-ZERO X]
+;stipple_mode = 0
+
+[FLYING DRAGON]
+fb_smart=1
+fb_hires=1
+
+[Forsaken]
+fb_smart=1
+fb_hires=1
+
+;Fushigi no Dungeon - Furai no Shiren 2 (J) 
+[F3 Ì³×²É¼ÚÝ2]
+decrease_fillrect_edge = 1
+
+[G.A.S.P!!Fighters'NE]
+fb_smart = 1
+fb_hires = 1
+clip_zmin = 1
+
+[GANBAKE GOEMON]
+optimize_texrect = 0
+alt_tex_size = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+;Ganbare Goemon - Neo Momoyama Bakufu no Odori
+[¶ÞÝÊÞÚ\ ºÞ´ÓÝ]
+optimize_texrect = 0
+alt_tex_size = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[GAUNTLET LEGENDS]
+;hires_buf_clear = 0
+clip_zmin = 1
+filtering = 1
+swapmode = 2
+fb_read_alpha = 1
+
+[Getter Love!!]
+zmode_compare_less = 1
+filtering = 2
+
+[Gex 3 Deep Cover Gec]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[GEX: ENTER THE GECKO]
+filtering = 1
+
+[Glover]
+filtering = 1
+
+[GOEMON2 DERODERO]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[GOEMONS GREAT ADV]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[GOLDENEYE]
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[GOLDEN NUGGET 64]
+filtering = 2
+
+[GT64]
+force_microcheck = 1
+filtering = 1
+
+; Hamster Monogatori
+[ÊÑ½À°ÓÉ¶ÞÀØ64]
+force_microcheck = 1
+
+[HARVESTMOON64]
+zmode_compare_less = 1
+fog = 0
+
+; Harvest Moon 64 JAP
+[ÎÞ¸¼Þ®³ÓÉ¶ÞÀØ2]
+zmode_compare_less = 1
+fog = 0
+
+; Heiwa Pachinko World
+[HEIWA ÊßÁÝº Ü°ÙÄÞ64]
+fog = 0
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[HEXEN]
+detect_cpu_write = 1
+filtering = 1
+buff_clear = 1
+swapmode = 2
+
+[HSV ADVENTURE RACING]
+n64_z_scale = 1
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[Holy Magic Century]
+filtering=0
+
+[HUMAN GRAND PRIX]
+filtering = 2
+
+[Hydro Thunder]
+filtering = 1
+
+[I S S 64]
+swapmode = 2
+old_style_adither = 1
+
+[I.S.S.2000]
+clip_zmin = 1
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+
+[ITF 2000]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[IT&F SUMMERGAMES]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[J_league 1997]
+swapmode = 0
+
+;J.League Eleven Beat 1997
+[JØ°¸Þ\ ²ÚÌÞÝËÞ°Ä1997]
+fb_smart=1
+fb_hires=1
+
+[J WORLD SOCCER3]
+swapmode = 2
+
+[JEREMY MCGRATH SUPER]
+swapmode = 0
+
+[JET FORCE GEMINI]
+read_back_to_screen = 1
+decrease_fillrect_edge = 1
+alt_tex_size = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[J F G DISPLAY]
+read_back_to_screen = 1
+decrease_fillrect_edge = 1
+alt_tex_size = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[KEN GRIFFEY SLUGFEST]
+read_back_to_screen = 2
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+
+[Kirby64]
+filtering = 1
+buff_clear = 0
+swapmode = 0
+
+[Killer Instinct Gold]
+filtering = 1
+fog = 0
+buff_clear = 0
+
+[KNIFE EDGE]
+fast_crc = 0
+filtering = 1
+
+[Knockout Kings 2000]
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[LAMBORGHINI]
+use_sts1_only = 1
+
+[LEGORacers]
+detect_cpu_write = 1
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[Lode Runner 3D] 
+swapmode = 0
+
+[MACE]
+increase_texrect_edge = 1
+decrease_fillrect_edge = 1
+filtering = 1
+
+[MAGICAL TETRIS]
+force_microcheck = 1
+fog = 0
+
+;Mahjong Master (J)
+[Ï°¼Þ¬Ý Ï½À°]
+n64_z_scale = 1
+zmode_compare_less = 1
+
+[MAJORA'S MASK]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+fb_crc_mode = 0
+
+[MARIOKART64]
+fast_crc = 0
+ignore_aux_copy = 1
+fb_smart = 1
+fb_hires = 1
+fb_read_always = 1
+
+[MarioGolf64]
+fb_crc_mode = 2
+fast_crc = 2
+ignore_aux_copy = 1
+buff_clear = 0
+;hires_buf_clear = 0
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_always = 1
+;fb_read_alpha = 1
+
+[MarioParty]
+decrease_fillrect_edge = 1
+clip_zmin = 1
+swapmode = 2
+
+[MarioParty2]
+swapmode = 2
+
+[MarioParty3]
+swapmode = 2
+
+[MarioTennis]
+use_sts1_only = 1
+ignore_aux_copy = 1
+swapmode = 0
+fb_smart = 1
+fb_hires = 0
+fb_read_alpha = 1
+
+[MARIO STORY]
+useless_is_useless = 1
+hires_buf_clear = 0
+optimize_texrect = 0
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[MASTERS'98]
+fb_smart = 1
+fb_hires = 1
+
+[Mega Man 64]
+increase_texrect_edge = 1
+fb_smart = 1
+fb_hires = 1
+
+[MGAH VOL1]
+force_microcheck = 1
+zmode_compare_less = 1
+fb_smart = 1
+fb_hires = 1
+
+[Mia Hamm Soccer 64]
+;correct_viewport = 1
+;clip_zmin = 1
+;hires_buf_clear = 0
+aspect = 2
+buff_clear = 0
+filtering = 1
+swapmode = 2
+detect_cpu_write = 1
+
+[MICKEY USA]
+alt_tex_size = 1
+fb_smart = 1
+fb_hires = 1
+
+[MICKEY USA PAL]
+alt_tex_size = 1
+fb_smart = 1
+fb_hires = 1
+
+[MICROMACHINES64TURBO]
+force_microcheck = 1
+correct_viewport = 1
+alt_tex_size = 1
+fb_smart = 1
+fb_hires = 1
+swapmode = 2
+;detect_cpu_write = 1
+
+[MISCHIEF MAKERS]
+fog = 0
+
+[MISSION IMPOSSIBLE]
+filtering = 1
+
+[MLB FEATURING K G JR]
+read_back_to_screen = 2
+
+[MK_MYTHOLOGIES]
+fb_smart = 1
+fb_hires = 1
+
+[MO WORLD LEAGUE SOCC]
+buff_clear = 0
+
+[Monaco GP Racing 2]
+buff_clear = 0
+
+[Monaco Grand Prix]
+buff_clear = 0
+
+;Morita Shogi 64
+[ÓØÀ¼®³·Þ64]
+correct_viewport = 1
+
+[MortalKombatTrilogy]
+fb_smart = 1
+fb_hires = 1
+
+[MS. PAC-MAN MM]
+detect_cpu_write = 1
+
+[MTM64]
+correct_viewport = 1
+fb_smart = 1
+fb_hires = 1
+
+[MYSTICAL NINJA]
+alt_tex_size = 1
+optimize_texrect = 0
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[MYSTICAL NINJA2 SG]
+alt_tex_size = 1
+optimize_texrect = 0
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[NASCAR 99]
+buff_clear = 0
+swapmode = 0
+
+[NASCAR 2000]
+buff_clear = 0
+swapmode = 0
+
+[NBA Courtside 2]
+buff_clear = 0
+swapmode = 0
+
+[NBA HANGTIME]
+;alt_tex_size = 1
+;use_sts1_only = 1
+;filtering = 1
+swapmode = 2
+
+[NBA JAM 2000]
+buff_clear = 0
+
+[NBA JAM 99]
+buff_clear = 0
+
+[NBA LIVE 2000]
+;swapmode = 2
+;fb_smart = 1
+;fb_hires = 1
+
+[NBA Live 99]
+swapmode = 0
+
+[NEWTETRIS]
+increase_texrect_edge = 1
+;optimize_texrect = 0
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[NFL BLITZ]
+lodmode = 2
+
+[NFL BLITZ 2001]
+lodmode = 2
+
+[NFL BLITZ SPECIAL ED]
+lodmode = 2
+
+[NFL QBC 2000]
+swapmode = 0
+
+[NFL Quarterback Club]
+swapmode = 0
+
+[NINTAMAGAMEGALLERY64]
+force_microcheck = 1
+
+[NITRO64] 
+fb_smart = 1 
+fb_hires = 1
+
+[NUCLEARSTRIKE64]
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+; Nushi Zuri 64
+[Ç¼ÂÞØ64]
+force_microcheck = 1
+;buff_clear = 0
+filtering=1
+fb_smart = 1
+fb_hires = 1
+;detect_cpu_write=1
+
+; Nushi Zuri 64 - Shiokaze ni Notte
+;[Ç¼ÂÞØ64¼µ¶¾ÞÆÉ¯Ã]
+;force_microcheck = 1
+;buff_clear = 0
+;filtering=1
+;fb_smart = 1
+;fb_hires = 1
+;detect_cpu_write=1
+
+[OgreBattle64]
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+;fb_read_always = 1
+
+[PACHINKO365NICHI]
+correct_viewport = 1
+
+[PAPER MARIO]
+useless_is_useless = 1
+;hires_buf_clear = 0
+;optimize_texrect = 0
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[Parlor PRO 64]
+force_microcheck = 1
+filtering = 1
+zmode_compare_less = 1
+fb_smart = 1
+fb_hires = 1
+
+[Perfect Dark]
+useless_is_useless = 1
+decrease_fillrect_edge = 1
+optimize_texrect = 0
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[PERFECT STRIKER]
+swapmode = 2
+
+[Pilot Wings64]
+buff_clear = 0
+;swapmode = 0
+;fb_smart = 1
+;fb_hires = 1
+;fb_read_alpha = 1
+
+[POKEMON SNAP]
+fast_crc = 0
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 0
+;fb_read_always = 1
+
+[POKEMON STADIUM]
+;optimize_texrect = 0
+;zmode_compare_less = 1
+buff_clear = 0
+swapmode=2
+fb_smart = 1
+fb_hires = 0
+fb_read_alpha = 1
+fb_crc_mode = 2
+fast_crc = 0
+
+[POKEMON STADIUM 2]
+;optimize_texrect = 0
+;zmode_compare_less = 1
+filtering=1
+hires_buf_clear = 0
+buff_clear = 0
+swapmode=2
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+fb_crc_mode = 2
+fast_crc = 0
+
+[POKEMON STADIUM G&S]
+optimize_texrect = 0
+fast_crc = 0
+buff_clear = 0
+fb_smart = 1
+fb_hires = 0
+fb_read_alpha = 1
+fb_crc_mode = 2
+
+[PowerLeague64]
+force_quad3d = 1
+
+[PUZZLE LEAGUE]
+PPL = 1
+force_microcheck = 1
+filtering = 2
+fog = 0
+buff_clear = 0
+fb_smart = 1
+fb_hires = 0
+fb_read_alpha = 1
+
+[PUZZLE LEAGUE N64]
+PPL = 1
+force_microcheck = 1
+filtering = 2
+buff_clear = 0
+fb_smart = 1
+fb_hires = 0
+fb_read_alpha = 1
+
+[Quake]
+force_microcheck = 1
+swapmode = 2
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+filtering = 1
+
+[QUAKE II]
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[quarterback_club_98]
+optimize_texrect = 0
+hires_buf_clear = 0
+filtering = 1
+buff_clear = 0
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[Quest 64]
+;filtering = 1
+fb_smart = 1
+fb_read_alpha = 1
+fb_hires = 1
+
+[Racing Simulation 2] 
+buff_clear = 0
+
+[RAINBOW SIX]
+increase_texrect_edge = 1
+
+[Rally'99]
+filtering = 1
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+
+[RALLY CHALLENGE]
+filtering = 1
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+
+[RAMPAGE2]
+filtering=1
+
+[RAMPAGE]
+filtering=1
+
+[RAT ATTACK]
+fog = 0
+filtering = 1
+;lodmode = 2
+buff_clear = 0
+fb_smart = 1
+fb_hires = 1
+
+[Rayman 2]
+;detect_cpu_write = 1
+
+[READY 2 RUMBLE]
+;fb_smart = 1
+;fb_hires = 1
+;fast_crc = 0
+
+[Resident Evil II]
+correct_viewport = 1
+detect_cpu_write = 1
+n64_z_scale = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[Re-Volt]
+texture_correction = 0
+
+[RIDGE RACER 64]
+force_calc_sphere = 1
+fb_smart = 1
+fb_hires = 1
+fb_read_always = 1
+
+[ROAD RASH 64]
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[Robopon64]
+fb_smart = 1
+fb_hires = 1
+
+[ROCKETROBOTONWHEELS]
+clip_zmin = 1
+
+[RockMan Dash]
+increase_texrect_edge = 1
+fb_smart = 1
+fb_hires = 1
+
+[RTL WLS2000]
+buff_clear = 0
+
+[RUSH 2049]
+;force_texrect_zbuf = 1
+filtering = 1
+
+[S.F. RUSH]
+fb_smart=1
+fb_hires=1
+
+[SCARS]
+filtering = 1
+
+[SD HIRYU STADIUM]
+force_microcheck = 1
+
+[SHADOWGATE64]
+filtering = 1
+fb_hires=0
+
+[Shadow of the Empire]
+swapmode=2
+fb_smart=1
+fb_hires=1
+
+[Silicon Valley]
+filtering = 1
+
+[SMASH BROTHERS]
+fb_hires=0
+filtering=0
+fog=1
+buff_clear=0
+swapmode=1
+lodmode=0
+aspect=3
+fb_read_always=0
+fb_smart=0
+fb_get_info=0
+fb_render=1
+detect_cpu_write=0
+read_back_to_screen=0
+
+[Snobow Kids 2]
+swapmode = 0
+filtering = 1
+
+[SNOWBOARD KIDS2]
+swapmode=2
+filtering = 1
+fb_hires=0
+
+[South Park: Chef's L]
+filtering = 2
+fog = 0
+buff_clear = 0
+
+[South Park Chef's Lu]
+filtering = 1
+fog = 0
+buff_clear = 0
+
+[South Park Rally]
+filtering = 1
+swapmode = 2
+fb_smart = 1
+fb_hires=1
+fb_read_alpha = 1
+
+[SPACE DYNAMITES] 
+force_microcheck = 1
+
+[SPIDERMAN]
+fast_crc = 0
+
+[STARCRAFT 64]
+aspect = 2
+detect_cpu_write = 1
+filtering = 2
+
+[STAR SOLDIER]
+force_microcheck = 1
+filtering = 1
+swapmode = 0
+
+[STAR TWINS]
+read_back_to_screen = 1
+decrease_fillrect_edge = 1
+alt_tex_size = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[STAR WARS EP1 RACER]
+swapmode = 2
+
+[SUPERROBOTSPIRITS]
+aspect = 2
+
+[SUPER BOWLING]
+;optimize_texrect = 0
+;aspect = 2
+;zmode_compare_less = 1
+texture_correction = 0
+
+[Supercross]
+buff_clear = 0
+
+[SUPER MARIO 64]
+filtering=0
+lodmode = 1
+;fb_smart=1
+;fb_hires = 1
+
+[SUPERMARIO64]
+filtering = 1
+
+[SUPERMAN]
+detect_cpu_write = 1
+
+;Super Robot Taisen(J)
+[½°Êß°ÛÎÞ¯ÄÀ²¾Ý64]
+use_sts1_only = 1
+fb_smart = 1
+fb_hires = 1
+fast_crc = 0
+
+;Susume! Taisen Puzzle Dama Toukon! Marumata Chou (J) 
+[½½Ò!À²¾ÝÊß½ÞÙÀÞÏ]
+force_microcheck = 1
+fog = 0
+swapmode = 0
+
+;Tamagotchi World 64 (J) 
+[ÐÝÅÃÞÀÏºÞ¯ÁÜ°ÙÄÞ]
+use_sts1_only = 1
+fog = 0
+
+[Taz Express]
+filtering = 1
+buff_clear = 0
+
+[TELEFOOT SOCCER 2000]
+buff_clear = 0
+
+[TETRISPHERE]
+increase_texrect_edge = 1
+fb_crc_mode = 2
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[TG RALLY 2]
+filtering = 1
+buff_clear = 0
+swapmode = 2
+
+[THE LEGEND OF ZELDA]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[THE MASK OF MUJURA]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+fb_crc_mode = 0
+
+[THPS2]
+filtering = 1
+
+[THPS3]
+filtering = 1
+
+[Tigger's Honey Hunt]
+zmode_compare_less = 1
+buff_clear = 0
+
+[TOM AND JERRY]
+filtering = 1
+
+[Tonic Trouble]
+detect_cpu_write = 1
+
+[TONY HAWK PRO SKATER]
+filtering = 1
+
+[TONY HAWK SKATEBOARD]
+filtering = 1
+
+[Top Gear Hyper Bike]
+filtering = 1
+lodmode = 2
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[Top Gear Overdrive]
+buff_clear = 0
+swapmode = 2
+
+[TOP GEAR RALLY]
+swapmode = 2
+
+[TOP GEAR RALLY 2]
+filtering = 1
+buff_clear = 0
+swapmode = 2
+
+[Toy Story 2]
+filtering = 1
+
+[TRIPLE PLAY 2000]
+fb_smart = 1
+fb_hires = 1
+
+[TROUBLE MAKERS]
+mischief_tex_hack = 0
+fog = 0
+
+[TSUMI TO BATSU]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[TSUWAMONO64]
+force_microcheck = 1
+
+[Turok: Rage Wars]
+fb_smart=1
+fb_hires=1
+
+[TUROK_DINOSAUR_HUNTE]
+detect_cpu_write = 1
+fb_smart=1
+fb_hires=0
+
+[Turok 3: Shadow of O]
+buff_clear=0
+fb_hires=0
+detect_cpu_write=1
+
+[TWINE]
+filtering = 1
+;fb_hires=0
+
+[TWISTED EDGE]
+fb_smart = 1
+fb_hires = 1
+
+[Virtual Pool 64]
+buff_clear = 0
+
+[V8: SECOND OFFENSE]
+alt_tex_size = 1
+use_sts1_only = 1
+ignore_aux_copy = 1
+fb_smart = 1
+fb_hires = 1
+
+[V-RALLY]
+filtering = 1
+buff_clear = 0
+swapmode = 0
+
+[VIGILANTE 8]
+correct_viewport = 1
+clip_zmin = 1
+filtering = 1
+ignore_aux_copy = 1
+fb_smart = 1
+fb_hires = 1
+fb_read_alpha = 1
+
+[Waialae Country Club]
+fb_smart = 1
+fb_hires = 1
+
+[WILD CHOPPERS]
+filtering = 1
+
+[WIN BACK]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+[Wipeout 64]
+filtering = 1
+swapmode = 2
+
+[WONDER PROJECT J2]
+buff_clear = 0
+swapmode = 0
+
+[World Cup 98] 
+swapmode = 0
+fb_smart = 1
+fb_hires = 1
+
+[WORMS ARMAGEDDON]
+filtering=1
+
+[YAKOUTYUU2]
+clip_zmin = 1
+swapmode = 2
+fb_smart = 1
+fb_hires = 1
+
+[YOSHI STORY]
+filtering = 1
+fog = 0
+detect_cpu_write = 1
+
+[ZELDA MAJORA'S MASK]
+filtering=1
+fb_smart=1
+fb_hires=1
+fb_crc_mode = 0
+
+[ZELDA MASTER QUEST]
+filtering = 1
+fb_smart = 1
+fb_hires = 1
+
+
+;End Of Original File

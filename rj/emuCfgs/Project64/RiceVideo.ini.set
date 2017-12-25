@@ -1,0 +1,23 @@
+[b655503e52da922e-45]
+bDisableCulling = [CULLING]
+bEmulateClear = [EMUCLEAR]
+dwNormalBlender = [NORMLB]
+bDisableBlender = [NOBLEND]
+bForceScreenClear = [SCRNCLR]
+dwNormalCombiner = [NORMCOMB]
+bForceDepthBuffer = [DEPTHBUF]
+bDisableObjBG = [OBJBG]
+dwFrameBufferOption = [FRAMEBUFOPT]
+dwRenderToTextureOption = [RENDTOTEX]
+dwScreenUpdateSetting = [SCREENUPDT]
+bIncTexRectEdge = [TEXRECTEDGE]
+bZHack = [ZHACK]
+bTextureScaleHack = [TEXSCLHACK]
+bPrimaryDepthHack = [DEPTHACK]
+bTexture1Hack = [TEXHACK]
+bFastLoadTile = [FASTLOAD]
+VIWidth = -1
+VIHeight = -1
+UseCIWidthAndRatio = 0
+bTxtSizeMethod2 = [TXTSIZE]
+bEnableTxtLOD = [TXTLOD]

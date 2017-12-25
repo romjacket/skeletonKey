@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gamecontroller configversion="18" appversion="2.17">
+	<!--The SDL name for a joystick is included for informational purposes only.-->
+	<sdlname>XBox 360 Controller</sdlname>
+	<guid>0</guid>
+	<sets>
+		<set index="1">
+			<stick index="1">
+				<deadZone>13184</deadZone>
+				<stickbutton index="1">
+					<slots>
+						<slot>
+							<code>0x1000013</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="3">
+					<slots>
+						<slot>
+							<code>0x1000014</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="5">
+					<slots>
+						<slot>
+							<code>0x1000015</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="7">
+					<slots>
+						<slot>
+							<code>0x1000012</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+			</stick>
+			<stick index="2">
+				<deadZone>13184</deadZone>
+				<stickbutton index="1">
+					<slots>
+						<slot>
+							<code>0x1000013</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="3">
+					<slots>
+						<slot>
+							<code>0x1000014</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="5">
+					<slots>
+						<slot>
+							<code>0x1000015</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+				<stickbutton index="7">
+					<slots>
+						<slot>
+							<code>0x1000012</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+			</stick>
+			<dpad index="1">
+				<dpadbutton index="1">
+					<slots>
+						<slot>
+							<code>0x57</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="2">
+					<slots>
+						<slot>
+							<code>0x44</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="4">
+					<slots>
+						<slot>
+							<code>0x53</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="8">
+					<slots>
+						<slot>
+							<code>0x41</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+			</dpad>
+			<trigger index="1">
+				<deadZone>3200</deadZone>
+				<triggerbutton index="2">
+					<slots>
+						<slot>
+							<code>0x1000003</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</triggerbutton>
+			</trigger>
+			<button index="1">
+				<slots>
+					<slot>
+						<code>0x10000032</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+			<button index="3">
+				<slots>
+					<slot>
+						<code>0x10000033</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+			<button index="10">
+				<slots>
+					<slot>
+						<code>0x5C</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>	
+			<button index="11">
+				<slots>
+					<slot>
+						<code>0x27</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+			<button index="5">
+				<setselect>2</setselect>
+				<setselectcondition>while-held</setselectcondition>
+				<slots>
+				</slots>
+			</button>
+			<button index="7">
+				<slots>
+					<slot>
+						<code>0x1000004</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+			<button index="8">
+				<slots>
+					<slot>
+						<code>0x1000023</code>
+						<mode>keyboard</mode>
+					</slot>
+					<slot>
+						<code>0x53</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+		</set>
+		<set index="2">
+			<stick index="1">
+				<deadZone>13184</deadZone>
+				<stickbutton index="3">
+					<slots>
+						<slot>
+							<code>0x1000023</code>
+							<mode>keyboard</mode>
+						</slot>
+						<slot>
+							<code>0x4F</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</stickbutton>
+			</stick>
+			<dpad index="1">
+				<dpadbutton index="1">
+					<slots>
+						<slot>
+							<code>0x3D</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="2">
+					<slots>
+						<slot>
+							<code>0x1000036</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="4">
+					<slots>
+						<slot>
+							<code>0x2D</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+				<dpadbutton index="8">
+					<slots>
+						<slot>
+							<code>0x1000034</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</dpadbutton>
+			</dpad>
+			<trigger index="2">
+				<deadZone>3200</deadZone>
+				<triggerbutton index="2">
+					<slots>
+						<slot>
+							<code>0x1000038</code>
+							<mode>keyboard</mode>
+						</slot>
+					</slots>
+				</triggerbutton>
+			</trigger>
+			<button index="5">
+				<setselect>1</setselect>
+				<setselectcondition>while-held</setselectcondition>
+				<slots>
+				</slots>
+			</button>
+			<button index="8">
+				<slots>
+					<slot>
+						<code>0x1000039</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+			<button index="9">
+				<slots>
+					<slot>
+						<code>0x100003B</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+		</set>
+	</sets>
+</gamecontroller>

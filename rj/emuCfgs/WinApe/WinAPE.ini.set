@@ -1,0 +1,216 @@
+[Configuration]
+Refresh Rate=1
+Display Mode=1
+Sound Mode=3
+Sound Volume=15
+Full Screen=true
+Direct Video=false
+Sound Bits=16
+Sound Stereo=true
+Sound Frame Delay=16.0
+Show ASIC=FALSE
+Keyboard File=
+CRTC Type=3
+Auto Run=false
+Disable Update=false
+Turbo Mode=false
+Joystick Enabled=true
+AMX Mouse Enabled=true
+Emulation Speed=100
+Frame Skip=false
+Refresh Rate=1
+VHOLD Position=0
+Full Screen 16=true
+Hide Mouse=true
+Hide Menus=true
+No Right Click=false
+Enable IDE=true
+Master IDE Type=0
+Master IDE Path=
+Slave IDE Type=0
+Slave IDE Path=
+Enable Clock=true
+Enable Mouse=true
+Adjust Mouse=true
+Monitor Type=0
+Monitor Brightness=0
+Linear Palette=true
+Hide Panel=true
+On Screen Drive LED=false
+Show Track=false
+CRTC Type=0
+Enable Plus=true
+Plus PPI=false
+Extended RAM=2
+Silicon Disc=true
+Position=0,0
+Half Size=false
+Stretch Size=[REZX],[REZY]
+Render Both=true
+DirectX Stretch=true
+PAL Emulation=true
+Sound Mode=3
+Sound Bits=16
+Sound Stereo=true
+Sound Volume=8
+Sound Frame Delay=0.0
+Disc Sound=true
+Tape Sound=true
+Keyboard File=
+Full Screen=true
+Maximised=false
+
+[CPCDOS]
+Path=[EMUPTH]\
+
+
+[ROMS]
+Cartridge=[CART]
+Lower=OS6128
+Upper(0)=BASIC1-1
+Upper(1)=
+Upper(2)=
+Upper(3)=
+Upper(4)=
+Upper(5)=
+Upper(6)=
+Upper(7)=PARADOS
+Upper(8)=
+Upper(9)=
+Upper(10)=
+Upper(11)=
+Upper(12)=
+Upper(13)=
+Upper(14)=
+Upper(15)=
+Multiface=
+Cartridge Enabled=true
+Multiface Enabled=true
+Disable All=false
+Enable L07=false
+
+[Snapshot]
+Last Opened=
+Last SNR=
+
+[Screenshots]
+Save On Flyback=true
+Filter=1
+Half Size=false
+Half Height=false
+Last Path=
+
+[Pokes]
+Position=100,100
+Size=420,400
+
+[Debug Windows]
+Dump=FALSE
+Stack=FALSE
+Disassemble=FALSE
+
+Break Instructions=false
+Hide On Run=true
+Position=100,400
+Debug=false
+Size=632,260
+BreakPos=100,400
+BreakSize=316,103
+Breaks=false
+RegsPos=200,100
+Registers=false
+Graphics=false
+GraphicsPos=100,300
+GraphicsSize=360,200
+DataAreaPos=100,300
+DataAreaSize=316,105
+Data Areas=false
+DiffPos=200,300
+DiffSize=316,105
+Show ASIC=false
+Row Highlight=false
+Follow PC=true
+
+[Tape]
+Position=400,500
+Size=245,112
+Visible=false
+File Name=
+
+[Printer]
+Type=0
+Name=Microsoft XPS Document Writer
+
+File Name=
+Tab=
+
+[Drives]
+Drive(0)=[DSK1]
+Drive(1)=[DSK2]
+Allow Write 0=false
+Prompt Write 0=false
+Single Sided 0=false
+Allow Write 1=false
+Prompt Write 1=false
+Single Sided 1=false
+Drive(2)=[DSK3]
+Allow Write 2=false
+Prompt Write 2=false
+Single Sided 2=false
+Drive(3)=[DSK4]
+Allow Write 3=false
+Prompt Write 3=false
+Single Sided 3=false
+Drive(4)=
+Allow Write 4=false
+Prompt Write 4=false
+Single Sided 4=false
+Drive(5)=
+Allow Write 5=false
+Prompt Write 5=false
+Single Sided 5=false
+Drive(6)=
+Allow Write 6=false
+Prompt Write 6=false
+Single Sided 6=false
+Drive(7)=
+Allow Write 7=false
+Prompt Write 7=false
+Single Sided 7=false
+Last Drive=1
+Fast Disc=true
+
+[AVI Writing]
+Full Size=false
+
+[Assembler]
+Position=50,50
+Size=700,500
+Visible=false
+Library Path=
+SymbolPos=500,100
+SymbolSize=340,120
+
+[Formats]
+PARADOS 80=10,91,5,80,1
+PARADOS 41=10,81,5,41,1
+PARADOS 40D=10,A1,5,40,2
+ROMDOS D1=9,01,5,80,2
+ROMDOS D2=9,21,5,80,2
+ROMDOS D10=10,11,5,80,2
+ROMDOS D20=10,31,5,80,2
+ROMDOS D40=10,51,5,80,2
+S-DOS (ROMDOS D80)=10,71,5,80,2
+DATA (SS 40)=9,C1,5,40,1
+DATA (DS 40)=9,C1,5,40,2
+DATA (SS 80)=9,C1,5,80,1
+DATA (DS 80)=9,C1,5,80,2
+SYSTEM (SS 40)=9,41,5,40,1
+SYSTEM (DS 40)=9,41,5,40,2
+SYSTEM (SS 80)=9,41,5,80,1
+SYSTEM (DS 80)=9,41,5,80,2
+IBM (SS 40)=8,01,1,40,1
+IBM (DS 40)=8,01,1,40,2
+IBM (SS 80)=8,01,1,80,1
+IBM (DS 80)=8,01,1,80,2
+ULTRAFORM=10,10,5,41,1

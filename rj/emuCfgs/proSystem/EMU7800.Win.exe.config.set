@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="EMU7800">
+      <section name="Settings" type="System.Configuration.NameValueSectionHandler"/>
+    </sectionGroup>
+  </configSections>
+  <EMU7800>
+    <Settings>
+      <add key="EMU7800.Host.DirectX.HostDirectX.NoPauseOnLostFocus" value="false"/>
+      <add key="EMU7800.Host.DirectX.HostDirectX.InitShowSnowCounter" value="30"/>
+    </Settings>
+  </EMU7800>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0,Profile=Client"/>
+  </startup>
+</configuration>

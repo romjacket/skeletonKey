@@ -1,0 +1,16 @@
+[electrem]
+Plus1 = true
+FirstByte = false
+FastTape = true
+Autoload = true
+Autoconfigure = true
+Plus3 = true
+Drive1WriteProtect = false
+Drive2WriteProtect = false
+AllowOverlay = true
+DisplayMultiplexed = true
+StartFullScreen = true
+PersistentState = true
+JimOn = false
+Volume = 128
+SloggerMRB = 1

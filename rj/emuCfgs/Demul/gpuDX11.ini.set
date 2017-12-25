@@ -1,0 +1,24 @@
+﻿[main]
+Vsync = [VSYNC]
+AutoSort = [ASORT]
+OModifier = [OMOD]
+TModifier = [TMOD]
+UseFullscreen = 1
+aspect = [ASPC]
+scaling = [SCALE]
+NotAutoRotate = [AUTOROTATE]
+NetworkSort = [NETSORT]
+rotate = [ROT]
+MaxLayers = [MAXL]
+
+
+[resolution]
+Width = [REZX]
+Height = [REZY]
+
+
+[shaders]
+usePass1 = [PASS]
+usePass2 = [PASS2]
+shaderPass1 = [SHADR]
+shaderPass2 = [SHADV]

@@ -1,0 +1,163 @@
+APF - Imagination Machine|MAME
+Acorn - Archimedes
+Acorn - BBC|BeebEm
+Acorn - Electron|ElectrEM|MAME
+Adobe - Flash Games|FlashPlayer
+Amstrad - CPC|WinApe|MAME|retroarch
+Amstrad - GX4000|WinApe
+Apple - IIe|AppleWin|MAME
+Apple - IIgs|Kegs32|MAME
+Apple - Macintosh|MAME
+Atari - 2600|Stella|MAME|retroArch
+Atari - 5200|Altirra
+Atari - 7800|prosystem|MAME|retroArch
+Atari - 800|Atari800|retroArch
+Atari - 8Bit|Altirra
+Atari - Jaguar CD|ProjectTempest
+Atari - Jaguar|virtualJaguar|retroArch
+Atari - Lynx|Mednafen|MAME|retroArch
+Atari - ST|STeem
+Atari - XE|Altirra
+Bally - Bally Astrocade|MAME
+Bandai - WonderSwan Color|Mednafen|retroArch
+Bandai - WonderSwan|Mednafen|retroArch
+Beats of Rage|BOR
+Camputers - Lynx|MAME
+Capcom Play System - CPS III|cps3emulator|FinalBurnAlpha|MAME|retroArch
+Capcom Play System - CPS II|FinalBurnAlpha|MAME|retroArch
+Capcom Play System - CPS|FinalBurnAlpha|MAME|retroArch
+Casio - Loopy|MAME
+Casio - PV-1000|MAME
+Casio - PV-2000|MAME
+Coleco - ADAM|MAME
+Coleco - ColecoVision|BlueMSX|MAME
+Commodore - 64|WinVICE|MAME|retroArch
+Commodore - Amiga CD32|FS-UAE|WinUAE|MAME
+Commodore - Amiga CDTV|FS-UAE|WinUAE|MAME
+Commodore - Amiga|FS-UAE|WinUAE|MAME
+Commodore - C16|WinVICE|MAME
+Commodore - MAX|MAME
+Commodore - PET|MAME
+Commodore - Plus4|WinVICE|MAME|retroarch
+Commodore - VIC20|WinVICE|MAME|retroarch
+DGS - Dragon 32-64|MAME
+DOS|DOSBox|retroArch
+EXL 100|MAME
+Emerson - Arcadia 2001|WinArcadia
+Enterprise - 128|MAME
+Enterprise - 64|MAME
+Entex - Adventure Vision
+Epoch - Super Cassette Vision
+Fairchild - Fairchild Channel F|MAME
+Fujitsu - FM-7|XM7
+Fujitsu - FM Towns|UNZ|MAME
+Funtech - Super A'can|MAME
+GCE - Vectrex|ParaJVE
+Galeco|Demul
+Hartung - Game Master|MAME
+Hikaru|Demul
+IBM - PC Jr|MAME
+Interon - Interon VC 4000|MAME
+Jupiter Ace|MAME
+Leapfrog - Leapster Learning Game System|MAME
+MAME - Arcade|MAME|FBA|retroArch
+MGT - Sam Coupe|MAME
+Magnavox - Odyssey 2|MAME
+Magnavox - Odyssey 3|MAME
+Magnavox - Odyssey|DOSBox
+Mattel - Aquarius|MAME
+Mattel - Intellivision|Nostalgia|MAME
+Mega Duck|MAME
+Memotech - MTX|MAME
+Microsoft - MSX TurboR|BlueMSX|MAME|retroArch
+Microsoft - MSX2|BlueMSX|MAME|retroArch
+Microsoft - MSX|BlueMSX|MAME|retroArch
+Microsoft - XBOX 360|Xenia
+Microsoft - XBOX|Cxbx
+NEC - PC Engine SuperGrafx|Mednafen|MAME|retroArch
+NEC - PC Engine - TurboGrafx 16|Mednafen|MAME|retroArch
+NEC - PC Engine CD - TurboGrafx CD|Mednafen|MAME|retroArch
+NEC - PC-6001|MAME
+NEC - PC-FX|Mednafen|retroArch
+NEC - PC88-VA|m88|Neko|MAME
+NEC - PC88|m88|MAME
+NEC - PC98|Neko|Anex86|MAME|retroArch
+Nintendo - Nintendo 64|Project64|retroArch
+Nintendo - Nintendo 3DS|Citra
+Nintendo - Nintendo DS|Desmume|No$GBA|retroArch
+Nintendo - Nintendo DS Decrypted|Desmume|No$GBA|retroArch
+Nintendo - Nintendo Entertainment System|nestopia|Mednafen|MAME|retroArch
+Nintendo - Famicom|nestopia|Mednafen|MAME|retroArch
+Nintendo - Game Boy Advance|VisualBoyAdvance|mgba|MAME|retroArch
+Nintendo - Game Boy Color|bgb|mgba|MAME|retroArch
+Nintendo - Game Boy|bgb|mgba|MAME|retroArch
+Nintendo - GameCube|Dolphin|retroArch
+Nintendo - Satellaview|snes9x|MAME|retroArch
+Nintendo - Virtual Boy|Mednafen|retrorach|MAME|retroArch
+Nintendo - WiiU|CEMU
+Nintendo - Wii|Dolphin|retroArch
+Nintendo - Pokemon Mini|MAME
+Nintendo - Super Famicom|snes9x|MAME|zsnes|retroArch
+Nintendo - Super Game Boy|bgb|retroArch
+Nintendo - Super Nintendo Entertainment System|snes9x|MAME|zsnes|retroArch
+Nokia - N-Gage|MAME
+Philips - CD-I|MAME
+Philips - PC2000|MAME
+Philips - VG 5000|MAME
+Philips - Videopac|MAME
+PopCap|BSL
+RCA - Studio II|MAME
+SNK - Neo Geo CD|NeoRaine|MAME
+SNK - Neo Geo MVS|FinalBurnAlpha|MAME|retroArch
+SNK - Neo Geo Pocket Color|Mednafen|MAME|retroArch
+SNK - Neo Geo Pocket|Mednafen|MAME|retroArch
+Sammy - Atomiswave|Demul
+ScummVM|ScummVM|retroArch
+Sega - PICO|Fusion|picodrive|MAME|retroArch
+Sega - SC-3000|MAME
+Sega - SF-7000|MAME
+Sega - SG-1000|Fusion|MAME|retroArch
+Sega - STV|SSF|MAME
+Sega - Saturn|SSF|Yabause|MAME|retroArch
+Sega - 32X|Fusion|picodrive|MAME|retroArch
+Sega - Dreamcast|Demul|NullDC|reicast|retroArch
+Sega - Game Gear|Fusion|MAME|retroArch
+Sega - Master System - Mark III|Fusion|MAME|retroArch
+Sega - Mega Drive - Genesis|Fusion|MAME|retroArch
+Sega - Mega-CD - Sega CD|Fusion|MAME|retroArch
+Sega - Model 2|m2emulator
+Sega - Model 3|supermodel
+Sega - NAOMI|Demul|NullDC|MAME
+Sega - Super Control Station|MAME
+Sharp - MZ-700|MAME
+Sharp - MZ-800|MAME
+Sharp - X1|X1turbo|MAME
+Sharp - X68000|XM6|MAME|retroArch
+Sinclair - QL|MAME
+Sinclair - ZX Spectrum|ZXSpin|MAME|retroArch
+Sinclair - ZX81|ZXSpin|MAME|retroArch
+Sony - Playstation 2|pcsx2
+Sony - Playstation 3|rcps3
+Sony - Playstation Portable|PPSSPP|retroArch
+Sony - Playstation Vita|BSL
+Sony - Playstation|epsxe|Mednafen|pcsxr|psxfin|retroArch
+Sony - Pocketstation|MAME
+Sord - M5|MAME
+SpectraVision - Spectravideo|MAME
+Taito - Taito Type X|BSL
+Tangerine - Microtan 65|MAME
+Tangerine - Oric Atmos|MAME
+The 3DO Company - 3DO|4DO|Play|MAME|retroArch
+Thomson - MO5|MAME
+Thomson - To7|MAME
+Thomson - To8|MAME
+Tiger - Game.com|MAME
+Tomy - Tutor|MAME
+Touhou|Anex86
+VTech - CreatiVision|MAME
+VTech - Laser 200|MAME
+VTech - Laser 310|MAME
+VTech - V.Smile|MAME
+VideoBrain - Interact Family Computer|MAME
+Watara - SuperVision|MAME
+Windows Games|BSL

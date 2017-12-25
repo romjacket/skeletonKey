@@ -1,0 +1,89 @@
+﻿[main]
+region = 1
+broadcast = 1
+cpumode = 1
+lastEmuRunMode = 1
+videomode = [VIDM]
+timehack = true
+gdrmode = false
+windowX = 20
+windowY = 20
+dcBios = 2
+naomiBiosAuto = true
+naomiLLEMIE = false
+naomifreq = 1
+
+
+[PORTA]
+device = 16777216
+port0 = 33554432
+port1 = 33554432
+port2 = -1
+port3 = -1
+port4 = -1
+
+
+[VMS]
+VMSA0 = [ROMPTH]\.Mem\vms00.bin
+VMSA1 = [ROMPTH]\.Mem\vms00.bin
+VMSA2 = 
+VMSA3 = 
+VMSA4 = 
+VMSB0 = [ROMPTH]\.Mem\vms10.bin
+VMSB1 = [ROMPTH]\.Mem\vms11.bin
+VMSB2 = 
+VMSB3 = 
+VMSB4 = 
+VMSC0 = [ROMPTH]\.Mem\vms20.bin
+VMSC1 = [ROMPTH]\.Mem\vms21.bin
+VMSC2 = 
+VMSC3 = 
+VMSC4 = 
+VMSD0 = [ROMPTH]\.Mem\vms30.bin
+VMSD1 = [ROMPTH]\.Mem\vms31.bin
+VMSD2 = 
+VMSD3 = 
+VMSD4 = 
+
+
+
+[PORTB]
+device = 16777216
+port0 = 33554432
+port1 = 33554432
+port2 = -1
+port3 = -1
+port4 = -1
+
+
+[PORTC]
+device = 16777216
+port0 = 33554432
+port1 = 33554432
+port2 = -1
+port3 = -1
+port4 = -1
+
+
+[PORTD]
+device = 16777216
+port0 = 33554432
+port1 = 33554432
+port2 = -1
+port3 = -1
+port4 = -1
+
+[plugins]
+directory = [EMUPTH]\plugins\
+gdr = gdrCHD.dll
+gpu = [GPUPLUG]
+spu = spuDemul.dll
+pad = padDemul.dll
+net = netDemul.dll
+
+
+[files]
+nvram = [ROMPTH]\.Mem\
+roms0 = [EMUPTH]\roms\
+roms1 = [ROMPTH]\
+romsPathsCount = 2

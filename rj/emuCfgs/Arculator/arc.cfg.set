@@ -1,0 +1,20 @@
+[arc]
+no_borders = 1
+stereo = 1
+rom_set = 3
+fdc_type = 1
+fast_disc = 1
+hardware_blit = 1
+double_scan = 1
+first_fullscreen = 1
+full_borders = 0
+hires = 0
+fpa = 0
+cpu_type = 3
+mem_size = 16384
+sound_enable = 1
+limit_speed = 1
+disc_name_3 = [DSK3]
+disc_name_2 = [DSK2]
+disc_name_1 = [DSK1]
+disc_name_0 = [DSK]

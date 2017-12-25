@@ -1,0 +1,92 @@
+[ODYEMU]
+; *****************************************************************************
+;
+;                          Odyssey Configuration file
+;
+; *****************************************************************************
+
+; *****************************************************************************
+;
+;       This part defines charging capacitors : the rate at which things
+;       Move. Low is fast, high is slow. NOT the same values as in the
+;       schematic.
+;
+; *****************************************************************************
+;
+;       Bat Spots
+;
+HBatCap = 16
+VBatCap = 16
+;
+;       Bat Spots when damped by 3-5 and/or 26-28
+;
+HDampCap = 100
+VDampCap = 100
+;
+;       Ball Spot
+;
+HBallCap = 33
+VBallCap = 75
+;
+;		Rifle. Not actually a capacitor in reality. Controls the
+;		movement rate of the rifle cursor
+;
+RifleCap = 47
+;
+;		Wall Capacitors
+;
+WallCap = 16
+
+; *****************************************************************************
+;
+;       This part defines Sizes of game objects. The units are upto 6200
+;       (unless otherwise specified)
+;
+; *****************************************************************************
+;
+;       Size of the player bats (11/16" square on 14" monitor)
+;
+HBatSize = 387
+VBatSize = 532
+;
+;       Size of the ball
+;
+BallSize = 140
+;
+;       Width of the wall in normal, and thick mode
+;		Normal = 7/16" on 14" monitor.
+;
+HWallSize = 246
+HWallWide = 492
+;
+;       With a "short" wall the PERCENTAGE of the actual size
+;
+SmallWallPercent = 20
+;
+;       Horizontal position of the "early" wall
+;
+HWallEarly = 2000
+
+; *****************************************************************************
+;
+;                           Miscellaneous other stuff
+;
+; *****************************************************************************
+;
+;		Acceleration of English and Paddles in Spot Units / Tick
+;
+BatAcc = 4
+BatDec = 8
+EngAcc = 8
+EngDec = 16
+;
+;
+;       Colour of spot objects (main & rifle)
+;
+Colour = 26
+TColour = 2
+;
+;       Automatic playing of left/right player
+;
+Auto1 = 0
+Auto2 = 0

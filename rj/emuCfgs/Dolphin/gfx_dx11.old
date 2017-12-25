@@ -1,0 +1,55 @@
+[Hardware]
+VSync = [VSYNC]True
+Adapter = 0
+[Settings]
+AspectRatio = [ASPCT]
+Crop = False
+wideScreenHack = [WIDE]
+UseXFB = [USEXFB]
+UseRealXFB = [REALXFB]
+SafeTextureCacheColorSamples = 128
+ShowFPS = False
+LogFPSToFile = False
+ShowInputDisplay = False
+OverlayStats = False
+OverlayProjStats = False
+DLOptimize = 0
+Show = 0
+DumpTextures = False
+HiresTextures = False
+DumpEFBTarget = False
+DumpFrames = False
+FreeLook = False
+UseFFV1 = False
+AnaglyphStereo = False
+AnaglyphStereoSeparation = 200
+AnaglyphFocalAngle = 0
+EnablePixelLighting = [PPXL]
+EnablePerPixelDepth = [PPDPTH]
+HackedBufferUpload = False
+FastDepthCalc = True
+ShowEFBCopyRegions = False
+MSAA = [AALVL]
+EFBScale = [EFBS]
+TexFmtOverlayEnable = False
+TexFmtOverlayCenter = False
+Wireframe = False
+DstAlphaPass = [ALPHAP]
+DisableFog = [NOFOG]
+EnableOpenCL = [OPENCL]
+OMPDecoder = [OMPD]
+EnableShaderDebugging = False
+[Enhancements]
+ForceFiltering = [FORCEF]
+MaxAnisotropy = [ANIS]
+PostProcessingShader = [SHADR]
+Enable3dVision = False
+[Hacks]
+EFBAccessEnable = [EFBA]
+DlistCachingEnable = [DLIST]
+EFBCopyEnable = [EFBC]
+EFBCopyDisableHotKey = False
+EFBToTextureEnable = [EFBT]
+EFBScaledCopy = [EFBSC]
+EFBCopyCacheEnable = [EFBCC]
+EFBEmulateFormatChanges = False

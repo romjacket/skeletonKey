@@ -1,0 +1,79 @@
+Core:
+  PPU Decoder: [PPU Decoder]
+  PPU Threads: [PPU Threads]
+  PPU Debug: false
+  Save LLVM logs: false
+  Use LLVM CPU: ""
+  SPU Decoder: [SPU Decoder]
+  Bind SPU threads to secondary cores: [Bind SPU threads to secondary cores]
+  Lower SPU thread priority: false
+  SPU Debug: false
+  Maximum immediate DMA write size: [Maximum immediate DMA write size]
+  Preferred SPU Threads: [Maximum immediate DMA write size]
+  SPU delay penalty: [SPU delay penalty]
+  SPU loop detection: [SPU loop detection]
+  Lib Loader: [Lib Loader]
+  Hook static functions: [Hook static functions]
+  Load libraries:
+    []
+VFS:
+  $(EmulatorDir): "[EMUPTH]"
+  /dev_hdd0/: [ROMPTH]/dev_hdd0/
+  /dev_hdd1/: [ROMPTH]/dev_hdd1/
+  /dev_flash/: [ROMPTH]/dev_flash/
+  /dev_usb000/: [ROMPTH]/dev_usb000/
+  /dev_bdvd/: ""
+  /app_home/: ""
+  Enable /host_root/: false
+Video:
+  Renderer: OpenGL
+  Resolution: [REZX]x[REZY]
+  Aspect ratio: [ARATIO]
+  Frame limit: [Frame limit]
+  Write Color Buffers: false
+  Write Depth Buffer: false
+  Read Color Buffers: false
+  Read Depth Buffer: false
+  Log shader programs: false
+  VSync: [VSync]
+  Debug output: false
+  Debug overlay: false
+  Use Legacy OpenGL Buffers: [Use Legacy OpenGL Buffers]
+  Use GPU texture scaling: [Use GPU texture scaling]
+  Stretch To Display Area: [Stretch To Display Area]
+  Force High Precision Z buffer: [Force High Precision Z buffer]
+  Invalidate Cache Every Frame: true
+  Strict Rendering Mode: [Strict Rendering Mode]
+  Batch Instanced Geometry: false
+  Vertex Upload Threads: [Vertex Upload Threads]
+  Multithreaded Vertex Upload Threshold: [Multithreaded Vertex Upload Threshold]
+  Enable Frame Skip: [Enable Frame Skip]
+  Consecutive Frames Drawn: [Consecutive Frames Drawn]
+  Consecutive Frames Skept: [Consecutive Frames Skept]
+  D3D12:
+    Adapter: ""
+  Vulkan:
+    Adapter: ""
+Audio:
+  Renderer: [AUDIODRV]
+  Dump to file: false
+  Convert to 16 bit: false
+  Downmix to Stereo: true
+Input/Output:
+  Keyboard: "Null"
+  Mouse: Basic
+  Pad: Keyboard
+  Camera: "Null"
+  Camera type: Unknown
+System:
+  Language: [Language]
+Net:
+  Connection status: Disconnected
+  IP address: 192.168.1.1
+Miscellaneous:
+  Automatically start games after boot: [Automatically start games after boot]
+  Exit RPCS3 when process finishes: [Exit RPCS3 when process finishes]
+  Start games in fullscreen mode: [Start games in fullscreen mode]
+  Show FPS counter in window title: [Show FPS counter in window title]
+  Port: 2345
+Log: {}

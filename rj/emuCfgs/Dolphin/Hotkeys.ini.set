@@ -1,0 +1,27 @@
+[Hotkeys1]
+Device = DInput/0/Keyboard Mouse
+Keys/Open = (!(LMENU | RMENU) & !(LSHIFT | RSHIFT) & (LCONTROL | RCONTROL)) & O
+Keys/Toggle Pause = `F10`
+Keys/Stop = ESCAPE
+Keys/Toggle Fullscreen = LMENU + RETURN
+Keys/Take Screenshot = LCONTROL + `F12`
+Keys/Connect Wiimote 1 = ((LMENU | RMENU) & !(LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `F5`
+Keys/Connect Wiimote 2 = ((LMENU | RMENU) & !(LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `F6`
+Keys/Connect Wiimote 3 = ((LMENU | RMENU) & !(LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `F7`
+Keys/Connect Wiimote 4 = ((LMENU | RMENU) & !(LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `F8`
+Keys/Connect Balance Board = ((LMENU | RMENU) & !(LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `F9`
+Keys/Disable Emulation Speed Limit = TAB
+Keys/Freelook Decrease Speed = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `1`
+Keys/Freelook Increase Speed = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & `2`
+Keys/Freelook Reset Speed = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & F
+Keys/Freelook Move Up = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & E
+Keys/Freelook Move Down = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & Q
+Keys/Freelook Move Left = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & A
+Keys/Freelook Move Right = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & D
+Keys/Freelook Zoom In = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & W
+Keys/Freelook Zoom Out = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & S
+Keys/Freelook Reset = (!(LMENU | RMENU) & (LSHIFT | RSHIFT) & !(LCONTROL | RCONTROL)) & R
+Keys/Select State Slot 1 = LCONTROL + LSHIFT + MINUS
+Keys/Select State Slot 2 = LCONTROL + LSHIFT + EQUALS
+Keys/Save to selected slot = LCONTROL + `F5`
+Keys/Load from selected slot = LCONTROL + `F7`

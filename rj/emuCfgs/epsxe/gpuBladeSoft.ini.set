@@ -1,0 +1,165 @@
+
+[display settings]
+fullscreen                     = true
+fullscreenmode                 = [FSMODE]
+fullscreenwidth                = [REZX]
+fullscreenheight               = [REZY]
+fullscreencolordepth           = 32
+fullscreenrefreshrate          = [HERTZ]
+windowedwidth                  = [REZX]
+windowedheight                 = [REZY]
+windowedmode                   = 0
+waitforvsync                   = [VSYNC]
+
+[framerate]
+fpslimitation                  = 1
+framerate                      = 60.000000
+
+[processing]
+internalresolutionx            = [IREZX]
+internalresolutiony            = [IREZY]
+use32bitrenderer               = [32BIT]
+texturebilinearfiltering       = [TEXFILT]
+disabledfeemulation            = [DFE]
+
+[postprocessing]
+deinterlacingmethod            = 1
+filtering                      = [FILTYPE]
+shadername                     = [SHADER]
+shaderlevel                    = [SHADERLVL]
+bilinearfiltering              = [BILFILT]
+brightness                     = 0
+gamma                          = 0
+aspectratiofullscreen          = [ARC]
+aspectratiowindowed            = 3
+rotatescreen                   = 0
+
+[visible area]
+preferences                    = [VISAREA]
+ntscleft                       = 608
+ntsctop                        = 16
+palleft                        = 638
+paltop                         = 35
+positionx                      = 0.000000
+positiony                      = 0.000000
+mirroringx                     = false
+mirroringy                     = false
+zooming                        = 0.000000
+overscan                       = 0.000000
+
+[advanced]
+improvedcoordsaccuracy         = 1
+frameblending                  = [FRAMEBLEND]
+stereoscopicrenderer           = 0
+texturereplacementpath         = 
+
+[psx settings]
+dithering                      = 1
+clutcaching                    = true
+texturecaching                 = true
+
+[hot keys]
+configdialog0                  = 
+showstatus0                    = 
+showinfo0                      = 
+fpslimitation0                 = 
+fastforward0                   = 
+togglefullscreen0              = 
+showhidecursor0                = 
+changetexturebilinear0         = 
+togglebilinear0                = 
+changevisiblemode0             = 
+decreaseshaderlevel0           = 
+increaseshaderlevel0           = 
+decreasebrightness0            = 
+increasebrightness0            = 
+decreasegamma0                 = 
+increasegamma0                 = 
+rotatescreen0                  = 
+movescreenleft0                = 
+movescreenright0               = 
+movescreenup0                  = 
+movescreendown0                = 
+decreasezoom0                  = 
+increasezoom0                  = 
+fliphorizontal0                = 
+flipvertical0                  = 
+decreaseoverscan0              = 
+increaseoverscan0              = 
+togglegteaccuracy0             = 
+toggleframeblending0           = 
+togglewireframemode0           = 
+screenshot0                    = 011000004a
+videorecording0                = 011000404a
+configdialog1                  = 
+showstatus1                    = 
+showinfo1                      = 
+fpslimitation1                 = 
+fastforward1                   = 
+togglefullscreen1              = 
+showhidecursor1                = 
+changetexturebilinear1         = 
+togglebilinear1                = 
+changevisiblemode1             = 
+decreaseshaderlevel1           = 
+increaseshaderlevel1           = 
+decreasebrightness1            = 
+increasebrightness1            = 
+decreasegamma1                 = 
+increasegamma1                 = 
+rotatescreen1                  = 
+movescreenleft1                = 
+movescreenright1               = 
+movescreenup1                  = 
+movescreendown1                = 
+decreasezoom1                  = 
+increasezoom1                  = 
+fliphorizontal1                = 
+flipvertical1                  = 
+decreaseoverscan1              = 
+increaseoverscan1              = 
+togglegteaccuracy1             = 
+toggleframeblending1           = 
+togglewireframemode1           = 
+screenshot1                    = 
+videorecording1                = 
+
+[misc]
+showstatus                     = false
+showinfo                       = false
+screenrumble                   = true
+crosshairtype0                 = 0
+crosshairsize0                 = 1.000000
+crosshairtype1                 = 0
+crosshairsize1                 = 1.000000
+crosshairtype2                 = 0
+crosshairsize2                 = 1.000000
+crosshairtype3                 = 0
+crosshairsize3                 = 1.000000
+crosshairtype4                 = 0
+crosshairsize4                 = 1.000000
+crosshairtype5                 = 0
+crosshairsize5                 = 1.000000
+crosshairtype6                 = 0
+crosshairsize6                 = 1.000000
+crosshairtype7                 = 0
+crosshairsize7                 = 1.000000
+hidecursor                     = true
+fakegpubusy                    = true
+disablescreensaverdpms         = true
+savestatepicsize               = 0.330000
+messagefontsize                = 12
+renderingthreads               = 1
+enablelogging                  = false
+dumpfullvram                   = false
+videoquality                   = 10
+enabledebugger                 = false
+savedialogparameters           = true
+savesettingsonexit             = true
+windowx                        = 100
+windowy                        = 100
+dialogx                        = 100
+dialogy                        = 100
+dialogw                        = 100
+dialogh                        = 100
+language                       = en_EN.utf-8

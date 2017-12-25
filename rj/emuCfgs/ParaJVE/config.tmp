@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration version="3">
+
+	<window x="-1" y="-1" width="-1" height="-1" fullscreen="true" state="0" menuBar="off"/>
+	<timing method="FPS" fps="50" nanos="true"/>
+	<sound enabled="true" createThread="true" samplingRate="44100" volume="1.0"/>
+	<debug showFps="false" debugFeatures="false" devMode="false"/>
+
+	<overall>
+		<option id="firstRun" value="false"/>
+		<option id="toggleMenuHelp" value="true"/>
+	</overall>
+
+	<display aa="[AA]" persistent="[PERS]" additive="[ADD]" overlay="true" overlayMode="-1" rotation="0" gamma="[GAM]" brightness="[BRIGHT]">
+		<vectors>
+			<thickness lines="[LINE]" points="[PTS]"/>
+			<wobbling enabled="[WOBBLE]" factor="[WOBN]"/>
+		</vectors>
+		<chassis enabled="false" zoom="1.6907" tx="0.0" ty="-0.196">
+			<part id="frame" enabled="false"/>
+			<part id="port1" enabled="false"/>
+			<part id="port2" enabled="false"/>
+			<part id="screen" enabled="[SCREEN]"/>
+			<part id="holders" enabled="false"/>
+			<part id="bayPanel" enabled="false"/>
+			<part id="cartridge" enabled="false"/>
+		</chassis>
+		<shaders>
+			<shader id="glow" active="[GLOW]" passes="[GLOWP]">
+				<bufferSize fixed="[BUFFER]" fixedWidth="[REZX]" fixedHeight="[REZY]" factor="[FACT]"/>
+				<flickering enabled="[FLICK]" factor="0.2"/>
+				<attenuation enabled="[ATT]" factor="[ATTN]"/>
+				<gains>
+					<horizontal enabled="[BGAIN]" factor="1.0"/>
+					<vertical enabled="[BGAIN]" factor="1.35"/>
+				</gains>
+				<kernel id="horizontal">
+					<value>1.0</value>
+					<value>2.0</value>
+					<value>3.0</value>
+					<value>4.0</value>
+					<value>5.0</value>
+				</kernel>
+				<kernel id="vertical">
+					<value>1.0</value>
+					<value>2.0</value>
+					<value>3.0</value>
+					<value>4.0</value>
+					<value>5.0</value>
+				</kernel>
+			</shader>
+		</shaders>
+	</display>
+
+	<keymapping>
+		<bind id="exit" key="ESCAPE"/>
+		<bind id="menu" key="F11"/>
+		<bind id="size" key="INSERT"/>
+		<bind id="pause" key="END"/>
+		<bind id="reset" key="BACK_SPACE"/>
+		<bind id="screenshot" key="F12"/>
+		<bind id="save" key="F3"/>
+		<bind id="load" key="F4"/>
+		<bind id="quicksave" key="F5"/>
+		<bind id="quickload" key="F7"/>
+		<joystick id="joy1">
+			<bind id="button1" key="Q"/>
+			<bind id="button2" key="W"/>
+			<bind id="button3" key="E"/>
+			<bind id="button4" key="R"/>
+			<bind id="up" key="UP"/>
+			<bind id="down" key="DOWN"/>
+			<bind id="left" key="LEFT"/>
+			<bind id="right" key="RIGHT"/>
+		</joystick>
+		<joystick id="joy2">
+			<bind id="button1" key="7"/>
+			<bind id="button2" key="8"/>
+			<bind id="button3" key="9"/>
+			<bind id="button4" key="0"/>
+			<bind id="up" key="NUMPAD5"/>
+			<bind id="down" key="NUMPAD2"/>
+			<bind id="left" key="NUMPAD1"/>
+			<bind id="right" key="NUMPAD3"/>
+		</joystick>
+		<device id="KEYBOARD">
+			<bind id="on" key="HOME"/>
+			<bind id="off" key="HOME"/>
+		</device>
+		<mouse>
+			<sensitivity horizontal="0.75" vertical="0.75"/>
+		</mouse>
+	</keymapping>
+	<controllers enabled="[CTRLR]"/>

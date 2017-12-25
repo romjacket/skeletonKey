@@ -1,0 +1,44 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=B
+Set1Button3Slots=V
+Set1Button5Slots=E
+Set1Button6Slots=R
+Set1Button7SetSelect=1
+Set1Button8Slots=Equals
+Set1Button9Slots=Minus
+Set1Button10Slots=N
+Set1DPadUpSlots=Page Up
+Set1DPadRightSlots=End
+Set1DPadDownSlots=Page Down
+Set1DPadLeftSlots=Home
+Set1Stick1UpSlots=Y
+Set1Stick1RightSlots=Apostrophe
+Set1Stick1DownSlots=U
+Set1Stick1LeftSlots=Semi-Colon
+Set1Stick2UpSlots=NumPad 8
+Set1Stick2RightSlots=NumPad 6
+Set1Stick2DownSlots=NumPad 2
+Set1Stick2LeftSlots=NumPad 4
+Set1TriggerRightSlots=Apostrophe
+Set2Button7SetSelect=0
+Set2Button9Slots=F9
+Set2DPadUpSlots=3
+Set2DPadRightSlots=F7
+Set2DPadDownSlots=2
+Set2DPadLeftSlots=F5
+Set2Stick1UpSlots=F
+Set2Stick1RightSlots=F11
+Set2Stick1LeftSlots=F10
+Set2TriggerRightSlots=F12

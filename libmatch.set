@@ -1,0 +1,141 @@
+4do_libretro.dll|The 3DO Company - 3DO
+atari800_libretro.dll|Atari - 800
+bluemsx_libretro.dll|Coleco - ColecoVision
+bnes_libretro.dll|Nintendo - Famicom Disk System
+bnes_libretro.dll|Nintendo - Nintendo Entertainment System
+bsnes_accuracy_libretro.dll|Nintendo - Super Nintendo Entertainment System
+bsnes_balanced|Nintendo - Super Nintendo Entertainment System
+bsnes_cplusplus98_libretro.dll|Nintendo - Super Nintendo Entertainment System
+bsnes_mercury_accuracy_libretro.dll|Nintendo - Super Nintendo Entertainment System
+bsnes_mercury_balanced|Nintendo - Super Nintendo Entertainment System
+bsnes_mercury_performance_libretro.dll|Nintendo - Satellaview
+bsnes_mercury_performance_libretro.dll|Nintendo - Sufami Turbo
+bsnes_mercury_performance_libretro.dll|Nintendo - Super Nintendo Entertainment System
+bsnes_performance_libretro.dll|Nintendo - Super Nintendo Entertainment System
+higan_sfc_libretro.dll|Nintendo - Super Nintendo Entertainment System
+higan_sfc_balanced_libretro.dll|Nintendo - Super Nintendo Entertainment System
+citra_libretro.dll|Nintendo - Nintendo 3DS
+crocods_libretro.dll|Amstrad - CPC
+melonds_libretro.dll|Nintendo - Nintendo DS
+desmume_libretro.dll|Nintendo - Nintendo DS
+dolphin_libretro.dll|Nintendo - GameCube
+dosbox_libretro.dll|DOS
+fbalpha_libretro.dll|SNK - Neo Geo
+fbalpha2012_libretro.dll|SNK - Neo Geo
+fbalpha2012_libretro.dll|Capcom Play System - CPS III
+fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo
+fbalpha_libretro.dll|SNK - Neo Geo
+fceumm|Nintendo - Famicom Disk System
+fceumm|Nintendo - Nintendo Entertainment System
+fmsx_libretro.dll|Microsoft - MSX
+fmsx_libretro.dll|Microsoft - MSX2
+glupen64_libretro.dll|Nintendo - Nintendo 64
+handy_libretro.dll|Atari - Lynx
+hatari_libretro.dll|Atari - ST
+mame2010_libretro.dll|MAME
+mame2014_libretro.dll|MAME
+mame_libretro.dll|MAME
+medafen_ngp_libretro.dll|SNK - Neo Geo Pocket Color
+medafen_ngp_libretro.dll|SNK - Neo Geo Pocket
+mednafen_gba_libretro.dll|Nintendo - Game Boy Advance
+mednafen_gba_libretro.dll|Nintendo - Game Boy Advance(e-Cards)
+mednafen_lynx_libretro.dll|Atari - Lynx
+mednafen_pce_fast_libretro.dll|NEC - PC Engine - TurboGrafx 16
+mednafen_pce_fast_libretro.dll|NEC - PC Engine CD - TurboGrafx CD
+mednafen_pcfx_libretro.dll|NEC - PC-FX
+mednafen_psx_hw_libretro.dll|Sony - Playstation
+mednafen_supergrafx_libretro.dll|NEC - PC Engine SuperGrafx
+mednafen_vboy_libretro.dll|Nintendo - Virtual Boy
+mednafen_wswan_libretro.dll|Bandai - WonderSwan
+mednafen_wswan_libretro.dll|Bandai - WonderSwan Color
+mgba_libretro.dll|Nintendo - Game Boy
+mgba_libretro.dll|Nintendo - Game Boy Color
+gearboy_libretro.dll|Nintendo - Game Boy
+gearboy_libretro.dll|Nintendo - Game Boy Color
+mupen64plus_libretro.dll|Nintendo - Nintendo 64
+np2_libretro.dll|NEC - PC98
+nekop2_libretro.dll|NEC - PC98
+o2em_libretro.dll|Magnavox - Odyssey2
+picodrive_libretro.dll|Sega - 32X
+picodrive_libretro.dll|Sega - Game Gear
+picodrive_libretro.dll|Sega - Master System - Mark III
+picodrive_libretro.dll|Sega - Mega Drive - Genesis
+picodrive_libretro.dll|Sega - Mega-CD - Sega CD
+ppsspp_libretro.dll|Sony - Playstation Portable
+prosystem_libretro.dll|Atari - 7800
+puae_libretro.dll|Commodore - Amiga
+puae_libretro.dll|Commodore - Amiga CD32
+puae_libretro.dll|Commodore - Amiga CDTV
+px68k_libretro.dll|Sharp - X68000
+quicknes_libretro.dll|Nintendo - Famicom Disk System
+quicknes_libretro.dll|Nintendo - Nintendo Entertainment System
+redream_libretro.dll|Sega - Dreamcast
+reicast_libretro.dll|Sega - Dreamcast
+scummvm_libretro.dll|ScummVM
+snes9x2002_libretro.dll|Nintendo - Super Nintendo Entertainment System
+snes9x2005_libretro.dll|Nintendo - Super Nintendo Entertainment System
+snes9x2005_plus_libretro.dll|Nintendo - Super Nintendo Entertainment System
+snes9x2010_libretro.dll|Nintendo - Super Nintendo Entertainment System
+stella_libretro.dll|Atari - 2600
+vba_libretro.dll|Nintendo - Game Boy Advance
+vbam_libretro.dll|Nintendo - Game Boy Advance
+vecx_libretro.dll|GCE - Vectrex
+virtualjaguar_libretro.dll|Atari - Jaguar
+vice_x64_libretro.dll|Commodore - 64
+vice_x64_libretro.dll|Commodore - 64 (PP)
+vice_x64_libretro.dll|Commodore - 64 (Tapes)
+vice_xplus_libretro.dll|Commodore - Plus4
+vice_x64_libretro.dll|Commodore - VIC10
+vice_xvic_libretro.dll|Commodore - VIC20
+yabause_libretro.dll|Sega - Saturn
+
+
+mame_libretro.dll|APF - Imagination Machine
+mame_libretro.dll|Coleco - ColecoVision
+mame_libretro.dll|Atari - 5200
+mame_libretro.dll|Casio - Loopy
+mame_libretro.dll|Casio - PV-1000
+mame_libretro.dll|Casio - PV-2000
+mame_libretro.dll|Acorn - BBC
+mame_libretro.dll|GamePark - GP32
+mame_libretro.dll|Funtech - Super Acan
+mame_libretro.dll|Fairchild - Channel F
+mame_libretro.dll|Tiger - Game COM
+mame_libretro.dll|Acorn - Electron
+mame_libretro.dll|Entex - Adventure Vision
+mame_libretro.dll|Emerson - Arcadia
+mame_libretro.dll|RCA - Studio II
+mame_libretro.dll|NEC - PC88
+mame_libretro.dll|Philips - CDI
+mame_libretro.dll|VTech - Creativision
+mame_libretro.dll|VTech - V
+mame_libretro.dll|Watara - Supervision
+mame_libretro.dll|Hartung - Game Master
+mame_libretro.dll|Philips - CDI
+mame_libretro.dll|Mattel - Intellivision
+mgba_libretro.dll|Nintendo - Game Boy Advance (E-Cards)
+mgba_libretro.dll|Nintendo - Game Boy Advance
+snes9x_libretro.dll|Nintendo - Super Nintendo Entertainment System
+crocods|Amstrad - CPC
+crocods|Amstrad - GX4000
+picodrive_libretro.dll|Sega - PICO
+parallel_n64_libretro.dll|Nintendo - Nintendo 64DD
+parallel_n64_libretro.dll|Nintendo - Nintendo 64
+bluemsx_libretro.dll|Microsoft - MSX
+bluemsx_libretro.dll|Microsoft - MSX2
+fbalpha2012_cps1_libretro.dll|Capcom Play System - CPS
+fbalpha2012_cps2_libretro.dll|Capcom Play System - CPS II
+fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo AES
+fbalpha2012_neogeo_libretro.dll|SNK - Neo Geo MVS
+mame2016_libretro.dll|MAME
+gambatte_libretro.dll|Nintendo - Game Boy
+gambatte_libretro.dll|Nintendo - Game Boy Color
+genesis_plus_gx_libretro.dll|Sega - Game Gear
+genesis_plus_gx_libretro.dll|Sega - Master System - Mark III
+genesis_plus_gx_libretro.dll|Sega - Mega Drive - Genesis
+genesis_plus_gx_libretro.dll|Sega - Mega-CD - Sega CD
+genesis_plus_gx_libretro.dll|Sega - SG-1000
+nestopia_libretro.dll|Nintendo - Famicom Disk System
+nestopia_libretro.dll|Nintendo - Nintendo Entertainment System
+mednafen_psx_libretro.dll|Sony - Playstation
+mednafen_saturn_libretro.dll|Sega - Saturn

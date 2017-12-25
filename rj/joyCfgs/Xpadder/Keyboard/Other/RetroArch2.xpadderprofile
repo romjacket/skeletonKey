@@ -1,0 +1,49 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=End
+Set1Button2Slots=Page Down
+Set1Button3Slots=Home
+Set1Button4Slots=Page Up
+Set1Button5Slots=NumPad 1
+Set1Button6Slots=NumPad 3
+Set1Button7Slots=5
+Set1Button7SetSelect=1
+Set1Button8Slots=2
+Set1Button9Slots=Dot
+Set1Button10Slots=Comma
+Set1DPadUpSlots=NumPad 8
+Set1DPadRightSlots=NumPad 6
+Set1DPadDownSlots=NumPad 2
+Set1DPadLeftSlots=NumPad 4
+Set1Stick1UpSlots=P
+Set1Stick1RightSlots=Apostrophe
+Set1Stick1DownSlots=Semi-Colon
+Set1Stick1LeftSlots=L
+Set1Stick2UpSlots=6
+Set1Stick2RightSlots=7
+Set1Stick2DownSlots=8
+Set1Stick2LeftSlots=9
+Set1TriggerLeftSlots=NumPad 7
+Set1TriggerRightSlots=NumPad 9
+Set2Button7SetSelect=0
+Set2Button8SetSelect=0
+Set2Button9Slots=F11
+Set2DPadUpSlots=F7
+Set2DPadRightSlots=F4
+Set2DPadDownSlots=F6
+Set2DPadLeftSlots=F2
+Set2Stick1RightSlots=Equals
+Set2Stick1DownSlots=Back-Slash[UK] (US use #)
+Set2Stick1LeftSlots=Backspace
+Set2TriggerRightSlots=F8

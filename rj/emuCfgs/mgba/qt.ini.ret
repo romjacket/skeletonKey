@@ -1,0 +1,8 @@
+[General]
+audioDriver=1
+displayDriver=[DISPDRV]
+lastDirectory=[ROMPTH]
+windowPos=@Point(500 100)
+
+[shortcutKey]
+recordOutput=Ctrl+F12

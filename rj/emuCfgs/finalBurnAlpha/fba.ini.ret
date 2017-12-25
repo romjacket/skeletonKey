@@ -1,0 +1,161 @@
+nIniVersion 0x029731
+bBurnUseASMCPUEmulation 1
+nVidHorWidth [REZX]
+nVidHorHeight [REZY]
+bVidArcaderesHor 0
+VidPreset[0].nWidth 400
+VidPreset[0].nHeight 300
+VidPreset[1].nWidth 640
+VidPreset[1].nHeight 480
+VidPreset[2].nWidth 1024
+VidPreset[2].nHeight 768
+VidPreset[3].nWidth 1280
+VidPreset[3].nHeight 960
+nScreenSizeHor 0
+nVidVerWidth [REZX]
+nVidVerHeight [REZY]
+bVidArcaderesVer 0
+VidPresetVer[0].nWidth 400
+VidPresetVer[0].nHeight 300
+VidPresetVer[1].nWidth 640
+VidPresetVer[1].nHeight 480
+VidPresetVer[2].nWidth 1024
+VidPresetVer[2].nHeight 768
+VidPresetVer[3].nWidth 1280
+VidPresetVer[3].nHeight 960
+nScreenSizeVer 0
+nVidDepth 32
+nVidRefresh 0
+nVidRotationAdjust 0
+nWindowSize 0
+nWindowPosX 4
+nWindowPosY 0
+bDoGamma [GAMMA]
+bVidUseHardwareGamma 1
+bHardwareGammaOnly 1
+nGamma 1.250000
+bVidAutoSwitchFull 1
+bVidFullStretch 1
+bVidCorrectAspect 1
+bVidTripleBuffer 0
+bVidVSync 0
+bVidDWMCore 1
+nVidTransferMethod -1
+bVidScanlines [SCAN]
+nVidScanIntensity [SCANV]
+bVidScanRotate 1
+nVidSelect [BLITN]
+nVidBlitterOpt[0] [BLIT0V]
+nVidBlitterOpt[1] [BLIT1V]
+nVidBlitterOpt[2] [BLIT2V]
+nVidBlitterOpt[3] [BLIT3V]
+nVidBlitterOpt[4] [BLIT4V]
+bMonitorAutoCheck 1
+nVidScrnAspectX [MONASPX]
+nVidScrnAspectY [MONASPY]
+bForce60Hz 0
+bAlwaysDrawFrames 0
+bVidScanHalf [SCAN]
+bVidForceFlip 0
+bVidBilinear 1
+bVidScanDelay 0
+bVidScanBilinear 1
+nVidFeedbackIntensity 64
+nVidFeedbackOverSaturation 0
+fVidScreenAngle 0.174533
+fVidScreenCurvature 0.698132
+bVidForce16bit 1
+dVidCubicB 0.000000
+dVidCubicC 0.500000
+bVidDX9Bilinear 1
+bVidHardwareVertex 0
+bVidMotionBlur 0
+nAudSelect 0
+nAudSegCount 6
+nInterpolation 1
+nFMInterpolation 0
+nAudSampleRate[0] 22050
+nAudDSPModule[0] 0
+nAudSampleRate[1] 22050
+nAudDSPModule[1] 0
+szLocalisationTemplate 
+szGamelistLocalisationTemplate 
+nGamelistLocalisationActive 0
+nVidSDisplayStatus 1
+nMinChatFontSize 12
+nMaxChatFontSize 36
+bModelessMenu 0
+nSplashTime 1500
+bDrvSaveAll 0
+nAppThreadPriority 0
+bAlwaysProcessKeyboardInput 0
+bAutoPause 1
+bSaveInputs 1
+nCDEmuSelect 0
+CDEmuImage 
+nSelDlgWidth 742
+nSelDlgHeight 562
+nLoadMenuShowX 268435456
+nLoadMenuBoardTypeFilter 0
+nLoadMenuGenreFilter 0
+nLoadMenuFamilyFilter 0
+szAppRomPaths[0] [ROMPTH]\
+szAppRomPaths[1] 
+szAppRomPaths[2] 
+szAppRomPaths[3] 
+szAppRomPaths[4] 
+szAppRomPaths[5] 
+szAppRomPaths[6] 
+szAppRomPaths[7] 
+szAppRomPaths[8] 
+szAppRomPaths[9] 
+szAppRomPaths[10] 
+szAppRomPaths[11] 
+szAppRomPaths[12] 
+szAppRomPaths[13] 
+szAppRomPaths[14] 
+szAppRomPaths[15] 
+szAppRomPaths[16] 
+szAppRomPaths[17] 
+szAppRomPaths[18] 
+szAppRomPaths[19] roms/
+szNeoCDGamesDir [ROMPTH]
+szAppPreviewsPath support/previews/
+szAppTitlesPath support/titles/
+szAppCheatsPath [ROMPTH]\.cheats/
+szAppHiscorePath support/hiscores/
+szAppSamplesPath support/samples/
+szAppIpsPath [ROMPTH]\.patches/
+szAppIconsPath support/icons/
+szNeoCDCoverDir support/neocdz/
+nBurnDrvSelect[0] (null)
+nBurnDrvSelect[1] (null)
+nBurnDrvSelect[2] (null)
+nBurnDrvSelect[3] (null)
+nBurnDrvSelect[4] (null)
+nBurnDrvSelect[5] (null)
+bNeoCDListScanSub 0
+bNeoCDListScanOnlyISO 0
+bNoChangeNumLock 1
+EnableHiscores 0
+nIpsSelectedLanguage 0
+bEnableIcons 0
+nIconsSize 0
+szPrevGames[0] 
+szPrevGames[1] 
+szPrevGames[2] 
+szPrevGames[3] 
+szPrevGames[4] 
+szPrevGames[5] 
+szPrevGames[6] 
+szPrevGames[7] 
+szPrevGames[8] 
+szPrevGames[9] 
+nPlayerDefaultControls[0] 0
+szPlayerDefaultIni[0] 
+nPlayerDefaultControls[1] 1
+szPlayerDefaultIni[1] 
+nPlayerDefaultControls[2] 2
+szPlayerDefaultIni[2] 
+nPlayerDefaultControls[3] 3
+szPlayerDefaultIni[3] 
