@@ -1,0 +1,35 @@
+
+[Model]
+forceselect = 1
+Name = "A5000 (JIT)"
+
+[DirectDrawRenderer]
+free_scale = 0
+CanChangeMode = 1
+Border = 0
+TripleBuffer = 0
+FrameSkip = 0
+AutoWindowResize = 1
+FullScreenStartup = 0
+
+[DirectXInput]
+MenuKey = 1
+MouseButton0 = 0
+MouseButton1 = 2
+MouseButton2 = 1
+JoystickEnabled = 1
+JoystickThreshold = 25
+WindowsKeyIsBreak = 1
+
+[DirectSound]
+FilterLevel = 36864
+Enabled = 1
+
+[WinUI]
+ShowSplash = 1
+Version = 61
+ProcessorPriority = 0
+
+[SystemClock]
+AutoDetectProcSpeed = 1
+ProcessorSpeed = 1004

@@ -1,0 +1,38 @@
+
+;
+; ace inifile
+;
+
+[general]
+
+rompath=[ROMPTH]
+datpath=.\romdata\
+neogeoarcade=0
+showfps=0
+
+[video]
+
+; autoframeskip. 1=on, 0=off
+
+autoframeskip =1
+
+; videomode
+; 0=fullscreen 400x300x32 (normal) - 640x480x32 (rotated)
+; 1=window DX7 doublesize
+; 3=window DX7 normal
+
+videomode=1
+
+; use video memory (0) if your card can do hardware
+; stretch ; use system memory (1) if not
+
+usesysmem=0
+
+[sound]
+
+soundon = 1
+soundfreq=44100
+interpolate=0
+usedirectsound=1
+
+

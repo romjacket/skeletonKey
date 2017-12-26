@@ -1,0 +1,20 @@
+-r ROM\MINERVA198.ROM
+-c 0000c000@ROM\NFA.ROM
+-c 000c0000@ROM\TK2.ROM
+-l win1@WIN1_\
+-l win2@WIN2_\
+-l win3@WIN3_\
+-l win4@WIN4_\
+-l win5@WIN5_\
+-l win6@WIN6_\
+-l win7@WIN7_\
+-l win8@WIN8_\
+-l mdv1@MDV\MDV1.MDV
+-l mdv2@MDV\QUILL.MDV
+-p LPT1:
+-d 6
+-L FR
+-f 3000
+-w 1
+-m 1
+-o

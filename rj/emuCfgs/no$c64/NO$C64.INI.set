@@ -1,0 +1,59 @@
+;no$c64 1.1 generated config file - do not edit
+
+Emulation Speed, Frameskip == -1MHz Realtime, Auto
+CBM Version == -C64, Kernal 3
+VIC Frame Rate == -50Hz/PAL
+Key Translation Table == -Automatic
+Key Repeat Rate == -Normal 32/2
+Monitor Type == -Color TV
+Character Set == -Locase
+Video Collision Detection == -Enabled (normal)
+Sound Output Mode == None (fastest) NOT YET
+Sound Mixer Volume == -12
+Sound Desired Sample Rate == -High (44kHz) (best)
+Sound Adlib Volume/Delays == -Loud, Secure Delays (SLOW)
+Boot Delays == -Fast/None
+Intro Delays == -Fast/Boost
+Joystick A == -Stick A (slows down)
+Joystick B == -Stick B (slows down)
+Joystick Assignment == -Shortcut (Port A=B=1=2)
+IIgame_size == normal
+
+Emulation Hotkeys == -Both ESC and ALT+X
+Performance Indicator == -Show Timing only if <>100%
+Printer Redirection == -None
+Archievate DSK-Files == -ARJ, Except BOOTDISK.DSK
+Symbolic Informations (TAB) == -Displayed
+Disassembler Syntax == -Nocash 80XX Style
+When Loading No{c64 == -Start in Debug Mode
+Transmit Port == -None/Disabled
+Datazone Format == -Byte
+Datazone End Strategy == -Manually CTRL-D-entered
+Illegal IO-addresses == -Ignore
+Autosave Options == -Nope
+HideUnusedWin == show both
+Debug Font == 7x15 Courier New
+Courier New Patch == Use Patched font (1<>L)
+Arrange == oldstyle
+
+Hack_xloc == 0000000A
+Hack_yloc == 0000000A
+Hack_ysiz == 00000019
+Data_ysiz == 00000006
+iXed_xloc == 00000014
+iXed_yloc == 00000014
+iXed_xsiz == 0000004F
+iXed_ysiz == 00000018
+Stat_xloc == 0000001E
+Stat_yloc == 0000001E
+Vram_xloc == 0000001E
+Vram_yloc == 0000001E
+Vram_xsiz == 00000000
+Vram_ysiz == 00000000
+Game_xloc == 0000001E
+Game_yloc == 0000001E
+Game_xsiz == 00010000
+Game_ysiz == 00010000
+
+KEYB_1 == 4C504F5152
+KEYB_2 == 101E181939

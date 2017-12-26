@@ -1,0 +1,105 @@
+;no$gmb 2.5 generated config file - do not edit
+
+Game System (resets game) == -CGB+initial SGB border
+Emulation Speed, LCD Refresh == -4.194304 MHz Realtime, Auto
+Sound Output Mode == Digital Stereo (SLOW)
+Sound Script File == -None
+Sound Mixer Volume == -12
+Sound Desired Sample Rate == -High (÷44kHz) (best)
+Display Colors == -LCD Shades
+Display SGB/CGB Colors == -Real Colors
+Game Screen Sizing == Strict
+Auto-destroy Game Window == None
+Auto-destroy/create Debugger == None
+IIgame_size == normal
+Execute Games in == Separate Game Window
+Number of Emulated Gameboys == -Single Machine
+Machine Link Strategie == -Groups of Two
+Performance Indicator == -Show Timing only if <>100%
+Powerdown (alt-x) == -Undelayed
+Debugging Functions == -Debugger Enabled
+
+Joystick Button 1 == -Button B
+Joystick Button 2 == -Button A
+Joystick Button 3 == -Button B machine #2
+Joystick Button 4 == -Button A machine #2
+SNESpad Adapter == -None/Disabled (fast)
+SNESpad Button A == -Button A
+SNESpad Button B == -Button B
+Mouse Control Mode == -Free Move (right button=on)
+Joysticks == -Enabled (slows down)
+
+Clock Cycle Comments == -Show Clks and Counted Clks
+Symbolic Informations (TAB) == -Displayed
+Follow Function (ScrLock) == -Follow Code Cursor
+Autostart Cartridges / Snaps == -Whoosh
+Cartridge Header == -Warn on Corrupt Cartridges
+Keystrokes (past pause) == -Initially Cleared
+Exit Function (Alt+X) == -Always Enabled
+Initialize RAM == -Zero Filled
+Battery RAM Saving == -Save Full Size (8KB/32KB)
+Old Input Buffer == -Save to NO{GMB.INP
+F5/F7 Snapshot Filename == -Snap File Menu
+Screenshot GIF Filename == -Screenshot File Menu
+Undo Run Function == -Disabled (fast)
+Startup Location == -Plain Debugger
+Editor == -XED (A22i compatible)
+Datazone Format == -Byte
+Datazone End Strategy == -Manually CTRL-D-entered
+
+Override Exceptions == -Override User Settings
+More than 10 Sprites/Line == -Display anyway
+Echo RAM accesses == -Execute
+Reads from unaccessable VRAM == -Read anyway (fast)
+Writes to unaccessable VRAM == -Write anyway (fast)
+Access to locked External RAM == -Allways allowed (fast)
+Stack Writes to ROM/VRAM == -Don't Stop
+16bit inc/dec at FE00-FEFF == -Execute (would crash OAM)
+Writes to 0000-7FFF (ROM) == -Execute all (banking)
+LCD Display Disable == -At any time
+SGB Packet Transfers == -Execute all
+Halt opcode & Ints disabled == -Emulate CPU quirk
+Source Code Breakpoints == -Ignore
+Debug Messages (52h ld d,d) == -Ignore
+Emulator Identification == -Disabled
+SGB Transfer Delays == -Ignore past transfers (fast)
+Update Information  == -Warn if older than 6 months
+
+IItvscr == map
+IItvgrd == yes
+IItvscy == yes
+IItvchr == auto
+IItvmap == auto
+IItvatr == attr
+IIsym == all
+IIset == emu
+IIsnd == stereo
+Autosave Options == Save on Exit
+IIreg == skip
+
+Hack_xloc == 0000000A
+Hack_yloc == 0000000A
+Hack_ysiz == 00000019
+Data_ysiz == 00000006
+iXed_xloc == 00000014
+iXed_yloc == 00000014
+iXed_ysiz == 00000018
+Game_xloc == 0000001E
+Game_yloc == 0000001E
+Game_xsiz == 00018000
+Game_ysiz == 00018000
+
+KEYB_1 == 101E1819390F1D1C
+KEYB_2 == A1A9A4A652535175
+KEYB_3 == 5959385991595902
+KEYB_4 == 5959595959595903
+KEYB_5 == 5959595959595904
+KEYB_6 == 5959595959595905
+KEYB_7 == 5959595959595906
+KEYB_8 == 5959595959595907
+KEYB_9 == 5959595959595908
+KEYB_A == 5959595959595909
+KEYB_B == 595959595959590A
+KEYB_C == 595959595959590B
+
+GIFname == NO$GMB.GIF

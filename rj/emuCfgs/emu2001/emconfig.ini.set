@@ -1,0 +1,12 @@
+; *** Deleting this File will Restore Defaults
+DRIVER=WIND3D
+SOUND=0
+CURRENTSYSTEM=0
+HEX=1
+FPS=1
+JOYSWAP=0
+MONITORSYNC=1
+file_type_filter=0
+STRETCH=1
+LOWCPULOAD=1
+FASTMODE=0

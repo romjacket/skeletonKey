@@ -1,0 +1,9 @@
+// Pom1 Configuration
+pixelSize=2
+scanlines=0
+terminalSpeed=60
+ram8k=0
+writeInRom=1
+fullscreen=0
+blinkCursor=1
+blockCursor=0

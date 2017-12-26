@@ -1,0 +1,211 @@
+;; Euphoric.ini : this file sets Euphoric's configuration
+;;
+;; Comment-lines start with character ';' 
+;; (don't worry if you see two ';' characters, it is just in case you remove one :-)
+;; Settings are in the form Keyword=value, without any space.
+;; Be aware that keywords (and values) are case-sensitive !!
+;; Options that expect a Yes/No value are checked against the first letter only,
+;; and only 'n' and 'N' are checked, so you can write the value in a few languages:
+;; (No, no, non, nein... Yes, si, oui, ja... will give the intended action)
+
+;; It is highly recommended to set the following 3 options to the paths of your roms, tapes and disks :
+;; Euphoric won't start if it doesn't find the roms !
+
+RomPath=[ROMPATH]
+TapePath=[ROMPATH]
+DiskPath=[ROMPATH]
+
+;; this option selects the type of Oric to run
+;; Oric1,Atmos,Telestrat (and even Stratos for UK fans)
+;; You don't need to change it because it is overriden by command line options -1 or -t
+;; and the provided Windows shortcuts use the right command line options
+
+Computer=Atmos
+
+;; this option selects the type of cpu (6502 or 65C02).
+;; Genuine Orics have an old 6502 (NMos). Modern 65C02 (CMos) have an extended instruction set.
+
+Cpu=6502
+
+;; this option selects the frequency of the cpu, leave it to 1.0 MHz unless you know.
+
+Clock=1.0 MHz
+
+;; The following option selects the type of floppy disc controller,
+;; it applies to Oric1 & Atmos only.
+;; Acceptable values: None,Microdisc,Jasmin,Apple
+;; (Apple means the Apple interface as found on Pravetz clones)
+;; You usually don't need to change this option because it is overriden by command line options -d and -j,
+;; or when you double click on a disk image, or when you use the Windows shortcuts.
+
+DiskController=None
+
+;; Select which floppy drives you want to have
+
+DriveA=Yes
+DriveB=Yes
+DriveC=No
+DriveD=No
+
+;; Uncomment to emulate an IDE interface and specify a hard disk image file.
+;; This is a preliminary support of the much expected Oric IDE interface:
+;; if works in virtual life but the real implementation still has electrical problems.
+;; Only one DOS supports it for now: have a look to RanDOS 2002.
+
+;IDEDisk=\docume~1\fabrice\mesdoc~1\Micro\Oric\Euphoric\disks\hd
+
+;; The following option sets the name of the rom that will be loaded when you start an Oric-1
+
+Oric1Rom=Basic10.rom
+
+;; The followinf option sets the name of the rom that will be loaded when you start an Atmos
+;; Genuine Orics have a US keyboard, with few discrepancies.
+;; Localized roms are available if you don't want to get a US keyboard.
+;; Use Bas11_de.rom for a Deutsch keyboard
+;;     Bas11_fr.rom for a French keyboard
+;;     Bas11_uk.rom for a British keyboard
+;;     Bas11_es.rom for a Spanish keyboard
+;;     Bas11_se.rom for a Swedish keyboard...
+;; or any rom you like (e.g pravetzd.rom)
+
+AtmosRom=Basic11b.rom
+
+;; the rom in the line below will be used inside the Microdisc controller
+;; Use Cumana.rom for a Cumana 1 system
+
+MicrodiscEprom=Microdis.rom
+
+;; the rom in the line below will be used inside the Jasmin controller
+
+JasminEprom=Jasmin.rom
+
+;; the rom in the line below will be used inside the Apple interface
+
+AppleInterfaceEprom=eprom8d.rom
+
+;; The following roms set the contents of telestrat banks 1 to 7.
+;; A localized Tmon24fr.rom is available for French keyboards
+;; Unused banks are available as ram instead.
+
+Bank7=Telmon24.rom
+Bank6=HyperBas.rom
+Bank5=TeleAss.rom
+Bank3=Telmatic.rom
+
+;; This option affects the contents of ram at startup, 
+;; Try 1 or 2 to get the initial screen you are used to.
+
+RamPattern=1
+
+;; This option allows to emulate a printer on the Oric centronics port
+;; (don't forget to switch the virtual printer ON in the environment screen
+;; before printing (or using F3), since it is off when starting the emulator)
+
+Printer=Yes
+
+;; Here you tell in which file goes the printer output
+;; Use PrinterOutput=lpt1: for direct printing
+
+PrinterOutput=printer.txt
+
+;; Yes to add a serial extension to the Oric1/Atmos (Telestrat always has it)
+
+AsynchronousController=No
+
+;; Specify the real serial port to use
+;; None,com1,com2
+
+SerialPort=None
+
+;; Use this option in some cases, e.g when connecting a Minitel
+
+CarrierAlwaysDetected=Yes
+
+;; Yes to add a Real Time Clock extension
+
+RealTimeClock=No
+
+;; Yes to emulate a joystick on Telestrat joystick port
+
+JoystickPort=No
+
+;; Yes to emulate a telestrat mouse in a joystick port
+
+Mouse=No
+
+;; This option specifies the type of joystick interface on an Oric1 or Atmos
+;; None, PASE, IJK
+
+Joystick=None
+
+;; Yes to add a light pen extension
+
+LightPen=No
+
+;; Yes to wire pin PB5 of the VIA to A14 on a 32KB rom
+
+SelectRomWithPB5=No
+
+;; selects the name of the dump file (snapshot of the oric state)
+;; generated when pressing F9
+
+DumpFile=Dump
+
+;; Yes if you want a Log file (log.txt)
+;; useful if you have problems starting Euphoric
+
+Log=No
+
+;; Yes to dump the PSG registers at every VIA's timer1 interrupt
+;; (there are players that can play this dump file)
+
+DumpSound=Yes
+
+;; Here you tell where goes the previous sound dump
+
+SoundFile=dump.psg
+
+;; Yes if you have a monochrome VGA monitor
+
+MonochromeVGA=No
+
+;; This option allows you to select a mode (Q) with a pixel aspect that is closer to the real thing
+;; (Oric pixels are a bit flat). This is only true if you have a CRT monitor: AFAIK, LCD pixels are always square.
+;; X is a default mode (320x240 unchained VGA mode) that should always work
+;; Try VGAMode=Q (256x256 chained VGA mode) with next option ScanLines=Yes, and see if it works on your monitor.
+
+VGAMode=X
+
+;; If Mode Q works on your monitor, you might wish to get an even better screen aspect, with less 'boxy' pixels.
+;; VGA monitors use an horizontal frequency that is about two times the one used on Oric monitors, and thus vertical
+;; resolution is doubled. With the default value of this option (ScanLines=Yes), each line is displayed twice.
+;; If you select ScanLines=No, each line will be displayed only once and there will be a small gap between the lines.
+;; As a result, you will get pixels that have a more natural shape, but beware that this is not accepted by all monitors.
+
+ScanLines=Yes
+
+;; This option allows to tweak the VGA frequencies in Mode Q
+;; Try 0,1,2 or 3 if you have display problems, 0 is the normal value.
+;; I'm not sure it has a drastic effect, though...
+
+VgaFrequency=0
+
+;; you may redefine keyboard translation here
+;; provide all 8 PC keys (PC scancode values in decimal) for an Oric Matrix Row
+;; use negative numbers for extended PC scancodes (i.e prefixed by 0xE0)
+;; and an illegal value for no scancode (eg. 128 or 999).
+;; Don't use these options to get a WYTIWYG (What You Type Is What You Get) behavior
+;; with your keyboard : if you don't have a US keyboard, use a nationalized rom as
+;; explained in the AtmosRom option.
+;; Advanced users can use these options to get the Ctrl key in place of the CAPS one,
+;; like on the real Oric keyboards.
+;; Don't change these options if you don't know how...
+
+KbdMatrixRow0=  8, 36, 50, 37, 57, 22, 21,  9   ; 
+KbdMatrixRow1= 49, 20,  7, 10, 51, 23, 35, 38   ; 
+KbdMatrixRow2=  6, 19, 48, 39, 52, 24, 34, 11   ;
+KbdMatrixRow3= 47, 33,  5, 12,-72, 25, 18, 53   ;
+KbdMatrixRow4=-29,999, 29,999, 42, 56,-56, 54   ;
+KbdMatrixRow5=  2,  1, 44, 86,-75, 14, 30, 28   ;
+KbdMatrixRow6= 45, 16,  3, 43,-80, 27, 31, 58   ;
+KbdMatrixRow7=  4, 32, 46, 40,-77, 26, 17, 13   ;

@@ -338,6 +338,7 @@ RJLNCHP=X
 RJPRECFG=
 RJEMUOPTS=<-L<"[libretrodir]\[core]"<
 RJEXTRARC=0
+RJRUNDIR=0
 
 [DosBox]
 RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
@@ -817,6 +818,7 @@ RJMULTIDISC=1
 [Nintendo - Nintendo 64]
 RJEMUPRESET=Project64
 RJMAMENM=n64
+RJROMXT=.n64,.d64,.z64,.zip,.usa,.pal
 
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra

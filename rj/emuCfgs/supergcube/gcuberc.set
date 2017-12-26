@@ -1,0 +1,32 @@
+// there are four different layouts for keyboard and gamepad
+
+// valid layouts are: off keyboard1-4 gamepad1-4
+p1_layout = keyboard1
+p2_layout = gamepad1
+p3_layout = off
+p4_layout = off
+
+// start, a, b, l, r, x, y, z, up, down, left, right, a0-, a0+, a1-, a1+
+keyboard1_map = 13, 113, 119, 115, 97, 122, 120, 99, 273, 274, 276, 275, 264, 261, 260, 262, 278, 279, 127, 281
+keyboard2_map = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+keyboard3_map = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+keyboard4_map = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+// start, a, b, l, r, x, y, z
+gamepad1_bmap = 10, 1, 2, 8, 7, 5, 6, 9
+gamepad2_bmap = 0, 0, 0, 0, 0, 0, 0, 0
+gamepad3_bmap = 0, 0, 0, 0, 0, 0, 0, 0
+gamepad4_bmap = 0, 0, 0, 0, 0, 0, 0, 0
+
+// analog1 y, analog1 x, analog2 y, analog2 x
+gamepad1_amap = 2, 1, 4, 3
+gamepad2_amap = 0, 0, 0, 0
+gamepad3_amap = 0, 0, 0, 0
+gamepad4_amap = 0, 0, 0, 0
+
+// audio buffer size from 512 to 8192
+// good values: linux 512, windows 8192 (smaller = faster response)
+buffer_size = 512
+
+// max memory used for texture cache (MB)
+texcache_size = 112

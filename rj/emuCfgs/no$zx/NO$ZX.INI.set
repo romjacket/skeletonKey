@@ -1,0 +1,67 @@
+;no$zx 2.0 generated config file - do not edit
+
+Emulation Speed, Frameskip == -3.25 MHz Z80 Realtime, Auto
+Sinclair ZX Model == -Spectrum 48K
+RAM Size (in ZX80/ZX81 mode) == 56 KBytes
+Interrupt Rate == -50Hz
+ZX81 Tuning == -Both
+Key Translation Table == -Automatic
+Keyboard Sensitivity == -High (Debounce 03h)
+Monitor Type == -Black on White (normal)
+Sound Output Mode == Digital Sound (slow)
+Sound Mixer Volume == -12
+Sound Desired Sample Rate == -High (44kHz) (best)
+Sound Adlib Volume/Delays == -Loud, Secure Delays (SLOW)
+Delays in FAST mode == -Fast/None
+Boot Delays == -Fast, normal RAMTOP
+Cassette Save Delay == -Fast/None
+Cassette Saving == -Ignore if RUNning
+Space Key BREAK Function == Enabled (normal)
+IIgame_size == normal
+io10show == no
+listshow == no
+prn_show == no
+
+Emulation Hotkeys == -Both ESC and ALT+X
+Performance Indicator == -Show Timing only if <>100%
+When Loading No{zx81 == -Start in Debug Mode
+After Assembling a file == -Start Emulator
+Transmit Port == -Not installed
+Transmit Protocol == -Not installed
+Disassembler Syntax == Nocash Z80 style
+Symbolic Informations (TAB) == -Displayed
+Datazone Format == -Byte
+Datazone End Strategy == -Manually CTRL-D-entered
+Illegal IO-addresses == -Ignore
+Autosave Options == -Nope
+HideUnusedWin == show both
+Gamezoom == 1x1
+Debug Font == 7x15 Courier New
+Courier New Patch == Use Patched font (1<>L)
+Arrange == oldstyle
+
+Hack_xloc == 0000000A
+Hack_yloc == 0000000A
+Hack_ysiz == 00000019
+Data_ysiz == 00000006
+iXed_xloc == 00000014
+iXed_yloc == 00000014
+iXed_xsiz == 0000004F
+iXed_ysiz == 00000018
+Stat_xloc == 0000001E
+Stat_yloc == 0000001E
+gdb_xsiz == 00000000
+gdb_ysiz == 00000000
+List_xloc == 0000001E
+List_yloc == 0000001E
+List_xsiz == 0000012C
+List_ysiz == 000000C8
+Prn_xloc == 0000001E
+Prn_yloc == 0000001E
+Prn_xsiz == 0000012C
+Prn_ysiz == 000000C8
+Game_xloc == 0000001E
+Game_yloc == 0000001E
+Game_xsiz == 00010000
+Game_ysiz == 00010000
+

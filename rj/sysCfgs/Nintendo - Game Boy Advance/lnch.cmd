@@ -11,13 +11,13 @@ set CCMDA=%6%
 set CCMDB=%7%
 set CCMDY=%8%
 set CCMDZ=%9%
-for %%a in ("") do set FRLOC=%%~a
+for %%a in ("[FRLOC]") do set FRLOC=%%~a
 PLYRN1=
 PLYRN2=
 
 
-if "%JYTP%"=="." set JYTP=[XPALT]
-if "%JYTP%"=="" set JYTP=[XPALT]
+if "%JYTP%"=="." set JYTP=1
+if "%JYTP%"=="" set JYTP=1
 if "%FETYPE%"=="" set FETYPE=
 if "%FETYPE%"=="." set FETYPE=
 SET JYX=REM 
@@ -78,7 +78,6 @@ PLYRN2=""
 [INIVAREND]
 
 :CPY
-%XFG%copy /Y vba*.ini" "%EMUL%"
 %JYX%%XPSTRT% "%XPADDER%" /m "%GAMDIR%\%PLYRN1%.xpadderprofile" "%GAMDIR%\%PLYRN2%.xpadderprofile"
 
 
@@ -92,7 +91,7 @@ PLYRN2=""
 %XPALT%%XPSTRT% "%ANTIMIC%" --hidden --profile-controller 1 --profile "%GAMDIR%\%PLYRN1%.amgp" %AMCP2% %AMCV%
 %XPALT%popd
 
-for /f "delims=" %%a in ('dir /B /A-D "*.gba" "*.gb" "*.gbc" "*.agb" "*.bin" "*.elf" "*.mb" "*.zip"') do (
+for /f "delims=" %%a in ('dir /B /A-D "*.zip" "*.gba"') do (
 set ROMF=%%~a
 set ROM=%%~na
 set ROMX=%%~xa
@@ -115,10 +114,9 @@ ROMFN="[ROMFN]"
 %RLOC%pushd "%EMUL%"
 [RLOOPINJ]
 %DMX%"%DAMVAR%" -mount dt, 0, "%GAMDIR%\%ROMF%"
-%LAUNCH% "%EMUL%\%EMUZ%.exe" gba -cart %ROMF%
+%LAUNCH% "%EMUL%\%EMUZ%.exe" gba -cart "%GAMDIR%\%ROMF%" -rp "%EMUL%\roms"
 %CCMDY%
 %RLOC%popd
-%XFG%copy /Y "%EMUL%\vba*.ini" "%GAMDIR%"
 %XPT%%XPSTRT% "%XPADDER%" /m "%FETYPE%.xpadderprofile" nolayout2
 
 %XPALT%pushd "%AMDIR%"

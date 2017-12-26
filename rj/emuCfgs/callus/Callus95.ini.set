@@ -1,0 +1,97 @@
+;==============================
+; Callus Win95 system settings
+;==============================
+
+
+[video]
+-res  640 480
+-windowsize  2
+-fullscreen OFF
+-hicolor ON
+-frameskip AUTO
+-intensity OFF
+
+[sound]
+-sndrate    22050
+-stereo ON
+
+[directories]
+-romdir   .
+-logdir   .
+-pcxdir   .
+-savedir  .
+
+[net]
+-netname Sodomite
+-netlatency 20
+-netip 127.0.0.1
+
+[misc]
+
+;----------------------------
+; input device types
+
+[inputtypes]
+-setinput 1 KEY1
+-setinput 2 NONE
+-setinput 3 NONE
+-setinput 4 NONE
+-hybridinput OFF
+
+; analog joystick settings
+-setjoythresh 1   0 0 0 0
+-setjoythresh 2   0 0 0 0
+-setjoythresh 3   0 0 0 0
+-setjoythresh 4   0 0 0 0
+
+
+
+;----------------------------
+; input device mappings
+
+;button mappings for 2 button games
+[input_2]
+-remapbut JOY1 1 2
+-remapbut JOY2 1 2
+-remapbut JOY3 1 2
+-remapbut JOY4 1 2
+-setkey   KEY1 71 72 73 75 77 79 80 81 29 56 0 0 0 0 0 0 0 0
+-setkey   KEY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+;button mappings for 3 button games
+[input_3]
+-remapbut JOY1 1 2 3
+-remapbut JOY2 1 2 3
+-remapbut JOY3 1 2 3
+-remapbut JOY4 1 2 3
+-setkey   KEY1 71 72 73 75 77 79 80 81 30 31 32 0 0 0 0 0 0 0
+-setkey   KEY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+;button mappings for 4 button games
+[input_4]
+-remapbut JOY1 1 2 3 4
+-remapbut JOY2 1 2 3 4
+-remapbut JOY3 1 2 3 4
+-remapbut JOY4 1 2 3 4
+-setkey   KEY1 71 72 73 75 77 79 80 81 30 31 32 33 0 0 0 0 0 0
+-setkey   KEY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+;button mappings for 6 button games
+[input_6]
+-remapbut JOY1 4 5 6 1 2 3
+-remapbut JOY2 4 5 6 1 2 3
+-remapbut JOY3 4 5 6 1 2 3
+-remapbut JOY4 4 5 6 1 2 3
+-setkey   KEY1 71 72 73 75 77 79 80 81 30 31 32 44 45 46 0 0 0 0
+-setkey   KEY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-setkey   KEY4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+
+

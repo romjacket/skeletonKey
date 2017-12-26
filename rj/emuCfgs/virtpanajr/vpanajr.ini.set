@@ -1,0 +1,6 @@
+[CONFIG]
+ini=default.ini
+
+[CONFIGS]
+numcfgs=1
+c00=default.ini

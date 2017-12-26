@@ -1,0 +1,54 @@
+;no$2k6 1.1 generated config file - do not edit
+
+Emulation Speed, Frameskip == -1.19 MHz Realtime, Auto
+Color Format == -Automatic (by Framerate)
+Color Switch == -1: Color
+Difficulty Player 1 == -0: Beginner (B)
+Difficulty Player 2 == -0: Beginner (B)
+Cartridge Banking == -Automatic
+Sound Output Mode == Digital Sound (slow)
+Sound Mixer Volume == -12
+Sound Desired Sample Rate == -High (44kHz) (best)
+Collision Check == -Automatic (only if used)
+Game Controllers == -Automatic
+Use Controllers for.. == -Both for Player 1 only
+Keypad Scheme == -Scheme 1 (NUM,DIV,MUL)
+Joystick A == -Stick A (slows down)
+Joystick B == -Stick B (slows down)
+
+Disassembler Syntax == -Nocash 80XX Style
+Symbolic Informations (TAB) == -Displayed
+When Loading No{2k6 == -Start in Debug Mode
+Datazone Format == -Byte
+Datazone End Strategy == -Manually CTRL-D-entered
+Invalid Memory Accesses == -Ignore
+Autosave Options == -Nope
+IIgame_size == normal
+Courier New Patch == Use Patched font (1<>L)
+HideUnusedWin == show both
+Debug Font == 7x15 Courier New
+Arrange == oldstyle
+Transmit Port == -None/Disabled
+Performance Indicator == -Show Timing only if <>100%
+
+Hack_xloc == 0000000A
+Hack_yloc == 0000000A
+Hack_ysiz == 00000019
+Data_ysiz == 00000006
+iXed_xloc == 00000014
+iXed_yloc == 00000014
+iXed_xsiz == 0000004F
+iXed_ysiz == 00000018
+Stat_xloc == 0000001E
+Stat_yloc == 0000001E
+Term_xloc == 0000001E
+Term_yloc == 0000001E
+gdb_xsiz == 00000000
+gdb_ysiz == 00000000
+Game_xloc == 0000001E
+Game_yloc == 0000001E
+Game_xsiz == 00010000
+Game_ysiz == 00010000
+
+KEYB_1 == 101E181939381D
+KEYB_2 == A1A9A4A6769136

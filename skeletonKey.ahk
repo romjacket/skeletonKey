@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-24 7:20 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-26 11:15 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,8 +11,8 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2017-12-24 7:20 PM
-VERSION= 
+RELEASE= 2017-12-26 11:15 AM
+VERSION= 0.99.0.0
 RASTABLE= 1.6.9
 
 FileReadLine,HOSTINGURL,arcorg.set,2
@@ -13131,6 +13131,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;
 
@@ -13157,6 +13159,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;
 
@@ -13183,6 +13187,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -13211,6 +13217,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 imgprev= %espethumbnail%
 guicontrol,,ESTHUMBP,%espethumbnail%
 return
@@ -13241,6 +13249,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 imgprev= %espemarquee%
 guicontrol,,ESMARQPTHTXT,%espemarquee%
 return
@@ -13271,6 +13281,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 guicontrol,,ESVIDPTHTXT,%espevideo%
 return
 ;};;;;;;;;;;;;;
@@ -13300,6 +13312,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 imgprev= %espeimage%
 guicontrol,,ESOPNIMGPTHTXT,%espeimage%
 return
@@ -13309,6 +13323,9 @@ ESDESCEDT:
 ;{;;;;;;;;;;;;;;  GAMELISTXML DESCRIPTION EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 guicontrolget,espedesc,,ESDESCEDT
+stringreplace,espedesc,espedesc,`n,[CR],All
+stringreplace,espedesc,espedesc,[CR][CR][CR],[CR],All
+stringreplace,espedesc,espedesc,[CR][CR],[CR],All
 ESREPL= 	
 Loop, Parse, ESGAMP, `n, `r
 	{
@@ -13339,6 +13356,9 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -13354,13 +13374,15 @@ Loop, Parse, ESGAMP, `n, `r
 		clut3= 
 		stringsplit,clut,A_LoopField,<>
 		if (clut2 = "name")
-			{
+				{
 				ESREPL.= "<name>" . espename . "</name>" . "`n"
 				continue
 			}
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;
 
@@ -13383,6 +13405,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;
 
@@ -13405,6 +13429,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;
 
@@ -13427,6 +13453,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;;;;;
 
@@ -13449,6 +13477,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 
 ESRLSDG:
@@ -13471,6 +13501,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 guicontrol,,ESDDPLNUM,%ESDDPLNUM%
 return
 ;};;;;;;;;;;;;
@@ -13493,6 +13525,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 
 ESEDTPOP:
@@ -13513,6 +13547,7 @@ if (gamesel <> vvi1)
 			}
 		gamsel= 
 	}
+	
 if (crpln <> 1)
 {
 	guicontrol,,ESFAV,0
@@ -13792,14 +13827,16 @@ ESGAMTMP.= "<lastplayed>" . espelastplayed . "</lastplayed>" . "`n"
 ESGAMTMP.= "<playcount>" . espeplaycount . "</playcount>" . "`n"	
 ESGAMTMP.= "</" . esgampp . ">" . "`n"	
 ESGAMP= %ESGAMTMP%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;
 
 ESSAVEOPL:
 ;{;;;;;;;;;;;;;;;;  GAMELISTXML SAVE BUTTON  ;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
-FileDelete,rj\ES\%syssub%\%gamesel%.ini
-FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
+;;FileDelete,rj\ES\%syssub%\%gamesel%.ini
+;;FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 guicontrol,,ESFAV,0
 guicontrol,,ESKIDG,0
 guicontrol,,ESHIDDEN,0
@@ -13817,20 +13854,19 @@ guicontrol,,ESDDPLNUM,|1||2|3|4|5|6|7|8
 guicontrol,,ESDESCEDT,
 FileMove,%ESHOME%\gamelists\%syssub%\gamelist.xml,%ESHOME%\gamelists\%syssub%\gamelist.xml.bak,1
 FileDelete,rj\ES\%syssub%\gamelist.xml
-
 FileAppend,<gameList>`n,rj\ES\%syssub%\gamelist.xml
 Loop, rj\ES\%syssub%\*.ini
 	{
 		ftap= 
 		FileRead, ftap,%A_LoopFileFullPath%
 		FileAppend, %ftap%,rj\ES\%syssub%\gamelist.xml
-		FileDelete, %A_LoopFileFullPath%
 	}
 FileAppend,</gameList>`n,rj\ES\%syssub%\gamelist.xml
 FileMove,rj\ES\%syssub%\gamelist.xml,%ESHOME%\gamelists\%syssub%\gamelist.xml,1
 Msgbox,1,CREATED,%syssub% gamelist created.,5
 guicontrol,,CURPLST,|
 gamesel= 
+FileDelete,rj\ES\%syssub%\*.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -13859,7 +13895,7 @@ if (ESTHTMP = "")
 	{
 		return
 	}
-espethumbnail= %ESTHTMP%	
+espepath= %ESTHTMP%	
 ESREPL= 	
 Loop, Parse, ESGAMP, `n, `r
 	{
@@ -13875,6 +13911,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 guicontrol,,ESPTHEDT,%espepath%
 return
 
@@ -13900,6 +13938,8 @@ Loop, Parse, ESGAMP, `n, `r
 		ESREPL.= A_LoopField . "`n"
 	}
 ESGAMP= %ESREPL%
+FileDelete,rj\ES\%syssub%\%gamesel%.ini
+FileAppend,%ESGAMP%,rj\ES\%syssub%\%gamesel%.ini
 previmg= %espepath%
 guicontrol,,ESPTHEDT,%espepath%
 return
@@ -27463,9 +27503,12 @@ Loop, rj\*.jak
 			{
 				RJEMUOPTS:= A_Space
 			}
-		
 		StringReplace,toapd,toapd,[RUNOPTS],%RJEMUOPTS%,All
-		StringReplace,toapd,toapd,[RUNARGS],%RJROMARGS%,All
+		StringReplace,toapd,toapd,[RUNARGS],%RJEMUARGS%,All
+		
+		StringReplace,toapd,toapd,[EMUPATH],`%EMUL`%,All
+		StringReplace,toapd,toapd,[ROMPATH],`%GAMDIR`%,All
+		
 		if (RJPATH = 0)
 			{
 				if (RJQUOTES = 0)
@@ -27544,6 +27587,7 @@ Loop, rj\*.jak
 										continue
 									}
 								stringreplace,avvx,A_LoopField,[ROMPATH],`%GAMDIR`%,All
+								stringreplace,avvx,avvx,[EMUPATH],`%EMUL`%,All
 								stringreplace,avvx,avvx,[ROM],`%ROM`%,All
 								stringreplace,avvx,avvx,[ROMF],`%ROMF`%,All
 								stringreplace,avvx,avvx,[EMUL],`%EMUL`%,All
@@ -29202,8 +29246,8 @@ return
 RJEOPTSCBX:
 gui,submit,nohide
 guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
-StringReplace,RJEOPTSCBX,RJEOPTSCBX,",,All
-;"
+;;StringReplace,RJEOPTSCBX,RJEOPTSCBX,",,All
+;;"
 stringreplace,RJEOPTSCBX,RJEOPTSCBX,%A_SPACE%,`<,All
 IniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 return
@@ -29211,8 +29255,9 @@ return
 RRJEARGSCBX:
 gui,submit,nohide
 guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
-StringReplace,RRJEARGSCBX,RRJEARGSCBX,",,All
-;"
+;;StringReplace,RRJEARGSCBX,RRJEARGSCBX,",,All
+;;"
+stringreplace,RRJEARGSCBX,RRJEARGSCBX,%A_SPACE%,`<,All
 IniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
 return
 
@@ -30011,7 +30056,7 @@ if (lkupa = "ERROR")
 if (lkupa <> "ERROR")
 	{
 		guicontrol,,RJEOPTSCBX,|%lkupa%||%INJOPT%
-		iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
+		iniWrite, %lkupa%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
 
 iniread, lkupb, emuCfgPresets.set, %RJEMUTG%, RJEMUARGS
@@ -30023,7 +30068,7 @@ if (lkupb = "ERROR")
 if (lkupb <> "ERROR")
 	{
 		guicontrol,,RRJEARGSCBX,|%lkupb%||%INJARG%
-		iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
+		iniWrite, %lkupb%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
 	}
 
 iniread, lkupc, emuCfgPresets.set, %RJEMUTG%, RJPRECFG
@@ -30034,8 +30079,8 @@ if (lkupc = "ERROR")
 if (lkupc <> "ERROR")
 	{
 		guicontrol,,RJPRECFGCBX,|%lkupc%||%RJPRECFGR%
+		iniWrite, %lkupc%,rj\cur.ini,%RJSYSDD%,RJPRECFG
 	}
-iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJPRECFG
 
 iniread, lkupd, emuCfgPresets.set, %RJEMUTG%, RJPOSTCFG
 if (lkupd = "ERROR")
@@ -30045,8 +30090,8 @@ if (lkupd = "ERROR")
 if (lkupd <> "ERROR")
 	{
 		guicontrol,,RJPOSTCFGCBX,|%lkupd%||%RJPOSTCFG%
+		iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJPOSTCFG
 	}
-iniWrite, %RJEMUTG%,rj\cur.ini,%RJSYSDD%,RJPOSTCFG
 
 iniread, lkupd, emuCfgPresets.set, %RJEMUTG%, RJEXTRARC
 if (lkupd <> "ERROR")
@@ -30060,13 +30105,13 @@ if (lkupd <> "ERROR")
 iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJEXTRARC
 
 iniread, lkupe, emuCfgPresets.set, %RJEMUTG%, RJRUNDIR
-if (lkupd <> "ERROR")
+if (lkupe <> "ERROR")
 	{
-		if (lkupd = 1)
+		if (lkupe = 1)
 			{
 				guicontrol,,RJRAD1A,1
 			}
-		if (lkupd <> 1)
+		if (lkupe <> 1)
 			{
 				guicontrol,,RJRAD1B,1
 			}

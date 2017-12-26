@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------
+// Rainbow Configuration File
+// ---------------------------------------------------------------------
+
+// ---------------------------------------------------------------------
+// OS files
+// Syntax: OS <item> <file path>
+// ---------------------------------------------------------------------
+
+OS 400/800 OS Roms/OP_400
+OS XL/XE OS Roms/OP_XLXE
+OS BASIC Roms/Atari BASIC
+OS 5200 OS Roms/OP_5200
+
+// ---------------------------------------------------------------------
+// MENU settings
+// ---------------------------------------------------------------------
+
+SYSTEM SOUND 1 // 0: off 1: on
+SYSTEM DISKNOISE 1 // 0: off 1: on
+DISPLAY SIZE 0 // 0: 640x480; 1: 960x720
+DISPLAY FRAMES 1 // 0: 50% frames; 1: 100% frames
+DISPLAY REGION 0 // 0: NTSC; 1: PAL
+DEVICE 1 // 1: 400/800; 2: 800XL; 3: 130XE; 4: 5200
+DRIVE0 AUTOBOOT 1 // 0: off; 1: on
+INPUT EMULATEJOYSTICK 0 // 0: keypad; 1: L<>? keys 2: cursor keys 3: paddle emulation with mouse
+TOOLSTRACE 0 // 0: off; 1: on

@@ -1,0 +1,80 @@
+CHCP 1252
+MODE CON: COLS=15 LINES=1
+TITLE LAUNCHER
+
+set FETYPE=%1%
+set JYTP=%2%
+set JYZ=%3%
+set DMT=%4%
+set CFG=%5%
+set CCMDA=%6%
+set CCMDB=%7%
+set CCMDY=%8%
+set CCMDZ=%9%
+for %%a in ("[FRLOC]") do set FRLOC=%%~a
+PLYRN1=[PLAYER1]
+PLYRN2=[PLAYER2]
+
+
+if "%JYTP%"=="." set JYTP=[XPALT]
+if "%JYTP%"=="" set JYTP=[XPALT]
+if "%FETYPE%"=="" set FETYPE=[Mediacenter]
+if "%FETYPE%"=="." set FETYPE=[Mediacenter]
+SET JYX=REM 
+if "%JYZ%"=="" set JYX=
+if "%JYZ%"=="." set JYX=
+SET DMX=REM 
+if "%DMT%"=="1" set DMX=
+SET XFG=REM 
+if "%CFG%"=="" set XFG=
+if "%CFG%"=="." set XFG=REM 
+SET RLOC=REM 
+if "%FRLOC%"=="" set RLOC=
+
+for %%a in ("cmd /c start """) do set XPSTRT=%%~a
+for %%a in ("start /w """) do set LAUNCH=%%~a
+for %%a in ("start """) do set LSTART=%%~a
+for /f "tokens=2 delims=[" %%a in ('ver') do if "%%~a"=="" set WINE=1
+if "%WINE%"=="1" for %%a in ("start /w") do set LAUNCH=%%~a
+if "%WINE%"=="1" set XPSTRT=
+
+set XPALT=REM 
+if "%JYTP%"=="1" set XPALT=
+
+pushd "%~dp0"
+
+for %%A in ("[EMUL]") do SET EMUL=%%~A
+for %%A in ("[EMUZ]") do SET EMUZ=%%~nA
+for %%A in ("%~dpn0") do SET GAMNAM=%%~A
+for %%A in ("%EMUL:~0,2%") do SET EMUDIR=%%~A
+for %%A in ("%CD%") do SET GAMDIR=%%~A
+%CCMDA%
+%XPALT%%JYX%for %%A in ("[AMC]") do (
+%XPALT%%JYX%SET ANTIMIC=%%~A
+%XPALT%%JYX%SET AMDIR=%%~dpA
+%XPALT%%JYX%)
+%JYX%for %%A in ("[XPD]") do (
+%JYX%SET XPADDER=%%~A
+%JYX%XPDIR=%%~dpA
+%JYX%)
+
+%DMX%for %%A in ("[DAMVAR]") do SET DAMVAR=%%~A
+
+If "%PLYRN1%"=="" SET PLYRN1=Player1
+If "%PLYRN2%"=="" SET PLYRN2=Player2
+
+%XPALT%FOR /F "tokens=2 delims= " %%A IN ('TASKLIST /FI "imagename eq antimicro.exe" /v^| find /i "antimicro"') DO if "%%~A" NEQ "" goto :CPY
+goto :CPY
+
+[INIVARS]
+EMUL="[EMUL]"
+EMUZ="[EMUZ]"
+GAMNAM="[GAMNAM]"
+ANTIMIC="[AMC]"
+XPADDER="[XPD]"
+DAMVAR="[DAMVAR]"
+PLYRN1="[PLAYER1]"
+PLYRN2="[PLAYER2]"
+[INIVAREND]
+
+:CPY
