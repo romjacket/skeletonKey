@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-30 8:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-31 2:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2017-12-30 8:46 PM
+RELEASE= 2017-12-31 2:41 PM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -4836,7 +4836,7 @@ Loop, Parse, curbios, `n
 													{
 														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
 													}
-												continue	
+												break	
 											}
 										ifnotexist,%fiad%%apndpth%
 											{
@@ -4847,6 +4847,7 @@ Loop, Parse, curbios, `n
 											{
 												FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
 											}
+										break	
 									}
 							}
 					}
