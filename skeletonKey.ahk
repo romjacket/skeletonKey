@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-26 11:15 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-30 8:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,9 +11,9 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2017-12-26 11:15 AM
-VERSION= 0.99.0.0
-RASTABLE= 1.6.9
+RELEASE= 2017-12-30 8:46 PM
+VERSION= 
+RASTABLE= 1.7.0
 
 FileReadLine,HOSTINGURL,arcorg.set,2
 Menu,Tray,Icon,Key.ico,,256
@@ -4294,9 +4294,9 @@ else if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cR
 FileDelete, bios.ini
 FileAppend, %A_GuiEvent%, bios.ini
 arcdec= 
-ifnotexist, tmp
+ifnotexist, tmp\bios
 	{
-		FileCreateDir, tmp
+		FileCreateDir, tmp\bios
 		FileCreateDir, tmp\arc
 	}
 Loop,Read,bios.ini
@@ -4307,21 +4307,21 @@ Loop,Read,bios.ini
 		{
 			arcdec= 1
 			SB_SetText("extracting " A_LoopReadLine " ")
-			Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp" ",,hide
+			Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp\bios" ",,hide
 		}
 	if (biosxt = "7z")
 		{
 			arcdec= 1
 			SB_SetText("extracting " A_LoopReadLine " ")
-			Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp" ",,hide
+			Runwait, %comspec% cmd /c "7za.exe e -y "%A_LoopReadLine%" -O"%A_WorkingDir%\tmp\bios" ",,hide
 		}
 	if (biosxt = "rar")
 		{
 			arcdec= 1
 			SB_SetText("extracting " A_LoopReadLine " ")
-			Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%A_WorkingDir%\tmp" ",,hide
+			Runwait, %comspec% cmd /c "UnRAR.exe e -y "%A_LoopReadLine%" "*" +o "%A_WorkingDir%\tmp\bios" ",,hide
 		}
-FIleCopy,%A_LoopReadLine%,tmp\%biosfile%,1
+FileCopy,%A_LoopReadLine%,tmp\bios\%biosfile%,1
 	}
 gosub, BiosProc
 	}
@@ -4757,14 +4757,22 @@ return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;    BIOS FUNCTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 BiosProc:
-sysDir= %systemDirectory%
 
-biosnum= 0
-Loop, Files, tmp\*,
+
+FileDelete, crcs.ini
+sysDir= %systemDirectory%
+IniRead, bsys,Apps.ini,EMULATORS
+kbemu= 
+Loop, Parse, bsys,`n,`r
 	{
-		runwait, %ComSpec% /c "for /f "tokens=2 delims=:" `%a in ('crc.exe "%A_LoopFileFullPath%"') do for /f `%b in ("`%~a") do echo.`%~b:>"crc.ini" ", ,hide
-		
-		
+		efi1= 
+		efi2= 
+		stringsplit,efi,A_LoopField,=
+		kbemu.= A_loopField . "`n"
+	}
+biosnum= 0
+Loop, Files, tmp\bios\*,
+	{	
 		ApndCRC= 
 		CrCFLN= %A_LoopFileFullPath%
 		gosub, CRC32GET
@@ -4778,26 +4786,77 @@ Loop, Files, tmp\*,
 				CRCM6= 
 				stringsplit, CRCM, A_LoopReadLine,:,>
 				prib= 
+				kfn= 
 				stringright,prib,A_LoopReadLine,1
+				if (prib = ">")
+					{
+						kfn= >
+					}
 				if (CRCM3 = ApndCRC)
-				{
-					biosnum++
-					ifnotexist,%sysDir%\%CRCM1%
-						{
-							filecreatedir,%sysDir%\%CRCM1%
-						}
-						FileCopy, %A_LoopFileFullPath%, %sysDir%\%CRCM1%\%CRCM2%, 1
-						if (prib = ">")
-							{
-								FileSetAttrib,+R,%sysDir%\%CRCM1%\%CRCM2%
-							}
-					SB_SetText(" Found " CRCM2 " ")
-				}
+					{
+						biosnum++
+						fileappend,%A_LoopFileFullPath%|%CRCM1%|%CRCM2%%kfn%`n,crcs.ini
+					}						
 			}
 	}
+Fileread,curbios,crcs.ini
+Loop, Parse, curbios, `n
+	{
+		juf1= 
+		juf2= 
+		juf3= 
+		stringsplit,juf,A_LoopField,|,>
+		stringreplace,juf3,juf3,>,,All
+		Loop, Parse, kbemu, `n
+			{
+				stringsplit,fia,A_LoopField,=,"
+				;"
+				SplitPath,fia2,,fiad
+				sysex= %fia1%
+				emif1= 
+				emif2= 
+				emif3= 
+				emif4= 
+				stringsplit,emif,juf2,=
+				ifinstring,juf2,%sysex%
+					{
+						fong1=
+						Loop, 6
+							{
+								stringsplit,fong,emif%A_Index%,\
+								if (fong1 = sysex)
+									{
+										apndpth=
+										stringreplace,apndpth,emif%A_Index%,%fia1%,,All
+										ifinstring,juf2,.zip
+											{
+												splitpath,juf2,fnm
+												RunWait, %comspec% /c " 7za.exe a -y "%fiad%%apndpth%" "%juf3%" "
+												ifinstring,A_LoopField,>
+													{
+														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
+													}
+												continue	
+											}
+										ifnotexist,%fiad%%apndpth%
+											{
+												FilecreateDir,%fiad%%apndpth%
+											}
+										FileCopy,%juf1%,%fiad%%apndpth%,1
+										ifinstring,A_LoopField,>
+											{
+												FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
+											}
+									}
+							}
+					}
+			}
+	}
+					
 SB_SetText(" Found " biosnum " bios files ")
-FileDelete,tmp\*
+;;FileDelete,tmp\bios\*
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;    NETPLAY PROCEDURE    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -86,8 +86,8 @@ Nintendo - Nintendo 64|Project64|retroArch
 Nintendo - Nintendo 3DS|Citra
 Nintendo - Nintendo DS|Desmume|No$GBA|retroArch
 Nintendo - Nintendo DS Decrypted|Desmume|No$GBA|retroArch
-Nintendo - Nintendo Entertainment System|nestopia|Mednafen|MAME|retroArch
-Nintendo - Famicom|nestopia|Mednafen|MAME|retroArch
+Nintendo - Nintendo Entertainment System|nestopia|Mesen|virtanes|fceux|Mednafen|MAME|retroArch
+Nintendo - Famicom|nestopia|Mednafen|Mesen|fceux|MAME|retroArch
 Nintendo - Game Boy Advance|VisualBoyAdvance|mgba|MAME|retroArch
 Nintendo - Game Boy Color|bgb|mgba|MAME|retroArch
 Nintendo - Game Boy|bgb|mgba|MAME|retroArch

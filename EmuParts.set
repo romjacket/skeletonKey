@@ -116,6 +116,7 @@ Mednafen=Mednafen/Mednafen-[ARCH].7z=Mednafen.exe=mednafen-09x.cfg=sav\*.bkr=sav
 meka=meka/meka.7z=mekaw.exe=
 melonDS=melonDS/melonDS.7z=melonDS.exe=
 mesadx=mesadx/mesadx.7z=MesaDX.exe=
+Mesen=Mesen/Mesen.7z=Mesen.exe=settings.xml
 Mess=Mess/Mess-[ARCH].7z=Mess.exe=mess.ini|cfg\[ROMNAME]*.cfg
 mgba=mgba/mgba.7z=mgba.exe=mgba.ini
 micro64=micro64/micro64.7z=micro64.exe=
