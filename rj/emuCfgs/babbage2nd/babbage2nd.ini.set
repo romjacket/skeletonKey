@@ -1,0 +1,17 @@
+[RecentFiles]
+InitialBinaryDir=
+RecentBinaryPath1_1=
+RecentBinaryPath1_2=
+RecentBinaryPath1_3=
+RecentBinaryPath1_4=
+RecentBinaryPath1_5=
+RecentBinaryPath1_6=
+RecentBinaryPath1_7=
+RecentBinaryPath1_8=
+[Sound]
+Frequency=6
+Latency=1
+StrictRendering=1
+[Input]
+UseDirectInput=1
+DisableDwm=0

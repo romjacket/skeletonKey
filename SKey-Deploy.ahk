@@ -681,11 +681,13 @@ RepoUrl:
 gui,submit,nohide
 REPOURL= 
 if (REPORULT = "")
-	REPOURLT= http://romjacket.mudlord.info
+	REPOURLT= https://github.com/romjacket
+	UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/nodats
 inputbox,REPOURL,Repository-URL,Enter the url of the file-repository,,345,140,,,,,%REPOURLT%
 if (REPOURL = "")
 	{
-		REPOURL= %GETIPADRT%
+		REPOURL= %REPOURLT%
+		UPDTFILE= %UPDTFILE%
 	}
 IniWrite,%REPOURL%,skopt.ini,GLOBAL,repository_url
 return
@@ -1460,6 +1462,7 @@ FileMove, %SKELD%\arcorg.set, %SKELD%\arcorg.bak,1
 FIleRead,themes,%SKELD%\Themes.put
 FIleRead,arcorg,%SKELD%\arcorg.put
 StringReplace,themes,themes,[HOSTINGURL],%REPOURL%,All
+StringReplace,arcorg,arcorg,[UPDATEFILE],%UPDTFILE%,All
 StringReplace,arcorg,arcorg,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorg,arcorg,[LOBBY],%NLOB%,All
 StringReplace,arcorg,arcorg,[SHADERHOST],%SHDRPURL%,All

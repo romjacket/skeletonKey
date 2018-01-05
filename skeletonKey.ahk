@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2017-12-31 2:41 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-05 3:46 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,8 +11,8 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2017-12-31 2:41 PM
-VERSION= 
+RELEASE= 2018-01-05 3:46 PM
+VERSION= v0.99.0.03
 RASTABLE= 1.7.0
 
 FileReadLine,HOSTINGURL,arcorg.set,2
@@ -4691,6 +4691,7 @@ return
 UpdateSK:
 FileDelete, version.txt
 FileReadLine,sourceHost,arcorg.set,5
+FileReadLine,UPDATEFILE,arcorg.set,7
 URLDownloadToFile, %sourceHost%,version.txt
 ifnotexist, version.txt
 	{
@@ -4725,7 +4726,7 @@ loop, tmp\sk*.zip
 		upcnt+=1
 	}
 upcnt+=1
-URLFILE= %HOSTINGURL%/skeletonKey.zip
+URLFILE= %UPDATEFILE%/skeletonKey.zip
 save= tmp\sk%upcnt%.zip
 DownloadFile(URLFILE, save, True, True)
 IfNotExist, tmp
@@ -8409,6 +8410,10 @@ Loop, Read, urls.set
 		if (urloc1 = selfnd)
 			{
 				URLFILE= %repoloc%/%urloc1%/%urloc2%
+				ifinstring,repoloc,github
+					{
+						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+					}
 				save=%urloc2%
 				if (xtractmu = "")
 					{

@@ -1,55 +1,55 @@
 [RJ]
-ESTHEME=http://romjacket.mudlord.info/esthemes/rj.zip
-Backdrop=http://romjacket.mudlord.info/ORIGINAL/Backdrops.7z
-Backdrop_Directory=http://romjacket.mudlord.info/ORIGINAL/Backdrops
-Icon=http://romjacket.mudlord.info/ORIGINAL/Icons.7z
-Icon_Directory=http://romjacket.mudlord.info/ORIGINAL/Icons
-Logo=http://romjacket.mudlord.info/ORIGINAL/Logos.7z
-Logo_Directory=http://romjacket.mudlord.info/ORIGINAL/Logos
-Video=http://romjacket.mudlord.info/ORIGINAL/Videos
-Video_Directory=http://romjacket.mudlord.info/ORIGINAL/Videos
-Meta=http://romjacket.mudlord.info/ORIGINAL/MetaData
-Meta_Directory=http://romjacket.mudlord.info/ORIGINAL/MetaData
+ESTHEME=https://github.com/romjacket/esthemes/rj.zip
+Backdrop=https://github.com/romjacket/ORIGINAL/Backdrops.7z
+Backdrop_Directory=https://github.com/romjacket/ORIGINAL/Backdrops
+Icon=https://github.com/romjacket/ORIGINAL/Icons.7z
+Icon_Directory=https://github.com/romjacket/ORIGINAL/Icons
+Logo=https://github.com/romjacket/ORIGINAL/Logos.7z
+Logo_Directory=https://github.com/romjacket/ORIGINAL/Logos
+Video=https://github.com/romjacket/ORIGINAL/Videos
+Video_Directory=https://github.com/romjacket/ORIGINAL/Videos
+Meta=https://github.com/romjacket/ORIGINAL/MetaData
+Meta_Directory=https://github.com/romjacket/ORIGINAL/MetaData
 
 [carbon-centered]
-ESTHEME=http://romjacket.mudlord.info/esthemes/carbon-centered.zip
+ESTHEME=https://github.com/romjacket/esthemes/carbon-centered.zip
 
 [carbon-nometa]
-ESTHEME=http://romjacket.mudlord.info/esthemes/carbon-nometa.zip
+ESTHEME=https://github.com/romjacket/esthemes/carbon-nometa.zip
 
 [clean-look]
-ESTHEME=http://romjacket.mudlord.info/esthemes/clean-look.zip
+ESTHEME=https://github.com/romjacket/esthemes/clean-look.zip
 
 [fundamental]
-ESTHEME=http://romjacket.mudlord.info/esthemes/fundamental.zip
+ESTHEME=https://github.com/romjacket/esthemes/fundamental.zip
 
 [nbba]
-ESTHEME=http://romjacket.mudlord.info/esthemes/nbba.zip
+ESTHEME=https://github.com/romjacket/esthemes/nbba.zip
 
 [pixel]
-ESTHEME=http://romjacket.mudlord.info/esthemes/pixel.zip
+ESTHEME=https://github.com/romjacket/esthemes/pixel.zip
 
 [simple-dark]
-ESTHEME=http://romjacket.mudlord.info/esthemes/simple-dark.zip
+ESTHEME=https://github.com/romjacket/esthemes/simple-dark.zip
 
 [simple]
-ESTHEME=http://romjacket.mudlord.info/esthemes/simple.zip
+ESTHEME=https://github.com/romjacket/esthemes/simple.zip
 
 [simplified-static-canela]
-ESTHEME=http://romjacket.mudlord.info/esthemes/simplified-static-canela.zip
+ESTHEME=https://github.com/romjacket/esthemes/simplified-static-canela.zip
 
 [superdisplay]
-ESTHEME=http://romjacket.mudlord.info/esthemes/superdisplay.zip
+ESTHEME=https://github.com/romjacket/esthemes/superdisplay.zip
 
 [zoid]
-ESTHEME=http://romjacket.mudlord.info/esthemes/zoid.zip
+ESTHEME=https://github.com/romjacket/esthemes/zoid.zip
 
 
 [snes-mini]
-ESTHEME=http://romjacket.mudlord.info/esthemes/snes-mini.zip
+ESTHEME=https://github.com/romjacket/esthemes/snes-mini.zip
 
 [nes-mini]
-ESTHEME=http://romjacket.mudlord.info/esthemes/nes-mini.zip
+ESTHEME=https://github.com/romjacket/esthemes/nes-mini.zip
 
 [magazinemadness]
-ESTHEME=http://romjacket.mudlord.info/esthemes/magazinemadness.zip
+ESTHEME=https://github.com/romjacket/esthemes/magazinemadness.zip
