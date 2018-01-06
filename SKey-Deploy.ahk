@@ -664,6 +664,19 @@ if (UPDTURL = "")
 IniWrite,%UPDTURL%,skopt.ini,GLOBAL,update_url
 return
 
+UpdateFILE:
+gui,submit,nohide
+UPDTURL= 
+if (UPDTFILET = "")
+	UPDTFILET= http://raw.githubusercontent.com/romjacket/skeletonkey/master/skeletonKey.zip
+inputbox,UPDTFILE,Version,Enter the url of the file which contains your update information,,345,140,,,,,%UPDTFILET%
+if (UPDTFILE = "")
+	{
+		UPDTFILE= %UPDTFILET%
+	}
+IniWrite,%UPDTFILE%,skopt.ini,GLOBAL,update_file
+return
+
 GitSRC:
 gui,submit,nohide
 GitSRC= 
@@ -1467,7 +1480,7 @@ StringReplace,arcorg,arcorg,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorg,arcorg,[LOBBY],%NLOB%,All
 StringReplace,arcorg,arcorg,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorg,arcorg,[SOURCEHOST],%UPDTURL%,All
-StringReplace,arcorg,arcorg,[IPLK],%GETIPTADR%,All
+StringReplace,arcorg,arcorg,[IPLK],%GETIPADR%,All
 FileAppend,%themes%,%SKELD%\Themes.set
 FileAppend,%arcorg%,%SKELD%\arcorg.set
 
