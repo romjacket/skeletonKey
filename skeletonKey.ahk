@@ -8383,6 +8383,7 @@ return
 
 EmuInst:
 gui,submit,nohide
+guicontrolget,selfnd,INSTEMUDDL
 guicontrolget,EINSTLOC,,EINSTLOC
 if (EINSTLOC <> "")
 	{
