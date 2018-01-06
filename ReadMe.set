@@ -40,11 +40,8 @@ To deploy your own installer and binary including this tool you will need:
 				https://autohotkey.com/download/
 				
 				
-
-              donate 5 bucks!  OR ELSE!
  
-http://romjacket.mudlord.info/arigatokudasai.html
+https://www.paypal.me/romjacket
 
-more emulation-related software here:  
+          ^    donate 5 bucks!  OR ELSE!    ^
 
-http://romjacket.mudlord.info/
