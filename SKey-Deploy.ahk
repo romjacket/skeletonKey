@@ -694,8 +694,8 @@ RepoUrl:
 gui,submit,nohide
 REPOURL= 
 if (REPORULT = "")
-	REPOURLT= https://github.com/romjacket
-	UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/nodats
+	REPOURLT= http://github.com/romjacket
+	UPDTFILE= http://github.com/romjacket/skeletonKey/releases/download/nodats
 inputbox,REPOURL,Repository-URL,Enter the url of the file-repository,,345,140,,,,,%REPOURLT%
 if (REPOURL = "")
 	{

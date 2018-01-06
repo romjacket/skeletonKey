@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-05 3:58 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-05 5:13 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,8 +11,8 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-05 3:58 PM
-VERSION= v0.99.0.03
+RELEASE= 2018-01-05 5:13 PM
+VERSION= 
 RASTABLE= 1.7.0
 
 FileReadLine,HOSTINGURL,arcorg.set,2
@@ -8387,6 +8387,7 @@ guicontrolget,EINSTLOC,,EINSTLOC
 if (EINSTLOC <> "")
 	{
 		goto, MultiSys
+		sb_settext(" MultiSys ")
 	}
 urlprfx= %repoloc%
 ;;gui,submit,nohide
@@ -8414,9 +8415,11 @@ Loop, Read, urls.set
 					{
 						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
 					}
+				sb_settext(" " URLFILE " ")	
 				save=%urloc2%
 				if (xtractmu = "")
 					{
+						;;break
 						xtractmu= %RJEMUD%\%selfnd%
 					}
 				DownloadFile(URLFILE, save, DWNOV, True)
@@ -8508,7 +8511,7 @@ Loop, Read, urls.set
 					}
 				if (INSTLTYP = "Emulators")
 					{
-						inisect= STANDALONE_EMULATORS
+						inisect= EMULATORS
 						iniwrite, "%xtractmu%",apps.ini,%inisect%,%selfnd%
 					}
 ;			}
