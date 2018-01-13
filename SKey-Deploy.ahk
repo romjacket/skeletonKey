@@ -1613,7 +1613,6 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{	
-						SB_SetText("Uploading portable")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n portable -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
@@ -1623,7 +1622,6 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{					
-						SB_SetText("Uploading dats")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t dats -l "dat files" -n DATS -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
@@ -1633,10 +1631,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{
-						SB_SetText("Uploading Installer")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer -f "%DEPL%\skeletonKey.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 
@@ -1644,10 +1641,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{
-						SB_SetText("Uploading Full Version")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion -f "%DEPL%\skeletonkey-Full-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (SiteUpdate <> 1)
@@ -1657,7 +1653,7 @@ if (ServerPush = 1)
 		guicontrol,,progb,80
 		if (GitPush = 1)
 			{
-				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd"
+				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd",%DEPL%,%rntp%
 			}
 	}
 	
@@ -1671,7 +1667,6 @@ if (BCANC = 1)
 if (SiteUpdate = 1)
 	{
 		SB_SetText(" Updating the website ")
-		FileCopy, %DEPL%\index.html, %gitroot%\%GITUSER%.github.io,1
 		RDATE= %date% %timestring%
 		if (DBOV = 1)
 			{
@@ -1777,7 +1772,6 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 ;;		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
-		StringReplace,skelhtml,skelhtml,[INSTALLER],http://github.com/%gituser%/download/Installer,All
 		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/download/Installer,All
 		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/portable,All
 		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/portable/datfiles,All
@@ -1786,7 +1780,8 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All
 		StringReplace,skelhtml,skelhtml,[DBSIZE],%DATSZ%,All
-		FileAppend,%skelhtml%,%DEPL%index.html
+		FileDelete,%gitroot%\%gituser%.github.io\index.html
+		FileAppend,%skelhtml%,%gitroot%\%gituser%.github.io\index.html
 	}
 uptoserv=
 
