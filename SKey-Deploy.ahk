@@ -14,6 +14,11 @@ IfExist, %A_MyDocuments%\skeletonKey
 	{
 		skeltmp= %A_MyDocuments%\skeletonKey
 	}
+gitrttmp= 
+IfExist, %A_MyDocuments%\Github
+	{
+		gitrttmp= %A_MyDocuments%\Github
+	}
 gittmp= 
 IfExist, %A_MyDocuments%\Github\skeletonKey
 	{
@@ -25,9 +30,9 @@ IfExist, %A_ProgramFiles%\AutoHotkey\Compiler
 		comptmp= %A_ProgramFiles%\AutoHotkey\Compiler
 	}
 depltmp= 
-IfExist, C:\users\%A_UserName%\DropBox\Public
+IfExist, %A_MyDocuments%\Github\skeletonkey.deploy
 	{
-		depltmp= C:\users\%A_UserName%\DropBox\Public
+		depltmp= %A_MyDocuments%\Github\skeletonkey.deploy
 	}
 bldtmp= 
 IfExist, %A_WorkingDir%\skdeploy.set
@@ -71,6 +76,13 @@ Loop, Read, skopt.ini
 						BUILDIR= %curvl2%
 					}
 			}
+		if (curvl1 = "Working_file")
+			{
+				if (curvl2 <> "")
+					{
+						BUILDW= %curvl2%
+					}
+			}
 		if (curvl1 = "Source_Directory")
 			{
 				if (curvl2 <> "")
@@ -89,14 +101,7 @@ Loop, Read, skopt.ini
 			{
 				if (curvl2 <> "")
 					{
-						DBP= %curvl2%
-					}
-			}
-	if (curvl1 = "Git_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						GITD= %curvl2%
+						DEPL= %curvl2%
 					}
 			}
 	if (curvl1 = "NSIS")
@@ -106,55 +111,21 @@ Loop, Read, skopt.ini
 						NSIS= %curvl2%
 					}
 			}
-	if (curvl1 = "Port_Number")
-			{
-				PORTNUM= 22
-				if (curvl2 <> "")
-					{
-						PORTNUM= %curvl2%
-					}
-			}
-	if (curvl1 = "FTP_Type")
-			{
-				FTPXE= SFTP
-				ftptyp= checked
-				if (curvl2 <> "")
-					{
-						FTPXE= %curvl2%
-						if (FTPXE = "FTP")
-							{
-								ftptyp= 
-							}
-					}
-			}
-	if (curvl1 = "Server_Login")
+	if (curvl1 = "Git_Root")
 			{
 				if (curvl2 <> "")
 					{
-						siteuser= %curvl2%
+						GITROOT= %curvl2%
 					}
 			}
-	if (curvl1 = "Server_Password")
+	if (curvl1 = "Git_Directory")
 			{
 				if (curvl2 <> "")
 					{
-						sitepass= %curvl2%
+						GITD= %curvl2%
 					}
 			}
-	if (curvl1 = "Site_URL")
-			{
-				if (curvl2 <> "")
-					{
-						SITEURL= %curvl2%
-					}
-			}
-	if (curvl1 = "Server_Directory")
-			{
-				if (curvl2 <> "")
-					{
-						SERVERDIR= %curvl2%
-					}
-			}
+
 	if (curvl1 = "shader_url")
 			{
 				if (curvl2 <> "")
@@ -193,17 +164,48 @@ Loop, Read, skopt.ini
 						UPDTURL= %curvl2%
 					}
 			}
-	if (curvl1 = "git_url")
-			{
-				if (curvl2 <> "")
-					{
-						GITSRC= %curvl2%
-					}
-			}
+		if (curvl1 = "git_url")
+				{
+					if (curvl2 <> "")
+						{
+							GITSRC= %curvl2%
+						}
+				}
+		if (curvl1 = "git_rls")
+				{
+					if (curvl2 <> "")
+						{
+							GITRLS= %curvl2%
+						}
+				}
+		if (curvl1 = "git_username")
+				{
+					if (curvl2 <> "")
+						{
+							GITUSER= %curvl2%
+						}
+				}
+		if (curvl1 = "git_token")
+				{
+					if (curvl2 <> "")
+						{
+							GITPAT= %curvl2%
+						}
+				}
 
 	}	
 
 
+if (GITROOT = "")
+	{
+		gosub, GitRoot
+	}
+if (GITROOT = "")
+	{
+		msgbox,1,,Git Root Directory must be set.
+		ExitApp
+		return
+	}
 if (BUILDIR = "")
 	{
 		gosub, GetBld
@@ -214,6 +216,28 @@ if (BUILDIR = "")
 		ExitApp
 		return
 	}
+if (BUILDW = "")
+	{
+		gosub, GetWrk
+	}
+if (BUILDW = "")
+	{
+		msgbox,1,,Working development file must be set.
+		ExitApp
+		return
+	}
+
+if (GITRLS = "")
+	{
+		gosub, GetRls
+	}
+if (GITRLS = "")
+	{
+		msgbox,1,,Git-Release.exe must be set.
+		ExitApp
+		return
+	}
+
 if (SKELD = "")
 	{
 		gosub, GetSrc
@@ -244,6 +268,40 @@ if (GITD = "")
 		ExitApp
 		return
 	}
+	
+if (GITUSER = "")
+	{
+		gosub, GetGUSR
+	}
+if (GITUSER = "")
+	{
+		msgbox,1,,Git User must be set.
+		ExitApp
+		return
+	}
+
+if (GITPAT = "")
+	{
+		gosub, GetGPAC
+	}
+if (GITPAT = "")
+	{
+		msgbox,1,,Git Personal Access Token must be set.
+		ExitApp
+		return
+	}
+
+if (GITRLS = "")
+	{
+		gosub, GetRls
+	}
+if (GITRLS = "")
+	{
+		msgbox,1,,Git-Release.exe must be set.
+		ExitApp
+		return
+	}
+	
 if (NSIS = "")
 	{
 		nstmp= %ProgramFilesX86%
@@ -255,11 +313,11 @@ if (NSIS = "")
 		ExitApp
 		return
 	}
-if (DBP = "")
+if (DEPL = "")
 	{
 		gosub, GetDepl
 	}
-if (DBP = "")
+if (DEPL = "")
 	{
 		msgbox,1,,Deployment Directory must be set.
 		ExitApp
@@ -289,110 +347,17 @@ if (GITSRC = "")
 	{
 		gosub, GitSRC
 	}
-if (SITEURL = "")
-	{
-		gosub, GetSite
-	}
-if (SITEURL = "")
-	{
-		msgbox,262,,Site should be set.
-		ifmsgbox,TryAgain
-			{
-				gosub, GetSite
-			}
-		IfMsgBox,Cancel
-			{
-				ExitApp
-				return
-			}
-		if (SITEURL = "")
-			{
-				IniDelete,skopt.ini,GLOBAL,Site_Login
-				IniDelete,skopt.ini,GLOBAL,Site_Password
-				IniDelete,skopt.ini,GLOBAL,Server_Directory
-				IniDelete,skopt.ini,GLOBAL,Site_user
-				goto, VERSIONGET
-			}
-	}
-if (siteuser = "")
-	{
-		gosub, GetLogin
-	}
-siteusretry:
-if (siteuser = "")
-	{
-		msgbox,262,,UserName should be set.
-		IfMsgBox, Cancel
-		{
-			ExitApp
-			return
-		}
-		IfMsgBox, TryAgain
-			{
-				goto, siteusretry
-			}
-	}
-sitepassretry:
-if (sitepass = "")
-	{
-		gosub, GetPass
-	}
-if (sitepass = "")
-	{
-		msgbox,518,,You have not set a password.
-		ifMsgbox, TryAgain
-			{
-				goto, sitepassretry
-			}
-		IfMsgBox, Cancel
-			{
-				ExitApp
-				return
-			}
-	}
-	
-if (FTPXE = "")
-	{
-		FTPXE= SFTP
-		ftptyp= checked
-	}
-if (SERVERDIR = "")
-	{
-		gosub, GetServerDir
-	}
-if (SERVERDIR = "")
-	{
-		msgbox,256,,You have not set a login directory.	
-		IfMsgBox, TryAgain
-			{
-				goto, GetServerDir
-			}
-		ifmsgbox,Cancel
-			{
-				ExitApp
-				return
-			}
-	}
-if (PORTNUM = "")
-	{
-		gosub, GetPort
-	}
-if (PORTNUM = "")
-	{
-		PORTNUM= 22
-	}
-
 oldsize=
 oldsha= 
 olrlsdt=
 vernum=	
 VERSIONGET:
 sklnum= 
-getversf= %DBP%\WEBSITE\skeletonkey.html
+getversf= %gitroot%\%gitusrname%.github.io\index.html
 ifnotexist,getversf
 	{
 		FileDelete,ORIGHTML.html
-		UrlDownloadToFile, http://romjacket.mudlord.info/WEBSITE/skeletonkey.html, ORIGHTML.html
+		UrlDownloadToFile, http://romjacket.github.io/index.html, ORIGHTML.html
 		getversf= ORIGHTML.html
 	}
 Loop,Read, %getversf%
@@ -402,7 +367,7 @@ Loop,Read, %getversf%
 	ifinstring,A_LoopReadLine,<h99>
 		{
 			stringgetpos,verstr,A_LoopReadLine,<h99>
-			FileReadLine,sklin,C:\users\sudopinion\dropbox\public\WEBSITE\skeletonkey.html,%sklnum%
+			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io.html,%sklnum%
 			getvern:= verstr+6
 			StringMid,vernum,sklin,%getvern%,10
 			if (vernum = "</h99></st")
@@ -414,7 +379,7 @@ Loop,Read, %getversf%
 ifinstring,A_LoopReadLine,<h88>
 		{
 			stringgetpos,verstr,A_LoopReadLine,<h88>
-			FileReadLine,sklin,C:\users\sudopinion\dropbox\public\WEBSITE\skeletonkey.html,%sklnum%
+			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
 			getvern:= verstr+6
 			StringMid,oldsize,sklin,%getvern%,4
 			continue
@@ -422,7 +387,7 @@ ifinstring,A_LoopReadLine,<h88>
 ifinstring,A_LoopReadLine,<h87>
 		{
 			stringgetpos,verstr,A_LoopReadLine,<h87>
-			FileReadLine,sklin,C:\users\sudopinion\dropbox\public\WEBSITE\skeletonkey.html,%sklnum%
+			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
 			getvern:= verstr+6
 			StringMid,oldsize,sklin,%getvern%,4
 			continue
@@ -430,7 +395,7 @@ ifinstring,A_LoopReadLine,<h87>
 ifinstring,A_LoopReadLine,<h77>
 		{
 			stringgetpos,verstr,A_LoopReadLine,<h77>
-			FileReadLine,sklin,C:\users\sudopinion\dropbox\public\WEBSITE\skeletonkey.html,%sklnum%
+			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
 			getvern:= verstr+6
 			StringMid,oldsha,sklin,%getvern%,40
 			continue
@@ -438,7 +403,7 @@ ifinstring,A_LoopReadLine,<h77>
 ifinstring,A_LoopReadLine,<h66>
 		{
 			stringgetpos,verstr,A_LoopReadLine,<h66>
-			FileReadLine,sklin,C:\users\sudopinion\dropbox\public\WEBSITE\skeletonkey.html,%sklnum%
+			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
 			getvern:= verstr+6
 			StringMid,olrlsdt,sklin,%getvern%,18
 			continue
@@ -469,27 +434,18 @@ gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCANCEL gCANCEL hidden, CANCEL
 gui,font,normal
 Gui, Add, Text, x424 y8, Version
-Gui, Add, CheckBox, x90 y75 w104 h13 vPortVer gPortVer checked, Portable Version
-Gui, Add, CheckBox, x90 y94 w154 h13 vDevlVer gDevlVer checked, Development Version
-Gui, Add, CheckBox, x90 y112 w154 h13 vDATBLD gDatBld, Database Recompile
+Gui, Add, CheckBox, x90 y76 w104 h13 vPortVer gPortVer checked, Portable Version
+Gui, Add, CheckBox, x90 y95 w154 h13 vDevlVer gDevlVer checked, Development Version
+Gui, Add, CheckBox, x90 y113 w154 h13 vDATBLD gDatBld, Database Recompile
 
 Gui, Add, Text, x271 y82, Directory
 Gui, Add, Button, x424 y78 w52 h21 vSELDIR gSelDir, Select
-Gui, Add, DropDownList, x318 y78 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Git
+Gui, Add, DropDownList, x318 y78 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Github|Git-Release
 
 
-Gui Add, DropDownList, x46 y148 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|NSIS|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
-Gui Add, Button, x139 y148 w52 h21 vResB gResB, Reset
-Gui Add, Text, x14 y150, Reset
-
-Gui, Add, Edit, x266 y148 w74 h21 vSetLogin gSetLogin, %siteuser%
-Gui, Add, Edit, x378 y149 w74 h21 vSetPass gSetPass Password, %sitepass%
-Gui, Add, Button, x185 y3 w75 h20 vSetSite gSetSite, Set Site URL
-Gui, Add, Text, x235` y150, Login
-Gui, Add, Text, x349 y150, Pass
-Gui, Add, Edit, x299 y1 w38 h21 vSetPort gSetPort Number, %PORTNUM%
-Gui, Add, Text, x266 y3, PORT
-Gui, Add, CheckBox, x346 y0 w45 h23 vSetFTP gSetFTP %ftptyp%, SFTP
+Gui Add, DropDownList, x206 y1 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
+Gui Add, Button, x301 y1 w52 h21 vResB gResB, Reset
+Gui Add, Text, x173 y4, Reset
 
 Gui, Add, Progress, x12 y135 w388 h8 vprogb -Smooth, 0
 
@@ -588,9 +544,58 @@ nstmp=
 gosub, GetNSIS
 return
 
+GetWrk:
+BUILDWT= %BUILDW%
+FileSelectFile,BUILDWT,3,%BUILDIR%\working.ahk,Select The working development file,*.ahk
+if (BUILDW <> "")
+	{
+		if (BUILDWT = "")
+			{
+				SB_SetText("Working development file is " BUILDW " ")
+				return
+			}
+	}
+if (BUILDWT = "")
+	{
+		return
+	}
+BUILDW= %BUILDWT%	
+FileCopy, %BUILDIR%\Working.ahk,%BUILDIR%\Working.bak,1
+FileCopy, %BUILDWT%,%BUILDIR%\Working.ahk,1
+IniWrite, %BUILDW%,skopt.ini,GLOBAL,Working_file
+return
+
+GitRoot:
+GITROOTT= %GITROOT%
+FileSelectFolder, GITROOTT,%gitrttmp% ,1,Select The GitHub Directory
+gitrttmp= 
+gitrtexists= 
+if (GITROOT <> "")
+	{
+		if (GITROOT = "")
+			{
+				SB_SetText("Github dir is " GITROOT " ")
+				return
+			}
+	}
+if (GITROOTT <> "")
+	{
+		GITROOT:= GITROOTT
+		iniwrite, %GITROOT%,skopt.ini,GLOBAL,Git_Root
+		return
+	}
+Msgbox,5,Github Root,Github Directory not found
+IfMsgBox, Abort
+	{
+		ExitApp
+	}
+gosub, GitRoot
+return
+
+	
 GetBld:
 BUILDIT= %BUILDIR%
-FileSelectFolder, BUILDIT,%bldtmp% ,0,Select The Build Directory
+FileSelectFolder, BUILDIT,%bldtmp% ,1,Select The Build Directory
 bldtmp= 
 bldexists= 
 if (BUILDIR <> "")
@@ -613,11 +618,11 @@ if (bldexists = 1)
 		StringReplace, nsiv, nsiv,[SOURCE],%SKELD%,All
 		StringReplace, nsiv, nsiv,[INSTYP],-installer,All
 		StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
-		StringReplace, nsiv, nsiv,[DBP],%DBP%,All
+		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 		FileAppend, %nsiv%,%BUILDIR%\skdeploy.nsi
 		return
 	}
-Msgbox,5,skdeploy.nsi,Build Directory not found
+Msgbox,5,Build Dir,Build Directory not found
 IfMsgBox, Abort
 	{
 		ExitApp
@@ -728,169 +733,24 @@ InputBox,UPDTURL,Update URL,If you wish to deploy updates from your own reposito
 				}
 return
 
-
-GetSite:
-gui,submit,nohide
-siteurlt= %SITEURL%
-if (siteurlt = "")
-	siteurlt= http://my.skeletonkey.dev
-InputBox,siteurlt,Server URL, Enter the Server URL,,275,140,,,,,%siteurlt%
-if (siteurlt <> "")
-	{
-		SVRTR= 
-		SITEURL= %siteurlt%
-		StringReplace,SITEURL,SITEURL,http,,All
-		StringReplace,SITEURL,SITEURL,https,,All
-		StringReplace,SITEURL,SITEURL,ftp:,,All
-		StringReplace,SITEURL,SITEURL,sftp:,,All
-		StringReplace,SITEURL,SITEURL,:,,All
-		StringReplace,SITEURL,SITEURL,/,,All
-		StringReplace,SITEURL,SITEURL,/,,All
-		IniWrite,%SITEURL%,skopt.ini,GLOBAL,Site_URL
-		return
-	}
-SVRTR+=1
-if (SVRTR > 1)
-	{
-		IniDelete,skopt.ini,GLOBAL,Site_URL
-		return
-	}
-if (SITEURL = "")
-	{
-		goto, GetSite
-	}
-return
-
-GetServerDir:
-if (SVRTR > 1)
-	{
-		return
-	}
-	servertmp:= SERVERDIR
-if (servertmp = "")
-		servertmp= 
-gui,submit,nohide
-InputBox,SERVERDIRT,Site Root Directory, Enter the login/root directory to publish into,,345,140,,,,,%servertmp%
-if (SERVERDIRT <> "")
-	{
-		SERVERDIR= %SERVERDIRT%
-		IniWrite,%SERVERDIR%,skopt.ini,GLOBAL,Server_Directory
-		return
-	}	
-IniDelete,skopt.ini,GLOBAL,Server_Directory
-return
-
-GetPass:
-if (SVRTR > 1)
-	{
-		return
-	}
-gui,submit,nohide
-sitepasd= %sitepass%
-sitepastmp:= sitepass
-InputBox,sitepasd,Server Password, Enter your Password,HIDE,275,125,,,,,%sitepastmp%
-sitepastmp= 
-if (sitepasd <> "")
-	{
-		sitepass= %sitepasd%
-		sitepastmp= %sitepasd%
-		IniWrite,%sitepass%,skopt.ini,GLOBAL,Server_Password
-		return
-	}
-IniDelete, skopt.ini,GLOBAL,Server_Password
-return
-
-GetLogin:
-if (SVRTR > 1)
-	{
-		return
-	}
-gui,submit,nohide
-siteusrd= %siteuser%
-siteusrtmp:= siteuser
-InputBox,siteuserd,Server Login, Enter your Login,,275,140,,,,,%siteusrtmp%
-siteusertmp= 
-if (siteuserd <> "")
-	{
-		siteuser= %siteuserd%
-		siteusertmp= 
-		IniWrite,%siteuser%,skopt.ini,GLOBAL,Server_Login
-		return
-	}	
-goto, GetLogin
-return
-
-GetPort:
-if (SVRTR > 1)
-	{
-		return
-	}
-gui,submit,nohide
-gportmp= %PORTNUM%
-if (gportmp = "")
-	{
-		gportmp= 22
-	}
-InputBox,portmp,Port Number, Enter the s/ftp port number,,140,140,,,,,%gporttmp%
-gporttmp= 
-if (portmp = "")
-	{
-		portmp= 22
-	}
-if (portmp <> "")
-	{
-		if portmp is not Integer
-				{
-					msgbox,6,Not a number,You must enter a whole number
-					IfMsgBox,TryAgain
-					{
-						goto GetPort
-					}
-					IfMsgBox,Cancel
-						{
-							Exitapp
-						}
-					IfMsgBox,Continue
-						{
-							if (FTPXE = "FTP")
-								{
-									portmp= 21
-								}
-						}
-				}
-		PORTNUM= %portmp%
-		gporttmp= %PORTNUM%
-		IniWrite,%PORTNUM%,skopt.ini,GLOBAL,Port_Number`n
-		return
-	}	
-goto, GetPort
-return
-
-
 GetDepl:
-DEPLT= %DBP%
-FileSelectFolder, DEPLT,%depltmp% ,0,Select The Deployment Directory
+DEPLT= %A_MyDocuments%\Github\skeletonkey.deploy
+FileSelectFolder, DEPLT,%depltmp% ,1,Select The Deployment Directory
 depltmp= 
 deplexists= 
-if (DBP <> "")
+if (DEPL <> "")
 	{
 		if (DEPLT= "")
 			{
-				SB_SetText(" Deploy dir is " DBP " ")
+				SB_SetText(" Deploy dir is " DEPL " ")
 				return
 			}
 	}
-Loop, %DEPLT%\WEBSITE\skeletonkey.html
-	{
-		deplexists= 1
-	}
-if (deplexists = 1)
-	{
-		DBP:= DEPLT
-		iniwrite, %DBP%,skopt.ini,GLOBAL,Deployment_Directory
+
+		DEPL:= DEPLT
+		iniwrite, %DEPL%,skopt.ini,GLOBAL,Deployment_Directory
 		return
-	}
-Msgbox,5,skeletonkey.html,Deployment Environment not found
+Msgbox,5,index.html,Deployment Environment not found
 IfMsgBox, Abort
 	{
 		ExitApp
@@ -931,7 +791,7 @@ return
 
 GetSrc:
 SKELT= %SKELD%
-FileSelectFolder, SKELT,%skeltmp% ,0,Select The Source Directory
+FileSelectFolder, SKELT,%skeltmp% ,1,Select The Source Directory
 skelexists= 
 if (SKELD <> "")
 	{
@@ -960,9 +820,88 @@ skeltmp=
 gosub, GetSrc	
 return
 
+GetRls:
+gitrlstmp= %a_programfiles%\git\bin
+GITRLST= %GITRLS%
+GITRLSCONT:
+FileSelectFile, GITRLST,3,%gitrlstmp%,Select the github-release.exe,*.exe
+gitrlstmp= 
+gitrlsxst= 
+if (GITRLS <> "")
+	{
+		if (GITRLST = "")
+			{
+				SB_SetText("Git-Release is " GITRLS " ")
+				return
+			}
+	}	
+ifexist, %a_programfiles%\git\bin\github-release.exe
+	{
+		GITRLSXST= 1
+	}
+IF (GITRLSXST = 1)	
+	{	
+		GITRLST= %a_programfiles%\git\bin\github-release.exe
+	}
+if (GITRLST = "")
+	{
+		GITRLS=
+		MsgBox,5,Github-Release,Github-Release not found, Locate?
+		ifmsgbox, Cancel
+			{
+				return		
+			}
+		ifmsgbox, No
+			{
+				return		
+			}
+		ifmsgbox, Ok
+			{
+				gitrlstmp= 
+				goto, GITRLSCONT
+			}
+			
+	}
+GITRLS= %GITRLST%
+iniwrite, %GITRLS%,skopt.ini,GLOBAL,git_rls
+return
+
+GetGPAC:
+GITPATT= 
+envGet, GITPATT, GITHUB_TOKEN
+InputBox, GITPATT , Git-PAC, Input your git token, , 160, 120, , , ,,%GITPATT%
+if (GITPAT <> "")
+	{
+		if (GITPATT = "")
+			{
+				envGet, GITPATT, GITHUB_TOKEN
+				SB_SetText(" Git Access token is " GITPAT " ")
+			}
+	}
+GITPAT= %GITPATT%	
+iniwrite, %GITPAT%,skopt.ini,GLOBAL,git_token
+return
+
+
+GetGUSR:
+GITUSERT= 
+InputBox, GITUSERT , Git-Username, Input your git username, , 160, 120, , , ,, %a_username%
+if (GITUSER <> "")
+	{
+		if (GITUSERT = "")
+			{
+				SB_SetText(" Git Username is " GITUSER " ")
+				return
+			}
+	}
+GITUSER= %GITUSERT%	
+iniwrite, %GITUSER%,skopt.ini,GLOBAL,Git_username
+filecreatedir, %gitroot%\%GITUSER%.github.io
+return
+
 GetGit:
 GITT= %GITD%
-FileSelectFolder, GITT,%gittmp% ,0,Select The Git Project Directory
+FileSelectFolder, GITT,%gittmp% ,1,Select The Git Project Directory
 gittmp= 
 gitexists= 
 if (GITD <> "")
@@ -996,80 +935,6 @@ IfMsgBox, Abort
 gosub, GetGit
 return
 
-SetLogin:
-gui,submit,nohide
-guicontrolget,siteuser,,SETLOGIN
-iniwrite,%siteuser%,skopt.ini,GLOBAL,Server_Login
-return
-
-SetPass:
-gui,submit,nohide
-guicontrolget,sitepass,,SETPASS
-iniwrite,%sitepass%,skopt.ini,GLOBAL,Server_Password
-return
-
-SetSite:
-sitetmp= 
-gui,submit,nohide 
-if (SITEURL <> "")
-	{
-		sitetmp= %SITEURL%
-	}
-InputBox,SITEURL,Server Address, Enter the FTP Server IP/Address`nDo not include ftp:// or subdirectories,,270,140,,,,,%sitetmp%
-if (SITEURL <> "")
-	{
-		StringReplace,SITEURL,SITEURL,http,,All
-		StringReplace,SITEURL,SITEURL,https,,All
-		StringReplace,SITEURL,SITEURL,ftp:,,All
-		StringReplace,SITEURL,SITEURL,sftp:,,All
-		StringReplace,SITEURL,SITEURL,:,,All
-		StringReplace,SITEURL,SITEURL,/,,All
-		StringReplace,SITEURL,SITEURL,/,,All	
-			IniWrite,%SITEURL%,skopt.ini,GLOBAL,Site_URL
-			srvrdtmp= 
-			gui,submit,nohide 
-			if (SERVERDIR <> "")
-				{
-					srvrdtmp= %SERVERDIR%
-				}
-				InputBox,SERVERDIR,Site Root Directory, Enter a subdirectory to login to,,250,140,,,,,%srvrdtmp%
-				if (SERVERDIR <> "")
-					{
-						IniWrite,%SERVERDIR%,skopt.ini,GLOBAL,Server_Directory
-					}
-				iniwrite,%SITEURL%,skopt.ini,GLOBAL,Site_URL
-			SB_SetText(" ftp address is " FTPXE "://" SITEURL "/ " SERVERDIR " on port :" PORTNUM " ")
-	}
-return
-
-SetFTP:
-gui,submit,nohide
-guicontrolget,SETFTP,,SETFTP
-FTPXE= FTP
-if (SETFTP = 1)
-	{
-		PORTNUM= 22
-		FTPXE= SFTP
-		guicontrol,,SetPort,22
-		PORTNUM= 22
-	}
-if (SETFTP = 0)
-	{
-		PORTNUM= 21
-		guicontrol,,SetPort,21
-	}
-iniwrite,%FTPXE%,skopt.ini,GLOBAL,FTP_Type
-SB_SetText(" ftp address is " FTPXE "://" SITEURL "/ " SERVERDIR " on port :" PORTNUM " ")
-return
-
-SetPort:
-PORTNUM= 22
-gui,submit,nohide
-guicontrolget,PORTNUM,,SETPORT
-iniwrite,%PORTNUM%,skopt.ini,GLOBAL,Port_Number
-SB_SetText(" ftp address is " FTPXE "://" SITEURL "/ " SERVERDIR " on port :" PORTNUM " ")
-return
-
 SrcDD:
 gui,submit,nohide
 guicontrolget,SRCDD,,SRCDD
@@ -1083,13 +948,13 @@ if (SRCDD = "Build")
 	}
 if (SRCDD = "Deployment")
 	{
-		SB_SetText(" " DBP " ")
+		SB_SetText(" " DEPL " ")
 	}
 if (SRCDD = "Source")
 	{
 		SB_SetText(" " SKELD " ")
 	}
-if (SRCDD = "Git")
+if (SRCDD = "Github")
 	{
 		SB_SetText(" " GITD " ")
 	}
@@ -1097,6 +962,11 @@ if (SRCDD = "NSIS")
 	{
 		SB_SetText(" " NSIS " ")
 	}
+if (RESDD = "Git-Release")
+	{
+		SB_SetText(" " GITRLS " ")
+	}
+	
 return
 
 ResDD:
@@ -1164,7 +1034,7 @@ if (RESDD = "Stable-Build")
 		MsgBox,1,Confirm Overwrite,Are you sure you want to revert your Stable Build?
 			IfMsgBox, OK
 				{
-					FileCopy, %StbBld%,%DBP%,1
+					FileCopy, %StbBld%,%DEPL%,1
 					SBOV= 1
 				}
 	}
@@ -1180,7 +1050,7 @@ if (RESDD = "Portable-Build")
 		MsgBox,1,Confirm Overwrite,Are you sure you want to revert your portable Build?
 			IfMsgBox, OK
 				{
-					FileCopy, %PortBld%,%DBP%,1
+					FileCopy, %PortBld%,%DEPL%,1
 					PBOV= 1
 				}
 	}
@@ -1198,7 +1068,7 @@ if (RESDD = "Dev-Build")
 				{
 					rvbldn= 
 					buildrv= 
-					Loop, %DBP%\skeletonKey-%date%*.zip
+					Loop, %DEPL%\skeletonKey-%date%*.zip
 						{
 							rvbldn+=1
 							buildrv= -%rvbldn%
@@ -1207,7 +1077,7 @@ if (RESDD = "Dev-Build")
 							{
 								buildrv= 
 							}
-					FileCopy, %DevBld%,%DBP%\skeletonKey-%date%%buildrv%,1
+					FileCopy, %DevBld%,%DEPL%\skeletonKey-%date%%buildrv%,1
 					DBOV= 1
 				}
 	}
@@ -1218,8 +1088,6 @@ if (RESDD = "Deployer")
 			{
 				FileDelete, %BUILDIR%\gitcommit.bat
 				FileDelete, %BUILDIR%\skdeploy.nsi				
-				FileDelete, ftp.txt
-				FileDelete, skeletonkey.scr
 				FileDelete, %BUILDIR%\skopt.ini
 				FileDelete, %BUILDIR%\ltc.txt
 				FileDelete, %BUILDIR%\insts.sha1
@@ -1247,6 +1115,29 @@ if (RESDD = "NSIS")
 				ExitApp
 			}
 	}
+
+if (RESDD = "Git-Release")
+	{
+		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the github-release.exe?
+		IfMsgBox, OK
+			{
+				GITRLSTtmp= 
+				GBOV= 
+				FileSelectFile,GITRLST,3,%gitroot%\github-release.exe,Select github-release.exe
+				if (GITRLST = "")
+					{
+						return
+					}
+				MsgBox,1,Confirm Overwrite,Are you sure you want to change the github-release.exe?
+					IfMsgBox, OK
+						{
+							GITRLS= %GITRLST%
+							GBOV= 1
+						}
+				ExitApp
+			}
+	}
+	
 if (RESDD = "Repo-URL")
 	{
 		REPOURLT= %REPOURL%
@@ -1270,7 +1161,6 @@ if (RESDD = "Git-URL")
 		GITSRCT= %GITSRC%
 		Gosub, GitSRC
 	}
-
 if (RESDD = "Update-URL")
 	{
 		UPDTURLT= %UPDTURL%
@@ -1346,21 +1236,21 @@ return
 
 BUILDING:
 BUILT= 1
-FileDelete, %DBP%\skeletonD.zip
-FileDelete, %DBP%\skeletonK.zip
-FileDelete, %DBP%\skeletonkey-installer.exe
-FileDelete, %DBP%\skeletonkey-Full.exe
+FileDelete, %DEPL%\skeletonD.zip
+FileDelete, %DEPL%\skeletonK.zip
+FileDelete, %DEPL%\skeletonkey-installer.exe
+FileDelete, %DEPL%\skeletonkey-Full.exe
 FileDelete, %BUILDIR%\skdeploy.nsi
 	{			
 		FileRead, nsiv, %BUILDIR%\skdeploy.set
 		StringReplace, nsiv, nsiv,[INSTYP],-installer,All
 		StringReplace, nsiv, nsiv,[SOURCE],%SKELD%,All
 		StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
-		StringReplace, nsiv, nsiv,[DBP],%DBP%,All
+		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 		FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 	}
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
-RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DBP%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
 FileReadLine, nchash, %BUILDIR%\fcivINST.txt,4
 
 FileDelete, %BUILDIR%\skdeploy.nsi
@@ -1370,11 +1260,11 @@ FileDelete, %BUILDIR%\skdeploy.nsi
 		StringReplace, nsiv, nsiv,[INSTYP],-Full,All
 		StringReplace, nsiv, nsiv,;File,File,All
 		StringReplace, nsiv, nsiv,[BUILD],%BUILDIR%,All
-		StringReplace, nsiv, nsiv,[DBP],%DBP%,All
+		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 		FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 	}
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
-RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DBP%\skeletonkey-Full.exe" > "%BUILDIR%\fcivFULL.txt" ", %BUILDIR%,%rntp%
+RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-Full.exe" > "%BUILDIR%\fcivFULL.txt" ", %BUILDIR%,%rntp%
 FileReadLine, fchash, %BUILDIR%\fcivFULL.txt,4
 ;;  
 
@@ -1385,7 +1275,7 @@ FileAppend, %date% %timestring%=%Tsha1%=%verapnd%,%SKELD%\version.txt
 
 buildnum= 
 buildtnum= 1
-Loop, %DBP%\skeletonkey-%date%*.zip
+Loop, %DEPL%\skeletonkey-%date%*.zip
 	{
 		buildnum+=1
 	}
@@ -1393,18 +1283,18 @@ if (buildnum <> "")
 	{
 		buildnum= -%buildnum%
 	}	
-RunWait, "%BUILDIR%\7za.exe" a "%DBP%\skeletonK.zip" "%DBP%\skeletonkey-installer.exe", %BUILDIR%,%rntp%
+RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonkey-installer.exe", %BUILDIR%,%rntp%
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
 			{
-				FileCopy,%DBP%\skeletonK.zip, %DBP%\skeletonkey-%date%%buildnum%.zip,1
-				FileMove,%DBP%\skeletonK.zip, %DBP%\skeletonKey.zip,1	
+				FileCopy,%DEPL%\skeletonK.zip, %DEPL%\skeletonkey-%date%%buildnum%.zip,1
+				FileMove,%DEPL%\skeletonK.zip, %DEPL%\skeletonKey.zip,1	
 			}
 	}
 buildnum= 
 buildtnum= 1
-Loop, %DBP%\skeletonkey-Full-%date%*.zip
+Loop, %DEPL%\skeletonkey-Full-%date%*.zip
 	{
 		buildnum+=1
 	}
@@ -1412,34 +1302,33 @@ if (buildnum <> "")
 	{
 		buildnum= -%buildnum%
 	}	
-RunWait, "%BUILDIR%\7za.exe" a "%DBP%\skeletonD.zip" "%DBP%\skeletonkey-Full.exe", %BUILDIR%,%rntp%
+RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonD.zip" "%DEPL%\skeletonkey-Full.exe", %BUILDIR%,%rntp%
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
 			{
-				FileMove,%DBP%\skeletonD.zip, %DBP%\skeletonkey-Full-%date%%buildnum%.zip,1
+				FileMove,%DEPL%\skeletonD.zip, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip,1
 			}
 	}
 if (OvrStable = 1)
 	{
 				if (SBOV <> 1)
 					{
-						ifExist, %DBP%\skeletonKey.zip
+						ifExist, %DEPL%\skeletonKey.zip
 							{
-								FileMove,%DBP%\skeletonKey.zip, %DBP%\skeletonKey.zip.bak,1
+								FileMove,%DEPL%\skeletonKey.zip, %DEPL%\skeletonKey.zip.bak,1
 							}
 					}
 	}
-return
 if (OvrStable = 1)
 	{
 				if (SBOV <> 1)
 					{
-						ifExist, %DBP%\skeletonKey.zip
+						ifExist, %DEPL%\skeletonKey.zip
 							{
-								FileMove,%DBP%\skeletonKey.zip, %DBP%\skeletonKey.zip.bak,1
+								FileMove,%DEPL%\skeletonKey.zip, %DEPL%\skeletonKey.zip.bak,1
 							}
-						FileMove,%DBP%\skeletonK.zip, %DBP%\skeletonKey.zip,1	
+						FileMove,%DEPL%\skeletonK.zip, %DEPL%\skeletonKey.zip,1	
 					}
 	}
 return
@@ -1570,13 +1459,13 @@ guicontrol,,progb,20
 if (DATBLD = 1)
 	{		
 		SB_SetText(" Recompiling Database ")
-		FileDelete, %DBP%\DATFILES.7z
+		FileDelete, %DEPL%\DATFILES.7z
 		Loop, rj\scrapeArt\*.7z
 			{
-				runwait, "%BUILDIR%\7za.exe" a "%DBP%\DATFILES.zip" "%A_LoopFileFullPath%",,hide
+				runwait, "%BUILDIR%\7za.exe" a "%DEPL%\DATFILES.zip" "%A_LoopFileFullPath%",,hide
 			}
 	}
-FileGetSize,dbsize,%DBP%\DATFILES.zip,K
+FileGetSize,dbsize,%DEPL%\DATFILES.zip,K
 DATSZ:= dbsize / 1000
 	
 if (PortVer = 1)
@@ -1587,11 +1476,11 @@ if (PortVer = 1)
 		;"
 		if (PBOV <> 1)
 			{
-				FileDelete, %DBP%\skeletonKey-full.zip
-				FileDelete, %DBP%\skeletonKey-portable.zip
-				runwait, "%BUILDIR%\7za.exe" a "%DBP%\skeletonKey-portable.zip" "*.set" "*.ico" "*.ttf" "BSL.ahk" "skeletonkey.ahk" "SKey-Deploy.ahk" "skeletonkey.html" "*.exe" "tf.ahk" "AHKsock.ahk" "LVA.ahk" "Portable.bat" "*.exe" "rj\*.set" "rj\joyCfgs\*" "rj\emuCfgs\*" "rj\scrapeart\*.set" "joyimg\*" "gam\*.gam" -r, %SKELD%,%rntp%
+				FileDelete, %DEPL%\skeletonKey-full.zip
+				FileDelete, %DEPL%\skeletonKey-portable.zip
+				runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.set" "*.ico" "*.ttf" "BSL.ahk" "skeletonkey.ahk" "SKey-Deploy.ahk" "index.html" "*.exe" "tf.ahk" "AHKsock.ahk" "LVA.ahk" "Portable.bat" "*.exe" "rj\*.set" "rj\joyCfgs\*" "rj\emuCfgs\*" "rj\scrapeart\*.set" "joyimg\*" "gam\*.gam" -r, %SKELD%,%rntp%
 				sleep, 1000
-				runwait, "%BUILDIR%\7za.exe" a "%DBP%\skeletonKey-portable.zip" "*.png", %SKELD%,%rntp%
+				runwait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "*.png", %SKELD%,%rntp%
 			}
 	}
 
@@ -1608,7 +1497,6 @@ if (DevlVer = 1)
 		SB_SetText(" Building Devel ")
 		gosub, BUILDING
 		guicontrol,,progb,55
-		;FileMove, C:\users\sudopinion\desktop\skeletonkey-installer.7z, %DBP%\skeletonkey-%date%%buildnum%.7z,1	
 }
 if (BCANC = 1)
 	{
@@ -1639,7 +1527,7 @@ if (GitPush = 1)
 		FileAppend, copy /y "*.exe" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "*.set" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "Portable.bat" "%GITD%"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, copy /y "skeletonkey.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, copy /y "index.html" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "BSL.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "LVA.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "tf.ahk" "%GITD%"`n,%SKELD%\!gitupdate.cmd
@@ -1662,7 +1550,7 @@ if (GitPush = 1)
 				FileAppend,git commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
 				FileAppend,git push`n,%BUILDIR%\gitcommit.bat
 			}
-		FileAppend, "%PushNotes%`n",%DBP%\changelog.txt
+		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
@@ -1696,57 +1584,55 @@ if (BCANC = 1)
 
 if (ServerPush = 1)
 	{
+		FileDelete, %DEPL%\gpush.cmd
+		FileAppend, set GITHUB_USER=%GITUSER%`n,%DEPL%\gpush.cmd
+		FileAppend, set GITHUB_TOKEN=%GITPAC%`n,%DEPL%\gpush.cmd
+		FileAppend, pushd "%DEPL%"`n,%DEPL%\gpush.cmd
+		
 		SB_SetText(" Uploading to server ")
-		FileDelete, ftp.txt
-		FileDelete, skeletonkey.scr
-		FileAppend, cd %SERVERDIR%`n, skeletonkey.scr
-		FileAppend, open %SITEURL%:%PORTNUM%`n, ftp.txt
-		FileAppend, %siteuser%`n
-		FileAppend, %sitepass%`n
-		FileAppend, cd %SERVERDIR%`n
-		FileAppend, dir
+		
 		if (PortVer = 1)
 			{
-				FileAppend, del skeletonKey-portable.zip`n, ftp.txt
-				FileAppend, put %DBP%\skeletonKey-portable.zip`n, ftp.txt
-				FileAppend, del skeletonKey-portable.zip`n, skeletonkey.scr	
-				FileAppend, put %DBP%\skeletonKey-portable.zip`n, skeletonkey.scr
+				if (ServerPush = 1)
+					{	
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n portable -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
+					}
 			}
 		if (DATBLD = 1)
 			{
-				FileAppend, del DATFILES\DATFILES.7z`n, ftp.txt
-				FileAppend, put  %DBP%\DATFILES.7z`n, ftp.txt
-				FileAppend, del DATFILES\DATFILES.7z`n, skeletonkey.scr
-				FileAppend, put  %DBP%\DATFILES.7z`n,skeletonkey.scr			
+				if (ServerPush = 1)
+					{					
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t dats -l "dat files" -n DATS -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
+					}
 			}
 		if (OvrStable = 1)
 			{
-				FileAppend, del skeletonKey.zip`n, ftp.txt
-				FileAppend, put %DBP%\skeletonKey.zip`n, ftp.txt
-				FileAppend, del skeletonKey.zip`n, skeletonkey.scr
-				FileAppend, put %DBP%\skeletonKey.zip`n, skeletonkey.scr		
+				if (ServerPush = 1)
+					{
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer -f "%DEPL%\skeletonKey.zip"`n,%DEPL%\gpush.cmd
+					}
 			}
 
 		if (DevlVer = 1)
 			{
-				FileAppend, put %DBP%\skeletonkey-%date%%buildnum%.zip`n, ftp.txt
-				FileAppend, put %DBP%\skeletonkey-%date%%buildnum%.zip`n, skeletonkey.scr
+				if (ServerPush = 1)
+					{
+						FileAppend, "%GITRLS%" delete -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
+					}
 			}
-
 		if (SiteUpdate <> 1)
 			{
-				FileAppend, bye`n, ftp.txt
-				FileAppend, quit`n, skeletonkey.scr
-				if (FTPXE = "SFTP")
-					{
-								RunWait, %comspec% cmd /c " "%BUILDIR%\psftp.exe" -be %siteuser%@%SITEURL% -P %PORTNUM% -pw %sitepass% -b skeletonkey.scr ", %BUILDIR%,%rntp%
-					}
-				if (FTPXE = "FTP")
-					{
-						RunWait, %comspec% cmd /c " ftp -s:ftp.txt ",%BUILDIR%,%rntp%
-					}
+
 			}
 		guicontrol,,progb,80
+		if (GitPush = 1)
+			{
+				RunWait, %comspec% cmd /c "%DEPL%\gpush.cmd"
+			}
 	}
 	
 if (BCANC = 1)
@@ -1759,15 +1645,7 @@ if (BCANC = 1)
 if (SiteUpdate = 1)
 	{
 		SB_SetText(" Updating the website ")
-		FileAppend, cd WEBSITE`n, skeletonkey.scr
-		FileAppend, del skeletonkey.html`n, skeletonkey.scr
-		FileAppend, put %DBP%\WEBSITE\skeletonkey.html`n, skeletonkey.scr
-		FileAppend, cd WEBSITE`n, ftp.txt
-		FileAppend, del skeletonkey.html`n, ftp.txt
-		FileAppend, put %DBP%\WEBSITE\skeletonkey.html`n, ftp.txt
-		FileAppend, bye, ftp.txt
-
-		FileAppend, quit`n, skeletonkey.scr
+		FileCopy, %DEPL%\index.html, %gitroot%\%GITUSER%.github.io,1
 		RDATE= %date% %timestring%
 		if (DBOV = 1)
 			{
@@ -1801,15 +1679,15 @@ if (SiteUpdate = 1)
 			}
 		if (ServerPush = 1)
 			{
-				FileMove, %DBP%\WEBSITE\skeletonkey.html, %DBP%\WEBSITE\skeletonkey.index.bak,1
-				FileRead,skelhtml,%SKELD%\skeletonkey.html
+				FileMove, %DEPL%\index.html, %DEPL%\index.bak,1
+				FileRead,skelhtml,%SKELD%\index.html
 				StringReplace,skelhtml,skelhtml,[CURV],%vernum%,All
 				FileDelete,%BUILDIR%\insts.sha1
 				if (OvrStable = 1)
 					{
-						ifExist, %DBP%\skeletonkey-installer.exe
+						ifExist, %DEPL%\skeletonkey-installer.exe
 							{
-								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DBP%\skeletonkey-installer.exe" >"%BUILDIR%\insts.sha1" ", %BUILDIR%,%rntp%
+								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" >"%BUILDIR%\insts.sha1" ", %BUILDIR%,%rntp%
 								FileReadLine,shap,%BUILDIR%\insts.sha1,4
 								stringsplit,sha,shap,%A_Space%
 								if (SBOV = 1)
@@ -1821,9 +1699,9 @@ if (SiteUpdate = 1)
 										sha1= reverted
 									}
 							}
-						ifExist, %DBP%\skeletonkey-Full.exe
+						ifExist, %DEPL%\skeletonkey-Full.exe
 							{
-								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DBP%\skeletonkey-Full.exe" >"%BUILDIR%\instsFull.sha1" ", %BUILDIR%,%rntp%
+								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-Full.exe" >"%BUILDIR%\instsFull.sha1" ", %BUILDIR%,%rntp%
 								FileReadLine,shag,%BUILDIR%\instsFull.sha1,4
 								stringsplit,shb,shag,%A_Space%
 								if (SBOV = 1)
@@ -1835,47 +1713,47 @@ if (SiteUpdate = 1)
 										shb1= reverted
 									}
 							}
-				ifExist, %DBP%\skeletonkey-%date%%buildnum%.zip
-					{
-						FileGetSize,dvlsize,%DBP%\skeletonkey-%date%%buildnum%.zip, K
-						dvps:= dvlsize / 1000
-						StringLeft,dvms,dvps,4
-						if (DBOV = 1)
+						ifExist, %DEPL%\skeletonkey-%date%%buildnum%.zip
 							{
-								dvms= reverted
-							}
-						if (SBOV = 1)
-							{
-								dvms= reverted
-							}
-					}
-		}
-				ifExist, %DBP%\skeletonkey-Full-%date%%buildnum%.zip
-					{
-						FileGetSize,dvgsize,%DBP%\skeletonkey-Full-%date%%buildnum%.zip, K
-						dvpg:= dvgsize / 1000
-						StringLeft,dvmg,dvpg,4
-						if (DBOV = 1)
-							{
-								dvmg= reverted
-							}
-						if (SBOV = 1)
-							{
-								dvmg= reverted
+								FileGetSize,dvlsize,%DEPL%\skeletonkey-%date%%buildnum%.zip, K
+								dvps:= dvlsize / 1000
+								StringLeft,dvms,dvps,4
+								if (DBOV = 1)
+									{
+										dvms= reverted
+									}
+								if (SBOV = 1)
+									{
+										dvms= reverted
+									}
 							}
 					}
-		}
+						ifExist, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip
+							{
+								FileGetSize,dvgsize,%DEPL%\skeletonkey-Full-%date%%buildnum%.zip, K
+								dvpg:= dvgsize / 1000
+								StringLeft,dvmg,dvpg,4
+								if (DBOV = 1)
+									{
+										dvmg= reverted
+									}
+								if (SBOV = 1)
+									{
+										dvmg= reverted
+									}
+							}
+			}
 		guicontrol,,progb,90
 		StringReplace,skelhtml,skelhtml,[RSHA1],%sha1%,All
 		StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All
-		StringReplace,skelhtml,skelhtml,[WEBURL],http://%SITEURL%/WEBSITE,All
+		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],skeletonkey-%date%%buildnum%,All
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All
 		StringReplace,skelhtml,skelhtml,[DBSIZE],%DATSZ%,All
-		FileAppend,%skelhtml%,%DBP%\WEBSITE\skeletonkey.html
+		FileAppend,%skelhtml%,%DEPL%index.html
 	}
 uptoserv=
 
@@ -1892,8 +1770,12 @@ if (ServerPush = 1)
 if (uptoserv = 1)
 	{
 		SB_SetText(" Uploading to server ")
-		
-		RunWait, %comspec% cmd /c " "%BUILDIR%\psftp.exe" -be %siteuser%@%SITEURL% -P %PORTNUM% -pw %sitepass% -b skeletonkey.scr ", %BUILDIR%,%rntp%
+		FileDelete, %BUILDIR%\sitecommit.bat
+		FileAppend,cd "%gitroot%\%GITUSER%.github.io"`n,%BUILDIR%\sitecommit.bat
+		FileAppend,git add .`n,%BUILDIR%\sitecommit.bat
+		FileAppend,git commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
+		FileAppend,git push`n,%BUILDIR%\sitecommit.bat
+		RunWait, %comspec% cmd /c " "%BUILDIR%\sitecommit.bat" "site-commit" ",%BUILDIR%,%rntp%
 	}
 
 guicontrol,,progb,100

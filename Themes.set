@@ -1,55 +1,55 @@
 [RJ]
-ESTHEME=https://github.com/romjacket/esthemes/rj.zip
-Backdrop=https://github.com/romjacket/ORIGINAL/Backdrops.7z
-Backdrop_Directory=https://github.com/romjacket/ORIGINAL/Backdrops
-Icon=https://github.com/romjacket/ORIGINAL/Icons.7z
-Icon_Directory=https://github.com/romjacket/ORIGINAL/Icons
-Logo=https://github.com/romjacket/ORIGINAL/Logos.7z
-Logo_Directory=https://github.com/romjacket/ORIGINAL/Logos
-Video=https://github.com/romjacket/ORIGINAL/Videos
-Video_Directory=https://github.com/romjacket/ORIGINAL/Videos
-Meta=https://github.com/romjacket/ORIGINAL/MetaData
-Meta_Directory=https://github.com/romjacket/ORIGINAL/MetaData
+ESTHEME=http://github.com/romjacket/esthemes/rj.zip
+Backdrop=http://github.com/romjacket/ORIGINAL/Backdrops.7z
+Backdrop_Directory=http://github.com/romjacket/ORIGINAL/Backdrops
+Icon=http://github.com/romjacket/ORIGINAL/Icons.7z
+Icon_Directory=http://github.com/romjacket/ORIGINAL/Icons
+Logo=http://github.com/romjacket/ORIGINAL/Logos.7z
+Logo_Directory=http://github.com/romjacket/ORIGINAL/Logos
+Video=http://github.com/romjacket/ORIGINAL/Videos
+Video_Directory=http://github.com/romjacket/ORIGINAL/Videos
+Meta=http://github.com/romjacket/ORIGINAL/MetaData
+Meta_Directory=http://github.com/romjacket/ORIGINAL/MetaData
 
 [carbon-centered]
-ESTHEME=https://github.com/romjacket/esthemes/carbon-centered.zip
+ESTHEME=http://github.com/romjacket/esthemes/carbon-centered.zip
 
 [carbon-nometa]
-ESTHEME=https://github.com/romjacket/esthemes/carbon-nometa.zip
+ESTHEME=http://github.com/romjacket/esthemes/carbon-nometa.zip
 
 [clean-look]
-ESTHEME=https://github.com/romjacket/esthemes/clean-look.zip
+ESTHEME=http://github.com/romjacket/esthemes/clean-look.zip
 
 [fundamental]
-ESTHEME=https://github.com/romjacket/esthemes/fundamental.zip
+ESTHEME=http://github.com/romjacket/esthemes/fundamental.zip
 
 [nbba]
-ESTHEME=https://github.com/romjacket/esthemes/nbba.zip
+ESTHEME=http://github.com/romjacket/esthemes/nbba.zip
 
 [pixel]
-ESTHEME=https://github.com/romjacket/esthemes/pixel.zip
+ESTHEME=http://github.com/romjacket/esthemes/pixel.zip
 
 [simple-dark]
-ESTHEME=https://github.com/romjacket/esthemes/simple-dark.zip
+ESTHEME=http://github.com/romjacket/esthemes/simple-dark.zip
 
 [simple]
-ESTHEME=https://github.com/romjacket/esthemes/simple.zip
+ESTHEME=http://github.com/romjacket/esthemes/simple.zip
 
 [simplified-static-canela]
-ESTHEME=https://github.com/romjacket/esthemes/simplified-static-canela.zip
+ESTHEME=http://github.com/romjacket/esthemes/simplified-static-canela.zip
 
 [superdisplay]
-ESTHEME=https://github.com/romjacket/esthemes/superdisplay.zip
+ESTHEME=http://github.com/romjacket/esthemes/superdisplay.zip
 
 [zoid]
-ESTHEME=https://github.com/romjacket/esthemes/zoid.zip
+ESTHEME=http://github.com/romjacket/esthemes/zoid.zip
 
 
 [snes-mini]
-ESTHEME=https://github.com/romjacket/esthemes/snes-mini.zip
+ESTHEME=http://github.com/romjacket/esthemes/snes-mini.zip
 
 [nes-mini]
-ESTHEME=https://github.com/romjacket/esthemes/nes-mini.zip
+ESTHEME=http://github.com/romjacket/esthemes/nes-mini.zip
 
 [magazinemadness]
-ESTHEME=https://github.com/romjacket/esthemes/magazinemadness.zip
+ESTHEME=http://github.com/romjacket/esthemes/magazinemadness.zip

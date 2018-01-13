@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-05 5:13 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-13 8:41 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-05 5:13 PM
+RELEASE= 2018-01-13 8:41 AM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -423,7 +423,7 @@ hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|
 
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
 
-supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mednafenpcefast|mednafensaturn|redream|reicast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fba|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
+supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|reicast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fba|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
 
 COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|reicast_cpu_mode|reicast_boot_to_bios|reicast_internal_resolution|reicast_mipmapping|reicast_widescreen_hack|reicast_audio_buffer_size|reicast_cable_type|reicast_broadcast|reicast_region|reicast_precompile_shaders|reicast_enable_rtt|reicast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|reicast_volume_modifier_mode|reicast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset |vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
 
@@ -8383,7 +8383,7 @@ return
 
 EmuInst:
 gui,submit,nohide
-guicontrolget,selfnd,INSTEMUDDL
+guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,EINSTLOC,,EINSTLOC
 if (EINSTLOC <> "")
 	{
@@ -18129,6 +18129,11 @@ gosub, EMUCFGCOPY
 return
 
 neoRaineGUI:
+gosub, EMUCFGCOPY
+
+return
+
+MesenGUI:
 gosub, EMUCFGCOPY
 
 return
@@ -32082,6 +32087,12 @@ if (syslk = "bnes")
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= bnes
 	}
+if (syslk = "Mesen")
+	{
+		ASPOP= Nintendo - Nintendo Entertainment System
+		corelk= mesen
+	}
+
 if (syslk = "Nestopia")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
@@ -32471,6 +32482,7 @@ remotejoyDDLA:
 pocketcdgDDLA:
 tyrquakeDDLA:
 pokeminiDDLA:
+MesenDDLA:
 redreamDDLA:
 sameboyDDLA:
 vice_x64DDLA:
@@ -45743,6 +45755,7 @@ return
 ;{;;;;; RESET NOOPTIONS ;;;;;;;;;;
 Select_a_CoreRESET:
 2048RESET:
+MesenRESET:
 3dengineRESET:
 dinothawrRESET:
 dolphinLauncherRESET:
