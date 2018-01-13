@@ -1038,6 +1038,7 @@ if (RESDD = "Stable-Build")
 					SBOV= 1
 				}
 	}
+
 if (RESDD = "Portable-Build")
 	{
 		PortBld= 
@@ -1054,6 +1055,7 @@ if (RESDD = "Portable-Build")
 					PBOV= 1
 				}
 	}
+
 if (RESDD = "Dev-Build")
 	{
 		DevBld= 
@@ -1081,6 +1083,7 @@ if (RESDD = "Dev-Build")
 					DBOV= 1
 				}
 	}
+
 if (RESDD = "Deployer")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the Deployment Tool?
@@ -1094,6 +1097,7 @@ if (RESDD = "Deployer")
 				ExitApp
 			}
 	}
+
 if (RESDD = "NSIS")
 	{
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the NSIS makensis.exe?
@@ -1249,6 +1253,7 @@ FileDelete, %BUILDIR%\skdeploy.nsi
 		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 		FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 	}
+
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
 RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" > "%BUILDIR%\fcivINST.txt" ", %BUILDIR%,%rntp%
 FileReadLine, nchash, %BUILDIR%\fcivINST.txt,4
@@ -1263,6 +1268,7 @@ FileDelete, %BUILDIR%\skdeploy.nsi
 		StringReplace, nsiv, nsiv,[DBP],%DEPL%,All
 		FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 	}
+
 RunWait, %comspec% cmd /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" ", ,%rntp%
 RunWait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-Full.exe" > "%BUILDIR%\fcivFULL.txt" ", %BUILDIR%,%rntp%
 FileReadLine, fchash, %BUILDIR%\fcivFULL.txt,4
@@ -1279,11 +1285,14 @@ Loop, %DEPL%\skeletonkey-%date%*.zip
 	{
 		buildnum+=1
 	}
+
 if (buildnum <> "")
 	{
 		buildnum= -%buildnum%
 	}	
+
 RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonK.zip" "%DEPL%\skeletonkey-installer.exe", %BUILDIR%,%rntp%
+
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
@@ -1303,6 +1312,7 @@ if (buildnum <> "")
 		buildnum= -%buildnum%
 	}	
 RunWait, "%BUILDIR%\7za.exe" a "%DEPL%\skeletonD.zip" "%DEPL%\skeletonkey-Full.exe", %BUILDIR%,%rntp%
+
 if (DevlVer = 1)
 	{
 		if (DBOV <> 1)
@@ -1310,6 +1320,7 @@ if (DevlVer = 1)
 				FileMove,%DEPL%\skeletonD.zip, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip,1
 			}
 	}
+
 if (OvrStable = 1)
 	{
 				if (SBOV <> 1)
@@ -1320,6 +1331,7 @@ if (OvrStable = 1)
 							}
 					}
 	}
+
 if (OvrStable = 1)
 	{
 				if (SBOV <> 1)
@@ -1373,7 +1385,6 @@ StringReplace,arcorg,arcorg,[IPLK],%GETIPADR%,All
 FileAppend,%themes%,%SKELD%\Themes.set
 FileAppend,%arcorg%,%SKELD%\arcorg.set
 
-
 FileDelete,%SKELD%\skeletonkey.tmp
 FileMove,%SKELD%\skeletonkey.ahk,%SKELD%\skel.bak,1
 FileCopy, %SKELD%\working.ahk, %SKELD%\skeletonkey.tmp,1
@@ -1399,6 +1410,7 @@ ifexist, %SKELD%\skeletonkey.exe
 	{
 		FileMove, %SKELD%\skeletonkey.exe, %SKELD%\skeletonkey.exe.bak,1
 	}
+
 runwait, %comspec% cmd /c " "%AHKDIR%\Ahk2Exe.exe" /in "%SKELD%\skeletonkey.ahk" /out "%SKELD%\skeletonkey.exe" /icon "%SKELD%\key.ico" /bin "%AHKDIR%\Unicode 32-bit.bin" ", %SKELD%,%rntp%
 guicontrol,,progb,15
 FileDelete,%SKELD%\*.lpl
@@ -1435,10 +1447,12 @@ FileAppend,:%SKELD%\rj\KODI\AEL\*.set`n,ltc.txt
 FileAppend,:%SKELD%\rj\emucfgs`n,ltc.txt											   
 FileAppend,:%SKELD%\rj\emucfgs`n,ltc.txt
 FileAppend,:%SKELD%\rj\scrapeart`n,ltc.txt
+
 Loop, %SKELD%\rj\scrapeart\*.7z
 	{
 		FileAppend,"%A_LoopFileFullPath%"`n,ltc.txt
 	}
+
 Loop, %SKELD%\rj\emucfgs\*,2
 	{
 		FileAppend,:"%A_LoopFileFullPath%"`n,ltc.txt
@@ -1447,6 +1461,7 @@ Loop, %SKELD%\rj\emucfgs\*,2
 				FileAppend,"%A_LoopFIleFullPath%"`n,ltc.txt
 			}
 	}
+
 Loop, %SKELD%\rj\joycfgs\*,2
 	{											  
 		FileAppend,:"%A_LoopFileFullPath%"`n,ltc.txt
@@ -1456,6 +1471,7 @@ Loop, %SKELD%\rj\joycfgs\*,2
 			}
 	}
 guicontrol,,progb,20
+
 if (DATBLD = 1)
 	{		
 		SB_SetText(" Recompiling Database ")
@@ -1465,6 +1481,7 @@ if (DATBLD = 1)
 				runwait, "%BUILDIR%\7za.exe" a "%DEPL%\DATFILES.zip" "%A_LoopFileFullPath%",,hide
 			}
 	}
+
 FileGetSize,dbsize,%DEPL%\DATFILES.zip,K
 DATSZ:= dbsize / 1000
 	
@@ -1484,7 +1501,6 @@ if (PortVer = 1)
 			}
 	}
 
-
 guicontrol,,progb,35
 if (BCANC = 1)
 	{
@@ -1492,12 +1508,14 @@ if (BCANC = 1)
 		guicontrol,,progb,0
 		return
 	}
+	
 if (DevlVer = 1)
 	{
 		SB_SetText(" Building Devel ")
 		gosub, BUILDING
 		guicontrol,,progb,55
 }
+
 if (BCANC = 1)
 	{
 		SB_SetText(" Cancelling Git Push ")
@@ -1586,7 +1604,7 @@ if (ServerPush = 1)
 	{
 		FileDelete, %DEPL%\gpush.cmd
 		FileAppend, set GITHUB_USER=%GITUSER%`n,%DEPL%\gpush.cmd
-		FileAppend, set GITHUB_TOKEN=%GITPAC%`n,%DEPL%\gpush.cmd
+		FileAppend, set GITHUB_TOKEN=%GITPAT%`n,%DEPL%\gpush.cmd
 		FileAppend, pushd "%DEPL%"`n,%DEPL%\gpush.cmd
 		
 		SB_SetText(" Uploading to server ")
@@ -1595,7 +1613,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{	
+						SB_SetText("Uploading portable")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n portable -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -1603,7 +1623,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{					
+						SB_SetText("Uploading dats")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t dats -l "dat files" -n DATS -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -1611,7 +1633,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{
+						SB_SetText("Uploading Installer")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer -f "%DEPL%\skeletonKey.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -1620,7 +1644,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{
+						SB_SetText("Uploading Full Version")
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -1677,12 +1703,14 @@ if (SiteUpdate = 1)
 						buildnum= -%olnan5%
 					}
 			}
+
 		if (ServerPush = 1)
 			{
 				FileMove, %DEPL%\index.html, %DEPL%\index.bak,1
 				FileRead,skelhtml,%SKELD%\index.html
 				StringReplace,skelhtml,skelhtml,[CURV],%vernum%,All
 				FileDelete,%BUILDIR%\insts.sha1
+
 				if (OvrStable = 1)
 					{
 						ifExist, %DEPL%\skeletonkey-installer.exe
@@ -1748,7 +1776,12 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
-		StringReplace,skelhtml,skelhtml,[REVISION],skeletonkey-%date%%buildnum%,All
+;;		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
+		StringReplace,skelhtml,skelhtml,[INSTALLER],http://github.com/%gituser%/download/Installer,All
+		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/download/Installer,All
+		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/portable,All
+		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/portable/datfiles,All
+		StringReplace,skelhtml,skelhtml,[FULLRELEASE],https://github.com/%gituser%/skeletonKey/releases/download/portable/FullVersion,All
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All
