@@ -1702,7 +1702,7 @@ if (SiteUpdate = 1)
 		if (ServerPush = 1)
 			{
 				FileMove, %DEPL%\index.html, %DEPL%\index.bak,1
-				FileRead,skelhtml,%SKELD%\index.html
+				FileRead,skelhtml,%BUILDIR%\index.html
 				StringReplace,skelhtml,skelhtml,[CURV],%vernum%,All
 				FileDelete,%BUILDIR%\insts.sha1
 
