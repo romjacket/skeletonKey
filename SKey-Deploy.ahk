@@ -1711,8 +1711,6 @@ if (SiteUpdate = 1)
 						ifExist, %DEPL%\skeletonkey-installer.exe
 							{
 								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-installer.exe" >"%BUILDIR%\insts.sha1" ", %BUILDIR%,%rntp%
-								FileReadLine,shap,%BUILDIR%\insts.sha1,4
-								stringsplit,sha,shap,%A_Space%
 								if (SBOV = 1)
 									{
 										sha1= reverted
@@ -1725,8 +1723,6 @@ if (SiteUpdate = 1)
 						ifExist, %DEPL%\skeletonkey-Full.exe
 							{
 								Runwait, %comspec% cmd /c " "%BUILDIR%\fciv.exe" -sha1 "%DEPL%\skeletonkey-Full.exe" >"%BUILDIR%\instsFull.sha1" ", %BUILDIR%,%rntp%
-								FileReadLine,shag,%BUILDIR%\instsFull.sha1,4
-								stringsplit,shb,shag,%A_Space%
 								if (SBOV = 1)
 									{
 										shb1= reverted
@@ -1751,21 +1747,26 @@ if (SiteUpdate = 1)
 									}
 							}
 					}
-						ifExist, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip
-							{
-								FileGetSize,dvgsize,%DEPL%\skeletonkey-Full-%date%%buildnum%.zip, K
-								dvpg:= dvgsize / 1000
-								StringLeft,dvmg,dvpg,4
-								if (DBOV = 1)
-									{
-										dvmg= reverted
-									}
-								if (SBOV = 1)
-									{
-										dvmg= reverted
-									}
-							}
+			}			
+		ifExist, %DEPL%\skeletonkey-Full-%date%%buildnum%.zip
+			{
+				FileGetSize,dvgsize,%DEPL%\skeletonkey-Full-%date%%buildnum%.zip, K
+				dvpg:= dvgsize / 1000
+				StringLeft,dvmg,dvpg,4
+				if (DBOV = 1)
+					{
+						dvmg= reverted
+					}
+				if (SBOV = 1)
+					{
+						dvmg= reverted
+					}
 			}
+		FileReadLine,shap,%BUILDIR%\insts.sha1,4
+		stringsplit,sha,shap,%A_Space%
+		FileReadLine,shag,%BUILDIR%\instsFull.sha1,4
+		stringsplit,shb,shag,%A_Space%		
+		
 		guicontrol,,progb,90
 		StringReplace,skelhtml,skelhtml,[RSHA1],%sha1%,All
 		StringReplace,skelhtml,skelhtml,[RSHA2],%shb1%,All

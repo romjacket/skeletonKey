@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-13 4:11 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-15 11:07 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-13 4:11 PM
+RELEASE= 2018-01-15 11:07 AM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -1165,7 +1165,7 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Install-Apps|Options||JoyPad-CF
 
 Gui, Tab, 1
 Gui Tab, Install-Apps
-Gui, Add, Picture, x526 y405+20 w189 h90, ins.png
+Gui, Add, Picture, x526 y405 w189 h90, ins.png
 Gui,Font,s7 Bold
 Gui, Add, GroupBox, x7 y5 w242 h478 vCACGRP, Components and Cores
 Gui,Font,s7 Norm
@@ -1187,11 +1187,11 @@ Gui, Add, Button,x252 y433 w115 h43 vUPDBTN gUpdSelct Disabled, DOWNLOAD
 Gui,Font,Normal
 Gui,Font,s7 Bold
 Gui, Add, GroupBox, x251 y5 w212 h366 Center vCCGRP, Current Cores
-Gui,Font,s7 Norm 
+Gui,Font,s7 Norm
 Gui, Add, ListBox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNoSelCores,|%CoreNamz%
 Gui,Font,s7 Bold
 Gui, Add, GroupBox, x494 y391 w246 h109 Center +0x400000, Drop BIOS here
-Gui,Font,s7 Norm 
+Gui,Font,s7 Norm
 
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList, Parts
 Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList, Cores
@@ -9750,6 +9750,7 @@ return
 
 SysNick:
 gui,submit,nohide
+guicontrolget,ADDCORE,,ADDCORE
 guicontrolget,sysni,,SYSNICK
 gosub, AppParamPop
 return
@@ -9760,6 +9761,16 @@ SvNick:
 sysni= 
 gui,submit,nohide
 guicontrolget,sysni,,SYSNICK
+guicontrolget,ADDCORE,,ADDCORE
+guicontrolget,NOEXTN,,NOEXTN
+guicontrolget,OMITQ,,OMITQ
+guicontrolget,OMITPTH,,OMITPTH
+guicontrolget,LRUN,,LRUN
+guicontrolget,EMUPGC,,EMUPGC
+guicontrolget,APPOPT,,APPOPT
+guicontrolget,APPARG,,APPARG
+guicontrolget,OMITPTH,,OMITPTH
+
 sanm:= sysni
 gosub, SanitizeN
 sysni:= sanm
@@ -9845,6 +9856,8 @@ IniDelete, Assignments.ini,OVERRIDES,%sysni%
 IniDelete, Assignments.ini,ASSIGNMENTS,%sysni%
 IniDelete, AppParams.ini,%sysni%
 guicontrol,,EXDISPL,
+guicontrol,,DCORE,1
+gosub,DCORE
 gosub, AppParamPop
 return
 
@@ -10119,6 +10132,16 @@ return
 AppParamPop:
 gui,submit,nohide
 SB_SetText(" ...POPULATING...")
+
+iniread, appasi, Assignments.ini,ASSIGNMENTS,%sysni%
+if (appasi = "ERROR")
+	{
+		ovfile= $Executable.exe
+	}
+if (appasi <> "ERROR")
+	{
+		splitpath, appasi,ovfile
+	}
 emupgc= 
 iniread, emupgc, AppParams.ini, %sysni%,per_game_configurations
 if (emupgc <> "ERROR")
@@ -10133,13 +10156,15 @@ if (apopt = "ERROR")
 		apopt= %A_Space%
 	}
 guicontrol,,APPOPT,|%apopt%||%INJOPT%
+
 aparg= 
 iniread, aparg, AppParams.ini,%sysni%,arguments
-if (aparg <> "ERROR")
+if (aparg = "ERROR")
 	{
-		guicontrol,,APPARG,|%aparg%||%INJARG%
+		aparg= %A_Space%
 	}
-
+guicontrol,,APPARG,|%aparg%||%INJARG%
+	
 apext= 
 iniread, apext, AppParams.ini,%sysni%,extension
 if (apext <> "ERROR")
@@ -10222,23 +10247,31 @@ return
 SelApp:
 gui,submit,nohide
 guicontrolget,sysni,,SYSNICK
+guicontrolget,ADDCORE,,ADDCORE
+guicontrolget,NOEXTN,,NOEXTN
+guicontrolget,OMITQ,,OMITQ
+guicontrolget,OMITPTH,,OMITPTH
+guicontrolget,LRUN,,LRUN
+guicontrolget,EMUPGC,,EMUPGC
+guicontrolget,APPOPT,,APPOPT
+guicontrolget,APPARG,,APPARG
+guicontrolget,OMITPTH,,OMITPTH
+if (sysni = "")
+	{
+		SB_SetText("You must enter a nickname to assign an executable")
+		return
+	}
 appasi= 
 FileSelectFIle,appasi,3,,Select and Executable,*.exe
 if (appasi = "")
 	{
 		return
 	}
+SplitPath,appasi,edxe,,,appasn
 if (SALIST = "Emulators")
 	{
 		IniWrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
 		IniWrite, "%sysni%",Assignments.ini,OVERRIDES,%sysni%
-		guicontrolget,appopt,,APPOPT
-		guicontrolget,AppArg,,AppArg
-		guicontrolget,OmitQ,,OmitQ
-		guicontrolget,OmitPth,,OmitPth
-		guicontrolget,NoExtn,,NoExtn
-		guicontrolget,EmuPGC,,EmuPGC
-		guicontrolget,LRun,,LRun
 		iniwrite, "%appopt%",AppParams.ini,%sysni%,options
 		iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
 		iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
@@ -10250,8 +10283,8 @@ if (SALIST = "Emulators")
 	
 if (SALIST = "Systems")
 	{
+/*
 		systyp= %appasi%
-		SplitPath,appasi,edxe,,,appasn
 		StringReplace,appasn,appasn,%A_Space%,,All
 		StringReplace,appasvn,appasvn,A_Space,,All
 		StringLeft,nnick,appasn,25
@@ -10260,7 +10293,7 @@ if (SALIST = "Systems")
 		Loop, Parse,skex,`n	
 			{
 				stringsplit,skexa,A_LoopField,=,"
-				;;"
+				;"
 				if (skexa2 = nnick)
 					{
 						enumsys= 
@@ -10276,29 +10309,33 @@ if (SALIST = "Systems")
 					}
 			}
 		guicontrol,, SYSNICK,|%nnick%||%preEmuCfg%
-
-		apopt= %A_Space%
+*/
+		apopt= %appopt%
 		qdisp= "
 		;;"
 		pthdisp= $ROMPATH\
 		xdisp= .ext
-		aparg= %A_Space%
-		iniwrite, " ",AppParams.ini,%appasn%,options
-		iniwrite, "",AppParams.ini,%appasn%,arguments
-		iniwrite, "0",AppParams.ini,%appasn%,extension
-		iniwrite, "1",AppParams.ini,%appasn%,run_location
-		iniwrite, "0",AppParams.ini,%appasn%,per_game_configurations
+		aparg= %apparg%
+		IniWrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
+		IniWrite, "%sysni%",Assignments.ini,OVERRIDES,%ADDCORE%
+		iniwrite, "%APPOPT%",AppParams.ini,%appasn%,options
+		iniwrite, "%APPARG%",AppParams.ini,%appasn%,arguments
+		iniwrite, "%NOEXTN%",AppParams.ini,%appasn%,extension
+		iniwrite, "%LRUN%",AppParams.ini,%appasn%,run_location
+		iniwrite, "%EMUPGC%",AppParams.ini,%appasn%,per_game_configurations
+		iniwrite, "%OMITQ%",AppParams.ini,%appasn%,no_quotes
+		iniwrite, "%OMITPTH%",AppParams.ini,%appasn%,no_path
 
 		if (OVLIST <> "")
 			{
 				iniwrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%OVLIST%
-				iniwrite, "%appasn%",Assignments.ini,OVERRIDES,%OVLIST%
+				iniwrite, "%sysni%",Assignments.ini,OVERRIDES,%OVLIST%
 			}
 
 		if (ADDCORE <> "Select_A_System")
 			{
 				iniwrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%ADDCORE%
-				iniwrite, "%appasn%",Assignments.ini,OVERRIDES,%ADDCORE%
+				iniwrite, "%sysni%",Assignments.ini,OVERRIDES,%ADDCORE%
 			}
 	}
 
@@ -10709,11 +10746,13 @@ guicontrol,show,ARDCORE
 guicontrol,show,DAPP
 
 guicontrolget,POPADC,,ADDNSYS
+
 if (POPADC = "")
 	{
 		SB_SetText(" You must assign a name to the new system ")
 		return
 	}
+
 sanm:= POPADC
 gosub, SanitizeN
 POPADC:= sanm

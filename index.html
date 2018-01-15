@@ -75,13 +75,7 @@
   size: <h88>[RSIZE]</h88> mb<br>
           <strong>SHA1 :</strong> <h77>[RSHA1]</h77>
 	  </p>
-	  <hr><br>
-         <a href="[PORTABLE]"><button class="button button4">portable version</button>     </a> 
-         <p>Contains only the necessary files.</p>
-    <hr><br>
-    <a href="[DATFILES]"><button class="button button4">MetaData Files</button></a>
-         <p>Database files containting metadata. Extract this archive into your installation folder.</p>
-        <hr><br>
+	   <hr><br>
         <p class="text-primary"></p>
 <strong><a href="[FULLRELEASE]">
 	  <button class="button button4">FULL INSTALLER</button></a></strong>
@@ -89,6 +83,13 @@
   size: <h87>[RSIZE2]</h87> mb<br>
         <strong>SHA1 :</strong> <h76>[RSHA2]</h76>
   </p>
+	  <hr><br>
+         <a href="[PORTABLE]"><button class="button button4">portable version</button>     </a> 
+         <p>Contains only the necessary files.</p>
+    <hr><br>
+    <a href="[DATFILES]"><button class="button button4">MetaData Files</button></a>
+         <p>Database files containting metadata. Extract this archive into your installation folder.</p>
+       
 	  </blockquote>
         <blockquote></div>
  
@@ -144,12 +145,14 @@
 <p>Each skeletonKey option has a tool-tip when the mouse hovers above it. Operational feedback appears in the statusbar at the bottom of the window.</p>
 
 <h3>Overview</h3>
-<p>After skeletonKey is installed, the user is prompted to either locate the retroArch.exe program or a directory into which it can be installed - whereupon a quick-setup wizard can automatically install retroArch with several cores. RetroArch is tightly integrated into skeletonKey, with an exhaustive set of options and exclusive features for netplay.</p>
-<p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>(retroarch install folder)</em>\downloads\<em>[SYSTEM NAME]</em></code> folder. The <code>\downloads\</code> directory is by default also retroArch's <code>"core_assets_directory"</code>. Emulators will be installed into skeletonKey's &quot;app&quot; directory by default. <br>
-  Archive.org ROMs will be downloaded to the corresponding system name. </p>
-<p>Each system is pre-assigned a retroArch core with which to associate ROMs. This association defines how skeletonKey will automatically launch ROMs. These core-to-system assocations can be changed to other cores or standalone emulators.</p>
+<p>After skeletonKey is installed, the user is prompted to define an emulators folder, a &quot;system&quot; folder and either locate the retroArch.exe program or a directory into which it can be installed - whereupon a quick-setup wizard can automatically install retroArch with several cores. RetroArch is tightly integrated into skeletonKey, with an exhaustive set of options and exclusive features for netplay.</p>
+<h3>System Folder</h3>
+<p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>(retroarch install folder)</em>\downloads\<em>[SYSTEM NAME]</em></code> folder. The <code>\downloads\</code> directory is by default also retroArch's <code>"core_assets_directory"</code>.  <br>
+  Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature .</p>
+<p>Each system is pre-assigned a retroArch core with which to associate ROMs. This association defines how skeletonKey will automatically launch ROMs, however these core-to-system assocations can be changed to other cores or standalone emulators.</p>
 
-<p> </p>
+<h3>Emulator Directory</h3>
+<p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for known emulators not currently identified or manually assigned.</p>
 
 
 
@@ -157,7 +160,7 @@
 
 
 <p>Skeletonkey can be run from a thumbdrive or other portable drive. The Portable.bat file should be run from the portable device when first starting skeletonKey from a portable drive on a new computer or if the drive letter of the portable device has changed. </p>
-<p>Many users may desire to transfer an existing skeletonkey installation to a portable drive and the portable utility should facilitate the conifiguration migration. Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
+<p>Many users may desire to transfer an existing skeletonKey installation to a portable drive and the portable utility should facilitate the conifiguration migration. Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skletonKey's other emulators' per-game settings are updated to reflect the new portable skeletonKey location.</p>
 <p>If you already have skeletonKey and retroArch intalled, copy the folders to your portable drive and run the Portable.bat in the skeletonKey folder on the portable drive.</p>
 
 
@@ -316,7 +319,7 @@
   <div id="inner">
       <p>The Frontends tab contains configuration options for many different cabinet and couch-gaming frontends.</p>
       <h2>Media</h2>
-      <p>Asset-Management is the primary component of skeletonKey. Deploying a frontend means creating a unique data-structure, and because the arrangement and naming of assets and artwork vary from emulator to frontend, skeletonKey opts to prioritize a local-storage system to enable migration and deployment indipendently of a proprietary layout or scheme.</p>
+      <p>Asset-Management is the primary component of skeletonKey. Deploying a frontend means creating a unique data-structure, and because the arrangement and naming of assets and artwork vary from emulator to frontend, skeletonKey opts to prioritize a local-storage system (ROM-Jackets) to enable migration and deployment indipendently of any proprietary layout or scheme needed by a frontend.</p>
       <p>SkeletonKey has a repository of photographic icons, full-HD images and large logos for 100 systems and can also "scrape" artwork from a multitude of hosts. Several databases are searched to obtain a multitude of image-types, video-snaps and metadata for thousands of titles spanning arcade, computer &amp; console-systems.</p>
       <p>Selecting &quot;Systems&quot; in the Media interface will enable icons, logos, backdrops, videos and other media to be downloaded for selected systems. Alternatively, sets of these items can be downloaded. Themes for these items can be selected using the &quot;Artwork Theme&quot; dropdown.</p>
       <p>Selecting &quot;Jackets&quot; in the Media interface will enable items to be downloaded for the selected ROM-Jackets. </p>
@@ -426,7 +429,7 @@
     <p><br>
     </p>
     <h5>Tips for Netplay:</h5>
-    In the options tab, uncheck "Pause In Background". In the XMB tab, uncheck "Pause In Menu". This will keep gameplay active while you adjust any settings during a netplay sesssion. <a id="ROMJACKETS"></a><br>
+    In the options tab, uncheck "Pause In Background". In the XMB tab, uncheck "Pause In Menu". This will keep gameplay active and will help maintain a synced connection while you adjust any settings during a netplay sesssion. <a id="ROMJACKETS"></a><br>
   </div>
   </div>
   <hr>
