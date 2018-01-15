@@ -5,7 +5,7 @@ SetCompress on
 Name "skeletonKey"
 Caption "Universal ROM-Library Interface Kit"
 Icon "C:\Users\sudopinion\Documents\skeletonkey\install.ico"
-OutFile "C:\Users\sudopinion\Dropbox\Public\skeletonkey-Full.exe"
+OutFile "C:\Users\sudopinion\Documents\GitHub\skeletonkey.deploy\skeletonkey-Full.exe"
 
 SetDateSave on
 SetDatablockOptimize on
@@ -70,8 +70,6 @@ Section "" ; empty string makes it hidden, so would starting with -
   File "C:\Users\sudopinion\Documents\skeletonkey\gam\*.gam"
   SetOutPath $INSTDIR\joyImg
   File "C:\Users\sudopinion\Documents\skeletonkey\joyImg\*.png"
-  SetOutPath $INSTDIR\rj
-  File "C:\Users\sudopinion\Documents\skeletonkey\rj\*.set"
   SetOutPath $INSTDIR\rj\joyCfgs
   File /r "C:\Users\sudopinion\Documents\skeletonkey\rj\joyCfgs"
   SetOutPath $INSTDIR\rj\emuCfgs
