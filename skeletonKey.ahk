@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-15 11:07 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-16 12:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-15 11:07 AM
+RELEASE= 2018-01-16 12:22 PM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -23,6 +23,8 @@ tmpcvpth:
 SetWorkingDir %A_ScriptDir%
 Loop %0% 
 	{
+		
+		DDRUN= 1
 		ShortPathName := %A_Index%
 		Loop %ShortPathName%
 			LongName = %A_LoopFileLongPath%
@@ -41,7 +43,6 @@ if (getport = "portable")
 			goto, makePortable
 	exitapp
 		}
-
 DragonDrop:
 if (romf <> "")
 	{
@@ -64,10 +65,10 @@ if (romf <> "")
 			}
 			gosub,extensionlookup
 			if (CHOSEN = "")
-			{
-				gosub,LNCH
-				guicontrol,,LCORE,|%coreselv%||%runlist%
-			}
+				{
+					gosub,LNCH
+					guicontrol,,LCORE,|%coreselv%||%runlist%
+				}
 		return
 	}
 
@@ -9760,6 +9761,7 @@ return
 SvNick:
 sysni= 
 gui,submit,nohide
+guicontrolget,SALIST,,SALIST
 guicontrolget,sysni,,SYSNICK
 guicontrolget,ADDCORE,,ADDCORE
 guicontrolget,NOEXTN,,NOEXTN
@@ -9787,28 +9789,16 @@ gosub,NoExtn
 gosub,EmuPGC
 gosub,LRun
 
-
-iniwrite, "%apopt%",AppParams.ini,%sysni%,options
-if (apopt = "")
+if (SALIST = "Systems")
 	{
-		apopt= %A_Space%
-		iniwrite, " ",AppParams.ini,%sysni%,options
+		appasi= 
+		iniread,appasi,Assignments.ini,ASSIGNMENTS,%sysni%
+		if (appasi = "ERROR")
+			{
+				SB_SetText(" Cannot save " sysni " until an executable has been assigned ")
+				return
+			}
 	}
-
-if (aparg = "")
-	{
-		aparg= %A_Space%
-	}
-
-iniwrite, "%sysni%",Assignments.ini,OVERRIDES,%sysni%
-iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
-iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
-iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
-iniwrite, "%OMITQ%",AppParams.ini,%sysni%,no_quotes
-iniwrite, "%OMITPTH%",AppParams.ini,%sysni%,no_path
-iniwrite, "%LRUN%",AppParams.ini,%sysni%,run_location
-
-guicontrolget,SALIST,,SALIST
 if (SALIST = "Emulators")
 	{
 		guicontrolget,ksvel,,EINSTLOC
@@ -9819,6 +9809,27 @@ if (SALIST = "Emulators")
 			}
 		IniWrite, "%ksvel%",Assignments.ini,ASSIGNMENTS,%sysni%
 	}
+iniwrite, "%appopt%",AppParams.ini,%sysni%,options
+if (apopt = "")
+	{
+		apopt= %A_Space%
+		iniwrite, " ",AppParams.ini,%sysni%,options
+	}
+
+if (aparg = "")
+	{
+		apparg= 
+
+	}
+
+iniwrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
+iniwrite, "%sysni%",Assignments.ini,OVERRIDES,%ADDCORE%
+iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
+iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
+iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
+iniwrite, "%OMITQ%",AppParams.ini,%sysni%,no_quotes
+iniwrite, "%OMITPTH%",AppParams.ini,%sysni%,no_path
+iniwrite, "%LRUN%",AppParams.ini,%sysni%,run_location
 
 gosub, ResetRunList
 
@@ -14793,7 +14804,7 @@ dxt2=
 StringSplit,dxt,coreselv,.
 if (dxt2 <> "dll")
 	{
-			APLN= 1
+		APLN= 1
 	}
 
 RomDownload:
@@ -42745,7 +42756,7 @@ if (DDLU = 1)
 				appn1= 
 				appn2= 
 				stringsplit,appn,A_LoopField,=,"
-;;"
+				;"
 				if (appn1 = DDLUX)
 					{
 						ROMSYS= %appn1%
@@ -42775,7 +42786,7 @@ Loop, Parse, apov,`n
 		appn1= 
 		appn2= 
 		stringsplit,appn,A_LoopField,=,"
-;;"
+		;"
 		if (appn2 <> 0)
 			{
 				overDD .= appn1 . "|"
@@ -42790,7 +42801,7 @@ iniread,pxtn,Assignments.ini,EXTENSIONS,
 Loop, Parse, pxtn,`n
 	{
 		stringsplit,ovxt,A_LoopField,=,"
-;;"
+		;"
 		if (ovxt2 <> "")
 			{
 				Loop, Parse, ovxt2,|
@@ -42805,6 +42816,7 @@ Loop, Parse, pxtn,`n
 								if (dllc = "dll")
 									{
 										OVRD= 2
+										APLN= 
 										coreselv= %OvrExtAs%
 										return
 									}
@@ -42828,9 +42840,9 @@ Loop, Parse, pxtn,`n
 			}
 	}
 if (tstxtn = ".zip")
-{
-gosub, ZIPOpen
-}
+	{
+		gosub, ZIPOpen
+	}
 gosub, ExtTables
 if (opncor <> "")
 	{
@@ -42883,7 +42895,7 @@ if (coe <> "dll")
 			Loop,Parse,lpovrd,`n
 				{
 					StringSplit,corsyt, A_LoopField,=,"
-;;"
+					;"
 					if (corsyt2 = coreselv)
 						{
 							emucfgn= %corsyt2%
@@ -42909,7 +42921,10 @@ if (coe <> "dll")
 		stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All		
 		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
 		stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
-		Gui,Destroy
+		if (DDRUN = 1)
+			{
+				Gui,Destroy
+			}
 		goto, LNCHAPP
 	}
 
@@ -44723,7 +44738,7 @@ iniread,lpovrd,Assignments.ini,OVERRIDES,
 	Loop,Parse,lpovrd,`n
 		{
 			StringSplit,corsyt, A_LoopField,=,"
-			;;"
+			;"
 			if (corsyt2 = coreselv)
 				{
 					emucfgn= %corsyt2%
@@ -44922,8 +44937,7 @@ if (EPGC = 1)
 				FileCopy,%ptsp%\*.ini,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
 			}
 	}
-
-if (APLN = 1)
+if (DDRUN = "")
 	{
 		return
 	}
