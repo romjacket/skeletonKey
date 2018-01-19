@@ -1,55 +1,53 @@
 [RJ]
-ESTHEME=[HOSTINGURL]/esthemes/rj.zip
-Backdrop=[HOSTINGURL]/ORIGINAL/Backdrops.7z
-Backdrop_Directory=[HOSTINGURL]/ORIGINAL/Backdrops
-Icon=[HOSTINGURL]/ORIGINAL/Icons.7z
-Icon_Directory=[HOSTINGURL]/ORIGINAL/Icons
-Logo=[HOSTINGURL]/ORIGINAL/Logos.7z
-Logo_Directory=[HOSTINGURL]/ORIGINAL/Logos
-Video=[HOSTINGURL]/ORIGINAL/Videos
-Video_Directory=[HOSTINGURL]/ORIGINAL/Videos
-Meta=[HOSTINGURL]/ORIGINAL/MetaData
-Meta_Directory=[HOSTINGURL]/ORIGINAL/MetaData
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/rj.zip
+Backdrop=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops.7z
+Backdrop_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Backdrops
+Icon=[HOSTINGURL]/ORIGINAL/raw/master/Icons.7z
+Icon_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Icons
+Logo=[HOSTINGURL]/ORIGINAL/raw/master/Logos.7z
+Logo_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Logos
+Video=[HOSTINGURL]/ORIGINAL/raw/master/Videos
+Video_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Videos
+Meta=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
+Meta_Directory=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 
 [carbon-centered]
-ESTHEME=[HOSTINGURL]/esthemes/carbon-centered.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/carbon-centered.zip
 
 [carbon-nometa]
-ESTHEME=[HOSTINGURL]/esthemes/carbon-nometa.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/carbon-nometa.zip
 
 [clean-look]
-ESTHEME=[HOSTINGURL]/esthemes/clean-look.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/clean-look.zip
 
 [fundamental]
-ESTHEME=[HOSTINGURL]/esthemes/fundamental.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/fundamental.zip
 
 [nbba]
-ESTHEME=[HOSTINGURL]/esthemes/nbba.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/nbba.zip
 
 [pixel]
-ESTHEME=[HOSTINGURL]/esthemes/pixel.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/pixel.zip
 
 [simple-dark]
-ESTHEME=[HOSTINGURL]/esthemes/simple-dark.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple-dark.zip
 
 [simple]
-ESTHEME=[HOSTINGURL]/esthemes/simple.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple.zip
 
 [simplified-static-canela]
-ESTHEME=[HOSTINGURL]/esthemes/simplified-static-canela.zip
-
-[superdisplay]
-ESTHEME=[HOSTINGURL]/esthemes/superdisplay.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/simplified-static-canela.zip
 
 [zoid]
-ESTHEME=[HOSTINGURL]/esthemes/zoid.zip
-
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/zoid.zip
 
 [snes-mini]
-ESTHEME=[HOSTINGURL]/esthemes/snes-mini.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/snes-mini.zip
 
 [nes-mini]
-ESTHEME=[HOSTINGURL]/esthemes/nes-mini.zip
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/nes-mini.zip
 
-[magazinemadness]
-ESTHEME=[HOSTINGURL]/esthemes/magazinemadness.zip
+#[magazinemadness]
+#ESTHEME=[HOSTINGURL]/esthemes/raw/master/magazinemadness.zip
+#[superdisplay]
+#ESTHEME=[HOSTINGURL]/esthemes/raw/master/superdisplay.zip

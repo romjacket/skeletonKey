@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-16 12:22 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-18 7:12 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-16 12:22 PM
+RELEASE= 2018-01-18 7:12 PM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -969,6 +969,7 @@ if (RJSYSTMP = "ERROR")
 	{
 		RJSYSTMP= 
 	}
+systmfldrs=	
 if (RJSYSTMP <> "")
 	{
 		totsys= 
@@ -976,6 +977,7 @@ if (RJSYSTMP <> "")
 			{
 				allsys+=1
 				sysnam= %A_LoopFileName%
+				systmfldrs.= A_LoopFileName . "|"
 				Loop, Read, SystemEmulators.set
 					{
 						if (A_LoopReadLine = "")
@@ -1264,17 +1266,17 @@ Gui, Add, Text, x288 y282 h17 vROMDTXT hidden, Set ROM Directory
 Gui, Add, Edit, x285 y304 w171 h53 vROMDEDT Hidden Multi ReadOnly,
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading...,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ OPTIONS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading..,
 
 ;{;;;;;;;;~~~RUN OPTIONS MENU GROUP~~~;;;;;;;;;;;;;
 Gui, Tab, 2
 Gui Tab, Options
 Gui ,Add, Picture, x517 y284 w207 h207 vDRAGIMAGE, key.png
-Gui, Add, DropDownList, x125 y0 w291 vOPTDDL gOptDDL, History||%plistfiles%
-Gui, Add, Radio, x18 y4 h16 vHOPT gHopt Checked, Playlist
-Gui, Add, Radio, x72 y4 h16 vDOPT gDopt, Folder
-Gui, Add, ComboBox, x18 y22 w640 vROMLOC gEDTROM +0x2 +E0x5000 Right,
+Gui, Add, DropDownList, x125 y0 w291 vRUNSYSDDL gRUNSYSDDL, History||%plistfiles%
+Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD Checked, Playlist
+Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD, Folder
+Gui, Add, ComboBox, x18 y22 w640 vRUNROMCBX gEDTROM +0x2 +E0x5000 Right,
 
 Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
 
@@ -1315,7 +1317,7 @@ Gui, Add, Button, x254 y413 w45 h18 vEMUDETECT gEmuDetect, detect
 Gui, Add, Text, x230 y97 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
 Gui, Add, Text,x217 y295 w146 h29 vRAVERTXT, version:  %RAVERS%`nbuild:  %RAVBLD%
 Gui, Add, Button, x215 y326 w45 h17 vGRAVER gGRAVER, version
-Gui, Add, Text, x541 y68 vSKPRFJTXT, Overrides
+Gui, Add, Text, x601 y68 vSKPRFJTXT, Overrides
 Gui, Add, Text, x33 y214 vSKDTTXT, Daemon Tools is %DAMINST%
 Gui, Add, Text, x303 y415 vSKDSETXT, Detected Supported Emulators: %emunumtot%
 Gui, Add, DropDownList, x123 y484 w163 vSKRESDDL gSKRESDDL, All||Retroarch|Associations|Core-Cfgs|Playlist-DB
@@ -1560,19 +1562,21 @@ Gui,Font,s7 Bold
 Gui, Add, GroupBox, x487 y203 w268 h299 Right vSRCHGRP, SEARCH
 Gui,Font,s7 Norm 
 
-Gui, Add, ListBox, x491 y277 w261 h232 HWNDlocalromp +HScroll1500 Multi vLOCROMPOP gLocROMPop hidden,
-Gui, Add, Radio, x562 y212 w53 h18 vLOCFLDRS gLocFldrs, Folder
-Gui, Add, Radio, x623 y212 w53 h18 vLOCPLSTS gLocPlsts Checked, Playlist
-Gui, Add, CheckBox, x495 y212 w60 h16 vLOCSRCHREC gLocSrchRec hidden Checked, Recurse
-Gui, Add, Edit, x491 y254 w218 h21 vLOCROMSRCH gLocROMSrch,
-Gui, Add, Button, x709 y253 w43 h23 vLOCROMSRCHBUT gLocROMSrchBut, Search
-Gui, Add, DropDownList, x491 y231 w260 vLOCASSETDDL gLocAssetDDL, All_Playlists||%plistfiles%
+Gui, Add, ListBox, x491 y277 w261 h232 HWNDlocalromp +HScroll1500 Multi vSRCHROMLBX gSRCHROMLBX hidden,
+Gui, Add, Radio, x562 y212 w53 h18 vSRCHFLRAD gSRCHFLRAD Checked, Folder
+Gui, Add, Radio, x623 y212 w53 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
+Gui, Add, CheckBox, x495 y212 w60 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
+Gui, Add, Edit, x491 y254 w218 h21 vSRCHROMEDT gSRCHROMEDT,
+Gui, Add, Button, x709 y253 w43 h23 vSRCHROMBUT gSRCHROMBUT, Search
+Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, ROMJACKETS||%systmfldrs%
+;;Gui, Add, DropDownList, x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, All_Playlists||%plistfiles%
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;~~~DROP LOCATION~~~;;;;;;
 Gui,Font,s7 Bold
 Gui, Add, GroupBox, x342 y163 w138 h128 Center +0x400000 vROMRPGRP, Drop a ROM here
 Gui,Font,s7 Norm 
 Gui, Add, Checkbox, x370 y272 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;};;;;
 ;{;;;;;;;~~~EMUOPT MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 emutog= Hide
 tmpvis= Hidden
@@ -1710,8 +1714,8 @@ Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%, emuTXTT
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ JOYSTICK TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading...,
 Gui, Tab, 3
 Gui,Font,s7 JoyPad-CFG
 Gui, Add, Picture, x335 y263 w117 h111 vJOYPIC, emu.png
@@ -2030,8 +2034,8 @@ Gui, Add, ComboBox, x523 y202 w75  vemjr2 gemjr2 Hidden,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading...,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ PLAYLISTS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 
 Gui, Tab, 4
 Gui, Tab, Playlists
@@ -2178,8 +2182,8 @@ Gui, Add, Text, x287 y291 w49 h13 vESPLNUMTXT hidden, Player#
 Gui, Add, DropDownList, x342 y289 w35 vESDDPLNUM gESDDPLNUM hidden,1||2|3|4|5|6|7|8
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ FRONTENDS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading.....,
 
 Gui,Tab,5
 Gui,Tab,Frontends
@@ -2293,7 +2297,7 @@ Gui, Add, ListBox, x552 y218 w204 h290 HwndIMGWIND +HScroll vIMGFLS gGetImageNam
 ;};;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading...,
+SplashTextOn, ,skeletonKey,skeletonKey is loading......,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;        FRONTEND GUI         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 fetog= Hide
 fevis= Hidden
@@ -2446,8 +2450,8 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ ARCHIVE TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading.......,
 Gui, Tab, 6
 Gui, Tab, Archive.org
 Gui,Font,s7 Bold
@@ -2506,8 +2510,8 @@ Gui, Add, Button, x678 y482 w75 h23 vARCNCT gARCNCT disabled, CONNECT
 
 Gui, Add, Button,x604 y486 w49 h19 vARCHOST gArcHost disabled, HOST
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading...,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ NETPLAY TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading........,
 Gui, Tab, 7
 Gui, Tab, Netplay-Lobby
 Gui, Add, Picture,x83 y238 w128 h113 vINVADERPIC,net.png
@@ -2597,8 +2601,8 @@ Gui, Add, Radio, x525 y432 vNETIPRAD gNetSET Checked hidden, NET
 Gui, Add, Radio, x570 y432 vLANIPRAD gLanSET hidden, LAN
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ UTILITIES TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading.........,
 /*
 Gui, Tab, 8
 Gui, Tab, Utilities
@@ -2736,8 +2740,8 @@ Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
 */
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading...,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[ JACKETIZE TAB ]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading..........,
 Gui, Tab, 8
 Gui, Tab, Jackets
 
@@ -2925,8 +2929,8 @@ Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT%, CONFIRM %RJQNUM%
 
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SplashTextOn, ,skeletonKey,skeletonKey is loading....,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ CORE OPTIONS TAB ]]        ;;;;;;;;;;;;;;;;;;;;;
+SplashTextOn, ,skeletonKey,skeletonKey is loading...........,
 Gui, Tab, 9
 Gui, Tab, Core-CFG
 Gui, Add, Picture, x36 y355 w128 h94 vPICINV, cor.png
@@ -3018,7 +3022,7 @@ Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 
 Gui, Add, ListBox, x488 y330 w50 h50 gGuiDropFiles Hidden, Drop ROM here 
 ;;gosub GLPoP
-SplashTextOn, ,skeletonKey,skeletonKey is loading.....,
+SplashTextOn, ,skeletonKey,skeletonKey is loading............,
 gosub, NetSET
 gosub, HideCoreUI
 gosub, ShowBB
@@ -3173,7 +3177,7 @@ DELCORECFG_TT :="Deletes current core-configuration file"
 DETECTCORE_TT := "Allows RetroArch to autodetect or allow uers to assign a core to ROMs upon launching from the playlist"
 DISPLRATXT_TT :="The currently detected retroarch settings"
 DISPLSKTXT_TT :="The currently detected skeletonkey settings"
-DOPT_TT :="Downlods folder (core_assets_directory)"
+RUNFLRAD_TT :="Downlods folder (core_assets_directory)"
 DOWNONLY_TT :="Downloads the selected ROM only. "
 DPIOVR_TT :="Override the dpi of the video font"
 DSND_TT :="The default sound driver"
@@ -3231,7 +3235,7 @@ GRAVER_TT :="Detect RetroArch version and build number"
 GROM_TT :="Browse for a ROM"
 GTHMB_TT :="Browse for any jpg or png file to use as a thumbnail."
 HKEYDD_TT :="hotkeys define emulator and retroArch abilities.`n''Input_enable_hotkey'' should be used to minimize conflicts"
-HOPT_TT :="Playlists in your playlists directory"
+RUNPLRAD_TT :="Playlists in your playlists directory"
 HOSTCORES_TT := "Filter rooms using by core"
 HOSTIP_TT :="Your current IP Address"
 HOSTSWITCH_TT :="Host ROMS."
@@ -3258,8 +3262,8 @@ LATENCY_TT :="Desired audio latency in milliseconds. Might not be honored if dri
 LCORE_TT :="Select a libretro core or emulator"
 LNCHBUT_TT :="Launch the currently displayed ROM"
 LOCEMUIN_TT :="Selects an emulator executable and assisns it to the selected systems"
-LOCROMSRCH_TT :="Search for a ROM`n do not include wildcards (*) or other special characters"
-LOCASSETDDL_TT :="Search within"
+SRCHROMEDT_TT :="Search for a ROM`n do not include wildcards (*) or other special characters"
+SRCHLOCDDL_TT :="Search within"
 LOADRACORE_TT :="Loads a core-options configuration."
 MGPC_TT :="The joystick button combo to open the GUI menu."
 MINLAT_TT :="The number of frames of input latency for netplay to use to hide network latency.`nReduces jitter and makes netplay less CPU-intensive at the expense of input lag."
@@ -3300,7 +3304,7 @@ OPACDDL_TT :="Set the opacity of the selected item using the slider."
 OPNCORE_TT :="Displays emulator and core-configuration options"
 OPNPLST_TT :="Open a .lpl playlist file to edit.`n** You can not ADD items while editing an existing ''open'' playlists**"
 OPNSYS_TT :="Add a customized system."
-OPTDDL_TT :="A playlist file or Downloads subdirectory containing ROMs."
+RUNSYSDDL_TT :="A playlist file or Downloads subdirectory containing ROMs."
 OUTFS_TT :="Fills the entire screen with retroArch"
 OUTFW_TT :="When in fullscreen mode, will use the current monitor resolution"
 OUTW_TT :="Displays retroArch in a window"
@@ -3469,7 +3473,7 @@ MROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be ma
 ROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be made into your retroarch downloads directory"
 ROMDEDT_TT :="Location of your ROM directory"
 ROMFLS_TT :="Playlist ROM files"
-ROMLOC_TT :="ROM which will be launched"
+RUNROMCBX_TT :="ROM which will be launched"
 ROMPOP_TT :="Select ROMs to add from here"
 ROOMFILTER_TT :="Filter the Lobby using any search term"
 RSTPLYR_TT :="Resets the currently selected player controls to default"
@@ -3506,10 +3510,20 @@ MENSHOWONLUP_TT :="shows online-updater menu"
 MENSHOWQUIT_TT :="shows quit menu item"
 MENSHOWREB_TT :="shows reboot-menu item"
 
+SETEMUD_TT :="Sets the emulators directory"
+SETJKD_TT :="Sets the systems directory"
+SKRAEXE_TT :="Sets the retroarch directory"
+SKRESET_TT :="Resets the dropdown menu item"
+SKPRFJTXT_TT :="The BSL is a Batch-script launcher typically used by frontends to launch ROM-Jackets."
+SKRBLD_TT :="Combines all retroarch playlists into a single database allowing skeletonKey`nto quickly search ROMs in your playlist libraries."
+SKCLRQ_TT :="Clears and resets the ROM-Jacket system queue."
 SHWIMG_TT :="Shows the Image-Menu item for any images in the history"
 SHWMSC_TT :="Shows the Music-Menu item for any music in the history"
 SHWSET_TT :="Shows Settings"
 SHWVID_TT :="Shows the Video-Menu item for any videos in the history"
+SKRAIMP_TT :="Imports a retroarch configuration and populates the GUI with stored values."
+SKSVAS_TT :="Saves the current retroarch configuration to a custom location."
+SKSAVE_TT :="Saves the current retroarch configuration."
 SLSHDVAR_TT :="Slang Shader"
 SLSLCT_TT := "Works with Vulkan"
 SLVONLY_TT :="Disallows connections not in slave mode.`nNOT reccommended except for very fast networks with weak machines."
@@ -3600,7 +3614,7 @@ if (romhnck <> ":")
 			}
 	}
 
-guicontrol,,ROMLOC,|%romf%||%HISTORY%%romf%
+guicontrol,,RUNROMCBX,|%romf%||%HISTORY%%romf%
 guicontrol,,LCORE,|%coreselv%||%runlist%
 guicontrol,,JCORE,|%runlist%
 PLAYERNUM= 1
@@ -3857,7 +3871,7 @@ if A_GuiControl = ROMFLS
 			return
 		}
 
-if A_GuiControl = LOCROMPOP
+if A_GuiControl = SRCHROMLBX
 			{
 				if (SelectedRow <> 0)
 					{
@@ -3913,7 +3927,7 @@ Return
  
 Emulator_Add:
 multisel= 
-guicontrolget,romf,,LOCROMPOP
+guicontrolget,romf,,SRCHROMLBX
 Loop, Parse, romf,`n|
 	{
 		multisel+=1		
@@ -3955,7 +3969,7 @@ Loop, Parse, romf,`n|
 	
 if (multisel = 1)
 	{
-		guicontrolget,srchfsel,,LOCROMPOP
+		guicontrolget,srchfsel,,SRCHROMLBX
 		SplitPath, srchfsel,,popdir
 		Run, Explorer "%popdir%"
 		return
@@ -3965,7 +3979,7 @@ return
 Playlist_Add:
 gui,submit,nohide
 itmlst= 
-guicontrolget,itmlst,,LOCROMPOP
+guicontrolget,itmlst,,SRCHROMLBX
 if (noadpl = 1)
 	{
 		return
@@ -4064,9 +4078,9 @@ Return
 RecentRead:
 guicontrolget,coreselv,,LCORE
 splitpath,coreselv,,,dlx
-if (HOPT = 0)
+if (RUNPLRAD = 0)
 	{
-		guicontrolget,TOXTN,,ROMLOC
+		guicontrolget,TOXTN,,RUNROMCBX
 		SplitPath,TOXTN,rton,rtod,inputext
 		FileGetSize,romsz,%TOXTN%,K
 		APLN= 1
@@ -4087,7 +4101,7 @@ if (HOPT = 0)
 if (OPTYP = "History")
 	{
 		curline= 0
-		guicontrolget,HISROM,, ROMLOC
+		guicontrolget,HISROM,, RUNROMCBX
 		Loop, Read, %contentHistoryPath%
 			{	
 				curline+=1
@@ -4116,7 +4130,7 @@ if (OPTYP = "History")
 
 curline= 
 coreline= 
-guicontrolget,PLROM,, ROMLOC
+guicontrolget,PLROM,, RUNROMCBX
 ttnf1=
 ttnf2= 
 StringSplit,ttnf,PLROM,#
@@ -4159,6 +4173,17 @@ if (dlx <> "dll")
 	}
 return
 
+SWAPPROC:
+SWAPLOC= %RJSYSTEMS%
+SWAPNAM= ROMJACKETS
+SWAPPOP= %systmfldrs%
+
+ifinstring,lcrtst,_libretro
+	{
+		SWAPLOC= %coreassetsDirectory%
+		SWAPNAM= Downloads
+		SWAPPOP= %dwnlfldrs%
+	}
 
 SHRTNMLkUp:
 SHRTNM= 
@@ -4247,7 +4272,7 @@ Loop, Parse,romlst,`n
 	}
 		iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
 		SB_SetText(" Loading " romf " ")
-		guicontrol,, ROMLOC, |%romf%||%HISTORY%
+		guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
 		guicontrolget,AUTOLNCH, ,AUTOLNCH
 		if (AUTOLNCH = "0")
 			{
@@ -4439,13 +4464,14 @@ if (RJSYSTEMF = "")
 		return
 	}
 RJSYSTEMS= %RJSYSTEMF%
+
+guicontrol,,SKSYSDISP,%RJSYSTEMS%
+IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
+gosub, RJSYSRESET
 if (INITIAL = 1)
 	{
 		return
 	}
-guicontrol,,SKSYSDISP,%RJSYSTEMS%
-IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
-gosub, RJSYSRESET
 if (coreassetsdirectory <> RJSYSTEMS)
 	{
 		MsgBox,3,Set core_assets_directory,Would you like to set your retroArch ''downloads'' directory to`n %RJSYSTEMS%`n?
@@ -4753,7 +4779,7 @@ IfMsgBox,Yes
 	}
 return
 Donate:
-run, %HOSTINGURL%/arigatokudasai.html
+run, http://romjacket.github.io/#DONATE
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -5198,7 +5224,7 @@ lnchrc=
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x740 y30
 guicontrolget,lnchcc,,LCORE
-guicontrolget,lnchrc,,ROMLOC
+guicontrolget,lnchrc,,RUNROMCBX
 if (lnchrc = "")
 	{
 		guicontrol,disable,LNCHBUT
@@ -5206,45 +5232,39 @@ if (lnchrc = "")
 	}
 if (lnchcc = "")
 	{
-		guicontrol,disable,LNCHBUT		return
+		guicontrol,disable,LNCHBUT
+		return
 	}
-guicontrol,enable,LNCHBUT	
+guicontrol,enable,LNCHBUT
 return
 
-Hopt:
+RUNPLRAD:
 gui,submit,nohide
-guicontrol,,OPTDDL,|History||%plistfiles%				
-gosub, OPTDDL
+guicontrol,,RUNSYSDDL,|History||%plistfiles%				
+gosub, RUNSYSDDL
 return
 
-Dopt:
+RUNFLRAD:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= ROMJACKETS
-SWAPPOP= %systmfldrs%
-ifinstring,lcrtst,_libretro
-	{
-		SWAPLOC= %coreassetsDirectory%
-		SWAPNAM= Downloads
-		SWAPPOP= %dwnlfldrs%
-	}
-guicontrol,,OPTDDL,|%SWAPNAM%||%SWAPPOP%
-gosub, OPTDDL
+gosub, SWAPPROC
+
+guicontrol,,RUNSYSDDL,|%SWAPNAM%||%SWAPPOP%
+gosub, RUNSYSDDL
 return
 
-OptDDL:
+RUNSYSDDL:
 gui,submit,nohide
-guicontrolget,OPTDLT,,HOPT
-guicontrolget,OPTYP,,OPTDDL
+guicontrolget,OPTDLT,,RUNPLRAD
+guicontrolget,OPTYP,,RUNSYSDDL
 poptadd= 
 romf= 
 if (OPTDLT = 1)
 	{
 		if (OPTYP = "History")
 			{
-				guicontrol,,ROMLOC,|%romf%||%HISTORY%%romf%
+				guicontrol,,RUNROMCBX,|%romf%||%HISTORY%%romf%
 				gosub, LNCHCHK
 				return
 			}
@@ -5290,25 +5310,18 @@ if (OPTDLT = 1)
 								}
 						}
 				}
-		guicontrol,,ROMLOC,|%romf%||%poptadd%
+		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 		gosub, EDTROM
 		return
 	}
+
 guicontrolget,lcrtst,,LCORE
 
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= ROMJACKETS
-SWAPPOP= %systmfldrs%
-ifinstring,lcrtst,_libretro
-	{
-		SWAPLOC= %coreassetsDirectory%
-		SWAPNAM= Downloads
-		SWAPPOP= %dwnlfldrs%
-	}
+gosub, SWAPPROC
 	
-if (OPTYP = "%SWAPNAM%")
+if (OPTYP = SWAPNAM)
 	{
-		guicontrol, ,ROMLOC
+		guicontrol, ,RUNROMCBX
 		guicontrol, ,LCORE
 		coreselv= 
 		romf= 
@@ -5323,6 +5336,7 @@ if (OPTYP = "%SWAPNAM%")
 DDLUX= %OPTYP%
 omitxtn= 
 REVSPL= 1
+
 iniread,omitxtz,emuCfgPresets.set,%OPTYP%,RJROMXT
 if (omitxtz <> "ERROR")
 	{
@@ -5378,7 +5392,7 @@ if (romhnck <> ":")
 				romf= %raexeloc%\%romf%
 			}
 	}
-guicontrol,,ROMLOC,|%romf%||%poptadd%
+guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 gosub, EDTROM
 return
 
@@ -5418,7 +5432,7 @@ gui, submit, nohide
 if (CSTCMD = 1)
 	{
 		guicontrol,enable,CSTCRE
-		guicontrol,disable,ROMLOC
+		guicontrol,disable,RUNROMCBX
 		guicontrol,disable,GROM
 		guicontrol,disable,LCORE
 		guicontrol,enable,CSTMROM
@@ -5428,7 +5442,7 @@ if (CSTCMD = 0)
 		guicontrol,disable,CSTCRE
 		guicontrol,,CSTMCORE,0
 		guicontrol,disable,CSTMCORE
-		guicontrol,enable,ROMLOC
+		guicontrol,enable,RUNROMCBX
 		guicontrol,enable,GROM
 		guicontrol,enable,LCORE
 		RUNROM= 
@@ -5611,7 +5625,7 @@ if (CUSTSWITCHS = 0)
 		guicontrol, hide, CUSTMARG
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
-		guicontrol, move, ROMLOC, x18 y22 w640
+		guicontrol, move, RUNROMCBX, x18 y22 w640
 		guicontrol,,CUSTSWITCH,0
 		;;gosub, CustSwitch
 		CUSTMARG= 
@@ -5623,73 +5637,57 @@ guicontrol, show, CUSTMARG
 guicontrol, show, CUSTMOPTS
 guicontrol, show, CUSTMARGS
 guicontrol,,CUSTSWITCH,1
-guicontrol, move, ROMLOC, x18 y22 w440
+guicontrol, move, RUNROMCBX, x18 y22 w440
 ;;gosub, CustSwitch
 return
 
-LocAssetDDL:
+SRCHLOCDDL:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= ROMJACKETS
-SWAPPOP= %systmfldrs%
-ifinstring,lcrtst,_libretro
-	{
-		SWAPLOC= %coreassetsDirectory%
-		SWAPNAM= Downloads
-		SWAPPOP= %dwnlfldrs%
-	}
-guicontrolget,LOCASSETDDL,,LOCASSETDDL
+
+gosub, SWAPPROC
+
+guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
 return
 
-LocFldrs:
+SRCHFLRAD:
 gui,submit,nohide
-guicontrol,show,LOCSRCHREC
+guicontrol,show,SRCHRCRSCHK
 guicontrolget,lcrtst,,LCORE
 
-SWAPLOC= %RJSYSTEMS%
-SWAPNAM= ROMJACKETS
-SWAPPOP= %systmfldrs%
+gosub, SWAPPROC
 
-ifinstring,lcrtst,_libretro
-	{
-		SWAPLOC= %coreassetsDirectory%
-		SWAPNAM= Downloads
-		SWAPPOP= %dwnlfldrs%
-	}
-
-
-guicontrol,,LOCASSETDDL,|%SWAPNAM%||%SWAPPOP%
+guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
 return
 
 
-LocSrchRec:
+SRCHRCRSCHK:
 gui,submit,nohide
-guicontrolget,LOCSRCHREC,,LOCSRCHREC
+guicontrolget,SRCHRCRSCHK,,SRCHRCRSCHK
 return
 
-LocPlsts:
+SRCHPLRAD:
 gui,submit,nohide
-guicontrol,hide,LOCSRCHREC
-guicontrol,,LOCASSETDDL,|All_Playlists||%plistfiles%
+guicontrol,hide,SRCHRCRSCHK
+guicontrol,,SRCHLOCDDL,|All_Playlists||%plistfiles%
 return
 
-LocROMSrchBut:
-guicontrol, show, LOCROMPOP
+SRCHROMBUT:
+guicontrol, show, SRCHROMLBX
 guicontrol, hide, DRAGIMAGE
 gui,submit,nohide
-guicontrolget,LOCFLDRS
-guicontrolget,LOCPLSTS
-guicontrolget,LOCASSETDDL,,LOCASSETDDL
-guicontrolget, LOCROMSRCH,,LOCROMSRCH
-guicontrol,,LOCROMPOP,|..searching...
-guicontrol,disable,LocROMSrchBut
-sanm:= LOCROMSRCH
+guicontrolget,SRCHFLRAD
+guicontrolget,SRCHPLRAD
+guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
+guicontrolget, SRCHROMEDT,,SRCHROMEDT
+guicontrol,,SRCHROMLBX,|..searching...
+guicontrol,disable,SRCHROMBUT
+sanm:= SRCHROMEDT
 gosub,SanitizeN
-LOCROMSRCH:= sanm
-if (LOCPLSTS = 1)
+SRCHROMEDT:= sanm
+if (SRCHPLRAD = 1)
 	{
-		if (LOCASSETDDL = "All_Playlists")
+		if (SRCHLOCDDL = "All_Playlists")
 			{
 				lsrchpop= 
 				Loop, Read, hashdb.ini
@@ -5698,23 +5696,23 @@ if (LOCPLSTS = 1)
 						hashsrch2= 
 						hashsrch3= 
 						stringsplit,hashsrch,A_LoopReadLine,|
-						IfInString, hashsrch1, %LOCROMSRCH%
+						IfInString, hashsrch1, %SRCHROMEDT%
 							{	
 									lsrchpop .= hashsrch2 . "=" . hashsrch1 . "|"
 							}
 					}
-					guicontrol,,LOCROMPOP, |%lsrchpop%
-					guicontrol,enable,LocROMSrchBut
+					guicontrol,,SRCHROMLBX, |%lsrchpop%
+					guicontrol,enable,SRCHROMBUT
 				return
 			}
 		lsrchpop=	
 		plnuminc=	
-		Loop, Read, %playlistDirectory%\%LOCASSETDDL%
+		Loop, Read, %playlistDirectory%\%SRCHLOCDDL%
 			{
 				plnuminc+=1
 				if (plnuminc = 1)
 					{
-						IfInString, A_LoopReadLine, %LOCROMSRCH%
+						IfInString, A_LoopReadLine, %SRCHROMEDT%
 							{	
 									lsrchpop .= A_LoopReadLine . "|"
 							}
@@ -5724,16 +5722,18 @@ if (LOCPLSTS = 1)
 					plnuminc= 
 				}
 			}
-		guicontrol,,LOCROMPOP, |%lsrchpop%	
-		guicontrol,enable,LocROMSrchBut
+		guicontrol,,SRCHROMLBX, |%lsrchpop%	
+		guicontrol,enable,SRCHROMBUT
 		return
 	}
 
-LOCSRCHFLDR= %SWAPLOC%\%LOCASSETDDL%
-guicontrolget,LOCSRCHREC,,LOCSRCHREC
-if (LOCASSETDDL = "%SWAPNAM%")
+LOCSRCHFLDR= %SWAPLOC%\%SRCHLOCDDL%
+guicontrolget,SRCHRCRSCHK,,SRCHRCRSCHK
+if (SRCHLOCDDL = SWAPNAM)
 	{
 		LOCSRCHFLDR= %SWAPLOC%
+		;SB_SetText("Please select a directory to search")
+		;return
 	}
 
 stringsplit,omitxtn,omitxt,= | ""
@@ -5749,7 +5749,7 @@ Loop, %omitxtn0%
 SB_SetText("...Searching...")
 LPOPLDWN= 
 existingpop= 
-Loop,%LOCSRCHFLDR%\*%LOCROMSRCH%*,,%LOCSRCHREC%
+Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 	{
 		ext= %A_LoopFileExt%
 		noapl= 
@@ -5766,52 +5766,60 @@ Loop,%LOCSRCHFLDR%\*%LOCROMSRCH%*,,%LOCSRCHREC%
 				LPOPLDWN .= A_LoopFileFullPath . "|"
 			}
 	}
-guicontrolget, existingpop,,LOCROMPOP
-guicontrol,,LOCROMPOP,|%existingpop%|%LPOPLDWN%
+guicontrolget, existingpop,,SRCHROMLBX
+guicontrol,,SRCHROMLBX,|%existingpop%|%LPOPLDWN%
 SB_SetText("Search Complete")
-guicontrol,enable,LocROMSrchBut
+guicontrol,enable,SRCHROMBUT
 return
 
-LocROMSrch:
+SRCHROMEDT:
 gui,submit,nohide
-guicontrolget, LOCROMSRCH,,LOCROMSRCH
+guicontrolget, SRCHROMEDT,,SRCHROMEDT
 return
 
 
-LocROMPop:
+SRCHROMLBX:
 gui,submit,nohide
-guicontrolget, LOCFLDRS,,LOCFLDRS
-guicontrolget, LOCPLSTS,,LOCPLSTS
-guicontrol,,HOPT,%LOCPLSTS%
-guicontrol,,DOPT,%LOCFLDRS%
-guicontrolget,romOVf,,LOCROMPOP
-
-if (LOCFLDRS = 1)
+guicontrolget, SRCHFLRAD,,SRCHFLRAD
+guicontrolget, SRCHPLRAD,,SRCHPLRAD
+guicontrol,,RUNPLRAD,%SRCHPLRAD%
+guicontrol,,RUNFLRAD,%SRCHFLRAD%
+guicontrolget,romOVf,,SRCHROMLBX
+SRCHOVRD= 1
+if (SRCHFLRAD = 1)
 	{
-		if (LOCASSETDDL = "%SWAPLOC%")
-				{
-					stringreplace,nocad,romf,%SWAPLOC%\,,All
-					StringSplit,isofldr,nocad,\
-					LOCASSETDDL:= isofldr1
-				}
-		guicontrol,,OPTDDL,|%LOCASSETDDL%||%SWAPPOP%
-		guicontrolget,romOVf,,LOCROMPOP
-		gosub, OPTDDL
-		romf= %romOVf%
-		
-	}
-if (LOCPLSTS = 1)
-	{	
-		if (LOCASSETDDL = "All_Playlists")
+		stringreplace,nocad,romOVf,%SWAPLOC%\,,All
+		isofldr1= 
+		StringSplit,isofldr,nocad,\
+		SRCHLOCDDL:= isofldr1
+		guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%SWAPPOP%
+		guicontrolget,romOVf,,SRCHROMLBX
+		coreslv= 
+		iniread, coreord,Assignments.ini,OVERRIDES,%isofldr%
+		if coreord is digit
 			{
-				guicontrolget,romf,,LOCROMPOP
+				iniread,coreslv,Assignments.ini,ASSIGNMENTS,%isofldr1% 
+			}
+			else if (coreord <> "ERROR")		
+				{
+					iniread,coreslv,Assignments.ini,ASSIGNMENTS,%coreord%					
+				}
+		gosub, RUNSYSDDL
+		romf= %romOVf%	
+	}
+SRCHOVRD= 
+if (SRCHPLRAD = 1)
+	{	
+		if (SRCHLOCDDL = "All_Playlists")
+			{
+				guicontrolget,romf,,SRCHROMLBX
 				LOCRSPL1= 
 				LOCRSPL2= 
-				stringsplit,LOCRSPL,LOCROMPOP,=
-				guicontrol,,OPTDDL,|%LOCRSPL1%||History|%plistfiles%
-				gosub, OPTDDL
+				stringsplit,LOCRSPL,SRCHROMLBX,=
+				guicontrol,,RUNSYSDDL,|%LOCRSPL1%||History|%plistfiles%
+				gosub, RUNSYSDDL
 				romf:= LOCRSPL2
-				;;guicontrolget, 	romf,,LOCROMPOP
+				;;guicontrolget, 	romf,,SRCHROMLBX
 				romfj1= 
 				romfj2= 
 				stringsplit, romfj, romf,#
@@ -5827,17 +5835,19 @@ if (LOCPLSTS = 1)
 									}
 							}
 					}
-				guicontrol,,ROMLOC,|%romf%||%poptadd%
+				guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 				gosub, EDTROM
 				return
 			}
-		guicontrol,,OPTDDL,|%LOCASSETDDL%||History|%plistfiles%
-		gosub, OPTDDL
+		guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||History|%plistfiles%
+		gosub, RUNSYSDDL
 	}
+
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
 stringmid,romhnck,romfj1,2,1
+
 if (romhnck <> ":")
 	{
 		ifexist, %raexeloc%\%romfj1%
@@ -5849,7 +5859,8 @@ if (romhnck <> ":")
 					}
 			}
 	}
-guicontrol,,ROMLOC,|%romf%||%poptadd%
+
+guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 gosub, EDTROM
 gui,submit,nohide
 return
@@ -9880,6 +9891,7 @@ DCore:
 ctdef= 
 SYSPOPD= 
 gui,submit,nohide
+guicontrolget,ADDCORE,,ADDCORE
 guicontrolget,OVLIST,,OVLIST
 guicontrol,hide,ASCORE
 guicontrol,hide,APPOPT
@@ -9902,11 +9914,12 @@ if (ADDCORE <> "Select_A_System")
 	{
 		SYSPOPD= %ADDCORE%		
 		iniread, ctdef,Assignments.set,ASSIGNMENTS,%SYSPOPD%
+		iniwrite, "0",Assignments.ini,OVERRIDES,%SYSPOPD%
 		iniwrite, "%ctdef%",Assignments.ini,ASSIGNMENTS,%SYSPOPD%
 		guicontrol,,ASCORE,|%ctdef%||%corelist%
 	}
 ;;if (SYSPOPD = "")
-;;	{
+	;;	{
 ;;		iniwrite, "",Assignments.ini,EXTENSIONS,%SYSPOPD%
 ;;		iniwrite, "",Assignments.ini,ASSIGNMENTS,%SYSPOPD%
 ;;		return
@@ -10598,6 +10611,7 @@ Loop, %RJEMUD%\*.exe,,1
 		emuxefp= %A_LoopFileFullPath%
 		Loop, Parse, emuxelst,|
 			{
+				Menu,Tray,Tip, Searching for emulators
 				SB_SetText("Searching for " splemu1 " ")
 				if (A_LoopField = "")
 					{
@@ -11496,7 +11510,7 @@ guicontrol, show, RECURTX
 guicontrol, show, RECURSE
 guicontrol,,EXTPARSED
 
-if (DWNLPOS = "%SWAPNAM%")
+if (DWNLPOS = SWAPNAM)
 	{
 		guicontrol, hide, RECURTX
 		guicontrol, hide, RECURSE
@@ -12308,6 +12322,10 @@ guicontrol,disable,ESVIDSRCHBUT
 ARCDTYP= 
 guicontrolget, ESPLCORE, ,ESPLCORE
 if (SYSNAME = "MAME")
+	{
+		ARCDTYP= 1
+	}
+if (SYSNAME = "MAME - Aracade")
 	{
 		ARCDTYP= 1
 	}
@@ -14427,7 +14445,6 @@ if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
-	
 if (ARCSYS = "MAME - BIOS")
 	{
 		OVDCHK=MAME
@@ -14509,28 +14526,28 @@ OvdChk:
 gui,submit,nohide
 guicontrolget,OVDHCK,,OVDCHK
 if (OVDCHK = 1)
-{
-guicontrol,,OVDLDS,|Netplay||Matching|%SWAPPOP%
-if (OVDFLDR = "")
-{
-guicontrolget,ovdnm,,OVDLDS
-OVDFLDR= %SWAPLOC%\%ovdnm%
-}
-if (JACKETMODE = 1)
-	{		
-		SWAPNAM= ROMJACKETS
-		SWAPLOC= %RJSYSTEMS%
-		SWAPPOP= %systmfldrs%
-		OVDFLDR= %OVDFLDR%\$ROMJACKET$
+	{
+		guicontrol,,OVDLDS,|Netplay||Matching|%SWAPPOP%
+		if (OVDFLDR = "")
+			{
+				guicontrolget,ovdnm,,OVDLDS
+				OVDFLDR= %SWAPLOC%\%ovdnm%
+			}
+		if (JACKETMODE = 1)
+			{		
+				SWAPNAM= ROMJACKETS
+				SWAPLOC= %RJSYSTEMS%
+				SWAPPOP= %systmfldrs%
+				OVDFLDR= %OVDFLDR%\$ROMJACKET$
+			}
+		guicontrol,,OVDTXT,%OVDFLDR%
 	}
-guicontrol,,OVDTXT,%OVDFLDR%
-}
 if (OVDCHK = 0)
-{
-guicontrol,,OVDLDS,|Matching||%SWAPPOP%
-guicontrol,,OVDTXT,
-OVDFLDR= 
-}
+	{
+		guicontrol,,OVDLDS,|Matching||%SWAPPOP%
+		guicontrol,,OVDTXT,
+		OVDFLDR= 
+	}
 return
 
 OvDlds:
@@ -14876,9 +14893,9 @@ if (romf = "")
 		lastrom= %save%
 	}
 lastcore= %coreselv%
-;;guicontrol,,ROMLOC, |%save%||%poptadd%
-guicontrol,,ROMLOC, |%romf%||%HISTORY%
-guicontrol,,OPTDDL,|History||%plistfiles%
+;;guicontrol,,RUNROMCBX, |%save%||%poptadd%
+guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
+guicontrol,,RUNSYSDDL,|History||%plistfiles%
 guicontrol,,LCORE, |%lastcore%||%runlist%
 ifnotexist, %save%
 	{
@@ -16990,10 +17007,10 @@ TOGSKELGUI:
 guicontrol,%moptog%,AUTOLNCH
 guicontrol,%moptog%,LCORE
 guicontrol,%moptog%,CUSTSWITCHS
-guicontrol,%moptog%,OPTDDL
-guicontrol,%moptog%,HOPT
-guicontrol,%moptog%,DOPT
-guicontrol,%moptog%,ROMLOC
+guicontrol,%moptog%,RUNSYSDDL
+guicontrol,%moptog%,RUNPLRAD
+guicontrol,%moptog%,RUNFLRAD
+guicontrol,%moptog%,RUNROMCBX
 guicontrol,%moptog%,GROM
 guicontrol,%moptog%,OPNCORE
 guicontrol,%moptog%,LNCHBUT
@@ -17002,15 +17019,15 @@ guicontrol,%moptog%,CLRCUROM
 TOGSKELOPTS:
 guicontrol,%moptog%,DRAGIMAGE
 guicontrol,%moptog%,SRCHGRP
-guicontrol,%moptog%,LOCFLDRS
-guicontrol,%moptog%,LOCPLSTS
-guicontrol,%moptog%,LOCSRCHREC
-guicontrol,%moptog%,LOCROMSRCH
-guicontrol,%moptog%,LOCROMSRCHBUT
-guicontrol,%moptog%,LOCASSETDDL
+guicontrol,%moptog%,SRCHFLRAD
+guicontrol,%moptog%,SRCHPLRAD
+guicontrol,%moptog%,SRCHRCRSCHK
+guicontrol,%moptog%,SRCHROMEDT
+guicontrol,%moptog%,SRCHROMBUT
+guicontrol,%moptog%,SRCHLOCDDL
 guicontrol,%moptog%,ROMRPGRP
 
-guicontrol,%moptog%,LOCROMPOP
+guicontrol,%moptog%,SRCHROMLBX
 return
 ;;guicontrol,%moptog%,JCORE
 
@@ -18515,15 +18532,15 @@ guicontrol,%raoptgl%,INTG
 guicontrol,%raoptgl%,IntXres
 guicontrol,%raoptgl%,IntYres
 guicontrol,%raoptgl%,LATENCY
-guicontrol,%raoptgl%,LOCASSETDDL
+guicontrol,%raoptgl%,SRCHLOCDDL
 guicontrol,%raoptgl%,LOCDIR
-guicontrol,%raoptgl%,LOCFLDRS
-guicontrol,%raoptgl%,LOCPLSTS
+guicontrol,%raoptgl%,SRCHFLRAD
+guicontrol,%raoptgl%,SRCHPLRAD
 guicontrol,%raoptgl%,LOCPTH
-guicontrol,%raoptgl%,LOCROMPOP
-guicontrol,%raoptgl%,LOCROMSRCH
-guicontrol,%raoptgl%,LOCROMSRCHBUT
-guicontrol,%raoptgl%,LOCSRCHREC
+guicontrol,%raoptgl%,SRCHROMLBX
+guicontrol,%raoptgl%,SRCHROMEDT
+guicontrol,%raoptgl%,SRCHROMBUT
+guicontrol,%raoptgl%,SRCHRCRSCHK
 guicontrol,%raoptgl%,MAXSWPTXT
 guicontrol,%raoptgl%,MONGTXT
 guicontrol,%raoptgl%,MONRESTXT
@@ -18609,10 +18626,10 @@ if (raoptgl = "show")
 	{
 		if (ASVRM = "1")
 			{
-				guicontrol,%raoptgl%,OPTDDL
-				guicontrol,%raoptgl%,HOPT
-				guicontrol,%raoptgl%,DOPT
-				guicontrol,%raoptgl%,ROMLOC
+				guicontrol,%raoptgl%,RUNSYSDDL
+				guicontrol,%raoptgl%,RUNPLRAD
+				guicontrol,%raoptgl%,RUNFLRAD
+				guicontrol,%raoptgl%,RUNROMCBX
 				guicontrol,%raoptgl%,EDTROM
 				guicontrol,%raoptgl%,CUSTSWITCHS
 				guicontrol,%raoptgl%,GROM
@@ -18625,10 +18642,10 @@ if (raoptgl = "hide")
 	{
 		if (ASVRM = "")
 			{
-				guicontrol,%raoptgl%,OPTDDL
-				guicontrol,%raoptgl%,HOPT
-				guicontrol,%raoptgl%,DOPT
-				guicontrol,%raoptgl%,ROMLOC
+				guicontrol,%raoptgl%,RUNSYSDDL
+				guicontrol,%raoptgl%,RUNPLRAD
+				guicontrol,%raoptgl%,RUNFLRAD
+				guicontrol,%raoptgl%,RUNROMCBX
 				guicontrol,%raoptgl%,EDTROM
 				guicontrol,%raoptgl%,CUSTSWITCHS
 				guicontrol,%raoptgl%,GROM
@@ -18648,13 +18665,13 @@ if (LCORE = "retroArch")
 		if (ASVRM = "")
 			{
 				guicontrol,hide,SRCHGRP
-				guicontrol,hide,LOCROMPOP
-				guicontrol,hide,LOCFLDRS
-				guicontrol,hide,LOCPLSTS
-				guicontrol,hide,LOCSRCHREC
-				guicontrol,hide,LOCROMSRCH
-				guicontrol,hide,LOCROMSRCHBUT
-				guicontrol,hide,LOCASSETDDL
+				guicontrol,hide,SRCHROMLBX
+				guicontrol,hide,SRCHFLRAD
+				guicontrol,hide,SRCHPLRAD
+				guicontrol,hide,SRCHRCRSCHK
+				guicontrol,hide,SRCHROMEDT
+				guicontrol,hide,SRCHROMBUT
+				guicontrol,hide,SRCHLOCDDL
 				guicontrol,hide,ROMRPGRP
 				guicontrol,hide,AUTOLNCH
 				guicontrol,show,emuBUTJ
@@ -20282,6 +20299,8 @@ if (FERAD2C = 1)
 				gosub, BROMSCRAPE
 			}
 	}
+arpause= enable
+gosub,ARTPAUSE
 return
 	
 	
@@ -20589,6 +20608,12 @@ if (FERAD2B = 1)
 							{
 								filereadline,dlprfx,arcorg.set,2
 								URLFILE= %dlprfx%/DATFILES/%SYSLKUP%.7z
+								ifinstring,dlprfx,github
+									{
+										urloc1= DATFILES
+										urloc2= %SYSLKUP%.7z
+										URLFILE= %dlprfx%/%urloc1%/raw/master/%urloc2%
+									}
 								save= rj\scrapeArt\%SYSLKUP%.7z
 								SB_SetText("Downloading " SYSLKUP " Metadata")
 								DownloadFile(URLFILE,save, True, True)
@@ -21552,7 +21577,6 @@ guicontrol,%arpause%,FERAD5A
 guicontrol,%arpause%,FERAD5B
 return
 
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
 
 ;{;;;;;;;;;;;;;;;;;;;  ARTWORK SETS  ;;;;;;;;;;;;;	
 if (FERAD5B = 1)
@@ -25795,8 +25819,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;;;;;;;;;    UTILITY-OPTION FUNCTIONS    ;;;;;;;;;;;;;;;;;;
 
@@ -32142,7 +32164,6 @@ if (syslk = "Mesen")
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= mesen
 	}
-
 if (syslk = "Nestopia")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
@@ -32179,7 +32200,7 @@ if (syslk = "Snes9x 2005")
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2005
 	}
-iif (syslk = "Snes9x 2005 plus")
+if (syslk = "Snes9x 2005 plus")
 	{
 		ASPOP= Nintendo - Super Nintendo Entertainment System
 		corelk= snes9x2005_plus
@@ -38537,6 +38558,8 @@ CrCFLN= %romf%
 gosub, CRC32GET
 if (ApndCRC <> HOSTINGCRCS)
 	{
+		FRC=
+		guicontrolget,FRC,,NETCORE
 		guicontrol,,FORCEROM,1
 		if (FRC <> "")
 			{
@@ -39567,6 +39590,11 @@ if A_GuiEvent = DoubleClick
 gosub,CCNCTCHK
 gosub,RCNCTCHK
 if (ASPOP = "Mr. Boom")
+	{
+		guicontrol,enable,NETCONNECT
+		romf= 
+	}
+if (ASPOP = "Tomb Raider")
 	{
 		guicontrol,enable,NETCONNECT
 		romf= 
@@ -44436,10 +44464,10 @@ if (LOCDIR = "core_assets_directory")
 			{
 				dwnlfldrs.= A_LoopFileName . "|"
 			}
-	guicontrolget,DOPT,,DOPT
-		if (DOPT = 1)
+	guicontrolget,RUNFLRAD,,RUNFLRAD
+		if (RUNFLRAD = 1)
 			{
-				guicontrol,,OPTDDL,Downloads||%dwnlfldrs%
+				guicontrol,,RUNSYSDDL,Downloads||%dwnlfldrs%
 			}
 	}
 
@@ -44471,9 +44499,9 @@ tmpcc=
 guicontrolget,tmpcc,,LCORE
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
-;;guicontrol,, ROMLOC, |%romf%||%poptadd%
-guicontrol,, ROMLOC, |%romf%||%HISTORY%
-;;guicontrol,,OPTDDL,|%SWAPNAM%||%SWAPPOP%
+;;guicontrol,, RUNROMCBX, |%romf%||%poptadd%
+guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
+;;guicontrol,,RUNSYSDDL,|%SWAPNAM%||%SWAPPOP%
 iniwrite, "%coreselv%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gui, submit, nohide
@@ -44483,13 +44511,14 @@ ifinstring,tmpcc,_libretro
 		guicontrol,move,CLRCUROM,x720 y30
 		guicontrol,show,RETAL
 	}
-guicontrol,,LOCFLDRS,1
-guicontrol,,LOCASSETDDL,|ROMJACKETS||%systmfldrs%
+guicontrol,,SRCHFLRAD,1
+guicontrol,,SRCHLOCDDL,|ROMJACKETS||%systmfldrs%
 return
 
 EDTROM:
 Gui, submit, nohide
-Guicontrolget,romf,,ROMLOC
+Guicontrolget,romf,,RUNROMCBX
+
 if (romf = "")
 	{
 		iniread, romf, Settings.ini,GLOBAL,last_rom
@@ -44499,6 +44528,7 @@ if  (romf = "")
 		gosub, LNCHCHK
 		return
 	}
+	
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
@@ -44524,7 +44554,7 @@ return
 SKRESET:
 gui, submit, nohide
 guicontrolget,SKRESDDL,,SKRESDDL
-msgbox,8707,Confirm,Are you certain you wnat to reset %SKRESDDL% settings?
+msgbox,8707,Confirm,Are you certain you want to reset %SKRESDDL% settings?
 ifmsgbox, No
 	{
 		return
@@ -44650,7 +44680,7 @@ LnchCore:
 USRCORE= 1
 CoreAuto:
 guicontrolget,tmpcc,,LCORE
-guicontrolget,tmpsys,,OPTDDL
+guicontrolget,tmpsys,,RUNSYSDDL
 if (dlx2 = "dll")
 	{
 		skptog= 1
@@ -44670,7 +44700,7 @@ guicontrol,hide,JCORE
 guicontrol,enable,CNCTBUT
 guicontrol,enable,HostButton
 guicontrol,enable,OPNCORE
-guicontrolget,DOPT,,DOPT
+guicontrolget,RUNFLRAD,,RUNFLRAD
 if (dlx <> "dll")
 	{
 			runningcore= emulator
@@ -44681,11 +44711,11 @@ if (dlx <> "dll")
 			gosub, TOGRAOPTS
 			gosub, TOGSKELONLY
 			gosub, TOGSKELGUI
-			guicontrolget,DOPT,,DOPT
+			guicontrolget,RUNFLRAD,,RUNFLRAD
 			APLN= 1
-			if (LOCFLDRS = 1)
+			if (SRCHFLRAD = 1)
 				{
-					guicontrol,,LOCASSETDDL,|%SWAPNAM%|%SWAPPOP%
+					guicontrol,,SRCHLOCDDL,|%SWAPNAM%|%SWAPPOP%
 				}
 
 			;;guicontrol,show,JCORE
@@ -44702,20 +44732,20 @@ if (dlx = "dll")
 			gosub, EMUUNPOP
 			guicontrol,show,SWHOST
 			guicontrol,show,LCORE
-			guicontrolget,DOPT,,DOPT
+			guicontrolget,RUNFLRAD,,RUNFLRAD
 			SWAPLOC= %coreassetsDirectory%
 			SWAPNAM= Downloads
 			SWAPPOP= %dwnlfldrs%
 			APLN= 
 		}
-if (DOPT = 1)
+if (RUNFLRAD = 1)
 	{
 		if (USRCORE = 1)
 			{
-				guicontrol,,OPTDDL,|%SWAPNAM%||%SWAPPOP%
+				guicontrol,,RUNSYSDDL,|%SWAPNAM%||%SWAPPOP%
 				ifexist, %SWAPLOC%\%tmpsys%
 					{
-						guicontrol,,OPTDDL,|%SWAPNAM%|%tmpsys%||%SWAPPOP%
+						guicontrol,,RUNSYSDDL,|%SWAPNAM%|%tmpsys%||%SWAPPOP%
 					}
 			}
 	}
@@ -44946,7 +44976,7 @@ ExitApp
 
 LNCH:
 gui,submit,nohide
-guicontrolget,romf,,ROMLOC
+guicontrolget,romf,,RUNROMCBX
 romfj1= 
 romfj2= 
 stringsplit, romfj, romf,#
@@ -45194,11 +45224,11 @@ if (ROMFileSel = "")
 		return
 	}
 romf= %ROMFileSel%
-ROMLOC= %romf%
+RUNROMCBX= %romf%
 iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
-guicontrol,,OPTDDL,|History||%plistfiles%
-guicontrol,,ROMLOC, |%romf%||%HISTORY%
-;;guicontrol,,ROMLOC, |%romf%||%poptadd%
+guicontrol,,RUNSYSDDL,|History||%plistfiles%
+guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
+;;guicontrol,,RUNROMCBX, |%romf%||%poptadd%
 Gui, submit, nohide
 return
 

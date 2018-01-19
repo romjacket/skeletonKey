@@ -920,12 +920,12 @@ if (gitexists = 1)
 	{
 		GITD:= GITT
 		iniwrite, %GITD%,skopt.ini,GLOBAL,Git_Directory
-		FileDelete, gitcommit.bat
-		FileAppend,cd "%GITD%"`n,gitcommit.bat
-		FileAppend,git add .`n,gitcommit.bat
-		FileAppend,git commit -m `%1`%`n,gitcommit.bat
-		FileAppend,git push`n,gitcommit.bat
-		return	
+		FileDelete, %GITD%\gitcommit.bat
+		FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
+		FileAppend,git add .`n,%GITD%\gitcommit.bat
+		FileAppend,git commit -m `%1`%`n,%GITD%\gitcommit.bat
+		FileAppend,git push`n,%GITD%\gitcommit.bat
+		return
 	}
 Msgbox,5,skeletonkey.ahk,Git Source file not found
 IfMsgBox, Abort
@@ -1089,7 +1089,7 @@ if (RESDD = "Deployer")
 		MsgBox,1,Confirm Tool Reset, Are You sure you want to reset the Deployment Tool?
 		IfMsgBox, OK
 			{
-				FileDelete, %BUILDIR%\gitcommit.bat
+				FileDelete, %GITD%\gitcommit.bat
 				FileDelete, %BUILDIR%\skdeploy.nsi				
 				FileDelete, %BUILDIR%\skopt.ini
 				FileDelete, %BUILDIR%\ltc.txt
@@ -1561,18 +1561,18 @@ if (GitPush = 1)
 		FileAppend, copy /y "arcorg.put" "%GITD%"`n,%SKELD%\!gitupdate.cmd
 		FileSetAttrib, +h, %SKELD%\!gitupdate.cmd
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
-		IfNotExist, %BUILDIR%\gitcommit.bat
+		IfNotExist, %GITD%\gitcommit.bat
 			{
-				FileAppend,cd "%GITD%"`n,%BUILDIR%\gitcommit.bat
-				FileAppend,git add .`n,%BUILDIR%\gitcommit.bat
-				FileAppend,git commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
-				FileAppend,git push`n,%BUILDIR%\gitcommit.bat
+				FileAppend,cd "%GITD%"`n,%GITD%\gitcommit.bat
+				FileAppend,git add .`n,%GITD%\gitcommit.bat
+				FileAppend,git commit -m `%1`%`n,%GITD%\gitcommit.bat
+				FileAppend,git push`n,%GITD%\gitcommit.bat
 			}
 		FileAppend, "%PushNotes%`n",%DEPL%\changelog.txt
 		RunWait, %comspec% cmd /c " "%SKELD%\!gitupdate.cmd" ",%SKELD%,%rntp%
 		StringReplace,PushNotes,PushNotes,",,All
 		;"
-		RunWait, %comspec% cmd /c " "%BUILDIR%\gitcommit.bat" "%PushNotes%" ",%BUILDIR%,%rntp%
+		RunWait, %comspec% cmd /c " "%GITD%\gitcommit.bat" "%PushNotes%" ",%GITD%,%rntp%
 		guicontrol,,progb,65
 	}
 
@@ -1615,7 +1615,7 @@ if (ServerPush = 1)
 					{	
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n portable -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n skeletonKey-portable.zip -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (DATBLD = 1)
@@ -1624,7 +1624,7 @@ if (ServerPush = 1)
 					{					
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t dats`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t dats -l "dat files" -n DATS -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t dats -l "dat files" -n DATFILES.7z -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (OvrStable = 1)
@@ -1633,7 +1633,7 @@ if (ServerPush = 1)
 					{
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t Installer -l Installer -n Installer.zip -f "%DEPL%\skeletonkey-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 
@@ -1643,7 +1643,7 @@ if (ServerPush = 1)
 					{
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t FullVersion`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion -f "%DEPL%\skeletonkey-Full-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t FullVersion -l "Full Version" -n FullVersion.zip -f "%DEPL%\skeletonkey-Full-%date%%buildnum%.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (SiteUpdate <> 1)
@@ -1773,10 +1773,10 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 ;;		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonkey-%date%%buildnum%,All
-		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/download/Installer,All
-		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/portable,All
-		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/portable/datfiles,All
-		StringReplace,skelhtml,skelhtml,[FULLRELEASE],https://github.com/%gituser%/skeletonKey/releases/download/portable/FullVersion,All
+		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/download/Installer.zip,All
+		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip,All
+		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/portable/DATFILES.7z,All
+		StringReplace,skelhtml,skelhtml,[FULLRELEASE],https://github.com/%gituser%/skeletonKey/releases/download/portable/FullVersion.zip,All
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE2],%dvmg%,All

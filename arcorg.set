@@ -4,7 +4,7 @@ http://newlobby.libretro.com/list
 http://raw.githubusercontent.com/libretro/shader-previews/master/
 http://raw.githubusercontent.com/romjacket/skeletonkey/master/version.txt
 http://www.netikus.net/show_ip.html
-
+http://github.com/romjacket/skeletonKey/releases/download/nodats
 Acorn - Electron=Acorn_Electronic_TOSEC_2012_04_23/Acorn_Electronic_TOSEC_2012_04_23.zip/
 Acorn - BBC=Acorn_BBC_TOSEC_2012_04_23/Acorn_BBC_TOSEC_2012_04_23.zip/
 Amstrad - CPC=Amstrad_CPC_TOSEC_2012_04_23/Amstrad_CPC_TOSEC_2012_04_23.zip/
@@ -76,7 +76,7 @@ Leapfrog - Leapster Learning Game System=No-Intro-Collection_2016-01-03/Leapfrog
 #Leapfrog - Leapster Learning Game System=No-Intro-Collection_2016-09-06/No-Intro Collection 2016-09-06.zip/Leapfrog - Leapster Learning Game System/
 Magnavox - Odyssey2=No-Intro-Collection_2016-01-03/Magnavox-Odyssey2.zip/Magnavox - Odyssey2/
 #Magnavox - Odyssey2=No-Intro-Collection_2016-09-06/No-Intro Collection 2016-09-06.zip/Magnavox - Odyssey2/
-MAME=MAME_0.151_ROMs/MAME_0.151_ROMs.zip/MAME 0.151 ROMs/
+MAME - Arcade=MAME_0.151_ROMs/MAME_0.151_ROMs.zip/MAME 0.151 ROMs/
 MAME - BIOS=MESS-0.151.BIOS.ROMs/MESS-0.151.BIOS.ROMs.zip/MESS 0.151 ROMs/
 Mattel - Intellivision=MESS_0.151_Software_List_ROMs/intv.zip/MESS 0.151 Software List ROMs/intv/
 Microkey - Primo=Microkey_Primo_TOSEC_2012_04_23/Microkey_Primo_TOSEC_2012_04_23.zip/
