@@ -11,6 +11,9 @@ Video_Directory=[HOSTINGURL]/ORIGINAL/raw/master/Videos
 Meta=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 Meta_Directory=[HOSTINGURL]/ORIGINAL/raw/master/MetaData
 
+[SpaceOddity]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/SpaceOddity.zip
+
 [carbon-centered]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/carbon-centered.zip
 

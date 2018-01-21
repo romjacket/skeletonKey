@@ -74,6 +74,15 @@ RJROMINJ=%ROM%
 RJCONSOLID=Individuate
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 
+[MAME]
+RJQUOTES=1
+RJPATH=1
+RJRUNDIR=0
+RJEXT=1
+RJEXTRARC=0
+RJARCLOC=0
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1|
 
 
 [MAME - System]
@@ -693,14 +702,6 @@ RJEXTRARC=0
 [Leapfrog - Leapster Learning Game System]
 RJEMUPRESET=MAME - System
 
-[MAME]
-RJEMUOPTS=<[RJMAMENM] -[MAMEMEDIA]<
-RJEMUARGS=<-rp "[RJMAMEROMPTH]"
-RJEMUPRESET=MAME - Arcade
-SETLST=
-RJROMXT=.zip,.chd
-RJRUNDIR=0
-RJEXTRARC=0
 
 [MGT - Sam Coupe]
 RJEMUPRESET=MAME - System

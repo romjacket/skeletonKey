@@ -11,6 +11,9 @@ Video_Directory=http://github.com/romjacket/ORIGINAL/raw/master/Videos
 Meta=http://github.com/romjacket/ORIGINAL/raw/master/MetaData
 Meta_Directory=http://github.com/romjacket/ORIGINAL/raw/master/MetaData
 
+[SpaceOddity]
+ESTHEME=http://github.com/romjacket/esthemes/raw/master/SpaceOddity.zip
+
 [carbon-centered]
 ESTHEME=http://github.com/romjacket/esthemes/raw/master/carbon-centered.zip
 

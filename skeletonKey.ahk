@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    -- 7:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-20 9:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= -- 7:55 PM
+RELEASE= 2018-01-20 9:17 PM
 VERSION= 
 RASTABLE= 1.7.0
 
@@ -418,7 +418,7 @@ AXISET= nul|nul
 
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
 
-sysposb= Commodore - Amiga|SNK - Neo Geo|MAME|MAME2003|MAME2010|Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Nintendo - Virtual Boy|Nintendo - Game Boy Color|Nintendo - Famicom Disk System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo 3DS|Nintendo - Nintendo DS|Nintendo - Satellaview|Nintendo - Famicom System|Nintendo - Nintendo Entertainment System|The 3DO Company - 3DO|Nintendo - Super Nintendo Entertainment System|SNK - Neo Geo Pocket|Magnavox - Odyssey2|Microsoft - MSX|Microsoft - MSX2|ScummVM|NEC - PC98|NEC - PC-FX|Sega - Saturn|Bandai - WonderSwan|Bandai - WonderSwan Color|Sony - Playstation Portable|Sony - Playstation|Sega - Mega-CD - Sega CD|Sega - Mega Drive - Genesis|Sega - 32X|Sega - Master System - Mark III|Sega - Game Gear|GCE - Vectrex|NEC - PC Engine SuperGrafx|Sega - Dreamcast|Sega - SG-1000|DOS|GCE - Vectrex|FB Alpha - Arcade Games|SNK - Neo Geo MVS|Magnavox - Odyssey2|NEC - PC Engine CD - TurboGrafx CD|Coleco - ColecoVision|Sinclair - ZX 81|Sinclair - ZX Spectrum|Casio - PV-1000|Casio - Loopy|Emerson - Arcadia|Entex - Adventure Vision|Leapfrog - Leapster Learning Game System|Hartung - Game Master|Fairchild - Channel F|Funtech - Super Acan|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - 64|Commodore - VIC-20|Commodore - Plus-4|Commodore - Amiga|GamePark - GP32|Magnavox - Odyssey2|Nokia - N-Gage|Sony - Playstation 2|RCA - Studio II|RCA - Studio II|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Sufami Turbo|Sega - PICO|Tiger - Game com|VTech - CreatiVision|VTech - V.Smile|Sharp - X68000
+sysposb= Commodore - Amiga|SNK - Neo Geo|MAME - Arcade|MAME2003|MAME2010|Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Nintendo - Virtual Boy|Nintendo - Game Boy Color|Nintendo - Famicom Disk System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo 3DS|Nintendo - Nintendo DS|Nintendo - Satellaview|Nintendo - Famicom System|Nintendo - Nintendo Entertainment System|The 3DO Company - 3DO|Nintendo - Super Nintendo Entertainment System|SNK - Neo Geo Pocket|Magnavox - Odyssey2|Microsoft - MSX|Microsoft - MSX2|ScummVM|NEC - PC98|NEC - PC-FX|Sega - Saturn|Bandai - WonderSwan|Bandai - WonderSwan Color|Sony - Playstation Portable|Sony - Playstation|Sega - Mega-CD - Sega CD|Sega - Mega Drive - Genesis|Sega - 32X|Sega - Master System - Mark III|Sega - Game Gear|GCE - Vectrex|NEC - PC Engine SuperGrafx|Sega - Dreamcast|Sega - SG-1000|DOS|GCE - Vectrex|FB Alpha - Arcade Games|SNK - Neo Geo MVS|Magnavox - Odyssey2|NEC - PC Engine CD - TurboGrafx CD|Coleco - ColecoVision|Sinclair - ZX 81|Sinclair - ZX Spectrum|Casio - PV-1000|Casio - Loopy|Emerson - Arcadia|Entex - Adventure Vision|Leapfrog - Leapster Learning Game System|Hartung - Game Master|Fairchild - Channel F|Funtech - Super Acan|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - 64|Commodore - VIC-20|Commodore - Plus-4|Commodore - Amiga|GamePark - GP32|Magnavox - Odyssey2|Nokia - N-Gage|Sony - Playstation 2|RCA - Studio II|RCA - Studio II|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Sufami Turbo|Sega - PICO|Tiger - Game com|VTech - CreatiVision|VTech - V.Smile|Sharp - X68000
 
 hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
 
@@ -2520,7 +2520,7 @@ Gui,Font,s7 Bold
 Gui, Add, GroupBox, x8 y1 w746 h503 Center, Hosted Games
 Gui,Font,s7 Norm 
 ;;gui, Add, ListView, x14 y42 w731 h400 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, USER|ROM|CRC|CORE|(Ver)|IP|PORT|TYPE|PASS|
-Gui, Add, ListView, x14 y42 w731 h366 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, User|ROM|CRC|Core|(Build)|IP|Port|Open|Password|Region|Vers|
+Gui, Add, ListView, x14 y42 w731 h366 AltSubmit -Multi Sort  hwndHostView vNETHOSTLIST gNetHostList hidden, User|ROM|CRC|Core|(Build)|OS|IP|Port|Open|Password|Region|Vers|
 
 ;;gui, Add, Text, x672 y11 h15, Port-Check
 ;;gui, Add, CheckBox, x730 y11 w15 h14 vCHKPORTS gChkPorts,
@@ -3209,6 +3209,7 @@ EXCLBOOL_TT :="Excludes the ROM list using filtered extensions."
 EXELIST_TT :="Install RetroArch executable and assets"
 EXTINP_TT :="extensions to assign.`nseparate by a comma.`neg: bin,zip,rom"
 EXTRURL_TT :="If the ROM is a compressed archive, it will be extracted"
+EMUDETECT_TT :="Detects emulators`nThis may take a minute or two depending on the number of executables in your Emulators Directory"
 EXTPARSED_TT :="Comma separated extensions to filter ROMs.`nDo not include spaces or periods"
 FILESERV_TT :="Enables the file-server to allow clients to download your currently hosted ROM"
 FILTEXT_TT :="Filter files being show in 'Load Content' by supported extensions"
@@ -3261,6 +3262,7 @@ LANIPRAD_TT :="Local network address"
 LATENCY_TT :="Desired audio latency in milliseconds. Might not be honored if driver can't provide given latency."
 LCORE_TT :="Select a libretro core or emulator"
 LNCHBUT_TT :="Launch the currently displayed ROM"
+JACKETMODE_TT :="Downloads the ROM to a directory of its title"
 LOCEMUIN_TT :="Selects an emulator executable and assisns it to the selected systems"
 SRCHROMEDT_TT :="Search for a ROM`n do not include wildcards (*) or other special characters"
 SRCHLOCDDL_TT :="Search within"
@@ -3530,6 +3532,12 @@ SLVONLY_TT :="Disallows connections not in slave mode.`nNOT reccommended except 
 SMTHV_TT :="Filters video output.  Turn this option off when enabling shaders."
 SRCHARCORG_TT :="Automatically searches archive.org repository for matching ROM if a local copy is not found."
 SRCHEDT_TT :="Search for an Archive.org ROM`ndo NOT include wildcards (*) or other special characters."
+SRCHROMEDT_TT :="Search for a ROM`ndo NOT include wildcards (*) or other special characters."
+SRCHLOCDDL_TT :="Playlist or Directory to search."
+SRCHROMLBX_TT :="Search results`nRight-Click on selections for options"
+SRCHFLRAD_TT :="Serach within your ROM-Jacket system folders or your retroarch downloads folder."
+SRCHPLRAD_TT :="Search within playlists."
+SRCHRCRSCHK_TT :="Searches subdirectories"
 SRCHRSLT_TT :="SEARCH_RESULTS"
 SSHTCVR_TT :="Video-snapshots"
 STAI_TT :="# When saving a savestate, save state index is automatically increased before`nit is saved.`nAlso, when loading content, the index will be set to the highest existing index.`nThere is no upper bound on the index."
@@ -4087,8 +4095,11 @@ if (RUNPLRAD = 0)
 		if (dlx = "dll")
 			{
 				APLN= 
-				gosub, ExtensionLookup
+				;;gosub, ExtensionLookup
 			}
+			
+		gosub, ExtensionLookup
+				
 		guicontrol,,LCORE,|%coreselv%||%runlist%
 		gosub, CoreAuto
 		if (dlx <> "dll")
@@ -10291,7 +10302,7 @@ if (appasi = "")
 	{
 		return
 	}
-SplitPath,appasi,edxe,,,appasn
+SplitPath,appasi,ovfile,,,appasn
 if (SALIST = "Emulators")
 	{
 		IniWrite, "%appasi%",Assignments.ini,ASSIGNMENTS,%sysni%
@@ -10363,7 +10374,7 @@ if (SALIST = "Systems")
 			}
 	}
 
-guicontrol,,EXDISPL,"..\%edxe%"%apopt%%qdisp%%pthdisp%$ROM%xdisp%%qdisp%%aparg%, %runfr%
+guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%$ROM%xdisp%%qdisp%%aparg%, %runfr%
 guicontrol,show,APPOPT
 guicontrol,show,SYSNICK
 guicontrol,show,SVNICK
@@ -14437,7 +14448,7 @@ if (NPLC = "")
 			return
 		}
 guicontrol,,ARCPOP,|%pop_list%
-if (ARCSYS = "MAME")
+if (ARCSYS = "MAME - Arcade")
 	{
 		guicontrol,,EXTRURL,0
 	}
@@ -14447,9 +14458,9 @@ if (ARCSYS = "MAME - Arcade")
 	}
 if (ARCSYS = "MAME - BIOS")
 	{
-		OVDCHK=MAME
-		guicontrol,,OVDLDS,|MAME|Matching|%SWAPPOP%
-		guicontrol,,OVDTXT,%SWAPLOC%\MAME
+		OVDCHK=MAME - Arcade
+		guicontrol,,OVDLDS,|MAME - Arcade|Matching|%SWAPPOP%
+		guicontrol,,OVDTXT,%SWAPLOC%\MAME - Arcade
 		guicontrol,,OVDCHK,1
 		guicontrol,,DOWNONLY,1
 		gosub, DOWNONLY
@@ -31913,7 +31924,7 @@ if (syslk = "FB Alpha 2012 CPS2")
 	}
 if (syslk = "FB Alpha 2012")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fbalpha2012
 	}
@@ -31925,13 +31936,13 @@ if (syslk = "FB Alpha 2012 NeoGeo")
 	}
 if (syslk = "FB Alpha")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fbalpha
 	}
 if (syslk = "final burn alpha")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= fba
 	}
@@ -32008,37 +32019,37 @@ if (syslk = "GlupeN64 Vulkan")
 	}
 if (syslk = "MAME 2000")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2000
 	}
 if (syslk = "MAME 2003")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2003
 	}
 if (syslk = "MAME 2010")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		zip= 1
 		corelk= mame 2010
 	}
 if (syslk = "MAME 2014")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2014
 	}
 if (syslk = "MAME 2016")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame2016
 	}
 if (syslk = "MAME")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= mame
 	}
@@ -32242,7 +32253,7 @@ if (syslk = "TGB Dual")
 	}
 if (syslk = "UME 2014")
 	{
-		ASPOP= MAME
+		ASPOP= MAME - Arcade
 		szip= 1
 		corelk= ume2014
 	}
@@ -38412,6 +38423,10 @@ Loop, Read, lobby.ini
 		{
 			NETHOSTPASSWDS:= arrsp2
 		}
+	if (arrsp1 = "frontend")
+		{
+			FRONTENDOS:= arrsp2
+		}
 	if (arrsp1= "game_name")
 		{
 			gamsplt1= 
@@ -38511,8 +38526,8 @@ if (NETHOSTPASSWDS = "true")
 
 trpn= 
 FILTNUM+=1
-ROOMFLT%FILTNUM%=  %NETHOSTNAMES% | %NETHOSTGAMES% | %NETHOSTCRCD% | %NETHOSTCORES% | %NETHOSTCOREVERSIONS% | %NETHOSTIPS% | %NETHOSTPORTS% | %PORTAV% | %WORLDLOC% | %RAEXEVERS%
-LV_Add("", NETHOSTNAMES ,  NETHOSTGAMES , NETHOSTCRCD , NETHOSTCORES , NETHOSTCOREVERSIONS , NETHOSTIPS, NETHOSTPORTS, PORTAV, NETPWDZ, WORLDLOC, RAEXEVERS )
+ROOMFLT%FILTNUM%=  %NETHOSTNAMES% | %NETHOSTGAMES% | %NETHOSTCRCD% | %NETHOSTCORES% | %NETHOSTCOREVERSIONS% | %FRONTENDOS% | %NETHOSTIPS% | %NETHOSTPORTS% | %PORTAV% | %WORLDLOC% | %RAEXEVERS%
+LV_Add("", NETHOSTNAMES ,  NETHOSTGAMES , NETHOSTCRCD , NETHOSTCORES , NETHOSTCOREVERSIONS , FRONTENDOS, NETHOSTIPS, NETHOSTPORTS, PORTAV, NETPWDZ, WORLDLOC, RAEXEVERS )
 /*
 LV_ModifyCol(1,110)
 LV_ModifyCol(2,250)
@@ -44715,7 +44730,7 @@ if (dlx <> "dll")
 			APLN= 1
 			if (SRCHFLRAD = 1)
 				{
-					guicontrol,,SRCHLOCDDL,|%SWAPNAM%|%SWAPPOP%
+					guicontrol,,SRCHLOCDDL,|%SWAPNAM%||%SWAPPOP%
 				}
 
 			;;guicontrol,show,JCORE
@@ -48397,7 +48412,7 @@ return
 videoFrameDelay:
 videoFrameDelay= %inival2%
 FRMDL= %inival2%
-guiControl,,FRMDL, %inival2%
+guiControl,,FRMDL, |%inival2%||0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15
 return
 
 videoFullscreen:
@@ -48469,19 +48484,19 @@ GuiControl,, GPUSS, %GPUSS%
 return
 
 videoHardSync:
-GSNC= 0
+HSYNC= 0
 videoHardSync= %inival2%
 if (inival2 = "true")
 	{
-		GSNC= 1
+		HSYNC= 1
 		guicontrol, enable, GPUV
 	}
-GuiControl,, GSNC, %GSNC%
+GuiControl,, HSYNC, %HSYNC%
 return
 
 videoHardSyncFrames:
 videoHardSyncFrames= %inival2%
-guiControl,,GPUV, %inival2%
+guiControl,,GPUV, |%inival2%||1|2|3
 return
 
 videoMaxSwapchainImages:

@@ -99,7 +99,7 @@
         </p>
   </div>
 </div> <a id="DONATE"></a>
-</div><div align="center"> <a href="https://www.paypal.me/romjacket"><img src="joyimg/tip.png" width="64" height="67" alt=""/></a><br>
+</div><div align="center"> <a href="https://www.paypal.me/romjacket"><img src="tip.png" width="64" height="67" alt=""/></a><br>
     tip-jar<br>
         <input type="hidden" name="cmd" value="_s-xclick" /> 
         <input type="hidden" name="hosted_button_id" value="BEVC56LWSH6SU" /> 
@@ -141,11 +141,12 @@
  
   <div id="inner">
 
-<p>SkeletonKey exists as both a configuration tool and as a ROM-Launcher.<br> ROMs can be launched by dragging and dropping to the desktop icon, into the options window or selected from within your library.</p>
+<p>SkeletonKey can function both a configuration tool and as a ROM-Launcher. <br> 
+  ROMs can be launched by dragging and dropping to the desktop icon, into the options window searched for and selected from within your library or downloaded from Archive.org. As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.</p>
 <p>Nearly every skeletonKey option has a tool-tip when the mouse hovers above it. Operational feedback appears in the statusbar at the bottom of the window.</p>
 
 <h3>Overview</h3>
-<p>After skeletonKey is installed, the user is prompted to define an emulators folder, a &quot;system&quot; folder and either locate the retroArch.exe program or a directory into which it can be installed - whereupon a quick-setup wizard can automatically install retroArch with several cores. RetroArch is tightly integrated into skeletonKey, with an <em>exhaustive</em> set of options and exclusive features for netplay.</p>
+<p>After skeletonKey is installed, an &quot;emulators directory&quot;, a &quot;systems directory&quot; and the retroArch.exe program or a directory into which it can be installed will be defined- whereupon a quick-setup wizard can automatically install retroArch with several cores. RetroArch is tightly integrated into skeletonKey, with an <em>exhaustive</em> set of options and exclusive features for netplay.</p>
 <h3>Portable Mode</h3>
 
 
@@ -156,7 +157,7 @@
 
 <h3>Forking</h3>
  
-<p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.ahk can be used to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries.  </p>
+<p>A deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.ahk can be compiled to build, maintain and deploy a skeletonKey source-code versioning project, website and binaries.  </p>
 </div></div>
 <p><br>
 </p>
@@ -167,7 +168,7 @@
   <p>SkeletonKey can be used to quickly install emulators, frontends, retroArch and utilities.  The Install Tab is also used to associate skeletonKey's systems with emulators and retroArch cores when using skeletonKey as a launcher.</p>
   <h3>Installing RetroArch &amp; cores</h3>
   <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version are available.</p>
-  <p>RetroArch does not come pre-installed with emulator cores. Cores can also be updated and installed as needed individually. </p>
+  <p>RetroArch does not come pre-installed with emulator cores, artwork or any BIOS files. Cores can also be updated and installed as needed individually. </p>
   <h3>Installing BIOS Files</h3>
   <p>Drag &amp; Drop BIOS files or a BIOS pack (.7z .zip .rar) to automatically install them to their proper places in supported emulators directories.</p>
   <h3>Emulators</h3>
@@ -221,7 +222,7 @@
 
 
 <h1 class='elegantshadow'>System-Associations &amp; EMULATOR-ASSOCIATIONS</h1>
-<p>&amp;</p>
+<p>&nbsp;</p>
 <div id="inner">
 <p>Each system has a pre-associated retroArch core assigned to it. <em>(eg: nestopia_libretro.dll is the default core assigned to the NES)</em><br>
   These systems are defined by file-extensions exclusive to the system. <em>(eg: ONLY the Nintendo Entertainment System uses the <strong>.nes</strong> extension)</em> <br>
@@ -246,16 +247,23 @@
   <hr>
   <h1 class='elegantshadow'>Options Tab</h1>
   <div id="inner">
-    <p>Options are categorized by type. The options tab is responsive and will populate options for the skeletonKey program or the currently selected emulator. Global settings such as locations for emulators, your systems, retroArch, overrides for the batch-script launcher and other settings can be adjusted here. </p>
-    <h3>Systems Directory</h3>
+    <p>Options are categorized by type. The options tab is responsive and will populate options for the skeletonKey program or the currently selected emulator (if supported). </p>
+    <h3>Global Settings</h3>
+    <h4>Launch-Menu items</h4>
+    <p>The Launch menu items persist across emulator settings populated in the options tab. These items are at the top of the window and are necessary to browse your library and launch a ROM. They include a toggle and selection menu for playlists and system directories, a ROM selector button, an emulator/core selection menu, a &quot;swtiches&quot; toggle (to expose options &amp; arguments fields), an editable selection menu containing items in the currently selected playlist or directory, and a LAUNCH button.</p>
+    <p>Global settings such as locations for emulators, your systems, retroArch, overrides for the batch-script launcher and other options can be adjusted in the options tab and can be accessed from the file menu at any time.</p>
+    <h4>Systems Directory</h4>
     <p>By default, ROMs are <em>[categorically]</em> stored by system-name in the<code> <em>(retroarch install folder)</em>\downloads\<em>[SYSTEM NAME]</em></code> folder. The <code>\downloads\</code> directory is by default also retroArch's <code>"core_assets_directory"</code>. <br>
       Archive.org ROMs will be downloaded to the corresponding system name which follows the no-intro naming nomenclature. </p>
     <p>Each system is pre-assigned a retroArch core with which to associate ROMs. This association defines how skeletonKey will automatically launch ROMs, however these core-to-system assocations can be changed to other cores or standalone emulators.</p>
-    <h3>Emulators Directory</h3>
+    <h4>Emulators Directory</h4>
     <p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a directory to the Emulators Directory, skeletonKey will search subdirectories for known emulators not currently identified or manually assigned.</p>
-    <h3></h3>
-    <p>&nbsp;</p>
-	<br></div>
+	<h4>Search</h4>
+	<p>SkeletonKey can search for ROMs in your Systems directory, playlists, or the retroArch &quot;Downloads/core_assets&quot; directory. A file selected in the search box can quickly be launched by it's associated core. A right-click menu allows for a single ROM to be launched by any installed emulator or it's directory opened by windows explorer. Additionally, multiple files can be selected and added to the current playlist.</p>
+<h4>BSL - Batch-Script-Launcher</h4>
+Typically, a frontend will assign an emluator to a directory containing a set of ROMs with a defined extension. The BSL is used as a generic emulator where &quot;.bat&quot; or &quot;.lnk&quot; can be used as a generic extension. The BSL will execute the ROM-Jacket launcher while controlling the visibility and state of the frontend. Additionally the BSL can override settings defined by ROM-Jacket launchers.<br>
+	  
+  </div>
 </div>
 
   <a id="JOYSTICKS"></a>
