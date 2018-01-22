@@ -351,63 +351,67 @@ oldsize=
 oldsha= 
 olrlsdt=
 vernum=	
+
 VERSIONGET:
 sklnum= 
-getversf= %gitroot%\%gitusrname%.github.io\index.html
-ifnotexist,getversf
+getversf= %gitroot%\%GITUSER%.github.io\index.html
+
+ifnotexist,%getversf%
 	{
 		FileDelete,ORIGHTML.html
 		UrlDownloadToFile, http://romjacket.github.io/index.html, ORIGHTML.html
 		getversf= ORIGHTML.html
 	}
-Loop,Read, %getversf%
+
+Loop, Read, %getversf%
 	{
-	sklnum+=1
-	getvern= 
-	ifinstring,A_LoopReadLine,<h99>
-		{
-			stringgetpos,verstr,A_LoopReadLine,<h99>
-			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io.html,%sklnum%
-			getvern:= verstr+6
-			StringMid,vernum,sklin,%getvern%,10
-			if (vernum = "</h99></st")
-				{
-					vernum= 0.99.0.0
-				}
-			continue
-		}
-ifinstring,A_LoopReadLine,<h88>
-		{
-			stringgetpos,verstr,A_LoopReadLine,<h88>
-			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
-			getvern:= verstr+6
-			StringMid,oldsize,sklin,%getvern%,4
-			continue
-		}
-ifinstring,A_LoopReadLine,<h87>
-		{
-			stringgetpos,verstr,A_LoopReadLine,<h87>
-			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
-			getvern:= verstr+6
-			StringMid,oldsize,sklin,%getvern%,4
-			continue
-		}
-ifinstring,A_LoopReadLine,<h77>
-		{
-			stringgetpos,verstr,A_LoopReadLine,<h77>
-			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
-			getvern:= verstr+6
-			StringMid,oldsha,sklin,%getvern%,40
-			continue
-		}
-ifinstring,A_LoopReadLine,<h66>
-		{
-			stringgetpos,verstr,A_LoopReadLine,<h66>
-			FileReadLine,sklin,%gitroot%\%gitusrname%.github.io\index.html,%sklnum%
-			getvern:= verstr+6
-			StringMid,olrlsdt,sklin,%getvern%,18
-			continue
-		}	
+		sklnum+=1
+		getvern= 
+		ifinstring,A_LoopReadLine,<h99>
+			{
+				stringgetpos,verstr,A_LoopReadLine,<h99>
+				stringgetpos,endstr,A_LoopReadLine,</h99>
+				strstr:= verstr + 6
+				midstr:= (endstr - verstr - 5)
+				stringmid,vernum,A_LoopReadLine,strstr,midstr
+				if (midstr = 0)
+					{
+						vernum= 0.99.00.00
+					}
+				continue
+			}
+			ifinstring,A_LoopReadLine,<h88>
+					{
+						stringgetpos,verstr,A_LoopReadLine,<h88>
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						getvern:= verstr+6
+						StringMid,oldsize,sklin,%getvern%,4
+						continue
+					}
+			ifinstring,A_LoopReadLine,<h87>
+					{
+						stringgetpos,verstr,A_LoopReadLine,<h87>
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						getvern:= verstr+6
+						StringMid,oldsize,sklin,%getvern%,4
+						continue
+					}
+			ifinstring,A_LoopReadLine,<h77>
+					{
+						stringgetpos,verstr,A_LoopReadLine,<h77>
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						getvern:= verstr+6
+						StringMid,oldsha,sklin,%getvern%,40
+						continue
+					}
+			ifinstring,A_LoopReadLine,<h66>
+					{
+						stringgetpos,verstr,A_LoopReadLine,<h66>
+						FileReadLine,sklin,%gitroot%\%GITUSER%.github.io\index.html,%sklnum%
+						getvern:= verstr+6
+						StringMid,olrlsdt,sklin,%getvern%,18
+						continue
+					}	
 }
 		
 		
@@ -420,8 +424,8 @@ if (vernum = "")
 ;Gui Add, Tab2, x2 y-1 w487 h171 Bottom, Deploy|Reset
 ;Gui, Tab, 1
 ;Gui Tab, Deploy
-Gui, Add, Edit, x8 y24 w410 h50 vPushNotes gPushNotes,%date% :%A_Space%
-Gui, Add, Edit, x424 y24 w55 h21vvernum gVerNum, %vernum%
+Gui, Add, Edit, x8 y24 w469 h50 vPushNotes gPushNotes,%date% :%A_Space%
+Gui, Add, Edit, x11 y146 w115 h21 vVernum gVerNum +0x2, %vernum%
 Gui, Add, CheckBox, x386 y100 w104 h23 vOvrStable gOvrStable, Overwite Stable
 gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCOMPILE gCOMPILE, DEPLOY
@@ -433,7 +437,7 @@ Gui, Add, CheckBox, x9 y112 h17 vSiteUpdate gSiteUpdate checked, Site Update
 gui,font,bold
 Gui, Add, Button, x408 y123 w75 h23 vCANCEL gCANCEL hidden, CANCEL
 gui,font,normal
-Gui, Add, Text, x424 y8, Version
+Gui, Add, Text, x130 y150, Version
 Gui, Add, CheckBox, x90 y76 w104 h13 vPortVer gPortVer checked, Portable Version
 Gui, Add, CheckBox, x90 y95 w154 h13 vDevlVer gDevlVer checked, Development Version
 Gui, Add, CheckBox, x90 y113 w154 h13 vDATBLD gDatBld, Database Recompile
@@ -443,9 +447,8 @@ Gui, Add, Button, x424 y78 w52 h21 vSELDIR gSelDir, Select
 Gui, Add, DropDownList, x318 y78 w100 vSRCDD gSrcDD, Source||Compiler|Deployment|Build|NSIS|Github|Git-Release
 
 
-Gui Add, DropDownList, x206 y1 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
-Gui Add, Button, x301 y1 w52 h21 vResB gResB, Reset
-Gui Add, Text, x173 y4, Reset
+Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, Dev-Build||Portable-Build|Stable-Build|Deployer|Update-URL|Shader-URL|Repo-URL|Internet-IP-URL|Git-URL
+Gui Add, Button, x425 y2 w52 h21 vResB gResB, Reset
 
 Gui, Add, Progress, x12 y135 w388 h8 vprogb -Smooth, 0
 

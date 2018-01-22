@@ -29,6 +29,8 @@ XM7=:Subsys_b.rom:9BE69FAC>
 XM7=:Subsys_c.rom:24CEC93F>
 XM7=:Userdic.dat:B42934350>
 
+Dolphin\Sys\GC=:dsp_coef.bin:D2777C90>
+Dolphin\Sys\GC=:dsp_rom.bin:47DAAA65>
 
 UNZ=:FMT_DIC.ROM:82D1DAA2>
 UNZ=:FMT_DOS.ROM:112872EE>
@@ -305,9 +307,7 @@ demul\roms\dc.zip=:1_01d_02.bin:A2564FAD>
 demul\roms\dc.zip=:1_004_01.bin:545481F>
 demul\roms\dc.zip=:1_011_01.bin:2186E0E5>
 demul\roms\dc.zip=:1_022_01.bin:786168F9>
-nullDC\data=reicast\bios=retroarch\system\dc=:DC - BIOS (All).bin:89F2B1A1
 nullDC\data=reicast\bios=retroarch\system\dc=:DC - BIOS (All).bin:61D5613F
-nullDC\data=reicast\bios=retroarch\system\dc=:DC - Flash (All).bin:C611B498
 nullDC\data=reicast\bios=retroarch\system\dc=:DC - Flash (All).bin:E0D202A2
 nullDC\data=reicast\bios=retroarch\system\dc=:DC - Utopia CD Loader V1.1.cdi>
 nullDC\data=reicast\bios=retroarch\system\dc=:DC - Utopia CD Loader V1.1.nrg>

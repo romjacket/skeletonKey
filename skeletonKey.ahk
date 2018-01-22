@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-20 9:17 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-22 9:26 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,8 +11,8 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-20 9:17 PM
-VERSION= 
+RELEASE= 2018-01-22 9:26 AM
+VERSION= 0.99.34.03
 RASTABLE= 1.7.0
 
 FileReadLine,HOSTINGURL,arcorg.set,2
@@ -39525,13 +39525,14 @@ if A_GuiEvent = Normal
 		BRKO=
 		LV_Modify(SelectedRow, "+Select +Focus")
 		LV_GetText(HOSTINGUSER, A_EventInfo,1)
-		LV_GetText(IPADR, A_EventInfo,6)
-		LV_GetText(LOBTYP, A_EventInfo,8)
-		LV_GetText(netplayRemotePort, A_EventInfo,7)
 		LV_GetText(HOSTINGROMS, A_EventInfo,2)
+		LV_GetText(HOSTINGCRCS, A_EventInfo,3)
 		LV_GetText(syslk, A_EventInfo,4)
 		LV_GetText(corever, A_EventInfo,5)
-		LV_GetText(HOSTINGCRCS, A_EventInfo,3)
+		LV_GetText(FRONTENDOS, A_EventInfo,6)
+		LV_GetText(IPADR, A_EventInfo,7)
+		LV_GetText(netplayRemotePort, A_EventInfo,8)
+		LV_GetText(LOBTYP, A_EventInfo,9)
 		guicontrol,,AUTOCORE,1
 		romname= %HOSTINGROMS%
 			;;if (HOSTINGCRCS = 0)
