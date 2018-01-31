@@ -1,0 +1,2599 @@
+analogthreshold 75
+autosave 0
+cd.image_memcache 0
+cdplay.enable 1
+cdplay.forcemono 0
+cdplay.input.builtin.controller.next_track [P1SET1PADRIGHT]
+cdplay.input.builtin.controller.next_track_10 [P1SET1PADUP]
+cdplay.input.builtin.controller.play_pause [P1SET1BUT8]
+cdplay.input.builtin.controller.previous_track [P1SET1PADLEFT]
+cdplay.input.builtin.controller.previous_track_10 [P1SET1PADDOWN]
+cdplay.input.builtin.controller.scan_forward [P1SET1ANLLXR]
+cdplay.input.builtin.controller.scan_reverse [P1SET1ANLLXL]
+cdplay.input.builtin.controller.stop [P1SET1BUT7]
+cdplay.pixshader [SHADR]
+cdplay.scanlines [SCAN]
+cdplay.special [SHADG]
+cdplay.stretch [ASPC]
+cdplay.tblur [BLUR]
+cdplay.tblur.accum [ACCUMBLUR]
+cdplay.tblur.accum.amount [BLURLVL]
+cdplay.videoip [NOGL]
+cdplay.visualization 1
+cdplay.xres 0
+cdplay.xscale 4.000000
+cdplay.xscalefs 1.000000
+cdplay.yres 0
+cdplay.yscale 4.000000
+cdplay.yscalefs 1.000000
+cheats 1
+command.0 keyboard 48
+command.1 keyboard 49
+command.2 keyboard 50
+command.3 keyboard 51
+command.4 keyboard 52
+command.5 keyboard 53
+command.6 keyboard 54
+command.7 keyboard 55
+command.8 keyboard 56
+command.9 keyboard 57
+command.activate_barcode keyboard 289
+command.advance_frame keyboard 97+alt
+command.device_select1 keyboard 49+ctrl+shift
+command.device_select2 keyboard 50+ctrl+shift
+command.device_select3 keyboard 51+ctrl+shift
+command.device_select4 keyboard 52+ctrl+shift
+command.device_select5 keyboard 53+ctrl+shift
+command.device_select6 keyboard 54+ctrl+shift
+command.device_select7 keyboard 55+ctrl+shift
+command.device_select8 keyboard 56+ctrl+shift
+command.exit keyboard 293~keyboard 27
+command.fast_forward keyboard 96
+command.input_config1 keyboard 49+alt+shift
+command.input_config2 keyboard 50+alt+shift
+command.input_config3 keyboard 51+alt+shift
+command.input_config4 keyboard 52+alt+shift
+command.input_config5 keyboard 53+alt+shift
+command.input_config6 keyboard 54+alt+shift
+command.input_config7 keyboard 55+alt+shift
+command.input_config8 keyboard 56+alt+shift
+command.input_config_abd keyboard 284
+command.input_configc keyboard 283
+command.input_configc_am keyboard 283+shift
+command.insert_coin keyboard 289
+command.insert_eject_disk keyboard 289
+command.load_movie keyboard 288+shift
+command.load_state keyboard 288
+command.m0 keyboard 48+shift
+command.m1 keyboard 49+shift
+command.m2 keyboard 50+shift
+command.m3 keyboard 51+shift
+command.m4 keyboard 52+shift
+command.m5 keyboard 53+shift
+command.m6 keyboard 54+shift
+command.m7 keyboard 55+shift
+command.m8 keyboard 56+shift
+command.m9 keyboard 57+shift
+command.power keyboard 292
+command.reset keyboard 291
+command.rotate_screen keyboard 111+alt
+command.run_normal keyboard 114+alt
+command.save_movie keyboard 286+shift
+command.save_state keyboard 286
+command.select_disk keyboard 287
+command.slow_forward keyboard 277
+command.state_rewind keyboard 8
+command.state_slot_dec keyboard 45
+command.state_slot_inc keyboard 61
+command.take_scaled_snapshot keyboard 290+shift
+command.take_snapshot keyboard 290
+command.tl1 keyboard 49+ctrl
+command.tl2 keyboard 50+ctrl
+command.tl3 keyboard 51+ctrl
+command.tl4 keyboard 52+ctrl
+command.tl5 keyboard 53+ctrl
+command.tl6 keyboard 54+ctrl
+command.tl7 keyboard 55+ctrl
+command.tl8 keyboard 56+ctrl
+command.tl9 keyboard 57+ctrl
+command.toggle_cidisable keyboard 302+shift
+command.toggle_debugger keyboard 100+alt
+command.toggle_dipview keyboard 287
+command.toggle_fps_view keyboard 282+shift
+command.toggle_fs keyboard 13+alt
+command.toggle_grab_input keyboard 302
+command.toggle_help keyboard 282
+command.toggle_state_rewind keyboard 115+alt
+command.togglecheatactive keyboard 116+alt
+command.togglecheatview keyboard 99+alt
+command.togglenetview keyboard 116
+debugger.autostepmode 0
+ffnosound 0
+ffspeed 4
+fftoggle 0
+filesys.disablesavegz 1
+filesys.fname_movie %f.%M%p.%x
+filesys.fname_sav %F.%M%x
+filesys.fname_snap %f-%p.%x
+filesys.fname_state %f.%M%X
+filesys.path_cheat [ROMPTH]\.cheats
+filesys.path_firmware firmware
+filesys.path_movie [ROMPTH]\backdrops
+filesys.path_palette palettes
+filesys.path_sav [ROMPTH]\.Mem
+filesys.path_snap [ROMPTH]\.snaps
+filesys.path_state [ROMPTH]\.sstates
+filesys.untrusted_fip_check 1
+gb.enable 1
+gb.forcemono 0
+gb.input.builtin.gamepad.a [P1SET1BUT1]
+gb.input.builtin.gamepad.b [P1SET1BUT1]
+gb.input.builtin.gamepad.down [P1SET1PADDOWN]
+gb.input.builtin.gamepad.left [P1SET1PADLEFT]
+gb.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+gb.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+gb.input.builtin.gamepad.right [P1SET1PADRIGHT]
+gb.input.builtin.gamepad.select [P1SET1BUT7]
+gb.input.builtin.gamepad.start [P1SET1BUT8]
+gb.input.builtin.gamepad.up [P1SET1PADUP]
+gb.pixshader [SHADR]
+gb.scanlines [SCAN]
+gb.special [SHADG]
+gb.stretch [ASPC]
+gb.system_type auto
+gb.tblur [BLUR]
+gb.tblur.accum [ACCUMBLUR]
+gb.tblur.accum.amount [BLURLVL]
+gb.videoip [NOGL]
+gb.xres 0
+gb.xscale 4.000000
+gb.xscalefs 1.000000
+gb.yres 0
+gb.yscale 4.000000
+gb.yscalefs 1.000000
+gba.bios [GBABIOS]
+gba.enable 1
+gba.forcemono 0
+gba.input.builtin.gamepad.a [P1SET1BUT1]
+gba.input.builtin.gamepad.b [P1SET1BUT3]
+gba.input.builtin.gamepad.down [P1SET1PADDOWN]
+gba.input.builtin.gamepad.left [P1SET1PADLEFT]
+gba.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+gba.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+gba.input.builtin.gamepad.right [P1SET1PADRIGHT]
+gba.input.builtin.gamepad.select [P1SET1BUT7]
+gba.input.builtin.gamepad.shoulder_l [P1SET1BUT6]
+gba.input.builtin.gamepad.shoulder_r [P1SET1BUT9]
+gba.input.builtin.gamepad.start [P1SET1BUT8]
+gba.input.builtin.gamepad.up [P1SET1PADUP]
+gba.pixshader [SHADR]
+gba.scanlines [SCAN]
+gba.special [SHADG]
+gba.stretch [ASPC]
+gba.tblur [BLUR]
+gba.tblur.accum [ACCUMBLUR]
+gba.tblur.accum.amount [BLURLVL]
+gba.videoip [NOGL]
+gba.xres 0
+gba.xscale 3.000000
+gba.xscalefs 1.000000
+gba.yres 0
+gba.yscale 3.000000
+gba.yscalefs 1.000000
+gg.enable 1
+gg.forcemono 0
+gg.input.builtin.gamepad.button1 [P1SET1BUT1]
+gg.input.builtin.gamepad.button2 [P1SET1BUT3]
+gg.input.builtin.gamepad.down [P1SET1PADDOWN]
+gg.input.builtin.gamepad.left [P1SET1PADLEFT]
+gg.input.builtin.gamepad.rapid_button1 [P1SET1RAPID1]
+gg.input.builtin.gamepad.rapid_button2 [P1SET1RAPID2]
+gg.input.builtin.gamepad.right [P1SET1PADRIGHT]
+gg.input.builtin.gamepad.start [P1SET1BUT8]
+gg.input.builtin.gamepad.up [P1SET1PADUP]
+gg.pixshader [SHADR]
+gg.scanlines [SCAN]
+gg.special [SHADG]
+gg.stretch [ASPC]
+gg.tblur [BLUR]
+gg.tblur.accum [ACCUMBLUR]
+gg.tblur.accum.amount [BLURLVL]
+gg.videoip [NOGL]
+gg.xres 0
+gg.xscale 4.000000
+gg.xscalefs 1.000000
+gg.yres 0
+gg.yscale 4.000000
+gg.yscalefs 1.000000
+input.autofirefreq 3
+input.ckdelay 0
+input.joystick.axis_threshold 75
+input.joystick.global_focus 1
+lynx.enable 1
+lynx.input.builtin.gamepad.a [P1SET1BUT1]
+lynx.input.builtin.gamepad.b [P1SET1BUT3]
+lynx.input.builtin.gamepad.down [P1SET1PADDOWN]
+lynx.input.builtin.gamepad.left [P1SET1PADLEFT]
+lynx.input.builtin.gamepad.option_1 [P1SET1BUT5]
+lynx.input.builtin.gamepad.option_2 [P1SET1BUT6]
+lynx.input.builtin.gamepad.pause [P1SET1BUT8]
+lynx.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+lynx.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+lynx.input.builtin.gamepad.rapid_option_1 [P1SET1RAPID3]
+lynx.input.builtin.gamepad.rapid_option_2 [P1SET1RAPID4]
+lynx.input.builtin.gamepad.right [P1SET1PADRIGHT]
+lynx.input.builtin.gamepad.up [P1SET1PADUP]
+lynx.lowpass 1
+lynx.pixshader [SHADR]
+lynx.rotateinput 1
+lynx.scanlines [SCAN]
+lynx.special [SHADG]
+lynx.stretch [ASPC]
+lynx.tblur [BLUR]
+lynx.tblur.accum [ACCUMBLUR]
+lynx.tblur.accum.amount [BLURLVL]
+lynx.videoip [NOGL]
+lynx.xres 0
+lynx.xscale 4.000000
+lynx.xscalefs 1.000000
+lynx.yres 0
+lynx.yscale 4.000000
+lynx.yscalefs 1.000000
+md.cdbios [SEGCDUS]
+md.correct_aspect 1
+md.debugger.disfontsize small
+md.debugger.memcharenc shift_jis
+md.enable 1
+md.forcemono 0
+md.input.port1 gamepad6
+md.input.port1.gamepad.a [P1SET1BUT1]
+md.input.port1.gamepad.b [P1SET1BUT3]
+md.input.port1.gamepad.c [P1SET1BUT4]
+md.input.port1.gamepad.down [P1SET1PADDOWN]
+md.input.port1.gamepad.left [P1SET1PADLEFT]
+md.input.port1.gamepad.rapid_a [P1SET1RAPID1]
+md.input.port1.gamepad.rapid_b [P1SET1RAPID2]
+md.input.port1.gamepad.rapid_c [P1SET1RAPID3]
+md.input.port1.gamepad.right [P1SET1PADRIGHT]
+md.input.port1.gamepad.start [P1SET1BUT8]
+md.input.port1.gamepad.up [P1SET1PADUP]
+md.input.port1.gamepad2.a [P1SET1BUT1]
+md.input.port1.gamepad2.b [P1SET1BUT3]
+md.input.port1.gamepad2.down [P1SET1PADDOWN]
+md.input.port1.gamepad2.left [P1SET1PADLEFT]
+md.input.port1.gamepad2.rapid_a [P1SET1RAPID1]
+md.input.port1.gamepad2.rapid_b [P1SET1RAPID2]
+md.input.port1.gamepad2.right [P1SET1PADRIGHT]
+md.input.port1.gamepad2.start [P1SET1BUT8]
+md.input.port1.gamepad2.up [P1SET1PADUP]
+md.input.port1.gamepad6.a [P1SET1BUT1]
+md.input.port1.gamepad6.b [P1SET1BUT3]
+md.input.port1.gamepad6.c [P1SET1BUT4]
+md.input.port1.gamepad6.down [P1SET1PADDOWN]
+md.input.port1.gamepad6.left [P1SET1PADLEFT]
+md.input.port1.gamepad6.mode [P1SET1MODE]
+md.input.port1.gamepad6.rapid_a [P1SET1RAPID1]
+md.input.port1.gamepad6.rapid_b [P1SET1RAPID2]
+md.input.port1.gamepad6.rapid_c [P1SET1RAPID3]
+md.input.port1.gamepad6.rapid_x [P1SET1RAPID4]
+md.input.port1.gamepad6.rapid_y [P1SET1RAPID5]
+md.input.port1.gamepad6.rapid_z [P1SET1RAPID6]
+md.input.port1.gamepad6.right [P1SET1PADRIGHT]
+md.input.port1.gamepad6.start [P1SET1BUT8]
+md.input.port1.gamepad6.up [P1SET1PADUP]
+md.input.port1.gamepad6.x [P1SET1BUT2]
+md.input.port1.gamepad6.y [P1SET1BUT5]
+md.input.port1.gamepad6.z [P1SET1BUT6]
+md.input.port1.megamouse.left [P1SET1BUT1]
+md.input.port1.megamouse.middle [P1SET1BUT4]
+md.input.port1.megamouse.right [P1SET1BUT3]
+md.input.port1.megamouse.start [P1SET1BUT8]
+md.input.port2 gamepad6
+md.input.port2.gamepad.a [P2SET1BUT1]
+md.input.port2.gamepad.b [P2SET1BUT3]
+md.input.port2.gamepad.c [P2SET1BUT4]
+md.input.port2.gamepad.down [P2SET1PADDOWN]
+md.input.port2.gamepad.left [P2SET1PADLEFT]
+md.input.port2.gamepad.rapid_a [P2SET1RAPID1]
+md.input.port2.gamepad.rapid_b [P2SET1RAPID2]
+md.input.port2.gamepad.rapid_c [P2SET1RAPID3]
+md.input.port2.gamepad.right [P2SET1PADRIGHT]
+md.input.port2.gamepad.start [P2SET1BUT8]
+md.input.port2.gamepad.up [P2SET1PADUP]
+md.input.port2.gamepad2.a [P2SET1BUT1]
+md.input.port2.gamepad2.b [P2SET1BUT3]
+md.input.port2.gamepad2.down [P2SET1PADDOWN]
+md.input.port2.gamepad2.left [P2SET1PADLEFT]
+md.input.port2.gamepad2.rapid_a [P2SET1RAPID1]
+md.input.port2.gamepad2.rapid_b [P2SET1RAPID2]
+md.input.port2.gamepad2.right [P2SET1PADRIGHT]
+md.input.port2.gamepad2.start [P2SET1BUT8]
+md.input.port2.gamepad2.up [P2SET1PADUP]
+md.input.port2.gamepad6.a [P2SET1BUT1]
+md.input.port2.gamepad6.b [P2SET1BUT3]
+md.input.port2.gamepad6.c [P2SET1BUT4]
+md.input.port2.gamepad6.down [P2SET1PADDOWN]
+md.input.port2.gamepad6.left [P2SET1PADLEFT]
+md.input.port2.gamepad6.mode [P2SET1MODE]
+md.input.port2.gamepad6.rapid_a [P2SET1RAPID1]
+md.input.port2.gamepad6.rapid_b [P2SET1RAPID2]
+md.input.port2.gamepad6.rapid_c [P2SET1RAPID3]
+md.input.port2.gamepad6.rapid_x [P2SET1RAPID4]
+md.input.port2.gamepad6.rapid_y [P2SET1RAPID5]
+md.input.port2.gamepad6.rapid_z [P2SET1RAPID6]
+md.input.port2.gamepad6.right [P2SET1PADRIGHT]
+md.input.port2.gamepad6.start [P2SET1BUT8]
+md.input.port2.gamepad6.up [P2SET1PADUP]
+md.input.port2.gamepad6.x [P2SET1BUT2]
+md.input.port2.gamepad6.y [P2SET1BUT5]
+md.input.port2.gamepad6.z [P2SET1BUT6]
+md.input.port2.megamouse.left [P2SET1BUT1]
+md.input.port2.megamouse.middle [P2SET1BUT4]
+md.input.port2.megamouse.right [P2SET1BUT3]
+md.input.port2.megamouse.start [P2SET1BUT8]
+ 
+md.pixshader [SHADR]
+md.region game
+md.reported_region same
+md.scanlines [SCAN]
+md.special [SHADG]
+md.stretch [ASPC]
+md.tblur [BLUR]
+md.tblur.accum [ACCUMBLUR]
+md.tblur.accum.amount [BLURLVL]
+md.videoip [INTERP]
+md.xres 0
+md.xscale 3.000000
+md.xscalefs 1.000000
+md.yres 0
+md.yscale 3.000000
+md.yscalefs 1.000000
+nes.clipsides 0
+nes.correct_aspect 0
+nes.debugger.disfontsize small
+nes.debugger.memcharenc cp437
+nes.enable 1
+nes.fnscan 1
+nes.gg 0
+nes.ggrom gg.rom
+nes.input.fcexp none
+nes.input.fcexp.arkanoid.button mouse 0
+nes.input.fcexp.fkb.0 keyboard 48
+nes.input.fcexp.fkb.1 keyboard 49
+nes.input.fcexp.fkb.2 keyboard 50
+nes.input.fcexp.fkb.3 keyboard 51
+nes.input.fcexp.fkb.4 keyboard 52
+nes.input.fcexp.fkb.5 keyboard 53
+nes.input.fcexp.fkb.6 keyboard 54
+nes.input.fcexp.fkb.7 keyboard 55
+nes.input.fcexp.fkb.8 keyboard 56
+nes.input.fcexp.fkb.9 keyboard 57
+nes.input.fcexp.fkb.a keyboard 97
+nes.input.fcexp.fkb.at keyboard 96
+nes.input.fcexp.fkb.b keyboard 98
+nes.input.fcexp.fkb.backslash keyboard 92
+nes.input.fcexp.fkb.c keyboard 99
+nes.input.fcexp.fkb.caret keyboard 61
+nes.input.fcexp.fkb.clear keyboard 127
+nes.input.fcexp.fkb.colon keyboard 39
+nes.input.fcexp.fkb.comma keyboard 44
+nes.input.fcexp.fkb.ctrl keyboard 306
+nes.input.fcexp.fkb.d keyboard 100
+nes.input.fcexp.fkb.delete keyboard 281
+nes.input.fcexp.fkb.down keyboard 274
+nes.input.fcexp.fkb.e keyboard 101
+nes.input.fcexp.fkb.empty keyboard 307
+nes.input.fcexp.fkb.escape keyboard 27
+nes.input.fcexp.fkb.f keyboard 102
+nes.input.fcexp.fkb.f1 keyboard 282
+nes.input.fcexp.fkb.f2 keyboard 283
+nes.input.fcexp.fkb.f3 keyboard 284
+nes.input.fcexp.fkb.f4 keyboard 285
+nes.input.fcexp.fkb.f5 keyboard 286
+nes.input.fcexp.fkb.f6 keyboard 287
+nes.input.fcexp.fkb.f7 keyboard 288
+nes.input.fcexp.fkb.f8 keyboard 289
+nes.input.fcexp.fkb.g keyboard 103
+nes.input.fcexp.fkb.graph keyboard 308
+nes.input.fcexp.fkb.h keyboard 104
+nes.input.fcexp.fkb.i keyboard 105
+nes.input.fcexp.fkb.insert keyboard 279
+nes.input.fcexp.fkb.j keyboard 106
+nes.input.fcexp.fkb.k keyboard 107
+nes.input.fcexp.fkb.kana keyboard 277
+nes.input.fcexp.fkb.l keyboard 108
+nes.input.fcexp.fkb.left keyboard 276
+nes.input.fcexp.fkb.left_bracket keyboard 91
+nes.input.fcexp.fkb.left_shift keyboard 304
+nes.input.fcexp.fkb.m keyboard 109
+nes.input.fcexp.fkb.minus keyboard 45
+nes.input.fcexp.fkb.n keyboard 110
+nes.input.fcexp.fkb.o keyboard 111
+nes.input.fcexp.fkb.p keyboard 112
+nes.input.fcexp.fkb.period keyboard 46
+nes.input.fcexp.fkb.q keyboard 113
+nes.input.fcexp.fkb.r keyboard 114
+nes.input.fcexp.fkb.return keyboard 13
+nes.input.fcexp.fkb.right keyboard 275
+nes.input.fcexp.fkb.right_bracket keyboard 93
+nes.input.fcexp.fkb.right_shift keyboard 303
+nes.input.fcexp.fkb.s keyboard 115
+nes.input.fcexp.fkb.semicolon keyboard 59
+nes.input.fcexp.fkb.slash keyboard 47
+nes.input.fcexp.fkb.space keyboard 32
+nes.input.fcexp.fkb.stop keyboard 8
+nes.input.fcexp.fkb.t keyboard 116
+nes.input.fcexp.fkb.u keyboard 117
+nes.input.fcexp.fkb.up keyboard 273
+nes.input.fcexp.fkb.v keyboard 118
+nes.input.fcexp.fkb.w keyboard 119
+nes.input.fcexp.fkb.x keyboard 120
+nes.input.fcexp.fkb.y keyboard 121
+nes.input.fcexp.fkb.z keyboard 122
+nes.input.fcexp.ftrainera.1 keyboard 111
+nes.input.fcexp.ftrainera.10 keyboard 44
+nes.input.fcexp.ftrainera.11 keyboard 46
+nes.input.fcexp.ftrainera.12 keyboard 47
+nes.input.fcexp.ftrainera.2 keyboard 112
+nes.input.fcexp.ftrainera.3 keyboard 91
+nes.input.fcexp.ftrainera.4 keyboard 93
+nes.input.fcexp.ftrainera.5 keyboard 107
+nes.input.fcexp.ftrainera.6 keyboard 108
+nes.input.fcexp.ftrainera.7 keyboard 59
+nes.input.fcexp.ftrainera.8 keyboard 39
+nes.input.fcexp.ftrainera.9 keyboard 109
+nes.input.fcexp.ftrainerb.1 keyboard 111
+nes.input.fcexp.ftrainerb.10 keyboard 44
+nes.input.fcexp.ftrainerb.11 keyboard 46
+nes.input.fcexp.ftrainerb.12 keyboard 47
+nes.input.fcexp.ftrainerb.2 keyboard 112
+nes.input.fcexp.ftrainerb.3 keyboard 91
+nes.input.fcexp.ftrainerb.4 keyboard 93
+nes.input.fcexp.ftrainerb.5 keyboard 107
+nes.input.fcexp.ftrainerb.6 keyboard 108
+nes.input.fcexp.ftrainerb.7 keyboard 59
+nes.input.fcexp.ftrainerb.8 keyboard 39
+nes.input.fcexp.ftrainerb.9 keyboard 109
+nes.input.fcexp.hypershot.i_jump keyboard 119
+nes.input.fcexp.hypershot.i_run keyboard 113
+nes.input.fcexp.hypershot.ii_jump keyboard 114
+nes.input.fcexp.hypershot.ii_run keyboard 101
+nes.input.fcexp.hypershot.rapid_i_jump 
+nes.input.fcexp.hypershot.rapid_i_run 
+nes.input.fcexp.hypershot.rapid_ii_jump 
+nes.input.fcexp.hypershot.rapid_ii_run 
+nes.input.fcexp.mahjong.1 keyboard 113
+nes.input.fcexp.mahjong.10 keyboard 103
+nes.input.fcexp.mahjong.11 keyboard 104
+nes.input.fcexp.mahjong.12 keyboard 106
+nes.input.fcexp.mahjong.13 keyboard 107
+nes.input.fcexp.mahjong.14 keyboard 108
+nes.input.fcexp.mahjong.15 keyboard 122
+nes.input.fcexp.mahjong.16 keyboard 120
+nes.input.fcexp.mahjong.17 keyboard 99
+nes.input.fcexp.mahjong.18 keyboard 118
+nes.input.fcexp.mahjong.19 keyboard 98
+nes.input.fcexp.mahjong.2 keyboard 119
+nes.input.fcexp.mahjong.20 keyboard 110
+nes.input.fcexp.mahjong.21 keyboard 109
+nes.input.fcexp.mahjong.3 keyboard 101
+nes.input.fcexp.mahjong.4 keyboard 114
+nes.input.fcexp.mahjong.5 keyboard 116
+nes.input.fcexp.mahjong.6 keyboard 97
+nes.input.fcexp.mahjong.7 keyboard 115
+nes.input.fcexp.mahjong.8 keyboard 100
+nes.input.fcexp.mahjong.9 keyboard 102
+nes.input.fcexp.oekakids.button mouse 0
+nes.input.fcexp.partytap.buzzer_1 keyboard 113
+nes.input.fcexp.partytap.buzzer_2 keyboard 119
+nes.input.fcexp.partytap.buzzer_3 keyboard 101
+nes.input.fcexp.partytap.buzzer_4 keyboard 114
+nes.input.fcexp.partytap.buzzer_5 keyboard 116
+nes.input.fcexp.partytap.buzzer_6 keyboard 121
+nes.input.fcexp.shadow.away_trigger 
+nes.input.fcexp.shadow.trigger 
+nes.input.port1 gamepad
+nes.input.port1.arkanoid.button mouse 0
+nes.input.port1.gamepad.a [P1SET1BUT1]
+nes.input.port1.gamepad.b [P1SET1BUT3]
+nes.input.port1.gamepad.down [P1SET1PADDOWN]
+nes.input.port1.gamepad.left [P1SET1PADLEFT]
+nes.input.port1.gamepad.rapid_a [P1SET1RAPID1]
+nes.input.port1.gamepad.rapid_b [P1SET1RAPID2]
+nes.input.port1.gamepad.right [P1SET1PADRIGHT]
+nes.input.port1.gamepad.select [P1SET1BUT7]
+nes.input.port1.gamepad.start [P1SET1BUT8]
+nes.input.port1.gamepad.up [P1SET1PADUP]
+nes.input.port1.powerpada.1 keyboard 111
+nes.input.port1.powerpada.10 keyboard 44
+nes.input.port1.powerpada.11 keyboard 46
+nes.input.port1.powerpada.12 keyboard 47
+nes.input.port1.powerpada.2 keyboard 112
+nes.input.port1.powerpada.3 keyboard 91
+nes.input.port1.powerpada.4 keyboard 93
+nes.input.port1.powerpada.5 keyboard 107
+nes.input.port1.powerpada.6 keyboard 108
+nes.input.port1.powerpada.7 keyboard 59
+nes.input.port1.powerpada.8 keyboard 39
+nes.input.port1.powerpada.9 keyboard 109
+nes.input.port1.powerpadb.1 
+nes.input.port1.powerpadb.10 
+nes.input.port1.powerpadb.11 
+nes.input.port1.powerpadb.12 
+nes.input.port1.powerpadb.2 
+nes.input.port1.powerpadb.3 
+nes.input.port1.powerpadb.4 
+nes.input.port1.powerpadb.5 
+nes.input.port1.powerpadb.6 
+nes.input.port1.powerpadb.7 
+nes.input.port1.powerpadb.8 
+nes.input.port1.powerpadb.9 
+nes.input.port1.zapper.away_trigger mouse 2
+nes.input.port1.zapper.trigger mouse 0
+nes.input.port2 gamepad
+nes.input.port2.arkanoid.button mouse 0
+nes.input.port2.gamepad.a [P2SET1BUT1]
+nes.input.port2.gamepad.b [P2SET1BUT3]
+nes.input.port2.gamepad.down [P2SET1PADDOWN]
+nes.input.port2.gamepad.left [P2SET1PADLEFT]
+nes.input.port2.gamepad.rapid_a [P2SET1RAPID1]
+nes.input.port2.gamepad.rapid_b [P2SET1RAPID2]
+nes.input.port2.gamepad.right [P2SET1PADRIGHT]
+nes.input.port2.gamepad.select [P2SET1BUT7]
+nes.input.port2.gamepad.start [P2SET1BUT8]
+nes.input.port2.gamepad.up [P2SET1PADUP]
+nes.input.port2.powerpada.1 keyboard 111
+nes.input.port2.powerpada.10 keyboard 44
+nes.input.port2.powerpada.11 keyboard 46
+nes.input.port2.powerpada.12 keyboard 47
+nes.input.port2.powerpada.2 keyboard 112
+nes.input.port2.powerpada.3 keyboard 91
+nes.input.port2.powerpada.4 keyboard 93
+nes.input.port2.powerpada.5 keyboard 107
+nes.input.port2.powerpada.6 keyboard 108
+nes.input.port2.powerpada.7 keyboard 59
+nes.input.port2.powerpada.8 keyboard 39
+nes.input.port2.powerpada.9 keyboard 109
+nes.input.port2.powerpadb.1 
+nes.input.port2.powerpadb.10 
+nes.input.port2.powerpadb.11 
+nes.input.port2.powerpadb.12 
+nes.input.port2.powerpadb.2 
+nes.input.port2.powerpadb.3 
+nes.input.port2.powerpadb.4 
+nes.input.port2.powerpadb.5 
+nes.input.port2.powerpadb.6 
+nes.input.port2.powerpadb.7 
+nes.input.port2.powerpadb.8 
+nes.input.port2.powerpadb.9 
+nes.input.port2.zapper.away_trigger mouse 2
+nes.input.port2.zapper.trigger mouse 0
+nes.input.port3 gamepad
+nes.input.port3.gamepad.a [P3SET1BUT1]
+nes.input.port3.gamepad.b [P3SET1BUT3]
+nes.input.port3.gamepad.down [P3SET1PADDOWN]
+nes.input.port3.gamepad.left [P3SET1PADLEFT]
+nes.input.port3.gamepad.rapid_a [P3SET1RAPID1]
+nes.input.port3.gamepad.rapid_b [P3SET1RAPID2]
+nes.input.port3.gamepad.right [P3SET1PADRIGHT]
+nes.input.port3.gamepad.select [P3SET1BUT7]
+nes.input.port3.gamepad.start [P3SET1BUT8]
+nes.input.port3.gamepad.up [P3SET1PADUP]
+nes.input.port4 gamepad
+nes.input.port4.gamepad.a [P4SET1BUT1]
+nes.input.port4.gamepad.b [P4SET1BUT3]
+nes.input.port4.gamepad.down [P4SET1PADDOWN]
+nes.input.port4.gamepad.left [P4SET1PADLEFT]
+nes.input.port4.gamepad.rapid_a [P4SET1RAPID1]
+nes.input.port4.gamepad.rapid_b [P4SET1RAPID2]
+nes.input.port4.gamepad.right [P4SET1PADRIGHT]
+nes.input.port4.gamepad.select [P4SET1BUT7]
+nes.input.port4.gamepad.start [P4SET1BUT8]
+nes.input.port4.gamepad.up [P4SET1PADUP]
+nes.n106bs 0
+nes.no8lim 0
+nes.nofs 0
+nes.ntsc.brightness 0
+nes.ntsc.contrast 0
+nes.ntsc.hue 0
+nes.ntsc.matrix 0
+nes.ntsc.matrix.0 1.539
+nes.ntsc.matrix.1 -0.622
+nes.ntsc.matrix.2 -0.571
+nes.ntsc.matrix.3 -0.185
+nes.ntsc.matrix.4 0.000
+nes.ntsc.matrix.5 2.000
+nes.ntsc.mergefields 0
+nes.ntsc.preset none
+nes.ntsc.saturation 0
+nes.ntsc.sharpness 0
+nes.ntscblitter 0
+nes.pal 0
+nes.pixshader [SHADR]
+nes.scanlines [SCAN]
+nes.slend 231
+nes.slendp 239
+nes.slstart 8
+nes.slstartp 0
+nes.sound_rate_error 0.00004
+nes.soundq 0
+nes.special [SHADG]
+nes.stretch [ASPC]
+nes.tblur [BLUR]
+nes.tblur.accum [ACCUMBLUR]
+nes.tblur.accum.amount [BLURLVL]
+nes.videoip [NOGL]
+nes.xres 0
+nes.xscale 3.000000
+nes.xscalefs 1.000000
+nes.yres 0
+nes.yscale 3.000000
+nes.yscalefs 1.000000
+netplay.gamekey 
+netplay.host fobby.net
+netplay.localplayers 1
+netplay.nick [NETNAME]
+netplay.password 
+netplay.port 4046
+netplay.smallfont 0
+ngp.enable 1
+ngp.forcemono 0
+ngp.input.builtin.gamepad.a [P1SET1BUT1]
+ngp.input.builtin.gamepad.b [P1SET1BUT3]
+ngp.input.builtin.gamepad.down [P1SET1PADDOWN]
+ngp.input.builtin.gamepad.left [P1SET1PADLEFT]
+ngp.input.builtin.gamepad.option [P1SET1BUT8]
+ngp.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+ngp.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+ngp.input.builtin.gamepad.right [P1SET1PADRIGHT]
+ngp.input.builtin.gamepad.up [P1SET1PADUP]
+ngp.language english
+ngp.pixshader [SHADR]
+ngp.scanlines [SCAN]
+ngp.special [SHADG]
+ngp.stretch [ASPC]
+ngp.tblur [BLUR]
+ngp.tblur.accum [ACCUMBLUR]
+ngp.tblur.accum.amount [BLURLVL]
+ngp.videoip [NOGL]
+ngp.xres 0
+ngp.xscale 4.000000
+ngp.xscalefs 1.000000
+ngp.yres 0
+ngp.yscale 4.000000
+ngp.yscalefs 1.000000
+nothrottle 0
+osd.state_display_time 2000
+pce.adpcmlp 0
+pce.adpcmvolume 100
+pce.arcadecard 1
+pce.cdbios [PCECDBIOS]
+pce.cddavolume 100
+pce.cdpsgvolume 100
+pce.debugger.disfontsize small
+pce.debugger.memcharenc shift_jis
+pce.disable_bram_cd 0
+pce.disable_bram_hucard 0
+pce.disable_softreset 0
+pce.enable 1
+pce.forcemono 0
+pce.forcesgx 0
+pce.gecdbios [GECDBIOS]
+pce.h_overscan 0
+pce.input.multitap 1
+pce.input.port1 gamepad
+pce.input.port1.gamepad.down [P1SET1PADDOWN]
+pce.input.port1.gamepad.i [P1SET1BUT1]
+pce.input.port1.gamepad.ii [P1SET1BUT3]
+pce.input.port1.gamepad.iii [P1SET1BUT4]
+pce.input.port1.gamepad.iv [P1SET1BUT2]
+pce.input.port1.gamepad.left [P1SET1PADLEFT]
+pce.input.port1.gamepad.mode_select [P1SET1MODE]
+pce.input.port1.gamepad.rapid_i [P1SET1RAPID1]
+pce.input.port1.gamepad.rapid_ii [P1SET1RAPID2]
+pce.input.port1.gamepad.right [P1SET1PADRIGHT]
+pce.input.port1.gamepad.run [P1SET1BUT8]
+pce.input.port1.gamepad.select [P1SET1BUT7]
+pce.input.port1.gamepad.up [P1SET1PADUP]
+pce.input.port1.gamepad.v [P1SET1BUT5]
+pce.input.port1.gamepad.vi [P1SET1BUT2]
+pce.input.port1.mouse.left [P1SET1BUT1]
+pce.input.port1.mouse.right [P1SET1BUT3]
+pce.input.port1.mouse.run [P1SET1BUT8]
+pce.input.port1.mouse.select [P1SET1BUT7]
+pce.input.port1.tsushinkb.0 keyboard 48
+pce.input.port1.tsushinkb.1 keyboard 49
+pce.input.port1.tsushinkb.2 keyboard 50
+pce.input.port1.tsushinkb.3 keyboard 51
+pce.input.port1.tsushinkb.4 keyboard 52
+pce.input.port1.tsushinkb.5 keyboard 53
+pce.input.port1.tsushinkb.6 keyboard 54
+pce.input.port1.tsushinkb.7 keyboard 55
+pce.input.port1.tsushinkb.8 keyboard 56
+pce.input.port1.tsushinkb.9 keyboard 57
+pce.input.port1.tsushinkb.a keyboard 97
+pce.input.port1.tsushinkb.at keyboard 96
+pce.input.port1.tsushinkb.b keyboard 98
+pce.input.port1.tsushinkb.backspace keyboard 8
+pce.input.port1.tsushinkb.c keyboard 99
+pce.input.port1.tsushinkb.caps_lock keyboard 301
+pce.input.port1.tsushinkb.caret keyboard 61
+pce.input.port1.tsushinkb.clear keyboard 278
+pce.input.port1.tsushinkb.colon keyboard 39
+pce.input.port1.tsushinkb.comma keyboard 44
+pce.input.port1.tsushinkb.convert keyboard 307
+pce.input.port1.tsushinkb.copy keyboard 316
+pce.input.port1.tsushinkb.ctrl keyboard 306
+pce.input.port1.tsushinkb.d keyboard 100
+pce.input.port1.tsushinkb.delete keyboard 127
+pce.input.port1.tsushinkb.down keyboard 274
+pce.input.port1.tsushinkb.e keyboard 101
+pce.input.port1.tsushinkb.escape keyboard 27
+pce.input.port1.tsushinkb.f keyboard 102
+pce.input.port1.tsushinkb.f1 keyboard 282
+pce.input.port1.tsushinkb.f10 keyboard 291
+pce.input.port1.tsushinkb.f2 keyboard 283
+pce.input.port1.tsushinkb.f3 keyboard 284
+pce.input.port1.tsushinkb.f4 keyboard 285
+pce.input.port1.tsushinkb.f5 keyboard 286
+pce.input.port1.tsushinkb.f6 keyboard 287
+pce.input.port1.tsushinkb.f7 keyboard 288
+pce.input.port1.tsushinkb.f8 keyboard 289
+pce.input.port1.tsushinkb.f9 keyboard 290
+pce.input.port1.tsushinkb.g keyboard 103
+pce.input.port1.tsushinkb.grph keyboard 0
+pce.input.port1.tsushinkb.h keyboard 104
+pce.input.port1.tsushinkb.help keyboard 279
+pce.input.port1.tsushinkb.i keyboard 105
+pce.input.port1.tsushinkb.insert keyboard 277
+pce.input.port1.tsushinkb.j keyboard 106
+pce.input.port1.tsushinkb.k keyboard 107
+pce.input.port1.tsushinkb.kana keyboard 311
+pce.input.port1.tsushinkb.kp_0 keyboard 256
+pce.input.port1.tsushinkb.kp_1 keyboard 257
+pce.input.port1.tsushinkb.kp_2 keyboard 258
+pce.input.port1.tsushinkb.kp_3 keyboard 259
+pce.input.port1.tsushinkb.kp_4 keyboard 260
+pce.input.port1.tsushinkb.kp_5 keyboard 261
+pce.input.port1.tsushinkb.kp_6 keyboard 262
+pce.input.port1.tsushinkb.kp_7 keyboard 263
+pce.input.port1.tsushinkb.kp_8 keyboard 264
+pce.input.port1.tsushinkb.kp_9 keyboard 265
+pce.input.port1.tsushinkb.kp_comma keyboard 0
+pce.input.port1.tsushinkb.kp_divide keyboard 267
+pce.input.port1.tsushinkb.kp_enter keyboard 271
+pce.input.port1.tsushinkb.kp_equals keyboard 272
+pce.input.port1.tsushinkb.kp_minus keyboard 269
+pce.input.port1.tsushinkb.kp_multiply keyboard 268
+pce.input.port1.tsushinkb.kp_period keyboard 266
+pce.input.port1.tsushinkb.kp_plus keyboard 270
+pce.input.port1.tsushinkb.l keyboard 108
+pce.input.port1.tsushinkb.left keyboard 276
+pce.input.port1.tsushinkb.left_bracket keyboard 91
+pce.input.port1.tsushinkb.left_shift keyboard 304
+pce.input.port1.tsushinkb.m keyboard 109
+pce.input.port1.tsushinkb.minus keyboard 45
+pce.input.port1.tsushinkb.n keyboard 110
+pce.input.port1.tsushinkb.nonconvert keyboard 308
+pce.input.port1.tsushinkb.o keyboard 111
+pce.input.port1.tsushinkb.p keyboard 112
+pce.input.port1.tsushinkb.pc keyboard 312
+pce.input.port1.tsushinkb.period keyboard 46
+pce.input.port1.tsushinkb.q keyboard 113
+pce.input.port1.tsushinkb.r keyboard 114
+pce.input.port1.tsushinkb.return keyboard 13
+pce.input.port1.tsushinkb.right keyboard 275
+pce.input.port1.tsushinkb.right_bracket keyboard 93
+pce.input.port1.tsushinkb.right_shift keyboard 303
+pce.input.port1.tsushinkb.roll_down keyboard 281
+pce.input.port1.tsushinkb.roll_up keyboard 280
+pce.input.port1.tsushinkb.s keyboard 115
+pce.input.port1.tsushinkb.semicolon keyboard 59
+pce.input.port1.tsushinkb.slash keyboard 47
+pce.input.port1.tsushinkb.space keyboard 32
+pce.input.port1.tsushinkb.stop keyboard 318
+pce.input.port1.tsushinkb.t keyboard 116
+pce.input.port1.tsushinkb.tab keyboard 9
+pce.input.port1.tsushinkb.u keyboard 117
+pce.input.port1.tsushinkb.underscore keyboard 0
+pce.input.port1.tsushinkb.up keyboard 273
+pce.input.port1.tsushinkb.v keyboard 118
+pce.input.port1.tsushinkb.w keyboard 119
+pce.input.port1.tsushinkb.width keyboard 305
+pce.input.port1.tsushinkb.x keyboard 120
+pce.input.port1.tsushinkb.y keyboard 121
+pce.input.port1.tsushinkb.yen keyboard 43
+pce.input.port1.tsushinkb.z keyboard 122
+pce.input.port2 gamepad
+pce.input.port2.gamepad.down [P2SET1PADDOWN]
+pce.input.port2.gamepad.i [P2SET1BUT1]
+pce.input.port2.gamepad.ii [P2SET1BUT3]
+pce.input.port2.gamepad.iii [P2SET1BUT4]
+pce.input.port2.gamepad.iv [P2SET1BUT2]
+pce.input.port2.gamepad.left [P2SET1PADLEFT]
+pce.input.port2.gamepad.mode_select [P2SET1MODE]
+pce.input.port2.gamepad.rapid_i [P2SET1RAPID1]
+pce.input.port2.gamepad.rapid_ii [P2SET1RAPID2]
+pce.input.port2.gamepad.right [P2SET1PADRIGHT]
+pce.input.port2.gamepad.run [P2SET1BUT8]
+pce.input.port2.gamepad.select [P2SET1BUT7]
+pce.input.port2.gamepad.up [P2SET1PADUP]
+pce.input.port2.gamepad.v [P2SET1BUT5]
+pce.input.port2.gamepad.vi [P2SET1BUT2]
+pce.input.port2.mouse.left [P2SET1BUT1]
+pce.input.port2.mouse.right [P2SET1BUT3]
+pce.input.port2.mouse.run [P2SET1BUT8]
+pce.input.port2.mouse.select [P2SET1BUT7]
+pce.input.port3 gamepad
+pce.input.port3.gamepad.down [P3SET1PADDOWN]
+pce.input.port3.gamepad.i [P3SET1BUT1]
+pce.input.port3.gamepad.ii [P3SET1BUT3]
+pce.input.port3.gamepad.iii [P3SET1BUT4]
+pce.input.port3.gamepad.iv [P3SET1BUT2]
+pce.input.port3.gamepad.left [P3SET1PADLEFT]
+pce.input.port3.gamepad.mode_select [P3SET1MODE]
+pce.input.port3.gamepad.rapid_i [P3SET1RAPID1]
+pce.input.port3.gamepad.rapid_ii [P3SET1RAPID2]
+pce.input.port3.gamepad.right [P3SET1PADRIGHT]
+pce.input.port3.gamepad.run [P3SET1BUT8]
+pce.input.port3.gamepad.select [P3SET1BUT7]
+pce.input.port3.gamepad.up [P3SET1PADUP]
+pce.input.port3.gamepad.v [P3SET1BUT5]
+pce.input.port3.gamepad.vi [P3SET1BUT2]
+pce.input.port3.mouse.left [P3SET1BUT1]
+pce.input.port3.mouse.right [P3SET1BUT3]
+pce.input.port3.mouse.run [P3SET1BUT8]
+pce.input.port3.mouse.select [P3SET1BUT7]
+pce.input.port4 gamepad
+pce.input.port4.gamepad.down [P4SET1PADDOWN]
+pce.input.port4.gamepad.i [P4SET1BUT1]
+pce.input.port4.gamepad.ii [P4SET1BUT3]
+pce.input.port4.gamepad.iii [P4SET1BUT4]
+pce.input.port4.gamepad.iv [P4SET1BUT2]
+pce.input.port4.gamepad.left [P4SET1PADLEFT]
+pce.input.port4.gamepad.mode_select [P4SET1MODE]
+pce.input.port4.gamepad.rapid_i [P4SET1RAPID1]
+pce.input.port4.gamepad.rapid_ii [P4SET1RAPID2]
+pce.input.port4.gamepad.right [P4SET1PADRIGHT]
+pce.input.port4.gamepad.run [P4SET1BUT8]
+pce.input.port4.gamepad.select [P4SET1BUT7]
+pce.input.port4.gamepad.up [P4SET1PADUP]
+pce.input.port4.gamepad.v [P4SET1BUT5]
+pce.input.port4.gamepad.vi [P4SET1BUT2]
+pce.input.port4.mouse.left [P4SET1BUT1]
+pce.input.port4.mouse.right [P4SET1BUT3]
+pce.input.port4.mouse.run [P4SET1BUT8]
+pce.input.port4.mouse.select [P4SET1BUT7]
+pce.input.port5 gamepad
+pce.input.port5.gamepad.down [P5SET1PADDOWN]
+pce.input.port5.gamepad.i [P5SET1BUT1]
+pce.input.port5.gamepad.ii [P5SET1BUT3]
+pce.input.port5.gamepad.iii [P5SET1BUT4]
+pce.input.port5.gamepad.iv [P5SET1BUT2]
+pce.input.port5.gamepad.left [P5SET1PADLEFT]
+pce.input.port5.gamepad.mode_select [P5SET1MODE]
+pce.input.port5.gamepad.rapid_i [P5SET1RAPID1]
+pce.input.port5.gamepad.rapid_ii [P5SET1RAPID2]
+pce.input.port5.gamepad.right [P5SET1PADRIGHT]
+pce.input.port5.gamepad.run [P5SET1BUT8]
+pce.input.port5.gamepad.select [P5SET1BUT7]
+pce.input.port5.gamepad.up [P5SET1PADUP]
+pce.input.port5.gamepad.v [P5SET1BUT5]
+pce.input.port5.gamepad.vi [P5SET1BUT2]
+pce.input.port5.mouse.left [P5SET1BUT1]
+pce.input.port5.mouse.right [P5SET1BUT3]
+pce.input.port5.mouse.run [P5SET1BUT8]
+pce.input.port5.mouse.select [P5SET1BUT7]
+pce.mouse_sensitivity 0.50
+pce.nospritelimit 0
+pce.pixshader [SHADR]
+pce.psgrevision match
+pce.resamp_quality 3
+pce.resamp_rate_error 0.0000009
+pce.scanlines [SCAN]
+pce.slend 235
+pce.slstart 4
+pce.special [SHADG]
+pce.stretch [ASPC]
+pce.tblur [BLUR]
+pce.tblur.accum [ACCUMBLUR]
+pce.tblur.accum.amount [BLURLVL]
+pce.videoip [INTERP]
+pce.vramsize 32768
+pce.xres 0
+pce.xscale 3.000000
+pce.xscalefs 1.000000
+pce.yres 0
+pce.yscale 3.000000
+pce.yscalefs 1.000000
+pce_fast.adpcmlp 0
+pce_fast.adpcmvolume 100
+pce_fast.arcadecard 1
+pce_fast.cdbios [PCECDBIOS]
+pce_fast.cddavolume 100
+pce_fast.cdpsgvolume 100
+pce_fast.cdspeed 1
+pce_fast.correct_aspect 1
+pce_fast.disable_softreset 0
+pce_fast.enable 1
+pce_fast.forcemono 0
+pce_fast.forcesgx 0
+pce_fast.input.port1 gamepad
+pce_fast.input.port1.gamepad.down [P1SET1PADDOWN]
+pce_fast.input.port1.gamepad.i [P1SET1BUT1]
+pce_fast.input.port1.gamepad.ii [P1SET1BUT3]
+pce_fast.input.port1.gamepad.iii [P1SET1BUT4]
+pce_fast.input.port1.gamepad.iv [P1SET1BUT2]
+pce_fast.input.port1.gamepad.left [P1SET1PADLEFT]
+pce_fast.input.port1.gamepad.mode_select [P1SET1MODE]
+pce_fast.input.port1.gamepad.rapid_i [P1SET1RAPID1]
+pce_fast.input.port1.gamepad.rapid_ii [P1SET1RAPID2]
+pce_fast.input.port1.gamepad.right [P1SET1PADRIGHT]
+pce_fast.input.port1.gamepad.run [P1SET1BUT8]
+pce_fast.input.port1.gamepad.select [P1SET1BUT7]
+pce_fast.input.port1.gamepad.up [P1SET1PADUP]
+pce_fast.input.port1.gamepad.v [P1SET1BUT5]
+pce_fast.input.port1.gamepad.vi [P1SET1BUT2]
+pce_fast.input.port1.mouse.left [P1SET1BUT1]
+pce_fast.input.port1.mouse.right [P1SET1BUT3]
+pce_fast.input.port2 gamepad
+pce_fast.input.port2.gamepad.down [P2SET1PADDOWN]
+pce_fast.input.port2.gamepad.i [P2SET1BUT1]
+pce_fast.input.port2.gamepad.ii [P2SET1BUT3]
+pce_fast.input.port2.gamepad.iii [P2SET1BUT4]
+pce_fast.input.port2.gamepad.iv [P2SET1BUT2]
+pce_fast.input.port2.gamepad.left [P2SET1PADLEFT]
+pce_fast.input.port2.gamepad.mode_select [P2SET1MODE]
+pce_fast.input.port2.gamepad.rapid_i [P2SET1RAPID1]
+pce_fast.input.port2.gamepad.rapid_ii [P2SET1RAPID2]
+pce_fast.input.port2.gamepad.right [P2SET1PADRIGHT]
+pce_fast.input.port2.gamepad.run [P2SET1BUT8]
+pce_fast.input.port2.gamepad.select [P2SET1BUT7]
+pce_fast.input.port2.gamepad.up [P2SET1PADUP]
+pce_fast.input.port2.gamepad.v [P2SET1BUT5]
+pce_fast.input.port2.gamepad.vi [P2SET1BUT2]
+pce_fast.input.port2.mouse.left [P2SET1BUT1]
+pce_fast.input.port2.mouse.right [P2SET1BUT3]
+pce_fast.input.port3 gamepad
+pce_fast.input.port3.gamepad.down [P3SET1PADDOWN]
+pce_fast.input.port3.gamepad.i [P3SET1BUT1]
+pce_fast.input.port3.gamepad.ii [P3SET1BUT3]
+pce_fast.input.port3.gamepad.iii [P3SET1BUT4]
+pce_fast.input.port3.gamepad.iv [P3SET1BUT2]
+pce_fast.input.port3.gamepad.left [P3SET1PADLEFT]
+pce_fast.input.port3.gamepad.mode_select [P3SET1MODE]
+pce_fast.input.port3.gamepad.rapid_i [P3SET1RAPID1]
+pce_fast.input.port3.gamepad.rapid_ii [P3SET1RAPID2]
+pce_fast.input.port3.gamepad.right [P3SET1PADRIGHT]
+pce_fast.input.port3.gamepad.run [P3SET1BUT8]
+pce_fast.input.port3.gamepad.select [P3SET1BUT7]
+pce_fast.input.port3.gamepad.up [P3SET1PADUP]
+pce_fast.input.port3.gamepad.v [P3SET1BUT5]
+pce_fast.input.port3.gamepad.vi [P3SET1BUT2]
+pce_fast.input.port3.mouse.left [P3SET1BUT1]
+pce_fast.input.port3.mouse.right [P3SET1BUT3]
+pce_fast.input.port3.mouse.run [P3SET1BUT8]
+pce_fast.input.port3.mouse.select [P3SET1BUT7]
+pce_fast.input.port4 gamepad
+pce_fast.input.port4.gamepad.down [P4SET1PADDOWN]
+pce_fast.input.port4.gamepad.i [P4SET1BUT1]
+pce_fast.input.port4.gamepad.ii [P4SET1BUT3]
+pce_fast.input.port4.gamepad.iii [P4SET1BUT4]
+pce_fast.input.port4.gamepad.iv [P4SET1BUT2]
+pce_fast.input.port4.gamepad.left [P4SET1PADLEFT]
+pce_fast.input.port4.gamepad.mode_select [P4SET1MODE]
+pce_fast.input.port4.gamepad.rapid_i [P4SET1RAPID1]
+pce_fast.input.port4.gamepad.rapid_ii [P4SET1RAPID2]
+pce_fast.input.port4.gamepad.right [P4SET1PADRIGHT]
+pce_fast.input.port4.gamepad.run [P4SET1BUT8]
+pce_fast.input.port4.gamepad.select [P4SET1BUT7]
+pce_fast.input.port4.gamepad.up [P4SET1PADUP]
+pce_fast.input.port4.gamepad.v [P4SET1BUT5]
+pce_fast.input.port4.gamepad.vi [P4SET1BUT2]
+pce_fast.input.port4.mouse.left [P4SET1BUT1]
+pce_fast.input.port4.mouse.right [P4SET1BUT3]
+pce_fast.input.port5 gamepad
+pce_fast.input.port5.gamepad.down [P5SET1PADDOWN]
+pce_fast.input.port5.gamepad.i [P5SET1BUT1]
+pce_fast.input.port5.gamepad.ii [P5SET1BUT3]
+pce_fast.input.port5.gamepad.iii [P5SET1BUT4]
+pce_fast.input.port5.gamepad.iv [P5SET1BUT2]
+pce_fast.input.port5.gamepad.left [P5SET1PADLEFT]
+pce_fast.input.port5.gamepad.mode_select [P5SET1MODE]
+pce_fast.input.port5.gamepad.rapid_i [P5SET1RAPID1]
+pce_fast.input.port5.gamepad.rapid_ii [P5SET1RAPID2]
+pce_fast.input.port5.gamepad.right [P5SET1PADRIGHT]
+pce_fast.input.port5.gamepad.run [P5SET1BUT8]
+pce_fast.input.port5.gamepad.select [P5SET1BUT7]
+pce_fast.input.port5.gamepad.up [P5SET1PADUP]
+pce_fast.input.port5.gamepad.v [P5SET1BUT5]
+pce_fast.input.port5.gamepad.vi [P5SET1BUT2]
+pce_fast.input.port5.mouse.left [P5SET1BUT1]
+pce_fast.input.port5.mouse.right [P5SET1BUT3]
+pce_fast.mouse_sensitivity 0.50
+pce_fast.nospritelimit 0
+pce_fast.ocmultiplier 1
+pce_fast.pixshader [SHADR]
+pce_fast.scanlines [SCAN]
+pce_fast.slend 235
+pce_fast.slstart 4
+pce_fast.special [SHADG]
+pce_fast.stretch [ASPC]
+pce_fast.tblur [BLUR]
+pce_fast.tblur.accum [ACCUMBLUR]
+pce_fast.tblur.accum.amount [BLURLVL]
+pce_fast.videoip [INTERP]
+pce_fast.xres 0
+pce_fast.xscale 3.000000
+pce_fast.xscalefs 1.000000
+pce_fast.yres 0
+pce_fast.yscale 3.000000
+pce_fast.yscalefs 1.000000
+pcfx.adpcm.emulate_buggy_codec 0
+pcfx.adpcm.suppress_channel_reset_clicks 1
+pcfx.bios pcfx.rom
+pcfx.cdspeed 2
+pcfx.cpu_emulation auto
+pcfx.debugger.disfontsize small
+pcfx.debugger.memcharenc shift_jis
+pcfx.disable_bram 0
+pcfx.disable_softreset 0
+pcfx.enable 1
+pcfx.forcemono 0
+pcfx.fxscsi 0
+pcfx.high_dotclock_width 1024
+pcfx.input.port1 gamepad
+pcfx.input.port1.gamepad.down [P1SET1PADDOWN]
+pcfx.input.port1.gamepad.i [P1SET1BUT1]
+pcfx.input.port1.gamepad.ii [P1SET1BUT3]
+pcfx.input.port1.gamepad.iii [P1SET1BUT4]
+pcfx.input.port1.gamepad.iv [P1SET1BUT2]
+pcfx.input.port1.gamepad.left [P1SET1PADLEFT]
+pcfx.input.port1.gamepad.mode1 [P1SET1MODE]
+pcfx.input.port1.gamepad.mode2 [P1SET1MODE2]
+pcfx.input.port1.gamepad.right [P1SET1PADRIGHT]
+pcfx.input.port1.gamepad.run [P1SET1BUT8]
+pcfx.input.port1.gamepad.select [P1SET1BUT7]
+pcfx.input.port1.gamepad.up [P1SET1PADUP]
+pcfx.input.port1.gamepad.v [P1SET1BUT5]
+pcfx.input.port1.gamepad.vi [P1SET1BUT6]
+pcfx.input.port1.mouse.left [P1SET1BUT1]
+pcfx.input.port1.mouse.right [P1SET1BUT3]
+pcfx.input.port1.multitap 0
+pcfx.input.port2 gamepad
+pcfx.input.port2.gamepad.down [P2SET1PADDOWN]
+pcfx.input.port2.gamepad.i [P2SET1BUT1]
+pcfx.input.port2.gamepad.ii [P2SET1BUT3]
+pcfx.input.port2.gamepad.iii [P2SET1BUT4]
+pcfx.input.port2.gamepad.iv [P2SET1BUT2]
+pcfx.input.port2.gamepad.left [P2SET1PADLEFT]
+pcfx.input.port2.gamepad.mode1 [P2SET1MODE]
+pcfx.input.port2.gamepad.mode2 [P2SET1MODE2]
+pcfx.input.port2.gamepad.right [P2SET1PADRIGHT]
+pcfx.input.port2.gamepad.run [P2SET1BUT8]
+pcfx.input.port2.gamepad.select [P2SET1BUT7]
+pcfx.input.port2.gamepad.up [P2SET1PADUP]
+pcfx.input.port2.gamepad.v [P2SET1BUT5]
+pcfx.input.port2.gamepad.vi [P2SET1BUT6]
+pcfx.input.port2.mouse.left [P2SET1BUT1]
+pcfx.input.port2.mouse.right [P2SET1BUT3]
+pcfx.input.port2.multitap 0
+pcfx.input.port3 gamepad
+pcfx.input.port3.gamepad.down [P3SET1PADDOWN]
+pcfx.input.port3.gamepad.i [P3SET1BUT1]
+pcfx.input.port3.gamepad.ii [P3SET1BUT3]
+pcfx.input.port3.gamepad.iii [P3SET1BUT4]
+pcfx.input.port3.gamepad.iv [P3SET1BUT2]
+pcfx.input.port3.gamepad.left [P3SET1PADLEFT]
+pcfx.input.port3.gamepad.mode1 [P3SET1MODE]
+pcfx.input.port3.gamepad.mode2 [P3SET1MODE2]
+pcfx.input.port3.gamepad.right [P3SET1PADRIGHT]
+pcfx.input.port3.gamepad.run [P3SET1BUT8]
+pcfx.input.port3.gamepad.select [P3SET1BUT7]
+pcfx.input.port3.gamepad.up [P3SET1PADUP]
+pcfx.input.port3.gamepad.v [P3SET1BUT5]
+pcfx.input.port3.gamepad.vi [P3SET1BUT6]
+pcfx.input.port3.mouse.left [P3SET1BUT1]
+pcfx.input.port3.mouse.right [P3SET1BUT3]
+pcfx.input.port4 gamepad
+pcfx.input.port4.gamepad.down [P4SET1PADDOWN]
+pcfx.input.port4.gamepad.i [P4SET1BUT1]
+pcfx.input.port4.gamepad.ii [P4SET1BUT3]
+pcfx.input.port4.gamepad.iii [P4SET1BUT4]
+pcfx.input.port4.gamepad.iv [P4SET1BUT2]
+pcfx.input.port4.gamepad.left [P4SET1PADLEFT]
+pcfx.input.port4.gamepad.mode1 [P4SET1MODE]
+pcfx.input.port4.gamepad.mode2 [P4SET1MODE2]
+pcfx.input.port4.gamepad.right [P4SET1PADRIGHT]
+pcfx.input.port4.gamepad.run [P4SET1BUT8]
+pcfx.input.port4.gamepad.select [P4SET1BUT7]
+pcfx.input.port4.gamepad.up [P4SET1PADUP]
+pcfx.input.port4.gamepad.v [P4SET1BUT5]
+pcfx.input.port4.gamepad.vi [P4SET1BUT6]
+pcfx.input.port4.mouse.left [P4SET1BUT1]
+pcfx.input.port4.mouse.right [P4SET1BUT3]
+pcfx.input.port5 gamepad
+pcfx.input.port5.gamepad.down [P5SET1PADDOWN]
+pcfx.input.port5.gamepad.i [P5SET1BUT1]
+pcfx.input.port5.gamepad.ii [P5SET1BUT3]
+pcfx.input.port5.gamepad.iii [P5SET1BUT4]
+pcfx.input.port5.gamepad.iv [P5SET1BUT2]
+pcfx.input.port5.gamepad.left [P5SET1PADLEFT]
+pcfx.input.port5.gamepad.mode1 [P5SET1MODE]
+pcfx.input.port5.gamepad.mode2 [P5SET1MODE2]
+pcfx.input.port5.gamepad.right [P5SET1PADRIGHT]
+pcfx.input.port5.gamepad.run [P5SET1BUT8]
+pcfx.input.port5.gamepad.select [P5SET1BUT7]
+pcfx.input.port5.gamepad.up [P5SET1PADUP]
+pcfx.input.port5.gamepad.v [P5SET1BUT5]
+pcfx.input.port5.gamepad.vi [P5SET1BUT6]
+pcfx.input.port5.mouse.left [P5SET1BUT1]
+pcfx.input.port5.mouse.right [P5SET1BUT3]
+pcfx.input.port6 gamepad
+pcfx.input.port6.gamepad.down [P6SET1PADDOWN]
+pcfx.input.port6.gamepad.i [P6SET1BUT1]
+pcfx.input.port6.gamepad.ii [P6SET1BUT3]
+pcfx.input.port6.gamepad.iii [P6SET1BUT4]
+pcfx.input.port6.gamepad.iv [P6SET1BUT2]
+pcfx.input.port6.gamepad.left [P6SET1PADLEFT]
+pcfx.input.port6.gamepad.mode1 [P6SET1MODE]
+pcfx.input.port6.gamepad.mode2 [P6SET1MODE2]
+pcfx.input.port6.gamepad.right [P6SET1PADRIGHT]
+pcfx.input.port6.gamepad.run [P6SET1BUT8]
+pcfx.input.port6.gamepad.select [P6SET1BUT7]
+pcfx.input.port6.gamepad.up [P6SET1PADUP]
+pcfx.input.port6.gamepad.v [P6SET1BUT5]
+pcfx.input.port6.gamepad.vi [P6SET1BUT6]
+pcfx.input.port6.mouse.left [P6SET1BUT1]
+pcfx.input.port6.mouse.right [P6SET1BUT3]
+pcfx.input.port7 gamepad
+pcfx.input.port7.gamepad.down [P7SET1PADDOWN]
+pcfx.input.port7.gamepad.i [P7SET1BUT1]
+pcfx.input.port7.gamepad.ii [P7SET1BUT3]
+pcfx.input.port7.gamepad.iii [P7SET1BUT4]
+pcfx.input.port7.gamepad.iv [P7SET1BUT2]
+pcfx.input.port7.gamepad.left [P7SET1PADLEFT]
+pcfx.input.port7.gamepad.mode1 [P7SET1MODE]
+pcfx.input.port7.gamepad.mode2 [P7SET1MODE2]
+pcfx.input.port7.gamepad.right [P7SET1PADRIGHT]
+pcfx.input.port7.gamepad.run [P7SET1BUT8]
+pcfx.input.port7.gamepad.select [P7SET1BUT7]
+pcfx.input.port7.gamepad.up [P7SET1PADUP]
+pcfx.input.port7.gamepad.v [P7SET1BUT5]
+pcfx.input.port7.gamepad.vi [P7SET1BUT6]
+pcfx.input.port7.mouse.left [P7SET1BUT1]
+pcfx.input.port7.mouse.right [P7SET1BUT3]
+pcfx.input.port8 gamepad
+pcfx.input.port8.gamepad.down [P8SET1PADDOWN]
+pcfx.input.port8.gamepad.i [P8SET1BUT1]
+pcfx.input.port8.gamepad.ii [P8SET1BUT3]
+pcfx.input.port8.gamepad.iii [P8SET1BUT4]
+pcfx.input.port8.gamepad.iv [P8SET1BUT2]
+pcfx.input.port8.gamepad.left [P8SET1PADLEFT]
+pcfx.input.port8.gamepad.mode1 [P8SET1MODE]
+pcfx.input.port8.gamepad.mode2 [P8SET1MODE2]
+pcfx.input.port8.gamepad.right [P8SET1PADRIGHT]
+pcfx.input.port8.gamepad.run [P8SET1BUT8]
+pcfx.input.port8.gamepad.select [P8SET1BUT7]
+pcfx.input.port8.gamepad.up [P8SET1PADUP]
+pcfx.input.port8.gamepad.v [P8SET1BUT5]
+pcfx.input.port8.gamepad.vi [P8SET1BUT6]
+pcfx.input.port8.mouse.left [P8SET1BUT1]
+pcfx.input.port8.mouse.right [P8SET1BUT3]
+pcfx.mouse_sensitivity 1.25
+pcfx.nospritelimit 0
+pcfx.pixshader [SHADR]
+pcfx.rainbow.chromaip 1
+pcfx.resamp_quality 3
+pcfx.resamp_rate_error 0.0000009
+pcfx.scanlines [SCAN]
+pcfx.slend 235
+pcfx.slstart 4
+pcfx.special [SHADG]
+pcfx.stretch [ASPC]
+pcfx.tblur [BLUR]
+pcfx.tblur.accum [ACCUMBLUR]
+pcfx.tblur.accum.amount [BLURLVL]
+pcfx.videoip [INTERP]
+pcfx.xres 0
+pcfx.xscale 3.000000
+pcfx.xscalefs 1.000000
+pcfx.yres 0
+pcfx.yscale 3.000000
+pcfx.yscalefs 1.000000
+player.pixshader [SHADR]
+player.scanlines [SCAN]
+player.special [SHADG]
+player.stretch [ASPC]
+player.videoip [NOGL]
+player.xres 0
+player.xscale 2.000000
+player.xscalefs 1.000000
+player.yres 0
+player.yscale 2.000000
+player.yscalefs 1.000000
+psx.bios_eu [PSXBIOSEU]
+psx.bios_jp [PSXBIOSJP]
+psx.bios_na [PSXBIOSUS]
+psx.debugger.disfontsize small
+psx.debugger.memcharenc shift_jis
+psx.enable 1
+psx.forcemono 0
+psx.input.analog_mode_ct 0
+psx.input.mouse_sensitivity 1.00
+psx.input.port1 dualshock
+psx.input.port1.analogjoy.circle [P1SET1BUT1]
+psx.input.port1.analogjoy.cross [P1SET1BUT1]
+psx.input.port1.analogjoy.down [P1SET1ANLLYD]
+psx.input.port1.analogjoy.l1 [P1SET1BUT5] 
+psx.input.port1.analogjoy.l2 [P1SET1TRIGLEFT]
+psx.input.port1.analogjoy.left [P1SET1ANLLXL]
+psx.input.port1.analogjoy.lstick_down [P1SET1ANLLYD]
+psx.input.port1.analogjoy.lstick_left [P1SET1ANLLXL]
+psx.input.port1.analogjoy.lstick_right [P1SET1ANLLXR]
+psx.input.port1.analogjoy.lstick_up [P1SET1ANLLYU]
+psx.input.port1.analogjoy.r1 [P1SET1BUT6]
+psx.input.port1.analogjoy.r2 [P1SET1TRIGRIGHT]
+psx.input.port1.analogjoy.right [P1SET1ANLLXR]
+psx.input.port1.analogjoy.rstick_down [P1SET1ANLRYD]
+psx.input.port1.analogjoy.rstick_left [P1SET1ANLRXL]
+psx.input.port1.analogjoy.rstick_right [P1SET1ANLRXR]
+psx.input.port1.analogjoy.rstick_up [P1SET1ANLRYU]
+psx.input.port1.analogjoy.select [P1SET1BUT7]
+psx.input.port1.analogjoy.square [P1SET1BUT3]
+psx.input.port1.analogjoy.start [P1SET1BUT8]
+psx.input.port1.analogjoy.triangle [P1SET1BUT4]
+psx.input.port1.analogjoy.up [P1SET1ANLLYU]
+psx.input.port1.dancepad.circle [P1SET1BUT1]
+psx.input.port1.dancepad.cross [P1SET1BUT1]
+psx.input.port1.dancepad.down [P1SET1PADDOWN]
+psx.input.port1.dancepad.left [P1SET1PADLEFT]
+psx.input.port1.dancepad.right [P1SET1PADRIGHT]
+psx.input.port1.dancepad.select [P1SET1BUT7]
+psx.input.port1.dancepad.square [P1SET1BUT3]
+psx.input.port1.dancepad.start [P1SET1BUT8]
+psx.input.port1.dancepad.triangle [P1SET1BUT4]
+psx.input.port1.dancepad.up [P1SET1PADUP]
+psx.input.port1.dualanalog.circle [P1SET1BUT1]
+psx.input.port1.dualanalog.cross [P1SET1BUT1]
+psx.input.port1.dualanalog.down [P1SET1PADDOWN]
+psx.input.port1.dualanalog.l1 [P1SET1BUT5] 
+psx.input.port1.dualanalog.l2 [P1SET1TRIGLEFT]
+psx.input.port1.dualanalog.l3 [P1SET1BUT9]
+psx.input.port1.dualanalog.left [P1SET1PADLEFT]
+psx.input.port1.dualanalog.lstick_down [P1SET1ANLLYD]
+psx.input.port1.dualanalog.lstick_left [P1SET1ANLLXL]
+psx.input.port1.dualanalog.lstick_right [P1SET1ANLLXR]
+psx.input.port1.dualanalog.lstick_up [P1SET1ANLLYU]
+psx.input.port1.dualanalog.r1 [P1SET1BUT6]
+psx.input.port1.dualanalog.r2 [P1SET1TRIGRIGHT]
+psx.input.port1.dualanalog.r3 [P1SET1BUT10]
+psx.input.port1.dualanalog.rapid_circle 
+psx.input.port1.dualanalog.rapid_cross 
+psx.input.port1.dualanalog.rapid_square 
+psx.input.port1.dualanalog.rapid_triangle 
+psx.input.port1.dualanalog.right [P1SET1PADRIGHT]
+psx.input.port1.dualanalog.rstick_down [P1SET1ANLRYD]
+psx.input.port1.dualanalog.rstick_left [P1SET1ANLRXL]
+psx.input.port1.dualanalog.rstick_right [P1SET1ANLRXR]
+psx.input.port1.dualanalog.rstick_up [P1SET1ANLRYU]
+psx.input.port1.dualanalog.select [P1SET1BUT7]
+psx.input.port1.dualanalog.square [P1SET1BUT3]
+psx.input.port1.dualanalog.start [P1SET1BUT8]
+psx.input.port1.dualanalog.triangle [P1SET1BUT4]
+psx.input.port1.dualanalog.up [P1SET1PADUP]
+psx.input.port1.dualshock.analog [P1SET1MODE]
+psx.input.port1.dualshock.circle [P1SET1BUT1]
+psx.input.port1.dualshock.cross [P1SET1BUT1]
+psx.input.port1.dualshock.down [P1SET1PADDOWN]
+psx.input.port1.dualshock.l1 [P1SET1BUT5] 
+psx.input.port1.dualshock.l2 [P1SET1TRIGLEFT]
+psx.input.port1.dualshock.l3 [P1SET1BUT9]
+psx.input.port1.dualshock.left [P1SET1PADLEFT]
+psx.input.port1.dualshock.lstick_down [P1SET1ANLLYD]
+psx.input.port1.dualshock.lstick_left [P1SET1ANLLXL]
+psx.input.port1.dualshock.lstick_right [P1SET1ANLLXR]
+psx.input.port1.dualshock.lstick_up [P1SET1ANLLYU]
+psx.input.port1.dualshock.r1 [P1SET1BUT6]
+psx.input.port1.dualshock.r2 [P1SET1TRIGRIGHT]
+psx.input.port1.dualshock.r3 [P1SET1BUT10]
+psx.input.port1.dualshock.rapid_circle 
+psx.input.port1.dualshock.rapid_cross 
+psx.input.port1.dualshock.rapid_square 
+psx.input.port1.dualshock.rapid_triangle 
+psx.input.port1.dualshock.right [P1SET1PADRIGHT]
+psx.input.port1.dualshock.rstick_down [P1SET1ANLRYD]
+psx.input.port1.dualshock.rstick_left [P1SET1ANLRXL]
+psx.input.port1.dualshock.rstick_right [P1SET1ANLRXR]
+psx.input.port1.dualshock.rstick_up [P1SET1ANLRYU]
+psx.input.port1.dualshock.select [P1SET1BUT7]
+psx.input.port1.dualshock.square [P1SET1BUT3]
+psx.input.port1.dualshock.start [P1SET1BUT8]
+psx.input.port1.dualshock.triangle [P1SET1BUT4]
+psx.input.port1.dualshock.up [P1SET1PADUP]
+psx.input.port1.gamepad.circle [P1SET1BUT1]
+psx.input.port1.gamepad.cross [P1SET1BUT1]
+psx.input.port1.gamepad.down [P1SET1PADDOWN]
+psx.input.port1.gamepad.l1 [P1SET1BUT5]
+psx.input.port1.gamepad.l2 [P1SET1TRIGLEFT]
+psx.input.port1.gamepad.left [P1SET1PADLEFT]
+psx.input.port1.gamepad.r1 [P1SET1BUT6]
+psx.input.port1.gamepad.r2 [P1SET1TRIGRIGHT]
+psx.input.port1.gamepad.rapid_circle 
+psx.input.port1.gamepad.rapid_cross 
+psx.input.port1.gamepad.rapid_square 
+psx.input.port1.gamepad.rapid_triangle 
+psx.input.port1.gamepad.right [P1SET1PADRIGHT]
+psx.input.port1.gamepad.select [P1SET1BUT7]
+psx.input.port1.gamepad.square [P1SET1BUT3]
+psx.input.port1.gamepad.start [P1SET1BUT8]
+psx.input.port1.gamepad.triangle [P1SET1BUT4]
+psx.input.port1.gamepad.up [P1SET1PADUP]
+psx.input.port1.gun_chairs 0xFF0000
+psx.input.port1.guncon.a [P1SET1TRIGLEFT]
+psx.input.port1.guncon.b [P1SET1TRIGRIGHT]
+psx.input.port1.guncon.offscreen_shot keyboard 32
+psx.input.port1.guncon.trigger [P1SET1TRIGRIGHT]
+psx.input.port1.justifier.o [P1SET1BUT7]
+psx.input.port1.justifier.offscreen_shot [P1SET1TRIGLEFT]
+psx.input.port1.justifier.start [P1SET1BUT8]
+psx.input.port1.justifier.trigger [P1SET1TRIGRIGHT]
+psx.input.port1.memcard 1
+psx.input.port1.mouse.left [P1SET1TRIGLEFT]
+psx.input.port1.mouse.right [P1SET1TRIGRIGHT]
+psx.input.port1.negcon.a [P1SET1BUT2]
+psx.input.port1.negcon.b [P1SET1BUT1]
+psx.input.port1.negcon.down [P1SET1PADDOWN]
+psx.input.port1.negcon.i 
+psx.input.port1.negcon.ii 
+psx.input.port1.negcon.l [P1SET1TRIGLEFT]
+psx.input.port1.negcon.left [P1SET1PADLEFT]
+psx.input.port1.negcon.r [P1SET1BUT6]
+psx.input.port1.negcon.right [P1SET1PADRIGHT]
+psx.input.port1.negcon.start [P1SET1BUT8]
+psx.input.port1.negcon.twist_ccwise [P1SET1ANLLXL]
+psx.input.port1.negcon.twist_cwise [P1SET1ANLLXR]
+psx.input.port1.negcon.up [P1SET1PADUP]
+psx.input.port2 dualshock
+psx.input.port2.analogjoy.circle [P2SET1BUT1]
+psx.input.port2.analogjoy.cross [P2SET1BUT1]
+psx.input.port2.analogjoy.down [P2SET1ANLLYD]
+psx.input.port2.analogjoy.l1 [P2SET1BUT5] 
+psx.input.port2.analogjoy.l2 [P2SET1TRIGLEFT]
+psx.input.port2.analogjoy.left [P2SET1ANLLXL]
+psx.input.port2.analogjoy.lstick_down [P2SET1ANLLYD]
+psx.input.port2.analogjoy.lstick_left [P2SET1ANLLXL]
+psx.input.port2.analogjoy.lstick_right [P2SET1ANLLXR]
+psx.input.port2.analogjoy.lstick_up [P2SET1ANLLYU]
+psx.input.port2.analogjoy.r1 [P2SET1BUT6]
+psx.input.port2.analogjoy.r2 [P2SET1TRIGRIGHT]
+psx.input.port2.analogjoy.right [P2SET1ANLLXR]
+psx.input.port2.analogjoy.rstick_down [P2SET1ANLRYD]
+psx.input.port2.analogjoy.rstick_left [P2SET1ANLRXL]
+psx.input.port2.analogjoy.rstick_right [P2SET1ANLRXR]
+psx.input.port2.analogjoy.rstick_up [P2SET1ANLRYU]
+psx.input.port2.analogjoy.select [P2SET1BUT7]
+psx.input.port2.analogjoy.square [P2SET1BUT3]
+psx.input.port2.analogjoy.start [P2SET1BUT8]
+psx.input.port2.analogjoy.triangle [P2SET1BUT4]
+psx.input.port2.analogjoy.up [P2SET1ANLLYU]
+psx.input.port2.dancepad.circle [P2SET1BUT1]
+psx.input.port2.dancepad.cross [P2SET1BUT1]
+psx.input.port2.dancepad.down [P2SET1PADDOWN]
+psx.input.port2.dancepad.left [P2SET1PADLEFT]
+psx.input.port2.dancepad.right [P2SET1PADRIGHT]
+psx.input.port2.dancepad.select [P2SET1BUT7]
+psx.input.port2.dancepad.square [P2SET1BUT3]
+psx.input.port2.dancepad.start [P2SET1BUT8]
+psx.input.port2.dancepad.triangle [P2SET1BUT4]
+psx.input.port2.dancepad.up [P2SET1PADUP]
+psx.input.port2.dualanalog.circle [P2SET1BUT1]
+psx.input.port2.dualanalog.cross [P2SET1BUT1]
+psx.input.port2.dualanalog.down [P2SET1PADDOWN]
+psx.input.port2.dualanalog.l1 [P2SET1BUT5] 
+psx.input.port2.dualanalog.l2 [P2SET1TRIGLEFT]
+psx.input.port2.dualanalog.l3 [P2SET1BUT9]
+psx.input.port2.dualanalog.left [P2SET1PADLEFT]
+psx.input.port2.dualanalog.lstick_down [P2SET1ANLLYD]
+psx.input.port2.dualanalog.lstick_left [P2SET1ANLLXL]
+psx.input.port2.dualanalog.lstick_right [P2SET1ANLLXR]
+psx.input.port2.dualanalog.lstick_up [P2SET1ANLLYU]
+psx.input.port2.dualanalog.r1 [P2SET1BUT6]
+psx.input.port2.dualanalog.r2 [P2SET1TRIGRIGHT]
+psx.input.port2.dualanalog.r3 [P2SET1BUT10]
+psx.input.port2.dualanalog.rapid_circle 
+psx.input.port2.dualanalog.rapid_cross 
+psx.input.port2.dualanalog.rapid_square 
+psx.input.port2.dualanalog.rapid_triangle 
+psx.input.port2.dualanalog.right [P2SET1PADRIGHT]
+psx.input.port2.dualanalog.rstick_down [P2SET1ANLRYD]
+psx.input.port2.dualanalog.rstick_left [P2SET1ANLRXL]
+psx.input.port2.dualanalog.rstick_right [P2SET1ANLRXR]
+psx.input.port2.dualanalog.rstick_up [P2SET1ANLRYU]
+psx.input.port2.dualanalog.select [P2SET1BUT7]
+psx.input.port2.dualanalog.square [P2SET1BUT3]
+psx.input.port2.dualanalog.start [P2SET1BUT8]
+psx.input.port2.dualanalog.triangle [P2SET1BUT4]
+psx.input.port2.dualanalog.up [P2SET1PADUP]
+psx.input.port2.dualshock.analog [P2SET1MODE]
+psx.input.port2.dualshock.circle [P2SET1BUT1]
+psx.input.port2.dualshock.cross [P2SET1BUT1]
+psx.input.port2.dualshock.down [P2SET1PADDOWN]
+psx.input.port2.dualshock.l1 [P2SET1BUT5] 
+psx.input.port2.dualshock.l2 [P2SET1TRIGLEFT]
+psx.input.port2.dualshock.l3 [P2SET1BUT9]
+psx.input.port2.dualshock.left [P2SET1PADLEFT]
+psx.input.port2.dualshock.lstick_down [P2SET1ANLLYD]
+psx.input.port2.dualshock.lstick_left [P2SET1ANLLXL]
+psx.input.port2.dualshock.lstick_right [P2SET1ANLLXR]
+psx.input.port2.dualshock.lstick_up [P2SET1ANLLYU]
+psx.input.port2.dualshock.r1 [P2SET1BUT6]
+psx.input.port2.dualshock.r2 [P2SET1TRIGRIGHT]
+psx.input.port2.dualshock.r3 [P2SET1BUT10]
+psx.input.port2.dualshock.rapid_circle 
+psx.input.port2.dualshock.rapid_cross 
+psx.input.port2.dualshock.rapid_square 
+psx.input.port2.dualshock.rapid_triangle 
+psx.input.port2.dualshock.right [P2SET1PADRIGHT]
+psx.input.port2.dualshock.rstick_down [P2SET1ANLRYD]
+psx.input.port2.dualshock.rstick_left [P2SET1ANLRXL]
+psx.input.port2.dualshock.rstick_right [P2SET1ANLRXR]
+psx.input.port2.dualshock.rstick_up [P2SET1ANLRYU]
+psx.input.port2.dualshock.select [P2SET1BUT7]
+psx.input.port2.dualshock.square [P2SET1BUT3]
+psx.input.port2.dualshock.start [P2SET1BUT8]
+psx.input.port2.dualshock.triangle [P2SET1BUT4]
+psx.input.port2.dualshock.up [P2SET1PADUP]
+psx.input.port2.gamepad.circle [P2SET1BUT1]
+psx.input.port2.gamepad.cross [P2SET1BUT1]
+psx.input.port2.gamepad.down [P2SET1PADDOWN]
+psx.input.port2.gamepad.l1 [P2SET1BUT5]
+psx.input.port2.gamepad.l2 [P2SET1TRIGLEFT]
+psx.input.port2.gamepad.left [P2SET1PADLEFT]
+psx.input.port2.gamepad.r1 [P2SET1BUT6]
+psx.input.port2.gamepad.r2 [P2SET1TRIGRIGHT]
+psx.input.port2.gamepad.rapid_circle 
+psx.input.port2.gamepad.rapid_cross 
+psx.input.port2.gamepad.rapid_square 
+psx.input.port2.gamepad.rapid_triangle 
+psx.input.port2.gamepad.right [P2SET1PADRIGHT]
+psx.input.port2.gamepad.select [P2SET1BUT7]
+psx.input.port2.gamepad.square [P2SET1BUT3]
+psx.input.port2.gamepad.start [P2SET1BUT8]
+psx.input.port2.gamepad.triangle [P2SET1BUT4]
+psx.input.port2.gamepad.up [P2SET1PADUP]
+psx.input.port2.gun_chairs 0xFF0000
+psx.input.port2.guncon.a [P2SET1TRIGLEFT]
+psx.input.port2.guncon.b [P2SET1TRIGRIGHT]
+psx.input.port2.guncon.offscreen_shot keyboard 32
+psx.input.port2.guncon.trigger [P2SET1TRIGRIGHT]
+psx.input.port2.justifier.o [P2SET1BUT7]
+psx.input.port2.justifier.offscreen_shot [P2SET1TRIGLEFT]
+psx.input.port2.justifier.start [P2SET1BUT8]
+psx.input.port2.justifier.trigger [P2SET1TRIGRIGHT]
+psx.input.port2.memcard 1
+psx.input.port2.mouse.left [P2SET1TRIGLEFT]
+psx.input.port2.mouse.right [P2SET1TRIGRIGHT]
+psx.input.port2.negcon.a [P2SET1BUT2]
+psx.input.port2.negcon.b [P2SET1BUT1]
+psx.input.port2.negcon.down [P2SET1PADDOWN]
+psx.input.port2.negcon.i 
+psx.input.port2.negcon.ii 
+psx.input.port2.negcon.l [P2SET1TRIGLEFT]
+psx.input.port2.negcon.left [P2SET1PADLEFT]
+psx.input.port2.negcon.r [P2SET1BUT6]
+psx.input.port2.negcon.right [P2SET1PADRIGHT]
+psx.input.port2.negcon.start [P2SET1BUT8]
+psx.input.port2.negcon.twist_ccwise [P2SET1ANLLXL]
+psx.input.port2.negcon.twist_cwise [P2SET1ANLLXR]
+psx.input.port2.negcon.up [P2SET1PADUP]
+psx.input.port3 dualshock
+psx.input.port3.analogjoy.circle [P3SET1BUT1]
+psx.input.port3.analogjoy.cross [P3SET1BUT1]
+psx.input.port3.analogjoy.down [P3SET1ANLLYD]
+psx.input.port3.analogjoy.l1 [P3SET1BUT5] 
+psx.input.port3.analogjoy.l2 [P3SET1TRIGLEFT]
+psx.input.port3.analogjoy.left [P3SET1ANLLXL]
+psx.input.port3.analogjoy.lstick_down [P3SET1ANLLYD]
+psx.input.port3.analogjoy.lstick_left [P3SET1ANLLXL]
+psx.input.port3.analogjoy.lstick_right [P3SET1ANLLXR]
+psx.input.port3.analogjoy.lstick_up [P3SET1ANLLYU]
+psx.input.port3.analogjoy.r1 [P3SET1BUT6]
+psx.input.port3.analogjoy.r2 [P3SET1TRIGRIGHT]
+psx.input.port3.analogjoy.right [P3SET1ANLLXR]
+psx.input.port3.analogjoy.rstick_down [P3SET1ANLRYD]
+psx.input.port3.analogjoy.rstick_left [P3SET1ANLRXL]
+psx.input.port3.analogjoy.rstick_right [P3SET1ANLRXR]
+psx.input.port3.analogjoy.rstick_up [P3SET1ANLRYU]
+psx.input.port3.analogjoy.select [P3SET1BUT7]
+psx.input.port3.analogjoy.square [P3SET1BUT3]
+psx.input.port3.analogjoy.start [P3SET1BUT8]
+psx.input.port3.analogjoy.triangle [P3SET1BUT4]
+psx.input.port3.analogjoy.up [P3SET1ANLLYU]
+psx.input.port3.dancepad.circle [P3SET1BUT1]
+psx.input.port3.dancepad.cross [P3SET1BUT1]
+psx.input.port3.dancepad.down [P3SET1PADDOWN]
+psx.input.port3.dancepad.left [P3SET1PADLEFT]
+psx.input.port3.dancepad.right [P3SET1PADRIGHT]
+psx.input.port3.dancepad.select [P3SET1BUT7]
+psx.input.port3.dancepad.square [P3SET1BUT3]
+psx.input.port3.dancepad.start [P3SET1BUT8]
+psx.input.port3.dancepad.triangle [P3SET1BUT4]
+psx.input.port3.dancepad.up [P3SET1PADUP]
+psx.input.port3.dualanalog.circle [P3SET1BUT1]
+psx.input.port3.dualanalog.cross [P3SET1BUT1]
+psx.input.port3.dualanalog.down [P3SET1PADDOWN]
+psx.input.port3.dualanalog.l1 [P3SET1BUT5] 
+psx.input.port3.dualanalog.l2 [P3SET1TRIGLEFT]
+psx.input.port3.dualanalog.l3 [P3SET1BUT9]
+psx.input.port3.dualanalog.left [P3SET1PADLEFT]
+psx.input.port3.dualanalog.lstick_down [P3SET1ANLLYD]
+psx.input.port3.dualanalog.lstick_left [P3SET1ANLLXL]
+psx.input.port3.dualanalog.lstick_right [P3SET1ANLLXR]
+psx.input.port3.dualanalog.lstick_up [P3SET1ANLLYU]
+psx.input.port3.dualanalog.r1 [P3SET1BUT6]
+psx.input.port3.dualanalog.r2 [P3SET1TRIGRIGHT]
+psx.input.port3.dualanalog.r3 [P3SET1BUT10]
+psx.input.port3.dualanalog.rapid_circle 
+psx.input.port3.dualanalog.rapid_cross 
+psx.input.port3.dualanalog.rapid_square 
+psx.input.port3.dualanalog.rapid_triangle 
+psx.input.port3.dualanalog.right [P3SET1PADRIGHT]
+psx.input.port3.dualanalog.rstick_down [P3SET1ANLRYD]
+psx.input.port3.dualanalog.rstick_left [P3SET1ANLRXL]
+psx.input.port3.dualanalog.rstick_right [P3SET1ANLRXR]
+psx.input.port3.dualanalog.rstick_up [P3SET1ANLRYU]
+psx.input.port3.dualanalog.select [P3SET1BUT7]
+psx.input.port3.dualanalog.square [P3SET1BUT3]
+psx.input.port3.dualanalog.start [P3SET1BUT8]
+psx.input.port3.dualanalog.triangle [P3SET1BUT4]
+psx.input.port3.dualanalog.up [P3SET1PADUP]
+psx.input.port3.dualshock.analog [P3SET1MODE]
+psx.input.port3.dualshock.circle [P3SET1BUT1]
+psx.input.port3.dualshock.cross [P3SET1BUT1]
+psx.input.port3.dualshock.down [P3SET1PADDOWN]
+psx.input.port3.dualshock.l1 [P3SET1BUT5] 
+psx.input.port3.dualshock.l2 [P3SET1TRIGLEFT]
+psx.input.port3.dualshock.l3 [P3SET1BUT9]
+psx.input.port3.dualshock.left [P3SET1PADLEFT]
+psx.input.port3.dualshock.lstick_down [P3SET1ANLLYD]
+psx.input.port3.dualshock.lstick_left [P3SET1ANLLXL]
+psx.input.port3.dualshock.lstick_right [P3SET1ANLLXR]
+psx.input.port3.dualshock.lstick_up [P3SET1ANLLYU]
+psx.input.port3.dualshock.r1 [P3SET1BUT6]
+psx.input.port3.dualshock.r2 [P3SET1TRIGRIGHT]
+psx.input.port3.dualshock.r3 [P3SET1BUT10]
+psx.input.port3.dualshock.rapid_circle 
+psx.input.port3.dualshock.rapid_cross 
+psx.input.port3.dualshock.rapid_square 
+psx.input.port3.dualshock.rapid_triangle 
+psx.input.port3.dualshock.right [P3SET1PADRIGHT]
+psx.input.port3.dualshock.rstick_down [P3SET1ANLRYD]
+psx.input.port3.dualshock.rstick_left [P3SET1ANLRXL]
+psx.input.port3.dualshock.rstick_right [P3SET1ANLRXR]
+psx.input.port3.dualshock.rstick_up [P3SET1ANLRYU]
+psx.input.port3.dualshock.select [P3SET1BUT7]
+psx.input.port3.dualshock.square [P3SET1BUT3]
+psx.input.port3.dualshock.start [P3SET1BUT8]
+psx.input.port3.dualshock.triangle [P3SET1BUT4]
+psx.input.port3.dualshock.up [P3SET1PADUP]
+psx.input.port3.gamepad.circle [P3SET1BUT1]
+psx.input.port3.gamepad.cross [P3SET1BUT1]
+psx.input.port3.gamepad.down [P3SET1PADDOWN]
+psx.input.port3.gamepad.l1 [P3SET1BUT5]
+psx.input.port3.gamepad.l2 [P3SET1TRIGLEFT]
+psx.input.port3.gamepad.left [P3SET1PADLEFT]
+psx.input.port3.gamepad.r1 [P3SET1BUT6]
+psx.input.port3.gamepad.r2 [P3SET1TRIGRIGHT]
+psx.input.port3.gamepad.rapid_circle 
+psx.input.port3.gamepad.rapid_cross 
+psx.input.port3.gamepad.rapid_square 
+psx.input.port3.gamepad.rapid_triangle 
+psx.input.port3.gamepad.right [P3SET1PADRIGHT]
+psx.input.port3.gamepad.select [P3SET1BUT7]
+psx.input.port3.gamepad.square [P3SET1BUT3]
+psx.input.port3.gamepad.start [P3SET1BUT8]
+psx.input.port3.gamepad.triangle [P3SET1BUT4]
+psx.input.port3.gamepad.up [P3SET1PADUP]
+psx.input.port3.gun_chairs 0xFF0000
+psx.input.port3.guncon.a [P3SET1TRIGLEFT]
+psx.input.port3.guncon.b [P3SET1TRIGRIGHT]
+psx.input.port3.guncon.offscreen_shot keyboard 32
+psx.input.port3.guncon.trigger [P3SET1TRIGRIGHT]
+psx.input.port3.justifier.o [P3SET1BUT7]
+psx.input.port3.justifier.offscreen_shot [P3SET1TRIGLEFT]
+psx.input.port3.justifier.start [P3SET1BUT8]
+psx.input.port3.justifier.trigger [P3SET1TRIGRIGHT]
+psx.input.port3.memcard 1
+psx.input.port3.mouse.left [P3SET1TRIGLEFT]
+psx.input.port3.mouse.right [P3SET1TRIGRIGHT]
+psx.input.port3.negcon.a [P3SET1BUT2]
+psx.input.port3.negcon.b [P3SET1BUT1]
+psx.input.port3.negcon.down [P3SET1PADDOWN]
+psx.input.port3.negcon.i 
+psx.input.port3.negcon.ii 
+psx.input.port3.negcon.l [P3SET1TRIGLEFT]
+psx.input.port3.negcon.left [P3SET1PADLEFT]
+psx.input.port3.negcon.r [P3SET1BUT6]
+psx.input.port3.negcon.right [P3SET1PADRIGHT]
+psx.input.port3.negcon.start [P3SET1BUT8]
+psx.input.port3.negcon.twist_ccwise [P3SET1ANLLXL]
+psx.input.port3.negcon.twist_cwise [P3SET1ANLLXR]
+psx.input.port3.negcon.up [P3SET1PADUP]
+psx.input.port4 dualshock
+psx.input.port4.analogjoy.circle [P4SET1BUT1]
+psx.input.port4.analogjoy.cross [P4SET1BUT1]
+psx.input.port4.analogjoy.down [P4SET1ANLLYD]
+psx.input.port4.analogjoy.l1 [P4SET1BUT5] 
+psx.input.port4.analogjoy.l2 [P4SET1TRIGLEFT]
+psx.input.port4.analogjoy.left [P4SET1ANLLXL]
+psx.input.port4.analogjoy.lstick_down [P4SET1ANLLYD]
+psx.input.port4.analogjoy.lstick_left [P4SET1ANLLXL]
+psx.input.port4.analogjoy.lstick_right [P4SET1ANLLXR]
+psx.input.port4.analogjoy.lstick_up [P4SET1ANLLYU]
+psx.input.port4.analogjoy.r1 [P4SET1BUT6]
+psx.input.port4.analogjoy.r2 [P4SET1TRIGRIGHT]
+psx.input.port4.analogjoy.right [P4SET1ANLLXR]
+psx.input.port4.analogjoy.rstick_down [P4SET1ANLRYD]
+psx.input.port4.analogjoy.rstick_left [P4SET1ANLRXL]
+psx.input.port4.analogjoy.rstick_right [P4SET1ANLRXR]
+psx.input.port4.analogjoy.rstick_up [P4SET1ANLRYU]
+psx.input.port4.analogjoy.select [P4SET1BUT7]
+psx.input.port4.analogjoy.square [P4SET1BUT3]
+psx.input.port4.analogjoy.start [P4SET1BUT8]
+psx.input.port4.analogjoy.triangle [P4SET1BUT4]
+psx.input.port4.analogjoy.up [P4SET1ANLLYU]
+psx.input.port4.dancepad.circle [P4SET1BUT1]
+psx.input.port4.dancepad.cross [P4SET1BUT1]
+psx.input.port4.dancepad.down [P4SET1PADDOWN]
+psx.input.port4.dancepad.left [P4SET1PADLEFT]
+psx.input.port4.dancepad.right [P4SET1PADRIGHT]
+psx.input.port4.dancepad.select [P4SET1BUT7]
+psx.input.port4.dancepad.square [P4SET1BUT3]
+psx.input.port4.dancepad.start [P4SET1BUT8]
+psx.input.port4.dancepad.triangle [P4SET1BUT4]
+psx.input.port4.dancepad.up [P4SET1PADUP]
+psx.input.port4.dualanalog.circle [P4SET1BUT1]
+psx.input.port4.dualanalog.cross [P4SET1BUT1]
+psx.input.port4.dualanalog.down [P4SET1PADDOWN]
+psx.input.port4.dualanalog.l1 [P4SET1BUT5] 
+psx.input.port4.dualanalog.l2 [P4SET1TRIGLEFT]
+psx.input.port4.dualanalog.l3 [P4SET1BUT9]
+psx.input.port4.dualanalog.left [P4SET1PADLEFT]
+psx.input.port4.dualanalog.lstick_down [P4SET1ANLLYD]
+psx.input.port4.dualanalog.lstick_left [P4SET1ANLLXL]
+psx.input.port4.dualanalog.lstick_right [P4SET1ANLLXR]
+psx.input.port4.dualanalog.lstick_up [P4SET1ANLLYU]
+psx.input.port4.dualanalog.r1 [P4SET1BUT6]
+psx.input.port4.dualanalog.r2 [P4SET1TRIGRIGHT]
+psx.input.port4.dualanalog.r3 [P4SET1BUT10]
+psx.input.port4.dualanalog.rapid_circle 
+psx.input.port4.dualanalog.rapid_cross 
+psx.input.port4.dualanalog.rapid_square 
+psx.input.port4.dualanalog.rapid_triangle 
+psx.input.port4.dualanalog.right [P4SET1PADRIGHT]
+psx.input.port4.dualanalog.rstick_down [P4SET1ANLRYD]
+psx.input.port4.dualanalog.rstick_left [P4SET1ANLRXL]
+psx.input.port4.dualanalog.rstick_right [P4SET1ANLRXR]
+psx.input.port4.dualanalog.rstick_up [P4SET1ANLRYU]
+psx.input.port4.dualanalog.select [P4SET1BUT7]
+psx.input.port4.dualanalog.square [P4SET1BUT3]
+psx.input.port4.dualanalog.start [P4SET1BUT8]
+psx.input.port4.dualanalog.triangle [P4SET1BUT4]
+psx.input.port4.dualanalog.up [P4SET1PADUP]
+psx.input.port4.dualshock.analog [P4SET1MODE]
+psx.input.port4.dualshock.circle [P4SET1BUT1]
+psx.input.port4.dualshock.cross [P4SET1BUT1]
+psx.input.port4.dualshock.down [P4SET1PADDOWN]
+psx.input.port4.dualshock.l1 [P4SET1BUT5] 
+psx.input.port4.dualshock.l2 [P4SET1TRIGLEFT]
+psx.input.port4.dualshock.l3 [P4SET1BUT9]
+psx.input.port4.dualshock.left [P4SET1PADLEFT]
+psx.input.port4.dualshock.lstick_down [P4SET1ANLLYD]
+psx.input.port4.dualshock.lstick_left [P4SET1ANLLXL]
+psx.input.port4.dualshock.lstick_right [P4SET1ANLLXR]
+psx.input.port4.dualshock.lstick_up [P4SET1ANLLYU]
+psx.input.port4.dualshock.r1 [P4SET1BUT6]
+psx.input.port4.dualshock.r2 [P4SET1TRIGRIGHT]
+psx.input.port4.dualshock.r3 [P4SET1BUT10]
+psx.input.port4.dualshock.rapid_circle 
+psx.input.port4.dualshock.rapid_cross 
+psx.input.port4.dualshock.rapid_square 
+psx.input.port4.dualshock.rapid_triangle 
+psx.input.port4.dualshock.right [P4SET1PADRIGHT]
+psx.input.port4.dualshock.rstick_down [P4SET1ANLRYD]
+psx.input.port4.dualshock.rstick_left [P4SET1ANLRXL]
+psx.input.port4.dualshock.rstick_right [P4SET1ANLRXR]
+psx.input.port4.dualshock.rstick_up [P4SET1ANLRYU]
+psx.input.port4.dualshock.select [P4SET1BUT7]
+psx.input.port4.dualshock.square [P4SET1BUT3]
+psx.input.port4.dualshock.start [P4SET1BUT8]
+psx.input.port4.dualshock.triangle [P4SET1BUT4]
+psx.input.port4.dualshock.up [P4SET1PADUP]
+psx.input.port4.gamepad.circle [P4SET1BUT1]
+psx.input.port4.gamepad.cross [P4SET1BUT1]
+psx.input.port4.gamepad.down [P4SET1PADDOWN]
+psx.input.port4.gamepad.l1 [P4SET1BUT5]
+psx.input.port4.gamepad.l2 [P4SET1TRIGLEFT]
+psx.input.port4.gamepad.left [P4SET1PADLEFT]
+psx.input.port4.gamepad.r1 [P4SET1BUT6]
+psx.input.port4.gamepad.r2 [P4SET1TRIGRIGHT]
+psx.input.port4.gamepad.rapid_circle 
+psx.input.port4.gamepad.rapid_cross 
+psx.input.port4.gamepad.rapid_square 
+psx.input.port4.gamepad.rapid_triangle 
+psx.input.port4.gamepad.right [P4SET1PADRIGHT]
+psx.input.port4.gamepad.select [P4SET1BUT7]
+psx.input.port4.gamepad.square [P4SET1BUT3]
+psx.input.port4.gamepad.start [P4SET1BUT8]
+psx.input.port4.gamepad.triangle [P4SET1BUT4]
+psx.input.port4.gamepad.up [P4SET1PADUP]
+psx.input.port4.gun_chairs 0xFF0000
+psx.input.port4.guncon.a [P4SET1TRIGLEFT]
+psx.input.port4.guncon.b [P4SET1TRIGRIGHT]
+psx.input.port4.guncon.offscreen_shot keyboard 32
+psx.input.port4.guncon.trigger [P4SET1TRIGRIGHT]
+psx.input.port4.justifier.o [P4SET1BUT7]
+psx.input.port4.justifier.offscreen_shot [P4SET1TRIGLEFT]
+psx.input.port4.justifier.start [P4SET1BUT8]
+psx.input.port4.justifier.trigger [P4SET1TRIGRIGHT]
+psx.input.port4.memcard 1
+psx.input.port4.mouse.left [P4SET1TRIGLEFT]
+psx.input.port4.mouse.right [P4SET1TRIGRIGHT]
+psx.input.port4.negcon.a [P4SET1BUT2]
+psx.input.port4.negcon.b [P4SET1BUT1]
+psx.input.port4.negcon.down [P4SET1PADDOWN]
+psx.input.port4.negcon.i 
+psx.input.port4.negcon.ii 
+psx.input.port4.negcon.l [P4SET1TRIGLEFT]
+psx.input.port4.negcon.left [P4SET1PADLEFT]
+psx.input.port4.negcon.r [P4SET1BUT6]
+psx.input.port4.negcon.right [P4SET1PADRIGHT]
+psx.input.port4.negcon.start [P4SET1BUT8]
+psx.input.port4.negcon.twist_ccwise [P4SET1ANLLXL]
+psx.input.port4.negcon.twist_cwise [P4SET1ANLLXR]
+psx.input.port4.negcon.up [P4SET1PADUP]
+psx.input.port5 dualshock
+psx.input.port5.analogjoy.circle [P5SET1BUT1]
+psx.input.port5.analogjoy.cross [P5SET1BUT1]
+psx.input.port5.analogjoy.down [P5SET1ANLLYD]
+psx.input.port5.analogjoy.l1 [P5SET1BUT5] 
+psx.input.port5.analogjoy.l2 [P5SET1TRIGLEFT]
+psx.input.port5.analogjoy.left [P5SET1ANLLXL]
+psx.input.port5.analogjoy.lstick_down [P5SET1ANLLYD]
+psx.input.port5.analogjoy.lstick_left [P5SET1ANLLXL]
+psx.input.port5.analogjoy.lstick_right [P5SET1ANLLXR]
+psx.input.port5.analogjoy.lstick_up [P5SET1ANLLYU]
+psx.input.port5.analogjoy.r1 [P5SET1BUT6]
+psx.input.port5.analogjoy.r2 [P5SET1TRIGRIGHT]
+psx.input.port5.analogjoy.right [P5SET1ANLLXR]
+psx.input.port5.analogjoy.rstick_down [P5SET1ANLRYD]
+psx.input.port5.analogjoy.rstick_left [P5SET1ANLRXL]
+psx.input.port5.analogjoy.rstick_right [P5SET1ANLRXR]
+psx.input.port5.analogjoy.rstick_up [P5SET1ANLRYU]
+psx.input.port5.analogjoy.select [P5SET1BUT7]
+psx.input.port5.analogjoy.square [P5SET1BUT3]
+psx.input.port5.analogjoy.start [P5SET1BUT8]
+psx.input.port5.analogjoy.triangle [P5SET1BUT4]
+psx.input.port5.analogjoy.up [P5SET1ANLLYU]
+psx.input.port5.dancepad.circle [P5SET1BUT1]
+psx.input.port5.dancepad.cross [P5SET1BUT1]
+psx.input.port5.dancepad.down [P5SET1PADDOWN]
+psx.input.port5.dancepad.left [P5SET1PADLEFT]
+psx.input.port5.dancepad.right [P5SET1PADRIGHT]
+psx.input.port5.dancepad.select [P5SET1BUT7]
+psx.input.port5.dancepad.square [P5SET1BUT3]
+psx.input.port5.dancepad.start [P5SET1BUT8]
+psx.input.port5.dancepad.triangle [P5SET1BUT4]
+psx.input.port5.dancepad.up [P5SET1PADUP]
+psx.input.port5.dualanalog.circle [P5SET1BUT1]
+psx.input.port5.dualanalog.cross [P5SET1BUT1]
+psx.input.port5.dualanalog.down [P5SET1PADDOWN]
+psx.input.port5.dualanalog.l1 [P5SET1BUT5] 
+psx.input.port5.dualanalog.l2 [P5SET1TRIGLEFT]
+psx.input.port5.dualanalog.l3 [P5SET1BUT9]
+psx.input.port5.dualanalog.left [P5SET1PADLEFT]
+psx.input.port5.dualanalog.lstick_down [P5SET1ANLLYD]
+psx.input.port5.dualanalog.lstick_left [P5SET1ANLLXL]
+psx.input.port5.dualanalog.lstick_right [P5SET1ANLLXR]
+psx.input.port5.dualanalog.lstick_up [P5SET1ANLLYU]
+psx.input.port5.dualanalog.r1 [P5SET1BUT6]
+psx.input.port5.dualanalog.r2 [P5SET1TRIGRIGHT]
+psx.input.port5.dualanalog.r3 [P5SET1BUT10]
+psx.input.port5.dualanalog.rapid_circle 
+psx.input.port5.dualanalog.rapid_cross 
+psx.input.port5.dualanalog.rapid_square 
+psx.input.port5.dualanalog.rapid_triangle 
+psx.input.port5.dualanalog.right [P5SET1PADRIGHT]
+psx.input.port5.dualanalog.rstick_down [P5SET1ANLRYD]
+psx.input.port5.dualanalog.rstick_left [P5SET1ANLRXL]
+psx.input.port5.dualanalog.rstick_right [P5SET1ANLRXR]
+psx.input.port5.dualanalog.rstick_up [P5SET1ANLRYU]
+psx.input.port5.dualanalog.select [P5SET1BUT7]
+psx.input.port5.dualanalog.square [P5SET1BUT3]
+psx.input.port5.dualanalog.start [P5SET1BUT8]
+psx.input.port5.dualanalog.triangle [P5SET1BUT4]
+psx.input.port5.dualanalog.up [P5SET1PADUP]
+psx.input.port5.dualshock.analog [P5SET1MODE]
+psx.input.port5.dualshock.circle [P5SET1BUT1]
+psx.input.port5.dualshock.cross [P5SET1BUT1]
+psx.input.port5.dualshock.down [P5SET1PADDOWN]
+psx.input.port5.dualshock.l1 [P5SET1BUT5] 
+psx.input.port5.dualshock.l2 [P5SET1TRIGLEFT]
+psx.input.port5.dualshock.l3 [P5SET1BUT9]
+psx.input.port5.dualshock.left [P5SET1PADLEFT]
+psx.input.port5.dualshock.lstick_down [P5SET1ANLLYD]
+psx.input.port5.dualshock.lstick_left [P5SET1ANLLXL]
+psx.input.port5.dualshock.lstick_right [P5SET1ANLLXR]
+psx.input.port5.dualshock.lstick_up [P5SET1ANLLYU]
+psx.input.port5.dualshock.r1 [P5SET1BUT6]
+psx.input.port5.dualshock.r2 [P5SET1TRIGRIGHT]
+psx.input.port5.dualshock.r3 [P5SET1BUT10]
+psx.input.port5.dualshock.rapid_circle 
+psx.input.port5.dualshock.rapid_cross 
+psx.input.port5.dualshock.rapid_square 
+psx.input.port5.dualshock.rapid_triangle 
+psx.input.port5.dualshock.right [P5SET1PADRIGHT]
+psx.input.port5.dualshock.rstick_down [P5SET1ANLRYD]
+psx.input.port5.dualshock.rstick_left [P5SET1ANLRXL]
+psx.input.port5.dualshock.rstick_right [P5SET1ANLRXR]
+psx.input.port5.dualshock.rstick_up [P5SET1ANLRYU]
+psx.input.port5.dualshock.select [P5SET1BUT7]
+psx.input.port5.dualshock.square [P5SET1BUT3]
+psx.input.port5.dualshock.start [P5SET1BUT8]
+psx.input.port5.dualshock.triangle [P5SET1BUT4]
+psx.input.port5.dualshock.up [P5SET1PADUP]
+psx.input.port5.gamepad.circle [P5SET1BUT1]
+psx.input.port5.gamepad.cross [P5SET1BUT1]
+psx.input.port5.gamepad.down [P5SET1PADDOWN]
+psx.input.port5.gamepad.l1 [P5SET1BUT5]
+psx.input.port5.gamepad.l2 [P5SET1TRIGLEFT]
+psx.input.port5.gamepad.left [P5SET1PADLEFT]
+psx.input.port5.gamepad.r1 [P5SET1BUT6]
+psx.input.port5.gamepad.r2 [P5SET1TRIGRIGHT]
+psx.input.port5.gamepad.rapid_circle 
+psx.input.port5.gamepad.rapid_cross 
+psx.input.port5.gamepad.rapid_square 
+psx.input.port5.gamepad.rapid_triangle 
+psx.input.port5.gamepad.right [P5SET1PADRIGHT]
+psx.input.port5.gamepad.select [P5SET1BUT7]
+psx.input.port5.gamepad.square [P5SET1BUT3]
+psx.input.port5.gamepad.start [P5SET1BUT8]
+psx.input.port5.gamepad.triangle [P5SET1BUT4]
+psx.input.port5.gamepad.up [P5SET1PADUP]
+psx.input.port5.gun_chairs 0xFF0000
+psx.input.port5.guncon.a [P5SET1TRIGLEFT]
+psx.input.port5.guncon.b [P5SET1TRIGRIGHT]
+psx.input.port5.guncon.offscreen_shot keyboard 32
+psx.input.port5.guncon.trigger [P5SET1TRIGRIGHT]
+psx.input.port5.justifier.o [P5SET1BUT7]
+psx.input.port5.justifier.offscreen_shot [P5SET1TRIGLEFT]
+psx.input.port5.justifier.start [P5SET1BUT8]
+psx.input.port5.justifier.trigger [P5SET1TRIGRIGHT]
+psx.input.port5.memcard 1
+psx.input.port5.mouse.left [P5SET1TRIGLEFT]
+psx.input.port5.mouse.right [P5SET1TRIGRIGHT]
+psx.input.port5.negcon.a [P5SET1BUT2]
+psx.input.port5.negcon.b [P5SET1BUT1]
+psx.input.port5.negcon.down [P5SET1PADDOWN]
+psx.input.port5.negcon.i 
+psx.input.port5.negcon.ii 
+psx.input.port5.negcon.l [P5SET1TRIGLEFT]
+psx.input.port5.negcon.left [P5SET1PADLEFT]
+psx.input.port5.negcon.r [P5SET1BUT6]
+psx.input.port5.negcon.right [P5SET1PADRIGHT]
+psx.input.port5.negcon.start [P5SET1BUT8]
+psx.input.port5.negcon.twist_ccwise [P5SET1ANLLXL]
+psx.input.port5.negcon.twist_cwise [P5SET1ANLLXR]
+psx.input.port5.negcon.up [P5SET1PADUP]
+psx.input.port6 dualshock
+psx.input.port6.analogjoy.circle [P6SET1BUT1]
+psx.input.port6.analogjoy.cross [P6SET1BUT1]
+psx.input.port6.analogjoy.down [P6SET1ANLLYD]
+psx.input.port6.analogjoy.l1 [P6SET1BUT5] 
+psx.input.port6.analogjoy.l2 [P6SET1TRIGLEFT]
+psx.input.port6.analogjoy.left [P6SET1ANLLXL]
+psx.input.port6.analogjoy.lstick_down [P6SET1ANLLYD]
+psx.input.port6.analogjoy.lstick_left [P6SET1ANLLXL]
+psx.input.port6.analogjoy.lstick_right [P6SET1ANLLXR]
+psx.input.port6.analogjoy.lstick_up [P6SET1ANLLYU]
+psx.input.port6.analogjoy.r1 [P6SET1BUT6]
+psx.input.port6.analogjoy.r2 [P6SET1TRIGRIGHT]
+psx.input.port6.analogjoy.right [P6SET1ANLLXR]
+psx.input.port6.analogjoy.rstick_down [P6SET1ANLRYD]
+psx.input.port6.analogjoy.rstick_left [P6SET1ANLRXL]
+psx.input.port6.analogjoy.rstick_right [P6SET1ANLRXR]
+psx.input.port6.analogjoy.rstick_up [P6SET1ANLRYU]
+psx.input.port6.analogjoy.select [P6SET1BUT7]
+psx.input.port6.analogjoy.square [P6SET1BUT3]
+psx.input.port6.analogjoy.start [P6SET1BUT8]
+psx.input.port6.analogjoy.triangle [P6SET1BUT4]
+psx.input.port6.analogjoy.up [P6SET1ANLLYU]
+psx.input.port6.dancepad.circle [P6SET1BUT1]
+psx.input.port6.dancepad.cross [P6SET1BUT1]
+psx.input.port6.dancepad.down [P6SET1PADDOWN]
+psx.input.port6.dancepad.left [P6SET1PADLEFT]
+psx.input.port6.dancepad.right [P6SET1PADRIGHT]
+psx.input.port6.dancepad.select [P6SET1BUT7]
+psx.input.port6.dancepad.square [P6SET1BUT3]
+psx.input.port6.dancepad.start [P6SET1BUT8]
+psx.input.port6.dancepad.triangle [P6SET1BUT4]
+psx.input.port6.dancepad.up [P6SET1PADUP]
+psx.input.port6.dualanalog.circle [P6SET1BUT1]
+psx.input.port6.dualanalog.cross [P6SET1BUT1]
+psx.input.port6.dualanalog.down [P6SET1PADDOWN]
+psx.input.port6.dualanalog.l1 [P6SET1BUT5] 
+psx.input.port6.dualanalog.l2 [P6SET1TRIGLEFT]
+psx.input.port6.dualanalog.l3 [P6SET1BUT9]
+psx.input.port6.dualanalog.left [P6SET1PADLEFT]
+psx.input.port6.dualanalog.lstick_down [P6SET1ANLLYD]
+psx.input.port6.dualanalog.lstick_left [P6SET1ANLLXL]
+psx.input.port6.dualanalog.lstick_right [P6SET1ANLLXR]
+psx.input.port6.dualanalog.lstick_up [P6SET1ANLLYU]
+psx.input.port6.dualanalog.r1 [P6SET1BUT6]
+psx.input.port6.dualanalog.r2 [P6SET1TRIGRIGHT]
+psx.input.port6.dualanalog.r3 [P6SET1BUT10]
+psx.input.port6.dualanalog.rapid_circle 
+psx.input.port6.dualanalog.rapid_cross 
+psx.input.port6.dualanalog.rapid_square 
+psx.input.port6.dualanalog.rapid_triangle 
+psx.input.port6.dualanalog.right [P6SET1PADRIGHT]
+psx.input.port6.dualanalog.rstick_down [P6SET1ANLRYD]
+psx.input.port6.dualanalog.rstick_left [P6SET1ANLRXL]
+psx.input.port6.dualanalog.rstick_right [P6SET1ANLRXR]
+psx.input.port6.dualanalog.rstick_up [P6SET1ANLRYU]
+psx.input.port6.dualanalog.select [P6SET1BUT7]
+psx.input.port6.dualanalog.square [P6SET1BUT3]
+psx.input.port6.dualanalog.start [P6SET1BUT8]
+psx.input.port6.dualanalog.triangle [P6SET1BUT4]
+psx.input.port6.dualanalog.up [P6SET1PADUP]
+psx.input.port6.dualshock.analog [P6SET1MODE]
+psx.input.port6.dualshock.circle [P6SET1BUT1]
+psx.input.port6.dualshock.cross [P6SET1BUT1]
+psx.input.port6.dualshock.down [P6SET1PADDOWN]
+psx.input.port6.dualshock.l1 [P6SET1BUT5] 
+psx.input.port6.dualshock.l2 [P6SET1TRIGLEFT]
+psx.input.port6.dualshock.l3 [P6SET1BUT9]
+psx.input.port6.dualshock.left [P6SET1PADLEFT]
+psx.input.port6.dualshock.lstick_down [P6SET1ANLLYD]
+psx.input.port6.dualshock.lstick_left [P6SET1ANLLXL]
+psx.input.port6.dualshock.lstick_right [P6SET1ANLLXR]
+psx.input.port6.dualshock.lstick_up [P6SET1ANLLYU]
+psx.input.port6.dualshock.r1 [P6SET1BUT6]
+psx.input.port6.dualshock.r2 [P6SET1TRIGRIGHT]
+psx.input.port6.dualshock.r3 [P6SET1BUT10]
+psx.input.port6.dualshock.rapid_circle 
+psx.input.port6.dualshock.rapid_cross 
+psx.input.port6.dualshock.rapid_square 
+psx.input.port6.dualshock.rapid_triangle 
+psx.input.port6.dualshock.right [P6SET1PADRIGHT]
+psx.input.port6.dualshock.rstick_down [P6SET1ANLRYD]
+psx.input.port6.dualshock.rstick_left [P6SET1ANLRXL]
+psx.input.port6.dualshock.rstick_right [P6SET1ANLRXR]
+psx.input.port6.dualshock.rstick_up [P6SET1ANLRYU]
+psx.input.port6.dualshock.select [P6SET1BUT7]
+psx.input.port6.dualshock.square [P6SET1BUT3]
+psx.input.port6.dualshock.start [P6SET1BUT8]
+psx.input.port6.dualshock.triangle [P6SET1BUT4]
+psx.input.port6.dualshock.up [P6SET1PADUP]
+psx.input.port6.gamepad.circle [P6SET1BUT1]
+psx.input.port6.gamepad.cross [P6SET1BUT1]
+psx.input.port6.gamepad.down [P6SET1PADDOWN]
+psx.input.port6.gamepad.l1 [P6SET1BUT5]
+psx.input.port6.gamepad.l2 [P6SET1TRIGLEFT]
+psx.input.port6.gamepad.left [P6SET1PADLEFT]
+psx.input.port6.gamepad.r1 [P6SET1BUT6]
+psx.input.port6.gamepad.r2 [P6SET1TRIGRIGHT]
+psx.input.port6.gamepad.rapid_circle 
+psx.input.port6.gamepad.rapid_cross 
+psx.input.port6.gamepad.rapid_square 
+psx.input.port6.gamepad.rapid_triangle 
+psx.input.port6.gamepad.right [P6SET1PADRIGHT]
+psx.input.port6.gamepad.select [P6SET1BUT7]
+psx.input.port6.gamepad.square [P6SET1BUT3]
+psx.input.port6.gamepad.start [P6SET1BUT8]
+psx.input.port6.gamepad.triangle [P6SET1BUT4]
+psx.input.port6.gamepad.up [P6SET1PADUP]
+psx.input.port6.gun_chairs 0xFF0000
+psx.input.port6.guncon.a [P6SET1TRIGLEFT]
+psx.input.port6.guncon.b [P6SET1TRIGRIGHT]
+psx.input.port6.guncon.offscreen_shot keyboard 32
+psx.input.port6.guncon.trigger [P6SET1TRIGRIGHT]
+psx.input.port6.justifier.o [P6SET1BUT7]
+psx.input.port6.justifier.offscreen_shot [P6SET1TRIGLEFT]
+psx.input.port6.justifier.start [P6SET1BUT8]
+psx.input.port6.justifier.trigger [P6SET1TRIGRIGHT]
+psx.input.port6.memcard 1
+psx.input.port6.mouse.left [P6SET1TRIGLEFT]
+psx.input.port6.mouse.right [P6SET1TRIGRIGHT]
+psx.input.port6.negcon.a [P6SET1BUT2]
+psx.input.port6.negcon.b [P6SET1BUT1]
+psx.input.port6.negcon.down [P6SET1PADDOWN]
+psx.input.port6.negcon.i 
+psx.input.port6.negcon.ii 
+psx.input.port6.negcon.l [P6SET1TRIGLEFT]
+psx.input.port6.negcon.left [P6SET1PADLEFT]
+psx.input.port6.negcon.r [P6SET1BUT6]
+psx.input.port6.negcon.right [P6SET1PADRIGHT]
+psx.input.port6.negcon.start [P6SET1BUT8]
+psx.input.port6.negcon.twist_ccwise [P6SET1ANLLXL]
+psx.input.port6.negcon.twist_cwise [P6SET1ANLLXR]
+psx.input.port6.negcon.up [P6SET1PADUP]
+psx.input.port7 dualshock
+psx.input.port7.analogjoy.circle [P7SET1BUT1]
+psx.input.port7.analogjoy.cross [P7SET1BUT1]
+psx.input.port7.analogjoy.down [P7SET1ANLLYD]
+psx.input.port7.analogjoy.l1 [P7SET1BUT5] 
+psx.input.port7.analogjoy.l2 [P7SET1TRIGLEFT]
+psx.input.port7.analogjoy.left [P7SET1ANLLXL]
+psx.input.port7.analogjoy.lstick_down [P7SET1ANLLYD]
+psx.input.port7.analogjoy.lstick_left [P7SET1ANLLXL]
+psx.input.port7.analogjoy.lstick_right [P7SET1ANLLXR]
+psx.input.port7.analogjoy.lstick_up [P7SET1ANLLYU]
+psx.input.port7.analogjoy.r1 [P7SET1BUT6]
+psx.input.port7.analogjoy.r2 [P7SET1TRIGRIGHT]
+psx.input.port7.analogjoy.right [P7SET1ANLLXR]
+psx.input.port7.analogjoy.rstick_down [P7SET1ANLRYD]
+psx.input.port7.analogjoy.rstick_left [P7SET1ANLRXL]
+psx.input.port7.analogjoy.rstick_right [P7SET1ANLRXR]
+psx.input.port7.analogjoy.rstick_up [P7SET1ANLRYU]
+psx.input.port7.analogjoy.select [P7SET1BUT7]
+psx.input.port7.analogjoy.square [P7SET1BUT3]
+psx.input.port7.analogjoy.start [P7SET1BUT8]
+psx.input.port7.analogjoy.triangle [P7SET1BUT4]
+psx.input.port7.analogjoy.up [P7SET1ANLLYU]
+psx.input.port7.dancepad.circle [P7SET1BUT1]
+psx.input.port7.dancepad.cross [P7SET1BUT1]
+psx.input.port7.dancepad.down [P7SET1PADDOWN]
+psx.input.port7.dancepad.left [P7SET1PADLEFT]
+psx.input.port7.dancepad.right [P7SET1PADRIGHT]
+psx.input.port7.dancepad.select [P7SET1BUT7]
+psx.input.port7.dancepad.square [P7SET1BUT3]
+psx.input.port7.dancepad.start [P7SET1BUT8]
+psx.input.port7.dancepad.triangle [P7SET1BUT4]
+psx.input.port7.dancepad.up [P7SET1PADUP]
+psx.input.port7.dualanalog.circle [P7SET1BUT1]
+psx.input.port7.dualanalog.cross [P7SET1BUT1]
+psx.input.port7.dualanalog.down [P7SET1PADDOWN]
+psx.input.port7.dualanalog.l1 [P7SET1BUT5] 
+psx.input.port7.dualanalog.l2 [P7SET1TRIGLEFT]
+psx.input.port7.dualanalog.l3 [P7SET1BUT9]
+psx.input.port7.dualanalog.left [P7SET1PADLEFT]
+psx.input.port7.dualanalog.lstick_down [P7SET1ANLLYD]
+psx.input.port7.dualanalog.lstick_left [P7SET1ANLLXL]
+psx.input.port7.dualanalog.lstick_right [P7SET1ANLLXR]
+psx.input.port7.dualanalog.lstick_up [P7SET1ANLLYU]
+psx.input.port7.dualanalog.r1 [P7SET1BUT6]
+psx.input.port7.dualanalog.r2 [P7SET1TRIGRIGHT]
+psx.input.port7.dualanalog.r3 [P7SET1BUT10]
+psx.input.port7.dualanalog.rapid_circle 
+psx.input.port7.dualanalog.rapid_cross 
+psx.input.port7.dualanalog.rapid_square 
+psx.input.port7.dualanalog.rapid_triangle 
+psx.input.port7.dualanalog.right [P7SET1PADRIGHT]
+psx.input.port7.dualanalog.rstick_down [P7SET1ANLRYD]
+psx.input.port7.dualanalog.rstick_left [P7SET1ANLRXL]
+psx.input.port7.dualanalog.rstick_right [P7SET1ANLRXR]
+psx.input.port7.dualanalog.rstick_up [P7SET1ANLRYU]
+psx.input.port7.dualanalog.select [P7SET1BUT7]
+psx.input.port7.dualanalog.square [P7SET1BUT3]
+psx.input.port7.dualanalog.start [P7SET1BUT8]
+psx.input.port7.dualanalog.triangle [P7SET1BUT4]
+psx.input.port7.dualanalog.up [P7SET1PADUP]
+psx.input.port7.dualshock.analog [P7SET1MODE]
+psx.input.port7.dualshock.circle [P7SET1BUT1]
+psx.input.port7.dualshock.cross [P7SET1BUT1]
+psx.input.port7.dualshock.down [P7SET1PADDOWN]
+psx.input.port7.dualshock.l1 [P7SET1BUT5] 
+psx.input.port7.dualshock.l2 [P7SET1TRIGLEFT]
+psx.input.port7.dualshock.l3 [P7SET1BUT9]
+psx.input.port7.dualshock.left [P7SET1PADLEFT]
+psx.input.port7.dualshock.lstick_down [P7SET1ANLLYD]
+psx.input.port7.dualshock.lstick_left [P7SET1ANLLXL]
+psx.input.port7.dualshock.lstick_right [P7SET1ANLLXR]
+psx.input.port7.dualshock.lstick_up [P7SET1ANLLYU]
+psx.input.port7.dualshock.r1 [P7SET1BUT6]
+psx.input.port7.dualshock.r2 [P7SET1TRIGRIGHT]
+psx.input.port7.dualshock.r3 [P7SET1BUT10]
+psx.input.port7.dualshock.rapid_circle 
+psx.input.port7.dualshock.rapid_cross 
+psx.input.port7.dualshock.rapid_square 
+psx.input.port7.dualshock.rapid_triangle 
+psx.input.port7.dualshock.right [P7SET1PADRIGHT]
+psx.input.port7.dualshock.rstick_down [P7SET1ANLRYD]
+psx.input.port7.dualshock.rstick_left [P7SET1ANLRXL]
+psx.input.port7.dualshock.rstick_right [P7SET1ANLRXR]
+psx.input.port7.dualshock.rstick_up [P7SET1ANLRYU]
+psx.input.port7.dualshock.select [P7SET1BUT7]
+psx.input.port7.dualshock.square [P7SET1BUT3]
+psx.input.port7.dualshock.start [P7SET1BUT8]
+psx.input.port7.dualshock.triangle [P7SET1BUT4]
+psx.input.port7.dualshock.up [P7SET1PADUP]
+psx.input.port7.gamepad.circle [P7SET1BUT1]
+psx.input.port7.gamepad.cross [P7SET1BUT1]
+psx.input.port7.gamepad.down [P7SET1PADDOWN]
+psx.input.port7.gamepad.l1 [P7SET1BUT5]
+psx.input.port7.gamepad.l2 [P7SET1TRIGLEFT]
+psx.input.port7.gamepad.left [P7SET1PADLEFT]
+psx.input.port7.gamepad.r1 [P7SET1BUT6]
+psx.input.port7.gamepad.r2 [P7SET1TRIGRIGHT]
+psx.input.port7.gamepad.rapid_circle 
+psx.input.port7.gamepad.rapid_cross 
+psx.input.port7.gamepad.rapid_square 
+psx.input.port7.gamepad.rapid_triangle 
+psx.input.port7.gamepad.right [P7SET1PADRIGHT]
+psx.input.port7.gamepad.select [P7SET1BUT7]
+psx.input.port7.gamepad.square [P7SET1BUT3]
+psx.input.port7.gamepad.start [P7SET1BUT8]
+psx.input.port7.gamepad.triangle [P7SET1BUT4]
+psx.input.port7.gamepad.up [P7SET1PADUP]
+psx.input.port7.gun_chairs 0xFF0000
+psx.input.port7.guncon.a [P7SET1TRIGLEFT]
+psx.input.port7.guncon.b [P7SET1TRIGRIGHT]
+psx.input.port7.guncon.offscreen_shot keyboard 32
+psx.input.port7.guncon.trigger [P7SET1TRIGRIGHT]
+psx.input.port7.justifier.o [P7SET1BUT7]
+psx.input.port7.justifier.offscreen_shot [P7SET1TRIGLEFT]
+psx.input.port7.justifier.start [P7SET1BUT8]
+psx.input.port7.justifier.trigger [P7SET1TRIGRIGHT]
+psx.input.port7.memcard 1
+psx.input.port7.mouse.left [P7SET1TRIGLEFT]
+psx.input.port7.mouse.right [P7SET1TRIGRIGHT]
+psx.input.port7.negcon.a [P7SET1BUT2]
+psx.input.port7.negcon.b [P7SET1BUT1]
+psx.input.port7.negcon.down [P7SET1PADDOWN]
+psx.input.port7.negcon.i 
+psx.input.port7.negcon.ii 
+psx.input.port7.negcon.l [P7SET1TRIGLEFT]
+psx.input.port7.negcon.left [P7SET1PADLEFT]
+psx.input.port7.negcon.r [P7SET1BUT6]
+psx.input.port7.negcon.right [P7SET1PADRIGHT]
+psx.input.port7.negcon.start [P7SET1BUT8]
+psx.input.port7.negcon.twist_ccwise [P7SET1ANLLXL]
+psx.input.port7.negcon.twist_cwise [P7SET1ANLLXR]
+psx.input.port7.negcon.up [P7SET1PADUP]
+psx.input.port8 dualshock
+psx.input.port8.analogjoy.circle [P8SET1BUT1]
+psx.input.port8.analogjoy.cross [P8SET1BUT1]
+psx.input.port8.analogjoy.down [P8SET1ANLLYD]
+psx.input.port8.analogjoy.l1 [P8SET1BUT5] 
+psx.input.port8.analogjoy.l2 [P8SET1TRIGLEFT]
+psx.input.port8.analogjoy.left [P8SET1ANLLXL]
+psx.input.port8.analogjoy.lstick_down [P8SET1ANLLYD]
+psx.input.port8.analogjoy.lstick_left [P8SET1ANLLXL]
+psx.input.port8.analogjoy.lstick_right [P8SET1ANLLXR]
+psx.input.port8.analogjoy.lstick_up [P8SET1ANLLYU]
+psx.input.port8.analogjoy.r1 [P8SET1BUT6]
+psx.input.port8.analogjoy.r2 [P8SET1TRIGRIGHT]
+psx.input.port8.analogjoy.right [P8SET1ANLLXR]
+psx.input.port8.analogjoy.rstick_down [P8SET1ANLRYD]
+psx.input.port8.analogjoy.rstick_left [P8SET1ANLRXL]
+psx.input.port8.analogjoy.rstick_right [P8SET1ANLRXR]
+psx.input.port8.analogjoy.rstick_up [P8SET1ANLRYU]
+psx.input.port8.analogjoy.select [P8SET1BUT7]
+psx.input.port8.analogjoy.square [P8SET1BUT3]
+psx.input.port8.analogjoy.start [P8SET1BUT8]
+psx.input.port8.analogjoy.triangle [P8SET1BUT4]
+psx.input.port8.analogjoy.up [P8SET1ANLLYU]
+psx.input.port8.dancepad.circle [P8SET1BUT1]
+psx.input.port8.dancepad.cross [P8SET1BUT1]
+psx.input.port8.dancepad.down [P8SET1PADDOWN]
+psx.input.port8.dancepad.left [P8SET1PADLEFT]
+psx.input.port8.dancepad.right [P8SET1PADRIGHT]
+psx.input.port8.dancepad.select [P8SET1BUT7]
+psx.input.port8.dancepad.square [P8SET1BUT3]
+psx.input.port8.dancepad.start [P8SET1BUT8]
+psx.input.port8.dancepad.triangle [P8SET1BUT4]
+psx.input.port8.dancepad.up [P8SET1PADUP]
+psx.input.port8.dualanalog.circle [P8SET1BUT1]
+psx.input.port8.dualanalog.cross [P8SET1BUT1]
+psx.input.port8.dualanalog.down [P8SET1PADDOWN]
+psx.input.port8.dualanalog.l1 [P8SET1BUT5] 
+psx.input.port8.dualanalog.l2 [P8SET1TRIGLEFT]
+psx.input.port8.dualanalog.l3 [P8SET1BUT9]
+psx.input.port8.dualanalog.left [P8SET1PADLEFT]
+psx.input.port8.dualanalog.lstick_down [P8SET1ANLLYD]
+psx.input.port8.dualanalog.lstick_left [P8SET1ANLLXL]
+psx.input.port8.dualanalog.lstick_right [P8SET1ANLLXR]
+psx.input.port8.dualanalog.lstick_up [P8SET1ANLLYU]
+psx.input.port8.dualanalog.r1 [P8SET1BUT6]
+psx.input.port8.dualanalog.r2 [P8SET1TRIGRIGHT]
+psx.input.port8.dualanalog.r3 [P8SET1BUT10]
+psx.input.port8.dualanalog.rapid_circle 
+psx.input.port8.dualanalog.rapid_cross 
+psx.input.port8.dualanalog.rapid_square 
+psx.input.port8.dualanalog.rapid_triangle 
+psx.input.port8.dualanalog.right [P8SET1PADRIGHT]
+psx.input.port8.dualanalog.rstick_down [P8SET1ANLRYD]
+psx.input.port8.dualanalog.rstick_left [P8SET1ANLRXL]
+psx.input.port8.dualanalog.rstick_right [P8SET1ANLRXR]
+psx.input.port8.dualanalog.rstick_up [P8SET1ANLRYU]
+psx.input.port8.dualanalog.select [P8SET1BUT7]
+psx.input.port8.dualanalog.square [P8SET1BUT3]
+psx.input.port8.dualanalog.start [P8SET1BUT8]
+psx.input.port8.dualanalog.triangle [P8SET1BUT4]
+psx.input.port8.dualanalog.up [P8SET1PADUP]
+psx.input.port8.dualshock.analog [P8SET1MODE]
+psx.input.port8.dualshock.circle [P8SET1BUT1]
+psx.input.port8.dualshock.cross [P8SET1BUT1]
+psx.input.port8.dualshock.down [P8SET1PADDOWN]
+psx.input.port8.dualshock.l1 [P8SET1BUT5] 
+psx.input.port8.dualshock.l2 [P8SET1TRIGLEFT]
+psx.input.port8.dualshock.l3 [P8SET1BUT9]
+psx.input.port8.dualshock.left [P8SET1PADLEFT]
+psx.input.port8.dualshock.lstick_down [P8SET1ANLLYD]
+psx.input.port8.dualshock.lstick_left [P8SET1ANLLXL]
+psx.input.port8.dualshock.lstick_right [P8SET1ANLLXR]
+psx.input.port8.dualshock.lstick_up [P8SET1ANLLYU]
+psx.input.port8.dualshock.r1 [P8SET1BUT6]
+psx.input.port8.dualshock.r2 [P8SET1TRIGRIGHT]
+psx.input.port8.dualshock.r3 [P8SET1BUT10]
+psx.input.port8.dualshock.rapid_circle 
+psx.input.port8.dualshock.rapid_cross 
+psx.input.port8.dualshock.rapid_square 
+psx.input.port8.dualshock.rapid_triangle 
+psx.input.port8.dualshock.right [P8SET1PADRIGHT]
+psx.input.port8.dualshock.rstick_down [P8SET1ANLRYD]
+psx.input.port8.dualshock.rstick_left [P8SET1ANLRXL]
+psx.input.port8.dualshock.rstick_right [P8SET1ANLRXR]
+psx.input.port8.dualshock.rstick_up [P8SET1ANLRYU]
+psx.input.port8.dualshock.select [P8SET1BUT7]
+psx.input.port8.dualshock.square [P8SET1BUT3]
+psx.input.port8.dualshock.start [P8SET1BUT8]
+psx.input.port8.dualshock.triangle [P8SET1BUT4]
+psx.input.port8.dualshock.up [P8SET1PADUP]
+psx.input.port8.gamepad.circle [P8SET1BUT1]
+psx.input.port8.gamepad.cross [P8SET1BUT1]
+psx.input.port8.gamepad.down [P8SET1PADDOWN]
+psx.input.port8.gamepad.l1 [P8SET1BUT5]
+psx.input.port8.gamepad.l2 [P8SET1TRIGLEFT]
+psx.input.port8.gamepad.left [P8SET1PADLEFT]
+psx.input.port8.gamepad.r1 [P8SET1BUT6]
+psx.input.port8.gamepad.r2 [P8SET1TRIGRIGHT]
+psx.input.port8.gamepad.rapid_circle 
+psx.input.port8.gamepad.rapid_cross 
+psx.input.port8.gamepad.rapid_square 
+psx.input.port8.gamepad.rapid_triangle 
+psx.input.port8.gamepad.right [P8SET1PADRIGHT]
+psx.input.port8.gamepad.select [P8SET1BUT7]
+psx.input.port8.gamepad.square [P8SET1BUT3]
+psx.input.port8.gamepad.start [P8SET1BUT8]
+psx.input.port8.gamepad.triangle [P8SET1BUT4]
+psx.input.port8.gamepad.up [P8SET1PADUP]
+psx.input.port8.gun_chairs 0xFF0000
+psx.input.port8.guncon.a [P8SET1TRIGLEFT]
+psx.input.port8.guncon.b [P8SET1TRIGRIGHT]
+psx.input.port8.guncon.offscreen_shot keyboard 32
+psx.input.port8.guncon.trigger [P8SET1TRIGRIGHT]
+psx.input.port8.justifier.o [P8SET1BUT7]
+psx.input.port8.justifier.offscreen_shot [P8SET1TRIGLEFT]
+psx.input.port8.justifier.start [P8SET1BUT8]
+psx.input.port8.justifier.trigger [P8SET1TRIGRIGHT]
+psx.input.port8.memcard 1
+psx.input.port8.mouse.left [P8SET1TRIGLEFT]
+psx.input.port8.mouse.right [P8SET1TRIGRIGHT]
+psx.input.port8.negcon.a [P8SET1BUT2]
+psx.input.port8.negcon.b [P8SET1BUT1]
+psx.input.port8.negcon.down [P8SET1PADDOWN]
+psx.input.port8.negcon.i 
+psx.input.port8.negcon.ii 
+psx.input.port8.negcon.l [P8SET1TRIGLEFT]
+psx.input.port8.negcon.left [P8SET1PADLEFT]
+psx.input.port8.negcon.r [P8SET1BUT6]
+psx.input.port8.negcon.right [P8SET1PADRIGHT]
+psx.input.port8.negcon.start [P8SET1BUT8]
+psx.input.port8.negcon.twist_ccwise [P8SET1ANLLXL]
+psx.input.port8.negcon.twist_cwise [P8SET1ANLLXR]
+psx.input.port8.negcon.up [P8SET1PADUP]
+psx.pixshader [SHADR]
+psx.region_autodetect 1
+psx.region_default jp
+psx.scanlines [SCAN]
+psx.special [SHADG]
+psx.spu.resamp_quality 5
+psx.stretch [ASPC]
+psx.tblur [BLUR]
+psx.tblur.accum [ACCUMBLUR]
+psx.tblur.accum.amount [BLURLVL]
+psx.videoip [INTERP]
+psx.xres 0
+psx.xscale 3.000000
+psx.xscalefs 1.000000
+psx.yres 0
+psx.yscale 3.000000
+psx.yscalefs 1.000000
+qtrecord.h_double_threshold 256
+qtrecord.vcodec cscd
+qtrecord.w_double_threshold 384
+sfspeed 0.75
+sftoggle 0
+sms.enable 1
+sms.fm 1
+sms.forcemono 0
+sms.input.port1.gamepad.down [P1SET1PADDOWN]
+sms.input.port1.gamepad.fire1 [P1SET1BUT1]
+sms.input.port1.gamepad.fire2 [P1SET1BUT3]
+sms.input.port1.gamepad.left [P1SET1PADLEFT]
+sms.input.port1.gamepad.pause [P1SET1BUT8]
+sms.input.port1.gamepad.rapid_fire1 [P1SET1RAPID1]
+sms.input.port1.gamepad.rapid_fire2 [P1SET1RAPID2]
+sms.input.port1.gamepad.right [P1SET1PADRIGHT]
+sms.input.port1.gamepad.up [P1SET1PADUP]
+sms.input.port2.gamepad.down [P2SET1PADDOWN]
+sms.input.port2.gamepad.fire1 [P2SET1BUT1]
+sms.input.port2.gamepad.fire2 [P2SET1BUT3]
+sms.input.port2.gamepad.left [P2SET1PADLEFT]
+sms.input.port2.gamepad.pause [P2SET1BUT8]
+sms.input.port2.gamepad.rapid_fire1 [P2SET1RAPID1]
+sms.input.port2.gamepad.rapid_fire2 [P2SET1RAPID2]
+sms.input.port2.gamepad.right [P2SET1PADRIGHT]
+sms.input.port2.gamepad.up [P2SET1PADUP]
+sms.pixshader [SHADR]
+sms.scanlines [SCAN]
+sms.special [SHADG]
+sms.stretch [ASPC]
+sms.tblur [BLUR]
+sms.tblur.accum [ACCUMBLUR]
+sms.tblur.accum.amount [BLURLVL]
+sms.territory export
+sms.videoip [NOGL]
+sms.xres 0
+sms.xscale 3.000000
+sms.xscalefs 1.000000
+sms.yres 0
+sms.yscale 3.000000
+sms.yscalefs 1.000000
+snes.apu.resamp_quality 5
+snes.enable 1
+snes.forcemono 0
+snes.input.port1 gamepad
+snes.input.port1.gamepad.a [P1SET1BUT2]
+snes.input.port1.gamepad.b [P1SET1BUT1]
+snes.input.port1.gamepad.down [P1SET1PADDOWN]
+snes.input.port1.gamepad.l [P1SET1BUT5]
+snes.input.port1.gamepad.left [P1SET1PADLEFT]
+snes.input.port1.gamepad.r [P1SET1BUT6]
+snes.input.port1.gamepad.rapid_a [P1SET1RAPID4]
+snes.input.port1.gamepad.rapid_b [P1SET1RAPID1]
+snes.input.port1.gamepad.rapid_x [P1SET1RAPID3]
+snes.input.port1.gamepad.rapid_y [P1SET1RAPID2]
+snes.input.port1.gamepad.right [P1SET1PADRIGHT]
+snes.input.port1.gamepad.select [P1SET1BUT7]
+snes.input.port1.gamepad.start [P1SET1BUT8]
+snes.input.port1.gamepad.up [P1SET1PADUP]
+snes.input.port1.gamepad.x [P1SET1BUT4]
+snes.input.port1.gamepad.y [P1SET1BUT3]
+snes.input.port1.mouse.left [P1SET1BUT1]
+snes.input.port1.mouse.right [P1SET1BUT3]
+snes.input.port1.multitap 0
+snes.input.port2 gamepad
+snes.input.port2.gamepad.a [P2SET1BUT2]
+snes.input.port2.gamepad.b [P2SET1BUT1]
+snes.input.port2.gamepad.down [P2SET1PADDOWN]
+snes.input.port2.gamepad.l [P2SET1BUT5]
+snes.input.port2.gamepad.left [P2SET1PADLEFT]
+snes.input.port2.gamepad.r [P2SET1BUT6]
+snes.input.port2.gamepad.rapid_a [P2SET1RAPID4]
+snes.input.port2.gamepad.rapid_b [P2SET1RAPID1]
+snes.input.port2.gamepad.rapid_x [P2SET1RAPID3]
+snes.input.port2.gamepad.rapid_y [P2SET1RAPID2]
+snes.input.port2.gamepad.right [P2SET1PADRIGHT]
+snes.input.port2.gamepad.select [P2SET1BUT7]
+snes.input.port2.gamepad.start [P2SET1BUT8]
+snes.input.port2.gamepad.up [P2SET1PADUP]
+snes.input.port2.gamepad.x [P2SET1BUT4]
+snes.input.port2.gamepad.y [P2SET1PADLEFT]
+snes.input.port2.mouse.left [P2SET1BUT1]
+snes.input.port2.mouse.right [P2SET1BUT3]
+snes.input.port2.multitap 0
+snes.input.port3.gamepad.a [P3SET1BUT2]
+snes.input.port3.gamepad.b [P3SET1BUT1]
+snes.input.port3.gamepad.down [P3SET1PADDOWN]
+snes.input.port3.gamepad.l [P3SET1BUT5]
+snes.input.port3.gamepad.left [P3SET1PADLEFT]
+snes.input.port3.gamepad.r [P3SET1BUT6]
+snes.input.port3.gamepad.rapid_a [P3SET1RAPID4]
+snes.input.port3.gamepad.rapid_b [P3SET1RAPID1]
+snes.input.port3.gamepad.rapid_x [P3SET1RAPID3]
+snes.input.port3.gamepad.rapid_y [P3SET1RAPID2]
+snes.input.port3.gamepad.right [P3SET1PADRIGHT]
+snes.input.port3.gamepad.select [P3SET1BUT7]
+snes.input.port3.gamepad.start [P3SET1BUT8]
+snes.input.port3.gamepad.up [P3SET1PADUP]
+snes.input.port3.gamepad.x [P3SET1BUT4]
+snes.input.port3.gamepad.y [P3SET1PADLEFT]
+snes.input.port4.gamepad.a [P4SET1BUT2]
+snes.input.port4.gamepad.b [P4SET1BUT1]
+snes.input.port4.gamepad.down [P4SET1PADDOWN]
+snes.input.port4.gamepad.l [P4SET1BUT5]
+snes.input.port4.gamepad.left [P4SET1PADLEFT]
+snes.input.port4.gamepad.r [P4SET1BUT6]
+snes.input.port4.gamepad.rapid_a [P4SET1RAPID4]
+snes.input.port4.gamepad.rapid_b [P4SET1RAPID1]
+snes.input.port4.gamepad.rapid_x [P4SET1RAPID3]
+snes.input.port4.gamepad.rapid_y [P4SET1RAPID2]
+snes.input.port4.gamepad.right [P4SET1PADRIGHT]
+snes.input.port4.gamepad.select [P4SET1BUT7]
+snes.input.port4.gamepad.start [P4SET1BUT8]
+snes.input.port4.gamepad.up [P4SET1PADUP]
+snes.input.port4.gamepad.x [P4SET1BUT4]
+snes.input.port4.gamepad.y [P4SET1PADLEFT]
+snes.input.port5.gamepad.a [P5SET1BUT2]
+snes.input.port5.gamepad.b [P5SET1BUT1]
+snes.input.port5.gamepad.down [P5SET1PADDOWN]
+snes.input.port5.gamepad.l [P5SET1BUT5]
+snes.input.port5.gamepad.left [P5SET1PADLEFT]
+snes.input.port5.gamepad.r [P5SET1BUT6]
+snes.input.port5.gamepad.rapid_a [P5SET1RAPID4]
+snes.input.port5.gamepad.rapid_b [P5SET1RAPID1]
+snes.input.port5.gamepad.rapid_x [P5SET1RAPID3]
+snes.input.port5.gamepad.rapid_y [P5SET1RAPID2]
+snes.input.port5.gamepad.right [P5SET1PADRIGHT]
+snes.input.port5.gamepad.select [P5SET1BUT7]
+snes.input.port5.gamepad.start [P5SET1BUT8]
+snes.input.port5.gamepad.up [P5SET1PADUP]
+snes.input.port5.gamepad.x [P5SET1BUT4]
+snes.input.port5.gamepad.y [P5SET1PADLEFT]
+snes.input.port6.gamepad.a [P6SET1BUT2]
+snes.input.port6.gamepad.b [P6SET1BUT1]
+snes.input.port6.gamepad.down [P6SET1PADDOWN]
+snes.input.port6.gamepad.l [P6SET1BUT5]
+snes.input.port6.gamepad.left [P6SET1PADLEFT]
+snes.input.port6.gamepad.r [P6SET1BUT6]
+snes.input.port6.gamepad.rapid_a [P6SET1RAPID4]
+snes.input.port6.gamepad.rapid_b [P6SET1RAPID1]
+snes.input.port6.gamepad.rapid_x [P6SET1RAPID3]
+snes.input.port6.gamepad.rapid_y [P6SET1RAPID2]
+snes.input.port6.gamepad.right [P6SET1PADRIGHT]
+snes.input.port6.gamepad.select [P6SET1BUT7]
+snes.input.port6.gamepad.start [P6SET1BUT8]
+snes.input.port6.gamepad.up [P6SET1PADUP]
+snes.input.port6.gamepad.x [P6SET1BUT4]
+snes.input.port6.gamepad.y [P6SET1PADLEFT]
+snes.input.port7.gamepad.a [P7SET1BUT2]
+snes.input.port7.gamepad.b [P7SET1BUT1]
+snes.input.port7.gamepad.down [P7SET1PADDOWN]
+snes.input.port7.gamepad.l [P7SET1BUT5]
+snes.input.port7.gamepad.left [P7SET1PADLEFT]
+snes.input.port7.gamepad.r [P7SET1BUT6]
+snes.input.port7.gamepad.rapid_a [P7SET1RAPID4]
+snes.input.port7.gamepad.rapid_b [P7SET1RAPID1]
+snes.input.port7.gamepad.rapid_x [P7SET1RAPID3]
+snes.input.port7.gamepad.rapid_y [P7SET1RAPID2]
+snes.input.port7.gamepad.right [P7SET1PADRIGHT]
+snes.input.port7.gamepad.select [P7SET1BUT7]
+snes.input.port7.gamepad.start [P7SET1BUT8]
+snes.input.port7.gamepad.up [P7SET1PADUP]
+snes.input.port7.gamepad.x [P7SET1BUT4]
+snes.input.port7.gamepad.y [P7SET1PADLEFT]
+snes.input.port8.gamepad.a [P8SET1BUT2]
+snes.input.port8.gamepad.b [P8SET1BUT1]
+snes.input.port8.gamepad.down [P8SET1PADDOWN]
+snes.input.port8.gamepad.l [P8SET1BUT5]
+snes.input.port8.gamepad.left [P8SET1PADLEFT]
+snes.input.port8.gamepad.r [P8SET1BUT6]
+snes.input.port8.gamepad.rapid_a [P8SET1RAPID4]
+snes.input.port8.gamepad.rapid_b [P8SET1RAPID1]
+snes.input.port8.gamepad.rapid_x [P8SET1RAPID3]
+snes.input.port8.gamepad.rapid_y [P8SET1RAPID2]
+snes.input.port8.gamepad.right [P8SET1PADRIGHT]
+snes.input.port8.gamepad.select [P8SET1BUT7]
+snes.input.port8.gamepad.start [P8SET1BUT8]
+snes.input.port8.gamepad.up [P8SET1PADUP]
+snes.input.port8.gamepad.x [P8SET1BUT4]
+snes.input.port8.gamepad.y [P8SET1PADLEFT]
+snes.mouse_sensitivity 0.50
+snes.pixshader [SHADR]
+snes.scanlines [SCAN]
+snes.special [SHADG]
+snes.stretch [ASPC]
+snes.tblur [BLUR]
+snes.tblur.accum [ACCUMBLUR]
+snes.tblur.accum.amount [BLURLVL]
+snes.videoip [NOGL]
+snes.xres 0
+snes.xscale 3.000000
+snes.xscalefs 1.000000
+snes.yres 0
+snes.yscale 3.000000
+snes.yscalefs 1.000000
+sound 1
+sound.buffer_time 52
+sound.device default
+sound.driver default
+sound.period_time 0
+sound.rate 48000
+sound.volume 100
+srwcompressor quicklz
+srwframes 600
+vb.3dmode anaglyph
+vb.3dreverse 0
+vb.allow_draw_skip 0
+vb.anaglyph.lcolor 0xffba00
+vb.anaglyph.preset red_blue
+vb.anaglyph.rcolor 0x00baff
+vb.cpu_emulation fast
+vb.debugger.disfontsize small
+vb.debugger.memcharenc shift_jis
+vb.default_color 0xF0F0F0
+vb.disable_parallax 0
+vb.enable 1
+vb.forcemono 0
+vb.input.builtin.gamepad.a [P1SET1BUT1]
+vb.input.builtin.gamepad.b [P1SET1BUT3]
+vb.input.builtin.gamepad.down-l [P1SET1PADDOWN]
+vb.input.builtin.gamepad.down-r [P1SET1ANLRYD]
+vb.input.builtin.gamepad.left-l [P1SET1PADLEFT]
+vb.input.builtin.gamepad.left-r [P1SET1ANLRXL]
+vb.input.builtin.gamepad.lt [P1SET1BUT5]
+vb.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+vb.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+vb.input.builtin.gamepad.right-l [P1SET1PADRIGHT]
+vb.input.builtin.gamepad.right-r [P1SET1ANLRXR]
+vb.input.builtin.gamepad.rt [P1SET1BUT6]
+vb.input.builtin.gamepad.select [P1SET1BUT7]
+vb.input.builtin.gamepad.start [P1SET1BUT8]
+vb.input.builtin.gamepad.up-l [P1SET1PADUP]
+vb.input.builtin.gamepad.up-r [P1SET1ANLRYU]
+vb.input.instant_read_hack 1
+vb.instant_display_hack 0
+vb.liprescale 2
+vb.pixshader [SHADR]
+vb.scanlines [SCAN]
+vb.sidebyside.separation 0
+vb.special [SHADG]
+vb.stretch [ASPC]
+vb.tblur [BLUR]
+vb.tblur.accum [ACCUMBLUR]
+vb.tblur.accum.amount [BLURLVL]
+vb.videoip [NOGL]
+vb.xres 0
+vb.xscale 2.000000
+vb.xscalefs 1.000000
+vb.yres 0
+vb.yscale 2.000000
+vb.yscalefs 1.000000
+video.blit_timesync 1
+video.driver opengl
+video.frameskip 1
+video.fs 1
+video.glvsync 1
+wswan.bday 23
+wswan.blood O
+wswan.bmonth 6
+wswan.byear 1989
+wswan.debugger.disfontsize small
+wswan.debugger.memcharenc shift_jis
+wswan.enable 1
+wswan.forcemono 0
+wswan.input.builtin.gamepad.a [P1SET1BUT1]
+wswan.input.builtin.gamepad.b [P1SET1BUT3]
+wswan.input.builtin.gamepad.down-x [P1SET1PADDOWN]
+wswan.input.builtin.gamepad.down-y [P1SET1ANLLYD]
+wswan.input.builtin.gamepad.left-x [P1SET1PADLEFT]
+wswan.input.builtin.gamepad.left-y [P1SET1ANLLXL]
+wswan.input.builtin.gamepad.rapid_a [P1SET1RAPID1]
+wswan.input.builtin.gamepad.rapid_b [P1SET1RAPID2]
+wswan.input.builtin.gamepad.right-x [P1SET1PADRIGHT]
+wswan.input.builtin.gamepad.right-y [P1SET1ANLLXR]
+wswan.input.builtin.gamepad.start [P1SET1BUT8]
+wswan.input.builtin.gamepad.up-x [P1SET1PADUP]
+wswan.input.builtin.gamepad.up-y [P1SET1ANLLYU]
+wswan.language english
+wswan.name Mednafen
+wswan.pixshader [SHADR]
+wswan.rotateinput 0
+wswan.scanlines [SCAN]
+wswan.sex F
+wswan.special [SHADG]
+wswan.stretch [ASPC]
+wswan.tblur [BLUR]
+wswan.tblur.accum [ACCUMBLUR]
+wswan.tblur.accum.amount [BLURLVL]
+wswan.videoip [NOGL]
+wswan.xres 0
+wswan.xscale 3.000000
+wswan.xscalefs 1.000000
+wswan.yres 0
+wswan.yscale 3.000000
+wswan.yscalefs 1.000000
