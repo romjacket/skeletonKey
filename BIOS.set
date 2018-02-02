@@ -195,7 +195,8 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XM.BIN:D3D57C39>
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XS.BIN:FFB1B7FA>
 
-nostalgia=:grom.bin:683A4158>
+nostalgia=retroarch\system=:exec.bin:CBCE86F7>
+nostalgia=retroarch\system=:grom.bin:683A4158>
 
 pcsx2\bios=play\bios=:ps2-0100j-20000117.bin:B7EF81A9
 pcsx2\bios=play\bios=:ps2-0101j-20000217.bin:211DFB6A

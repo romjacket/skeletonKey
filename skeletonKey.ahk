@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-01-31 11:26 AM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-02-02 1:36 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-01-31 11:26 AM
+RELEASE= 2018-02-02 1:36 PM
 VERSION= 0.99.34.03
 RASTABLE= 1.7.0
 
@@ -7262,7 +7262,7 @@ IfMsgBox, Yes
 		gosub, STABLE
 		EXELIST= 0
 		RALIST= 1
-		SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mess2014_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip
+		SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|doxbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wsawn_libretro.dll.zip|mess2014_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip
 		if (ARCH = "64")
 			{
 				SLCTCORES .= "|" . "reicast_libretro.dll.zip" . "|" . "dolphin_libretro.dll.zip" . "|" . "mednafen_saturn_libretro.dll.zip" . "|" . "nekop2_libretro.dll.zip" . "|" . "citra_libretro.dll.zip"
@@ -17292,7 +17292,7 @@ if (ASVRM = 1)
 		if (RUNPLRAD = 1)
 			{
 				guicontrolget,MEDNFSYS,,RUNSYSDDL
-				indvcp= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
+				;;indvcp= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
 				stringtrimright,MEDNFSYS,MEDNFSYS,4
 				if (MEDNFSYS = "His")
 					{
@@ -17305,7 +17305,8 @@ if (ASVRM = 1)
 					}
 			}
 		RVLKUP= %MEDNFSYS%
-		indvcp= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
+		MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
+		indvcp= %A_WorkingDir%\cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%
 	}
 gosub, SHRTNMLkUp
 %SHRTNM%CFGF= 
@@ -17662,12 +17663,11 @@ guicontrol,+Range-20-20,emuSLDE
 guicontrol,move,emuSLDE,,x215 y221 w120 h24
 
 guicontrol, %emutog%, emuSLDC
-guicontrol,+Range0-1,emuSLDC
+guicontrol,+Range0-10,emuSLDC
 guicontrol,move,emuSLDC,x215 y270 w120 h24
 
 medcfg= mednafen-09x.cfg
 
-MEDCFGLOC= cfg\%MEDNFSYS%\%nicktst%\%EDTRMFN%\%medcfg%
 
 if (ASVRM = "")
 	{
@@ -17691,21 +17691,49 @@ return
 
 
 MednafenPOP:
-Filedelete,%MEDCFGLOC%
-IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.ret,common
-stringreplace,mtrfg,mtrfg,<system>,%MEDNFSYS%,All
-IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%MEDNFSYS%
+ifexist, %MEDCFGLOC%
+	{
+		Filedelete,%MEDCFGLOC%
+	}
+FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set	
+IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
+IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%RJMEDNM%
 IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.ret,GLOBAL
+IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.ret,INPUT
+IniRead, mtrfg,rj\emuCfgs\mednafen\defaults.ini.ret,COMMON
+stringreplace,mtrfg,mtrfg,<system>,%RJMEDNM%,All
 Loop, parse, mtcfg,`n`r
 	{
 		aii1=
 		aii2=
+		inmk= 
 		stringsplit,aii,A_LoopField,=,`n`r
+		ifinstring,aii2,[
+			{
+				Loop, parse, mkbl,`n`r
+					{
+						ifinstring,A_LoopField,%aii2%
+							{
+								FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
+								inmk= 1
+								continue
+							}
+					}
+				if (inmk = 1)
+					{
+						continue
+					}
+				ifinstring,aii2,[ROMPTH]
+					{
+						stringreplace,aii2,aii2,[ROMPTH],%indvcp%,All
+						FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+						continue
+					}
+			}
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
 Loop, parse, mtafg,`n`r
-	{
-		aii1=
+	{		aii1=
 		aii2=
 		stringsplit,aii,A_LoopField,=,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
@@ -17717,14 +17745,31 @@ Loop, parse, mtrfg,`n`r
 		stringsplit,aii,A_LoopField,=,`n`r
 		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
 	}
-Loop, parse, mtjfg,`n`r
+Loop, parse, micfg,`n`r
 	{
 		aii1=
 		aii2=
 		stringsplit,aii,A_LoopField,=,`n`r
-		FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+		api1=
+		api2=
+		stringsplit,api,aii1,.
+		if (api1 = RJMEDNM)
+			{
+				ifinstring,aii2,[
+					{
+						Loop, parse, mkbl,`n`r
+							{
+								ifinstring,A_LoopField,%aii2%
+									{
+										FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
+										continue
+									}
+							}
+					}
+				FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
+			}
 	}
-IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
+
 FileRead,mednafenopts,%MEDCFGLOC%
 guicontrol,,emuDDLJ,|%RJMEDNM%||gb|gba|lynx|md|nes|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
 
@@ -17766,7 +17811,7 @@ Loop, Parse, mednafenopts,`n`r
 								slmhdv:= msplk2 * 10
 								guicontrol,,emuSLDE,%slmhdv%
 								guicontrol,,emuEDTC,%msplke%
-								MEDemuEDTC= %msplke%
+								MEDemuvdiv= %msplke%
 							}
 					}
 				if (msplkv = "shader.goat.hdiv")
@@ -17777,7 +17822,7 @@ Loop, Parse, mednafenopts,`n`r
 								slmhdv:= msplk2 * 10
 								guicontrol,,emuSLDE,%slmhdv%
 								guicontrol,,emuEDTC,%msplke%
-								MEDemuEDTC= %msplke%
+								MEDemuhdiv= %msplke%
 							}
 					}
 				if (msplkv = "shader.goat.pat")
@@ -17840,8 +17885,7 @@ Loop, Parse, mednafenopts,`n`r
 							{
 								guicontrol,,emuRAD3D,1
 							}
-						MEDemuRAD3= %msplke%
-						
+						MEDemuRAD3= %msplke%						
 					}
 				if (msplkv = "xres")
 					{
@@ -17870,20 +17914,13 @@ Loop, Parse, mednafenopts,`n`r
 					}
 				if (msplkv = "tblur")
 					{
-						guicontrol,,emuRAD5B,0
-						guicontrol,,emuRAD5C,0
 						guicontrol,,emuRAD5B,%msplke%
-						MEDemuBLR= normal
+						MEDemuRAD5B= %msplke%
 					}
 				if (msplkv = "tblur.accum")
 					{
-						guicontrol,,emuRAD5C,0
 						guicontrol,,emuRAD5C,%msplke%
-						if (msplk2 = 1)
-							{
-								guicontrol,,emuRAD5B,0
-								MEDemuBLR= color
-							}
+						MEDemuRAD5C= %msplke%
 					}
 				if (msplkv = "tblur.accum.amount")
 					{
@@ -18219,10 +18256,12 @@ if (emuRAD11A = 1)
 	{
 		gextn= hdiv
 	}
+curedt= % MEDemu%gextn%	
+emuSLDE:= curedt * 10
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.%gextn%%A_Space%%MEDemuEDTC%,%RJMEDNM%.shader.goat.%gextn%%A_Space%%emuEDTC%,All
-MEDemuEDTC= %emuEDTC%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.%gextn%%A_Space%%curedt%,%RJMEDNM%.shader.goat.%gextn%%A_Space%%emuEDTC%,All
+MEDemu%gextn%= %emuEDTC%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18231,9 +18270,10 @@ return
 mednafenEDTE:
 gui,submit,nohide
 guicontrolget,emuEDTE,,emuEDTE
-emuSLDC:= emuEDTE * 100
+emuSLDC:= emuEDTE * 10
 guicontrol,,emuSLDC,%emuSLDC%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.tp%A_Space%%MEDemuEDTE%,%RJMEDNM%.shader.goat.tp%A_Space%%emuEDTE%,All
+MEDemuSLDC= %emuSLDC%
 MEDemuEDTE= %emuEDTE%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
@@ -18309,9 +18349,11 @@ return
 
 mednafenRad5B:
 gui,submit,nohide
-emuRAD5= 1
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5%,All
-MEDemuRAD5= %emuRAD5%
+emuRAD5B= 1
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5B%,%RJMEDNM%.tblur%A_Space%%emuRAD5B%,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5B%,%RJMEDNM%.tblur.accum%A_Space%0,All
+MEDemuRAD5B= %emuRAD5B%
+MEDemuRAD5C= 0
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18319,10 +18361,11 @@ return
 
 mednafenRad5C:
 gui,submit,nohide
-emuRAD5= 1
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5%,All
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5%,All
-MEDemuRAD5= %emuRAD5%
+emuRAD5C= 1
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur%A_Space%%emuRAD5C%,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5C%,All
+MEDemuRAD5C= %emuRAD5C%
+MEDemuRAD5B= %emuRAD5C%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18331,9 +18374,10 @@ return
 mednafenRad5A:
 gui,submit,nohide
 emuRAD5= 0
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5%,All
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5%,%RJMEDNM%.tblur.accum%A_Space%%emuRAD5%,All
-MEDemuRAD5= %emuRAD5%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur%A_Space%%MEDemuRAD5B%,%RJMEDNM%.tblur%A_Space%0,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum%A_Space%%MEDemuRAD5C%,%RJMEDNM%.tblur.accum%A_Space%0,All
+MEDemuRAD5B= %emuRAD5%
+MEDemuRAD5C= %emuRAD5%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18389,10 +18433,13 @@ return
 
 mednafenRad11A:
 gui,submit,nohide
+guicontrol,,emuEDTC,%MEDemuhdiv%
+slmhdv:= MEDemuhdiv * 10
+guicontrol,,emuSLDE,%slmhdv%
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.hdiv%A_Space%%MEDemuEDTC%,%RJMEDNM%.shader.goat.hdiv%A_Space%%emuEDTC%,All
-MEDemuEDTC= %emuEDTC%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.hdiv%A_Space%%MEDemuhdiv%,%RJMEDNM%.shader.goat.hdiv%A_Space%%emuEDTC%,All
+MEDemuhdiv= %emuEDTC%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18400,15 +18447,17 @@ return
 
 mednafenRad11B:
 gui,submit,nohide
+guicontrol,,emuEDTC,%MEDemuvdiv%
+slmhdv:= MEDemuvdiv * 10
+guicontrol,,emuSLDE,%slmhdv%
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.vdiv%A_Space%%MEDemuEDTC%,%RJMEDNM%.shader.goat.vdiv%A_Space%%emuEDTC%,All
-MEDemuEDTC= %emuEDTC%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.vdiv%A_Space%%MEDemuvdiv%,%RJMEDNM%.shader.goat.vdiv%A_Space%%emuEDTC%,All
+MEDemuvdiv= %emuEDTC%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
 return
-
 
 
 mednafenRad3A:
@@ -18464,6 +18513,13 @@ return
 
 mednafenSLDB:
 gui,submit,nohide
+guicontrolget,emuSLDB,,emuSLDB
+guicontrol,,emuEDTF,%emuSLDB%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum.amount%A_Space%%MEDemuSLDB%,%RJMEDNM%.tblur.accum.amount%A_Space%%emuSLDB%,All
+MEDemuSLDB= %emuSLDB%
+FileDelete,%MEDCFGLOC%
+FileAppend,%mednafenopts%,%MEDCFGLOC%
+FileRead,mednafenopts,%MEDCFGLOC%
 
 return
 
@@ -18474,10 +18530,13 @@ if (emuRAD11A = 1)
 	{
 		gextn= hdiv
 	}
-guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
+emuEDTC:= (emuSLDE / 10)
+guicontrol,,emuEDTC,%emuSLDE%
 stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.%gextn%%A_Space%%MEDemuEDTC%,%RJMEDNM%.shader.goat.%gextn%%A_Space%%emuEDTC%,All
+MEDemuSLDE= %emuSLDE%
 MEDemuEDTC= %emuEDTC%
+guicontrol,,emuEDTC,%emuEDTC%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18486,6 +18545,16 @@ return
 
 mednafenSLDC:
 gui,submit,nohide
+guicontrolget,emuSLDE,,emuSLDE
+emuEDTE:= (emuSLDC / 10)
+guicontrol,,emuEDTE,%emuSLDC%
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.shader.goat.tp%A_Space%%MEDemuEDTE%,%RJMEDNM%.shader.goat.tp%A_Space%%emuEDTE%,All
+MEDemuSLDC= %emuSLDC%
+MEDemuEDTE= %emuEDTE%
+guicontrol,,emuEDTE,%emuEDTE%
+FileDelete,%MEDCFGLOC%
+FileAppend,%mednafenopts%,%MEDCFGLOC%
+FileRead,mednafenopts,%MEDCFGLOC%
 
 return
 
@@ -32212,6 +32281,11 @@ if (ccv = "fuse")
 		szip= 1
 		corcfgnam= Sinclair ZX Spectrum
 	}
+if (ccv = "freeintv")
+	{
+		szip= 1
+		corcfgnam= FreeIntv
+	}
 if (ccv = "81")
 	{
 		szip= 1
@@ -32507,6 +32581,11 @@ if (syslk = "emux-nes")
 	{
 		ASPOP= Nintendo - Nintendo Entertainment System
 		corelk= emux_nes
+	}
+if (syslk = "FreeIntv")
+	{
+		ASPOP= Mattel - Intellivision
+		corelk= freeintv
 	}
 if (syslk = "Dolphin")
 	{
@@ -33905,6 +33984,12 @@ gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 
+
+;{;;;;; freeintv CORE  ;;;;;
+freeintvDDLA:
+gosub, HideCoreUI
+return
+;};;;;;;;;;;;
 
 ;{;;;;; emux_nes CORE  ;;;;;
 emux_nesDDLA:
@@ -44516,6 +44601,17 @@ posapp1=
 gosub,OpnAssign
 Return
 
+MINTELOpen:
+sysini= MINTEL
+opncor= freeintv
+opnapp= Mattel - Intellivision
+poscor1=
+poscor2=
+poscor3=
+posapp1=
+gosub,OpnAssign
+Return
+
 MSXOpen:
 sysini= MSX
 opncor= bluemsx
@@ -46545,6 +46641,7 @@ dinothawrRESET:
 dolphinLauncherRESET:
 dolphinRESET:
 citraRESET:
+freeintvRESET:
 gearboyRESET:
 imageviewerRESET:
 crocodsRESET:

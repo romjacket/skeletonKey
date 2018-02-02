@@ -20,6 +20,7 @@ melonds_libretro.dll|Nintendo - Nintendo DS
 desmume_libretro.dll|Nintendo - Nintendo DS
 dolphin_libretro.dll|Nintendo - GameCube
 dosbox_libretro.dll|DOS
+freeintv_libretro.dll|Mattel - Intellivision
 fbalpha_libretro.dll|SNK - Neo Geo
 fbalpha2012_libretro.dll|SNK - Neo Geo
 fbalpha2012_libretro.dll|Capcom Play System - CPS III
