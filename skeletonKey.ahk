@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-02-02 1:36 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-02-02 7:55 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-02-02 1:36 PM
+RELEASE= 2018-02-02 7:55 PM
 VERSION= 0.99.34.03
 RASTABLE= 1.7.0
 
@@ -17695,6 +17695,7 @@ ifexist, %MEDCFGLOC%
 	{
 		Filedelete,%MEDCFGLOC%
 	}
+MednafenRESETPOP:	
 FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set	
 IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
 IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%RJMEDNM%
@@ -17755,6 +17756,7 @@ Loop, parse, micfg,`n`r
 		stringsplit,api,aii1,.
 		if (api1 = RJMEDNM)
 			{
+				inmic= 
 				ifinstring,aii2,[
 					{
 						Loop, parse, mkbl,`n`r
@@ -17762,8 +17764,13 @@ Loop, parse, micfg,`n`r
 								ifinstring,A_LoopField,%aii2%
 									{
 										FileAppend,%aii1% %A_LoopField%`n,%MEDCFGLOC%
+										inmic= 1
 										continue
 									}
+							}
+						if (inmic = 1)
+							{
+								continue
 							}
 					}
 				FileAppend,%aii1% %aii2%`n,%MEDCFGLOC%
@@ -17988,6 +17995,74 @@ Loop, Parse, mednafenopts,`n`r
 	}
 return
 
+;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
+mednafenBUTC:
+gui,submit,nohide
+FileDelete, %indvcp%\*.*
+FileCopy, %indvcp%\mednafen-09x.cfg.ret,%MEDCFGLOC%,1
+goto, MednafenRESETPOP
+MEDemuCHKD= 0
+MEDemuCHKB= 0
+MEDemuCHKC= 0
+MEDemuCHKE= 1
+MEDemuCHKF= 1
+MEDemuCHKG= 1
+MEDemuCHKH= 0
+MEDemuDDLA= none
+MEDemuDDLB= none
+MEDemuDDLC= none
+MEDemuDDLD= weave
+MEDemuDDLE= opengl
+MEDemuDDLF= default
+MEDemuDDLJ= %RJMEDNM%
+MEDemuEDTA= 1
+MEDemuEDTB= 1
+MEDemuEDTC= 0.5
+MEDemuEDTD= 0
+MEDemuEDTE= 0.5
+MEDemuEDTF= 0
+MEDemuEDTG= 0
+MEDemuEDTH= 0
+MEDemuEDTI= 4096
+MEDemuCBXA= %A_Username%
+MEDemuCBXB= netplay.fobby.net
+MEDemuRad3= aspect
+MEDemuRad5= 1
+MEDemuRAD8= 1
+MEDemuRad9= goatron
+
+guicontrol,,emuCHKD,%MEDemuCHKD%
+guicontrol,,emuCHKB,%MEDemuCHKB%
+guicontrol,,emuCHKC,%MEDemuCHKC%
+guicontrol,,emuCHKE,%MEDemuCHKE%
+guicontrol,,emuCHKF,%MEDemuCHKF%
+guicontrol,,emuCHKG,%MEDemuCHKG%
+guicontrol,,emuCHKH,%MEDemuCHKH%
+guicontrol,,emuDDLA,|%MEDemuDDLA%||autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
+guicontrol,,emuDDLB,|%MEDemuDDLB%||hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
+guicontrol,,emuDDLC,|%MEDemuDDLC%||bilinear|x-axis|y-axis
+guicontrol,,emuDDLD,|%MEDemuDDLD%||bob|bob_offset
+guicontrol,,emuDDLE,|%MEDemuDDLE%||sdl|overlay
+guicontrol,,emuDDLF,|%MEDemuDDLF%||alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
+guicontrol,,emuDDLJ,|%RJMEDNM%||gb|gba|lynx|md|nes|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
+guicontrol,,emuEDTA,%MEDemuEDTA%
+guicontrol,,emuEDTB,%MEDemuEDTB%
+guicontrol,,emuEDTC,%MEDemuEDTC%
+guicontrol,,emuEDTD,%MEDemuEDTD%
+guicontrol,,emuEDTE,%MEDemuEDTE%
+guicontrol,,emuEDTF,%MEDemuEDTF%
+guicontrol,,emuEDTG,%MEDemuEDTG%
+guicontrol,,emuEDTH,%MEDemuEDTH%
+guicontrol,,emuEDTI,%MEDemuEDTI%
+guicontrol,,emuCBXA,|%MEDemuCBXA%||Mednafen|skeletonKey
+guicontrol,,emuCBXB,|%MEDemuCBXB%||node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
+guicontrol,,emuRAD3B,1
+guicontrol,,emuRAD5A,1
+guicontrol,,emuRAD9B,1
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 mednafenBUTJ:
 gui,submit,nohide
 gosub, mednafenSaveOpts
@@ -18060,70 +18135,6 @@ MEDemuCHKH= %emuSTRETCH%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
-return
-
-mednafenBUTC:
-gui,submit,nohide
-FileDelete, %indvcp%\*.*
-FileCopy, %indvcp%\mednafen-09x.cfg.ret,%MEDCFGLOC%,1
-MEDemuCHKD= 0
-MEDemuCHKB= 0
-MEDemuCHKC= 0
-MEDemuCHKE= 1
-MEDemuCHKF= 1
-MEDemuCHKG= 1
-MEDemuCHKH= 0
-MEDemuDDLA= none
-MEDemuDDLB= none
-MEDemuDDLC= none
-MEDemuDDLD= weave
-MEDemuDDLE= opengl
-MEDemuDDLF= default
-MEDemuDDLJ= %RJMEDNM%
-MEDemuEDTA= 1
-MEDemuEDTB= 1
-MEDemuEDTC= 0.5
-MEDemuEDTD= 0
-MEDemuEDTE= 0.5
-MEDemuEDTF= 0
-MEDemuEDTG= 640
-MEDemuEDTH= 480
-MEDemuEDTI= 4096
-MEDemuCBXA= %A_Username%
-MEDemuCBXB= netplay.fobby.net
-MEDemuRad3= aspect
-MEDemuRad5= 1
-MEDemuRAD8= 1
-MEDemuRad9= goatron
-
-guicontrol,,emuCHKD,%MEDemuCHKD%
-guicontrol,,emuCHKB,%MEDemuCHKB%
-guicontrol,,emuCHKC,%MEDemuCHKC%
-guicontrol,,emuCHKE,%MEDemuCHKE%
-guicontrol,,emuCHKF,%MEDemuCHKF%
-guicontrol,,emuCHKG,%MEDemuCHKG%
-guicontrol,,emuCHKH,%MEDemuCHKH%
-guicontrol,,emuDDLA,|%MEDemuDDLA%||autoip|autoipsharper|scale2x|sabr|ipsharper|ipxnoty|ipynotx|ipxnotysharper|ipynotxsharper|goat
-guicontrol,,emuDDLB,|%MEDemuDDLB%||hq2x|hq3x|hq4x|scale2x|scale3x|scale4x|2xsai|super2xsai|supereagle|nn2x|nn3x|nn4x|nny2x|nny3x|nny4x
-guicontrol,,emuDDLC,|%MEDemuDDLC%||bilinear|x-axis|y-axis
-guicontrol,,emuDDLD,|%MEDemuDDLD%||bob|bob_offset
-guicontrol,,emuDDLE,|%MEDemuDDLE%||sdl|overlay
-guicontrol,,emuDDLF,|%MEDemuDDLF%||alsa|openbsd|oss|wasapish|dsound|wasapi|sdl|jack
-guicontrol,,emuDDLJ,|%RJMEDNM%||gb|gba|lynx|md|nes|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
-guicontrol,,emuEDTA,%MEDemuEDTA%
-guicontrol,,emuEDTB,%MEDemuEDTB%
-guicontrol,,emuEDTC,%MEDemuEDTC%
-guicontrol,,emuEDTD,%MEDemuEDTD%
-guicontrol,,emuEDTE,%MEDemuEDTE%
-guicontrol,,emuEDTF,%MEDemuEDTF%
-guicontrol,,emuEDTG,%MEDemuEDTG%
-guicontrol,,emuEDTH,%MEDemuEDTH%
-guicontrol,,emuEDTI,%MEDemuEDTI%
-guicontrol,,emuCBXA,|%MEDemuCBXA%||Mednafen|skeletonKey
-guicontrol,,emuCBXB,|%MEDemuCBXB%||node.asnitech.co.uk|mednafen-nl.emuparadise.org|mednafen-us.emuparadise.org|Speedvicio.dtdns.net|s1.mednafen-it.org|gs.emu-land.net|emu-russia.net
-guicontrol,,emuRAD3B, 1
-guicontrol,,emuRAD5A, 1
-guicontrol,,emuRAD9B, 1
 return
 
 mednafenCHKB:
@@ -18515,7 +18526,7 @@ mednafenSLDB:
 gui,submit,nohide
 guicontrolget,emuSLDB,,emuSLDB
 guicontrol,,emuEDTF,%emuSLDB%
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum.amount%A_Space%%MEDemuSLDB%,%RJMEDNM%.tblur.accum.amount%A_Space%%emuSLDB%,All
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.tblur.accum.amount%A_Space%%MEDemuEDTF%,%RJMEDNM%.tblur.accum.amount%A_Space%%emuSLDB%,All
 MEDemuSLDB= %emuSLDB%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
