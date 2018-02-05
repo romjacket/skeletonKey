@@ -1,0 +1,36 @@
+<settings>
+    <setting id="auto_backup" value="true" />
+    <setting id="clean_title" value="true" />
+    <setting id="datas_method" value="2" />
+    <setting id="datas_scraper" value="TheGamesDB" />
+    <setting id="fanart_image_size" value="0" />
+    <setting id="fanarts_method" value="2" />
+    <setting id="fanarts_scraper" value="TheGamesDB" />
+    <setting id="game_region" value="0" />
+    <setting id="hide_finished" value="false" />
+    <setting id="ignore_bios" value="true" />
+    <setting id="ignore_title" value="false" />
+    <setting id="launcher_fanart_path" value="" />
+    <setting id="launcher_nfo_path" value="" />
+    <setting id="launcher_notification" value="false" />
+    <setting id="launcher_thumb_path" value="" />
+    <setting id="lirc_state" value="true" />
+    <setting id="media_state" value="0" />
+    <setting id="nb_backup_files" value="10" />
+    <setting id="overwrite_fanarts" value="false" />
+    <setting id="overwrite_thumbs" value="false" />
+    <setting id="recursive_scan" value="true" />
+    <setting id="scrap_fanarts" value="0" />
+    <setting id="scrap_info" value="0" />
+    <setting id="scrap_thumbs" value="0" />
+    <setting id="select_fanarts" value="0" />
+    <setting id="separator" value="" />
+    <setting id="show_batch" value="false" />
+    <setting id="show_log" value="true" />
+    <setting id="snap_flyer" value="0" />
+    <setting id="start_tempo" value="1000" />
+    <setting id="thumb_image_size" value="0" />
+    <setting id="thumbs_method" value="2" />
+    <setting id="thumbs_scraper" value="TheGamesDB" />
+    <setting id="title_formating" value="true" />
+</settings>

@@ -2,7 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2017  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-02-02 7:59 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;    2018-02-05 2:58 PM  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 #Include tf.ahk
 #Include LVA.ahk
@@ -11,7 +11,7 @@
 #NoEnv
 #SingleInstance Force
 ;#NoTrayIcon
-RELEASE= 2018-02-02 7:59 PM
+RELEASE= 2018-02-05 2:58 PM
 VERSION= 0.99.34.03
 RASTABLE= 1.7.0
 
@@ -1753,8 +1753,8 @@ Gui, Add, Text, x721 y427 h23 +0x200 vBbutTXT, (1)
 Gui, Add, Text, x614 y381 h17 +0x200 vYbutTXT, (3)
 Gui, Add, Text, x501 y426 h23 +0x200 vXbutTXT, (2)
 Gui, Add, Text, x616 y478 h13 +0x200 vAbutTXT, (0)
-Gui, Add, Text, x120 y336 h23 +0x200 vL3butTXT,(8)[L3] 
-Gui, Add, Text, x617 y337 h23 +0x200 vR3butTXT,[R3](9) 
+Gui, Add, Text, x158 y360 h13 +0x200 vL3butTXT,(8)[L3] 
+Gui, Add, Text, x525 y359 h13 +0x200 vR3butTXT,[R3](9) 
 Gui, Add, Text, x66 y197 h23 +0x200 vLTrigTXT, Left Trigger
 Gui, Add, Text, x628 y199 h23 +0x200 vRTrigTXT, Right Trigger
 Gui, Add, Text, x175 y221 h23 vLbutTXT, (4)Left Bumper
@@ -4070,8 +4070,8 @@ Check_Port:
 PORTOPEN=
 RowNum := LV_GetNext(,"Focused")
 LV_GetText(SELECTEDUSER,RowNum,1)
-LV_GetText(HOSTINGIPS,RowNum,6)
-LV_GetText(HOSTINGPORTS,RowNum,7)
+LV_GetText(HOSTINGIPS,RowNum,7)
+LV_GetText(HOSTINGPORTS,RowNum,8)
 gosub, PortCheck
 if (PORTOPEN = 1)
 	{
@@ -17698,6 +17698,10 @@ ifexist, %MEDCFGLOC%
 MednafenRESETPOP:	
 FileRead,mkbl,rj\emuCfgs\mednafen\mednafenjoy.set	
 IniRead, RJMEDNM, emuCfgPresets.set,%MEDNFSYS%,RJMEDNM
+if (RJMEDNM = "ERROR")
+	{
+		RJMEDNM= %emuDDLJ%
+	}
 IniRead, mtafg,rj\emuCfgs\mednafen\defaults.ini.ret,%RJMEDNM%
 IniRead, mtcfg,rj\emuCfgs\mednafen\defaults.ini.ret,GLOBAL
 IniRead, micfg,rj\emuCfgs\mednafen\defaults.ini.ret,INPUT
@@ -17866,13 +17870,29 @@ Loop, Parse, mednafenopts,`n`r
 					}
 				if (msplkv = "videoip")
 					{
-						guicontrol,,emuDDLC,|%msplke%||none|bilinear|x-axis|y-axis
-						MEDemuDDLC= %msplke%
+						if (msplkv = "none")
+							{
+								emuVIDIP= 0
+							}
+						if (msplkv = "bilinear")
+							{
+								emuVIDIP= 1
+							}
+						if (msplkv = "x-axis")
+							{
+								emuVIDIP= x
+							}
+						if (msplkv = "y-axis")
+							{
+								emuVIDIP= y
+							}
+						guicontrol,,emuDDLC,|%emuVIDIP%||none|bilinear|x-axis|y-axis
+						MEDemuDDLC= %emuVIDIP%
 					}
 				if (msplkv = "stretch")
 					{
 						guicontrol,,emuCHKH,0
-						if (msplk2 = "o")
+						if (msplk2 = "0")
 							{
 								guicontrol,,emuCHKH,1								
 							}
@@ -18109,7 +18129,7 @@ mednafenCHKH:
 gui,submit,nohide
 if (emuCHKH = 1)
 	{
-		emuSTRETCH= o
+		emuSTRETCH= 0
 	}
 if (emuCHKH = 0)
 	{
@@ -18186,8 +18206,24 @@ return
 mednafenDDLC:
 gui,submit,nohide
 guicontrolget,emuDDLC,,emuDDLC
-stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.videoip%A_Space%%MEDemuDDLC%,%RJMEDNM%.videoip%A_Space%%emuDDLC%,All
-MEDemuDDLC= %emuDDLC%
+if (emuDDLC = "none")
+	{
+		emuVIDIP= 0
+	}
+if (emuDDLC = "bilinear")
+	{
+		emuVIDIP= 1
+	}
+if (emuDDLC = "x-axis")
+	{
+		emuVIDIP= x
+	}
+if (emuDDLC = "y-axis")
+	{
+		emuVIDIP= y
+	}
+stringreplace, mednafenopts,mednafenopts,%RJMEDNM%.videoip%A_Space%%MEDemuDDLC%,%RJMEDNM%.videoip%A_Space%%emuVIDIP%,All
+MEDemuDDLC= %emuVIDIP%
 FileDelete,%MEDCFGLOC%
 FileAppend,%mednafenopts%,%MEDCFGLOC%
 FileRead,mednafenopts,%MEDCFGLOC%
@@ -18215,7 +18251,7 @@ return
 
 mednafenDDLJ:
 gui,submit,nohide
-guicontrolget,emuddlJ,,emuDDLJ
+guicontrolget,emuDDLJ,,emuDDLJ
 RJMEDNM= %emuDDLJ%
 return
 
@@ -40629,7 +40665,6 @@ emujchk3=
 StringSplit,emujchk,JOYCORE,.
 if (emujchk2 <> "dll")
 	{
-		
 		if (JOYCORE = "retroArch")
 			{
 				JOYCORE= Global
@@ -40681,6 +40716,7 @@ ifexist,joyimg\%ASPOP%.png
 		iremp= 
 		joyimg= joyimg\%ASPOP%.png
 	}
+
 guicontrol,move,JOYPIC,x260 y253 w252 h126	
 guicontrol,,JOYPIC,%joyimg%
 rajoytog= Show
@@ -40873,6 +40909,243 @@ guicontrol,enable,JOYCORE
 guicontrol,enable,SAVEJOY
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{;;;;;;;;;;   JOYSTICK LAYOUTS   ;;;;;;;;;;;;;;
+DefaultJLayout:
+return
+bluemsxJLayout:
+return
+mame2014JLayout:
+return
+remotejoyJLayout:
+return
+sameboyJLayout:
+return
+yabauseJLayout:
+return
+crocodsJLayout:
+return
+mednafen_pce_fastJLayout:
+return
+fbalpha2012_cps2JLayout:
+return
+freeintvJLayout:
+return
+bsnes_mercury_performanceJLayout:
+return
+emux_gbJLayout:
+return
+melondsJLayout:
+return
+fbalpha2012_cps1JLayout:
+return
+gmeJLayout:
+return
+mesenJLayout:
+return
+fmsxJLayout:
+return
+picodriveJLayout:
+return
+2048JLayout:
+return
+bsnes_accuracyJLayout:
+return
+nekop2JLayout:
+return
+tyrquakeJLayout:
+return
+pocketcdgJLayout:
+return
+mednafen_gbaJLayout:
+return
+snes9x2010JLayout:
+return
+mednafen_supergrafxJLayout:
+return
+prosystemJLayout:
+return
+81JLayout:
+return
+atari800JLayout:
+return
+mednafen_snesJLayout:
+return
+fbalpha2012JLayout:
+return
+bnesJLayout:
+return
+vice_x128JLayout:
+return
+dolphinJLayout:
+return
+ppssppJLayout:
+return
+bsnes_cplusplus98JLayout:
+return
+tgbdualJLayout:
+return
+fbalphaJLayout:
+return
+xrickJLayout:
+return
+virtualjaguarJLayout:
+return
+snes9x2005_plusJLayout:
+return
+fceummJLayout:
+return
+higan_sfcJLayout:
+return
+mame2016JLayout:
+return
+dinothawrJLayout:
+return
+np2kaiJLayout:
+return
+higan_sfc_balancedJLayout:
+return
+pcsx_rearmedJLayout:
+return
+mednafen_wswanJLayout:
+return
+gambatteJLayout:
+return
+bsnes_mercury_accuracyJLayout:
+return
+o2emJLayout:
+return
+emux_chip8JLayout:
+return
+craftJLayout:
+return
+pokeminiJLayout:
+return
+stellaJLayout:
+return
+fuseJLayout:
+return
+mednafen_lynxJLayout:
+return
+snes9xJLayout:
+return
+handyJLayout:
+return
+citraJLayout:
+return
+vba_nextJLayout:
+return
+ume2014JLayout:
+return
+vbamJLayout:
+return
+fbalpha2012_neogeoJLayout:
+return
+px68kJLayout:
+return
+mednafen_ngpJLayout:
+return
+mame2003JLayout:
+return
+redreamJLayout:
+return
+parallel_n64JLayout:
+return
+bsnes_mercury_balancedJLayout:
+return
+mrboomJLayout:
+return
+gpspJLayout:
+return
+meteorJLayout:
+return
+nestopiaJLayout:
+return
+bsnes_balancedJLayout:
+return
+mednafen_psxJLayout:
+return
+lutroJLayout:
+return
+snes9x2002JLayout:
+return
+dosboxJLayout:
+return
+chailoveJLayout:
+return
+scummvmJLayout:
+return
+gwJLayout:
+return
+bsnes_performanceJLayout:
+return
+mame2010JLayout:
+return
+ffmpegJLayout:
+return
+mameJLayout:
+return
+hatariJLayout:
+return
+4doJLayout:
+return
+vice_x64JLayout:
+return
+desmumeJLayout:
+return
+genesis_plus_gxJLayout:
+return
+mgbaJLayout:
+return
+openlaraJLayout:
+return
+quicknesJLayout:
+return
+gearboyJLayout:
+return
+mednafen_saturnJLayout:
+return
+emux_smsJLayout:
+return
+nxengineJLayout:
+return
+vice_xvicJLayout:
+return
+mame2000JLayout:
+return
+vice_xplus4JLayout:
+return
+imageviewerJLayout:
+return
+puaeJLayout:
+return
+mednafen_psx_hwJLayout:
+return
+snes9x2005JLayout:
+return
+mupen64plusJLayout:
+return
+reicastJLayout:
+return
+3dengineJLayout:
+return
+prboomJLayout:
+return
+cap32JLayout:
+return
+mess2014JLayout:
+return
+vecxJLayout:
+return
+emux_nesJLayout:
+return
+mednafen_pcfxJLayout:
+return
+mednafen_vbJLayout:
+return
+
+
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;    RA KB/Joy Display Toggle    ;;;;;;;;;;;;;;;;;;
 
@@ -41756,11 +42029,18 @@ PlayerType:
 gui, submit, nohide
 PLYRTYP= KB
 gosub, HideInpBut
+guicontrolget,CJsel,,JOYCORE
+stringreplace,CJsel,CJSel,_libretro.dll,,All
 guicontrolget, JSW,, JSW
 if (JSW = 1)
 	{
 		PLYRTYP= J
 		gosub, ShowInpBut
+		try, gosub, %CJsel%JLayout
+			catch	
+				{
+					gosub, DefaultJLayout
+				}
 	}
 gui, submit, nohide
 gosub, PlyrDrpDwn

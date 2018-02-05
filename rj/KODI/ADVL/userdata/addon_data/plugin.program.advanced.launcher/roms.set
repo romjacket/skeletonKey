@@ -1,0 +1,17 @@
+      <rom>
+				<id>[RNDNUM]</id>
+				<name>[ROMNM]</name>
+				<filename>[ROMPTH]</filename>
+				<thumb>[THMBPTH]</thumb>
+				<fanart>[FANRTPTH]</fanart>
+				<trailer>[TRLRPTH]</trailer>
+				<custom>[CSTMPTH]</custom>
+				<genre></genre>
+				<release></release>
+				<publisher></publisher>
+				<gameplot></gameplot>
+				<finished>false</finished>
+				<altapp></altapp>
+				<altarg></altarg>
+			</rom>
+		

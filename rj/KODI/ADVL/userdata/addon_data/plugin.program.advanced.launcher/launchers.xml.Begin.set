@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<advanced_launcher version="1.0">
+<categories>
+	<category>
+		<id>RoM-Jacket</id>
+		<name>RoM-Jacket</name>
+		<thumb>[GAMPTH]\[IMAGE]</thumb>
+		<fanart>[GAMPTH]\Backdrop.jpg</fanart>
+		<genre>Games</genre>
+		<description>Game Library</description>
+                <finished></finished>
+	</category>
+</categories>
+<launchers>
