@@ -9190,7 +9190,7 @@ met_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 					}
 			}
 		TRINC= --select-file=%torx%
-		$CMD = "%$ARIA%" -V --seed-time=0.0 --bt-stop-timeout=30 --bt-remove-unselected-file=true --dht-listen-port=%$METRANGE% --listen-port=%$TORRANGE% --dir="%$TARGET%" %TRINC% %EINX% --bt-save-metadata=true --stop-with-process=%$SAG% --truncate-console-readout=false %$URL% 1>"%$CACHESTAT%\torrent.status" 2>&1
+		$CMD = "%$ARIA%" -V --seed-time=0.0 --bt-stop-timeout=30 --check-certificate=false --bt-remove-unselected-file=true --dht-listen-port=%$METRANGE% --listen-port=%$TORRANGE% --dir="%$TARGET%" %TRINC% %EINX% --bt-save-metadata=true --stop-with-process=%$SAG% --truncate-console-readout=false %$URL% 1>"%$CACHESTAT%\torrent.status" 2>&1
 		Run, %comspec% /c "%$CMD%",,hide,$exeg_pid
 		Process, Exist, %$exeg_pid%
 		$lastline = 
@@ -9252,7 +9252,7 @@ exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 	{
 		Global $exeg_pid
 		StringReplace, $URL, $URL, "&", "^&", All
-		$CMD = "%$ARIA%" --always-resume=false --http-no-cache=true --allow-overwrite=true --stop-with-process=%$SAG% --truncate-console-readout=false --dir="%$TARGET%" --out="%$FNM%" "%$URL%" 1>"%$CACHESTAT%\%$FNM%.status" 2>&1
+		$CMD = "%$ARIA%" --always-resume=false --http-no-cache=true --allow-overwrite=true --stop-with-process=%$SAG% --truncate-console-readout=false --check-certificate=false --dir="%$TARGET%" --out="%$FNM%" "%$URL%" 1>"%$CACHESTAT%\%$FNM%.status" 2>&1
 		Run, %comspec% /c "%$CMD%",,hide,$exeg_pid
 		Process, Exist, %$exeg_pid%
 		$lastline = 
@@ -10467,6 +10467,13 @@ Loop, Parse,UrlIndex,`n`r
 				if ((rjintr = 1) or (rjintr = "x"))
 					{
 						rjintr=
+						GuiControl, hide, EMUINSC
+						GuiControl, Enable, EAVAIL
+						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, AVAIL
+						GuiControl, Enable, EMUINST
+						GuiControl, Enable, EMUASIGN
+						GuiControl, Disable, CNCLDWN
 						return
 					}
 				Loop, Parse, EmuPartSet,`n`r
@@ -10545,7 +10552,6 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						guicontrol,,EMPRDDL,|%runlist%
 					}
-				
 				if (EMUASIGN = 1)
 						{
 							OVRKND=

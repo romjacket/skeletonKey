@@ -150,7 +150,7 @@ IfNotExist, skopt.cfg
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= http://github.com/romjacket/skeletonkey
 		_REPOURL= http://github.com/romjacket
-		_ALTHOST= http://archive.org/download/emu_exe_mir
+		_ALTHOST= http://github.com/jomracket
 
 		gitrttmp=
 		_GITROOT= (not set) Github-Projects-Directory
@@ -456,7 +456,7 @@ Loop, Read, skopt.cfg
 				}
 		if (curvl1 = "alt_host")
 				{
-					_REPOURL= http://archive.org/download/emu_exe_mir
+					_REPOURL= http://github.com/jomracket
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							ALTHOST= %curvl2%
@@ -828,7 +828,7 @@ guicontrol,,txtdpl,(not set) Deployment-Directory
 guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
-guicontrol,,irepo, https://github.com/romjacket>http://archive.org/download/emu_exe_mir
+guicontrol,,irepo, https://github.com/romjacket>http://github.com/jomracket
 Loop,16
 	{
 		CONTPARAM%A_Index%= 
@@ -891,7 +891,7 @@ if (CONTPARAM16 = "")
 			}
 		if (ALTHOST = "")
 			{
-				ALTHOST= http://archive.org/download/emu_exe_mir
+				ALTHOST= http://github.com/jomracket
 			}
 		CONTPARAM16= 1
 	}
@@ -1287,7 +1287,7 @@ if (IALTH = "")
 	}
 if (IALTH = "")
 	{
-		IALTH= http://archive.org/download/emu_exe_mir
+		IALTH= http://github.com/jomracket
 	}
 IniWrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
 guicontrol,,IALTH,%IALTH%
@@ -1316,7 +1316,7 @@ if (IREPO = "")
 					}
 				if (ALTHOST = "")
 					{
-						ALTHOST= http://archive.org/download/emu_exe_mir
+						ALTHOST= http://github.com/jomracket
 					}
 				IniWrite,%reponum1%,skopt.cfg,GLOBAL,repository_url
 				IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host
@@ -1331,7 +1331,7 @@ if (IREPO = "")
 			}
 		if (ALTHOST = "")
 			{
-				ALTHOST= http://archive.org/download/emu_exe_mir
+				ALTHOST= http://github.com/jomracket
 			}
 		guicontrol,,IREPO,%IREPO%
 		IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host

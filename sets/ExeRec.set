@@ -725,7 +725,7 @@ FileInstall,sets\archiveeula.set,sets\archiveeula.set,1
 FileInstall,sets\arcorg.set,sets\arcorg.set,1
 FileInstall,sets\Assignments.set,sets\Assignments.set,1
 FileInstall,sets\autoconfig.set,sets\autoconfig.set,1
-FileInstall,sets\BIOS.set,sets\BIOS.set,1
+FileInstall,sets\bios.set,sets\bios.set,1
 FileInstall,sets\BuildTools.set,sets\BuildTools.set,1
 FileInstall,sets\config.set,sets\config.set,1
 FileInstall,sets\dosbox.set,sets\dosbox.set,1

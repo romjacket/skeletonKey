@@ -1,6 +1,6 @@
 prosystem=retroarch\system=:7800 BIOS (U).rom:A010EDF
-prosystem=retroarch\system=:7800 BIOS (U).rom:D5B61170
-prosystem=retroarch\system=:7800 BIOS (U).rom:5D13730C>
+prosystem=retroarch\system=bizhawk\firmware=:7800 BIOS (U).rom?7800PALBIOS.bin:D5B61170
+prosystem=retroarch\system=bizhawk\firmware=:7800 BIOS (U).rom?7800NTSCBIOS.bin:5D13730C>
 retroarch\system=:bios_CD_U.bin:9F6F6276>
 
 Winx68k=XM6=retroarch\system\keropi=:cgrom.dat:9F3195F1>
@@ -46,35 +46,35 @@ UNZ=:Marty.rom:39D81A66>
 kegs=kegs32=:Rom03gd:DE7DDF29>
 kegs=kegs32=:xgs.rom:42F124B0>
 
-retroarch\system=:cx4.data.rom:B6E76A6A>
-retroarch\system=:cx4.rom:B6E76A6A>
+retroarch\system=bizhawk\firmware=:cx4.data.rom?cx4.rom:B6E76A6A>
+retroarch\system=bizhawk\firmware=:cx4.rom:B6E76A6A>
 mednafen=fceux=mesen=retroarch\system=:disksys.rom:1C7AE5D5
 mednafen=fceux=mesen=retroarch\system=:disksys.rom:4DF24A6C
-mednafen=fceux=mesen=retroarch\system=:disksys.rom:5E607DCF>
+mednafen=fceux=mesen=retroarch\system=bizhawk\firmware=:disksys.rom?disksys-nintendo.rom:5E607DCF>
 retroarch\system=:dsp1.data.rom:C8347CBD>
 retroarch\system=:dsp1.program.rom:DB9A4C92>
-retroarch\system=:dsp1.rom:E359F184>
+retroarch\system=bizhawk\firmware=:dsp1.rom:E359F184>
 retroarch\system=:dsp1b.data.rom:37A252C6>
 retroarch\system=:dsp1b.program.rom:66A73998>
-retroarch\system=:dsp1b.rom:465C4E1C>
+retroarch\system=bizhawk\firmware=:dsp1b.rom:465C4E1C>
 retroarch\system=:dsp2.data.rom:B3893C70>
 retroarch\system=:dsp2.program.rom:0C1CF838>
-retroarch\system=:dsp2.rom:9A984974>
+retroarch\system=bizhawk\firmware=:dsp2.rom:9A984974>
 retroarch\system=:dsp3.data.rom:8B41A2BD>
 retroarch\system=:dsp3.program.rom:F29BE51C>
-retroarch\system=:dsp3.rom:D4A38EE7>
+retroarch\system=bizhawk\firmware=:dsp3.rom:D4A38EE7>
 retroarch\system=:dsp4.data.rom:EFA8B9B2>
 retroarch\system=:dsp4.program.rom:14B77AE3>
-retroarch\system=:dsp4.rom:E15384C0>
+retroarch\system=bizhawk\firmware=:dsp4.rom:E15384C0>
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:eu_mcd1_9210.bin:34D3CCE1
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:eu_mcd1_9210.bin:4D5CB8DA
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:eu_mcd1_9210.bin:0507B590
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:eu_mcd1_9210.bin:D344F125
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:eu_mcd1_9210.bin:529AC15A>
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:eu_mcd1_9210.bin:529AC15A>
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:2B19972F
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:D21FE71D
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:DD6CC972
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:9D2DA8F2
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:jp_mcd1_9112.bin?jp_mcd1_9111.bin:9D2DA8F2
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:79F85384
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:F18DDE5B
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:jp_mcd1_9112.bin:00EEDB3A
@@ -84,22 +84,22 @@ retroarch\system=:japan-j3.bin:DFF6D41F>
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin:3363015D
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap.bin:15E1F676
 
-VisualBoyAdvance-M=VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba_bios.bin:81977335>
+VisualBoyAdvance-M=VisualBoyAdvance=vgba=mednafen=retroarch\system=bizhawk\firmware=:gba_bios.bin?gbabios.rom:81977335>
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin?gba_bios.bin:3363015D
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap.bin?gba_bios.bin:15E1F676
 
 
 
-mednafen=retroarch\system=:lynxboot.img:0D973C9D
+mednafen=retroarch\system=bizhawk\firmware=:lynxboot.img:0D973C9D
 mednafen=retroarch\system=:lynxboot.img:E1FFECB6
 mednafen=retroarch\system=:lynxboot.img:B2AA7578
-mednafen=retroarch\system=:lynxboot.img:0D973C9D>
+mednafen=retroarch\system=bizhawk\firmware=:lynxboot.img:0D973C9D>
 mame\roms\neogeo.zip=:neo-epo.bin:D27A71F1
 mame\roms\neogeo.zip=:neo-po.bin:16D0C132
 mame\roms\neogeo.zip=:neodebug.bin:698EBB7D
 mame\roms\neogeo.zip=:usa_2slt.bin:E72943DE>
 
-retroarch\system=:o2rom.bin:8016A315>
+retroarch\system=bizhawk\firmware=:o2rom.bin?Odyssey2.bin:8016A315>
 4DO=3doplay\BIOS=retroarch\system=:panafz10.bin:C8C8FF89
 4DO=3doplay\BIOS=retroarch\system=:panafz10.bin:58242CEE>
 4DO=3doplay\BIOS=retroarch\system=:bios.rom:58242CEE
@@ -132,7 +132,7 @@ Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200.rom:424
 Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200a.rom:C2BA2613>
 
 mednafen=retroarch\system=:pcfx.rom:AC3ED590
-mednafen=retroarch\system=:pcfx.bios?pcfx.rom:76FFB97A>
+mednafen=retroarch\system=bizhawk\firmware=:pcfx.bios?pcfx.rom?pcfxbios.bin:76FFB97A>
 
 retroarch\system=mednafen=fusion\BIOS=:bios.gg:C611B498
 
@@ -143,36 +143,36 @@ neko=retroarch\system\np2=:font.bmp:D271798B>
 
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:EC541CD0
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5500.bin:3B601FC8
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5500.bin:FF3EEB8C>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5500.bin?ps-30j.bin:FF3EEB8C>
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:502224B6
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:37157331
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:8D8CB7E4>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5501.bin?ps-30a.bin:8D8CB7E4>
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:4D9E7C86
 mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:318178BF
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:D786F0B9>
-mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:mpr-18811-mx.ic1:B9644B52>
-mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:mpr-19367-mx.ic1:90412E10>
-retroarch\system=:mpr-17933.bin:4AFCF0FA>
+mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5502.bin?ps-30e.bin:D786F0B9>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:mpr-18811-mx.ic1?Ultraman.bin:B9644B52>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:mpr-19367-mx.ic1?kof95.bin:90412E10>
+retroarch\system=bizhawk\firmware=:mpr-17933.bin?saturn-1.00-(U+E).bin:4AFCF0FA>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:saturn_bios.bin?mpr-17933.bin:224B752C
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega1003.bin?sega_101.bin:B3C63C25
-mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_100.bin?sega_101.bin:2ABA43C2>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:sega_100.bin?sega_101.bin?saturn-1.00-(J).bin:2ABA43C2>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_100a.bin?mpr-17933.bin:F90F0089>
-mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_101.bin:4AFCF0FA
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:sega_101.bin?saturn-1.00-(U+E).bin:4AFCF0FA
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_101.bin:224B752C>
 SSF\Setting\STV:stv110.bin:3DFEDA92>
 retroarch\system=:sgb.boot.rom:EC8A83B9>
 retroarch\system=:st010.data.rom:216081B2>
 retroarch\system=:st010.program.rom:691CBB4F>
-retroarch\system=:st010.rom:8FC29D4C>
+retroarch\system=bizhawk\firmware=:st010.rom:8FC29D4C>
 retroarch\system=:st011.data.rom:803256A7>
 retroarch\system=:st011.program.rom:A741E9FB>
-retroarch\system=:st011.rom:84AAB2AE>
+retroarch\system=bizhawk\firmware=:st011.rom:84AAB2AE>
 retroarch\system=:st018.data.rom:B5255459>
 retroarch\system=:st018.program.rom:F73D5E10>
-retroarch\system=:st018.rom:5C403CC5>
+retroarch\system=bizhawk\firmware=:st018.rom:5C403CC5>
 mednafen=Ootake=retroarch\system=:syscard3.pce:FF2A5EC3
 mednafen=Ootake=retroarch\system=:syscard3.pce:2B5B75FE
-mednafen=Ootake=retroarch\system=:syscard3.pce:6D9A73EF
+mednafen=Ootake=retroarch\system=bizhawk\firmware=:syscard3.pce?pcecd-3.0-(J).pce:6D9A73EF
 mednafen=Ootake=retroarch\system=:syscard3.pce:3F9F95A4
 mednafen=Ootake=retroarch\system=:syscard3.pce:52520BC6
 mednafen=Ootake=retroarch\system=:syscard3.pce:283B74E0
@@ -186,17 +186,17 @@ retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:E7E3AFE2
 retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:50CD3D23
 retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:3B10CF41
 retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
-retroarch\system=:us_scd1_9210.bin?bios_CD_U.bin:C6D10268>
+retroarch\system=bizhawk\firmware=:us_scd1_9210.bin?bios_CD_U.bin?us_scd1_9210.bin:C6D10268>
 retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?bios_CD_E.bin:0507B590
 retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?bios_CD_E.bin:9B1FFC6F
 retroarch\system=:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?bios_CD_E.bin:4D5CB8DA
-retroarch\system=:Mega-CD (E) - Model 1 v1.00 (1992).bin?bios_CD_E.bin:529AC15A
+retroarch\system=bizhawk\firmware=:Mega-CD (E) - Model 1 v1.00 (1992).bin?bios_CD_E.bin?eu_mcd1_9210.bin:529AC15A
 retroarch\system=:eu_mcd2_9306.bin?bios_CD_E.bin:D344F125
-retroarch\system=:Mega-CD (J) - Model 1 v1.00p (1991).bin?bios_CD_J.bin:9D2DA8F2
+retroarch\system=bizhawk\firmware=:Mega-CD (J) - Model 1 v1.00p (1991).bin?bios_CD_J.bin?jp_mcd1_9111.bin:9D2DA8F2
 retroarch\system=:jp_mcd1_9112.bin?bios_CD_J.bin:550F30BB
 retroarch\system=:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?bios_CD_J.bin:DD6CC972
 retroarch\system=:japan-j3(jp).bin?bios_CD_J.bin:DFF6D41F
-retroarch\system=:Sega CD (U) - Model 1 v1.10 (1992).bin?bios_CD_U.bin:C6D10268
+retroarch\system=bizhawk\firmware=:Sega CD (U) - Model 1 v1.10 (1992).bin?bios_CD_U.bin?us_scd1_9210.bin:C6D10268
 retroarch\system=:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?bios_CD_U.bin:340B4BE4
 retroarch\system=:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?bios_CD_U.bin:B0519ED3
 retroarch\system=:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?bios_CD_U.bin:2E49D72C
@@ -214,7 +214,7 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:E7E3
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:50CD3D23
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:3B10CF41
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:9F6F6276
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd1_9210.bin:C6D10268>
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware=:us_scd1_9210.bin:C6D10268>
 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:Datel CDX Pro BIOS v1.70 (199x) [b].bin:E7F3A492
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:Datel CDX Pro BIOS v1.8i (199x) [b].bin:D640553E
@@ -228,13 +228,13 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?eu_mcd2_9306:9B1FFC6F
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?eu_mcd2_9306:4D5CB8DA
 
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:Mega-CD (E) - Model 1 v1.00 (1992).bin?eu_mcd2_9306.bin:529AC15A
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:Mega-CD (E) - Model 1 v1.00 (1992).bin?eu_mcd2_9306.bin?eu_mcd1_9210.bin:529AC15A
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:eu_mcd2_9306.bin:D344F125
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Mega-CD (J) - Model 1 v1.00p (1991).bin?jp_mcd1_9112.bin:9D2DA8F2
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware=:Mega-CD (J) - Model 1 v1.00p (1991).bin?jp_mcd1_9112.bin?jp_mcd1_9111.bin:9D2DA8F2
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:jp_mcd1_9112.bin:550F30BB
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?jp_mcd1_9112.bin:DD6CC972
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:japan-j3(jp).bin?jp_mcd1_9112.bin:DFF6D41F
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega CD (U) - Model 1 v1.10 (1992).bin?us_scd1_9210.bin:C6D10268
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware=:Sega CD (U) - Model 1 v1.10 (1992).bin?us_scd1_9210.bin?us_scd1_9210.bin:C6D10268
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?us_scd1_9210.bin:340B4BE4
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?us_scd1_9210.bin:B0519ED3
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?us_scd1_9210.bin:2E49D72C
@@ -244,16 +244,16 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_mcd_9208 [h].rom?u
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_mcd_9306 [h].rom?us_scd1_9210.bin:7F7677CC
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:us_scd2_9306.bin?us_scd1_9210.bin:9F6F6276
 
-gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_M_BIOS.BIN:DD9C46B8
-gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_S_BIOS.BIN:BFDA1FE5
-gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:32X_G_BIOS.BIN:5C12EAE8
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:32X_M_BIOS.BIN:DD9C46B8
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:32X_S_BIOS.BIN:BFDA1FE5
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:32X_G_BIOS.BIN:5C12EAE8
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:bios32xg.68k?32X_G_BIOS.BIN:4EF8231F
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XG.BIN?32X_G_BIOS.BIN:5D9017FA>
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XM.BIN?32X_M_BIOS.BIN:D3D57C39>
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XS.BIN?32X_S_BIOS.BIN:FFB1B7FA>
 
-nostalgia=retroarch\system=:exec.bin:CBCE86F7>
-nostalgia=retroarch\system=:grom.bin:683A4158>
+nostalgia=retroarch\system=bizhawk\firmware=:exec.bin?erom.bin:CBCE86F7>
+nostalgia=retroarch\system=bizhawk\firmware=:grom.bin:683A4158>
 
 pcsx2\bios=play\bios=:ps2-0101j-20000217.bin:211DFB6A
 pcsx2\bios=play\bios=:ps2-0101xd-20000224.bin:2FEF9FAF
@@ -328,7 +328,7 @@ pcsx2\bios=play\bios=:DTL-H30001_BIOS_V2_USA_110.ROM1:B7094978
 pcsx2\bios=play\bios=:erom.bin:6932E64C
 pcsx2\bios=play\bios=:fps2bios.rom:BA45BD94
 
-gambatte=retroarch\system=mgba=:dmg_boot.bin:59C8598E>
+gambatte=retroarch\system=mgba=bizhawk\firmware=:dmg_boot.bin?GB_boot_ROM.gb:59C8598E>
 
 desmume=corgids=melonds=retroarch\system=:bios7.bin:1280F0D5>
 desmume=corgids=melonds=retroarch\system=:bios9.bin:2AB23573>
@@ -446,9 +446,9 @@ retroarch\system\Databases=:svidb.xml:84D48F54>
 retroarch\system\Machines\COL - Bit Corporation Dina=:config.ini:AD177B1C>
 retroarch\system\Machines\COL - Bit Corporation Dina=:czz50-1.rom:696C101A>
 retroarch\system\Machines\COL - Bit Corporation Dina=:czz50-2.rom:6538DD32>
-retroarch\system\Machines\COL - ColecoVision=:coleco.rom:3AA93EF3>
+retroarch\system\Machines\COL - ColecoVision=bizhawk\firmware=:coleco.rom?ColecoBios.bin:3AA93EF3>
 retroarch\system\Machines\COL - ColecoVision=:config.ini:D3DE69D9>
-retroarch\system\Machines\COL - ColecoVision with Opcode Memory Extension=:coleco.rom:3AA93EF3>
+retroarch\system\Machines\COL - ColecoVision with Opcode Memory Extension=bizhawk\firmware=:coleco.rom?ColecoBios.bin:3AA93EF3>
 retroarch\system\Machines\COL - ColecoVision with Opcode Memory Extension=:config.ini:4233F38D>
 retroarch\system\Machines\COL - Spectravideo SVI-603 Coleco=:config.ini:F8B7F23B>
 retroarch\system\Machines\COL - Spectravideo SVI-603 Coleco=:SVI603.ROM:19E91B82>
@@ -813,3 +813,21 @@ fsuae=WinUAE=:V1.3_34.5 A500-A2000 1987.rom:C4F0F55F
 fsuae=WinUAE=:V3.1_40.60 CD32 1993.rom:1E62D4A5
 fsuae=WinUAE=:Kickstart 1.3.rom:F6290043
 fsuae=WinUAE=:Kickstart 3.1.rom:FC24AE0D
+bizhawk\firmware=:7800highscore.bin:9BE408D3>
+bizhawk\firmware=:AppleIIe.rom:1D70B193>
+bizhawk\firmware=:c64-basic.bin:F833D117>
+bizhawk\firmware=:c64-chargen.bin:EC4272EE>
+bizhawk\firmware=:c64-kernal.bin:DBE3E7C7>
+bizhawk\firmware=:DiskII.rom:CE7144F6>
+bizhawk\firmware=:drive-1541.bin:57224CDE>
+bizhawk\firmware=:drive-1541ii.bin:899FA3C5>
+bizhawk\firmware=:fx-scsi.rom:F3E60E5E>
+bizhawk\firmware=:GBC_boot_ROM.gb:41884E46>
+bizhawk\firmware=:pentagon.rom:AA1CE4BD>
+bizhawk\firmware=:PhillipsC52.bin:A318E8D6>
+bizhawk\firmware=:sgb.sfc:8A4A174F>
+bizhawk\firmware=:sms_jp_2.1.sms:48D44A13>
+bizhawk\firmware=:sms_kr.sms:9C5BAD91>
+bizhawk\firmware=:sms_us_1.3.sms:0072ED54>
+bizhawk\firmware=:ti83_102.rom:7EE5D27B>
+bizhawk\firmware=:trdos.rom:D8882A8C>
