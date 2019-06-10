@@ -7080,16 +7080,6 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[VideoBrain Computer Company - VideoBrain Family Computer]
-RJEMUPRESET=MAME
-RJMAMENM=vidbrain
-MAME?RJEMUOPTS=<vidbrain -cart<
-RJZIPPEEK=0
-SHORTNM=VCCVFC
-SUPEMU=MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
-
 [JungleTac Sport - Vii]
 RJEMUPRESET=MAME
 RJMAMENM=vii
