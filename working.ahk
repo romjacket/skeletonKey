@@ -558,7 +558,7 @@ Loop,Read,cores.ini
 		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All
 		corezips .= (A_Index == 1 ? "" : "|") . A_LoopReadLine "." "zip"
 		corelist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-		coreNamz .= (A_Index == 1 ? "" : "|") . jnm
+		coreNamz .= jnm . "|"
 	}
 SKCCTXT= %CORENUM% cores
 if (INITIAL = 1)
@@ -3139,7 +3139,8 @@ Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 Gui, Add, Checkbox, x287 y29 w25 vENHAK gENHAK +0x200,+hacks
 Gui, Add, Checkbox, x287 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
-Gui, Add, Button, x266 y259 h18 vALTURLGET gALTURLGET,Download
+Gui, Add, Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
+Gui, Add, Button, x320 y259 h18 vADDRPOL gADDRPOL,F
 ;;Gui,Add,Edit, hwndEdtHndl72 x24 y215 w159 h21 vARCLOGIN gArcLogin %ARCURLCK%,%ARC_USER%
 ;;Gui,Add,Edit, hwndEdtHndl73 x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
 ;;Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass %ARCURLCK% %ARCPSVD%, save
@@ -9049,7 +9050,10 @@ met_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 						if ( InStr(L, `%) != 0 )
 							{
 								StringSplit, DownloadInfo, L, (`%,
-								StringLeft, L1, DownloadInfo2, 3								
+								StringLeft, L1, DownloadInfo2, 3
+								stringsplit,tosb,DownloadInfo1,/%A_Space%
+								stringsplit,spr,DownloadInfo3,%A_Space%:,]
+								SB_SetText("" spr5 "ps " tosb2 "/" tosb3 " [" spr7 "]")
 								if ( L1 = "100" )
 									{
 										Guicontrol, ,utlPRGA, 0
@@ -9110,7 +9114,10 @@ exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 						if ( InStr(L, `%) != 0 )
 							{
 								StringSplit, DownloadInfo, L, (`%,
-								StringLeft, L1, DownloadInfo2, 3								
+								StringLeft, L1, DownloadInfo2, 3
+								stringsplit,tosb,DownloadInfo1,/%A_Space%
+								stringsplit,spr,DownloadInfo3,%A_Space%:,]
+								SB_SetText("" spr5 "ps " tosb2 "/" tosb3 " [" spr7 "]")
 								if ( L1 = "100" )
 									{
 										Guicontrol, ,utlPRGA, 0
@@ -14306,6 +14313,7 @@ guicontrol, disable, UPDSELCT
 guicontrol, disable, UPDCL
 guicontrol, disable, GCUPDT
 guicontrol, show, UPDBTC
+guicontrol, enable, UPDBTC
 corexist=
 redistr= redist.7z
 RAUPDF= 
@@ -14387,10 +14395,7 @@ Loop, Parse, SLCTCORES,|
 									}
 							}
 					}
-				ifnotexist,%libretrodirectory%\%dwncore%
-					{
-						SB_SetText(" core archive not found ")
-					}
+				SB_SetText(" downloading " dwncore " ")
 				gosub, downloadingcores
 				ifnotexist, %save%
 					{
@@ -31546,12 +31551,12 @@ if (NETPLIST = 1)
 				NETRPARSE=
 				SB_SetText("Searching Playlist Database")
 				StringLeft,curhostrom,HOSTINGROMS,12
+				plistadd=
 				Loop, Read, hashdb.ini
 					{
 						xactm=
 						romf=
 						romprt=
-						plistadd=
 						matchlist=
 						qfind1=
 						qfind2=
@@ -31564,17 +31569,29 @@ if (NETPLIST = 1)
 						stringsplit,qfind,A_LoopReadLine,|
 						romsr:= qfind1
 						splitpath,romsr,romtitle,rompth,romext,romname
+						if instr(romsr,".zip#")or instr(romsr,".7z#")
+							{
+								stringsplit,afm,romsr,#
+								romsr= %afm1%
+							}
 						fndpl:= qfind2
 						fndnum:= qfind3
 						HASHSPLIT:= qfind4
-						gosub, NewMtch
+						if (HOSTSELECT <> "")
+							{
+								gosub, NewMtch
+								matchlist:= xactm . plistadd
+							}
+							else {
+							plistadd.= romsr . "|"
+							matchlist:= plistadd
+							}
 						if (BRKO = 1)
 							{
 								HOSTFND=
 								break
 							}
 					}
-				matchlist:= xactm . plistadd
 				if (romf = "")
 					{
 						romf:= romprt
@@ -31598,23 +31615,53 @@ if (NETPLIST = 1)
 		PlayLP:
 		PLineNum=
 		PLineAdd=
-		Loop, Read, %playlistLoc%\%NETLPARSE%,|
+		crcpnum= 
+		Fileread,plpars,%playlistLoc%\%NETLPARSE%
+		Loop, parse, plpars,`n`r
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				PLineNum+=1
+				stringsplit, plprsplt, A_LoopField,"
+				;"
+				if (plprsplt2 = "path")
+					{
+						prpthn= %PLineNum%
+						stringreplace,nrmf,plprsplt4,\\,\,All
+						if instr(nrmf,".zip#")or instr(nrmf,".7z#")
+							{
+								stringsplit,nrmfs,nrmf,#
+								nrmf= %nrmfs1%
+							}
+						splitpath,nrmf,nrmfl,nrmfp,nrmx,nrmfn
+						romf= %nrmf%
+						plistadd.= nrmf . "|"
+						plistplus:= plistadd
+					}
+				if (plprsplt2 = "label")
+					{
+						nrmfnm= %plprsplt4%
+					}
 				if (HOSTSELECT <> "")
 					{
-						stringsplit, HASHSPLIT, A_LoopReadLine,|"
+						stringsplit, HASHSPLIT, A_LoopField,|"
 						;"
 						if (HASHSPLIT2 = "crc32")
 							{
-								if (HASHSPLIT3 = HOSTINGCRCS)
+								if (HASHSPLIT4 = HOSTINGCRCS)
 									{
 										if (hashsp2 <> 0)
 											{
-												gosub, SUBRLINE
+												crcpnum= %PLineNum%
+												;;gosub, SUBRLINE
+												plinecnt=
 												splitpath,romf,romtitle,rompth,romext,romname
 												guicontrol,enable,NETCONNECT
 												HOSTFND=
+												guicontrol,,RETROM,0
+												SB_SetText(" CRC-MATCH " romf " found!! ! ")
 												romdisp= 1
 												BRKO= 1
 												break
@@ -31622,44 +31669,12 @@ if (NETPLIST = 1)
 									}
 							}
 					}
-				PLineAdd+=8
-				if (PLineAdd = 2)
-					{
-						stringsplit,vbb,vrb,"
-						;"
-						stringreplace,vbbx,vbb3,\\,\,All
-						SplitPath,vbbx,lmtitle
-						intitle1=
-						intitle2=
-						stringsplit,intitle,lmtitle,#
-						if (intitle2 = "")
-							{
-								intitle2 := intitle1
-							}
-						plistadd.= intitle2 . "|"
-						plistplus:= plistadd
-					}
-				if (PLineAdd =  6)
-					{
-						PLineAdd=
-					}
 			}
 			matchlist= %plistadd%
 			romfj1=
 			romfj2=
 			stringsplit, romfj, romdp,#
 			stringmid,romhnck,romdp,2,1
-			if (romhnck <> ":")
-				{
-					ifexist, %raexeloc%\%romfj1%
-						{
-							romdp= %raexeloc%\%romfj1%
-							if (romfj2 <> "")
-								{
-									romdp= %raexeloc%\%romfj1%#%romfj2%
-								}
-						}
-				}
 			guicontrol,,NETROMLIST,|%romdp%||%plistplus%
 			if (romdisp = "")
 				{
@@ -31870,8 +31885,8 @@ if (NETPLIST = 1)
 		if (NETLPARSE = "All_Playlists")
 			{
 				stringsplit,prsdl,NAMEDROM,=
-				NETLPARSE:= % (%prsdl1%)
-				NAMEDROM:= prsdl2
+				NETLPARSE= % (%prsdl1%)
+				NAMEDROM= %prsdl2%
 			}
 		Loop, Read, %playlistLoc%\%NETLPARSE%
 			{
@@ -31979,43 +31994,58 @@ guicontrol,,SRCHARCORG,0
 return
 ;;;;;;;;;;;;;;;;;;;;;;    JUST POPULATE   ;;;;;;;;;;;;;;;;;;;;;;;;
 JustPop:
-Loop, Read, %playlistLoc%\%NETLPARSE%,|
+Fileread,plpars,%playlistLoc%\%NETLPARSE%
+Loop, parse, plpars,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		PLineNum+=1
+		stringsplit, plprsplt, A_LoopField,"
+		;"
+		if (plprsplt2 = "path")
+			{
+				prpthn= %PLineNum%
+				stringreplace,nrmf,plprsplt4,\\,\,All
+				if instr(nrmf,".zip#")or instr(nrmf,".7z#")
+					{
+						stringsplit,nrmfs,nrmf,#
+						nrmf= %nrmfs1%
+					}
+				splitpath,nrmf,nrmfl,nrmfp,nrmx,nrmfn
+				romf= %nrmf%
+				plistadd.= nrmf . "|"
+				plistplus:= plistadd
+			}
+		if (plprsplt2 = "label")
+			{
+				nrmfnm= %plprsplt4%
+			}
 		if (HOSTSELECT <> "")
 			{
-				stringsplit, HASHSPLIT, A_LoopReadLine,|
-				if (HASHSPLIT1 = HOSTINGCRCS)
+				stringsplit, HASHSPLIT, A_LoopField,|"
+				;"
+				if (HASHSPLIT2 = "crc32")
 					{
-						if (HASHSPLIT1 <> 0)
+						if (HASHSPLIT3 = HOSTINGCRCS)
 							{
-								gosub, SUBRLINE
-								splitpath,romf,romtitle,rompth,romext,romname
-								guicontrol,enable,NETCONNECT
-								HOSTFND=
-								romdisp= 1
-								BRKO= 1
-								break
+								if (hashsp2 <> 0)
+									{
+										crcpnum= %PLineNum%
+										;;gosub, SUBRLINE
+										plinecnt=
+										splitpath,romf,romtitle,rompth,romext,romname
+										guicontrol,enable,NETCONNECT
+										HOSTFND=
+										guicontrol,,RETROM,0
+										SB_SetText(" CRC-MATCH " romf " found!! ! ")
+										romdisp= 1
+										BRKO= 1
+										break
+									}
 							}
 					}
-			}
-		PLineAdd+=1
-		if (PLineAdd = 1)
-			{
-				SplitPath,A_LoopReadLine,lmtitle
-				intitle1=
-				intitle2=
-				stringsplit,intitle,lmtitle,#
-				if (intitle2 = "")
-					{
-						intitle2 := intitle1
-					}
-						plistadd.= intitle2 . "|"
-						plistplus:= plistadd
-			}
-		if (PLineAdd =  6)
-			{
-				PLineAdd=
 			}
 	}
 return
@@ -32364,20 +32394,6 @@ if (ApndCRC = HOSTINGCRCS)
 		dwncrcm= 1
 		HOSTFND=
 	}
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;  SUB POP PROC  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SUBRLINE:
-SUBRLINE=
-SUBRLINE := PLineNum-3
-SUBFROM := PLineNum-4
-guicontrol,,FORCEROM,0
-guicontrol,enable,NETCONNECT
-plinecnt=
-FileReadLine, romdp,%playlistLoc%\%NETLPARSE%,%SUBRLINE%
-FileReadLine, romf,%playlistLoc%\%NETLPARSE%,%SUBFROM%
-guicontrol,,RETROM,0
-SB_SetText(" CRC-MATCH " romf " found!! ! ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -35570,6 +35586,102 @@ if (ALTURL = 0)
 		guicontrol,disable,SAVPASS
 	}
 return
+
+ADDRPOL:
+gui,submit,nohide
+opndgam= 1
+FileSelectFile,addrplst,3,,Open a .gam file,(*.gam)
+if (addrplst = "")
+	{
+		return
+	}
+splitpath,addrplst,,,,addrplstn	
+ARCSYS= 
+guicontrol,,ARCSYS,|Select a System||%syslist%
+ifinstring,SysLLst,%addrplstn%=
+	{
+		ARCSYS= %addrplstn%
+		EXTRSYS= %ARCSYS%
+		guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
+	}
+guicontrol,,ARCCORES,|Emu_Preset||%runlist%
+guicontrol,,ENHAK,0
+guicontrol,,MAMESWCHK,0
+guicontrol,hide,sortoverride
+guicontrol,,sortoverride,0
+guicontrolget,ENHAK,,ENHAK
+HACKAPN=
+genlst=
+guicontrol,,ARCLNCH,PLAY ::>
+guicontrol,disable,ARCLNCH
+guicontrol,disable,ARCNCT
+guicontrol, disable, ARCHOST
+ARCSEL=
+romarray1=
+romarray2=
+pop_list=
+cmdfun=
+recore=
+norun=
+symt1=
+symt2=
+topcore=
+fnne=
+tmpsr=
+tmprm=
+sysddllist= %syslist%
+guicontrol,,DOWNONLY,0
+guicontrol,,CUSTMOPT,|%INJOPT%
+guicontrol,,CUSTMARG,|
+guicontrol,hide,CUSTMOPT
+guicontrol,hide,CUSTMARG
+guicontrol,,REDWN,0
+guicontrol,,OVDCHK,0
+guicontrol,,EXTRURL,0
+guicontrol,,RUNXTRACT,0
+guicontrol,,ArcMove,0
+guicontrol,,CUSTSWITCH,0
+guicontrol,,EXTEXPLD,0
+guicontrol,,JACKETMODE,0
+guicontrol,,RNMJACK,
+guicontrol,hide,RNMJACK
+BRKO= 1
+guicontrol,,SRCHRSLT,|
+guicontrol,,ARCPOP,|
+guicontrolget,ARCSYS,,ARCSYS
+guicontrol,,SRCHDDL,|All|%ARCSYS%||%sysddllist%
+pop_list=
+loop, Read, %addrplst%
+	{
+		if (A_LoopReadLine = "")
+			{
+				continue
+			}
+		romarray2=
+		stringsplit,romarray,A_LoopReadLine,|,`n`r
+		if (romarray2 = "")
+			{
+				genlst= 1
+				svipth= %romarray1%
+				Loop,parse,romarray1,/
+					{
+						svipth= %A_LoopField%
+					}
+				splitpath,svipth,,,,sanfile
+				gosub, SanURL
+				romarray2= %sanfile%
+			}
+		pop_list .= romarray2 . "|"
+	}
+pdlist= %pop_list%
+pxlist:
+Sort,pop_list,D|
+jacktshw= hide
+guicontrol,,ARCPOP,|%pop_list%
+return
+
+
+
 AltURLGet:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
@@ -35582,6 +35694,7 @@ stringreplace,urlsv,urlsv,`,,,All
 stringreplace,urlsv,urlsv,~,,All
 stringreplace,urlsv,urlsv,%A_Space%,,All
 guicontrol,disable,ALTURLGET
+guicontrol,disable,ADDRPOL
 iniread,urlaloc,%ARCORG%,SOURCES,%UrlTxt%:SET
 if ((urlaloc = "ERROR") or (urlaloc = ""))
 	{
@@ -35611,6 +35724,7 @@ if (EULA <> 1)
 						goto,AltURLGet
 					}
 				guicontrol,enable,ALTURLGET
+				guicontrol,enable,ADDRPOL
 				return
 			}
 		%urlsv%_EULA= 1	
@@ -35632,6 +35746,7 @@ ifnotexist, %save%
 		SB_SetText(" " urltxt " repository could not be found.")
 		guicontrol,enable,ARCSYS
 		guicontrol,enable,ALTURLGET		
+		guicontrol,enable,ADDRPOL		
 		return
 	}
 Runwait,"bin\7za.exe" x -y "%save%" -O"gam",,hide
@@ -35644,6 +35759,7 @@ gosub, ResetSys
 SB_SetText(" " UrlTxt " has been added to your repository options")
 guicontrol,enable,ARCSYS
 guicontrol,enable,ALTURLGET
+guicontrol,enable,ADDRPOL
 return
 sitensan:
 SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only.")	
@@ -35707,6 +35823,7 @@ if (ExpndASrch = "")
 		guicontrol,hide,urltxt
 		guicontrol,hide,ALTURLSET
 		guicontrol,hide,ALTURLGET
+		guicontrol,hide,ADDRPOL
 		guicontrol,hide,ARCPOP
 		guicontrol,hide,ALTURL
 		guicontrol,hide,OVDTXT
@@ -35731,6 +35848,7 @@ ExpndASrch=
 guicontrol,show,UrlTxt
 guicontrol,show,ALTURLSET
 guicontrol,show,ALTURLGET
+guicontrol,show,ADDRPOL
 guicontrol,show,arclogin
 guicontrol,show,arcpass
 guicontrol,show,SavPass
@@ -35891,7 +36009,12 @@ if (DownOnly = 0)
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
 		krbrk=
 		arcpnum=
-		Loop,%SRCHMET%\%HACKAPN%%ARCSYS%.gam
+		searchparams= %SRCHMET%\%HACKAPN%%ARCSYS%.gam
+		if (opndgam = 1)
+			{
+				searchparams= %addrplst%
+			}
+		Loop,%searchparams%
 			{
 				Loop, Read, %A_LoopFileFullPath%
 					{
@@ -35920,6 +36043,14 @@ if (DownOnly = 0)
 								splitpath,svipth,,,,sanfile
 								gosub, SanURL
 								aftpth2= %sanfile%
+							}
+						if (opndgam = 1)
+							{
+								if ((aftpth5 = "")&&(ARCSYS = "")or(aftpth5 = A_Space)&&(ARCSYS = ""))
+									{
+										EXTRSYS= netplay
+									}
+								guicontrol,,ARCSYS,|%EXTRSYS%||%syslist%
 							}
 						if (aftpth2 = arcpopcul)
 							{
@@ -36135,8 +36266,12 @@ ifnotinstring,romsys,%A_Space%-%A_Space%
 	}
 krbrk=
 iniread,cmdfun,sets\EmucfgPresets.set,%SRCHGAM%,cmdfun
-
-Loop, %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
+srchgamf= %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
+if (opndgam = 1)
+	{
+		srchgamf= %addrplst%
+	}
+Loop, %srchgamf%
 	{
 		Loop, Read, %A_LoopFileFullPath%
 			{
@@ -36226,33 +36361,6 @@ ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
 	{
 		ARCSUBS= MAME - Systems
 	}
-/*
-loop, Parse, ArcOrgSet,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringreplace,EXTRSYSK,EXTRSYS,#HACKS#,,All
-		ARCSUBS= %EXTRSYSK%
-		ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
-			{
-				ARCSUBS= MAME - Systems
-			}
-		gamurl1=
-		gamurl2=
-		gamurl3=
-		stringsplit,gamurl,A_LoopField,=
-			{
-				if (gamurl1 = ARCSUBS)
-					{
-						sysurl= %gamurl2%
-						break
-					}
-			}
-	}
-SB_SetText(" " sysurl " ")
-*/	
 return
 RomSavePPND:
 romf:= save
@@ -36329,6 +36437,7 @@ guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
 return
 ArchiveSystems:
+opndgam= 
 gui, submit, nohide
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 overrdx:= % (%urlsv%_EULA)
@@ -36572,6 +36681,7 @@ if (EXTRSYS = "- firmware -")
 		gosub, MAMEBIOSFIRM
 	}
 return
+
 ArcCores:
 loadedjoy=
 APLA=
@@ -37440,6 +37550,11 @@ if (arcpnum > 1)
 		SB_SetText("select a single item")
 		return
 	}
+srchgmf= %SRCHMET%\%HACKAPN%%ARCSYS%.gam	
+if (opndgam = 1)
+	{
+		srchgmf= %addrplst%
+	}
 if (tmprm <> "")
 	{
 		if (MAMESWCHK = 1)
@@ -37490,7 +37605,7 @@ if (tmprm <> "")
 						continue
 					}
 			}
-		Loop, read, %SRCHMET%\%HACKAPN%%ARCSYS%.gam
+		Loop, read, %srchgmf%
 			{
 				stringsplit,ave,A_LoopReadLine,|
 				if (ave8 = "$")
@@ -37541,7 +37656,7 @@ if (tmprm <> "")
 	}
 if (tmpsr <> "")
 	{
-		Loop, read, %SRCHMET%\%EXTRSYS%.gam
+		Loop, read, %srchgmf%
 			{
 				ave1= 
 				ave2= 
@@ -79111,6 +79226,7 @@ if (NETDWNL = 1)
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 	}
 return
+
 PlaylistInit:
 Menu,Tray,Tip, Generating Playlist Database cache
 guicontrol,disable,SVPLST
@@ -79125,32 +79241,45 @@ Loop, %playlistLoc%\*.lpl
 		plistNamz .= plistNam . "|"
 		totn=
 		pln= %A_LoopFileName%
+		msgbox,,,pln=%pln%
 		SB_SetText("...Initializing Playlist Database..." pln " parsing ")
 		anum=
-		Loop, Read, %A_LoopFileFullPath%
+		fileread,tmplst,%A_LoopFileFullPath%
+		PLineNum= 
+		crcnum= 
+		Loop, parse, tmplst,`n`r
 			{
-					totn+= 1
-					anum+= 1
-					if (anum = 1)
-						{
-							fnm= %A_LoopReadLine%
-						}
-					if (anum = 5)
-						{
-							gten:= ""
-							gten:= totn - 4
-							stringsplit, crchsh,A_LoopReadLine,|
-							FileAppend,%fnm%|%pln%|%gten%|%crchsh1%`n,hashdb.ini
-						}
-					if (anum = 6)
-						{
-							anum=
-						}
-				}
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				PLineNum+=1
+				stringsplit, plprsplt, A_LoopField,"
+				;"
+				if (plprsplt2 = "path")
+					{
+						prpthn= %PLineNum%
+						stringreplace,fnm,plprsplt4,\\,\,All
+						if instr(nrmf,".zip#")or instr(nrmf,".7z#")
+							{
+								stringsplit,nrmfs,nrmf,#
+								fnm= %nrmfs1%
+							}
+						splitpath,fnm,nrmfl,nrmfp,nrmx,nrmfn
+					}
+				if (plprsplt2 = "crc32")
+					{
+						stringsplit, HASHSPLIT, A_LoopField,|"
+						;"
+						crchsh= %HASHSPLIT4%
+						FileAppend,%fnm%|%pln%|%prpthn%|%crchsh%`n,hashdb.ini
+					}
+			}
 	}
 SB_SetText("Playlist Database created")
 guicontrol,enable,SVPLST
 return
+
 resetPlaylists:
 plistfiles=
 plistNamz=
