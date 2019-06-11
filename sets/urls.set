@@ -69,6 +69,7 @@ cpspemu|cpspemu/cpspemu.7z
 creativisionemulator|creativisionemulator/creativision-[ARCH].7z
 creativision|creativision/creativision.7z
 Cxbx|Cxbx/Cxbx.7z
+cxbxreloaded|cxbxreloaded/cxbxreloaded.7z
 daphne|daphne/daphne.7z
 DCAlice|DCAlice/DCAlice.7z
 dcexel|dcexel/dcexel.7z
@@ -326,7 +327,7 @@ project64k|project64k/project64k.7z
 Project64|Project64/Project64-32.7z
 ProjectTempest|ProjectTempest/ProjectTempest.7z
 ProSystem|ProSystem/ProSystem.7z
-psx|psx/psx.7z
+psxfin|psx/psx.7z
 pv1000|pv1000/pv1000.7z
 pv2000|pv2000/pv2000.7z
 px7|px7/px7.7z
@@ -445,6 +446,7 @@ xm8|xm8/xm8-[ARCH].7z
 xqemu|xqemu/xqemu.7z
 Xroar|Xroar/Xroar-[ARCH].7z
 Yabause|Yabause/Yabause-[ARCH].7z
+kronos|kronos/kronos-[ARCH].7z
 yalky|yalky/yalky.7z
 yape|yape/yape.7z
 ys6464a|ys6464a/ys6464a.7z

@@ -44,7 +44,7 @@ CD-I=CD-I/CD-I.7z=CD-I.exe=cdiroms.ini
 CEMU=CEMU/CEMU.7z=Cemu.exe=Settings.xml
 Citra=Citra/Citra.7z=citra-qt.exe=user\config\qt-config.ini= =user\config\user\sdmc\Nintendo 3DS\*.*
 Colem=Colem/Colem.7z=VColeco.exe=ini
-Cxbx=Cxbx/Cxbx.7z=CxBx.exe=
+Cxbx=Cxbx/Cxbx.7z=CxBx.exe=settings.ini
 decaf=decaf/decaf.7z=decaf-qt.exe=
 DOSBox=DOSBox/DOSBox.7z=DOSBox.exe=dosbox.conf= =SAVE\*.*
 Demul=Demul/Demul.7z=Demul.exe=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|gdrCHD.ini|netDemul.ini=sstaes\*.*=memsaves\vms00.bin|memsaves\vms10.bin|nvram\*.*
@@ -119,6 +119,7 @@ ep32=ep32/ep32.7z=ep32.exe=configs\*.cfg
 enter=enter/enter.7z=enter.exe=enter.cfg=
 ep128emu=ep128emu/ep128emu[ARCH].7z=ep128emu.exe=config\ep128uk\*.cfg|config\ep64\*.cfg=
 tunix=tunix/tunix.7z=Tunix2001.exe=cfg.txt=savestate.sna=
+kronos=kronos/kronos-[ARCH].7z=kronos.exe=kronos.ini=bkram.bin=*.yss
 Yabause=Yabause/Yabause-[ARCH].7z=Yabause.exe=yabause.ini=bkram.bin=*.yss
 ZXSpin=ZXSpin/ZXSpin.7z=ZXSpin.exe=spin.ini=|=*.sna
 Zsnes=Zsnes/Zsnes.7z=Zsnesw.exe=zsnes.cfg|zinput.cfg|zmovie.cfg=*.srm=*.zst
@@ -132,7 +133,7 @@ modelb=modelb/modelb.7z=modelb.exe=beeb.ini=
 joyce=joyce/joyce.7z=xjoyce.exe=
 faux1=faux1/faux1.7z=faux1.exe=
 arnold=arnold/arnold.7z=arnold.exe=
-atari++=atari++/atari++.7z=atari++.exe=atari++.conf
+atari++=atariplusplus/atari++.7z=atari++.exe=atari++.conf
 atari800winplus=atari800winplus/atari800winplus.7z=Atari800Win.exe
 atom=atom/atom.7z=Atom.Exe=
 atomulator=atomulator/atomulator.7z=Atomulator.exe=
@@ -357,7 +358,7 @@ vaquarius=vaquarius/vaquarius.7z=aquarius.exe=
 vb64=vb64/vb64.7z=vb64.exe=
 vgb=vgb/vgb.7z=VGB.exe=
 vgba=vgba/vgba.7z=VGBA.exe=
-cxbxreloaded=cxbxreloaded/cxbxreloaded.7z=cxbxreloaded.exe=
+cxbxreloaded=cxbxreloaded/cxbxreloaded.7z=cxbx.exe=settings.ini
 ryujinx=ryujinx/ryujinx.7z=ryujinx.exe=Ryujinx.runtimeconfig.json|ryujinx.conf=
 virtualapf=virtualapf/virtualapf.7z=virtualapf.exe=
 virtualjaguar=virtualjaguar/virtualjaguar-[ARCH].7z=virtualjaguar.exe=vjag.cmd
@@ -369,7 +370,6 @@ x1=x1/x1.7z=x1.exe=x1.ini=
 ncdz=ncdz/ncdz.7z=ncdz.exe=ncdz.ini=
 ngae=ngae/ngae.7z=NGAE[ARCH].exe=NGAEUI64UI.ini=
 race!=race/race!.7z=race.exe=
-neopopcott=neopopcott/neopopcott.7z=neopopcott.exe=
 koyote=koyote/koyote.7z=koyote.exe=unified.ini|koyote.cfg=states\*=
 x1twin=x1twin/x1twin.7z=x1twin.exe=x1twin.ini=
 x86Box=x86Box/x86Box.7z=86Box.exe=

@@ -329,7 +329,6 @@ sllist:={}
 cglist:={}
 mirnum=
 MIRDDLOC=
-FileRead,SysEmuSet,sets\SystemEmulators.set
 Loop, Read, Settings.ini
 	{
 		stringsplit,mirlocv,A_LoopReadLine,=,""
@@ -344,13 +343,9 @@ Loop, Read, Settings.ini
 					}
 				MIRDDLOC.= mirlocv1 . "|"
 			}
-		Loop, Parse, SysEmuSet,`n`r
+		ifinstring,SysLLst,%syspfl%=
 			{
-				stringsplit,gaminsl,A_LoopField,|
-				ifinstring,gaminsl1,%syspfl%
-					{
-						syssub= %gaminsl1%
-					}
+				syssub= %syspfl%
 			}
 	}
 CMIR1= Mirror_1
@@ -600,8 +595,6 @@ FileRead,PrgLst,sets\Programs.set
 FileRead,BiosFSet,sets\Bios.set
 FileRead,fuzsys,sets\fuzsyslk.set
 FileRead,SysLLst,sets\lkup.set
-stringreplace,SysEmuSet,SysEmuSet,",,All
-;"
 iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
 stringreplace,KMPPartSet,KMPPartSet,[ARCH],%ARCH%,All
 iniRead, UTLPartSet,sets\EmuParts.set,UTILITIES
@@ -619,7 +612,7 @@ if (repoloc = "ERROR")
 FilereadLine,scrsup,sets\supported.set,1
 Loop, Parse, scrsup,/
 	{
-		ifinstring,SysEmuSet,%A_LoopField%|
+		ifinstring,SysLLst,%A_LoopField%=
 			{
 				ifnotinstring,dispsup,%A_LoopField%|
 					{
@@ -630,10 +623,6 @@ Loop, Parse, scrsup,/
 emuinstpop=
 Loop, Parse, EmuPartSet,`n`r
 	{
-		if (A_LoopField = "#")
-			{
-				break
-			}
 		if (A_LoopField = "")
 			{
 				continue
@@ -648,10 +637,6 @@ if (INITIAL = 1)
 	}
 Loop, Parse, EmuPartSet,`n`r
 	{
-		if (A_LoopField = "#")
-			{
-				continue
-			}
 		if (A_LoopField = "")
 			{
 				continue
@@ -1545,7 +1530,7 @@ if (RJSYSTMP <> "")
 				allsys+=1
 				sysnam= %A_LoopFileName%
 				systmfldrs.= A_LoopFileName . "|"
-				Loop, Parse, SysEmuSet,`n`r
+				Loop, Parse, SysLst,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -1553,10 +1538,8 @@ if (RJSYSTMP <> "")
 							}
 						sdspl1=
 						sdspl2=
-						stringsplit,sdspl,A_LoopField,:
-						avnu1=
-						stringsplit,avnu,sdspl1,|
-						if (avnu1 = sysnam)
+						stringsplit,sdspl,A_LoopField,=
+						if (sdspl1 = sysnam)
 							{
 								totsys+=1
 								knownfldrs.= avnu1 . "|"
@@ -3507,7 +3490,7 @@ Gui,Add,DropDownList, hwndDplHndl148 x138 y446 w472 vNETROMLIST gNetROMList +0x2
 Gui, Add, Radio, x75 y441 h12 vNETPLIST gNetPlist, Playlists
 Gui, Add, Radio, x75 y455 h12  vNETDWNL gNetDwnl, Folders
 Gui, Add, CheckBox, x516 y470 h23 vAUTOCORE gAutoCore Checked, Auto-Core
-gui, Add, CheckBox, x620 y445 h23 vFORCEROM gForceROM hidden, Force
+gui, Add, CheckBox, x460 y420 h23 vFORCEROM gForceROM hidden, Force
 Gui, Add, Button, x670 y444 w75 h23 vNETCONNECT gNetConnect disabled, CONNECT
 Gui,Add,ComboBox, hwndCbxHndl100 x585 y471 w156 vNetCore gNetCore disabled, %corelist%
 Gui,Add,Edit, hwndEdtHndl92 x561 y410 w29 h21 vIPA gIp_A Number,
@@ -3546,7 +3529,7 @@ Gui, Add, Text, x398 y431 h13 vNETPLPWTXT, password
 Gui,Add,Edit, hwndEdtHndl101 x228 y410 w156 h21 vNETNAME gGetNetName,
 Gui,Add,Edit, hwndEdtHndl102 x392 y410 w56 h21 vNETPW gNetPW,
 Gui,Add,Edit, hwndEdtHndl103 x392 y410 w56 h21 vNETSPECPW hidden gNetSpecPW,
-Gui,Add,Edit, hwndEdtHndl104 x575 y415 w86 h16 -E0x200 +Readonly vHOSTIP hidden, Your IP Address
+Gui,Add,Edit, hwndEdtHndl104 x565 y412 w86 h16 -E0x200 +Readonly vHOSTIP hidden, Your IP Address
 Gui, Add, Text, x455 y431 w54 h13 vFSRVTXT hidden, file-server
 Gui, Add, CheckBox,x450 y415 w14 h12 vFILESERV gFileServ hidden,
 Gui,Add,Edit, hwndEdtHndl105 x465 y411 w54 h18 vSERVPORT Disabled gServPort Number hidden, %fileServerPort%
@@ -5221,103 +5204,83 @@ guicontrol,,LCORE,|%runlist%
 guicontrol,,ARCCORES,|%runlist%
 return
 SCBUILDEMULST:
-Loop, Parse, SysEmuSet,`n`r
+Loop, Parse, SysLLst,`n`r
 	{
-		if (A_LoopField = "")
+		snklu1=
+		snklu2=
+		stringsplit,snklu,A_LoopField,=
+		afi=
+		;%snklu2%SCL=
+		;%snklu2%CLO=
+		;%snklu2%CLA=
+		iniread,jei,Assignments.ini,ASSIGNMENTS,%snklu1%
+		if (jei <> "ERROR")
 			{
-				continue
-			}
-		sdspl1=
-		sdspl2=
-		stringsplit,sdspl,A_LoopField,:
-		StringSplit,sysplit,sdspl1,|
-		Loop, Parse, SysLLst,`n`r
-			{
-				snklu1=
-				snklu2=
-				stringsplit,snklu,A_LoopField,=,`n`r
-				if (snklu1= sysplit1)
+				if instr(jei,"_libretro.dll") && !fileexist(libretrodirectory "\" jei)
 					{
-						afi=
-						;%snklu2%SCL=
-						;%snklu2%CLO=
-						;%snklu2%CLA=
-						Loop, parse, sdspl1,|
-							{
-								if (A_index = 1)
-									{
-										iniread,jei,Assignments.ini,ASSIGNMENTS,%sysplit1%
-										if (jei <> "ERROR")
-											{
-												if instr(jei,"_libretro.dll") && !fileexist(libretrodirectory "\" jei)
-													{
-														continue
-													}
-												%snklu2%SCL.= jei . "|"
-											}
-										iniread,xvn,sets\emuCfgPresets.set,%sysplit1%,RJEMUOPTS
-										if (xvn <> "ERROR")
-											{
-												stringreplace,xvn,xvn,<,%A_Space%,All
-												%snklu2%CLO.= xvn . "|"
-											}
-										iniread,xvn,sets\emuCfgPresets.set,%sysplit1%,RJEMUARGS
-										if (xvn <> "ERROR")
-											{
-												stringreplace,xvn,xvn,<,%A_Space%,All
-												%snklu2%CLA.= xvn . "|"
-											}
-										continue
-									}
-								ifinstring, glbsysa, %sysplit1%|
-									{
-										iniread,kin,Assignments.ini,ASSIGNMENTS,%A_LoopField%
-										if (kin <> "ERROR")
-											{
-												ifinstring,kin,_libretro.dll
-													{
-														ifnotexist, %libretrodirectory%\%kin%
-															{
-																continue
-															}
-													}
-												%snklu2%SCL.= A_LoopField . "|"
-											}
-										iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUOPTS
-										if (xvn <> "ERROR")
-											{
-												stringreplace,xvn,xvn,<,%A_Space%,All
-												%snklu2%CLO.= xvn . "|"
-											}
-										iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUARGS
-										if (xvn <> "ERROR")
-											{
-												stringreplace,xvn,xvn,<,%A_Space%,All
-												%snklu2%CLA.= xvn . "|"
-											}
-									}
-							}
-						swisnk= % %snklu2%SCL
-						ifinstring,sdspl2,_libretro.dll
-							{
-								Loop, Parse, sdspl2,|
-									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										ifnotexist,%libretrodirectory%\%A_LoopField%
-											{
-												continue
-											}
-										ifinstring,swisnk,%A_LoopField%|
-											{
-												continue
-											}
-										%snklu2%SCL.= A_LoopField . "|"
-									}
-							}
+						continue
 					}
+				%snklu2%SCL.= jei . "|"
+			}
+		iniread,xvn,sets\emuCfgPresets.set,%snklu1%,RJEMUOPTS
+		if (xvn <> "ERROR")
+			{
+				stringreplace,xvn,xvn,<,%A_Space%,All
+				%snklu2%CLO.= xvn . "|"
+			}
+		iniread,xvn,sets\emuCfgPresets.set,%snklu1%,RJEMUARGS
+		if (xvn <> "ERROR")
+			{
+				stringreplace,xvn,xvn,<,%A_Space%,All
+				%snklu2%CLA.= xvn . "|"
+			}
+		iniread,aif,sets\emuCfgPresets.set,%snklu1%,SUPEMU
+		Loop, parse, aif,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				iniread,kin,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+				if ((kin <> "ERROR")&&(kin <> ""))
+					{
+						sanx=  % %snklu2%SCL
+						ifinstring,sanx,%A_LoopField%|
+							{								
+								continue
+							}
+						%snklu2%SCL.= A_LoopField . "|"
+					}
+				iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUOPTS
+				if (xvn <> "ERROR")
+					{
+						stringreplace,xvn,xvn,<,%A_Space%,All
+						%snklu2%CLO.= xvn . "|"
+					}
+				iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUARGS
+				if (xvn <> "ERROR")
+					{
+						stringreplace,xvn,xvn,<,%A_Space%,All
+						%snklu2%CLA.= xvn . "|"
+					}
+			}
+		iniread,aig,sets\emuCfgPresets.set,%snklu1%,SUPCORE
+		Loop, parse, aig,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				swisnk= % %snklu2%SCL
+				ifnotexist,%libretrodirectory%\%A_LoopField%
+					{
+						continue
+					}
+				ifinstring,swisnk,%A_LoopField%|
+					{
+						continue
+					}
+				%snklu2%SCL.= A_LoopField . "|"
 			}
 	}
 return
@@ -5662,50 +5625,32 @@ else
 	}
 adfn=
 Menu, AQRUN, Add
-Loop,Parse,SysEmuSet,`n`r
+iniread,aimn,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+Loop,parse,aim,|
 	{
-		if (A_LoopField = "")
+		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
+		if (poprac <> "")
 			{
-				continue
-			}
-		stringsplit,rsyk,A_LoopField,:
-		stringsplit,rsys,rsyk1,|
-		if (EXTRSYS = rsys1)
-			{
-				Loop, Parse, rsyk1,|
-					{
-						if (A_index = 1)
-							{
-								continue
-							}
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
-						if (poprac <> "")
-							{
-								ifnotinstring,poprc,|%A_LoopField%|
-								poprc.= A_LoopField . "|"
-							}
-					}
-				if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
-					{
-						Loop, Parse,rsyk2,|
-							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								if (FileExist(libretrodirectory . "\" . A_LoopField))
-									{
-										poprc.= A_LoopField . "|"
-									}
-							}
-					}
-				break
+				ifnotinstring,poprc,|%A_LoopField%|
+				poprc.= A_LoopField . "|"
 			}
 	}
+if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+	{
+		iniread,aimc,sets\emuCfgPresets.set,%EXTRSYS%,SUPCORE
+		Loop, Parse,aimc,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (FileExist(libretrodirectory . "\" . A_LoopField))
+					{
+						poprc.= A_LoopField . "|"
+					}
+			}
+	}
+
 Loop,Parse,poprc,|
 	{
 		if (A_LoopField = "")
@@ -5845,48 +5790,29 @@ else
 	}
 adfn=
 Menu, SQRUN, Add
-Loop,Parse,SysEmuSet,`n`r
+iniread,aimn,sets\emuCfgPresets.set,%RUNSYSDDL%,SUPEMU
+Loop,parse,aim,|
 	{
-		if (A_LoopField = "")
+		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
+		if (poprac <> "")
 			{
-				continue
+				ifnotinstring,poprc,|%A_LoopField%|
+				poprc.= A_LoopField . "|"
 			}
-		stringsplit,rsyk,A_LoopField,:
-		stringsplit,rsys,rsyk1,|
-		if (RUNSYSDDL = rsys1)
+	}
+if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+	{
+		iniread,aimc,sets\emuCfgPresets.set,%RUNSYSDDL%,SUPCORE
+		Loop, Parse,aimc,|
 			{
-				Loop, Parse, rsyk1,|
+				if (A_LoopField = "")
 					{
-						if (A_index = 1)
-							{
-								continue
-							}
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
-						if (poprac <> "")
-							{
-								ifnotinstring,poprc,|%A_LoopField%|
-								poprc.= A_LoopField . "|"
-							}
+						continue
 					}
-				if (raexefile <> "NOT-FOUND.exe")
+				if (FileExist(libretrodirectory . "\" . A_LoopField))
 					{
-						Loop, Parse,rsyk2,|
-							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								if (FileExist(libretrodirectory . "\" . A_LoopField))
-									{
-										poprc.= A_LoopField . "|"
-									}
-							}
+						poprc.= A_LoopField . "|"
 					}
-				break
 			}
 	}
 Loop,Parse,poprc,|
@@ -8409,29 +8335,14 @@ if (RUNPLRAD = 1)
 					}
 				if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
 					{
-						Loop,Parse,SysEmuSet,`n`r
+						iniread,aixm,sets\emuCfgPresets.set,%DDLUX%,SUPEMU
+						Loop,Parse,aixm,|
 							{
-								if (A_LoopField = "")
+								iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+								if (aib <> "")
 									{
-										continue
-									}
-								stringsplit,air,A_LoopField,:
-								stringsplit,aix,air1,|
-								if (DDLUX = aix1)
-									{
-										Loop,Parse,air1,|
-											{
-												if (A_Index = 1)
-													{
-														continue
-													}
-												iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%
-												if (aib <> "")
-													{
-														coreselv= %aib%
-														goto,splitromhash
-													}
-											}
+										coreselv= %aib%
+										goto,splitromhash
 									}
 							}
 					}
@@ -8500,18 +8411,9 @@ if (OPTYP = ":=:System List:=:")
 DDLUX= %OPTYP%
 if (FILT_UNSUP <> 1)
 	{
-		Loop, Parse, SysEmuSet,`n`r
+		ifinstring,SysLLst,%OPTYP%=
 			{
-				if (A_Loopfield = "")
-					{
-						continue
-					}
-				stringsplit,sysyn,A_loopfield,|
-				if (sysyn1 = OPTYP)
-					{
-						Ident_Sys= 1
-						break
-					}
+				Ident_Sys= 1
 			}
 	}
 REVSPL= 1
@@ -8589,50 +8491,6 @@ if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
 	{
 		goto, emucoredd
 	}
-/*
-if coreselz is digit
-	{
-		iniread,librecore,Assignments.ini,ASSIGNMENTS,%OPTYP%
-		if ((librecore <> "") && if (FileExist(libretrodirectory "\" librecore)))
-			{
-				coreselv= %librecore%
-				guicontrol,,LCORE,|%coreselv%||%runlist%
-			}
-		else
-			{
-				Loop, Parse, SysEmuSet,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						StringSplit,corsplt,A_LoopField,:
-						StringSplit,sysplit,A_LoopField,|
-						if (OPTYP = sysplit1)
-							{
-								kr=
-								ink=
-								kva=
-								Loop,parse,corsplt2,|
-									{
-										ifexist,%libretrodirectory%\%A_LoopField%
-											{
-												coreselv= %A_LoopField%
-												guicontrol,,LCORE,|%coreselv%||%runlist%
-												kva= 1
-												break
-											}
-									}
-							}
-						if (kva <> "")
-							{
-								break
-							}
-					}
-			}
-		goto, emucin
-	}
-*/
 emucoredd:
 if (coreselz <> "ERROR")
 	{
@@ -8666,41 +8524,29 @@ emucin:
 if (coreselv = "")
 	{
 		kva=
-		Loop, Parse, SysEmuSet,`n`r
+		ifinstring,SysLLst,%OPTYP%=
+		iniread,afkk,sets\emuCfgPresets.set,%OPTYP%,SUPEMU
+		StringSplit,sysplit,afkk,|
+		kr=
+		ink=
+		kva=
+		Loop, %sysplit0%
 			{
 				if (A_LoopField = "")
 					{
 						continue
 					}
-				StringSplit,sysplit,A_LoopField,|
-				if (OPTYP = sysplit1)
+				kr= % sysplit%A_index%
+				ink= %sysplit2%
+				Loop, parse, emulist,|
 					{
-						kr=
-						ink=
 						kva=
-						Loop, %sysplit0%
+						if (A_Loopfield = kr)
 							{
-								if (A_index = 1)
-									{
-										continue
-									}
-								kr= % sysplit%A_index%
-								ink= %sysplit2%
-								Loop, parse, emulist,|
-									{
-										kva=
-										if (A_Loopfield = kr)
-											{
-												coreselv= %kr%
-												guicontrol,,LCORE,|%coreselv%||%runlist%
-												kva= 1
-												break
-											}
-									}
-								if (kva <> "")
-									{
-										break
-									}
+								coreselv= %kr%
+								guicontrol,,LCORE,|%coreselv%||%runlist%
+								kva= 1
+								break
 							}
 					}
 				if (kva <> "")
@@ -10192,48 +10038,33 @@ Loop, Parse, reasign,|
 	}
 LineNum=
 guicontrol,,EMPRDDL,|Emulators|%runlist%
-Loop, Parse, SysEmuSet,`n`r
+selfnd=
+stemu=
+stemu1=
+stemu2=
+stemu3=
+stemu4=
+stemu5=
+emuplst=
+
+iniread,asiu,sets\emuCfgPresets.set,%semu%,SUPEMU
+Loop,parse,asiu,|
 	{
-		if (A_LoopField = "")
+		stemu%A_index%= %A_LoopField%
+		if (A_Index = 1)
 			{
+				emuplst= %A_LoopField%
 				continue
 			}
-		LineNum+=1
-		selfnd=
-		stemu=
-		stemu1=
-		stemu2=
-		stemu3=
-		stemu4=
-		stemu5=
-		emuplst=
-		sdspl1=
-		sdspl2=
-		stringsplit,sdspl,A_LoopField,:
-		stringsplit,stemu,sdspl1,|
-		emuplst= %stemu2%
-		if (stemu3 <> "")
-			{
-				emuplst .= "|" . stemu3
-				if (stemu4 <> "")
-					{
-						emuplst .= "|" . stemu4
-						if (stemu5 <> "")
-							{
-								emuplst .= "|" . stemu5
-							}
-					}
-			}
-		if (stemu1 = semu)
-			{
-				guicontrol,enable,INSTEMUDDL
-				selfnd= %stemu2%
-				guicontrol,,INSTEMUDDL,|%stemu2%||%emuplst%|%emuinstpop%Other
-				gosub, ChkMu
-			}
-		guicontrolget,selfnd,,INSTEMUDDL
-		emuname= %semu%
+		emuplst.= "|" . A_LoopField
 	}
+guicontrol,enable,INSTEMUDDL
+selfnd= %stemu1%
+if (stemu1 = semu)
+guicontrol,,INSTEMUDDL,|%stemu1%||%emuplst%|%emuinstpop%Other
+gosub, ChkMu
+guicontrolget,selfnd,,INSTEMUDDL
+emuname= %semu%
 ;;if ksix is not digit
 ;;	{
 		guicontrol,,EMPRLST,|%ksiv%
@@ -12279,37 +12110,26 @@ guicontrol,disable,EAVAIL
 guicontrol,disable,UAVAIL
 guicontrolget,emupsgn,,UAVAIL
 bko=
-Loop, Parse, SysEmuSet,`n`r
+iniread,aix,Assignments.ini,ASSIGNMENTS,%emupsgn%
+if (aix = "")
 	{
-		if (A_Loopfield = "")
+		bko= 1
+		SB_SetText(" it appears " kri " is not yet installed")
+		return
+	}
+Loop,parse,allsupport,|
+	{
+		psys= %A_LoopField%
+		iniread,avd,sets\emuCfgPresets.set,%A_LoopField%,SUPEMU
+		ifinstring,avd,%emupsgn%
 			{
-				continue
-			}
-		stringsplit,apf,A_Loopfield,|
-		Loop, %apf0%
-			{
-				kri= % apf%A_index%
-				if (kri = emupsgn)
+				iniread,aii,Assignments.ini,OVERRIDES,%psys%
+				if (aii = "")
 					{
-						iniread,aix,Assignments.ini,ASSIGNMENTS,%kri%
-						if (aix = "")
-							{
-								bko= 1
-								SB_SetText(" it appears " kri " is not yet installed")
-								break
-							}
-						iniread,aii,Assignments.ini,OVERRIDES,%apf1%
-						if (aii = "")
-							{
-								iniwrite,"%kri%",Assignments.ini,OVERRIDES,%apf1%
-								SB_SetText("Assigned " kri " to " apf1 " ")
-							}
+						iniwrite,"%emupsgn%",Assignments.ini,OVERRIDES,%psys%
+						SB_SetText("Assigned " emupsgn " to " psys " ")
 					}
-			}
-		if (bko = 1)
-			{
-				break
-			}
+			}	
 	}
 guicontrol,enable,LNCHPT
 guicontrol,enable,SaList
@@ -30391,24 +30211,14 @@ Loop, %RJSYSTEMS%\*,2
 			}
 		sysnam= %A_LoopFileName%
 		systmfldrs.= A_LoopFileName . "|"
-		Loop, Parse, SysEmuSet,`n`r
+		avnu1=
+		allsys+=1
+		iniread,efxe,sets\emuCfgPresets.set,%sysnam%,SUPEMU
+		if ((efxe <> "ERROR")&&(efxe <> ""))
 			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				sdspl1=
-				sdspl2=
-				stringsplit,sdspl,A_LoopField,:
-				avnu1=
-				allsys+=1
-				stringsplit,avnu,sdspl1,|
-				if (avnu1 = sysnam)
-					{
-						totsys+=1
-						knownfldrs.= avnu1 . "|"
-						rjsystmfldrs.= avnu1 . "|"
-					}
+				totsys+=1
+				knownfldrs.= sysnam . "|"
+				rjsystmfldrs.= sysnam . "|"
 			}
 	}
 IniRead,ksvi,SystemLocations.ini,LOCATIONS
@@ -30886,13 +30696,13 @@ Loop,Parse,asig,`n`r
 				iniread,krtmp,apps.ini,EMULATORS,%A_LoopField%
 				if (krtmp <> "ERROR")
 					{
-						ifinstring,fej,|%A_LoopField%
+						ifinstring,fej,%A_LoopField%|
 							{
 								continue
 							}
 						fej.= "|" . A_LoopField
 						stringreplace,fej,fej,||,|,All
-						iniwrite, "%fej%",Assignments.ini,OVERRIDES,%rasig1%
+						iniwrite, "%fej%|",Assignments.ini,OVERRIDES,%rasig1%
 						prifnd= 1
 						continue
 					}
@@ -30900,7 +30710,7 @@ Loop,Parse,asig,`n`r
 	}
 fileread,tdk,Assignments.ini
 stringreplace,tdk,tdk,"|,",All
-stringreplace,tdk,tdk,|",",All
+;;stringreplace,tdk,tdk,|",",All
 filedelete,Assignments.ini
 fileappend,%tdk%,Assignments.ini
 runlist:= corelist . "|" . addemu
@@ -31214,36 +31024,31 @@ if (netplayRomLocation = "2")
 		guicontrol,,NETDWNL,0
 		gosub, NetCoreAssets
 		guicontrol,,NETROMLIST,|%matchlist%
+		guicontrol,,NETCOREASSETS,|All_Playlists||%plistfiles%
 	}
-if (netplayRomLocation = "1")
+if ((netplayRomLocation = "1")or(netplayRomLocation = ""))
 	{
 		guicontrol,,NETPLIST,0
 		guicontrol,,NETDWNL,1
 		gosub, NetCoreAssets
 		guicontrol,,NETROMLIST,|%matchlist%
 	}
-if (netplayRomLocation = "")
-	{
-		guicontrol,,NETDWNL,0
-		guicontrol,,NETPLIST,1
-		guicontrol,,NETCOREASSETS,|All_Playlists||%plistfiles%
-	}
 IniRead,fileServerEnable,Settings.ini,GLOBAL,file_server_enable
 if (fileServerEnable = "true")
-{
-guicontrol,enable,SERVPORT
-guicontrol,,FILESERV,1
-}
+	{
+		guicontrol,enable,SERVPORT
+		guicontrol,,FILESERV,1
+	}
 if (fileServerEnable = "false")
-{
-guicontrol,disable,SERVPORT
-guicontrol,,FILESERV,0
-}
+	{
+		guicontrol,disable,SERVPORT
+		guicontrol,,FILESERV,0
+	}
 iniRead, fileServerPort,Settings.ini,GLOBAL,file_server_port
 if (fileServerPort = "")
-{
-fileServerPort= 54354
-}
+	{
+		fileServerPort= 54354
+	}
 guicontrol,,SERVPORT,%fileServerPort%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31279,14 +31084,10 @@ IPA= %RetIP1%
 IPB= %RetIP2%
 IPC= %RetIP3%
 IPD= %RetIP4%
-if (IPA = "")
-	return
-if (IPB = "")
-	return
-if (IPC = "")
-	return
-if (IPD = "")
-	return
+if ((IPA = "")or(IPB = "")or(IPC = "")or(IPD = ""))
+	{
+		return
+	}
 if (RetIP5 <> "")
 	{
 		HPORTNUM= %RetIP5%
@@ -31301,6 +31102,7 @@ guicontrol,, IPB, %IPB%
 guicontrol,, IPC, %IPC%
 guicontrol,, IPD, %IPD%
 return
+
 LAN_Get:
 ipsplit1=
 ipsplit2=
@@ -31730,7 +31532,7 @@ acton=
 fnd=
 gui, submit, NoHide
 BRKO=
-;{;;;;;;;;;;;;;;;;   playlist parse  ;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;   playlist parse  ;;;;;;;;;;;;;;;;;;
 guicontrol,disable,NETROMLIST
 guicontrol,disable,NETCOREASSETS
 if (NETPLIST = 1)
@@ -31801,25 +31603,32 @@ if (NETPLIST = 1)
 				PLineNum+=1
 				if (HOSTSELECT <> "")
 					{
-						stringsplit, HASHSPLIT, A_LoopReadLine,|
-						if (HASHSPLIT1 = HOSTINGCRCS)
+						stringsplit, HASHSPLIT, A_LoopReadLine,|"
+						;"
+						if (HASHSPLIT2 = "crc32")
 							{
-								if (HASHSPLIT1 <> 0)
+								if (HASHSPLIT3 = HOSTINGCRCS)
 									{
-										gosub, SUBRLINE
-										splitpath,romf,romtitle,rompth,romext,romname
-										guicontrol,enable,NETCONNECT
-										HOSTFND=
-										romdisp= 1
-										BRKO= 1
-										break
+										if (hashsp2 <> 0)
+											{
+												gosub, SUBRLINE
+												splitpath,romf,romtitle,rompth,romext,romname
+												guicontrol,enable,NETCONNECT
+												HOSTFND=
+												romdisp= 1
+												BRKO= 1
+												break
+											}
 									}
 							}
 					}
-				PLineAdd+=1
-				if (PLineAdd = 1)
+				PLineAdd+=8
+				if (PLineAdd = 2)
 					{
-						SplitPath,A_LoopReadLine,lmtitle
+						stringsplit,vbb,vrb,"
+						;"
+						stringreplace,vbbx,vbb3,\\,\,All
+						SplitPath,vbbx,lmtitle
 						intitle1=
 						intitle2=
 						stringsplit,intitle,lmtitle,#
@@ -32732,7 +32541,7 @@ DrOE=
 guicontrolget, DrOE,,NETROMLIST
 if (DrOE = "")
 	{
-	return
+		return
 	}
 if (FORCEROM = 1)
 	{
@@ -35442,70 +35251,49 @@ goto,INSCOR
 
 recore=
 ARCCORES=
-Loop,Parse,SysEmuSet,`n`r
+ifinstring,SysLLst,%EXTRSYS%=
 	{
-		if (A_LoopField = "")
+		iniread,symfc,sets\emucfgPresets.set,%EXTRSYS%,SUPCORE
+		if (raexefile <> "NOT-FOUND.exe")
 			{
-				continue
-			}
-		LineNum+=1
-		librk=
-		selfnd=
-		stemu=
-		stemu1=
-		stemu2=
-		stemu3=
-		stemu4=
-		stemu5=
-		emuplst=
-		sdspl1=
-		sdspl2=
-		stringsplit,sdspl,A_LoopField,:
-		stringsplit,symt,sdspl1,|
-		if (symt1 = EXTRSYS)
-			{
-				if (raexefile <> "NOT-FOUND.exe")
+				Loop, Parse, symfc,|
 					{
-						Loop, Parse, sdspl2,|
-							{
-								ifexist,%libretrodirectory%\%A_Loopfield%
-									{
-										ARCCORES:= A_LoopField . "||"
-										librk= 1
-										break
-									}
-							}
-						if (librk =	1)
-							{
-								break
-							}
-					}
-				Loop, Parse, sdspl1,|
-					{
-						if (A_Index = 1)
-							{
-								continue
-							}
 						if (A_LoopField = "")
 							{
 								continue
 							}
-						iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
-						if (faf <> "ERROR")
+						ifexist,%libretrodirectory%\%A_Loopfield%
 							{
-								if (faf = "")
+								ARCCORES:= A_LoopField . "||"
+								librk= 1
+								break
+							}
+					}
+				if (librk <> 1)
+					{
+						iniread,symfe,sets\emucfgPresets.set,%EXTRSYS%,SUPEMU
+						Loop, Parse, symfe,|
+							{
+								if (A_LoopField = "")
 									{
 										continue
 									}
-								if (recore = "")
+								iniread,faf,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+								if (faf <> "ERROR")
 									{
-										ARCCORES= %A_LoopField%||
-										coreselv= %A_LoopField%
+										if (faf = "")
+											{
+												continue
+											}
+										if (recore = "")
+											{
+												ARCCORES= %A_LoopField%||
+												coreselv= %A_LoopField%
+											}
+										recore .= A_LoopField . "|"
 									}
-								recore .= A_LoopField . "|"
 							}
 					}
-				break
 			}
 	}
 topcore:= ARCCORES . recore . runlist
@@ -54102,19 +53890,10 @@ ifnotexist,rj\PG\%syspfl%
 		FileCreateDir,rj\PG\%syspfl%
 	}
 splitpath,PGGSAMLOD,PgGamLstF,
-Loop, Parse, SysEmuSet,`n`r
+
+ifinstring,SysLLst,%syspfl%=
 	{
-		gaminsl1=
-		gaminsl2=
-		stringsplit,gaminsl,A_LoopField,|
-		Loop, Parse, SysEmuSet,`n`r
-			{
-				stringsplit,gaminsl,A_LoopField,|
-				ifinstring,gaminsl1,%syspfl%
-					{
-						syssub= %gaminsl1%
-					}
-			}
+		syssub= %gaminsl1%
 	}
 FileDelete,rj\PG\%syspfl%\*.ini
 FileDelete,rj\PG\n.txt
@@ -58052,19 +57831,10 @@ ifnotexist,rj\RF\%syspfl%
 		FileCreateDir,rj\RF\%syspfl%
 	}
 splitpath,RFGSAMLOD,RfGamLstF,
-Loop, Parse, SysEmuSet,`n`r
+
+ifinstring,SysLLst,%syspfl%=
 	{
-		gaminsl1=
-		gaminsl2=
-		stringsplit,gaminsl,A_LoopField,|
-		Loop, Parse, SysEmuSet,`n`r
-			{
-				stringsplit,gaminsl,A_LoopField,|
-				ifinstring,gaminsl1,%syspfl%
-					{
-						syssub= %gaminsl1%
-					}
-			}
+		syssub= %syspfl%
 	}
 FileDelete,rj\RF\%syspfl%\*.ini
 FileDelete,rj\RF\n.txt
@@ -61835,19 +61605,10 @@ ifnotexist,rj\es\%syspfl%
 		FileCreateDir,rj\es\%syspfl%
 	}
 splitpath,ESGSAMLOD,EsGamLstF,
-Loop, Parse, SysEmuSet,`n`r
+
+ifinstring,SysLLst,%syspfl%=
 	{
-		gaminsl1=
-		gaminsl2=
-		stringsplit,gaminsl,A_LoopField,|
-		Loop, Parse, SysEmuSet,`n`r
-			{
-				stringsplit,gaminsl,A_LoopField,|
-				ifinstring,gaminsl1,%syspfl%
-					{
-						syssub= %gaminsl1%
-					}
-			}
+		syssub= %syspfl%
 	}
 FileDelete,rj\es\%syspfl%\*.ini
 FileDelete,rj\es\n.xml
@@ -76899,43 +76660,39 @@ runfnd= |%runlistx%|
 				return
 			}
 ;;	}
-Loop, parse, SysEmuSet,`n`r
+ifinstring,SysLLst,%sysrev%=
 	{
-		if (A_Loopfield = "")
+		iniread,esfc,sets\emuCfgPresets.set,%sysrev%,SUPCORE
+		if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
 			{
-				continue
-			}
-		stringsplit,avr,A_LoopField,:
-		stringsplit,lcrsp,avr2,|
-		stringsplit,lxrsp,avr1,|
-		if (lxrsp1 = sysrev)
-			{
-				if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+				Loop,parse,esfc,`n`r
 					{
-						Loop,%lcrsp0%
-							{
-								racr= % lcrsp%A_index%
-								ifinstring,corelist,%racr%
-									{
-										cvrv= %A_LoopField%
-										EXTID= 1
-										return
-									}
-							}
-					}
-				Loop,%lxrsp0%
-					{
-						if (a_index = 1)
+						if (A_LoopField = "")
 							{
 								continue
 							}
-						racr= % lxrsp%A_index%
-						ifinstring,runfnd,|%racr%|
+						racr= %A_LoopField%
+						ifinstring,corelist,%racr%
 							{
-								cvrv= %racr%
+								cvrv= %A_LoopField%
 								EXTID= 1
 								return
 							}
+					}
+			}
+		iniread,esfe,sets\emuCfgPresets.set,%sysrev%,SUPEMU
+		Loop,%esfe%
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				racr= %A_LoopField%
+				ifinstring,runfnd,|%racr%|
+					{
+						cvrv= %racr%
+						EXTID= 1
+						return
 					}
 			}
 	}
