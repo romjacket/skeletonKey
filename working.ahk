@@ -10058,17 +10058,17 @@ iniread,asiu,sets\emuCfgPresets.set,%semu%,SUPEMU
 Loop,parse,asiu,|
 	{
 		stemu%A_index%= %A_LoopField%
-		if (A_Index = 1)
-			{
-				emuplst= %A_LoopField%
-				continue
-			}
-		emuplst.= "|" . A_LoopField
+;;		if (A_Index = 1)
+;;			{
+;;				emuplst= %A_LoopField%
+;;				continue
+;;			}
+		emuplst.= A_LoopField . "|"
 	}
 guicontrol,enable,INSTEMUDDL
 selfnd= %stemu1%
-if (stemu1 = semu)
-guicontrol,,INSTEMUDDL,|%stemu1%||%emuplst%|%emuinstpop%Other
+;;if (stemu1 = semu)
+guicontrol,,INSTEMUDDL,|%stemu1%||%emuplst%%emuinstpop%Other
 gosub, ChkMu
 guicontrolget,selfnd,,INSTEMUDDL
 emuname= %semu%
