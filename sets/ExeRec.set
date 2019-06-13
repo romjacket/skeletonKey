@@ -141,6 +141,7 @@ FileCreateDir,rj\emuCfgs\koyote
 FileCreateDir,rj\emuCfgs\lisaem
 FileCreateDir,rj\emuCfgs\m2emulator
 FileCreateDir,rj\emuCfgs\m5
+FileCreateDir,rj\emuCfgs\m88
 FileCreateDir,rj\emuCfgs\m88x
 FileCreateDir,rj\emuCfgs\Makaron
 FileCreateDir,rj\emuCfgs\MAME
@@ -1238,6 +1239,9 @@ FileInstall,rj\emucfgs\m2emulator\P1JoyP2kb.input.set,rj\emucfgs\m2emulator\P1Jo
 FileInstall,rj\emucfgs\m2emulator\P1kbP2Joy.input.set,rj\emucfgs\m2emulator\P1kbP2Joy.input.set,1
 FileInstall,rj\emucfgs\m2emulator\P1kbP2kb.input.set,rj\emucfgs\m2emulator\P1kbP2kb.input.set,1
 FileInstall,rj\emucfgs\m5\m5.ini.set,rj\emucfgs\m5\m5.ini.set,1
+FileInstall,rj\emucfgs\m88\JS.ini.set,rj\emucfgs\m88\JS.ini.set,1
+FileInstall,rj\emucfgs\m88\M88.ini.set,rj\emucfgs\m88\M88.ini.set,1
+FileInstall,rj\emucfgs\m88\RND4M88.ini.set,rj\emucfgs\m88\RND4M88.ini.set,1
 FileInstall,rj\emucfgs\m88x\M88x.ini.set,rj\emucfgs\m88x\M88x.ini.set,1
 FileInstall,rj\emucfgs\Makaron\JVS.ini.set,rj\emucfgs\Makaron\JVS.ini.set,1
 FileInstall,rj\emucfgs\Makaron\NAOMI.ini.set,rj\emucfgs\Makaron\NAOMI.ini.set,1

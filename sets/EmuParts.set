@@ -261,7 +261,7 @@ kigb=kigb/kigb.7z=kigb.exe=
 koleko=koleko/koleko.7z=koleko_vos.exe=
 m2emulator=m2emulator/m2emulator.7z=m2emulator[ARCH].exe=EMULATOR.ini|CFG\*.input=|=*.st*=*.nv
 m5=m5/m5.7z=m5.exe=m5.ini=
-m88=m88/m88.7z=m88.exe=m88.ini=|=*.sav
+m88=m88/m88.7z=m88_Run.exe=m88.ini|RND4M88.ini|JS.ini=|=*.sav
 macmini=macmini/macmini-[ARCH].zip=macmini.exe=
 mastersystem=mastersystem/mastersystem.7z=mastersystem.exe=mastersystem.ini=
 meka=meka/meka.7z=mekaw.exe=

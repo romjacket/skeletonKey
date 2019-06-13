@@ -79241,7 +79241,6 @@ Loop, %playlistLoc%\*.lpl
 		plistNamz .= plistNam . "|"
 		totn=
 		pln= %A_LoopFileName%
-		msgbox,,,pln=%pln%
 		SB_SetText("...Initializing Playlist Database..." pln " parsing ")
 		anum=
 		fileread,tmplst,%A_LoopFileFullPath%

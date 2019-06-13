@@ -904,9 +904,10 @@ RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*.sav" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"|move /y "%EMUL%\.sav" "%GAMDIR%\.sstates"
 RJRUNDIR=1
 RJLNCHP=X
-RJEMUOPTS=<|<-F<|<
+M88?RJEMUOPTS=<|<-F<|<
+RJEMUOPTS=<
 URLPTH=m88/m88.7z
-EXENAM=m88.exe
+EXENAM=m88_Run.exe
 CFGPTH=m88.ini
 MEMPTH=*.sav
 
