@@ -1,4 +1,4 @@
-	#NoEnv
+#NoEnv
 #SingleInstance Force
 setworkingdir= %A_ScriptDir%
 Process, Exist,
@@ -3308,7 +3308,8 @@ Gui, Add, Button, x734 y480 w20 h23 vRJREMPOSTCFG gRJREMPOSTCFG disabled, - ;Rem
 Gui, Add, CheckBox, x401 y269 h15 vRJCHKR gRJCHKR, Multi-Disk
 Gui,Add,ComboBox,x372 y247 w191 vRJCBXJ gRJCBXJ Disabled, (Disk 1 of||(Disk 1 of|(Disk A|Disk 1
 Gui, Add, Text, x484 y270 vRJTXTJ, disk identifiers
-Gui,Add,ComboBox, hwndCbxHndl87 x282 y289 w277 vRJEMUXTCBX gRJEMUXTCBX, .exe`,.cmd`,,bat||.bin`,.cue
+Gui, Add, CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked,
+Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX, .exe`,.cmd`,,bat||.bin`,.cue
 Gui, Add, Text, x280 y314 h16 vRJTXTG, ROM extensions
 Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked, Quotes
 Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked, Path
@@ -3828,6 +3829,7 @@ ESDWNLPOS_TT :="The current system-list"
 ESPLCORE_TT :="The Displayed Name for the ROM and the type of search for images."
 ESBACKUP_TT :="Backup the current gamelist.xml"
 ESSVPL_TT :="Creates the gamelist.xml"
+RJLNCHTYP_TT :="Enables ROM as the argument."
 ESPLXMP_TT :="The name of the system"
 ESOPENPL_TT :="Open a gamelist.xml for editing."
 ESCPYSCR_TT :="copies and renames scraped images to the ''downloaded_images'' folder`nin the home-folder of emulationStation."
@@ -4245,10 +4247,10 @@ FILT_UNSUP_TT :="Any dropdown listing the contents of your ''systems'' directory
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 setPortable:
 if (SETPORTABLE = 1)
-{
-		gui,submit,nohide
-		return
-}
+	{
+			gui,submit,nohide
+			return
+	}
 if (locfnd = 1)
 	{
 		GuiControl, Choose, TABMENU, 3
@@ -35234,7 +35236,7 @@ if (LNCHPT = 0)
 	}
 oil=
 iniread,oil,Assignments.ini,OVERRIDES,%EXTRSYS%
-if (oil = "ERROR")
+if ((oil = "ERROR")or(EXTRSYS = ""))
 	{
 		ARCCORES=
 		topcore= ||%runlist%
@@ -35247,6 +35249,10 @@ if (oil = "")
 			{
 				Loop,parse,vchk,|
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						iniread,vki,Assignments.ini,ASSIGNMENTS,%A_LoopField%
 						if ((vki <> "")&&(vki <> "ERROR"))
 							{
@@ -36096,6 +36102,28 @@ guicontrol,,RNMJACK,%aftpth2%
 if (arcpnum > 1)
 	{
 		guicontrol,,RNMJACK,
+		Loop,parse,tmprm,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,srtm,A_LoopField,([
+				vrnm%A_Index%= %srtm1%
+				if (A_Index = 1)
+					{
+						continue
+					}
+				mindex:= (A_Index - 1)	
+				if (vrnm%A_Index% = vrnm%mindex%)
+					{
+						guicontrol,,RNMJACK,%vrnm1%
+					}
+					else {
+						guicontrol,,RNMJACK,
+						break
+					}
+			}
 	}
 ARCRCLK= 1
 bltoh=
@@ -36495,7 +36523,7 @@ guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
 EXTRSYS= %ARCSYS%
-if (ARCSYS = "Select a System")
+if ((ARCSYS = "Select a System")or(ARCSYS = ""))
 	{
 		guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 		guicontrol,,SRCHDDL,|All||%sysddllist%
@@ -71728,7 +71756,7 @@ Loop, rj\*.jak
 					}
 			}
 		if (RJABSOLROM = 1)
-			{
+			{ 
 				StringReplace, toapc,toapc,[CMDLINEGET],[ABSOLROM]
 				StringReplace,toapc,toapc,[GAMNAM],[ABSOLROM],All
 			}
@@ -73727,6 +73755,28 @@ gui,submit,nohide
 guicontrolget, RJMAP2PL,,RJMAP2PL
 IniWrite, %RJMAP2PL%,rj\cur.ini,%RJSYSDD%,RJPLYR2
 return
+
+
+RJLNCHTYP:
+gui,submit,nohide
+RJLNCHP= 0
+BLNKLNCH= 0
+guicontrol,enable,RJEMUXTCBX
+guicontrol,enable,RJCHKU
+guicontrol,enable,RJCHKT
+guicontrol,enable,RJCHKS
+if (RJLNCHTYP = 0)
+	{
+		RJLNCHP= X
+		BLNKLNCH= 1
+		guicontrol,disable,RJEMUXTCBX
+		guicontrol,disable,RJCHKU
+		guicontrol,disable,RJCHKT
+		guicontrol,disable,RJCHKS
+	}
+IniWrite, %RJLNCHP%,rj\cur.ini,%RJSYSDD%,RJLNCHP
+return
+
 RJEOPTSCBX:
 gui,submit,nohide
 guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
@@ -75225,13 +75275,18 @@ if (rjaval2 = 1)
 		guicontrol,,RJEXEB,1
 	}
 return
+
 RJLNCHP:
 gui, submit,nohide
+guicontrol,,RJLNCHTYP, 1
+BLNKLNCH= 0
 if (rjaval2 = "X")
 	{
 		BLNKLNCH= 1
+		guicontrol,,RJLNCHTYP, 0
 	}
 return
+
 RJMULTIDISC:
 gui,submit,nohide
 guicontrol,,RJCHKR,%rjaval2%
@@ -75240,6 +75295,7 @@ if (rjaval2 = 1)
 		guicontrol,enable,RJCBXJ
 	}
 return
+
 RJDISCIDENT:
 gui,submit,nohide
 guicontrol,,RJCBXJ,|%rjaval2%||
