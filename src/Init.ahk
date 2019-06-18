@@ -33,9 +33,9 @@ Gui, Add, GroupBox, x4 y0 w265 h162 +Center, SETUP
 Gui,Font, Normal
 Gui, Add, Text, x14 y18 w44 h16, Systems
 Gui, Add, Text, x13 y89 w46 h18, Emulators
-Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly, %rjsyst%
-Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly, %rjemut%
-Gui, Add, CheckBox, x139 y18 w112 h17 vRNMDIR checked, Rename Directories
+Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly,:DEFAULT:%rjsyst%
+Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly,:DEFAULT:%rjemut%
+Gui, Add, CheckBox, x139 y18 w122 h17 vRNMDIR checked, Rename Directories
 Gui,Font, Bold
 Gui, Add, Button, x58 y19 w65 h18 gSETJKR, BROWSE
 Gui, Add, Button, x58 y89 w65 h18 gSETEMUD, BROWSE
@@ -45,8 +45,6 @@ Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
 Gui Add, StatusBar,, Status Bar
 OnMessage(0x200, "WM_MOUSEMOVE")
 Gui, Show, w274 h211, Window
-guicontrolget,RJEMUF,,intrmemu
-guicontrolget,RJSYSTEMS,,intrmsys
 ifexist,%rjsyst%\
 	{
 		ifexist,%rjemut%\
@@ -305,24 +303,31 @@ if ((RJSYSTEMS <> "") && (RJEMUD <> "") && (RJSYSTEMS <> "ERROR") && (RJEMUD <> 
 return
 
 CONTINUE:
-if ((RJEMUF = "") or (RJSYSTEMS = ""))
+gui,submit,nohide
+guicontrolget,RJEMUF,,intrmemu
+guicontrolget,RJSYSTEMS,,intrmsys
+if ((RJEMUF = "") or (RJSYSTEMS = "") or (RJEMUF = ":DEFAULT:") or (RJSYSTEMS = ":DEFAULT:"))
 	{
 		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
 		return
 	}	
+stringreplace,RJEMUF,RJEMUF,:DEFAULT:,,All
 ifnotexist,%RJEMUF%\
 	{
 		filecreatedir,%RJEMUF%
-		if (ERRORLEVEL <> 0)
+		ifnotexist,%RJEMUF%\
 			{
 				SB_SetText("Cannot create directory")
 				return
 			}
+		guicontrol,,intrmenu,%RJEMUF%	
 	}
+stringreplace,RJSYSTEMS,RJSYSTEMS,:DEFAULT:,,All
+
 ifnotexist,%RJSYSTEMS%\
 	{
 		filecreatedir,%RJSYSTEMS%
-		if (ERRORLEVEL <> 0)
+		ifnotexist,%RJSYSTEMS%\
 			{
 				SB_SetText("Cannot create directory")
 				return

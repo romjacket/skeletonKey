@@ -394,7 +394,7 @@ if (FILT_UNSUP = 0)
 		{
 			filtmrk=
 		}		
-if (ARCSRC = "ERROR")
+if ((ARCSRC = "ERROR")or(ARCSRC = ""))
 	{
 		iniwrite, "", Settings.ini,GLOBAL,RemoteRepository
 		ArcSiteN= ""
@@ -837,7 +837,7 @@ RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN
+EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC
 RAINSTITEMS= AVAIL|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
 SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|EAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
@@ -1774,7 +1774,7 @@ Gui Add, Text, x18 y390 w56 h13, HIstory File
 Gui Add, Button, x18 y364 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
 Gui, Add, Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
-Gui,Add,Edit, hwndEdtHndl2 x61 y346 w443 h41 vhisttxt ReadOnly, %historyloc%
+Gui,Add,Edit, hwndEdtHndl2 x61 y346 w443 h41 vhisttxt Right ReadOnly, %historyloc%
 Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
 ;;Gui, Add, CheckBox, x174 y86 w89 h18 vSYSAZ gSYSAZ %FUZENB%, fuzzy-Rename
 Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
@@ -1792,7 +1792,7 @@ Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
 Gui,Add,Edit, hwndEdtHndl4 x63 y129 w443 h41 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 ;;Gui, Add, Button, x573 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
 ;;Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
-Gui,Add,Edit, hwndEdtHndl5 x61 y433 w443 h40 vtmpdispl Multi ReadOnly, %cacheloc%
+Gui,Add,Edit, hwndEdtHndl5 x61 y433 w443 h40 vtmpdispl Right Multi ReadOnly, %cacheloc%
 Gui, Font, Bold
 Gui, Add, Text, x18 y476 vTMPDIRTXT, Temp/Cache Dir
 Gui, Add, Button, x18 y450 w43 h23 vSETTMPD gSETTMPD, SET
@@ -2895,8 +2895,8 @@ Gui, Add, CheckBox, x32 y293 w106 h13 vMNUFLT gMenuFilter Checked, Menu Linear F
 Gui, Add, CheckBox, x32 y309 w111 h13 vTHRTL gThrottleMenu Checked, Throttle Frame-rate
 Gui, Add, CheckBox, x32 y324 w133 h13 vFILTEXT gFilterExt Checked, Filter Known Extensions
 Gui, Add, CheckBox, x32 y339 w110 h13 vCMPAN gCompanion Checked, Companion
-Gui,Add,DropDownList, hwndDplHndl171 x48 y233 w169 vRaSHWM gRaSHWM,FPS||Frame_counter|Time_and_Date|Images|Music|Video|Settings|Advanced_Settings|Configurations|Core_Updater|Help|Information|Load_Content|Load_Core|Online_Updater|Quit|Statistics|Reboot|History|Hidden_Files|Memory|FPS|Battery_Level|Import_Content|Shutdown|Latency|Overlays|SubLabels|Rewind|Download_thumbnails|Recording|Reset_Cores_Association|Save_content_Overrides|Start_Recording|Streaming|Start_Streaming
-Gui, Add, CheckBox, x231 y237 w47 h13 vRaSHWCHK gRaSHWCHK, Show
+Gui,Add,DropDownList, hwndDplHndl171 x30 y357 w134 vRaSHWM gRaSHWM,FPS||Frame_counter|Time_and_Date|Images|Music|Video|Settings|Advanced_Settings|Configurations|Core_Updater|Help|Information|Load_Content|Load_Core|Online_Updater|Quit|Statistics|Reboot|History|Hidden_Files|Memory|FPS|Battery_Level|Import_Content|Shutdown|Latency|Overlays|SubLabels|Rewind|Download_thumbnails|Recording|Reset_Cores_Association|Save_content_Overrides|Start_Recording|Streaming|Start_Streaming
+Gui, Add, CheckBox, x170 y361 w47 h13 vRaSHWCHK gRaSHWCHK, Show
 Gui Add, CheckBox, x353 y200 w161 h13 vraBBT graBBT +Checked, Background Filler Thickness
 Gui Add, CheckBox, x353 y216 w106 h13 vraBFIL graBFIL +Checked, Border filler
 Gui Add, CheckBox, x353 y232 w116 h13 vraBFTH graBFTH +Checked, Border Thickness
@@ -2908,7 +2908,7 @@ Gui Add, CheckBox, x561 y233 w139 h13 vraPLSLB graPLSLB +Checked, Show labels
 Gui Add, CheckBox, x561 y249 w139 h13 vraPLSAL graPLSAL +Checked, Sort alphabetical
 Gui Add, CheckBox, x196 y264 w120 h15 vraENBLWID graENBLWID, Enable Widgets
 Gui Add, Button, x351 y292 w19 h21 vraSELSCON graSELSCON, F
-Gui Add, Text, x378 y291 w269 h23 vraSLSNTXT, stream config
+Gui Add, Text, x377 y294 w269 h23 vraSLSNTXT, stream config
 Gui,Add,Edit, hwndEdtHndl55 x376 y316 w213 h21 vraSTRMK graSTRMK, %youtubestreamkey%
 Gui,Add,Edit, hwndEdtHndl56 x376 y339 w80 h21 vraSTRMP graSTRMP, %videostreamport%
 Gui Add, Text, x469 y343 w60 h14 vraSTRMPTXT, stream port
@@ -2918,8 +2918,8 @@ Gui Add, Text, x502 y367 w70 h14 vraSTMQTXT, stream quality
 Gui Add, Text, x349 y366 w28 h17 vraSTMQOUT,
 Gui,Add,Edit, hwndEdtHndl57 x376 y387 w239 h21 vraSTRMURL graSTRMURL, %videostreamurl%
 Gui Add, Text, x620 y391 w60 h14 vraSTRMUTXT, stream url
-Gui Add, Text, x233 y286 w65 h23 vraSTMMTXT, stream mode
-Gui,Add,DropDownList, hwndDplHndl106 x203 y308 w120 vraSTRMTDDL graSTRMTDDL, youtube||twitch|local|custom
+Gui Add, Text, x595 y295 w65 h23 vraSTMMTXT, stream mode
+Gui,Add,DropDownList, hwndDplHndl106 x471 y292 w120 vraSTRMTDDL graSTRMTDDL, youtube||twitch|local|custom
 Gui Add, Text, x355 y417 w64 h14 vraSTRMSCLTXT, stream scale
 Gui,Add,Edit, hwndEdtHndl58 x422 y413 w38 h21 vraSTRMSCL graSTRMSCL %videostreamscalefactor%
 Gui, Add, Text, x77 y432 h23 +0x200 vVMPSTXT, Video Message Position
@@ -7920,7 +7920,7 @@ lnchcc=
 lnchrc=
 nlnch=
 guicontrol,hide,RETAL
-guicontrol,move,CLRCUROM,x740 y30
+guicontrol,move,CLRCUROM,x744 y34
 guicontrolget,runcc,,RUNSYSDDL
 guicontrolget,lnchcc,,LCORE
 guicontrolget,lnchrc,,RUNROMCBX
@@ -9744,6 +9744,7 @@ RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\Optio
 Daemon_Tools=%xtractmul%\DTLite.exe
 guicontrol,disable,CNCLDWN
 return
+
 UAvailSel:
 gui, submit, nohide
 xtractmu=
@@ -9798,18 +9799,6 @@ Loop,Parse,PrgLst,`n`r
 		emuplst=
 		stringsplit,stemu,A_LoopField,|
 		emuplst= %stemu2%
-		if (stemu3 <> "")
-			{
-				emuplst .= "|" . stemu3
-				if (stemu4 <> "")
-					{
-						emuplst .= "|" . stemu4
-						if (stemu5 <> "")
-							{
-								emuplst .= "|" . stemu5
-							}
-					}
-			}
 		if (stemu1 = semu)
 			{
 				selfnd= %stemu2%
@@ -9825,12 +9814,7 @@ if (SALIST = "Emulators")
 	{
 		guicontrol,,INSTEMUDDL,|%semu%||
 		IniRead, ksvel,apps.ini,EMULATORS,%semu%
-		if (ksvel = "")
-			{
-				guicontrol,disable,EMUASIGN
-				return
-			}
-		if (ksvel = "ERROR")
+		if ((ksvel = "")or(ksvel = "ERROR"))
 			{
 				guicontrol,disable,EMUASIGN
 				return
@@ -10060,24 +10044,17 @@ iniread,asiu,sets\emuCfgPresets.set,%semu%,SUPEMU
 Loop,parse,asiu,|
 	{
 		stemu%A_index%= %A_LoopField%
-;;		if (A_Index = 1)
-;;			{
-;;				emuplst= %A_LoopField%
-;;				continue
-;;			}
 		emuplst.= A_LoopField . "|"
 	}
 guicontrol,enable,INSTEMUDDL
 selfnd= %stemu1%
-;;if (stemu1 = semu)
 guicontrol,,INSTEMUDDL,|%stemu1%||%emuplst%%emuinstpop%Other
 gosub, ChkMu
 guicontrolget,selfnd,,INSTEMUDDL
+
 emuname= %semu%
-;;if ksix is not digit
-;;	{
-		guicontrol,,EMPRLST,|%ksiv%
-;;	}
+
+guicontrol,,EMPRLST,|%ksiv%
 guicontrol,,ROMDEDT,
 guicontrol,enable,EMBUTV
 guicontrol,enable,EMRAD11A
@@ -10094,16 +10071,6 @@ guicontrol,enable,DSKMNTCHK
 gosub, EMRAD11B
 iniread,kfr,SystemLocations.ini,LOCATIONS,%semu%
 guicontrol,,ROMDEDT,|%kfr%
-/*
-ifexist, %RJSYSTEMS%\%semu%
-	{
-		gosub, LnkGet
-		if (JNKLNK= "")
-			{
-				guicontrol,,ROMDEDT,%RJSYSTEMS%\%semu%
-			}
-	}
-*/
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 MultInst:
@@ -13668,12 +13635,12 @@ RETAL:
 gui,submit,nohide
 runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg"",%A_WorkingDir%
 guicontrol,hide,RETAL
-guicontrol,move,CLRCUROM,x740 y30
+guicontrol,move,CLRCUROM,x744 y34
 return
 RETALRAXE:
 runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
 guicontrol,hide,RETAL
-guicontrol,move,CLRCUROM,x740 y30
+guicontrol,move,CLRCUROM,x744 y34
 return
 LnchCore:
 gui,submit,nohide
@@ -14109,11 +14076,12 @@ GuiControl, Enable, EXELIST
 gosub, RAInit
 return
 ;{;;;;;;;;;;;;;;;;;;;;    RA UPDATE   ;;;;;;;;;;;;;;;;;;;;;
-UpdtArch:
+RetroarchUpdate:
 if (DWNCNCL= 1)
 	{
 		goto, InteruptDwn
 	}
+SB_SetText(" Downloading Retroarch Update ")
 URLFILE= %BLDBOT%/%RAUPDF%
 save= %cacheloc%\%RAUPDF%
 saveloc= %cacheloc%
@@ -14122,8 +14090,8 @@ updtmsg= %RAUPDF%
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;DownloadFile(URLFILE,save, DWNOV, True)
-	SB_SetText(" Complete ")
-	      Guicontrol, ,DWNPRGRS, 100
+SB_SetText(" Complete ")
+Guicontrol, ,DWNPRGRS, 100
 FileGetSize, updfilsz,%RAUPDF%,K
 if (updfilsz < 110)
 	{
@@ -14145,7 +14113,7 @@ ifnotexist, %cacheloc%\%RAUPDF%
 		Yesterday += -%DayCnt%, Days
 		FormatTime, Yesterday, %Yesterday%, yyyy-MM-dd
 		RAUPDF= %Yesterday%_RetroArch.7z
-		goto, UpdtArch
+		goto, RetroarchUpdate
 	}
 Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
@@ -14178,10 +14146,13 @@ filedelete, coreupdt.ini
 save= %A_ScriptDir%\coreupdt.ini
 URLFILE= %BLDBOT%/latest/.index-extended
 splitpath,save,svaf,svap
+SB_SetText(" Downloading core-list ")
 ;;exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;URLDownloadToFile, %BLDBOT%/latest/.index-extended, coreupdt.ini
 RunWait,"bin\wget.exe" -t3 -w1 -O"%save%" "%URLFILE%",,hide
+SB_SetText("")
 return
+
 CoreUpdtChk:
 rewrlibv=
 rewrlibd=
@@ -14234,6 +14205,7 @@ GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
 gosub, UpdateCores
 return
+
 crcChk:
 rewrlibv=
 rewrlibd=
@@ -14308,21 +14280,26 @@ return
 ;};;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;     RA UPDATE SELECTED     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 UpdateCores:
-guicontrol, disable, AVAIL
-guicontrol, disable, UPDBTN
-guicontrol, disable, EXELIST
-guicontrol, disable, UPDSELCT
-guicontrol, disable, UPDCL
-guicontrol, disable, GCUPDT
-guicontrol, show, UPDBTC
 guicontrol, enable, UPDBTC
+guicontrol, show, UPDBTC
+GuiControl, Enable, CNCLDWN
+
+GuiControl, Disable, AVAIL
+GuiControl, Disable, QRSETUP
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+guicontrol, disable, GCUPDT
+GuiControl, Disable, INSTEMUDDL
+GuiControl, Disable, UPDBTN
+guicontrol, disable, UPDCL
+guicontrol, disable, UPDSELCT
+GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
 corexist=
 redistr= redist.7z
 RAUPDF= 
-ifexist, %raexeloc%\retroarch.exe
-	{
-		RAUPDF= %UPDATERAEXE%
-	}
 ifinstring,SLCTCORES,stable|
 	{
 		SLCTCORES=
@@ -14335,10 +14312,14 @@ ifinstring,SLCTCORES,stable|
 updprts=
 Loop, Parse, SLCTCORES,|
 	{
-		URLFILE= %BLDBOT%/latest/%A_LoopField%
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		dwncore= %A_LoopField%
 		save= %cacheloc%\%A_LoopField%
 		saveloc= %cacheloc%
-		dwncore= %A_LoopField%
+		URLFILE= %BLDBOT%/latest/%dwncore%
 		crdll1=
 		crdll2=
 		crdll3=
@@ -14351,17 +14332,12 @@ Loop, Parse, SLCTCORES,|
 		coredll= %crdll1%.%crdll2%
 		if (EXELIST = 1)
 			{
-				if (A_LoopField = RAUPDF)
-					{
-						gosub, UpdtArch
-					}
-				try, gosub, R%crdub%
-				catch {
-				}
+				gosub, R%crdub%
 				if (DWNCNCL = 1)
 					{
 						break
 					}
+				continue
 			}
 		if (RALIST = 1)
 			{
@@ -14445,6 +14421,17 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;   RA PARTS DOWNLOAD  ;;;;;;;;;;;;;;
 STABLE:
 SB_SetText("Downloading Stable")
+GuiControl, Enable, CNCLDWN
+GuiControl, Disable, AVAIL
+GuiControl, Disable, QRSETUP
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+GuiControl, Disable, INSTEMUDDL
+GuiControl, Disable, UPDBTN
+GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
 updtmsg= _RetroArch.7z
 iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
 if ((raexeloc = "")or(raexeloc = "ERROR"))
@@ -14471,21 +14458,78 @@ if (ntna2 = RASTABLE)
 		NETNAME:= ntna1
 	}
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
+GuiControl, disable, CNCLDWN
+GuiControl, enable, AVAIL
+GuiControl, enable, QRSETUP
+GuiControl, enable, LOCEMUIN
+GuiControl, enable, EMUINST
+GuiControl, enable, MULTINST
+GuiControl, enable, INSTEMUDDL
+GuiControl, enable, UPDBTN
+GuiControl, enable, EXELIST
+GuiControl, enable, EAVAIL
+GuiControl, enable, SaList
 return
 RBundle:
 SB_SetText("Downloading Bundle")
+GuiControl, Enable, CNCLDWN
+GuiControl, Disable, AVAIL
+GuiControl, Disable, QRSETUP
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+GuiControl, Disable, INSTEMUDDL
+GuiControl, Disable, UPDBTN
+GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
 updtmsg= bundle.zip
 XTRACTLOC= %raexeloc%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
+GuiControl, disable, CNCLDWN
+GuiControl, enable, AVAIL
+GuiControl, enable, QRSETUP
+GuiControl, enable, LOCEMUIN
+GuiControl, enable, EMUINST
+GuiControl, enable, MULTINST
+GuiControl, enable, INSTEMUDDL
+GuiControl, enable, UPDBTN
+GuiControl, enable, EXELIST
+GuiControl, enable, EAVAIL
+GuiControl, enable, SaList
 return
+
 RRedist:
 SB_SetText("Downloading Redistributable")
+GuiControl, Enable, CNCLDWN
+GuiControl, Disable, AVAIL
+GuiControl, Disable, QRSETUP
+GuiControl, Disable, LOCEMUIN
+GuiControl, Disable, EMUINST
+GuiControl, Disable, MULTINST
+GuiControl, Disable, INSTEMUDDL
+GuiControl, Disable, UPDBTN
+GuiControl, Disable, EXELIST
+GuiControl, Disable, EAVAIL
+GuiControl, Disable, SaList
 updtmsg= redist.7z
 XTRACTLOC= %raexeloc%
 URLFILE= %BLDBOT%/%updtmsg%
 gosub GettingRA
+GuiControl, disable, CNCLDWN
+GuiControl, enable, AVAIL
+GuiControl, enable, QRSETUP
+GuiControl, enable, LOCEMUIN
+GuiControl, enable, EMUINST
+GuiControl, enable, MULTINST
+GuiControl, enable, INSTEMUDDL
+GuiControl, enable, UPDBTN
+GuiControl, enable, EXELIST
+GuiControl, enable, EAVAIL
+GuiControl, enable, SaList
 return
+
 RAssets:
 SB_SetText("Downloading Assets")
 updtmsg= assets.zip
@@ -14493,6 +14537,7 @@ XTRACTLOC= %raexeloc%\assets
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 Rinfo:
 SB_SetText("Downloading Info")
 updtmsg= info.zip
@@ -14500,6 +14545,7 @@ XTRACTLOC= %raexeloc%\info
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 Rdatabaserdb:
 SB_SetText("Downloading Databases")
 Rdatabasecursors:
@@ -14508,6 +14554,7 @@ XTRACTLOC= %raexeloc%\database\%crdll1%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 RCheats:
 SB_SetText("Downloading Cheats")
 updtmsg= cheats.zip
@@ -14522,6 +14569,7 @@ XTRACTLOC= %raexeloc%\overlays
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 RShadersslang:
 SB_SetText("Downloading Shaders")
 RShaderscg:
@@ -14534,6 +14582,7 @@ XTRACTLOC= %raexeloc%\shaders\shaders_%shdtg2%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 RAutoconfig:
 SB_SetText("Downloading Autoconfigs")
 updtmsg= autoconfig.zip
@@ -14541,6 +14590,7 @@ XTRACTLOC= %raexeloc%\autoconfig
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
+
 RStable:
 SB_SetText("Downloading Stable")
 updtmsg= _RetroArch.7z
@@ -14561,6 +14611,7 @@ if (ntna2 = RASTABLE)
 	}
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
 return
+
 GettingRA:
 guicontrol,enable,UPDBTC
 if (DWNCNCL= 1)
@@ -14569,11 +14620,9 @@ if (DWNCNCL= 1)
 		return
 	}
 save= %cacheloc%\%updtmsg%
-SB_SetText("Downloading retroArch")
 saveloc= %cacheloc%
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-;;DownloadFile(URLFILE, save, DWNOV, True)
 ifnotexist, %cacheloc%\%updtmsg%
 	{
 		msgbox,0,, %updtmsg%`n''%URLFILE%`n'' was not downloaded, 20
