@@ -275,7 +275,7 @@ If (playlistloctmp <> "ERROR")
 			}
 	}
 	
-supguiitems= mednafen|mame|retroarch|snes9x|	
+supguiitems= mednafen|mame|retroarch|snes9x
 iniread,supgui,Settings.ini,GLOBAL,supported_guis
 if (supgui = "ERROR")
 	{
@@ -13637,11 +13637,13 @@ runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg""
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
+
 RETALRAXE:
 runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
+
 LnchCore:
 gui,submit,nohide
 guicontrol,enable,LCORE
@@ -13670,6 +13672,7 @@ if ((core_gui <> LCORE)&&(LCORE <> ""))
 			}
 		return	
 	}
+	
 CoreAuto:
 Gui, Submit, NoHide
 guicontrolget,LCORE,,LCORE
@@ -13681,6 +13684,7 @@ if (LCORE = "")
 		return
 	}
 return
+
 ConnectRA:
 if (IPA = "")
 	{
@@ -35816,6 +35820,7 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,ALTURLGET
 guicontrol,enable,ADDRPOL
 return
+
 sitensan:
 SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only.")	
 AltURLSet:
@@ -35862,12 +35867,14 @@ ifnotexist, gam\%ARCSRC%\
 		gosub, AltURLGet
 	}
 return
+
 SearchInp:
 gui, submit, nohide
 guicontrol,show,SRCHRSLT
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 return
+
 ExpndASrch:
 gui,submit,nohide
 ExpndTog= show
@@ -36321,6 +36328,7 @@ if (DownOnly = 0)
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 GamFIND:
 cmdfun=
 SRCHMET= %GAMSRCS%
@@ -36328,17 +36336,20 @@ SRCHGAM= %EXTRSYS%
 stringreplace,romsys,EXTRSYS,#HACKS#,,All
 ifnotinstring,romsys,%A_Space%-%A_Space%
 	{
-		SRCHMET= %GAMSRCS%\MAME - Systems
-		if (tmpsr <> "")
+		ifexist,%GAMSRCS%\MAME - Systems\%SRCHGAM%.gam
 			{
-				revinc= % rev_%srchspl1%
-				if (revinc = "")
+				SRCHMET= %GAMSRCS%\MAME - Systems
+				if (tmpsr <> "")
 					{
-						revinc= %EXTRSYS%
+						revinc= % rev_%srchspl1%
+						if (revinc = "")
+							{
+								revinc= %EXTRSYS%
+							}
+						SRCHGAM= %srchspl1%
+						romsys= %EXTRSYS%
+						EXTRSYS= %revinc%
 					}
-				SRCHGAM= %srchspl1%
-				romsys= %EXTRSYS%
-				EXTRSYS= %revinc%
 			}
 	}
 krbrk=
@@ -36348,24 +36359,29 @@ if (opndgam = 1)
 	{
 		srchgamf= %addrplst%
 	}
+ifnotinstring,srchgamf,:\
+	{
+		srchgamf= %A_ScriptDir%\%srchgamf%
+	}
+splitpath,srchgamf,fnew,nesn,aien,krvm	
+
 Loop, %srchgamf%
 	{
+		
 		Loop, Read, %A_LoopFileFullPath%
 			{
+				
 				if (A_LoopReadLine = "")
 					{
 						continue
 					}
-				getpth1=
-				getpth2=
-				getpth3=
-				getpth4=
-				getpth5=
-				getpth6=
-				getpth7=
-				getpth8=
-				getpth9=
+				Loop,10
+					{
+						getpth%A_Index%=
+					}
 				stringsplit,getpth,A_LoopReadLine,|
+				
+				URLFILE= %getpth1%
 				if (getpth2 = "")
 					{
 						svipth= %getpth1%
@@ -36384,6 +36400,7 @@ Loop, %srchgamf%
 						EXT7Z=
 						romshere=
 						urlpth= %getpth1%
+						
 						StringCaseSense, On
 						stringreplace,dwnchk,urlpth,`%2F,/,All
 						stringreplace,dwnchk,dwnchk,/,\,All
@@ -36404,12 +36421,21 @@ Loop, %srchgamf%
 						stringreplace,dwnchk,dwnchk,`%3B,`;,All
 						stringreplace,dwnchk,dwnchk,`%27,',All
 						stringreplace,dwnchk,dwnchk,`%7E,~,All
+						StringCaseSense, Off
 						Loop,Parse,dwnchk,\
 							{
 								savefile= %A_LoopField%
 							}
+						if (instr(savefile,"?")or instr(savefile,"\")or instr(savefile,"*")or instr(savefile,"|")or instr(savefile,":") or instr(savefile,""""))
+							{
+								savefile= %getpth2%
+							}
 						splitpath,savefile,,,chkxt,romfname
-						StringCaseSense, Off
+						if (chkxt = "")
+							{
+								chkxt= zip
+								savefile.= ".zip"
+							}	
 						if (cmdfun = 1)
 							{
 								emucmd= %getpth3%
@@ -36422,6 +36448,8 @@ Loop, %srchgamf%
 						afnchk= %savefile%
 						romname= %romfp%
 						krbrk= 1
+						stringsplit,save,fsvfn,fsvmp,fsvmx,fsvnm
+						save= %fsvmp%\%romname%.%fsvmx%
 						break
 					}
 			}
@@ -36431,6 +36459,7 @@ Loop, %srchgamf%
 			}
 	}
 return
+
 ArcPPND:
 stringreplace,EXTRSYSK,EXTRSYS,#HACKS#,,All
 ARCSUBS= %EXTRSYSK%
@@ -36439,6 +36468,7 @@ ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
 		ARCSUBS= MAME - Systems
 	}
 return
+
 RomSavePPND:
 romf:= save
 URLFILE= %ArcSite%/%sysurl%%urlpth%
@@ -36450,8 +36480,10 @@ ifinstring,urlpth,://
 	{
 		URLFILE= %urlpth%
 	}
+
 SB_SetText(" " urlfile " ")
 return
+
 ENHAK:
 gui,submit,nohide
 guicontrolget,ENHAK,,ENHAK
@@ -36806,6 +36838,7 @@ if (core_gui <> ARCCORES)
 		gosub, ShowOnlyEmuGui
 	}
 return
+
 ARCEDURA:
 gui,submit,nohide
 IniDelete,%ARCORG%,SOURCES
@@ -37102,8 +37135,10 @@ gosub, GetArcURL
 Clipboard= %URLFILE%
 GETURL=
 return
+
 ArcGet:
 HOSTING= 1
+
 ArcLaunch:
 ;{;;;;;;;;;;;;;;;;;;;;;  Archive Launch Button ;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
@@ -37408,8 +37443,13 @@ stringreplace,EXTRSYSNH,EXTRSYS,#HACKS#,,All
 romsys= %EXTRSYSNH%
 Loop, parse, romdwnlst,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		romfp= %A_LoopField%
 		gosub, GamFIND
+		
 		gosub, ArcPPND
 		guicontrolget,OVDLDS,,OVDLDS
 		guicontrolget,OVDFLDR,,OVDTXT
@@ -37607,10 +37647,27 @@ Loop, parse, romdwnlst,|
 							ACSVDEST= %ACSVDEST%\%rjinsfldr%
 						}
 				}
+		if (instr(savefile,"?")or instr(savefile,"\")or instr(savefile,"*")or instr(savefile,"|")or instr(savefile,":") or instr(savefile,"""")or (savefile = ""))
+			{
+				savefile= %romfp%
+			}
+		splitpath,savefile,rojnm,rojnp,chkxt,romfname
+		if (chkxt = "")
+			{
+				chkxt= zip
+				savefile.= ".zip"
+			}
+		if (romfname = "")
+			{
+				romfname=%romjnm%
+			}
 		save= %ACSVDEST%\%savefile%
 		splitpath,save,svaf,svap,svax
+		
 		gosub, RomSavePPND
+		gosub, GetArcURL
 		gosub, RomDownload
+		
 		guicontrol,enable,ARCSYS
 		guicontrol,enable,RNMJACK
 		guicontrol,enable,ARCPOP
@@ -37684,6 +37741,10 @@ if (tmprm <> "")
 			}
 		Loop, read, %srchgmf%
 			{
+				Loop,10
+					{
+						ave%A_Index%=
+					}
 				stringsplit,ave,A_LoopReadLine,|
 				if (ave8 = "$")
 					{
@@ -37735,14 +37796,10 @@ if (tmpsr <> "")
 	{
 		Loop, read, %srchgmf%
 			{
-				ave1= 
-				ave2= 
-				ave3= 
-				ave4= 
-				ave5= 
-				ave6= 
-				ave7= 
-				ave8= 
+				Loop,10
+					{
+						ave%A_Index%=
+					}
 				stringsplit,ave,A_LoopReadLine,|
 				if (ave2 = tmpsrg)
 					{
@@ -37883,6 +37940,7 @@ ifnotexist, %save%
 					}
 			}
 			else {
+			
 				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 			}
 		;;DownloadFile(URLFILE,save, True, True)
@@ -44271,6 +44329,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;   MEDNAFEN JOYSTICK  ;;;;;;;;;;;;;;;;;;;;
 mednafenCTRLS:
+guicontrol,,JOYCORE,|mednafen||retroArch|Antimicro|Xpadder|%supguiitmes%|%corelist%
 guicontrolget,emjddlb,,emjddlb
 MedPlayerJoy= %emjddlb%
 if (emjddlb = "")
@@ -75738,7 +75797,7 @@ if (JOYCORE = "retroArch")
 		guicontrol,,RMPLOAD,0
 		guicontrol,hide,RMPLOAD
 		guicontrol,enable,JOYCORE
-		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supguiitmes%|%corelist%
+		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supguiitems%|%corelist%
 		return
 	}
 if (rajoycore = "retroArch")
