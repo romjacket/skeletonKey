@@ -10308,7 +10308,7 @@ Loop, Parse,UrlIndex,`n`r
 						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%urloc1%
 					}
 				if (INSTLTYP = "Utilities")
-					{
+						{
 						inisect= UTILITIES
 						if (selfnd = "DirectX")
 							{
@@ -10359,76 +10359,73 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						guicontrol,,EMPRDDL,|%runlist%
 					}
-				if (EMUASIGN = 1)
-						{
-							OVRKND=
-							emuxe=
-							emuprt1=
-							emuprt2=
-							emuprt3=
-							emuprt4=
-							Loop, Parse, EmuPartSet,`n`r
-								{
-									if (A_LoopField = "")
-										{
-											continue
-										}
-									StringSplit,emuprt,A_LoopField,=,:
-									if (emuprt1 = urloc1)
-										{
-											emuxe= %emuprt3%
-											OVRKND= %emuprt1%
-											iniwrite, "%xtractmu%\%emuxe%",apps.ini,%inisect%,%urloc1%
-											ifnotinstring,preEmuCfg,%urloc1%
-												{
-													preEmuCfg.= urloc1 . "|"
-												}
-											guicontrol,,EMPRDDL,|%urloc1%||%runlist%
-											gosub, EMPRBUTASPLIT
-											iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
-											break
-										}
-								}
-							gosub, ResetRunList
-							gosub, ResetEmuList
-							guicontrol,,JCORE,|%runlist%
-							guicontrol,,LCORE,|%runlist%
-							guicontrol,,PLCORE,|%lastcore%||%runlist%
-							reasign .= semu . "|"
-							ADDCORE:= semu
-							guicontrol,,ADDCORE,|%semu%||Select_A_System|%reasign%
-							SB_SetText(" ")
-							gosub, DApp
-							guicontrol,,DAPP,1
-							Guicontrol, ,DWNPRGRS, 0
-							GuiControl, Enable, EAVAIL
-							GuiControl, Enable, UAVAIL
-							GuiControl, Enable, AVAIL
-							GuiControl, Enable, EMUINST
-							GuiControl, Enable, EMUASIGN
-							GuiControl, Disable, CNCLDWN
-							guicontrol,,EMPRLST,|%EMPRLT%
-							ifinstring,selfnd,MAME
-								{
-									ifnotinstring,addemu,mame_system
-										{
-											addemu.= "|" . "mame_arcade"
-											iniwrite,"%xtractmfp%",Assignments.ini,ASSIGNMENTS,mame_arcade
-										}
-									ifnotinstring,addemu,mame_system
-										{
-											addemu.= "|" . "mame_system"
-											iniwrite,"%xtractmfp%",Assignments.ini,ASSIGNMENTS,mame_system
-										}
-									splitpath,xtractmfp,,mamevpth
-									filecreateDir,%mamevpth%\roms
-									ifnotexist,lm.ini
-										{
-											gosub, MAMETOG
-										}
-								}
-							return
-						}
+				OVRKND=
+				emuxe=
+				emuprt1=
+				emuprt2=
+				emuprt3=
+				emuprt4=
+				Loop, Parse, EmuPartSet,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						StringSplit,emuprt,A_LoopField,=,:
+						if (emuprt1 = urloc1)
+							{
+								emuxe= %emuprt3%
+								OVRKND= %emuprt1%
+								iniwrite, "%xtractmu%\%emuxe%",apps.ini,EMULATORS,%urloc1%
+								ifnotinstring,preEmuCfg,%urloc1%
+									{
+										preEmuCfg.= urloc1 . "|"
+									}
+								guicontrol,,EMPRDDL,|%urloc1%||%runlist%
+								gosub, EMPRBUTASPLIT
+								iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
+								break
+							}
+					}
+				gosub, ResetRunList
+				gosub, ResetEmuList
+				guicontrol,,JCORE,|%runlist%
+				guicontrol,,LCORE,|%runlist%
+				guicontrol,,PLCORE,|%lastcore%||%runlist%
+					reasign .= semu . "|"
+				ADDCORE:= semu
+				guicontrol,,ADDCORE,|%semu%||Select_A_System|%reasign%
+				SB_SetText(" ")
+				gosub, DApp
+				guicontrol,,DAPP,1
+				Guicontrol, ,DWNPRGRS, 0
+				GuiControl, Enable, EAVAIL
+				GuiControl, Enable, UAVAIL
+				GuiControl, Enable, AVAIL
+				GuiControl, Enable, EMUINST
+				GuiControl, Enable, EMUASIGN
+				GuiControl, Disable, CNCLDWN
+				guicontrol,,EMPRLST,|%EMPRLT%
+				ifinstring,selfnd,MAME
+					{
+						ifnotinstring,addemu,mame_system
+							{
+								addemu.= "|" . "mame_arcade"
+								iniwrite,"%xtractmfp%",Assignments.ini,ASSIGNMENTS,mame_arcade
+							}
+						ifnotinstring,addemu,mame_system
+							{
+								addemu.= "|" . "mame_system"
+								iniwrite,"%xtractmfp%",Assignments.ini,ASSIGNMENTS,mame_system
+							}
+						splitpath,xtractmfp,,mamevpth
+						filecreateDir,%mamevpth%\roms
+						ifnotexist,lm.ini
+							{
+								gosub, MAMETOG
+							}
+					}
+				return
 			}
 		SB_SetText(" " selfnd " installed")
 	}
@@ -11481,6 +11478,7 @@ if (ksichk = "|")
 	{
 		stringtrimright,ksiv,ksiv,1
 	}
+jsiv= %ksiv%
 if (EMPRDDL = "Emulators")
 	{
 		return
@@ -11490,6 +11488,7 @@ if (semu = "")
 		return
 	}
 EMPRLT= %EMPRDDL%|
+jsiv= 
 Loop, parse, ksiv,|
 	{
 		if (A_LoopField = "")
@@ -11504,13 +11503,55 @@ Loop, parse, ksiv,|
 		*/
 		if (A_LoopField = EMPRDDL)
 			{
-				EMPRLT=
-				return
+				continue
 			}
+		jsiv.= A_LoopField . "|" 	
 		EMPRLT.= A_LoopField . "|"
+	}	
+if (EMUASIGN = 1)
+	{
+		iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
+		guicontrol,,EMPRLST,|%EMPRLT%
+	}		
+else {
+	jsiv.= EMPRDDL . "|"
+	EMPRLT= %jsiv%
+	iniwrite,"%jsiv%",Assignments.ini,OVERRIDES,%semu%
+	guicontrol,,EMPRLST,|%jsiv%
+}	
+iniread,trmb,AppParams.ini,%semu%
+if ((trmb <> "ERROR")&&(trmp <> ""))
+	{
+		guicontrol,,SYSNICK,|%semu%||%runlist%
+		gosub, sysnick
 	}
-guicontrol,,EMPRLST,|%EMPRLT%
-iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
+else, {
+		iniread,trmb,sets\AppParams.set,%semu%
+			{
+				if ((trmb <> "ERROR")&&(trmp <> ""))
+					{
+						guicontrol,,SYSNICK,|%semu%||%runlist%
+						goto, sysnick
+					}
+			}
+		iniwrite, " ",AppParams.ini,%semu%,options
+		iniwrite, "",AppParams.ini,%semu%,arguments
+		iniwrite, "0",AppParams.ini,%semu%,extension
+		iniwrite, "0",AppParams.ini,%semu%,per_game_configurations
+		iniwrite, "0",AppParams.ini,%semu%,no_quotes
+		iniwrite, "0",AppParams.ini,%semu%,no_path
+		iniwrite, "0",AppParams.ini,%semu%,run_location
+		iniwrite, "",AppParams.ini,%semu%,EMPOSTOPT
+		iniwrite, "",AppParams.ini,%semu%,EMPREOPT
+		iniwrite, "",AppParams.ini,%semu%,EMPOSTRUN
+		iniwrite, "",AppParams.ini,%semu%,EMPRERUN
+		iniwrite, "",AppParams.ini,%semu%,EMPREW
+		iniwrite, "",AppParams.ini,%semu%,EMPOSTW
+		iniwrite, "0",AppParams.ini,%semu%,DSKMNTCHK
+		iniwrite, "DaemonTools",AppParams.ini,%semu%,DSKMNTPRG
+		iniwrite, "0",AppParams.ini,%semu%,DSKMNTOVR
+		iniwrite, "0",AppParams.ini,%semu%,EXTARUN
+}
 return
 EMPRBUTU:		
 gui,submit,nohide
@@ -79276,7 +79317,7 @@ Loop,Parse,emuj,`n`r
 		emup2=
 		stringsplit,emup,A_LoopField,=,"
 		;"
-		ifinstring,emup1,%A_Space%-%A_Space%
+		if (instr(emup1," - ")&& instr(allsupport,emup1))
 			{
 				continue
 			}
