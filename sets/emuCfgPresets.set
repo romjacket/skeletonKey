@@ -100,7 +100,7 @@ EXENAM=mame.exe
 CFGPTH=*.ini|cfg\[ROMSYS].cfg
 options="[CUSTMOPT]"
 arguments="[CUSTMARG]"
-BIOS=1
+BIOS=M
 
 [Arcade]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
@@ -192,6 +192,7 @@ URLPTH=einweggerat/einweggerat[ARCH].7z
 EXENAM=einweggerat.exe
 options=" -r "
 arguments=" -c [CUSTMARG]"
+BIOS=M
 
 [ElecEm]
 RJPRECFG=copy /Y "electrem.cfg" "%APPDATA%"
@@ -223,7 +224,7 @@ EXENAM=Altirra[ARCH].exe
 CFGPTH=Altirra.ini
 MEMPTH=*.altstate
 options=" /rom1 "
-BIOS=1
+BIOS=M
 
 [SameBoy]
 RJRUNDIR=1
@@ -264,7 +265,7 @@ URLPTH=Neko/Neko.7z
 EXENAM=np21.exe
 CFGPTH=np21nt.ini
 MEMPTH=*.S00
-BIOS=1
+BIOS=R
 
 
 [Kegs32]
@@ -275,7 +276,7 @@ RJLNCHP=X
 URLPTH=Kegs32/Kegs32.7z
 EXENAM=Kegs32.exe
 CFGPTH=config.kegs
-BIOS=1
+BIOS=R
 
 
 [WinUAE]
@@ -285,7 +286,7 @@ RJEMUOPTS=<-s use_gui=no -s gfx_fullscreen_amiga=true -0<
 RJLNCHP=X
 URLPTH=WinUAE/WinUAE[ARCH].7z
 EXENAM=WinUAE[ARCH].exe
-BIOS=1
+BIOS=R
 
 
 [FS-UAE]
@@ -296,6 +297,7 @@ URLPTH=FS-UAE/FS-UAE-[ARCH].7z
 EXENAM=FS-UAE.exe
 CFGPTH=Config.fs-uae
 MEMPTH=SaveStates\Default\*.uss
+BIOS=R
 
 
 [Stella]
@@ -315,7 +317,7 @@ RJLNCHP=0
 URLPTH=ProSystem/ProSystem.7z
 EXENAM=ProSystem.exe
 CFGPTH=ProSystem.ini
-BIOS=1
+BIOS=R
 
 
 [VirtualJaguar]
@@ -335,9 +337,8 @@ URLPTH=Unz/Unz.7z
 EXENAM=Unz.exe
 CFGPTH=Unz.ini
 STATEPTH=*.unz
-
 DSKMNTCHK="1"
-BIOS=1
+BIOS=R
 
 [mupen64plus]
 RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y "*.ini" "%EMUL%"
@@ -397,7 +398,7 @@ RJLNCHP=0
 URLPTH=mgba/mgba.7z
 EXENAM=mgba.exe
 CFGPTH=mgba.ini
-BIOS=1
+BIOS=O
 
 
 [easyrpg]
@@ -416,6 +417,7 @@ RJPOSTCFG=copy /y "%EMUL%\arc.cfg" "%GAMDIR%"
 RJLNCHP=0
 URLPTH=Arculator/Arculator.7z
 EXENAM=Arculator.exe
+BIOS=R
 
 
 [BlueMSX]
@@ -464,7 +466,7 @@ URLPTH=ePSXe/ePSXe.7z
 EXENAM=epsxe.exe
 options=" -nogui -slowboot -loadbin "
 run_location="1"
-BIOS=1
+BIOS=O
 
 [rpcs3]
 RJPRECFG=copy /y "config*.yml" "%EMUL%"|mklink /J "%EMUL%\dev_hdd0" "%GAMDIR%\dev_hdd0" & mklink /J "%EMUL%\dev_hdd1" "%GAMDIR%\dev_hdd1"
@@ -484,7 +486,7 @@ URLPTH=XM6/XM6-[ARCH].7z
 EXENAM=xm6g.exe
 CFGPTH=XM6*.ini
 MEMPTH=STATE.XM6
-BIOS=1
+BIOS=R
 
 
 [VisualBoyAdvance]
@@ -499,7 +501,7 @@ EXENAM=VisualBoyAdvance.exe
 CFGPTH=visualboyadvance.cfg|*.ini
 STATEPTH=*.sav
 MEMPTH=*.sgm
-BIOS=1
+BIOS=O
 
 [VisualBoyAdvance-M]
 RJPRECFG=copy /Y vba*.ini" "%EMUL%"
@@ -513,7 +515,7 @@ EXENAM=VisualBoyAdvance-M.exe
 CFGPTH=v*.ini
 STATEPTH=*.sav
 MEMPTH=*.sgm
-BIOS=1
+BIOS=O
 
 
 [Dolphin]
@@ -526,7 +528,7 @@ STATEPTH=User\GC\*.raw
 NVRPTH=User\SaveStates\*.s*
 options=" -b -e "
 run_location="1"
-BIOS=1
+BIOS=O
 
 [Citra]
 RJPRECFG=copy /y "qt-config.ini" "%EMUL%\user\config"|robocopy "%GAMDIR%\.Mem\sdmc" "%EMUL%\user\config\sdmc" /R:2 /W:2 /NP /E /IS
@@ -602,7 +604,7 @@ EXENAM=4DO.exe
 CFGPTH=Settings\FourDO.settings|Settings\JohnnyInputBindings.xml
 options=" --StartLoadFile "
 arguments=" --StartFullScreen"
-BIOS=1
+BIOS=R
 
 [pcsx2]
 RJPRECFG=copy /Y "*.ini" "%EMUL%\inis"|copy /Y "*FX_Settings.ini" "%EMUL%\shaders"
@@ -613,7 +615,7 @@ EXENAM=Pcsx2.exe
 CFGPTH=inis\PCSX2_ui.ini|inis\GSdx.ini|inis\LilyPad.ini|inis\PCSX2_vm.ini|inis\padPokopom.ini|inis\SPU2-X.ini|shaders\GSdx_FX_Settings.ini|inis\Dev9null.ini|inis\FWnull.ini|inis\USBnull.ini
 STATEPTH=sstates\*.p2s
 MEMPTH=memcards\Mcd001.ps2|memcards\Mcd002.ps2
-BIOS=1
+BIOS=R
 
 
 [supermodel]
@@ -646,6 +648,7 @@ RJLNCHP=0
 URLPTH=Anex86/Anex86.7z
 EXENAM=Anex86.exe
 CFGPTH=Anex86.cmd
+BIOS=R
 
 
 [X1turbo]
@@ -655,6 +658,7 @@ RJLNCHP=0
 URLPTH=X1turbo/X1turbo.7z
 EXENAM=X1turbo.exe
 CFGPTH=x1turbo.cfg|x1turbo.ini
+BIOS=R
 
 
 [SSF]
@@ -666,9 +670,8 @@ EXENAM=SSF.exe
 CFGPTH=Setting.ini|SSF.ini
 STATEPTH=SaveStates\*.bin
 MEMPTH=InternalBackupRam.bin
-
 DSKMNTCHK="1"
-BIOS=1
+BIOS=R
 
 [SSFLoader]
 RJPRECFG=for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EMUL%\Setting\Saturn"|attrib -h "%GAMDIR%\SSF.ini"|attrib -h "%GAMDIR%\Setting.ini"|copy /y "SSF.ini" "%EMUL%"|copy /y "Setting.ini" "%EMUL%"|copy /Y ".Mem\*.bin" "%EMUL%\Backup\InternalBackup"|copy /Y ".sstates\*" "%EMUL%\SaveState\Saturn"
@@ -684,7 +687,7 @@ RJLNCHP=0
 URLPTH=steem/steem-[ARCH].7z
 EXENAM=steem.exe
 CFGPTH=ini
-BIOS=1
+BIOS=R
 
 
 [NullDc]
@@ -698,7 +701,7 @@ EXENAM=nullDC_Win32_Release.exe
 CFGPTH=NullDC.cfg
 MEMPTH=*.bin
 options=" -config nullDC_GUI:Fullscreen"
-BIOS=1
+BIOS=R
 
 [reicast]
 RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y ".Mem\vmu_save*.bin" "%EMUL%"
@@ -709,7 +712,7 @@ URLPTH=reicast/reicast[ARCH].7z
 EXENAM=reicast.exe
 CFGPTH=emu.cfg
 MEMPTH=vmu_save_*.bin
-BIOS=1
+BIOS=R
 
 
 [Demul]
@@ -723,7 +726,7 @@ CFGPTH=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|gdrCHD.ini|netDemul.ini
 STATEPTH=sstaes\*.*
 MEMPTH=memsaves\vms00.bin|memsaves\vms10.bin|nvram\*.*
 options=" -run"
-BIOS=1
+BIOS=R
 
 [cps3emulator]
 RJPRECFG=copy /y "emulator.ini" "%EMUL%"|copy /y ".snaps\*.sta""%EMUL%\STATES"|copy /y Plugins.cfg "%EMUL%\Plugins"|copy /y ".Mem\*.DAT" "%EMUL%\NVDATA"|copy /y *.input "%EMUL%\CFG"
@@ -742,6 +745,7 @@ EXENAM=emulator.exe
 CFGPTH=emulator.ini|Plugins\Plugins.cfg|CFG\*.input
 MEMPTH=STATES\*.sta
 NVRPTH=NVDATA
+BIOS=R
 
 extension="1"
 no_path="1"
@@ -759,6 +763,7 @@ EXENAM=NeoRaine32.exe
 CFGPTH=raine32_sdl.cfg
 STATEPTH=savegame\*.*
 MEMPTH=savedata\*.bin
+BIOS=R
 
 
 [FinalBurnAlpha]
@@ -796,7 +801,7 @@ STATEPTH=sav\*.bkr
 MEMPTH=sav\*.smpc
 options="[CUSTMOPT]"
 run_location="1"
-BIOS=1
+BIOS=M
 
 [Fusion]
 RJRUNDIR=1
@@ -808,9 +813,8 @@ EXENAM=Fusion.exe
 CFGPTH=Fusion.ini
 STATEPTH=*.srm
 MEMPTH=*.SGX
-
 arguments=" -Auto"
-BIOS=1
+BIOS=M
 
 [Nostalgia]
 RJPRECFG=copy /y "input.cfg" "%EMUL%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Capture Folder" /t REG_SZ /d "%GAMDIR%\.snaps"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Hide on Run" /t REG_DWORD /d 1|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Images Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "Manuals Folder" /t REG_SZ /d "%GAMDIR%"|REG ADD "HKEY_CURRENT_USER\Software\ShinyTechnologies\Nostalgia" /f /v "SaveGame Folder" /t REG_SZ /d "%GAMDIR%\.sstates"
@@ -821,7 +825,7 @@ RJLNCHP=0
 URLPTH=Nostalgia/Nostalgia.7z
 EXENAM=Nostalgia.exe
 CFGPTH=ini
-BIOS=1
+BIOS=R
 
 
 [XM7]
@@ -832,7 +836,7 @@ RJLNCHP=X
 URLPTH=XM7/XM7.7z
 EXENAM=XM7.exe
 CFGPTH=XM7.ini
-BIOS=1
+BIOS=R
 
 
 [retroArch]
@@ -844,7 +848,7 @@ RJLNCHP=0
 URLPTH=retroArch/retroArch-[ARCH].7z
 EXENAM=retroarch.exe
 CFGPTH=retroarch.cfg|retroarch-core-options.cfg
-BIOS=1
+BIOS=M
 
 
 [bsnes]
@@ -900,13 +904,12 @@ EXENAM=DesMume-x[ARCH].exe
 CFGPTH=desmume.ini
 STATEPTH=*.dsv
 MEMPTH=*.ds1
-BIOS=1
+BIOS=R
 
 
 [Apollo]
 RJLNCHP=0
 URLPTH=Apollo/Apollo.7z
-
 
 [openbeatsofrage]
 RJEMUOPTS=
@@ -936,13 +939,13 @@ URLPTH=m88/m88.7z
 EXENAM=m88_Run.exe
 CFGPTH=m88.ini
 MEMPTH=*.sav
-BIOS=1
+BIOS=R
 
 
 [3doplay]
 URLPTH=3doplay/3doplay.7z
 EXENAM=3DOplay.exe
-BIOS=1
+BIOS=R
 
 [archie]
 URLPTH=archie/archie.7z
@@ -977,6 +980,7 @@ EXENAM=Apf_emuw.exe
 [Arnimedes]
 URLPTH=Arnimedes/Arnimedes.7z
 EXENAM=WinArnie.exe
+BIOS=R
 
 [ex68]
 URLPTH=ex68/ex68.7z
@@ -997,7 +1001,7 @@ URLPTH=Atari800/Atari800.7z
 EXENAM=Atari800.exe
 CFGPTH=.atari800.cfg
 MEMPTH=*.state
-BIOS=1
+BIOS=M
 
 [Atari800win]
 URLPTH=Atari800win/Atari800Win.7z
@@ -1013,7 +1017,7 @@ cmdfun= 1
 [Bizhawk]
 URLPTH=Bizhawk/Bizhawk.7z
 EXENAM=EmuHawk.exe
-BIOS=1
+BIOS=M
 
 [pcae]
 URLPTH=pcae/pcae.7z
@@ -1029,6 +1033,7 @@ CFGPTH=rainbow.config
 URLPTH=sainT/sainT.7z
 EXENAM=sainT.exe
 CFGPTH=sainT.ini
+BIOS=R
 
 [bws]
 URLPTH=bws/bws.7z
@@ -1050,6 +1055,7 @@ EXENAM=Wataroo.exe
 CFGPTH=Wataroo.ini
 options=" --StartLoadFile "
 arguments=" --StartFullScreen"
+
 [mtxemu]
 URLPTH=mtxemu/mtxemu.7z
 EXENAM=mtxemu.exe
@@ -1077,11 +1083,13 @@ CFGPTH=ascd.ini
 [Bliss]
 URLPTH=Bliss/bliss.7z
 EXENAM=Bliss32.exe
+BIOS=R
 
 [CD-I]
 URLPTH=CD-I/CD-I.7z
 EXENAM=CD-I.exe
 CFGPTH=cdiroms.ini
+BIOS=R
 
 [CEMU]
 URLPTH=CEMU/CEMU.7z
@@ -1096,6 +1104,7 @@ CFGPTH=ini
 [Cxbx]
 URLPTH=Cxbx/Cxbx.7z
 EXENAM=CxBx.exe
+BIOS=R
 
 [DosPlus]
 URLPTH=DosPlus/DosPlus.7z
@@ -1141,25 +1150,29 @@ MEMPTH=User\GC\MemoryCard*.raw
 NVRPTH=User\GC\SRAM.raw
 options=" --exec"
 arguments=" --batch"
+
 [Mame_arcade]
 URLPTH=Mame/mame-[ARCH].7z
 EXENAM=mame.exe
 CFGPTH=*.ini|cfg\[ROMNAME]*.cfg
-
 arguments=" -rp [ROMPATH]"
 extension="1"
 no_path="1"
 no_quotes="1"
+
 [Mame_system]
 URLPTH=Mame/mame-[ARCH].7z
 EXENAM=mame.exe
 CFGPTH=*.ini|cfg\[ROMSYS].cfg
 options="[CUSTMOPT]"
 arguments=" -rp [EMUPATH]\roms"
+BIOS=M
+
 [medusa]
 URLPTH=medusa/medusa.7z
 EXENAM=medusa.exe
 CFGPTH=portable.ini|config.ini
+BIOS=R
 
 [Mesen]
 URLPTH=Mesen/Mesen.7z
@@ -1167,12 +1180,13 @@ EXENAM=Mesen.exe
 CFGPTH=settings.xml
 arguments=" /fullscreen /Region"
 run_location="1"
-BIOS=1
+BIOS=O
 
 [Mess]
 URLPTH=Mess/Mess-[ARCH].7z
 EXENAM=Mess.exe
 CFGPTH=mess.ini|cfg\[ROMNAME]*.cfg
+BIOS=M
 
 [minimon]
 URLPTH=minimon/minimon.7z
@@ -1183,12 +1197,13 @@ CFGPTH=minimon.cfg
 URLPTH=No$GBA/No$GBA.7z
 EXENAM=No$GBA.exe
 CFGPTH=No$GBA.ini|NoZoomer.ini
+BIOS=R
 
 [Ootake]
 URLPTH=Ootake/Ootake.7z
 EXENAM=Ootake.exe
 CFGPTH=Ootake.dat
-BIOS=1
+BIOS=M
 
 [PC6001VW]
 URLPTH=PC6001VW/PC6001VW.7z
@@ -1202,6 +1217,7 @@ EXENAM=PC6001VX.exe
 URLPTH=PicoDrive/PicoDrive.7z
 EXENAM=PicoDrive.exe
 CFGPTH=pico.ini
+BIOS=M
 
 [ProjectTempest]
 URLPTH=ProjectTempest/ProjectTempest.7z
@@ -1222,6 +1238,7 @@ MEMPTH=save\*.sram
 URLPTH=VirtuaNes/VirtuaNes.7z
 EXENAM=VirtuaNes.exe
 CFGPTH=virtualnes.ini
+BIOS=O
 
 [vita3k]
 URLPTH=vita3k/vita3k.7z
@@ -1231,7 +1248,6 @@ EXENAM=Vita3K.exe
 URLPTH=WinKawaks/winkawaks.7z
 EXENAM=WinKawaks.exe
 CFGPTH=Default*.ini|WinKawaks.ini
-
 extension="1"
 no_path="1"
 no_quotes="1"
@@ -1243,7 +1259,7 @@ EXENAM=aes4all.exe
 URLPTH=WinX68k/WinX68k.7z
 EXENAM=WinX68kHighSpeed_eng.exe
 CFGPTH=winx68k.ini
-BIOS=1
+BIOS=R
 
 [dcexel]
 URLPTH=dcexel/dcexel.7z
@@ -1282,7 +1298,7 @@ CFGPTH=yabause.ini
 STATEPTH=bkram.bin
 MEMPTH=*.yss
 options=" --iso"
-BIOS=1
+BIOS=R
 
 [Zsnes]
 URLPTH=Zsnes/Zsnes.7z
@@ -1345,7 +1361,7 @@ options=" -machine XL -image.1 "
 [atari800winplus]
 URLPTH=atari800winplus/atari800winplus.7z
 EXENAM=Atari800Win.exe
-BIOS=1
+BIOS=M
 
 [atom]
 URLPTH=atom/atom.7z
@@ -1358,15 +1374,16 @@ EXENAM=Atomulator.exe
 [blastem]
 URLPTH=blastem/blastem.7z
 EXENAM=blastem.exe
+BIOS=M
 
 [boycottadv]
 URLPTH=boycottadv/boycottadv.7z
 EXENAM=BoycottAdvance.exe
+BIOS=O
 
 [calice]
 URLPTH=calice/calice.7z
 EXENAM=Calice32.exe
-
 extension="1"
 no_path="1"
 no_quotes="1"
@@ -1391,6 +1408,7 @@ CFGPTH=dcvg5k.ini
 [chankast]
 URLPTH=chankast/chankast.7z
 EXENAM=chankast.exe
+BIOS=R
 
 [colecovision]
 URLPTH=colecovision/colecovision.7z
@@ -1425,11 +1443,13 @@ EXENAM=o2em.exe
 URLPTH=realityboy/realityboy.7z
 EXENAM=reality_boy.exe
 CFGPTH=reality_boy.ini
+BIOS=O
 
 [vbjin]
 URLPTH=vbjin/vbjin.7z
 EXENAM=vbjin.exe
 CFGPTH=vbjin.ini
+BIOS=O
 
 [kindred]
 URLPTH=kindred/kindred.7z
@@ -1476,6 +1496,7 @@ CFGPTH=*.cfg
 [gemulator]
 URLPTH=gemulator/gemulator.7z
 EXENAM=gemul8r9.exe
+BIOS=M
 
 [dinoboy]
 URLPTH=dinoboy/dinoboy.7z
@@ -1562,7 +1583,7 @@ EXENAM=euphoric.exe
 [fceux]
 URLPTH=fceux/fceux.7z
 EXENAM=fceux.exe
-BIOS=1
+BIOS=O
 
 [firegb]
 URLPTH=firegb/firegb.7z
@@ -1636,20 +1657,22 @@ CFGPTH=gearsystem.ini
 [genesisplus]
 URLPTH=genesisplus/genesisplus.7z
 EXENAM=gen.exe
+BIOS=M
 
 [gens]
 URLPTH=gens/Gens.7z
 EXENAM=gens.exe
-BIOS=1
+BIOS=M
 
 [gensgs]
 URLPTH=gensgs/gensgs.7z
 EXENAM=gens.exe
-BIOS=1
+BIOS=M
 
 [gensplus]
 URLPTH=gensplus/gensplus.7z
 EXENAM=gens+.exe
+BIOS=M
 
 [gest]
 URLPTH=gest/gest.7z
@@ -1659,6 +1682,7 @@ EXENAM=GEST.exe
 URLPTH=hatari/hatari-[ARCH].7z
 EXENAM=hatari.exe
 CFGPTH=hatari.ini
+BIOS=R
 
 [horizon]
 URLPTH=horizon/horizon.7z
@@ -1691,7 +1715,7 @@ EXENAM=cpspemu.exe
 [Play]
 URLPTH=Play-/Play!.7z
 EXENAM=Play.exe
-BIOS=1
+BIOS=R
 
 [modeller]
 URLPTH=modeller/modeller.7z
@@ -1702,6 +1726,7 @@ URLPTH=exodus/exodus.7z
 EXENAM=exodus.exe
 CFGPTH=settings.xml
 STATEPTH=SaveStates\*
+BIOS="M"
 
 [hpsx]
 URLPTH=hpsx/hpsx.7z
@@ -1712,6 +1737,7 @@ CFGPTH=*.hcfg
 URLPTH=Makaron/Makaron.7z
 EXENAM=Naomi.exe
 CFGPTH=*.ini
+BIOS=R
 
 [cogwheel]
 URLPTH=cogwheel/cogwheel.7z
@@ -1729,6 +1755,7 @@ URLPTH=psxjin/psxjin.7z
 EXENAM=psxjin.exe
 CFGPTH=psxjin.ini
 STATEPTH=memcards\*.mcr
+BIOS=R
 
 [pcsp]
 URLPTH=pcsp/pcsp.7z
@@ -1816,6 +1843,7 @@ URLPTH=xm8/xm8-[ARCH].7z
 EXENAM=xm8.exe
 CFGPTH=*.ini
 STATEPTH=\
+BIOS=R
 
 [turboengine]
 URLPTH=turboengine/turboengine.7z
@@ -1871,7 +1899,7 @@ EXENAM=kat5200.exe
 [kegs]
 URLPTH=kegs/kegs.7z
 EXENAM=kegswin.exe
-BIOS=1
+BIOS=R
 
 [kigb]
 URLPTH=kigb/kigb.7z
@@ -1902,7 +1930,7 @@ EXENAM=mekaw.exe
 [melonDS]
 URLPTH=melonDS/melonDS.7z
 EXENAM=melonDS.exe
-BIOS=1
+BIOS=R
 
 [mesadx]
 URLPTH=mesadx/mesadx.7z
@@ -1934,6 +1962,7 @@ EXENAM=mupen64pp.exe
 [mx88]
 URLPTH=mx88/mx88.7z
 EXENAM=m88x2.exe
+BIOS=R
 
 [mzxx]
 URLPTH=mzxx/mzxx.7z
@@ -1976,6 +2005,7 @@ EXENAM=nestopia.exe
 CFGPTH=nestopia.xml
 STATEPTH=states\*.nst
 MEMPTH=save\*.sav
+BIOS=O
 
 [next]
 URLPTH=next/next.7z
@@ -2008,6 +2038,7 @@ EXENAM=NO$NES.EXE
 [no$psx]
 URLPTH=no$psx/no$psx.7z
 EXENAM=NO$PSX.EXE
+BIOS=R
 
 [no$sns]
 URLPTH=no$sns/no$sns.7z
@@ -2125,7 +2156,7 @@ URLPTH=pcsxr/pcsxr.7z
 EXENAM=pcsxr.exe
 CFGPTH=pcsxr.cmd|lilypad.ini
 options=" -nogui -cdfile "
-BIOS=1
+BIOS=O
 
 [phoenix]
 URLPTH=phoenix\phoenix.7z
@@ -2143,7 +2174,7 @@ EXENAM=Project64.exe
 URLPTH=psx/psx.7z
 EXENAM=psxfin.exe
 CFGPTH=psx.ini
-BIOS=1
+BIOS=R
 
 [pv1000]
 URLPTH=pv1000/pv1000.7z
@@ -2180,10 +2211,11 @@ EXENAM=infovectrex.exe
 [raine]
 URLPTH=raine/raine.7z
 EXENAM=raine.exe
-
 extension="1"
 no_path="1"
 no_quotes="1"
+BIOS=R
+
 [rascalboyadv]
 URLPTH=rascalboyadv/rascalboyadv.7z
 EXENAM=RascalBoy.exe
@@ -2191,10 +2223,12 @@ EXENAM=RascalBoy.exe
 [redream]
 URLPTH=redream/redream.7z
 EXENAM=redream.exe
+BIOS=R
 
 [redsquirrel]
 URLPTH=redsquirrel/redsquirrel.7z
 EXENAM=RedSquirrel.exe
+BIOS=R
 
 [regen]
 URLPTH=regen/regen.7z
@@ -2298,11 +2332,12 @@ EXENAM=VGB.exe
 [vgba]
 URLPTH=vgba/vgba.7z
 EXENAM=VGBA.exe
-BIOS=1
+BIOS=O
 
 [cxbxreloaded]
 URLPTH=cxbxreloaded/cxbxreloaded.7z
 EXENAM=cxbxreloaded.exe
+BIOS=R
 
 [ryujinx]
 URLPTH=ryujinx/ryujinx.7z
@@ -2337,6 +2372,8 @@ EXENAM=ncdz.exe
 CFGPTH=ncdz.ini
 options=" --StartLoadFile "
 arguments=" --StartFullScreen"
+BIOS=R
+
 [ngae]
 URLPTH=ngae/ngae.7z
 EXENAM=NGAE[ARCH].exe
@@ -2351,23 +2388,6 @@ EXENAM=race.exe
 [race]
 URLPTH=race/race!.7z
 EXENAM=race.exe
-
-[neopopcott]
-URLPTH=neopopcott/neopopcott.7z
-EXENAM=neopopcott.exe
-options=" --StartLoadFile "
-arguments=" --StartFullScreen"
-[koyote]
-URLPTH=koyote/koyote.7z
-EXENAM=koyote.exe
-CFGPTH=unified.ini|koyote.cfg
-STATEPTH=states\*
-options=" --StartLoadFile "
-arguments=" --StartFullScreen"
-[x1twin]
-URLPTH=x1twin/x1twin.7z
-EXENAM=x1twin.exe
-CFGPTH=x1twin.ini
 
 [x86Box]
 URLPTH=x86Box/x86Box.7z
@@ -2387,10 +2407,12 @@ URLPTH=xebra/xebra.7z
 EXENAM=XEBRA.EXE
 options=" -IMG "
 arguments=" -RUN1 -FULL"
-BIOS=1
+BIOS=R
+
 [xqemu]
 URLPTH=xqemu/xqemu.7z
 EXENAM=xqemuw.exe
+BIOS=R
 
 [yape]
 URLPTH=yape/yape.7z
@@ -2441,6 +2463,7 @@ URLPTH=creativision/creativision.7z
 
 [genious]
 URLPTH=Genieous/Genieous.7z
+BIOS=M
 
 [shortwave]
 URLPTH=shortwave/shortwave.7z
@@ -2452,166 +2475,252 @@ URLPTH=winx1/winx1.7z
 URLPTH=3dmoo/3dmoo.7z
 [arcade64]
 URLPTH=arcade64/arcade64.7z
+BIOS=R
+
 [atariplusplus]
 URLPTH=atariplusplus/atariplusplus.7z
+BIOS=R
+
 [babbage2nd]
 URLPTH=babbage2nd/babbage2nd.7z
+
 [bmjr]
 URLPTH=bmjr/bmjr.7z
 [caprice32]
 URLPTH=caprice32/caprice32.7z
+
 [dhector]
 URLPTH=dhector/dhector.7z
+
 [DisplayChanger]
 URLPTH=DisplayChanger/dc.7z
+
 [emu2001]
 URLPTH=emu2001/emu2001.7z
+
 [EmuCon]
 URLPTH=EmuCon/EmuCon.7z
+
 [ex80]
 URLPTH=ex80/ex80.7z
+
 [familybasic]
 URLPTH=familybasic/familybasic.7z
+
 [fm16pi]
 URLPTH=fm16pi/fm16pi.7z
+
 [fmr30_i286]
 URLPTH=fmr30_i286/fmr30_i286.7z
+
 [fmr30_i86]
 URLPTH=fmr30_i86/fmr30_i86.7z
+
 [fmr50_i286]
 URLPTH=fmr50_i286/fmr50_i286.7z
+
 [fmr50_i386]
 URLPTH=fmr50_i386/fmr50_i386.7z
+
 [fmr50_i486]
 URLPTH=fmr50_i486/fmr50_i486.7z
+
 [fmr60]
 URLPTH=fmr60/fmr60.7z
+
 [fmr70]
 URLPTH=fmr70/fmr70.7z
+
 [fmr80]
 URLPTH=fmr80/fmr80.7z
+
 [fp1100]
 URLPTH=fp1100/fp1100.7z
+
 [fp200]
 URLPTH=fp200/fp200.7z
+
 [fsa1]
 URLPTH=fsa1/fsa1.7z
+
 [Genieous]
 URLPTH=Genieous/Genieous.7z
+BIOS=M
+
 [hc20]
 URLPTH=hc20/hc20.7z
+
 [hc40]
 URLPTH=hc40/hc40.7z
+
 [hc80]
 URLPTH=hc80/hc80.7z
+
 [hola]
 URLPTH=hola/hola.7z
+
 [homelab]
 URLPTH=homelab/homelab.7z
+
 [HT1080Z]
 URLPTH=HT1080Z/HT1080Z.7z
+
 [hx20]
 URLPTH=hx20/hx20.7z
+
 [jx]
 URLPTH=jx/jx.7z
+
 [KEmulator]
 URLPTH=KEmulator/KEmulator.7z
+
 [map1010]
 URLPTH=map1010/map1010.7z
+
 [Mednafen-server]
 URLPTH=Mednafen/Mednafen-server-x[ARCH].7z
+
 [multi8]
 URLPTH=multi8/multi8.7z
+
 [mycomz80a]
 URLPTH=mycomz80a/mycomz80a.7z
+
 [mz1200]
 URLPTH=mz1200/mz1200.7z
+
 [mz1500]
 URLPTH=mz1500/mz1500.7z
+
 [mz2200]
 URLPTH=mz2200/mz2200.7z
+
 [mz2500]
 URLPTH=mz2500/mz2500.7z
+
 [mz2800]
 URLPTH=mz2800/mz2800.7z
+
 [mz3500]
 URLPTH=mz3500/mz3500.7z
+
 [mz5500]
 URLPTH=mz5500/mz5500.7z
+
 [mz6500]
 URLPTH=mz6500/mz6500.7z
+
 [mz80a]
 URLPTH=mz80a/mz80a.7z
+
 [mz80b]
 URLPTH=mz80b/mz80b.7z
+
 [mz80k]
 URLPTH=mz80k/mz80k.7z
+
 [neocdsdl]
 URLPTH=neocdsdl/neocdsdl.7z
+
 [pasopia7lcd]
 URLPTH=pasopia7lcd/pasopia7lcd.7z
+
 [pasopia7]
 URLPTH=pasopia7/pasopia7.7z
+
 [pasopia]
 URLPTH=pasopia/pasopia.7z
+
 [pc100]
 URLPTH=pc100/pc100.7z
+
 [pc2001]
 URLPTH=pc2001/pc2001.7z
+
 [phc20]
 URLPTH=phc20/phc20.7z
+
 [phc25]
 URLPTH=phc25/phc25.7z
+
 [Play-]
 URLPTH=Play-/Play!.7z
+BIOS=R
+
 [pom1]
 URLPTH=pom1/pom1.7z
+
 [psx]
 URLPTH=psx/psx.7z
+BIOS=R
+
 [px7]
 URLPTH=px7/px7.7z
+
 [pyuta]
 URLPTH=pyuta/pyuta.7z
+
 [qc10cms]
 URLPTH=qc10cms/qc10cms.7z
+
 [qc10]
 URLPTH=qc10/qc10.7z
+
 [rx78]
 URLPTH=rx78/rx78.7z
+
 [SCP]
 URLPTH=SCP/SCP.7z
+
 [smb80te]
 URLPTH=smb80te/smb80te.7z
+
 [smc70]
 URLPTH=smc70/smc70.7z
+
 [smc777]
 URLPTH=smc777/smc777.7z
+
 [t2k]
 URLPTH=t2k/t2k.7z
+
 [takeda]
 URLPTH=takeda/takeda.7z
+BIOS=M
+
 [tk80bs]
 URLPTH=tk80bs/tk80bs.7z
+
 [tk85]
 URLPTH=tk85/tk85.7z
+
 [vbarr]
 URLPTH=vbarr/vbarr.7z
+
 [virtpanajr]
 URLPTH=virtpanajr/virtpanajr.7z
+
 [vivanono]
 URLPTH=vivanono/vivanono.7z
+
 [vzem]
 URLPTH=vzem/vzem.7z
+
 [x07]
 URLPTH=x07/x07.7z
+
 [yalky]
 URLPTH=yalky/yalky.7z
+
 [ys6464a]
 URLPTH=ys6464a/ys6464a.7z
+
 [z80tvgame_i8255]
 URLPTH=z80tvgame_i8255/z80tvgame_i8255.7z
+
 [z80tvgame_z80pio]
 URLPTH=z80tvgame_z80pio/z80tvgame_z80pio.7z
+
 [*************************************************************************]
 
 [MAME - Arcade]
