@@ -554,6 +554,10 @@ corelist=
 coreNamz=
 Loop,Read,cores.ini
 	{
+		if (A_loopreadLine = "")
+			{
+				continue
+			}
 		CORENUM+=1
 		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All
 		corezips .= (A_Index == 1 ? "" : "|") . A_LoopReadLine "." "zip"
@@ -11769,6 +11773,10 @@ if (EINSTX = "exe")
 	}
 Loop, Parse, UAVAIL,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		if (systatus = "Emulators")
 			{
 				iniwrite, "%EMUINSTLOCT%",apps.ini,EMULATORS,%semu%
@@ -25768,7 +25776,7 @@ Loop, %libretroDirectory%\*_libretro.dll
 	{
 		CORENUM+=1
 		corelist.= A_LoopFileName . "|"
-		FileAppend, %A_LoopField%`n, cores.ini
+		FileAppend, %A_LoopFilename%`n, cores.ini
 	}
 SKCCTXT= %CORENUM% cores
 IniRead,emuj,Assignments.ini,OVERRIDES,
@@ -44400,7 +44408,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;   MEDNAFEN JOYSTICK  ;;;;;;;;;;;;;;;;;;;;
 mednafenCTRLS:
-guicontrol,,JOYCORE,|mednafen||retroArch|Antimicro|Xpadder|%supguiitmes%|%corelist%
+guicontrol,,JOYCORE,|mednafen||retroArch|Antimicro|Xpadder|%supguiitems%|%corelist%
 guicontrolget,emjddlb,,emjddlb
 MedPlayerJoy= %emjddlb%
 if (emjddlb = "")
@@ -77826,10 +77834,12 @@ ifinstring,corinjs,.dll
 	{
 		corinjs= retroarch
 	}
+msgbox,,,coreselv=%coreselv%`nrunlist=`n`n"%runlist%"	
 ifinstring,supgui,%corinjs%
 	{
 		goto, opncore
 	}
+msgbox,,,coreselv=%coreselv%`nrunlist=`n`n"%runlist%"	
 guicontrol,,LCORE,|%coreselv%||%runlist%
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
@@ -79162,6 +79172,10 @@ gosub, ResetCores
 gosub,CoreUpdtChk
 Loop,Read,cores.ini
 	{
+		if (A_loopreadLine = "")
+			{
+				continue
+			}
 		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All
 		corezips .= (A_Index == 1 ? "" : "|") . A_LoopReadLine "." "zip"
 		corelist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
@@ -79185,6 +79199,10 @@ Loop,Parse,emuj,`n`r
 			}
 		Loop, Parse, emup2,|
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
 				emup2= %A_LoopField%
 				stringsplit,aij,emup2,|
 				emup2= %aij1%
