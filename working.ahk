@@ -77834,12 +77834,10 @@ ifinstring,corinjs,.dll
 	{
 		corinjs= retroarch
 	}
-msgbox,,,coreselv=%coreselv%`nrunlist=`n`n"%runlist%"	
 ifinstring,supgui,%corinjs%
 	{
 		goto, opncore
 	}
-msgbox,,,coreselv=%coreselv%`nrunlist=`n`n"%runlist%"	
 guicontrol,,LCORE,|%coreselv%||%runlist%
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
