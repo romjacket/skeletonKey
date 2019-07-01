@@ -1756,7 +1756,7 @@ Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help
 Gui,Font,Bold
 Gui, Font, %fontXmed%
 Gui, Add, Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
-Gui ,Add, Picture, x707 y428 w44 h48 h121,site\key.png
+Gui ,Add, Picture, x707 y428 w44 h48 ,site\key.png
 Gui, Add, Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x18 y88 vSKSYSTXT, Systems Dir
@@ -1780,7 +1780,7 @@ Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
 Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
 Gui, Add, Text, x150 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
 Gui, Add, Text, x150 y90 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
-Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
+;;Gui, Add, Text,  x582 y101 vSKDTTXT, Daemon Tools is %DAMINST%
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,Edit, hwndEdtHndl3 x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
@@ -1788,7 +1788,7 @@ Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox, x583 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
 Gui, Add, CheckBox, x583 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 ;;Gui, Add, Text, x573 y42 vSKRJQTXT, %RJQNUM% systems
-Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
+;;Gui, Add, Text, x582 y86 vSKDISPLCHTXT, DisplayChanger is %DCHINST%
 Gui,Add,Edit, hwndEdtHndl4 x63 y129 w443 h41 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 ;;Gui, Add, Button, x573 y61 w46 h20 vSKCLRQ gDELRJQ, CLEAR
 ;;Gui, Add, Text, x627 y41 vSKCLRTXT, in the RoM-Jacket queue
