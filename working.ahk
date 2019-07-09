@@ -781,7 +781,7 @@ snes9xswaps= snes9xswapB|snes9xswapA|snes9xswapX|snes9xswapY|snes9xswapStart|sne
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
 viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate|fastforward_ratio
 optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|audio_latency|audio_mute_enable|audio_rate_control_delta|audio_rate_control|audio_sync|auto_shaders_enable|flicker_filter_enable|flicker_filter_index|auto_overrides_enable|autosave_interval|block_sram_overwrite|config_save_on_exit|input_driver|input_joypad_driver|input_remap_binds_enable|keyboard_gamepad_enable|input_autodetect_enable|input_menu_toggle_gamepad_combo|menu_driver|pause_nonactive|rewind_enable|rewind_granularity|savestate_auto_index|savestate_auto_load|savestate_auto_save|sort_savefiles_enable|sort_savestates_enable|savefiles_in_content_dir|savestates_in_content_dir|video_gpu_record|video_gpu_screenshot|auto_remaps_enable|screenshots_in_content_dir|run_ahead_enabled|run_ahead_frames|run_ahead_secondary_instance|enable_device_vibration|input_desktop_menu_toggle|input_cheat_index_plus|enable_device_vibration|input_desktop_menu_toggle_btn|playlist_fuzzy_archive_match|playlist_show_inline_core_name|playlist_show_sublabels|playlist_sort_alphabetical|playlist_sublabel_runtime_type
-menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red|menu_enable_widgets|video_stream_port|video_stream_quality|video_stream_url|video_stream_scale_factor|youtube_stream_key|video_stream_config|menu_left_thumbnails|menu_thumbnails|apply_cheats_after_toggle|apply_cheats_after_load|apply_cheats_after_load|rgui_background_filler_thickness_enable|streaming_mode
+menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|quit_press_twice|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red|menu_enable_widgets|video_stream_port|video_stream_quality|video_stream_url|video_stream_scale_factor|youtube_stream_key|video_stream_config|menu_left_thumbnails|menu_thumbnails|apply_cheats_after_toggle|apply_cheats_after_load|apply_cheats_after_load|rgui_background_filler_thickness_enable|streaming_mode
 INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen | --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s
 INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
 Loop, rj\emuCfgs\*,2
@@ -807,7 +807,7 @@ KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|mi
 RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSBTN|RUNSYSCBX|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
-RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
+RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
 EMUINPUTNULLITEMS=INDWRN|emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT|emjOtxt
@@ -1682,6 +1682,7 @@ Menu, RunWithDD, Add
 Menu, RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
 Menu, RunWithDD, Add
 Menu, RunWithDD, Add, Open In Explorer !, Open_Add
+Menu, UndoRARST, Add, Undo Reset, RAINITUNDO
 Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
 Menu, RSTAPAR, Add, Reset-Preset, ReSeTAPAR
 Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
@@ -1930,6 +1931,9 @@ Gui,Add,Edit, hwndEdtHndl13 x605 y176 w35 h20 vVidYLoc gVidPosY Number hidden, 0
 Gui, Add, Text, x642 y172 w5 vPOSYTXT hidden, y
 Gui, Add, Text, x490 y181 vVPOSTXT hidden, Video Position
 Gui, Add, CheckBox, x496 y104 vCROP gCropOS hidden, Crop-Overscan
+
+Gui, Add, Button, x702 y476 h22 vVRSTRABUT gRAInitQ hidden, RESET
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;~~~LOCATIONS MENU GROUP~~~;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,Bold
@@ -3196,14 +3200,14 @@ Gui,Add,Edit, hwndEdtHndl79 x58 y61 w30 h21 Number vRJEDTB gRJEDTB hidden, 1000
 Gui,Add,Edit, hwndEdtHndl80 x58 y61 w30 h21 Limit1 vRJEDTBN gRJEDTBN hidden, Z
 Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
 Gui,Add,Edit, hwndEdtHndl81 x122 y60 w118 h21 vRJEDTC gRJEDTC,
-Gui, Add, Button, x241 y59 w32 h23 vRJFNDINLST gRJFNDINLST, Find
+Gui, Add, Button, x241 y59 w35 h23 vRJFNDINLST gRJFNDINLST, Find
 Gui,Add,ListView, x12 y86 w254 h414 -Hdr -ReadOnly altsubmit Multi background%bgcolor% c%foreColor% vRJLSTV gRJLSTV hwndRJLV checked,|
 /*  ;;[DEBUGOV]
 RJRN1 := New LV_InCellEdit(RJLV)
 RJRN1.SetColumns(1)
 */  ;;[DEBUGOV]
 Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS, ALL
-Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All items
+Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All ROMs
 Gui, Add, GroupBox, x266 y155 w100 h105 vRJGRPN
 Gui, Add, CheckBox, x267 y165 h15 vRJCHKL gRJCHKL, Launchers
 Gui, Add, CheckBox, x267 y180 h15 vRJCHKM gRJCHKM, Config Files
@@ -3317,7 +3321,7 @@ Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX, .exe`,.c
 Gui, Add, Text, x280 y314 h16 vRJTXTG, ROM extensions
 Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked, Quotes
 Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked, Path
- Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
+Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
 Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX, %rjemuopt%
 Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
 Gui,Add,ComboBox, hwndCbxHndl89 x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX, %rjemuarg%
@@ -3325,7 +3329,7 @@ Gui, Add, Text, x456 y365 h17 vRJTXT1A, arguments
 Gui, Add, CheckBox, x430 y392 h17 vRJZJP gRJZJP checked, Zip-Peek
 Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked, Run from Emulator Directory
 Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B, Run from ROM Directory
-gui,add,checkbox, x278 y491 h14 vRJCHKJ gRJCHKJ, Preview Jackets
+gui,add,Button, x278 y494 h18 vRJCHKJ gRJCHKJ, Preview Queue
 Gui,Add,DropDownList, hwndDplHndl136 x273 y437 w199 vRJQLSTDD gRJQLSTDD, QUEUE||%SYSTMQ%
 Gui, Add, Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
 Gui, Add, Button, x477 y436 w21 h23 vRJREMQSYS gRJREMQSYS, X
@@ -3765,6 +3769,7 @@ BOXCVR_TT :="Front of the box"
 BRADD_TT := "Browse for ROMs to add to your current playlist."
 CGSLCT_TT := "Should work with most display modes"
 CGSHDVAR_TT :="CG Shader"
+VRSTRABUT_TT :="   Global Retroarch Reset`n   right-click to undo reset."
 CHKPORTS_TT :="Checks each host to determine if the hosting port can recieve a connection.`n-- Can slow down lobby population, but reduces trouble-shooting difficulties. --"
 CHECKFRAMES_TT :="Increase this number the further away you are from your partner"
 CHEMUINST_TT :="Select a destination directory for the selected emulator.`n The emulator will be installed into its own folder"
@@ -4907,6 +4912,13 @@ If A_GuiControlEvent RightClick
 						return
 					}
 			}
+	if A_GuiControl = VRSTRABUT
+		{
+			ifexist,config.bak
+				{
+					Menu, UndoRARST,Show,%A_guiX% %A_guiy%
+				}
+		}
 	if A_GuiControl = FEBUTK
 		{
 			if (FEDDLJ <> "EmulationStation")
@@ -12179,6 +12191,7 @@ guicontrol,enable,AVAIL
 guicontrol,enable,EAVAIL
 guicontrol,enable,UAVAIL
 return
+
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
@@ -12324,6 +12337,10 @@ if (LNCHPRDDL = "retroarch")
 				repw.= inix . repx
 				Loop,Parse,aij,|
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						nwv= %A_LoopField%|
 						iniread,emx,Apps.ini,EMULATORS,%A_LoopField%
 						if (emx = "ERROR")
@@ -12338,7 +12355,8 @@ if (LNCHPRDDL = "retroarch")
 									}
 								repw.= A_LoopField . "|"
 							}
-					}
+					}	
+				stringreplace,repw,repw,||,|,All
 				iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
 			}
 		iniwrite, 1,Settings.ini,GLOBAL,Launcher_Priority
@@ -12398,6 +12416,10 @@ Loop, Parse, origsys,`n`r
 			{
 				Loop,Parse,aic,|
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						ifnotexist,%libretrodirectory%\%A_LoopField%
 							{
 								continue
@@ -12409,6 +12431,7 @@ Loop, Parse, origsys,`n`r
 						repw.= A_LoopField . "|"
 					}
 			}
+		stringreplace,repw,repw,||,|,All	
 		iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
 	}
 LNCHPTFIN:
@@ -12534,6 +12557,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;; RA GUI BUTTON ACTIONS ;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;  RA GLOBAL FUNCTIONS  ;;;;;;;;;;;;;;;
+
 LocPath:
 gui, submit, nohide
 tmpth=
@@ -12542,6 +12566,7 @@ gosub, RACHKOPTLINE
 iniread, tmpth, %curcfg%,OPTIONS,%LOCPTH%
 	SB_SetText("" LOCPTH " is " . tmpth . "")
 return
+
 LocationPath:
 guicontrolget,LOCPTH,,LOCPTH
 PthSel=
@@ -12556,6 +12581,7 @@ if (INITIAL = 1)
 	{
 	}
 return
+
 LocFolder:
 tmpdir=
 gui, submit, nohide
@@ -12564,6 +12590,7 @@ gosub, RACHKOPTLINE
 iniread, tmpdir, %curcfg%,OPTIONS,%LOCDIR%
 SB_SetText("" LOCDIR " is " . tmpdir . "")
 return
+
 LocationFolder:
 FileSelectFolder, FldrSel, ,3 ,Select %LOCDIR%
 if FldrSel=
@@ -12595,6 +12622,7 @@ if (LOCDIR = "core_assets_directory")
 	}
 IniWrite, "%FldrSel%",%curcfg%,OPTIONS,%LOCDIR%
 return
+
 Rewind:
 gui, submit, nohide
 rewindEnable= false
@@ -12611,6 +12639,7 @@ else if (REWEN = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%rewindEnable%", %curcfg%,OPTIONS,rewind_enable
 return
+
 EnableCR:
 gui, submit, nohide
 if (CSTCRE = 1)
@@ -12624,6 +12653,7 @@ if (CSTCRE = 0)
 		guicontrol,Disable,CSTRAARGF
 	}
 return
+
 EnableCC:
 gui, submit, nohide
 if (CSTCMD = 1)
@@ -12637,6 +12667,7 @@ if (CSTCMD = 0)
 		guicontrol,disable,CSTRAOPTF
 	}
 return
+
 SwHost:
 gui,submit,nohide
 guicontrolget,SWHOST,,SWHOST
@@ -12653,10 +12684,12 @@ if (SWHOST = 0)
 		guicontrol,show,RCLLNCH
 	}
 return
+
 CORECommand:
 gui, submit, nohide
 guicontrolget,CSTRAARGF,,CSTRAARGF
 return
+
 SaveSort:
 gui, submit, nohide
 sortSavefilesEnable= false
@@ -12667,10 +12700,12 @@ if (SAVSRT = 1)
 gosub, RACHKOPTLINE
 iniwrite, "%sortSavefilesEnable%",%curcfg%,OPTIONS,sort_savefiles_enable
 return
+
 ROMOverride:
 gui, submit, nohide
 guicontrolget,CSTRAOPTF,,CSTRAOPTF
 return
+
 Granularity:
 gui, submit, nohide
 rewindGranularity= %REWGRAN%
@@ -12678,12 +12713,14 @@ guicontrolget, REWGRAN
 gosub, RACHKOPTLINE
 IniWrite, "%rewindGranularity%", %curcfg%,OPTIONS,rewind_granularity
 return
+
 autoSave:
 gui, submit, nohide
 autoSaveInterval= %SVINT%
 gosub, RACHKOPTLINE
 IniWrite, "%autoSaveInterval%", %curcfg%,OPTIONS,auto_savestate_interval
 return
+
 StateAutoIndex:
 savestateAutoIndex= false
 gui, submit, nohide
@@ -12694,6 +12731,7 @@ if (STAI = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoIndex%", %curcfg%,OPTIONS,savestate_auto_index
 return
+
 StateAutoSave:
 gui, submit, nohide
 savestateAutoSave= false
@@ -12705,6 +12743,7 @@ if (STAS = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoSave%", %curcfg%,OPTIONS,savestate_auto_save
 return
+
 StateAutoLoad:
 gui, submit, nohide
 savestateAutoLoad= false
@@ -12844,6 +12883,7 @@ IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 ;};;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    AUDIO FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 AudioToggle:
 gui, submit, nohide
 if (GLBLAUDIO = 0)
@@ -13184,6 +13224,7 @@ videoFrameDelay= %FRMDL%
 gosub, RACHKOPTLINE
 IniWrite, "%videoFrameDelay%", %curcfg%,OPTIONS,video_frame_delay
 return
+
 DISPLDRV:
 gui,submit,nohide
 guicontrolget,DISPLDRV,,DISPLDRV
@@ -13929,13 +13970,15 @@ if (JACKETMODE = 1)
 		if (RNMJACK <> "")
 			{
 				rjinsfldr= %RNMJACK%\
-			}
+			}	
+		/*	
 		if (RJCHKJ = 1)
 			{
 				StringGetPos, fldrdlmt, rjinsfldr,%RJCNSLDD%
 				stringtrimright,rjdwnfldr,rjinsfldr,%fldrdlmt%
 				rjinsfldr= %rjdwnfldr%
 			}
+		*/	
 		IfNotExist,%RJSYSTEMS%\%romsys%\%rjinsfldr%
 			{
 				updtguirst=
@@ -17211,6 +17254,7 @@ gosub, core_%ccv%RadV
 return
 Select_a_CoreDDLA:
 core_2048DDLA:
+core_playDDLA:
 core_3dengineDDLA:
 core_craftDDLA:
 core_blastemDDLA:
@@ -22320,6 +22364,7 @@ return
 core_Select_a_CoreRESET:
 core_blastemRESET:
 core_2048RESET:
+core_playRESET:
 core_cannonballRESET:
 core_remeniscenceRESET:
 core_vemulatorRESET:
@@ -25422,6 +25467,7 @@ if (FileExist(RJEMUDtst))
 		iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
 	}
 return
+
 RAEXEP:
 if (INITIAL > 1)
 	{
@@ -25727,10 +25773,26 @@ Loop, Parse, fltFiles,`n
 Loop,Read,fltlist.ini
 	flt_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+RAInitQ:
+gui,submit,nohide
+msgbox,3,Reset Retroarch?,Reset Retroarch?
+ifmsgbox, yes
+	{
+		gosub,RAINIT
+	}
+return	
+
+RAINITUNDO:
+filemove,config.bak,config.cfg,1
+gosub,RAinitProc
+return
+
 RAInit:
 filecopy, config.cfg,config.bak,1
 filecopy,sets\config.set,config.cfg,1
+RAinitProc:
 SB_SetText("RELOADING VARIABLES")
 gosub, GetIniVars
 SB_SetText(" ...initializing shaders... ")
@@ -25741,6 +25803,7 @@ gosub, resetCORES
 coreassetsdirectory= %RJSYSTEMS%
 iniwrite, "%RJSYSTEMS%",%cursys%,OPTIONS,core_assets_directory
 return
+
 resetOVR:
 rewrovlv=
 rewrovld=
@@ -26234,6 +26297,22 @@ if (inival2 = "hid")
 		guicontrol, ,JHIDDRV, 1
 	}
 return
+
+audioenable:
+gui,submit,nohide
+audioenable= %inival2%
+GLBAUDIO= 0
+guicontrol,,audiotoggle,1
+if (inival2 = "false")
+	{
+		GLBAUDIO= 1
+		Guicontrol,,AudioToggle,0
+		return
+	}
+gosub, AudioToggle 
+return
+
+
 menuDriver:
 gui, submit, nohide
 menuDriver= %inival2%
@@ -26358,7 +26437,7 @@ if (inival2 = "true")
 	{
 		STAT= 1
 	}
-GuiControl,, STAT, 1
+GuiControl,, STAS, %STAT%
 return
 softFilterEnable:
 SFIND= 0
@@ -28397,16 +28476,7 @@ if (inival2 = "openal")
 		return
 	}
 return
-audioEnable:
-gui, submit, nohide
-GLBAUDIO= 0
-audioEnable= %inival2%
-if (inivar2 = "true")
-	{
-		(GLBAUDIO = 1)
-	}
-gosub, AudioToggle
-return
+
 audioLatency:
 gui, submit, nohide
 if (inival2 <> "")
@@ -30735,17 +30805,14 @@ Loop, Parse, amultmp,`n`r
 	}
 ratstchk=
 IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
-if ((ratstchk <> "NOT-FOUND.exe") && (ratstchk <> ""))
+if (fileexist(ratstchk))
 	{
 		if (INITIAL <> 1)
 			{
-				if (ratstchk <> "NOT-FOUND.exe")
-					{
-						emunumtot+=1
-						IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
-						IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
-						IniWrite, "%raexeloc%\%raexefile%",Assignments.ini,Assignments,retroarch
-					}
+				emunumtot+=1
+				IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
+				IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
+				IniWrite, "%raexeloc%\%raexefile%",Assignments.ini,Assignments,retroarch
 			}
 	}
 IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
@@ -30818,11 +30885,35 @@ Loop,Parse,asig,`n`r
 							{
 								continue
 							}
-						fej.= "|" . A_LoopField
-						stringreplace,fej,fej,||,|,All
-						iniwrite, "%fej%|",Assignments.ini,OVERRIDES,%rasig1%
-						prifnd= 1
-						continue
+						ifnotinstring,fej,|%A_LoopField%
+							{
+								fej.= "|" . A_LoopField
+								stringreplace,fej,fej,||,|,All
+								iniwrite, "%fej%|",Assignments.ini,OVERRIDES,%rasig1%
+								prifnd= 1
+								continue
+							}
+					}
+			}
+		iniread,stfe,sets\EmuCfgPresets.set,%rasig1%,SUPCORE
+		nevfdg= 
+		if (INITIAL = 1)
+			{
+				ifexist,%raexeloc%\%raexefile%
+					{
+						Loop, parse,stfe,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								ifexist,%raexeloc%\cores\%a_loopField%
+									{
+										nevfdg.= A_LoopField . "|"
+									}
+							}
+						nevfdg.= fej
+						iniwrite,"%nevfdg%",Assignments.ini,OVERRIDES,%rasig1%
 					}
 			}
 	}
@@ -35995,13 +36086,19 @@ return
 AincTog:
 gui,submit,nohide
 return
+
 AexcTog:
 gui,submit,nohide
 return
+
 SearchArc:
 srchpop=
 fndgam1=
 fndgam2=
+guicontrol,disable,SearchArc
+guicontrol,disable,ExpndASrch
+guicontrol,disable,SRCHDDL
+guicontrol,disable,SRCHEDT
 guicontrol,,sortoverride,0
 guicontrolget,SRCHSYS,,SRCHDDL
 sanm:= SRCHEDT
@@ -36028,6 +36125,7 @@ if (MAMESWCHK = 1)
 				SRCHSYS= %ARCTRA%
 			}
 	}
+
 Loop, files,%SRCHMET%\%SRCHCRI%.gam, %SRCHREC%
 	{
 		sys=
@@ -36068,7 +36166,12 @@ guicontrol,disable,MAMESWCHK
 guicontrol,disable,ARCSYS
 guicontrol,,SRCHRSLT, |%srchpop%
 guicontrol,show,ExpndASrch
+guicontrol,enable,SearchArc
+guicontrol,enable,ExpndASrch
+guicontrol,enable,SRCHEDT
+guicontrol,enable,SRCHDDL
 return
+
 SortOverride:
 gui,submit,nohide
 guicontrolget,OVDCHK,,OVDCHK
@@ -39937,15 +40040,15 @@ if (SK_MODE = 2)
 				{
 					if (CFG2PROP = "ERROR")
 						{
-							goto, CFGITER
-						}
-					ifnotexist,%indvcp%\%CFG2PROP%
-						{
-							goto, CFGITER
-						}
-					Loop, Parse, CFG2PROP,|
-						{
-							%SHRTNM%CFGR.= A_Loopfield . "|"
+								goto, CFGITER
+							}
+						ifnotexist,%indvcp%\%CFG2PROP%
+							{
+								goto, CFGITER
+							}
+						Loop, Parse, CFG2PROP,|
+							{
+								%SHRTNM%CFGR.= A_Loopfield . "|"
 						}
 					return
 				}
@@ -43796,8 +43899,14 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;    RESET MEDNAFEN   ;;;;;;;;;;;;;;;;;;;;;
+UndoMednafenReset:
+filecopy,%emucfgloc%.bak,%emucfgloc%,1
+gosub, medguicreated
+return
+
 mednafenBUTC:
 gui,submit,nohide
+filemove,%emucfgloc%,%emucfgloc%.bak,1
 emutog= disable
 Loop, parse, MEDNAFENGUIITEMS,|
 	{
@@ -43898,6 +44007,7 @@ Loop, parse, MEDNAFENGUIITEMS,|
 	}
 ;;gosub, EmuGuiVisTog
 return
+
 MednafenInit:
 IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
 stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
@@ -59664,8 +59774,8 @@ if (EmulationStation = "ERROR")
 		guicontrol,choose,TABMENU,3
 		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
 		gosub, SALIST
-		Guicontrol,choose,EAVAIL,|5
-		guicontrol, ChooseString, EAVAIL,EmulationStation
+		Guicontrol,choose,UAVAIL,|5
+		guicontrol, ChooseString, UAVAIL,EmulationStation
 		return
 	}
 esinit=
@@ -73276,6 +73386,7 @@ guicontrol,hide,RJEDTD
 guicontrol,hide,RJEDTB
 guicontrol,,RJFNDINLST,Clear
 guicontrol,,RJINCEXCL,|All||A-Z|#
+fltlstv= 
 Loop, Parse, RJSYSDD_TDB,`n`r
 	{
 		stringsplit,rjflz,A_LoopField,|
@@ -73286,7 +73397,11 @@ Loop, Parse, RJSYSDD_TDB,`n`r
 					{
 						lvachk= ""
 					}
-				LV_Add(lvachk,rjflz1)
+				ifnotinstring,fltlstv,%rjflz1%
+					{
+						fltlstv.=rjflz1 . "|"
+						LV_Add(lvachk,rjflz1)
+					}
 			}
 	}
 return
@@ -73799,6 +73914,7 @@ iniwrite, "%RJZJP%",rj\cur.ini,%RJSYSDD%,RJZIPPEEK
 return
 RJCHKJ:
 gui,submit,nohide
+SB_SetText("display jacket processing queue.")
 return
 RJCHKK:
 gui,submit,nohide
@@ -74175,7 +74291,7 @@ sleep, 1000
 guicontrol,disable,RJADDQ
 EMUSN=
 PXSTCFG=
-guicontrol,,RJLSTYP,|Jackets+ROMs||Jackets ONLY|ROMs ONLY|All files
+guicontrol,,RJLSTYP,|Jackets+ROMs||Jackets ONLY|ROMs ONLY|All file`s
 guicontrolget,RJSYSDD,,RJSYSDD
 if (RJSYSDD = "Systems")
 	{
