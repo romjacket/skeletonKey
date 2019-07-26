@@ -6407,6 +6407,7 @@ return
 IsFolder( path ) {
 	return !!InStr( FileExist(path), "D")  ; double NOT returns 0/1
 }
+
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
@@ -6417,46 +6418,53 @@ If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &
 		if (TABMENU = ":=: MAIN :=:")
 			{
 				romlst= %A_GuiEvent%
+				acnvt=
 				Loop, Parse,romLst,`n`r
-					{
-						if (A_Index = 1)
+					{	
+						if ((A_LoopField = "")or(A_LoopField = A_Space)or(A_LoopField = A_Tab))
+							{
+								continue
+							}
+						acnvt+= 1	
+						if (acnvt = 1)
 							{
 								romf= %A_LoopField%
-							}
+							}	
 					}
-						iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
-						SB_SetText(" Loading " romf " ")
-						guicontrol,,RUNPLRAD,1
-						guicontrol,,RUNSYSDDL,|History||%plistNamz%
-						guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
-						guicontrolget,AUTOLNCH, ,AUTOLNCH
-						if (AUTOLNCH = "0")
+				iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
+				SB_SetText(" Loading " romf " ")
+				guicontrol,,RUNPLRAD,1
+				guicontrol,,RUNSYSDDL,|History||%plistNamz%
+				guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
+				guicontrolget,AUTOLNCH, ,AUTOLNCH
+				if (AUTOLNCH = "0")
+					{
+						coreselv=
+						CHOSEN= 1
+						gosub, DragonDrop
+						if (coreselv <> "")
 							{
-								coreselv=
-								CHOSEN= 1
-								gosub,DragonDrop
-								if (coreselv <> "")
-									{
-										guicontrol,,LCORE,|%coreselv%||%runlist%
-										return
-									}
-								Control, ShowDropDown, , %LCORE%, skeletonKey
-								ControlFocus, %LCORE%, skeletonKey
+								guicontrol,,LCORE,|%coreselv%||%runlist%
 								return
 							}
-						if (AUTOLNCH = 1)
+						Control, ShowDropDown, , %LCORE%, skeletonKey
+						ControlFocus, %LCORE%, skeletonKey
+						return
+					}
+
+				if (AUTOLNCH = 1)
+					{
+						CHOSEN=
+						coreselv=
+						gui,submit,nohide
+						gosub, DragonDrop
+						if (CHOSEN = 1)
 							{
-								CHOSEN=
-								coreselv=
-								gui,submit,nohide
-								gosub, DragonDrop
-								if (CHOSEN = 1)
-									{
-										Control, ShowDropDown, , ,ahk_id %RUNCORE%
-										ControlFocus, ,ahk_id %RUNCORE%
-										return
-									}
+								Control, ShowDropDown, , ,ahk_id %RUNCORE%
+								ControlFocus, ,ahk_id %RUNCORE%
+								return
 							}
+					}
 			}
 	}
 if ( (A_GuiX >= bRegionX) && (A_GuiX <= bRegionX+bRegionW) && (A_GuiY >= bRegionY) && (A_GuiY <= bRegionY+bRegionH) )
@@ -76841,7 +76849,7 @@ overDD=
 siv=
 Loop, Parse, apov,`n`r
 	{
-		if (A_LoopField = "")
+		if ((A_LoopField = "") or (A_LoopField = A_Space) or (A_loopField = A_Tab) or (A_LoopField = "`n"))
 			{
 				continue
 			}
@@ -77092,16 +77100,17 @@ if (coe <> "dll")
 		stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%%A_SPACE%,All
 		stringreplace,RunOptions,RunOptions,[ROMPATH],%A_SPACE%%rompth%%A_SPACE%,All
 		stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All
-		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
+		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,Allc`
 		stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
 		if (DDRUN = 1)
 			{
-				Gui,Destroy
+				Gui, Destroy
 			}
 		goto, LNCHAPP
 	}
-goto, SUBLNCH
+guicontrol,,LCORE,|%coreselv%||%runlist%
 return
+
 ZipOpen:
 FINR=
 ziptmp= %tstxtn%
@@ -77118,24 +77127,45 @@ splitpath,ROMZ,,,tstxtn,romname
 tstxtn= .%tstxtn%
 FINR= 1
 return
+
 OpnAssign:
 EXTID=
 ROMSYS= %sysrev%
 iniread,ari,Assignments.ini,OVERRIDES,%sysrev%
+stringreplace,ari,ari,`n,|,All
 stringreplace,ari,ari,",,All
 ;"
 runfnd= |%runlistx%|
-;;if ari is not digit
-;;	{
+if (ari <> "")
+	{
 		Loop,parse,ari,|
 			{
+				if ((A_Loopfield = "") or (A_LoopField = A_Space) or (A_LoopField = A_Tab) or (A_LoopField = "`n"))
+					{
+						continue
+					}
 				cvrv= %A_LoopField%
 				EXTID= 1
 				return
 			}
-;;	}
+	}
 ifinstring,SysLLst,%sysrev%=
 	{
+		iniread,esfe,sets\emuCfgPresets.set,%sysrev%,SUPEMU
+		Loop,%esfe%
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				racr= %A_LoopField%
+				ifinstring,runfnd,|%racr%|
+					{
+						cvrv= %racr%
+						EXTID= 1
+						return
+					}
+			}
 		iniread,esfc,sets\emuCfgPresets.set,%sysrev%,SUPCORE
 		if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
 			{
@@ -77154,23 +77184,9 @@ ifinstring,SysLLst,%sysrev%=
 							}
 					}
 			}
-		iniread,esfe,sets\emuCfgPresets.set,%sysrev%,SUPEMU
-		Loop,%esfe%
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				racr= %A_LoopField%
-				ifinstring,runfnd,|%racr%|
-					{
-						cvrv= %racr%
-						EXTID= 1
-						return
-					}
-			}
 	}
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
@@ -77187,28 +77203,28 @@ ifinstring,unknszstr,%tstxtn%
 	}
 if (tstxtn = ".gdi")
 	{
-		gosub,SEGDCOpen
+		gosub, SEGDCOpen
 		Return
 	}
 pspopen= .cso|.ciso|.jso|.psp|.prx|.pbp|
 ifinstring,pspopen,%tstxtn%
 	{
-		gosub,PSPOpen
+		gosub, PSPOpen
 		Return
 	}
 if (tstxtn = ".cia")
 	{
-		gosub,N3DSOpen
+		gosub, N3DSOpen
 		Return
 	}
 if (tstxtn = ".3ds")
 	{
-		gosub,N3DSOpen
+		gosub, N3DSOpen
 		Return
 	}
 if (tstxtn = ".wbfs")
 	{
-		gosub,NGCOpen
+		gosub, NGCOpen
 		Return
 	}
 ToSZ:
@@ -77219,24 +77235,24 @@ if (romsz < 10000)
 dsopen= .ds|.srl|.nds|.nd5
 ifinstring,dsopen,%tstxtn%
 	{
-		gosub,NDSOpen
+		gosub, NDSOpen
 		Return
 	}
 UNKSZ:
 unkszstr= .bin|.hdf|.rom|.adf|.do|.po|.2mg|.cas|.xdf|.ipf|.dsk|.tap|.88d|.d88|.2dd|.2hd|.ssd|.dsd|.fdi|
 ifinstring,unkszstr,%tstxtn%
 	{
-		gosub,UNKOpen
+		gosub, UNKOpen
 		return
 	}
 if (tstxtn = ".dup")
 	{
-		gosub,SHRPX68KOpen
+		gosub, SHRPX68KOpen
 		Return
 	}
 if (tstxtn = ".dim")
 {
-	gosub,SHRPX68KOpen
+	gosub, SHRPX68KOpen
 	return
 }
 if (tstxtn = ".nhd")
@@ -77256,70 +77272,70 @@ if (tstxtn = ".vhd")
 	}
 MDSZ:
 n64open= .pal|.usa|.u64|.v64|.z64
-ifinstring,n64open,%tstxtn%
+ifinstring, n64open,%tstxtn%
 	{
-		gosub,N64Open
+		gosub, N64Open
 		Return
 	}
 if (tstxtn = ".j64")
 	{
-		gosub,JAGOpen
+		gosub, JAGOpen
 		Return
 	}
 if (tstxtn = ".jag")
 	{
-		gosub,JAGOpen
+		gosub, JAGOpen
 		Return
 	}
 if (tstxtn = ".adf")
 	{
-		gosub,CAMIGOpen
+		gosub, CAMIGOpen
 		Return
 	}
 if (tstxtn = ".32x")
 	{
-		gosub,SG32XOpen
+		gosub, SG32XOpen
 		Return
 	}
 if (tstxtn = ".gba")
 	{
-		gosub,NGBAOpen
+		gosub, NGBAOpen
 		Return
 	}
 if (tstxtn = ".sgb")
 	{
-		gosub,NGBAOpen
+		gosub, NGBAOpen
 		Return
 	}
 if (tstxtn = ".sgx")
 	{
-		gosub,SGFXOpen
+		gosub, SGFXOpen
 		Return
 	}
 segagopen= .smd|.gen|.pco|.md
 ifinstring,segagopen,%tstxtn%
 {
-gosub,SEGAGOpen
+gosub, SEGAGOpen
 Return
 }
 if (tstxtn = ".sfc")
 	{
-		gosub,SFAMOpen
+		gosub, SFAMOpen
 		Return
 	}
 if (tstxtn = ".smc")
 	{
-		gosub,SNESOpen
+		gosub, SNESOpen
 		Return
 	}
 if (tstxtn = ".bml")
 	{
-		gosub,BSNSOpen
+		gosub, BSNSOpen
 		Return
 	}
 if (tstxtn = ".pce")
 	{
-		gosub,NECXOpen
+		gosub, NECXOpen
 		Return
 	}
 SMSZ:
@@ -78874,6 +78890,7 @@ Loop, Parse, EMPOSTW,|
 				STRTYP%A_Index%= Run
 			}
 	}
+	
 if (EMPOSTRUN <> "")
 	{
 		prrunitms=
@@ -78923,6 +78940,7 @@ if (EMPOSTRUN <> "")
 					}
 			}
 	}
+
 Loop, Parse, postruni,|
 	{
 		arin= % STRTYP%A_Index%
@@ -78936,6 +78954,7 @@ Loop, Parse, postruni,|
 			}
 	}
 return
+
 LNCH:
 gui,submit,nohide
 guicontrolget,EXTRSYS,,RUNSYSDDL
@@ -79078,6 +79097,7 @@ if (CSTCMD = 1)
 		gosub, PostOpt
 		return
 	}
+
 LaunchRA:
 LNCHCORE= -L "%libretroDirectory%\%coreselv%"
 LNCHROM= "%romf%"
