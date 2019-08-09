@@ -410,5 +410,6 @@ Display_Changer=DisplayChanger/dc.7z=dc64.exe=
 XOutput=XOutput/XOutput.7z=XOutput.exe=configs\*.ini=
 [KEYMAPPERS]
 Antimicro=Antimicro/antimicro-64.7z=antimicro.exe=
-Xpadder=Xpadder/Xpadder.7z=XPadder.exe=
+Xpadder=Xpadder/Xpadder.7z=XPadder.exe=|
+ViGEmBus=vigembus/vigembus.7z=ViGEmBusUpdater.exe=|
 Joy2Key=Joy2Key/Joy2Key.7z=Joy2Key.exe=

@@ -10366,6 +10366,11 @@ Loop, Parse,UrlIndex,`n`r
 								RunWait,%comspec% /c "%cacheloc%\Xinput_Drivers\XBox360_%ARCH%.exe" /q:a,%cacheloc%,hide
 								xtractmfp= Installed
 							}
+						if (selfnd = "vigembus")
+							{
+								RunWait,%comspec% /c "%cacheloc%\vigembus\Xinput_Drivers.exe" /exenoui /qn,%cacheloc%,hide
+								xtractmfp= Installed
+							}
 						if (selfnd = "Xpadder")
 							{
 								inisect= KEYBOARD_MAPPERS
@@ -34318,8 +34323,10 @@ if (szip = 1)
 		guicontrol,,ZIPSEEK,0
 	}
 return
+
 PlaylistAppend:
 return
+
 SvAsPlst:
 SB_SetText("Saving Playlist ... ")
 gui,submit,nohide
@@ -34336,6 +34343,7 @@ SB_SetText(" " svplst " saved")
 gosub, ClearROMPop
 gosub, ClearCurList
 return
+
 OpnPlst:
 plopen=
 popAlist=
@@ -34402,10 +34410,12 @@ existlst= %poptl%
 popPlist= %poptl%
 newplst= %poptl%
 return
+
 ExtParsed:
 gui, submit, nohide
 guicontrolget,omitxtv,,EXTPARSED
 return
+
 INCLBool:
 gui, submit, nohide
 guicontrolget, filtxtnl, ,EXTPARSED
@@ -34425,6 +34435,7 @@ if (EXCLBOOL = 1)
 	}
 gosub, FltXt
 return
+
 FltXt:
 gui,submit,nohide
 guicontrol,disable,FLTXT
@@ -34434,6 +34445,8 @@ guicontrol,disable,ROMPOP
 guicontrol,disable,PARSEALL
 guicontrol,disable,EXTPARSED
 guicontrol,disable,RECURSE
+guicontrolget,DETECTCORE,,DETECTCORE
+guicontrolget,INCLBOOL,,INCLBOOL
 guicontrolget,EXCLBOOL,,EXCLBOOL
 guicontrolget, filtxtnl, ,EXTPARSED
 guicontrolget, popfiltlst, ,ROMPOP
@@ -34446,7 +34459,7 @@ stringsplit,omitxtn,xtnprs,|
 omitxtv=
 guicontrol,,ROMPOP,|
 POPLDWN=
-if (EXCLBOOL = 1)
+if (INCLBOOL <> 1)
 	{
 		gosub, OutList
 		guicontrol,enable,RPopDl
@@ -34529,6 +34542,7 @@ guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 guicontrol,,SKSYSDISP,%RJSYSTEMS%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
+
 PopDownloads:
 gui, submit, nohide
 guicontrol,enable,RPopDl
@@ -34606,6 +34620,7 @@ if (EXCLBOOL = 1)
 		guicontrol,,EXTPARSED, |%omitxtv%
 		goto, EXFilter
 	}
+
 ExtParsing:
 listswp=
 matchinfo=
@@ -34613,30 +34628,62 @@ POPLDWN=
 EXTPARSED=
 extoutp1=
 extoutp2=
-Loop, Parse, libMatSet,`n`r
+guicontrolget,PLCORE,,PLCORE
+ifinstring,PLCORE,_libretro
 	{
-		libmlk1=
-		libmlk2=
-		StringSplit,libmlk, A_LoopField,|
-		if (libmlk2 = DWNLPOS)
+		Loop, Parse, libMatSet,`n`r
 			{
-				SplitPath,libmlk1,,,,matchinfo
-				matchinfo= %matchinfo%.info
-				Loop, Read, %raexeloc%\info\%matchinfo%
+				libmlk1=
+				libmlk2=
+				StringSplit,libmlk, A_LoopField,|
+				if (libmlk2 = DWNLPOS)
 					{
-						extoutp1=
-						extoutp2=
-						stringsplit,extoutp, A_LoopReadLine,=,%A_Space% ""
-						if (extoutp1 = "supported_extensions")
+						SplitPath,libmlk1,,,,matchinfo
+						matchinfo= %matchinfo%.info
+						Loop, Read, %raexeloc%\info\%matchinfo%
 							{
-								listswp= 1
-								StringReplace, omitxtr, extoutp2,|,`,,All
-								omitxtv:= omitxtr . "|" . "|" . omitxtv
-								guicontrol,,INCLBOOL,1
-								break
+								extoutp1=
+								extoutp2=
+								stringsplit,extoutp, A_LoopReadLine,=,%A_Space% ""
+								if (extoutp1 = "supported_extensions")
+									{
+										listswp= 1
+										StringReplace, omitxtr, extoutp2,|,`,,All
+										omitxtv:= omitxtr . "|" . "|" . omitxtv
+										guicontrol,,INCLBOOL,1
+										break
+									}
 							}
+					}							
+			}
+	goto, PIIPDXTF
+	}
+iniread,fein,sets\emuCfgPresets.set,%DWNLPOS%,RJROMXT
+
+if ((fein <> "ERROR")&&(fein <> ""))
+	{
+		stringreplace,fein,fein,.,,All
+		omitxtc= 
+		Loop,parse,fein,`,
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ifnotinstring,omitxtv,`,%A_LoopField%
+					{
+						if (omitxtc = "")
+							{
+								omitxtc.= A_LoopField
+								continue
+							}
+						omitxtc.= "," . A_LoopField
 					}
 			}
+			
+		omitxtc.= "," . omitxtv
+		omitxtv= %omitxtc%
+		stringreplace,omitxtv,omitxtv,.,,All
 	}
 if (extoutp2 = "")
 	{
@@ -34649,14 +34696,28 @@ if (extoutp2 = "")
 				}
 			}
 	}
+PIIPDXTF:
 guicontrol,,EXTPARSED, |%omitxtv%
 stringsplit,omitxtf,omitxtv,|
 stringreplace, pipxtr, omitxtf1,`,,|, All
 stringsplit,omitxtn,pipxtr,|
+stringreplace,omitxtn,omitxtn,||,|,All
+goto, faromitgn
+
 FilterTargetButton:
+if (omitxtn = "")
+	{
+		gosub, PopDownloads
+	}
+
+faromitgn:	
 ar := Object()
 Loop, %omitxtn0%
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		new= % (omitxtn%a_index%)
 		if (omitxtn%a_index% <> "")
 			{
@@ -34670,7 +34731,6 @@ Loop,parse,kef,|
 			{
 				continue
 			}
-		;;Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 		Loop,%A_LoopField%\*.*,,%RECURSE%
 			{
 				ext= %A_LoopFileExt%
@@ -34693,6 +34753,7 @@ stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 SB_SetText("")
 return
+
 PopPLpl:
 gui,submit,nohide
 guicontrol, hide, RECURTX
@@ -34766,6 +34827,7 @@ stringreplace,poptadd,poptadd,%RJSYSTEMS%\%DWNLPOZ%\,,All
 guicontrol,,ROMPOP,|%poptadd%
 gosub, EDTROM
 return
+
 EXFilter:
 listswp=
 matchinfo=

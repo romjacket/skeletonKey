@@ -7590,6 +7590,9 @@ EXENAM=antimicro.exe
 [Xinput_Drivers]
 URLPTH=Xinput_Drivers/Xbox360-[ARCH]Eng.7z
 EXENAM=Xbox360_[ARCH]Eng.exe
+[VIGEMBUS]
+URLPATH=ViGEmBus/vigembus.7z
+EXENAM=ViGEmBusUpdater.exe
 [Xpadder]
 URLPTH=Xpadder/Xpadder.7z
 EXENAM=XPadder.exe
