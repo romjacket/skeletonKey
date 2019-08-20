@@ -11,7 +11,7 @@ CURPID= %ERRORLEVEL%
 GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
-RASTABLE= 1.7.7
+RASTABLE= 1.7.8
 #Include src\tf.ahk
 #Include src\lbex.ahk
 #Include src\LVA.ahk
@@ -14203,16 +14203,17 @@ gosub, RAInit
 return
 ;{;;;;;;;;;;;;;;;;;;;;    RA UPDATE   ;;;;;;;;;;;;;;;;;;;;;
 RetroarchUpdate:
+RRetroarchUpdate:
 if (DWNCNCL= 1)
 	{
 		goto, InteruptDwn
 	}
 SB_SetText(" Downloading Retroarch Update ")
-URLFILE= %BLDBOT%/%RAUPDF%
-save= %cacheloc%\%RAUPDF%
+URLFILE= %BLDBOT%/%RAUPDT%
+save= %cacheloc%\%RAUPDT%
 saveloc= %cacheloc%
 XTRACTLOC= %raexeloc%
-updtmsg= %RAUPDF%
+updtmsg= %RAUPDT%
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;DownloadFile(URLFILE,save, DWNOV, True)
@@ -17277,6 +17278,7 @@ core_reminiscenceDDLA:
 core_vemulatorDDLA:
 core_openlaraDDLA:
 core_theodoreDDLA:
+core_squirreljmeDDLA:
 core_nekop2DDLA:
 core_quasi88DDLA:
 core_tryquakeDDLA:
@@ -17301,6 +17303,7 @@ core_pocketcdgDDLA:
 core_tyrquakeDDLA:
 core_pokeminiDDLA:
 core_MesenDDLA:
+core_MesensDDLA:
 core_ume2015DDLA:
 core_redreamDDLA:
 core_Atari800DDLA:
@@ -17309,6 +17312,7 @@ core_sameboyDDLA:
 core_vice_x64DDLA:
 core_x64DDLA:
 core_xrickDDLA:
+core_tic80DDLA:
 core_citraDDLA:
 core_yabasanshiroDDLA:
 core_citra_CanaryDDLA:
@@ -22382,6 +22386,8 @@ core_cannonballRESET:
 core_remeniscenceRESET:
 core_vemulatorRESET:
 core_MesenRESET:
+core_MesensRESET:
+core_tic80RESET:
 core_3dengineRESET:
 core_dinothawrRESET:
 core_dolphinLauncherRESET:
@@ -22400,6 +22406,7 @@ core_imageviewerRESET:
 core_crocodsRESET:
 core_lutroRESET:
 core_nxengineRESET:
+core_squirreljmeRESET:
 core_melondsRESET:
 core_meteorRESET:
 core_theodoreRESET:
@@ -67853,7 +67860,7 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 								ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 									{
 										SB_SetText("Downloading " realname " Video")
-										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i --id "%xlmb3%" --prefer-insecure --no-part ",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
+										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i --id "%xlmb3%" --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
 										FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
 										if (imgsz < 1)
 											{
