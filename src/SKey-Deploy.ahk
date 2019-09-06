@@ -2976,6 +2976,11 @@ gui,submit,nohide
 guicontrolget,vernum,,vernum
 stringsplit,vernad,vernum,.
 nven:= vernad4+1
+stringleft,vernap,vernad4,1
+if (vernap = 0)
+	{
+		nven= 0%nven%
+	}
 if (vernad4 = 99)
 	{
 		nven= 00

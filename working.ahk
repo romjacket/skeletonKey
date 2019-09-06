@@ -829,7 +829,7 @@ FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ
 JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
 UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
 XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT|EXCLBOOL|INCLBOOL|PARSEALL|EXTPARSED|FLTXT|SVASPLST
-ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
+ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESINCLF|ESROMONLY|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
 ESPLSWAP=ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESSAVEOPL|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESOPNIMGPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
 ESPLITEMS=ESPLCORE|ESBACKUP|ESSVPL|ESPLXMP|ESOPENPL|ESUSESCR|ESCPYSCR|ESDWNLPOS|ESRPOPDL|ESRPOPPL|ESRPOPROM|ESMIRSEL|ESROMROOT|ESRRTXT|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT|ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESOPNIMGPTHTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
 PGPLRI=PGBACKUP|PGSVPL|PGPLXMP|PGCPYSCR|PGUSESCR|PGRPOPDL|PGRPOPPL|PGPLCORE|PGRPOPROM|PGROMROOT|PGRRTXT|PGMIRSEL|PGDWNLPOS|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT
@@ -2183,9 +2183,9 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x2 y15 w276 h470 vCACGRP,
 Gui,Font,Norm
 Gui,Font,Bold
-Gui, Add, GroupBox, x470 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
+Gui, Add, GroupBox, x473 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,Norm
-Gui, Add, Button, x480 y40 w240 h70 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%,AUTO
+Gui, Add, Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%,AUTO
 Gui,Add,Edit, hwndEdtHndl26 x5 y2 w210 vINSFLTR gINSFLTR,
 Gui, Add, Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
 Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
@@ -2664,6 +2664,8 @@ Gui, Add, Text, x416 y401 vPLCLRTXT, Clear
 Gui, Add, Button, x367 y457 w75 h23 vPLINIT gPlaylistInit, Rebuild DB
 Gui, Add, Text, x364 y483 h15 vPLDBTXT, Playlist Database
 ;{;  EMULATIONSTATION  ;;
+Gui, Add, Radio, x516 y82 h13 vESROMONLY gESFLDRCR hidden, ROMs Only
+Gui, Add, Radio, x448 y82 h13 vESINCLF gESFLDRCR hidden checked, Folders
 Gui,Add,DropDownList, hwndDplHndl86 x451 y31 w90 vESPLCORE gESPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
 Gui, Add, CheckBox, x373 y52 h13 vESBACKUP gESBackupPl Checked hidden, Backup
 Gui,Font,Bold
@@ -18001,6 +18003,7 @@ return
 core_fbalphaDDLA:
 core_fbaneoDDLA:
 core_fbaDDLA:
+core_fbneoDDLA:
 core_fb_alphaDDLA:
 core_fbalpha2012DDLA:
 core_fb_alpha_neoDDLA:
@@ -23227,7 +23230,7 @@ core_fbalpha2012CPS2RESET:
 core_fbalpha2012CPS1RESET:
 core_fbalpha2012RESET:
 core_fbalphaRESET:
-core_fbaneoRESET:
+core_fbneoRESET:
 fbadiagnostics= disabled
 diagnostics= disabled
 fbaunibios= disabled
@@ -33869,6 +33872,8 @@ if (fenam = "EmulationStation")
 			}
 		;;;;;;;;;
 		guicontrol,%ofetog%,ESDWNLPOS
+		guicontrol,%ofetog%,ESROMONLY
+		guicontrol,%ofetog%,ESINCLF
 		guicontrol,%ofetog%,ESRPOPDL
 		guicontrol,%ofetog%,ESRPOPPL
 		guicontrol,%ofetog%,ESRPOPROM
@@ -34367,6 +34372,7 @@ FileCopy,%popAList%,tmp.lpl,1
 popBPlist= tmp.lpl
 plopen= 1
 popnum:= 1
+vlin= 
 SB_SetText(" " popPname ".lpl currently selected ")
 guicontrol,,PLOVR,1
 guicontrol,disable,PLNAMEDT
@@ -34378,38 +34384,18 @@ guicontrol,disable,OPNPLST
 guicontrol,,CURPLST,
 Loop, Read, %popBPlist%
 	{
-		if (popnum = 7)
+		stringsplit,fej,A_LoopReadLine,"
+		;"
+		vlin+= 1
+		popnin:= vlin + 2
+		if (fej2 = "path")	
 			{
-				popnum= 1
-			}
-		if (popnum = 1)
-			{
-				vinbar= %A_LoopReadLine%
-			}
-		if (popnum = 2)
-			{
-				ninbar= %A_LoopReadLine%
-			}
-		if (popnum = 3)
-			{
-				pntcore=
-				splitpath,A_LoopReadLine,pntcore
-				poptl.= vinbar . ">" . pntcore . "|"
-			}
-		if (popnum = 4)
-			{
-				synbar= %A_LoopReadLine%
-			}
-		if (popnum = 5)
-			{
-				hashbar= %A_LoopReadLine%
-			}
-		if (popnum = 6)
-			{
-				playbar= %A_LoopReadLine%
-				vividx.= vinbar . ">" . ninbar . ">" . pntcore . ">" . synbar . ">" . hashbar . ">" . playbar . "|"
-			}
-		popnum+= 1
+				stringreplace,fej4,fej4,\\,\,All
+				filereadline,nppl,%popBPlist%,%popnin%
+				stringsplit,eje,nppl,"
+				;"
+				poptl.= fej4 . ">" . eje4 . "|"
+			}			
 	}
 guicontrol,,CURPLST,|%poptl%
 guicontrol,,PLNAMEDT,|%popPname%||%systmfldrs%
@@ -52031,6 +52017,7 @@ if (Pegasus = "ERROR")
 		guicontrol,choose,TABMENU,3
 		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
 		SALIST= Frontends
+		guicontrol,enable,SALIST
 		gosub, SALIST
 		Guicontrol,choose,UAVAIL,|5
 		guicontrol, ChooseString, UAVAIL,Pegasus
@@ -55817,6 +55804,7 @@ if (RetroFE = "ERROR")
 		SB_SetText("Use the Install tab to install RetroFE.")
 		guicontrol,choose,TABMENU,3
 		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
+		guicontrol,enable,SALIST
 		SALIST= Frontends
 		gosub, SALIST
 		Guicontrol,choose,UAVAIL,|5
@@ -59850,6 +59838,7 @@ if (EmulationStation = "ERROR")
 		SB_SetText("Use the Install tab to install EmulationStation.")
 		guicontrol,choose,TABMENU,3
 		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
+		guicontrol,enable,SALIST
 		gosub, SALIST
 		Guicontrol,choose,UAVAIL,|5
 		guicontrol, ChooseString, UAVAIL,EmulationStation
@@ -60081,8 +60070,8 @@ guicontrol,,FEBUTK,>
 gui, font, %fontXmed% normal
 guicontrol,%fetog%,FECHKB
 guicontrol,enable,FECHKB
-guicontrol,move,FECHKB,x643 y424 w101 h13
-guicontrol,,FECHKB,Video-Sound
+guicontrol,move,FECHKB,x643 y424 w111 h13
+guicontrol,,FECHKB,Video-sound-on
 guicontrol,,FECHKB,%esvideosnd%
 guicontrol,%fetog%,FECHKC
 guicontrol,enable,FECHKC
@@ -60098,6 +60087,11 @@ guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Quick System Select
 guicontrol,,FECHKE,%esquickselect%
+guicontrol,%fetog%,FECHKG
+guicontrol,enable,FECHKG
+guicontrol,move,FECHKG,x514 y406 w125 h13
+guicontrol,,FECHKG,Overwrite Gamelists
+guicontrol,,FECHKG,1
 guicontrol,%fetog%,FECHKF
 guicontrol,enable,FECHKF
 guicontrol,move,FECHKF,x642 y400 w120 h23
@@ -60182,6 +60176,18 @@ guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
+
+guicontrol,%fetog%,FERAD4A
+guicontrol,enable,FERAD4A
+guicontrol,move,FERAD4A,x579 y485 w61 h13
+guicontrol,,FERAD4A,Folders
+guicontrol,%fetog%,FERAD4B
+guicontrol,enable,FERAD4B
+guicontrol,move,FERAD4B,x579 y472 w76 h13
+guicontrol,,FERAD4B, ROMs only
+guicontrol,,FERAD4A,1
+guicontrol,,FERAD4B,0
+
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x661 y241 w44 h13
@@ -60192,6 +60198,7 @@ guicontrol,enable,FERAD2B
 guicontrol,move,FERAD2B,x710 y242 w50 h13
 guicontrol,,FERAD2B, Fade
 guicontrol,,FERAD2B,%estrans2%
+	
 guicontrol,%fetog%,FESLDA
 guicontrol,+Range100-1000,FESLDA
 guicontrol,enable,FESLDA
@@ -60268,14 +60275,32 @@ guicontrol,%fetog%,FEPRGA
 guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
+curjmn= %ESHOME%\es_settings.cfg
+bepvn= <bool name="ParseGamelistOnly" value="
+;"
+beqvn= <bool name="QuickSystemSelect" value="
+;"
+beavn= <bool name="VideoAudio" value="
+;"
+bebvn= <bool name="EnableSounds" value="
+;"
+beyvn= <string name="ThemeSet" value="
+;"
+seyvn= " />
+;"
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
+
 EmulationStationFEBUTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,FEDDLD,,FEDDLD
+guicontrol,disable,FEDDLD
+guicontrol,disable,FEBUTA
 if (FEDDLD = "")
 	{
 		SB_SetText("You need select a theme!")
+		guicontrol,enable,FEDDLD
+		guicontrol,enable,FEBUTA
 		return
 	}
 esteo=
@@ -60296,6 +60321,8 @@ iniRead,URLFILE,sets\themes.set,%FEDDLD%,ESTHEME
 if (URLFILE = "ERROR")
 	{
 		SB_SetText("This theme cannot be downloaded from the skeletonKey repository")
+		guicontrol,enable,FEDDLD
+		guicontrol,enable,FEBUTA
 		return
 	}
 save= rj\ES\%FEDDLD%.7z
@@ -60307,11 +60334,15 @@ filegetsize,estsz,%save%,K
 if (estsz < 1)
 	{
 		SB_SetText("Download Failed")
+		guicontrol,enable,FEDDLD
+		guicontrol,enable,FEBUTA
 		return
 	}
 ifnotexist,%save%
 	{
 		SB_SetText("Download Failed")
+		guicontrol,enable,FEDDLD
+		guicontrol,enable,FEBUTA
 		return
 	}
 if (esteo = "")
@@ -60328,10 +60359,14 @@ ifexist, %ESHOME%\themes\%FEDDLD%
 		guicontrol,,FECBXA,|%cursysthemelist%
 	}
 SB_SetText("Current theme is " ESTHEME " ")
+guicontrol,enable,FEDDLD
+guicontrol,enable,FEBUTA
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTB:
+FECREATE= 1
+PLCREATE= 
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
 guicontrolget,FEDDLD,,FEDDLD
@@ -60377,7 +60412,12 @@ Loop, Parse, prsy,|
 		FileAppend,<command>%fd%":\%fp%\%fxe%" %arg_es%</command>`n,rj\ES\cursys.cfg
 		FileAppend,<platform>%abr_es%</platform>`n,rj\ES\cursys.cfg
 		FileAppend,<theme>%thm_es%</theme>`n,rj\ES\cursys.cfg
-		FileAppend,</system>`n,rj\ES\cursys.cfg
+		FileAppend,</system>`n,rj\ES\cursys.cfg		
+		if (FECHKG = 1)
+			{
+				SYSNAME= %dsp_es%	
+				gosub, plsavelp
+			}
 	}
 FileRead,escfg,sets\es_settings.cfg.set
 stringreplace,escfg,escfg,[THEME],%FEDDLD%,All
@@ -60527,7 +60567,7 @@ if (FERAD5A = 1)
 				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
 				IniWrite,bat,ESCfg.ini,%SLCTDSN%,ext_es
 				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
-				IniWrite,"`%ROM_RAW`%",ESCfg.ini,%SLCTDSN%,arg_es
+				IniWrite,""`%ROM_RAW`%"",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
 			}
@@ -60620,7 +60660,7 @@ if (FERAD5B = 1)
 				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
 				IniWrite,.bat,ESCfg.ini,%SLCTDSN%,ext_es
 				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
-				IniWrite,%SLCTDRW%,ESCfg.ini,%SLCTDSN%,arg_es
+				IniWrite,"%SLCTDRW%",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
 			}
@@ -60730,7 +60770,7 @@ IniWrite,%FECBXD%,ESCfg.ini,%emks%,abbreviation
 IniWrite,%FECBXB%,ESCfg.ini,%emks%,dsp_es
 IniWrite,%SLCTDEXT%,ESCfg.ini,%emks%,ext_es
 IniWrite,%SLCTDEMU%,ESCfg.ini,%emks%,emu_es
-IniWrite,%SLCTDRW%,ESCfg.ini,%emks%,arg_es
+IniWrite,"%SLCTDRW%",ESCfg.ini,%emks%,arg_es
 IniWrite,%selctsys%,ESCfg.ini,%emks%,rmp_es
 IniWrite,%FECBXA%,ESCfg.ini,%emks%,thm_es
 iniread,sysordr,EScfg.ini,ORDER,system_order
@@ -60814,6 +60854,11 @@ return
 EmulationStationFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,estheme,,FEDDLD
+if (estheme = "")
+	{
+		SB_SetText("Select a theme")
+		return
+	}
 iniwrite,%estheme%,EScfg.ini,CONFIG,theme
 cursysthemelist=
 ifexist,%ESHOME%\themes\%estheme%
@@ -60823,6 +60868,29 @@ ifexist,%ESHOME%\themes\%estheme%
 				cursysthemelist.= A_LoopFileName . "|"
 			}
 		guicontrol,,FECBXA,|%cursysthemelist%
+	}
+	else {
+		SB_SetText("Download this theme")
+		return
+	}
+fileread,feij,%curjmn%
+kivr= 
+loop,parse,feij,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kivr+=1	
+		fej2= 	
+		stringsplit,fej,A_LoopField,"
+		;"
+		if (fej2 = "ThemeSet")
+			{
+				TF_replaceline("!"curjmn,kivr,kivr,beyvn estheme seyvn)
+				SB_SetText("Theme")
+				break
+			}
 	}
 return
 EmulationStationFECBXB:
@@ -60937,6 +61005,7 @@ REZRUN=
 REZRUN:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LAUNCH ES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Run, %comspec% /c "%EmulationStation%"%REZRUN%,,hide
+sb_settext(" " emulationstation "" REZRUN "")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTJ:
@@ -61152,7 +61221,7 @@ Loop, read, %escfgtmp%
 				iniwrite, %vesfullname%,rj\es\loadsys.ini,%ESNM%,dsp_es
 				iniwrite, %vesextension%,rj\es\loadsys.ini,%ESNM%,ext_es
 				iniwrite, %vesxd%":\%vesfp%\%vesfxe%",rj\es\loadsys.ini,%ESNM%,emu_es
-				iniwrite, %vesign%%vesopt%%vesign%,rj\es\loadsys.ini,%ESNM%,arg_es
+				iniwrite, "%vesign%%vesopt%%vesign%",rj\es\loadsys.ini,%ESNM%,arg_es
 				iniwrite, %vespath%,rj\es\loadsys.ini,%ESNM%,rmp_es
 				iniwrite, %vestheme%,rj\es\loadsys.ini,%ESNM%,thm_es
 			}
@@ -61182,7 +61251,7 @@ if (sysfnd = "")
 	}
 guicontrolget,FEEDTA,,FEEDTA
 extpop= %curtxt%
-iniwrite,%FEEDTA%,EScfg.ini,%curtxt%,arg_es
+iniwrite,"%FEEDTA%",EScfg.ini,%curtxt%,arg_es
 return
 EmulationStationFEEDTB:
 if (sysfnd = "")
@@ -61428,7 +61497,12 @@ Loop,parse,ksivir,`n`r
 	}
 iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es	
 iniread,ksivi7,EScfg.ini,%curtxt%,thm_es	
-guicontrol,,FEEDTA,%ksivi5%
+stringreplace,ksivtr,ksivi5,"""",",All
+;"
+stringreplace,ksivtr,ksivi5,""",",All
+stringreplace,ksivtr,ksivi5,"",",All
+;"
+guicontrol,,FEEDTA,%ksivtr%
 guicontrol,,FEEDTB,%ksivi3%
 ifinstring,ksivi5,:
 	{
@@ -61538,6 +61612,17 @@ ifmsgbox, Yes
 			}
 	}
 return
+EmulationstationFERAD4A:
+gui,submit,nohide
+guicontrol,,ESINCLF,1	
+return
+
+EmulationstationFERAD4B:
+gui,submit,nohide
+guicontrol,,ESROMONLY,1
+return
+
+
 EmulationStationFERAD2A:
 iniwrite,slide,EScfg.ini,CONFIG,Transition
 estransition= slide
@@ -61550,24 +61635,80 @@ if (esvideosnd = 1)
 	{
 		videosnd= true
 	}
+
+fileread,feij,%curjmn%
+kivr= 
+loop,parse,feij,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kivr+=1
+		fej2= 
+		stringsplit,fej,A_LoopField,"
+		;"
+		if (fej2 = "VideoAudio")
+			{
+				TF_replaceline("!"curjmn,kivr,kivr,beavn videosnd seyvn)
+				break
+			}
+	}		
 return
 EmulationStationFECHKE:
 esquickselect= %FECHKE%
 iniwrite,%esquickselect%,EScfg.ini,CONFIG,quick_select
 esquicksystemselect= false
-if (FECHKD = 1)
-{
-esquicksystemselect= true
-}
+if (FECHKE = 1)
+	{
+		esquicksystemselect= true
+	}
+
+fileread,feij,%curjmn%
+kivr= 
+loop,parse,feij,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kivr+=1	
+		fej2= 
+		stringsplit,fej,A_LoopField,"
+		;"
+		if (fej2 = "QuickSystemSelect")
+			{
+				TF_replaceline("!"curjmn,kivr,kivr,beqvn esquicksystemselect seyvn)
+				break
+			}
+	}		
 return
 EmulationStationFECHKD:
 esgameparse= %FECHKD%
 iniwrite,%esgameparse%,EScfg.ini,CONFIG,Parse_Only
 esparseonly= false
-if (FECHKE = 1)
-{
-esparseonly= true
-}
+if (FECHKD = 1)
+	{
+		esparseonly= true
+	}
+fileread,feij,%curjmn%
+kivr= 
+loop,parse,feij,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kivr+=1	
+		fej2= 
+		stringsplit,fej,A_LoopField,"
+		;"
+		if (fej2 = "ParseGamelistOnly")
+			{
+				TF_replaceline("!"curjmn,kivr,kivr,bepvn esparseonly seyvn)
+				break
+			}
+	}	
 return
 EmulationStationFECHKF:
 esnavsnds= %FECHKF%
@@ -61577,7 +61718,30 @@ if (FECHKF = 1)
 {
 esnavigationsounds= true
 }
+kivr= 
+fileread,feij,%curjmn%
+loop,parse,feij,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		kivr+=1	
+		fej2= 
+		stringsplit,fej,A_LoopField,"
+		;"
+		if (fej2 = "EnableSounds")
+			{
+				TF_replaceline("!"curjmn,kivr,kivr,bebvn esnavigationsounds seyvn)
+				break
+			}
+	}	
 return
+
+EmulationStationFECHKG:
+gui,submit,nohide
+return
+
 EmulationStationFERAD2B:
 iniwrite,Fade,EScfg.ini,CONFIG,Transition
 estransition= Fade
@@ -61657,14 +61821,33 @@ Loop, %ESROOTFLD%\*.*
 	}
 guicontrol,,ROMPOP,|%ESROMLST%
 return
+
+ESFLDRCR:
+gui,submit,nohide
+otbo= FERAD4A
+if (ESROMONLY = 1)
+	{
+		otbo= FERAD4B
+	}
+if (FEDDLJ = "EmulationStation")
+	{
+		guicontrol,,%otbo%,1	
+	}
+return
+
 ESPOPCORE:
 gui,submit,nohide
+
 return
+
 ESBackupPl:
 gui,submit,nohide
 return
+
 ESSavePl:
 gui,submit,nohide
+FECREATE= 
+PLCREATE= 1
 SB_SetText("Creating Playlist ... ")
 SYSNAME=
 guicontrolget,SYSNAME,,ESPLXMP
@@ -61674,6 +61857,8 @@ if (SYSNAME = "")
 		return
 	}
 ;{;;;;;fold
+
+plsavelp:	
 plsave=
 if (plsave = "")
 	{
@@ -61685,23 +61870,38 @@ ifnotexist, %plstdir%
 		FileCreateDir,%plstdir%
 	}
 ;};;;;;;;;;;;
-ControlGet,curpllst, List,,,ahk_id %insel%
-existlst=
-Loop, Parse,curplLst,`n`r
+if (PLCREATE = 1)
 	{
-		if (A_LoopField <> ",")
-		{
-			taih1=
-			taih2=
-			stringsplit,taih,A_LoopField,>
-			existlst .= (A_Index == 1 ? "" : "|") . taih1
-		}
+		ControlGet,curpllst, List,,,ahk_id %insel%
+		existlst=
+		Loop, Parse,curplLst,`n`r
+			{
+				if (A_LoopField <> ",")
+				{
+					taih1=
+					taih2=
+					stringsplit,taih,A_LoopField,>
+					existlst .= (A_Index == 1 ? "" : "|") . taih1
+				}
+			}
+	}
+if (FECREATE = 1)
+	{
+		existlst=
+		Loop, %rmp_es%\*.*,0,1
+			{
+				ifinstring,ext_es,.%A_loopFileExt%
+					{
+						existlst.= (A_Index == 1 ? "" : "|") . A_LoopFileFullPath
+					}
+			}
 	}
 plmatch=
 plsep=
 plsep1=
 plsep2=
 coretitle=
+
 ESPlaylistSaving:
 guicontrol, disable, SVAPLST
 guicontrol, disable, SVPLST
@@ -61721,59 +61921,17 @@ guicontrol,disable,ESOPENPL
 guicontrol,disable,ESTHUMBSRCHBUT
 guicontrol,disable,ESMARQSRCHBUT
 guicontrol,disable,ESVIDSRCHBUT
+
 ARCDTYP=
 guicontrolget, ESPLCORE, ,ESPLCORE
-if (SYSNAME = "MAME")
+ARCDTYPS= MAME|MAME - Arcade|arcade|model2|model3|cps|cps2|cps3|neocd|naomi|atomiswave|fba|cave
+Loop,parse,ARCDTYPS,|
 	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "MAME - Aracade")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "arcade")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "model2")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "model3")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "cps3")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "cps2")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "cps")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "neogeo")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "neocd")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "naomi")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "atomiswave")
-	{
-		ARCDTYP= 1
-	}
-if (SYSNAME = "fba")
-	{
-		ARCDTYP= 1
+		if (SYSNAME = A_LoopField)
+			{
+				ARCDTYP= 1
+				break
+			}
 	}
 FileDelete,tmp.xml
 FileAppend,<gameList>`n,tmp.xml
@@ -61782,11 +61940,70 @@ if (ESCPYSCR = 1)
 		FileCreateDir, %ESHOME%\downloaded_images\%SYSNAME%
 		FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%
 	}
+curfldrlst= 
+curromnlst= 
 Loop, Parse, existlst,|
 	{
-		TOTPTH= %ESROOTFLD%\%A_LoopField%
+		TOTPTH= %A_LoopField%
+		ifnotinstring,TOTPTH,:\
+			{
+				TOTPTH= %ESROOTFLD%\%A_LoopField%
+			}
+		stringsplit,fiv,TOTPTH,:
+		ifinstring,TOTPTH,:\
+			{
+				TOTPTH= %fiv1%:%fiv2%
+			}
+			else {
+					TOTPTH= %fiv1%	
+			}
 		splitpath,TOTPTH,romn,romind,romext,romname,romdd
+		ifnotinstring,curromnlst,%romname%|
+			{
+				curromnlst.= romname . "|"
+			}
+			else {
+				if ((FECREATE = 1)&&(FERAD4B = 1)or(PLCREATE = 1)&&(ESROMONLY = 1))
+					{
+						addtildtoromn:
+						romname.= "~"
+						ifinstring,curromnlst,%romname%
+							{
+								goto, addtildtoromn
+							}
+						curromnlst.= romname . "|"							
+					}
+			}
 		imgetn= %romname%
+		avr= 
+		sysnx= 
+		Loop,parse,TOTPTH,\
+			{
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					if (A_LoopField = SYSNAME)
+						{
+							avr:= A_Index
+							continue
+						}	
+					if (avr = "")
+						{
+							continue
+						}
+					curfldrnm= %A_LoopField%
+					sysnx+=1
+			}
+		fldrcr= 
+		if (sysnx > 1)
+			{
+				ifnotinstring,curfldrlst,%romname%|
+					{
+						fldrcr= 1
+						curfldrlst.= romname . "|"
+					}
+			}
 		if (ESPLCORE = "Fuzzy-Match")
 			{
 				stringsplit,romspl,romname,([
@@ -62015,7 +62232,7 @@ Loop, Parse, existlst,|
 				break
 					}
 			}
-		pthrom= %A_LoopField%
+		pthrom= %TOTPTH%
 		if (ESVID = 1)
 			{
 				stringreplace,ROMVIDEOMATCH,ROMVIDEOMATCH,%ESVIDEOPATH%,~/.emulationstation/downloaded_videos/%SYSNAME%,All
@@ -62054,9 +62271,36 @@ Loop, Parse, existlst,|
 			{
 				pulhid= false
 			}
+		if (fldrcr = 1)
+			{
+				if ((FERAD4A = 1)&&(FECREATE = 1)or(PLCREATE = 1)&&(ESINCLF = 1))
+					{
+						FileAppend,<folder>`n,tmp.xml
+						FileAppend,<name>%romname%</name>`n,tmp.xml
+						stringreplace,pthromf,pthrom,/%romn%,,All
+						FileAppend,<path>./%pthromf%</path>`n,tmp.xml
+						FileAppend,<image>%ROMIMAGEMATCH%</image>`n,tmp.xml
+						FileAppend,<thumbnail>%ROMTHUMBNAILMATCH%</thumbnail>`n,tmp.xml
+						FileAppend,<marquee>%ROMBANMATCH%</marquee>`n,tmp.xml
+						FileAppend,<video>%ROMVIDMATCH%</video>`n,tmp.xml
+						FileAppend,<rating>%pulrate%</rating>`n,tmp.xml
+						FileAppend,<kidgame>%pulkid%</kidgame>`n,tmp.xml
+						FileAppend,<hidden>%pulhid%</hidden>`n,tmp.xml
+						FileAppend,<favorite>%pulfav%</favorite>`n,tmp.xml
+						FileAppend,<releasedate>%puldate%</releasedate>`n,tmp.xml
+						FileAppend,<developer>%puldev%</developer>`n,tmp.xml
+						FileAppend,<publisher>%pulpub%</publisher>`n,tmp.xml
+						FileAppend,<desc>%pulmeta%</desc>`n,tmp.xml
+						FileAppend,<genre>%pulgen%</genre>`n,tmp.xml
+						FileAppend,<players>%pulpl%</players>`n,tmp.xml
+						FileAppend,<playcount>%pulcnt%</playcount>`n,tmp.xml
+						FileAppend,<lastplayed>%pullast%</lastplayed>`n,tmp.xml
+						FileAppend,</folder>`n,tmp.xml
+					}
+			}		
 		FileAppend,<game>`n,tmp.xml
 		FileAppend,<name>%romname%</name>`n,tmp.xml
-		FileAppend,<path>%pthrom%</path>`n,tmp.xml
+		FileAppend,<path>./%pthrom%</path>`n,tmp.xml
 		FileAppend,<image>%ROMIMAGEMATCH%</image>`n,tmp.xml
 		FileAppend,<thumbnail>%ROMTHUMBNAILMATCH%</thumbnail>`n,tmp.xml
 		FileAppend,<marquee>%ROMBANMATCH%</marquee>`n,tmp.xml
@@ -62080,9 +62324,20 @@ if (ESBACKUP = 1)
 	{
 		FileCopy,%plstdir%\gamelist.xml,%plstdir%\%SYSNAME%_gamelist.xml.bak,1
 	}
-FileCopy,tmp.xml,%plstdir%\gamelist.xml,1
-MsgBox,1,GameList Created,Created %plstdir%`nGamelist created.
-SB_SetText(" " plstdir " gamelist created")
+plovr= 	
+if ((FECHKG = 1)&&(FECREATE = 1)or(PLCREATE = 1)&&(PlaylistAppend = 1))
+	{
+		plovr= 1
+	}
+FileCopy,tmp.xml,%plstdir%\gamelist.xml,%plovr%
+if (ERRORLEVEL = 0)
+	{	
+		if (PLCREATE = 1)
+			{
+				MsgBox,1,GameList Created,Created %plstdir%`nGamelist created.,5	
+			}
+		SB_SetText(" " plstdir " gamelist created")
+	}
 guicontrol, enable, SVAPLST
 guicontrol, enable, SVPLST
 guicontrol,enable,ESPLCORE
@@ -62105,6 +62360,7 @@ return
 EsPlaylistNames:
 gui,submit,nohide
 return
+
 EsOpenPl:
 gui,submit,nohide
 ESGAMLOTMP=
@@ -65524,7 +65780,7 @@ guicontrol,,FECHKN,Redundancy
 guicontrol,hide,FECHKN
 guicontrol,hide,FECHKO
 guicontrol,enable,FECHKO
-guicontrol,move,FECHKO,x362 y62 w69 h13
+guicontrol,move,FECHKO,x360	 y62 w69 h13
 guicontrol,,FECHKO,Scrape to
 ;};;;;;
 ;{;;;; DROPDOWNS ;;;;;;
@@ -65617,8 +65873,8 @@ guicontrol,,FERAD4B, 0
 ;{;;; TEXT ;;;;
 guicontrol,%fetog%,FETXTA
 guicontrol,enable,FETXTA
-guicontrol,move,FETXTA,x599 y5 w110 h13
-guicontrol,,FETXTA,Artwork Theme
+guicontrol,move,FETXTA,x599 y5 w140 h13
+guicontrol,,FETXTA,Global Artwork Theme
 bdset= Not Found
 ifexist,rj\netArt\%FEDDLD%\Backdrops.7z
 	{
