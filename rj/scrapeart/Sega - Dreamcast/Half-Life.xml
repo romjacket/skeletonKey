@@ -1,0 +1,17 @@
+<Game>
+	<Name>Half-Life</Name>
+	<ReleaseDate>2001-11-01T00:00:00-07:00</ReleaseDate>
+	<Plot>Deep in the bowels of the Black Mesa Federal Research Facility, a decommissioned missile base, a top-secret experiment goes terribly wrong. As aliens come through the walls and a military death squad shoots everything in sight, young research associate Gordon Freeman must scramble to stay alive. Find your way through the monster-ridden areas of Black Mesa using your wits, limited security clearance, and a variety of weapons, ranging from a crowbar and pistols to a rocket launcher and grenades. With split-screen deathmatch and its exclusive "Decay" single-player and multiplayer cooperative modes, Half-Life is an action experience like no other. Cancelled.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/ea79cd1e-6633-43ae-8c0d-ed2ffc78e471.png</banner1>
+	<boxback1>http://images.launchbox-app.com/d7ef0278-bbf9-4bc5-8cdd-6ef35b5cdffd.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d9d88410-eed8-451b-869a-1b2ac2abb905.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/8447162c-ce51-45b9-a662-10e035c0ccaf.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/3b73703c-1b14-44cd-ad7a-906685968ff7.jpg</fanart1>
+	<Rating>4</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Half-Life_(video_game)</WikipediaURL>
+	<ESRB>M - Mature</ESRB>
+	<Genre>Action; Shooter</Genre>
+	<Developer>Valve</Developer>
+	<Publisher>Sierra</Publisher>
+</game>

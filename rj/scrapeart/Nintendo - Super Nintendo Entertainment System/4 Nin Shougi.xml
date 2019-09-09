@@ -1,0 +1,16 @@
+<Game>
+	<Name>4 Nin Shougi</Name>
+	<ReleaseDate>1995-07-14T00:00:00-07:00</ReleaseDate>
+	<Plot>Yonin shōgi, (四人将棋, ‘four-person chess’), is a four-person variant of shogi (Japanese chess). It may be played with a dedicated yonin shogi set or with two sets of standard shogi pieces, and is played on a standard sized shogi board. The objective of the game is to capture your opponents’ kings as an individual or with the option of teaming up with one or two fellow players. Fast matches are common.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/09b52cd7-72ee-42ce-b89c-aeaa37c9bbc9.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/1ff78fb4-34be-410e-a9ff-366ef19d0684.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/3909e80d-dff9-496f-9aa1-73f7222eb57a.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/8305c5de-3066-4c33-905d-62e6c043cf26.jpg</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/2d010944-9662-480d-b978-3068839e3e08.jpg</snapshot4>
+	<Rating>4.5</Rating>
+	<ESRB>E10+ - Everyone 10+</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Pow</Developer>
+	<Publisher>Pow</Publisher>
+</game>

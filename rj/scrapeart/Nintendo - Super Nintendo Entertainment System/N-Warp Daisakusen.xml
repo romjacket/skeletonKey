@@ -1,0 +1,10 @@
+<Game>
+	<Name>N-Warp Daisakusen</Name>
+	<Plot>N-Warp Daisakusen is a homebrew project from Matthias "d4s" Nagler.The game is described by its creator as a "deathmatch minigame" and can accomodate up to 8 players.</Plot>
+	<nPlayers>8</nPlayers>
+	<boxart1>http://images.launchbox-app.com/9ffc00ac-60b2-44ea-b5fc-9abfe4d6899b.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/bab660b9-e6e9-4755-8295-007f77695655.png</clearlogo1>
+	<Genre>Action</Genre>
+	<Developer>dforce3000</Developer>
+	<Publisher>Piko Interactive</Publisher>
+</game>

@@ -1,0 +1,19 @@
+<Game>
+	<Name>Marble Madness - Klax</Name>
+	<ReleaseDate>2005-08-22T00:00:00-07:00</ReleaseDate>
+	<Plot>Klax - The concept is simple, but are you up to the test?? Colored tiles tumble down a conveyor belt, as you wait at the bottom. Catch them and arrange them as instructed: horizontally, vertically, diagonally - (three in a row is a "klax") - until you complete your mission and move on. As the pace quickens, you'll need fast reflexes to stay ahead of the cascading tiles and finish the many levels!  Marble Madness - A true arcade classic! Guide your marble through various courses to the goal. Avoid the marble munchers, the evil steelie marble, the acid pools, the marble-sucking vacuum, and other hazards along the way to the finish line! Mazes, ice patches, funnels, and catapults are just the beginning! Try to keep from "losing your marbles" as you race against time and the elements in this all-time, all-ages romp.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>cFl1QwjVf3E</VideoURL>
+	<1>http://images.launchbox-app.com/8ee8f949-174f-4626-84a6-87d8d5a07b19.png</1>
+	<boxback1>http://images.launchbox-app.com/d2c2cca4-90e2-4832-9836-99789c544f59.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/2e17f642-2088-4765-a121-d90cc247bfe3.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/d9389f9f-010f-402d-8674-2af8853f034f.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/64241541-2151-49df-8782-601391fbb91f.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/16dfcad6-a1db-4b37-b235-0f6e9f3a4503.png</clearlogo2>
+	<fanart1>http://images.launchbox-app.com/cf88731f-b979-4c4b-a130-779bc4285c90.jpg</fanart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Marble_Madness</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Frame Studios</Developer>
+	<Publisher>Destination Software, Inc.</Publisher>
+</game>

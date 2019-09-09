@@ -1,0 +1,16 @@
+<Game>
+	<Name>Snk's Cool Cool Toon</Name>
+	<ReleaseDate>2000-08-10T00:00:00-07:00</ReleaseDate>
+	<Plot>Cool Cool Toon (クルクルトゥーン?) is a rhythm-based music video game exclusive to the Dreamcast. It was developed and published by SNK and released in Japan only on August 10, 2000.The letters A, B, X and Y appear at the edge or in the middle of a large circle on screen. The player must use the analogue stick to move a marker to the letter and press the corresponding button on the controller at the right time. If the player misses too many letters, they will fail.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/ce158eae-c3f6-4ab5-979a-4cec2307f5da.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/bbfef1ec-a9af-4926-a025-4b9df06d7f01.png</boxart1>
+	<snapshot1>http://images.launchbox-app.com/546a2ab4-7d9a-45f0-8656-1de682a0f8bb.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/f200c406-5487-457d-9274-50eca9ffef4f.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/5aa32e19-8a78-4f09-a86e-a7a2a063e17e.jpg</snapshot3>
+	<Rating>2.75</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Music</Genre>
+	<Developer>SNK</Developer>
+	<Publisher>SNK</Publisher>
+</game>

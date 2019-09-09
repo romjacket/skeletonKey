@@ -1,0 +1,18 @@
+<Game>
+	<Name>Super Puyo Puyo 2</Name>
+	<ReleaseDate>1995-12-08T00:00:00-08:00</ReleaseDate>
+	<Plot>A falling block game in which the goal is the combine four or more blocks of the same color which then disappear. The remain blocks will fall down and can produce combos which can cause special blocks (can only be destroyed by eliminating adjunct blocks) to appear at the enemies field. This game includes a story mode, in which Arle (the main character) fights against computer enemies, a vs player mode, a four player mode (SNES only), and an endless mode (SNES only).</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/e079e851-3e69-4010-afb7-d7c7df5b3bda.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/66c7a9ef-65c0-4668-9972-47abd74d5c66.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/86305a2f-75d0-4bce-8e3f-58ed93687554.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/1be14986-59a8-4ce5-83ad-f3654ddcc455.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/8a8f2ede-cecc-40b9-a00e-5267cecb0ac1.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/e4d85c76-c25d-4efe-963e-8811dcb97576.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/ba6ba88e-25e8-4acd-8402-472424d889f3.png</snapshot4>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Puyo_Puyo_Tsu</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Compile</Developer>
+	<Publisher>Compile</Publisher>
+</game>

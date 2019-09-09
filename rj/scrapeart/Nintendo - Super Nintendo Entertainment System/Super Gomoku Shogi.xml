@@ -1,0 +1,13 @@
+<Game>
+	<Name>Super Gomoku Shogi</Name>
+	<ReleaseDate>1994-11-18T00:00:00-08:00</ReleaseDate>
+	<Plot>Super Famicom. The cart features both Shogi (Japanese chess) and gomoku (a tile game similar to Go in which the goal is to complete a line of five pieces). The game features a few options for both including the challenge level for the computer opponent and other parameters specific to either game. The game was developed and published by Nichibutsu (a.k.a. Nihon Bussan) in late 1994. Like most simulations of Japanese board games it was never localized into English.</Plot>
+	<boxart1>http://images.launchbox-app.com/72db582c-f9a7-47e5-a5f9-1de6f5c356e1.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/e869aeaf-8421-40e8-9a9a-bbb4384eef95.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/ed7d8920-d30a-4fc4-8c59-f3e6442070c7.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/4f9a7ef5-3ac4-42b0-9765-6ef790b13f7a.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/2b4846ae-8f85-4c2a-8aad-b2523394ddea.png</snapshot4>
+	<Genre>Board Game</Genre>
+	<Developer>Nihon Bussan Co., Ltd.</Developer>
+	<Publisher>Nihon Bussan Co., Ltd.</Publisher>
+</game>

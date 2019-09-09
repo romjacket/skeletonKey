@@ -1,0 +1,13 @@
+<Game>
+	<Name>Elfaria</Name>
+	<ReleaseDate>1993-01-03T00:00:00-08:00</ReleaseDate>
+	<Plot>A Rpg streamlined in a few ways compared to other games of the era. There are no experience points or money to be earned from combat; the player's party instead levels whenever an area's boss is defeated, and items like consumables and equipment need to be found on the field by exploring. The player controls heroic warrior Pyne throughout the entire game, but the rest of the party changes as Pyne travels to each elementally-themed region of the world. The developers also hired prolific manga artist Susumu Matsushita to create most of the character and enemy design in the game, as well as the lush intro movie.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/3d5ff73d-04fa-4ea3-b605-c55f93975e60.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/0ffa03df-b206-43ce-bce5-bd70880a58ee.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/99b6ec91-c220-4d80-9d55-aa6eda86fe30.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/81af9a3e-56e6-4c11-bb13-31ae6c7d94d2.png</snapshot2>
+	<Genre>Role-Playing</Genre>
+	<Developer>Red Entertainment</Developer>
+	<Publisher>Hudson</Publisher>
+</game>

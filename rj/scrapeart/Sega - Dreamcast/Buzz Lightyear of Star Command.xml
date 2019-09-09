@@ -1,0 +1,19 @@
+<Game>
+	<Name>Buzz Lightyear of Star Command</Name>
+	<ReleaseDate>2000-09-26T00:00:00-07:00</ReleaseDate>
+	<Plot>Buzz Lightyear is based on an animated movie and television series of the same name. Buzz Lightyear is an elite space ranger, who travels from planet to planet hunting down supervillians.  In this game, you control Buzz through 14 missions on eight different planets. In each mission, your goal is to race to the end of the level before the bad guy does. If you do so successfully, you face off against the villian, and hopefully capture them. In addition to capturing the villain, there are secondary objectives like collecting robot parts and getting the fastest time through the level.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/754761fc-5f43-45fc-8a2c-70d0ce2109ce.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/3c2c9465-78cf-4d03-8e25-63dc3ed0f0fc.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/d19d114c-bf25-4333-8a41-59455c022382.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/f7484709-f814-401c-b8c7-0ec35b1dd858.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/b4c76f4c-ffb5-4091-8bf9-994816f244a6.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/92e2ae0c-4f73-4ccc-abc0-02ceef92f97e.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/0e20e082-b734-4e29-9093-9f351850bdb9.jpg</snapshot3>
+	<Rating>2.75</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Buzz_Lightyear_of_Star_Command_(video_game)</WikipediaURL>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Platform</Genre>
+	<Developer>Traveller's Tales</Developer>
+	<Publisher>Activision</Publisher>
+</game>

@@ -1,0 +1,11 @@
+<Game>
+	<Name>Chrono Trigger- Crimson Echoes</Name>
+	<Plot>Chrono Trigger: Crimson Echoes is a fangame developed by the international team Kajar Laboratories as a ROM hack of Square's role-playing video game Chrono Trigger for the Super Nintendo Entertainment System. It was conceived as an unofficial installment in the Chrono series, set between the events of Chrono Trigger and its sequel Chrono Cross. The game, as a ROM hack, runs on the Chrono Trigger game engine and has gameplay similar to the original. It is based five years after the events of Chrono Trigger and features all the playable characters from the original game, who come together across different time periods to fight an enemy attempting to change the past. The plot includes elements from both official games. Crimson Echoes concludes by setting up several plot points that were used in Chrono Cross. The project was in development from 2004–09, with 98% of the game completed. The game reportedly totaled around 35 hours of play time, and had ten alternate endings. A few weeks prior to the expected released date, Square Enix sent the developers a cease-and-desist letter for knowingly violating Square Enix's intellectual property, which led to the cancellation of the project. This cancellation was widely reported in the gaming press, who were largely sympathetic to the project. Despite its cancellation, versions of the game ranging from an alpha to a release candidate have since been leaked onto the internet and can be played through to the end.</Plot>
+	<nPlayers>1</nPlayers>
+	<clearlogo1>http://images.launchbox-app.com/b11b2b16-e218-487c-8c30-066040f51838.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/ffb372e5-02bb-409d-84ea-f9f23af79c21.jpg</fanart1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Chrono_Trigger:_Crimson_Echoes</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Kajar Laboratories</Developer>
+</game>

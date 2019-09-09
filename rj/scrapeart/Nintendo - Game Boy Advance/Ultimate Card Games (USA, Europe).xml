@@ -1,0 +1,31 @@
+<Game>
+	<Name>Ultimate Card Games (USA, Europe)</Name>
+	<plot>A comprehensive collection of card games for the GBA.  Includes options for both single player and multi-player games.  On screen rules and demo modes are provided for the games.  Simple controls (ala windows-style) allow easy navigation.  Options to change background image, music, and card deck backs are included.  Also includes an option to create a custom face for your player using the built in face generator. The following games are included (by category)Casino:Poker, Black Jack, Video PokerClassic:Hearts, Spades, Euchre, Canasta, Bridge, Cribbage, Go Fish, Gin Rummy, Crazy EightsSolitaire:Klondike, FreeCell, Canfield, Pyramid, Gold, Spiderette, Baker's Dozen, Bristol, Castle, Aces Up, Baroness, Eagle Wing, Eight Off, Calculation, Betsy Ross</plot>
+	<releasedate>20/5/2004</releasedate>
+	<genre>Strategy</genre>
+	<Developer>Telegames, Inc.</Developer>
+	<rating>4.8</rating>
+	<thegamesdb_id>4130</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/gba/921703-ultimate-card-games</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/gameboy-advance/ultimate-card-games</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/ultimate-card-games/3030-12229/</giantbomb_url>
+	<boxart1>https://cdn.thegamesdb.net/images/original/boxart/front/4130-1.jpg</boxart1>
+	<boxback1>https://cdn.thegamesdb.net/images/original/boxart/back/4130-1.jpg</boxback1>
+	<snapshot1>http://www.mobygames.com/images/shots/l/161176-ultimate-card-games-game-boy-advance-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/735913-ultimate-card-games-game-boy-advance-screenshot-modifying.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/735914-ultimate-card-games-game-boy-advance-screenshot-casino-card.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/735915-ultimate-card-games-game-boy-advance-screenshot-poker.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/735916-ultimate-card-games-game-boy-advance-screenshot-blackjack.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/735917-ultimate-card-games-game-boy-advance-screenshot-video-poker.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/735918-ultimate-card-games-game-boy-advance-screenshot-classic-card.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/735919-ultimate-card-games-game-boy-advance-screenshot-hearts.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/735920-ultimate-card-games-game-boy-advance-screenshot-solitaire.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/735921-ultimate-card-games-game-boy-advance-screenshot-freecell.jpg</snapshot10>
+	<banner1>http://i.imgur.com/ywibMg3.png</banner1>
+	<Notes>Card game compilation pack from Telegames. There are nine classic card games: Hearts, Spades, Euchre, Canasta, Bridge, Cribbage, Go Fish, Gin Rummy, and Crazy Eights. There are also three casino-style games: Poker, Blackjack, and Video Poker. To cap things off, the development team included 15 different styles of solitaire games, including Klondike, FreeCell, Canfield, Pyramid, Golf, Spider, Baker's Dozen, Bristol, Castle, Aces Up, Barons, Eagle Wing, Eight Off, Calc, and Betsy Ross. If you don't know the rules to specific games, there's in-cartridge "how to play" tutorials that can be pulled up at any time. And, like Ultimate Brain Games, Ultimate Card Games features cartridge SRAM to save statistics and games in progress.</Notes>
+	<nPlayers>4</nPlayers>
+	<banner2>http://images.launchbox-app.com/b546e394-0415-4063-b704-ed0c17102f20.jpg</banner2>
+	<boxart2>http://images.launchbox-app.com/7e373705-0299-48ba-8a91-276bd106a5f3.jpg</boxart2>
+	<ESRB>E - Everyone</ESRB>
+	<Publisher>Telegames</Publisher>
+</game>

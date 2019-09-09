@@ -1,0 +1,12 @@
+<Game>
+	<Name>Yuu Yuu Hakusho</Name>
+	<ReleaseDate>1993-12-22T00:00:00-08:00</ReleaseDate>
+	<Plot>Yuu Yuu Hakusho is an Action game, developed and published by Namco, which was released in Japan in 1993.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/f4379c54-3d37-4973-97ad-76284ee052c6.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ee5e9ace-1e98-40f6-8ce9-06e78df54781.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/4de7bc25-1e5b-4bdf-b04f-6ab039617592.png</fanart1>
+	<Genre>Action</Genre>
+	<Developer>Namco</Developer>
+	<Publisher>Namco</Publisher>
+</game>

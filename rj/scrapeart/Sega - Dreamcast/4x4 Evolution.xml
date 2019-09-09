@@ -1,0 +1,12 @@
+<Game>
+	<Name>4x4 Evolution</Name>
+	<ReleaseDate>2000-10-29T00:00:00-07:00</ReleaseDate>
+	<Plot>4x4 Evolution (also known as 4x4 EVO, codenamed Metal Crush 3) is a video game developed by Terminal Reality for the Windows, Macintosh, PlayStation 2 and Dreamcast platforms. It is one of the first console games to have cross-platform online play where Dreamcast, Macintosh and PC versions of the game appear online at the same time. The game can use maps created by users to download onto a hard drive, as well as a Dreamcast VMU. All versions of the game are similar in quality and gameplay, although the online systems feature a mode to customize the players' own truck and use it online. The game is still online-capable on all systems except for PlayStation 2.</Plot>
+	<nPlayers>4</nPlayers>
+	<boxart1>http://images.launchbox-app.com/d2f9cc43-8449-45b3-8c92-d8bbda7c97e4.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/6fd16c50-d16b-4192-b1a6-4a2ab478da09.png</clearlogo1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Terminal Reality</Developer>
+	<Publisher>Gathering of Developers</Publisher>
+</game>

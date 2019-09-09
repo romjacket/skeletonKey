@@ -1,0 +1,29 @@
+<Game>
+	<Name>Chinhai (Japan)</Name>
+	<plot>Chinhai is a Miscellaneous game, developed by Pixel and published by Banpresto,which was released in Japan in 1995.</plot>
+	<releasedate>22/9/1995</releasedate>
+	<genre>Miscellaneous, Puzzle</genre>
+	<Developer>Pixel</Developer>
+	<nplayers>1</nplayers>
+	<VideoURL>PmVPHkwRBIs</VideoURL>
+	<gamefaqs_url>http://www.gamefaqs.com/snes/581905-chinhai</gamefaqs_url>
+	<boxart1>http://i.imgur.com/bKogtCp.jpg</boxart1>
+	<snapshot1>http://i.imgur.com/qiNguaf.jpg</snapshot1>
+	<snapshot2>http://i.imgur.com/Uy5spid.jpg</snapshot2>
+	<snapshot3>http://i.imgur.com/nhKNGep.jpg</snapshot3>
+	<snapshot4>http://i.imgur.com/Vclb6UG.jpg</snapshot4>
+	<snapshot5>http://i.imgur.com/9DyfBSh.jpg</snapshot5>
+	<snapshot6>http://i.imgur.com/G5T1nCU.jpg</snapshot6>
+	<snapshot7>http://i.imgur.com/NIvnK1q.jpg</snapshot7>
+	<snapshot8>http://i.imgur.com/8KxYdK1.jpg</snapshot8>
+	<snapshot9>http://i.imgur.com/uaXXHYm.jpg</snapshot9>
+	<snapshot10>http://i.imgur.com/sqEDHar.jpg</snapshot10>
+	<fanart1>http://i.imgur.com/OLuwGXu.jpg</fanart1>
+	<clearlogo1>http://i.imgur.com/tMvwp9k.png</clearlogo1>
+	<Notes>Chinhai is a puzzle game for the Super Famicom and a variant on Mahjong Solitaire, or Shanghai. Instead of pairing and removing any two tiles that match as long as one of their sides is clear, as is the case in Shanghai, the rules of Chinhai require that the two tiles can only be removed if it's possible to draw a line between the two that doesn't make a 90 degree turn more than twice. Two tiles on opposite sides of the board, for instance, can't be paired because it would take three 90 degree turns to draw a line between them. To account for this added difficulty, the game lacks the "stacks" of tiles that frequently appear in Shanghai, instead presenting a flat board of tiles. Chinhai is named for the municipality of Chinhai in China, maintaining the theme of naming mahjong solitaire variants after territories in China. Chinhai has long since been renamed Zhenhai, which is situated in the Ningpo Prefecture and now part of a much larger city. This mahjong solitaire variant is perhaps best known as Sichuan or Shisenshou, also named for a province in China.</Notes>
+	<boxart2>http://images.launchbox-app.com/7bedeaed-cdf5-4089-99a0-959ce508c815.png</boxart2>
+	<clearlogo2>http://images.launchbox-app.com/d219e2a7-2b79-463d-8702-8ded4e60f717.png</clearlogo2>
+	<snapshot11>http://images.launchbox-app.com/0962b1dd-b7ae-4a85-ae0d-8ad141945627.png</snapshot11>
+	<snapshot12>http://images.launchbox-app.com/745070a9-5e17-450f-b7b6-313b5edbe01d.png</snapshot12>
+	<Publisher>Banpresto</Publisher>
+</game>

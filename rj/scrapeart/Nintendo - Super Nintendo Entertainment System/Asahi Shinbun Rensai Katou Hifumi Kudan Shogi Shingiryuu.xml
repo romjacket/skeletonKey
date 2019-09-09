@@ -1,0 +1,15 @@
+<Game>
+	<Name>Asahi Shinbun Rensai Katou Hifumi Kudan Shogi Shingiryuu</Name>
+	<ReleaseDate>1995-09-22T00:00:00-07:00</ReleaseDate>
+	<Plot>Shōgi, also known as Japanese chess or the Generals' Game, is a two-player strategy board game in the same family as Western (international) chess, chaturanga, makruk, shatranj and xiangqi, and is the most popular of a family of chess variants native to Japan. Shōgi means general's (shō 将) board game (gi 棋). The earliest predecessor of the game, chaturanga, originated in India in the 6th century, and sometime in the 10th to 12th centuries xiangqi (Chinese chess) was brought to Japan where it spawned a number of variants. Shogi in its present form was played as early as the 16th century, while a direct ancestor without the "drop rule" was recorded from 1210 in a historical document Nichūreki, which is an edited copy of Shōchūreki and Kaichūreki from the late Heian period</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/a3bc732a-da4c-4f09-856b-12bbc4a12df5.png</boxart1>
+	<fanart1>http://images.launchbox-app.com/e3c3132b-b916-4134-96be-6fb2f63cb56b.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/6d48dec5-5d18-44fc-bb5f-d4c6e31ce43c.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/67ee2ac9-bd9b-4db0-8511-6896ecd3780b.jpg</snapshot2>
+	<Rating>3</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Puzzle; Strategy</Genre>
+	<Developer>Varie</Developer>
+	<Publisher>Varie</Publisher>
+</game>

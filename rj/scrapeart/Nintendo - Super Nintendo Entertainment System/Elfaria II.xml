@@ -1,0 +1,11 @@
+<Game>
+	<Name>Elfaria II</Name>
+	<ReleaseDate>1995-06-09T00:00:00-07:00</ReleaseDate>
+	<Plot>Elfaria II is set 100 years after the original. Pine, the hero of the original game, disappeared shortly after saving the world after venturing into a cursed forest to cleanse it of its corrupting influence. In the years since, the world has been taken over by an oppressive theocracy that supposedly acts on behalf of Pine's message. A new hero, Kiba, gets embroiled in a quest to prevent the destruction of the world. The game's combat is focused on two rows of characters: the front row can melee attack enemies while the back-row must focus on ranged attacks for damage. Combat ensues automatically, but the player can step in for certain commands like escaping from battle.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/2d277981-9991-41d7-8603-0553c67cdcf4.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/188bfa99-cdd7-4142-99ec-738f50b2f579.png</clearlogo1>
+	<Genre>Role-Playing</Genre>
+	<Developer>Red Entertainment</Developer>
+	<Publisher>Hudson</Publisher>
+</game>

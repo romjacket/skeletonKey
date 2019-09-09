@@ -1,0 +1,15 @@
+<Game>
+	<Name>Hokuto no Ken 6- Gekitou Denshouken - Haou Heno Michi</Name>
+	<ReleaseDate>1992-11-20T00:00:00-08:00</ReleaseDate>
+	<Plot>The three RPGs (Hokuto no Ken 3-5) seemed to symbolize a genre change after the first two platformers, but the series changes the genre once again in the sixth installment, which is a fighting game similar to Street Fighter II or Mortal Kombat. The background story is based on the manga/animé of the same name. The years is 199X, and the world lies in ruins. Technology can no longer be used, and the land is controlled by fighters of rivaling styles. In this game, you can choose one of the fighter characters of the series: the main hero Kenshiro, his brother and rival Raou, Nanto Seiken fighters Rei and Souther, the assassin Heart, and others. You fight one-on-one, filling an energy bar and performing various attacks and techniques. There is a free fight mode where you choose your opponent yourself, and a two-player mode.</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/9b80069c-f3d7-4b3e-9e58-e867e54dc9ed.png</1>
+	<boxback1>http://images.launchbox-app.com/58c5dc24-f779-4ed1-8653-fa7cd57e36cc.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/c263be9f-1af3-40c6-80e4-abc33a65de1c.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/56850d0d-72c9-4d07-af8d-a70753155872.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/f6abb53b-dd58-423d-adcb-c95113217261.jpg</fanart1>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Fighting</Genre>
+	<Developer>Shouei</Developer>
+	<Publisher>Toei Animation</Publisher>
+</game>

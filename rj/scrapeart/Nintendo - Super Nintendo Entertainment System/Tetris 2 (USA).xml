@@ -1,0 +1,30 @@
+<Game>
+	<Name>Tetris 2 (USA)</Name>
+	<plot>Overview:Tetris 2 is a multi-platform puzzle game sequel from TOSE and published by Nintendo in most territories. It replaces the standard "fill a line with bricks" goal with the new "connect three like colored blocks" goal, with the primary goal of removing all the marked bricks from the field. In this regard it plays very similarly to Dr. Mario. Most modes of Tetris 2 focus on destroying colored crystals with other like colored blocks to clear the board and advance to the next level. It also introduces new tetrominos that are comprised of non-connected pieces, which adds to their versatility.Tetris 2 was released on the NES, Game Boy and Super Nintendo. It is not to be confused with the earlier Tetris 2 + Bombliss, also developed by TOSE.Game Modes:Single PlayerSingle player modes in Tetris 2 consist of "Normal" and "Puzzle".Normal ModeIn Normal mode, the screen is filled with a number of colored gems (how many depends on the level). The player's goal is to either destroy all of the colored gems one by one, or, to destroy one of the flashing colored gems. When a flashing colored gem is destroyed, all gems of that color are destroyed. When all colored gems are destroyed, the level is advanced, and more gems are added to the total.At the start of the game players can choose their speed, one of four songs, and their starting level, up to 30.Puzzle ModeIn Puzzle mode, the player is given a specific block layout, and specific pieces to begin with. The goal is to find a way to destroy all colored gems with the given pieces. When all colored gems are destroyed, the player advances to the next level, with a new block layout, and new pieces to be used. Every five levels, and cartoon will be unlocked featuring the family seen throughout various parts of the game.At the start of the game, players can choose whether they way to manually drop the next pieces or if they want the pieces to drop automatically, one of four songs, and their starting level, again, up to 30.In total there are 100 levels, and a password save feature is included in the game.MultiplayerTetris 2's multiplayer has the option to play against a human opponent, or a computer controlled opponent. Regardless of which is chosen, the multiplayer game is the same.Players begin by choosing their individual speed, level, and one of four songs (when playing the CPU, the speed and level selections will always be the same). In multiplayer, a players level will determine how many colored gems they will have in their playing field; a higher level means more gems.Unlike in Normal mode, destroying a flashing gem in multiplayer will steal some water from the opponents fish tank, effectively lowering their ceiling, and restoring some height to the player's own if it has been lowered.A player wins a round by either being the first to destroy all of their colored gems, or by having their opponent go outside their water level (above their ceiling). For winning, a player will receive a fish that swims around in their tank. Multiplayer matches last until a player has won three rounds.		</plot>
+	<releasedate>20/8/1994</releasedate>
+	<genre>Puzzle</genre>
+	<Developer>Nintendo of America Inc.</Developer>
+	<nplayers>1-2 Alt</nplayers>
+	<rating>3.3</rating>
+	<ESRB>E - Everyone</ESRB>
+	<VideoURL>FNW70uT7g3E</VideoURL>
+	<thegamesdb_id>6258</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/snes/588786-tetris-2</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/snes/tetris-2</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/tetris-2/3030-12562/</giantbomb_url>
+	<boxart1>http://i.imgur.com/7UeUfSG.jpg</boxart1>
+	<boxart2>http://i.imgur.com/cZzleQX.jpg</boxart2>
+	<boxart3>http://i.imgur.com/KmDEhW1.jpg</boxart3>
+	<snapshot1>http://i.imgur.com/n8GzIml.jpg</snapshot1>
+	<snapshot2>http://i.imgur.com/p1Njjlv.jpg</snapshot2>
+	<snapshot3>http://i.imgur.com/WwFhLhZ.jpg</snapshot3>
+	<snapshot4>http://i.imgur.com/AQ1Vt7E.jpg</snapshot4>
+	<snapshot5>http://i.imgur.com/CyMVUMP.jpg</snapshot5>
+	<snapshot6>http://i.imgur.com/hdAeQDJ.jpg</snapshot6>
+	<snapshot7>http://i.imgur.com/HNz0y9e.jpg</snapshot7>
+	<snapshot8>http://i.imgur.com/XQdREca.jpg</snapshot8>
+	<snapshot9>http://i.imgur.com/eB0LqrL.png</snapshot9>
+	<snapshot10>http://i.imgur.com/YiDmCXn.png</snapshot10>
+	<banner1>http://i.imgur.com/YvnezOf.jpg</banner1>
+	<clearlogo1>http://i.imgur.com/WL9kYXV.png</clearlogo1>
+</game>

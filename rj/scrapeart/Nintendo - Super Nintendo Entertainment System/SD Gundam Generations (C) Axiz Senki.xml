@@ -1,0 +1,11 @@
+<Game>
+	<Name>SD Gundam Generations (C) Axiz Senki</Name>
+	<ReleaseDate>1996-08-23T00:00:00-07:00</ReleaseDate>
+	<Plot>A strategy game based on the First Neo-Zeon War from Mobile Suit Gundam ZZ. It uses the Sufami Turbo accessory to connect to other SD Gundam Generation games.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/5e28e132-d3c2-4d29-8d82-fe6551ec4d61.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/7bedd3b3-2e98-4902-a0b2-848f8cd85092.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/606205c0-37b8-4d63-ac00-1f0d3865815d.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/9b879822-1684-41b5-b44f-ef1c95248f5f.png</snapshot2>
+	<Genre>Strategy</Genre>
+</game>

@@ -1,0 +1,15 @@
+<Game>
+	<Name>Kunio-Kun no Dodge Ball Dayo Zenin Shuugo!</Name>
+	<ReleaseDate>1993-08-06T00:00:00-07:00</ReleaseDate>
+	<Plot>Okay, listen up! Nekketsu High Dodgeball Club has proven themselves once before on the world arena, but now, the stakes are higher! We got to go out there again and show why Nekketsu High is the greatest team in the world. Lead us to victory, Kunio!</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/0660554b-4784-47d9-8c6d-40d303eae126.png</1>
+	<boxback1>http://images.launchbox-app.com/aee44074-16d5-4d91-8e5f-03e485fc39d3.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d3c48d2b-bbca-4da6-b164-1356296acfcc.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/d8bbd182-761d-47b2-86b7-ac79911b5f6b.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/1c287e23-a17e-43ee-ab42-1c9c97dad254.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/e74e0d03-9ef4-42a3-817b-586a7662f881.png</snapshot2>
+	<Genre>Sports</Genre>
+	<Developer>Technos Japan</Developer>
+	<Publisher>Technos Japan</Publisher>
+</game>

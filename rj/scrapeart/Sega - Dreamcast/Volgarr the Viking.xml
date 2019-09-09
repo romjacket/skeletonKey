@@ -1,0 +1,12 @@
+<Game>
+	<Name>Volgarr the Viking</Name>
+	<ReleaseDate>2013</ReleaseDate>
+	<Plot>In Volgarr the Viking, the player controls the titular character, who has been charged by Odin with a quest to defeat an evil dragon. Volgarr is armed with a sword, a spear and a wooden shield at the start. Along with hitting enemies at range, the spear can also be used to create temporary platforms. Treasure chests located throughout the level will contain power-ups that will grant Volgarr new abilities and, most importantly, enable him to take more damage. In his initial state, Volgarr can sustain a single unblocked hit at the cost of his shield, and a second hit will force the player to return to the last checkpoint, either the beginning of the level or the midpoint of the level. The player has an unlimited number of chances to complete the main levels. Enemies drop coins and jewels when defeated, which the player can collect. If Volgarr is defeated, he will lose a portion of those coins. Only coins in hand when Volgarr completes a level are kept permanently. Levels can be replayed for additional coins and for faster completion times. By completing a level without losing a life, the player can obtain special key items that unlock additional bonus levels, which ultimately lead to the game's best-possible ending</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/debd8ebe-6b9b-4295-96b4-2e099ce712a1.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/ff98a97d-b943-498e-9858-7bc1ddd84a0d.png</clearlogo1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>Crazy Viking Studios</Developer>
+	<Publisher>Crazy Viking Studios</Publisher>
+</game>

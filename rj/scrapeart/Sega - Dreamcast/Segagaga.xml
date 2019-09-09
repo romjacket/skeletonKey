@@ -1,0 +1,12 @@
+<Game>
+	<Name>Segagaga</Name>
+	<ReleaseDate>2001-03-29T00:00:00-07:00</ReleaseDate>
+	<Plot>It is the year 2025. SEGA, the well-known developer and producer of consoles and video games, has been set back with financial troubles and staff lay-offs. The player has been hired as the new CEO, and his or her mission is to get SEGA back in the black. Armed with a new console, new developers, and a small but loyal fanbase, the new boss plans to do what the company has never done in the past: not only win the console wars, but achieve global domination</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/6cd6a773-3fba-418f-a502-a037a4cf1fbf.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/3352626b-649a-4fc7-98a5-05308c48d7dc.jpg</boxart1>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Role-Playing</Genre>
+	<Developer>Hitmaker</Developer>
+	<Publisher>Sega</Publisher>
+</game>

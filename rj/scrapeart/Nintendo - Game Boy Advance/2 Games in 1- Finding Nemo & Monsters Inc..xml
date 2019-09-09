@@ -1,0 +1,14 @@
+<Game>
+	<Name>2 Games in 1- Finding Nemo & Monsters Inc.</Name>
+	<ReleaseDate>2003-10-05T00:00:00-07:00</ReleaseDate>
+	<Plot>Finding Nemo: On his first day of school, Nemo disobeys his father and ventures away from the reef to touch the bottom of a boat. This enrages Marlin, and starts an argument in front of Nemo's classmates. To his father's horror, Nemo is captured by a scuba diver. Marlin tries to save Nemo but is blinded by the camera flash of another diver. The boat disappears into the distance. Monsters Inc.: Monstropolis is having a huge energy crisis and it's up to Mike and Sulley to find a cure. Help them solve the mystery by talking to friends, getting clues, collecting items, learning new tricks and using their scare and joke tactics to take care of Monstropolis' ever-present energy-crisis. Features more than 10 levels of gameplay based on movie stills.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/c5da295d-037b-4864-89ab-a87f92063eaf.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/e0f899b9-cc32-4492-8887-24513acc35d3.jpg</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/cad97b6c-143c-4200-959d-94cffeb75f2e.jpg</snapshot2>
+	<Rating>2</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Adventure</Genre>
+	<Developer>Vicarious Visions</Developer>
+	<Publisher>THQ</Publisher>
+</game>

@@ -1,0 +1,21 @@
+<Game>
+	<Name>The Lion King</Name>
+	<ReleaseDate>1994-12-08T00:00:00-08:00</ReleaseDate>
+	<Plot>You think you want to be King? Get real. You're starting life as Simba, the cub. To survive and grow into a powerful adult lion, you must perfect your savage pounce, reckless roar and master fighting with all four paws. If you survive the challenge, you'll grow into a strong, ferocious adult lion. So prepare to scrap with hyenas. Blast through an elephant graveyard. Battle an in-your-face stampede of trampling wildebeests. And you'd better quit hanging with slackers like Timon and Pumbaa, unless you want to be scarfing bugs the rest of your life! Are you sure you want to be King? Then it's time to cut loose in the deadliest one-on-one brawl ever. Defeat your evil Uncle Scar. Recapture the Pridelands. And reclaim your rightful place in the Circle of Life.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/020bd669-722e-4320-be8a-4de8a70ed3ea.png</1>
+	<boxback1>http://images.launchbox-app.com/bae50f87-6aed-41b0-a44a-aca6f4aa2aa4.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/9c225424-1848-4870-a957-fda2d191d34f.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/18f20fbe-0e99-4247-9892-574bb31d6f9d.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/770ca77a-aa3e-4867-b5b8-d4e038dcede3.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/c14e40e7-eb32-410f-b092-240e56dacd1e.jpg</fanart2>
+	<snapshot1>http://images.launchbox-app.com/180d963a-ff0f-4b01-ad8b-abdbe359e114.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/78870296-57ae-479a-b0df-6d9fc4f5a6f2.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/196bc45e-2e62-4b0b-9085-dfa76c0298fd.png</snapshot3>
+	<snapshot4>http://images.launchbox-app.com/0e247cab-ae35-4f8a-a1f3-89af20dcbe74.png</snapshot4>
+	<Rating>3.4166666666666665</Rating>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Adventure; Platform</Genre>
+	<Developer>Westwood Studios</Developer>
+	<Publisher>Virgin Interactive</Publisher>
+</game>

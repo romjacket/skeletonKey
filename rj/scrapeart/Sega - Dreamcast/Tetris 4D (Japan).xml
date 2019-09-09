@@ -1,0 +1,20 @@
+<Game>
+	<Name>Tetris 4D (Japan)</Name>
+	<plot>Tetris 4D is a fairly standard Tetris game that was released in Japan shortly after the Dreamcast launched.The game features two modes, Classic and Battle. Classic mode offers a normal solitaire Tetris game: rotate and fit falling blocks to complete lines. Five difficulty settings are available, which change the speed and piece preview settings.The sound and graphics generally follow a modern urban/industrial theme, with five techno music choices, including a variation of the classic Tetris "Karinka". The 3D backgrounds are basic but shift viewpoint as you advance in levels.The Battle mode offers two to four player multiplayer. One player starts off flagged, and blocks push up from the bottom as other players make lines. Once he makes enough lines himself the flag moves to another player. Difficulty is set independently allowing for handicaps.Unfortunately, you can't play the battle mode against the computer. There's also no VMU support for saving high scores, a rather critical omission for this type of game.</plot>
+	<releasedate>23/12/1998</releasedate>
+	<Developer>Bullet-Proof Software, Inc.</Developer>
+	<nplayers>1-4 Sim</nplayers>
+	<rating>3.4</rating>
+	<giantbomb_url>http://www.giantbomb.com/tetris-4d/3030-14834/</giantbomb_url>
+	<boxart1>http://static.giantbomb.com/uploads/scale_large/0/4647/1032721-198940_15731_front.jpg</boxart1>
+	<boxback1>http://www.mobygames.com/images/covers/l/74775-tetris-4d-dreamcast-back-cover.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/74776-tetris-4d-dreamcast-media.jpg</media>
+	<Notes>Tetris 4D (テトリス フォーディー) is a Sega Dreamcast game developed and published by Bullet Proof Software. It is an entry in the Tetris series, and was released only in Japan. Being an early Dreamcast game, Tetris 4D does not deviate much from its predecessors. There is a classic mode (which acts as a normal game of Tetris) and a "battle" mode (which allows up to four players to compete against each other). The game has an industrial/urban theme, unlike most other entries in the series which usually have a classical architecture or Russian theme. There are no AI players in the game and no VMU support for high-score saving. Both Sega Tetris and The Next Tetris: On-Line Edition (both also released for the Dreamcast) are seen as better games as a result.</Notes>
+	<boxart2>http://images.launchbox-app.com/fba10ad2-2558-446f-afe9-e37bdd4b4ac4.png</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/14c2ff13-2d99-424c-90c6-a61c4956de74.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/cfaf29b4-d1cd-44d5-8d2a-5ed4c2d9a368.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/fd80e088-4a32-46f9-b997-df462d39b2c8.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<genre>Puzzle</genre>
+	<Publisher>Bullet-Proof Software</Publisher>
+</game>

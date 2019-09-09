@@ -14269,6 +14269,7 @@ guicontrol, enable, UPDCL
 guicontrol, enable, GCUPDT
 gosub, XTRACTRA
 return
+
 ;{;;;;;;;;;; RA GET UPDATES ;;;;;;;;;
 getBBCORES:
 filedelete, coreupdt.ini
@@ -14276,10 +14277,10 @@ save= %A_ScriptDir%\coreupdt.ini
 URLFILE= %BLDBOT%/latest/.index-extended
 splitpath,save,svaf,svap
 SB_SetText(" Downloading core-list ")
-;;exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;URLDownloadToFile, %BLDBOT%/latest/.index-extended, coreupdt.ini
-RunWait,"bin\wget.exe" -t3 -w1 -O"%save%" "%URLFILE%",,hide
-SB_SetText("")
+;;RunWait,"bin\wget.exe" -t3 -w1 -O"%save%" "%URLFILE%",,hide
+SB_SetText("file saved as " save " from " URLFILE "")
 return
 
 CoreUpdtChk:
@@ -14295,6 +14296,13 @@ FileDelete, updlstcrc.ini
 if (UPDTCHKFILE = "")
 	{
 		gosub, getBBCORES
+	}
+Loop,files,coreupdt.ini
+	{
+		if (A_LoopFileSize < 2)
+			{
+				FileDelete, coreupdt.ini
+			}
 	}
 ifexist, coreupdt.ini
 	{
@@ -60177,6 +60185,41 @@ guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
 
+/*
+guicontrol,%fetog%,FERAD10A
+guicontrol,enable,FERAD10A
+guicontrol,move,FERAD10A,x530 y281 w89 h13
+guicontrol,,FERAD10A,Jacket Video
+guicontrol,%fetog%,FERAD10B
+guicontrol,enable,FERAD10B
+guicontrol,move,FERAD10B,x530 y295 w78 h13
+guicontrol,,FERAD10B, Home Video
+guicontrol,,FERAD10A,1
+guicontrol,,FERAD10B,0
+
+guicontrol,%fetog%,FERAD8A
+guicontrol,enable,FERAD8A
+guicontrol,move,FERAD8A,x530 y317 w89 h13
+guicontrol,,FERAD8A,Jacket BoxArt
+guicontrol,%fetog%,FERAD8B
+guicontrol,enable,FERAD8B
+guicontrol,move,FERAD8B,x530 y331 w78 h13
+guicontrol,,FERAD8B, Home Boxart
+guicontrol,,FERAD8A,1
+guicontrol,,FERAD8B,0
+
+guicontrol,%fetog%,FERAD7A
+guicontrol,enable,FERAD7A
+guicontrol,move,FERAD7A,x530 y353 w89 h13
+guicontrol,,FERAD7A,Jacket Logo
+guicontrol,%fetog%,FERAD7B
+guicontrol,enable,FERAD7B
+guicontrol,move,FERAD7B,x530 y367 w78 h13
+guicontrol,,FERAD7B, Home Logo
+guicontrol,,FERAD7A,1
+guicontrol,,FERAD7B,0
+*/
+
 guicontrol,%fetog%,FERAD4A
 guicontrol,enable,FERAD4A
 guicontrol,move,FERAD4A,x579 y485 w61 h13
@@ -60385,11 +60428,10 @@ Loop, Parse, prsy,|
 			}
 		sysfin=
 		sysesc= %A_loopField%
-		
 		iniread,abr_es,EScfg.ini,%sysesc%,abbreviation
 		iniread,dsp_es,EScfg.ini,%sysesc%,dsp_es
 		iniread,ext_es,EScfg.ini,%sysesc%,ext_es
-		iniread,emu_es,EScfg.ini,%sysesc%,emu_es	
+		iniread,emu_es,EScfg.ini,%sysesc%,emu_es
 		stringreplace,extn,ext_es,`,,%A_Space%,All
 		iniread,emucmd,apps.ini,EMULATORS,%emu_es%
 		ifinstring,emu_es,:
@@ -61612,6 +61654,32 @@ ifmsgbox, Yes
 			}
 	}
 return
+
+EmulationstationFERAD10A:
+gui,submit,nohide
+return
+
+EmulationstationFERAD10B:
+gui,submit,nohide
+return
+
+
+EmulationstationFERAD8A:
+gui,submit,nohide
+return
+
+EmulationstationFERAD8B:
+gui,submit,nohide
+return
+
+EmulationstationFERAD7A:
+gui,submit,nohide
+return
+
+EmulationstationFERAD7B:
+gui,submit,nohide
+return
+
 EmulationstationFERAD4A:
 gui,submit,nohide
 guicontrol,,ESINCLF,1	
@@ -61621,7 +61689,6 @@ EmulationstationFERAD4B:
 gui,submit,nohide
 guicontrol,,ESROMONLY,1
 return
-
 
 EmulationStationFERAD2A:
 iniwrite,slide,EScfg.ini,CONFIG,Transition
@@ -61888,7 +61955,7 @@ if (PLCREATE = 1)
 if (FECREATE = 1)
 	{
 		existlst=
-		Loop, %rmp_es%\*.*,0,1
+		Loop, %rmp_es%\*.*,0,%ESINCLF%
 			{
 				ifinstring,ext_es,.%A_loopFileExt%
 					{
@@ -61935,11 +62002,8 @@ Loop,parse,ARCDTYPS,|
 	}
 FileDelete,tmp.xml
 FileAppend,<gameList>`n,tmp.xml
-if (ESCPYSCR = 1)
-	{
-		FileCreateDir, %ESHOME%\downloaded_images\%SYSNAME%
-		FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%
-	}
+FileCreateDir, %ESHOME%\downloaded_images\%SYSNAME%
+FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%
 curfldrlst= 
 curromnlst= 
 Loop, Parse, existlst,|
@@ -62022,6 +62086,7 @@ Loop, Parse, existlst,|
 				ESBOXPATH= %ESHOME%\downloaded_images\%SYSNAME%
 				imgetb= %imgetn%-image
 			}
+		ESIMG= 	
 		ROMIMAGEMATCH=
 		  Loop, %ESBOXPATH%\%imgetb%.*
 			{
@@ -62035,6 +62100,40 @@ Loop, Parse, existlst,|
 					}
 				break
 			}
+		if (ESIMG = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\Folder.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+							{
+								ROMIMAGEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMIMAGEMATCH,,,newxt
+								ESIMG= 1
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
+								break
+							}
+					}
+				if ((ESIMG = "")&&(ESPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Folder.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+											{				
+												ROMIMAGEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMIMAGEMATCH,,,newxt
+												ESIMG= 1
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
+												break
+											}
+									}								
+							}					
+					}
+			}
+		
 		ESMARQ=
 		imgetm= %imgetn%
 		if (ESUSESCR = 1)
@@ -62060,6 +62159,39 @@ Loop, Parse, existlst,|
 						FileCopy, %ROMMARQUEEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%
 					}
 				break
+			}
+		if (ESMARQ = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\Logo.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+							{
+								ROMMARQUEEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMMARQUEEMATCH,,,newxt
+								ESMARQ= 1
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%
+								break
+							}
+					}
+				if ((ESMARQ = "")&&(ESPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Logo.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+											{
+												ROMMARQUEEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMMARQUEEMATCH,,,newxt
+												ESMARQ= 1
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%
+												break
+											}
+									}								
+							}					
+					}
 			}
 		ESTHU=
 		imgett= %imgetn%
@@ -62087,6 +62219,39 @@ Loop, Parse, existlst,|
 					}
 				break
 			}
+		if (ESTHU = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\.snaps\*.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
+							{
+								ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMTHUMBNAILMATCH,,,newxt
+								ESTHU= 1
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%
+								break
+							}
+					}
+				if ((ESTHU = "")&&(ESPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Logo.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
+											{
+												ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMTHUMBNAILMATCH,,,newxt
+												ESTHU= 1
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%
+												break
+											}
+									}								
+							}					
+					}
+			}
 		ESVID=
 		imgetv= %imgetn%
 		if (ESUSESCR = 1)
@@ -62113,6 +62278,39 @@ Loop, Parse, existlst,|
 						FileCopy, %ROMVIDEOEMATCH%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%
 					}
 				break
+			}
+		if (ESVID = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\backdrops\*.*
+					{
+						if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
+							{
+								ROMVIDEOEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMVIDEOEMATCH,,,newxt
+								ESVID= 1
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-video.%newxt%
+								break
+							}
+					}
+				if ((ESVID = "")&&(ESPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\*.*
+									{
+										if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
+											{
+												ROMVIDEOEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMVIDEOEMATCH,,,newxt
+												ESVID= 1
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-video.%newxt%
+												break
+											}
+									}								
+							}					
+					}
 			}
 		if (ESUSESCR = 1)
 			{
@@ -62700,6 +62898,7 @@ ESTHUMBNAILPATH= %ESTHUMBNAILPATHTMP%
 SB_SetText("Thumbnails path set to " ESTHUMBNAILPATH " ")
 guicontrol,,ESTHMBCHK,1
 return
+
 ESBOXSRCHBUT:
 gui,submit,nohide
 ESBOXPATHTMP=
@@ -62718,6 +62917,7 @@ if (ESBOXPATHTMP = "")
 			}
 		return
 	}
+
 stringright,efi,ESBOXPATHTMP,2
 stringLeft,efix,ESBOXPATHTMP,2
 if (efi = ":\")
@@ -62745,6 +62945,7 @@ if (ESRPOPPL = 1)
 		guicontrol,,ROMPOP,|%LNKLSTP%
 		return
 	}
+	
 if (ESRPOPDL = 1)
 	{
 		guicontrol,,ESPLXMP,|%ESDWNLPOS%||%ESPLPLST%%escommon%%systmfldrs%
@@ -62757,6 +62958,7 @@ if (ESRPOPDL = 1)
 		guicontrol,,ROMPOP,|%LNKLSTP%
 		return
 	}
+
 if (ESRPOPROM = 1)
 	{
 		ESFND=
@@ -64498,7 +64700,7 @@ PROCMIRROR:
 ;{;;;;;;;;;;;;;;;;;;;;   PROCESS MIRRORS  ;;;;;;;;;;;;;;;;;;;;;;;;
 if (CBOXLOC = "Scraped_Boxart")
 	{
-		febart= Assets
+		febart= %A_ScriptDir%\Assets
 	}
 if (CBOXLOC = "Retroarch_Boxart")
 	{
@@ -65667,8 +65869,8 @@ if (PYEXIST = "")
 		pylinkd= show
 	}
 guicontrol,%pylinkd%,FELNKB
-guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python is needed to download most videos.</a>
-guicontrol,move,FELNKB,x362 y110 w228 h13
+guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python not detected.</a>
+guicontrol,move,FELNKB,x435 y5 w137 h13
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
 guicontrol,move,FELNKA,x379 y208 w128 h13
@@ -65826,12 +66028,12 @@ LV_Delete()
 ;{;;; RADIOS ;;;;;
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
-guicontrol,move,FERAD5B,x558 y288 w71 h13
+guicontrol,move,FERAD5B,x289 y79 w81 h13
 guicontrol,,FERAD5B,All Systems
 guicontrol,,FERAD5B, 0
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
-guicontrol,move,FERAD5A,x558 y304 w130 h13
+guicontrol,move,FERAD5A,x289 y95 w130 h13
 guicontrol,,FERAD5A, Individual System
 guicontrol,,FERAD5A, 1
 guicontrol,%fetog%,FERAD2A
@@ -65882,7 +66084,7 @@ ifexist,rj\netArt\%FEDDLD%\Backdrops.7z
 	}
 guicontrol,%fetog%,FETXTB
 guicontrol,enable,FETXTB
-guicontrol,move,FETXTB,x435 y13 w137 h13
+guicontrol,move,FETXTB,x435 y23 w137 h13
 guicontrol,,FETXTB,Backdrop Set %bdset%
 icoset= Not Found
 ifexist,rj\netArt\%FEDDLD%\Icons.7z
@@ -65891,7 +66093,7 @@ ifexist,rj\netArt\%FEDDLD%\Icons.7z
 	}
 guicontrol,%fetog%,FETXTC
 guicontrol,enable,FETXTC
-guicontrol,move,FETXTC,x435 y27 w137 h13
+guicontrol,move,FETXTC,x435 y37 w137 h13
 guicontrol,,FETXTC,Icon Set %icoset%
 logset= Not Found
 ifexist,rj\netArt\%FEDDLD%\Logos.7z
@@ -65900,7 +66102,7 @@ ifexist,rj\netArt\%FEDDLD%\Logos.7z
 	}
 guicontrol,%fetog%,FETXTD
 guicontrol,enable,FETXTD
-guicontrol,move,FETXTD,x435 y41 w138 h13
+guicontrol,move,FETXTD,x435 y51 w138 h13
 guicontrol,,FETXTD,Logo Set %logset%
 metset= Not Found
 ifexist,rj\netArt\%FEDDLD%\MetaData.7z
@@ -65909,7 +66111,7 @@ ifexist,rj\netArt\%FEDDLD%\MetaData.7z
 	}
 guicontrol,%fetog%,FETXTE
 guicontrol,enable,FETXTE
-guicontrol,move,FETXTE,x435 y56 w147 h13
+guicontrol,move,FETXTE,x435 y66 w147 h13
 guicontrol,,FETXTE,Metadata Set %metset%
 guicontrol,%fetog%,FETXTG
 guicontrol,enable,FETXTG
@@ -67174,10 +67376,10 @@ if (supsysr = "")
 	{
 	;	return
 	}
-IMGDEST= ROM_SCRAPE\%SYSROMD%
+IMGDEST= %ASSETS%\%SYSROMD%
 if (FERAD2B = 1)
 	{
-		IMGDEST= %REALSYS%\%realname%
+		IMGDEST= %ASSETS%\%REALSYS%\%realname%
 	}
 if (get3mix = 1)
 	{
@@ -67289,20 +67491,16 @@ if (FERAD2C = 1)
 					}
 				return
 			}
-if (ASSETS = "Assets")
-	{
-		ASSETS= Assets
-	}
 RRDboxart:
 		if (getboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Boxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67314,12 +67512,12 @@ RRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Snapshots\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67336,12 +67534,12 @@ RRDbackdrop:
 							artx=fly
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Backdrops\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67358,12 +67556,12 @@ RRDlogo:
 							artx=t
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Logos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67375,12 +67573,12 @@ RRD3dboxart:
 		if (get3dboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3DBoxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67397,12 +67595,12 @@ RRDcart:
 							artx=c
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Carts\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67416,12 +67614,12 @@ RRDlabel:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Labels\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%scrsufx%
 										}
 								}
 						}
@@ -67436,12 +67634,12 @@ RRDbanner:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 								if (SCRPCPY = 1)
 									{
 										if (Jackets_scrape = 1)
 											{
-												FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
 											}
 									}
 						}
@@ -67456,12 +67654,12 @@ RRD3mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\3Mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3Mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%scrsufx%
 										}
 								}
 					}
@@ -67476,12 +67674,12 @@ RRD4mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\4mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%scrsufx%
 										}
 								}
 						}
@@ -67496,18 +67694,18 @@ RRDmarquee:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (mameget = 1)
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+							RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 						}
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67520,12 +67718,12 @@ RRDvid:
 		if (getvideo = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Video" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\Videos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67537,12 +67735,12 @@ RRDmetadata:
 		if (getmetadata = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%SYSROMD%%scrsufx%.xml" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%SYSROMD%%scrsufx%.xml" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%A_WorkingDir%\%ASSETS%\ROM_SCRAPE\%SYSROMD%\MetaData\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
 								}
 						}
 					if (FECHKN = 1)
@@ -79643,6 +79841,7 @@ Loop,Read,cores.ini
 IniRead,emuj,Assignments.ini,OVERRIDES
 runlist=
 siv=
+
 Loop,Parse,emuj,`n`r
 	{
 		if (A_LoopField = "")
@@ -79702,12 +79901,14 @@ if (runltmp = "|")
 	{
 		stringtrimleft,runlist,runlist,1
 	}
+	
 guicontrol,enable,GCUPDT
 guicontrol,, CRNTCORS, |%coreNamz%
 guicontrol,, ARCCORES, |%lastcore%||%runlist%
 guicontrol,, LCORE, |%lastcore%||%runlist%
 Guicontrol,,LNCHPRDDL,|Emulators|%addemu%|retroarch
 guicontrol,,COREDDLA,|Select_A_Core||%corelist%
+
 if (RALIST = 1)
 	{
 		guicontrol,, AVAIL, |%AVAILCORES%
@@ -79721,6 +79922,7 @@ if (EXELIST = 1)
 		guicontrol,, AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 	}
 return
+
 initall:
 ;;Progress,0,Initializing skeletonKey
 FileDelete,*.ini

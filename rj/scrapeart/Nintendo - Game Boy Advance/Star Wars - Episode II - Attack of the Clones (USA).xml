@@ -1,0 +1,31 @@
+<Game>
+	<Name>Star Wars - Episode II - Attack of the Clones (USA)</Name>
+	<plot>Ten years have past since the Battle for Naboo, but nothing has changed. Turmoil continues to surround the Galactic Republic, with a renegade Jedi named Count Dooku leading more then a thousand solar systems against the Republic. To make matter worse, former Queen and now Senator of Naboo, Padme Amidalla, is under constant threat from Bounty Hunters everywhere she goes.To help protect Padme, the Jedi Council order Obi-Wan Kenobi and Anakin Skywalker to her side. As you enter the story of Episode II: Attack of the Clones, you will control Anakin and Obi-Wan in their quest to find the Bounty Hunter(s) who wish to see the Senator dead.The game follows the script of the movie very closely, allowing you to visit the likes of Kamino, where Jango Fett hides along with the waiting Clone Army, as well as Geonosis, where the final battle takes place. You will also have an opportunity to control Mace Windu, fly a speeder in a 1st person perspective race mode, and use the force powers of the three Jedi to defeat the many enemies. Most of the game takes place in a side-scrolling, platform view, as well as some 1st person levels using the GBA's advanced semi-3D technology (as seen in Doom).Cheat: Password ModifierAll the passwords in the game are 6 digits.  The first digit is always B.  Using the following information you can modify almost any password. * The second and sixth digits of the password refer to the amount of lives available in the level. (B_XXX_) Knight: (replace spaces in password with these two digits in order respectively) 8 lives: L, T 7 lives: K, L 6 lives: J, M 5 lives: H, N 4 lives: G, B Master: 6 lives: J, M *The third and fifth digits refer to the present level. (BX_X_X) 2: D, G 3: F, H  4: G, D 5: H, F 6: K, C 7: L, S 8: M, T 9: N, Q 10: P, R 11: Q, N The fourth digit refers to the difficulty level (NOTE: Each difficulty has it's own set of digits for modifying lives) (BXX_XX) Padawan: B  Knight: G Master: L *Example:  If I wanted to play the Arena Battle (Level 9) on Master Difficulty, with 6 lives, I would construct this password. BJQLNR</plot>
+	<releasedate>30/5/2002</releasedate>
+	<genre>Action</genre>
+	<Developer>THQ Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>2.7</rating>
+	<ESRB>E - Everyone</ESRB>
+	<thegamesdb_id>3712</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/gba/553235-star-wars-episode-ii-attack-of-the-clones</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/gameboy-advance/star-wars-episode-ii-attack-of-the-clones</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/star-wars-episode-ii-attack-of-the-clones/3030-18331/</giantbomb_url>
+	<boxart1>https://cdn.thegamesdb.net/images/original/boxart/front/3712-1.jpg</boxart1>
+	<boxback1>https://cdn.thegamesdb.net/images/original/boxart/back/3712-1.jpg</boxback1>
+	<snapshot1>http://www.mobygames.com/images/shots/l/122797-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/122795-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/122796-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/607096-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/607097-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/607098-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/607099-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/607100-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/607101-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/607102-star-wars-episode-ii-attack-of-the-clones-game-boy-advance.jpg</snapshot10>
+	<fanart1>https://cdn.thegamesdb.net/images/original/fanart/3712-1.jpg</fanart1>
+	<fanart2>https://cdn.thegamesdb.net/images/original/fanart/3712-2.jpg</fanart2>
+	<fanart3>https://cdn.thegamesdb.net/images/original/fanart/3712-3.jpg</fanart3>
+	<fanart4>https://cdn.thegamesdb.net/images/original/fanart/3712-4.jpg</fanart4>
+	<banner1>https://cdn.thegamesdb.net/banners/graphical/3712-g.jpg</banner1>
+</game>

@@ -1,0 +1,23 @@
+<Game>
+	<Name>Star Wars- Episode I - Jedi Power Battles</Name>
+	<ReleaseDate>2000-10-18T00:00:00-07:00</ReleaseDate>
+	<Plot>Choose your jedi (including Qui-Gon Jinn, Obi-Wan Kenobi, Mace Windu, Plo Koon and Adi Gallia) and fight the forces of the Trade Federation through the planet Naboo, facing plenty of droids and Darth Maul himself.</Plot>
+	<nPlayers>2</nPlayers>
+	<VideoURL>0ONy5Wb7nzg</VideoURL>
+	<1>http://images.launchbox-app.com/e521aa7d-aac4-4f58-82e0-eb94aa568f3e.png</1>
+	<boxback1>http://images.launchbox-app.com/6c9158ae-125f-4637-b85e-362e6c102063.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/1086f499-98bd-4acf-81df-0924d03bdb4d.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/ca64c689-cc86-4a16-bbd0-47613b36961d.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/4c702884-4934-4df2-a191-b53dbc33127d.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/10e3116a-f715-48fd-b92b-434a3304f948.png</clearlogo1>
+	<media1>http://images.launchbox-app.com/2ffc9210-9847-4d92-b5b8-f958a8c8faa1.png</media1>
+	<media2>http://images.launchbox-app.com/2060102d-3ab5-466d-ab78-fcfdb267436c.png</media2>
+	<snapshot1>http://images.launchbox-app.com/204246ef-c7d7-4841-b5a8-e4b407431808.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/b2f0303c-357c-4b95-a967-abd2dbd6a0c1.png</snapshot2>
+	<Rating>3.625</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/Star_Wars_Episode_I:_Jedi_Power_Battles</WikipediaURL>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Action; Platform</Genre>
+	<Developer>LucasArts</Developer>
+	<Publisher>LucasArts</Publisher>
+</game>

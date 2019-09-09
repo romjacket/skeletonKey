@@ -1,0 +1,29 @@
+<Game>
+	<Name>Keeper (Japan)</Name>
+	<plot>Overview:Keeper is a top-down action puzzle game from Success (adapted for the Super Famicom by Fupac) that features a little forest creature (which resembles those in the movie My Neighbor Totoro) pushing colorful blocks around a grid to clear them.Keeper was originally released on the Japanese home computer Sharp X68000 in 1993 by Success and ASCII Corporation. It saw a Super Famicom port the year after, which was developed by Fupac and published by Datam Polystar. Finally, the game saw a PS1 rerelease in 2002 by Success and Fupac. The Super Famicom version was considered for a US localization (with the name CyberSlider and a complete graphical overhaul) which was ultimately canceled.Gameplay:The goal is keep clearing blocks as they warp in, matching three or more blocks of the same color and/or symbol. Matching three blocks of the same symbol and color provides a much larger bonus to the player's score, and is the key to reaching the higher score ranks. The player character can hop on top of blocks to push those adjacent out of the way. The protagonist can push any number of blocks in a row at once, as long as there is a space behind. The outer border cannot hold blocks, but the player can use it to maneuver around the playing field easier.Eventually, the screen will fill with blocks and after a brief window to ensure no additional moves can be made, the game is over. The player is then rated based on their total score and number of cleared blocks, and given a rank. (Points are earned for every block removal, with bonuses for combos and same color/symbol matches.) 	</plot>
+	<releasedate>15/7/1994</releasedate>
+	<genre>Action, Strategy</genre>
+	<Developer>Datam Polystar</Developer>
+	<nplayers>1-2 Sim</nplayers>
+	<thegamesdb_id>24813</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/snes/571092-keeper</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/snes/keeper</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/keeper/3030-28247/</giantbomb_url>
+	<boxart1>http://i.imgur.com/JQ299xZ.jpg</boxart1>
+	<boxart2>http://i.imgur.com/TBURyWV.jpg</boxart2>
+	<snapshot1>http://i.imgur.com/VD31NuC.png</snapshot1>
+	<snapshot2>http://i.imgur.com/AqYVH21.png</snapshot2>
+	<snapshot3>http://i.imgur.com/YWYCf2k.png</snapshot3>
+	<snapshot4>http://i.imgur.com/eRXupw0.png</snapshot4>
+	<snapshot5>http://i.imgur.com/H3MIhhJ.jpg</snapshot5>
+	<snapshot6>http://i.imgur.com/KxwKDnf.jpg</snapshot6>
+	<snapshot7>http://i.imgur.com/DGRmIf6.jpg</snapshot7>
+	<snapshot8>http://i.imgur.com/cUWrGao.jpg</snapshot8>
+	<snapshot9>http://i.imgur.com/gSolHPd.jpg</snapshot9>
+	<snapshot10>http://i.imgur.com/11HNIv5.jpg</snapshot10>
+	<clearlogo1>http://i.imgur.com/Wdib9fa.png</clearlogo1>
+	<Notes>Keeper is a cute action-puzzle game. A five-by-five grid fills up with colored blocks with different icons on them. Pikuru and Kintoto, the player characters, can move freely about the grid, climbing over the blocks, and pushing or pulling them in any direction where there is room. Line up three or more blocks of either the same color or the same symbol and they will disappear. If the entire grid fills up, the game ends. The game features a single-player mode and two-player battle and cooperative modes.</Notes>
+	<boxart3>http://images.launchbox-app.com/2a5e84f0-1a13-4456-bad7-229c492bfd62.jpg</boxart3>
+	<clearlogo2>http://images.launchbox-app.com/e01e51ae-b6e5-474b-8061-8d5faa27101a.png</clearlogo2>
+	<Publisher>Datam Polystar</Publisher>
+</game>

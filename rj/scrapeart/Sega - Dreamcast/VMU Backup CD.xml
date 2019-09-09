@@ -1,0 +1,14 @@
+<Game>
+	<Name>VMU Backup CD</Name>
+	<ReleaseDate>2005-08-12T00:00:00-07:00</ReleaseDate>
+	<Plot>A great compilation of over 3200 VMU saves and minigames for your Dreamcast, with a neat app for browsing and transfering from CD to VMU. New version with more saves, minigames, and a built-in VMU emulator to play minigames on your TV.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/979aa877-56d2-4d5d-8b70-bcf1df36c2ea.jpg</boxart1>
+	<fanart1>http://images.launchbox-app.com/d6240425-0f11-4e37-837b-1b8f2456d2bd.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/1d2d1560-e223-463f-aee2-e67dcda051c6.jpg</snapshot1>
+	<Rating>2.75</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Strategy</Genre>
+	<Developer>El Bucanero</Developer>
+	<Publisher>El Bucanero</Publisher>
+</game>

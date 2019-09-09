@@ -1,0 +1,22 @@
+<Game>
+	<Name>Metropolis Street Racer</Name>
+	<ReleaseDate>2001-01-17T00:00:00-08:00</ReleaseDate>
+	<Plot>Gameplay in MSR is centred around the single-player mode, with tracks and cars in the multiplayer mode being unlocked at the same time as in the single-player game. The premise is that, as a street racer, the player must impress other drivers with quick but stylish driving in a series of challenges. These challenges are in sets of ten (called Chapters - there are 25 in total), with completion of all challenges opening the next chapter (assuming the player has enough Kudos, see below) and unlocking a new car. Each challenge is on a different track, and unlocking a challenge unlocks that track in the time-attack and multiplayer modes.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/51ccf963-dac7-4625-ae7f-35d22a1c2159.jpg</boxback1>
+	<boxback2>http://images.launchbox-app.com/5ac4c9dd-7871-4507-ac30-b9e6dbcfac16.jpg</boxback2>
+	<boxart1>http://images.launchbox-app.com/4abbaa00-337d-4101-b657-00cd60a1eb60.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/2a33e8bd-310e-4008-8769-7f42875e22a0.jpg</boxart2>
+	<boxart3>http://images.launchbox-app.com/1bfc1dd6-8fe1-4d4b-9caa-2d58f63776dc.jpg</boxart3>
+	<clearlogo1>http://images.launchbox-app.com/a3dcb45c-2311-4edf-b0ab-3a3bfd47ea4d.png</clearlogo1>
+	<clearlogo2>http://images.launchbox-app.com/4b39902a-0904-4858-919a-26944ec1e84d.png</clearlogo2>
+	<fanart1>http://images.launchbox-app.com/8d187c9c-d0a3-4b16-b202-7b949a54761b.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/0ca5a875-d081-46c7-bfee-48579cfa3a29.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/6b4db4d8-c052-4b19-880e-4c4921c2630e.jpg</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/3a40172b-16e2-43e5-9a9b-073bad73aada.jpg</snapshot3>
+	<Rating>4</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Bizarre Creations</Developer>
+	<Publisher>Sega</Publisher>
+</game>

@@ -1,0 +1,23 @@
+<Game>
+	<Name>The Firemen</Name>
+	<ReleaseDate>1994-09-09T00:00:00-07:00</ReleaseDate>
+	<Plot>This fire is alive - and it's racing straight towards you! A fire has broken out in a high-tech chemical factory, where a highly explosive chemical, MDL, is being developed. It's up to you and your fire-fighting team to save the people trapped in the building, and stop the fire from reaching the MDL. Because if it does, the whole building is going to blow...</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/98ae1f59-1fbc-4482-b8b1-cf638d907f50.png</1>
+	<boxback1>http://images.launchbox-app.com/15fc98d4-1f1c-4bc9-8f59-d1c73b0b7402.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/bb99e67b-0d57-454e-b55e-6d72003eda3d.png</boxart1>
+	<boxart2>http://images.launchbox-app.com/cb73f011-9091-4bf0-b038-1f8213e24585.png</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/89786d95-b7b3-4d1a-8584-4cee5d61196b.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/fcedd941-b14b-4771-8d82-8bbc4ebf6a15.png</fanart1>
+	<fanart2>http://images.launchbox-app.com/934efd2f-1069-479a-8d3a-042f294f077c.png</fanart2>
+	<fanart3>http://images.launchbox-app.com/5607f5a3-e3b1-4f7f-abd2-0ab5866ba3bd.jpg</fanart3>
+	<snapshot1>http://images.launchbox-app.com/f29fd2c6-51b5-42a5-90fa-0dbee4bf60c8.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/f84239b1-863c-4ab6-a150-671a7ce8dc65.png</snapshot2>
+	<snapshot3>http://images.launchbox-app.com/792b5b00-a190-48ee-a1db-94795a08f87e.png</snapshot3>
+	<Rating>3.5</Rating>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Firemen</WikipediaURL>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Action; Shooter</Genre>
+	<Developer>Human Entertainment</Developer>
+	<Publisher>Human Entertainment</Publisher>
+</game>

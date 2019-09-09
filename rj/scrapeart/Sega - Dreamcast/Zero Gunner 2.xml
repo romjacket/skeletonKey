@@ -1,0 +1,13 @@
+<Game>
+	<Name>Zero Gunner 2</Name>
+	<ReleaseDate>2001-05-15T00:00:00-07:00</ReleaseDate>
+	<Plot>In the near future, scientists working for the powerful Asian conglomerate known as Igem have discovered a new energy source. Refusing to share their technique with the rest of the world, Igem eventually developed a weather control machine named ONI, which they intend to use for the purpose of global domination. A squadron of ace helicopter pilots, called Zero Gunner, is assembled to destroy ONI - but Igem fights back with everything they've got... Zero Gunner 2 is a top-down shooter. All backdrops and vehicles in this game are modelled in 3D, though the gameplay mostly follows the conventions of 2D shooters. Since your craft is a helicopter, a "target and spin" feature has been added, whereby you can both rotate your craft to attack an enemy more efficiently, or alternatively lock on a particular point in space and rotate around it while still firing. These actions are not automatically executed, and are controlled by the player; in order to succeed, mastering this feature is imperative. The usual power-ups and boss enemy battles are included in the game, along with a selection of helicopters to choose from.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/fd1b489e-6f2c-48cc-b952-8e6cb4b959fa.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/55056711-fc97-4749-b902-133183317c60.jpg</boxart1>
+	<Rating>3.1666666666666665</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Shooter</Genre>
+	<Developer>Psikyo</Developer>
+	<Publisher>Psikyo</Publisher>
+</game>

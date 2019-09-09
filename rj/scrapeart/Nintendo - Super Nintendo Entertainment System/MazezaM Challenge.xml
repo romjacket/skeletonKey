@@ -1,0 +1,14 @@
+<Game>
+	<Name>MazezaM Challenge</Name>
+	<ReleaseDate>2013</ReleaseDate>
+	<Plot>The main goal of the game is help the character pass through different stages that are filled with obstacles. The player has to be very careful while moving the obstacles to not close down his path, because if he does, he would need to restart the stage with the cost of a life. The game gives the option to write a password and advanced to the last stage you play. The game has over 50 Stage levels and each level is harder than the last one.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxart1>http://images.launchbox-app.com/e69e9b15-fd5a-4d30-8f31-a842c7b9157f.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/7db312bf-2737-4444-8ae0-07483e1b6394.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/92334ab3-2af6-443b-ab04-e25608e06002.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/ed6f0825-75d1-4194-b998-4e32258d8b5f.png</snapshot2>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Alekmaul</Developer>
+	<Publisher>Piko Interactive</Publisher>
+</game>

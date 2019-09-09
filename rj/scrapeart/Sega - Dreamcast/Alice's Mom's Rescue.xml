@@ -1,0 +1,13 @@
+<Game>
+	<Name>Alice's Mom's Rescue</Name>
+	<ReleaseDate>2015-02-10T00:00:00-08:00</ReleaseDate>
+	<Plot>Alice's Mom's Rescue is a puzzle platformer designed with old consoles in mind. You play as Alice, a girl who has to save her mother, abducted by a giant raven. As a white rabbit claims it knows the location of the raven's nest you decide to follow it... The game features three different worlds with several levels each. Your goal is to reach the exit of the level while avoiding enemy creatures (which can't be killed, and will reduce Alice's hearts — the game's life meter — by one on each contact) or harsh environments (spikes, water or lava, all instantly fatal). In the whole game you deal with locked gates and have to find the matching keys; later worlds will introduce falling platforms that disappear, levers to push in order to open the exit and movable crates that can help Alice reach certain areas. There are two types of mushrooms: one shrinks Alice, the other returns her to the normal size. Mini-Alice can access narrow passageways, but she lacks the force to push crates and her jumps are reduced in height and length. There is no game over, the current level is played from the beginning in case of failure; when starting a new game, it is possible to play from the last stage you previously reached.</Plot>
+	<nPlayers>1</nPlayers>
+	<VideoURL>46QdZmUs6fE</VideoURL>
+	<boxart1>http://images.launchbox-app.com/a9db74bd-4036-4cea-b1b0-a0c17bfddc6e.jpg</boxart1>
+	<snapshot1>http://images.launchbox-app.com/a0cecc59-b974-45f0-a3a4-34e13ce93b0b.jpg</snapshot1>
+	<ESRB>RP - Rating Pending</ESRB>
+	<Genre>Action</Genre>
+	<Developer>Orion_</Developer>
+	<Publisher>HUCAST.net</Publisher>
+</game>

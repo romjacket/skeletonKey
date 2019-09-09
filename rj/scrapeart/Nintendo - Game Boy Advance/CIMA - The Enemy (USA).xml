@@ -1,0 +1,34 @@
+<Game>
+	<Name>CIMA - The Enemy (USA)</Name>
+	<plot>The CIMA aliens feed on humankind hopes and dreams. They build elaborate mazes and trap people inside them as a way of producing their food. A force called "Gate Guardians" was created to protect the population from this menace. Three Guardians were on a train delivering settlers to a distant station, when suddenly a portal for another dimension appeared and transported everyone to a strange moon-like place. The Guardians must find the way home and bring back safely every passenger.CIMA: The Enemy is a RPG with strategic elements. Although labeled a RPG, the game doesn't have the usual trappings of the genre: there is no levelling up, nor any form of currency or shops to buy equipment. Instead, the game is focused on the management of a huge party of characters (16 by the end of the game). The main objective is to guide these civilians on mazes, using their unique abilities to overcome obstacles and defeat enemies. Each character has a special trait that can be used to the player's advantage (a medic that concots health potions, a blacksmith that upgrades armor and weapons, etc).Pressing the R button brings up a cross with the party portraits at each point and a multicolor cross on the middle. The characters can be individually guided by selecting their portraits or moved in groups by selecting the multicolor cross. Three way-points can be set for easier manouvering (almost a necessity, the characters have a tendency to get stuck on corners and walls). The groups to be moved can be selected by hitting the L button (a cross with numbered tents at each point appears).One crucial gameplay aspect is the amount of trust the party members have on their Guardians. Each character has a gauge that shows the amount of trust they have. This number increases and decreases according to actions within the game. If a character is hurt his/her trust decreases, and a red heart with an arrow pointing downwards appears over his/her head. Likewise, if a character sees a guardian slaying a monster the opposite effect happens, and a green heart with an upwards arrow appears over his/her head. Trust is important because the characters only cooperate with the Guardians when they have the right amount of it.Using the START button brings up a cross with the following functions:? The south point has a wrench icon. It accesses the game options menu that can save the game (at any time), quit it or change the text speed.? The north point has a face with a speech ballon icon. It is the dialogue screen, where the characters speak about the situation and how they are feeling.? The middle of the cross has a sword and a potion icon. It is the inventory screen, where potions and other items can be equipped on a cross. The main character's inventory cross can be accessed in-game by pressing the A button. The other characters use items automatically when needed (they don't equip them automatically, though).? The east point has a stylized file of people icon. This is the group screen, where characters can be organized in groups for easier management and manouvering.? The west point has a stylized body and heart icon. It is the statistics screen, where the player can check what weapons, stats and armor each character has.The top-left of the main game screen shows the health points bar of the main character. Below that occasionally is shown a health bar of any near party member being attacked. When a party character is about to expire, a jewel is displayed besides the main character's health bar, and an alarm sound is played. Death of any party member ends the game instantaneously.</plot>
+	<releasedate>18/11/2003</releasedate>
+	<genre>RPG, Strategy</genre>
+	<Developer>Natsume, Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>5.0</rating>
+	<ESRB>E - Everyone</ESRB>
+	<thegamesdb_id>3354</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/gba/915387-cima-the-enemy</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/gameboy-advance/cima-the-enemy</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/cima-the-enemy/3030-174/</giantbomb_url>
+	<boxart1>https://cdn.thegamesdb.net/images/original/boxart/front/3354-1.jpg</boxart1>
+	<boxback1>https://cdn.thegamesdb.net/images/original/boxart/back/3354-1.jpg</boxback1>
+	<media>http://www.mobygames.com/images/covers/l/210378-cima-the-enemy-game-boy-advance-media.jpg</media>
+	<snapshot1>http://www.mobygames.com/images/shots/l/226960-cima-the-enemy-game-boy-advance-screenshot-title-screen.jpg</snapshot1>
+	<snapshot2>http://www.mobygames.com/images/shots/l/226961-cima-the-enemy-game-boy-advance-screenshot-main-character.jpg</snapshot2>
+	<snapshot3>http://www.mobygames.com/images/shots/l/226962-cima-the-enemy-game-boy-advance-screenshot-intro.jpg</snapshot3>
+	<snapshot4>http://www.mobygames.com/images/shots/l/226963-cima-the-enemy-game-boy-advance-screenshot-dialogue.jpg</snapshot4>
+	<snapshot5>http://www.mobygames.com/images/shots/l/226964-cima-the-enemy-game-boy-advance-screenshot-inventory-cross.jpg</snapshot5>
+	<snapshot6>http://www.mobygames.com/images/shots/l/226965-cima-the-enemy-game-boy-advance-screenshot-train-car.jpg</snapshot6>
+	<snapshot7>http://www.mobygames.com/images/shots/l/226966-cima-the-enemy-game-boy-advance-screenshot-last-train-car.jpg</snapshot7>
+	<snapshot8>http://www.mobygames.com/images/shots/l/226967-cima-the-enemy-game-boy-advance-screenshot-another-train-car.jpg</snapshot8>
+	<snapshot9>http://www.mobygames.com/images/shots/l/226968-cima-the-enemy-game-boy-advance-screenshot-and-another-one.jpg</snapshot9>
+	<snapshot10>http://www.mobygames.com/images/shots/l/226969-cima-the-enemy-game-boy-advance-screenshot-options-cross.jpg</snapshot10>
+	<banner1>https://cdn.thegamesdb.net/banners/graphical/3354-g.jpg</banner1>
+	<clearlogo1>https://cdn.thegamesdb.net/images/original/clearlogo/3354.png</clearlogo1>
+	<Notes>For decades, the human race and the CIMA race have been in constant conflict with one another. As Ark J, your mission is to guard the gate between the two worlds, protect your appointed town, and ultimately, find peace. You'll progress through a nonlinear storyline while solving puzzles, exploring worlds, and battling enemies. The game includes a combat system that features both action and strategy elements. Another feature lets you activate non-playable characters to help you accomplish your goals.</Notes>
+	<banner2>http://images.launchbox-app.com/6fab36f8-0622-4e95-9f57-c9b422a0428f.jpg</banner2>
+	<boxart2>http://images.launchbox-app.com/effa05d3-e0c1-49fa-adf2-1b3e99828d1d.jpg</boxart2>
+	<clearlogo2>http://images.launchbox-app.com/5a5f308b-6ec2-4177-957b-abb82a01cfdb.png</clearlogo2>
+	<Publisher>Natsume</Publisher>
+</game>

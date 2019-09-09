@@ -1,0 +1,16 @@
+<Game>
+	<Name>The Pinball of the Dead</Name>
+	<ReleaseDate>2002-06-08T00:00:00-07:00</ReleaseDate>
+	<Plot>Shoot, tilt and flip your way across three boards filled with challenges, hidden horrors, and vile bosses in this action pinball game based on the House of the Dead series.</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/6c390862-36b0-4c1b-8f68-e05ee00c4a40.jpg</banner1>
+	<boxback1>http://images.launchbox-app.com/7f672de1-2a44-4902-8f27-cd3aa5dee0de.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/9d9e87b1-e945-42e5-b05a-db824ce84dc6.png</boxart1>
+	<boxart2>http://images.launchbox-app.com/c3e5a9f3-aab2-429d-aab1-8597b8b1394d.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/0ebb22f9-5f91-4697-a802-d9bdd233142b.png</clearlogo1>
+	<WikipediaURL>https://en.wikipedia.org/wiki/The_Pinball_of_the_Dead</WikipediaURL>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Sega</Developer>
+	<Publisher>THQ</Publisher>
+</game>

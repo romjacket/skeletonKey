@@ -1,0 +1,15 @@
+<Game>
+	<Name>The Tick</Name>
+	<ReleaseDate>1994-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>Get ready to put your blue skin-tight tights on. Ninjas need beating-up, bosses need clobbering! This game is not so much a platform game as it is a fighting game (think Streets of Rage). You run around the levels avoiding sharp flying objects and fighting any enemies that get in your way, including the numerous bosses. If your in a tight spot you can call Arthur to help defeat any enemies that are on-screen. The game is presented in a normal 2D platformer view when you're just jumping from building to building, but changes to a semi-isometric view when you start fighting. You'll probably like it if you like Streets of Rage.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/4d6cc038-2eda-4bd9-8d65-5118d77d0021.png</1>
+	<boxart1>http://images.launchbox-app.com/ebc80ae6-c9da-48ac-822a-b8c50ce2cd86.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/0cd1d2fe-72e0-4dad-9639-01df42368421.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/84a01394-75a7-4830-900a-0f5c776f2e45.jpg</fanart1>
+	<fanart2>http://images.launchbox-app.com/b26d555b-37cf-45ae-9c4c-bc5b1783ef62.jpg</fanart2>
+	<Rating>3.25</Rating>
+	<Genre>Fighting</Genre>
+	<Developer>Software Creations</Developer>
+	<Publisher>Fox Interactive</Publisher>
+</game>

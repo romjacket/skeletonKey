@@ -1,0 +1,10 @@
+<Game>
+	<Name>The King of Fighters 2000</Name>
+	<ReleaseDate>2000-01-01T00:00:00-08:00</ReleaseDate>
+	<Plot>The King of Fighters 2000 is an unlicensed fighting game for the SNES produced by DVS Electronic Co, and like most other unlicensed SNES titles was only distributed in South American markets. It stands as a sequel and plays similar to the previous KoF '98 and KoF '99. Many of the backgrounds are lifted directly from other games (Fatal Fury) or heavily altered (Marvel Super Heroes). Similar to '98, the characters don't get their own stages. Instead, you fight three characters separately on one stage. After beating these three characters, you are sent to the next stage, or the ending if you're on the final stage.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxart1>http://images.launchbox-app.com/bfecb096-262f-48c1-be97-6b615689de67.jpg</boxart1>
+	<Genre>Fighting</Genre>
+	<Developer>DVS Electronic</Developer>
+	<Publisher>DVS Electronic</Publisher>
+</game>

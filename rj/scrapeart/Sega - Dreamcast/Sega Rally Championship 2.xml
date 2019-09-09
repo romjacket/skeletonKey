@@ -1,0 +1,15 @@
+<Game>
+	<Name>Sega Rally Championship 2</Name>
+	<ReleaseDate>1999-10-31T00:00:00-07:00</ReleaseDate>
+	<Plot>Sega Rally 2 is the sequel to Sega's hit arcade game, Sega Rally. This game, like it's predecessor, is based on Rally racing. Rally racing is unique in that races take place on both race tracks and off-road courses. The courses in this game reflect this nicely. Some take place in the desert or forest, others take place in cities. The cars in this game are all actual rally cars, with manufacturers from Europe and Japan both well represented. You do not get to see very many of them at one time, however, since rally races are typically time-based events. In this game, you are not competing directly against the other cars, you simply have to have the best time through the course. So, during any race you will usually see a handful of other cars on the track.</Plot>
+	<nPlayers>2</nPlayers>
+	<boxback1>http://images.launchbox-app.com/21343a6f-3f71-4256-9cf0-a06f67272505.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/d7b77c67-ff67-49a6-b602-fd21e8e51bd3.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/1796b931-7a86-4f44-aeea-cb1cf590eb60.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/1e03e8c0-b1ee-41aa-b4c1-62904101957d.jpg</fanart1>
+	<Rating>4.5</Rating>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Racing</Genre>
+	<Developer>Sega</Developer>
+	<Publisher>Sega</Publisher>
+</game>

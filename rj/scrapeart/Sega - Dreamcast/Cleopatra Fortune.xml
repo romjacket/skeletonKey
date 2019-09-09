@@ -1,0 +1,17 @@
+<Game>
+	<Name>Cleopatra Fortune</Name>
+	<ReleaseDate>2001-06-21T00:00:00-07:00</ReleaseDate>
+	<Plot>The gameplay is similar to Tetris in which the player has to direct blocks of stone, mummy and/or treasure to create closures which eliminates the treasure and adds to the player's score. Also if a full line of stone blocks, treasure blocks or mummy blocks is formed they will disappear in a similar fashion to Tetris and also add to the player's score. The game's name comes from its mascot which is a super deformed version of queen Cleopatra. Additionally, the game utilizes an Egyptian theme.</Plot>
+	<nPlayers>1</nPlayers>
+	<1>http://images.launchbox-app.com/b34dab8f-74e1-46ff-ab61-5e93fbb99576.png</1>
+	<boxback1>http://images.launchbox-app.com/e7e5324c-f8e7-4913-9dbe-f6da60fe4ba9.png</boxback1>
+	<boxart1>http://images.launchbox-app.com/936dbed3-d731-4827-a5cc-5318012f1d7c.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/7f982943-a4ae-4d28-82bf-d79fb18e2370.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/705d21f9-5868-4056-9531-6b6f77b82e81.jpg</fanart1>
+	<snapshot1>http://images.launchbox-app.com/30cc85ad-61ec-4f0c-98e6-845735a14c0f.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/3de9bc0d-d156-4f51-83e7-6d989407ca57.png</snapshot2>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Puzzle</Genre>
+	<Developer>Taito</Developer>
+	<Publisher>Altron</Publisher>
+</game>

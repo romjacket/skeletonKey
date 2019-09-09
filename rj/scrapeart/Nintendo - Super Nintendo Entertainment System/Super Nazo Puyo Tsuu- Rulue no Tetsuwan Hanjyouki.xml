@@ -1,0 +1,12 @@
+<Game>
+	<Name>Super Nazo Puyo Tsuu- Rulue no Tetsuwan Hanjyouki</Name>
+	<ReleaseDate>1996-06-26T00:00:00-07:00</ReleaseDate>
+	<Plot>Super Nazo Puyo Tsu: Rulue no Tetsuwan Hanjouki is the third and final game of Nazo Puyo's "Roux" subseries. Unlike the previous game, Rulue is the only playable character. The game like it's predecessor Super Nazo Puyo: Rulue no Roux focuses on puzzle solving using standard Puyo Puyo gameplay. Like it's predecessor the player is tasked with varies clearing objectives using preset boards and pieces. The objectives range from clearing all of a specific color of Puyo, clearing all Nuisance Puyo, creating a specific chain length, clearing a certain amount of Puyo simultaneously, or simply clear the whole board. Every time the player fails to complete a puzzle their health will decrease, as indicated by Rulue's expressions and the Puyo above her head slowly dipping below the bar. If the player loses all they're health, the player will receive a Game Over and can choose to restart from the last character talked to or quit back to the title screen. Gauges on the right side of the screen will fill up with each completed puzzle, and will completely restore the player's health once all gauges are filled. Unlike it's predecessor the player can climb and double rotate, and how many puzzles that need to be complete within each set is indicated by stars that fills up with each completed puzzle. The biggest difference is the game adopts a RPG style with an overworld, NPCs, and items. As the player progresses through the game they'll need to do some problem solving on the overworld by retrieving items or talking to NPCs, exploring 6 major locations doing so. This causes the game to be less linear then it's predecessor. However the game doesn't automatically save like it's predecessor.</Plot>
+	<boxart1>http://images.launchbox-app.com/00fd34cd-65ff-4f0a-9acf-aee6344b0989.jpg</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/c902c1cc-cce7-48cb-b6e0-78c46931b723.png</clearlogo1>
+	<snapshot1>http://images.launchbox-app.com/e090377f-65d2-4ffd-87b2-759a3aa3f761.png</snapshot1>
+	<snapshot2>http://images.launchbox-app.com/7f688b60-b268-4a58-b2df-ba16f2e3d922.jpg</snapshot2>
+	<Genre>Puzzle</Genre>
+	<Developer>Banpresto</Developer>
+	<Publisher>Compile</Publisher>
+</game>

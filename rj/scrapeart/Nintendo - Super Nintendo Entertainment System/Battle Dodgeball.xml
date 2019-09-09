@@ -1,0 +1,15 @@
+<Game>
+	<Name>Battle Dodgeball</Name>
+	<ReleaseDate>1991-07-20T00:00:00-07:00</ReleaseDate>
+	<Plot>A crossover combat dodgeball game featuring characters from Mobile Suit Gundam, Ultraman and Kamen Rider. Similarly to Technos's Super Dodge Ball, each combatant has a health meter which depletes whenever they are hit by the dodgeball. Stronger throws cause more damage and once a character's HP is depleted, they leave the arena.</Plot>
+	<nPlayers>2</nPlayers>
+	<1>http://images.launchbox-app.com/47358267-f194-48a2-87a6-8f304d69d2c0.png</1>
+	<boxback1>http://images.launchbox-app.com/a48e9866-5b30-4582-affb-a16e0aa2e0fb.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/85b8c013-05eb-49b3-9648-1da2c568f01c.png</boxart1>
+	<clearlogo1>http://images.launchbox-app.com/0743bbb7-c596-4268-bc67-ec3bd9aacf7f.png</clearlogo1>
+	<fanart1>http://images.launchbox-app.com/41457ab9-2c07-4011-8dcc-0cc14ad13617.png</fanart1>
+	<ESRB>Not Rated</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Sun L</Developer>
+	<Publisher>Banpresto</Publisher>
+</game>

@@ -1,0 +1,13 @@
+<Game>
+	<Name>Industrial Spy- Operation Espionage</Name>
+	<ReleaseDate>2000-06-01T00:00:00-07:00</ReleaseDate>
+	<Plot>Blending the stealth, RTS, and RPG genres, Industrial Spy has the player leading a team of superspies (Espion Agents, part of the Blitzstrahl corporation) infiltrating various locales like museums, a military installation, and even a German-style castle full of traps. Each of the agents has his own specialties, like computer hacking, rollerblading, handguns, etc. Gameplay is like a regular real-time strategy game, with the player acting in the role of commander without taking a direct hand in anything. Give the agents orders and try to keep an eye on all of them as they carry them out. Each agent's skills can be upgraded after missions. Keep them out of sight of guards, spring traps on them, or engage them in hand-to-hand or ranged combat.</Plot>
+	<nPlayers>1</nPlayers>
+	<boxback1>http://images.launchbox-app.com/dae6c5ee-aaac-4660-a454-6f77147b0531.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/47f00f53-c2bf-47df-84c2-89be6a1bb918.jpg</boxart1>
+	<Rating>3</Rating>
+	<ESRB>T - Teen</ESRB>
+	<Genre>Action</Genre>
+	<Developer>HuneX Co., Ltd.</Developer>
+	<Publisher>NEC</Publisher>
+</game>

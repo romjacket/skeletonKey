@@ -1,0 +1,33 @@
+<Game>
+	<Name>SimAnt - The Electronic Ant Colony (USA)</Name>
+	<plot>Overview:SimAnt is another in the series of simulation games released by Maxis in the years after the success of SimCity was realized. It gives a player the opportunity to control a colony by having direct control over a single ant and using him to work towards completing certain goals. There are three types of games in SimAnt.Experimental: a sandbox mode with no objectives.Quick Game: The player must overpower the rivaling red ant colony.Full Game: Invade the house and cause the owner to evacuate.Gameplay:The player maintains control over a single yellow ant in the black colony; control can be swapped to another ant by simply double-clicking on it. The player's ant can pick up food, order other ants to follow him, and leave a scent trail for the colony to follow to food or enemies.The WorldThe backyard to be conquered.The SimAnt world is represented by 3 levels of detail. First, there is an ant farm perspective used to see what is going on in the underground colonies. This is useful for tracking the larvae and food supply of a colony. Second is the above ground view, which shows all activity on the surface in a single grid area of the world map. This is where hazards, or disasters, will present themselves.The world map is represented by the backyard and inside kitchen of a human family that is active throughout the course of the game. In the full game, the victory objective is to traverse the backyard with new colonies until a colony can be created in the kitchen.ExpandingThe unit creation system in SimAnt is based on an ant colony's caste system, with the player controlling amounts of workers, soldiers, and breeders to be born. Behavior--split into digging, foraging, and fighting--may also be modified. When new queens are born, they have wings that allow them to fly to other areas of the SimAnt world. These newborns can dig below ground and start broods, allowing the colony to start breeding new worker ants to support the colonies' needs. Through this expansion, it is possible to reach the inside of the house on the other side of the starting point in the backyard.DisastersAlthough there are no disasters such as earthquakes and tornadoes that the ant colonies will have to deal with, there are events that can occur that can spell disaster for your ant and colony. From time to time, a human will mow the lawn, which will wipe out all ants above the surface when it passes over the grid space. Children will run around the grass, and their footprints will smash any ants in their path when they reach the lawn grid. Rain will sometimes wash away ants and the scent trails you have laid down for the rest of your colony, as well as flooding portions of the nest. Indoors, electric sockets or ant poison can be found in abundance. Spiders and other insects pose a threat throughout all levels; if killed, though, these enemies provide a good deal of food for the colony.Ant WarsAn underground colony.In all game types, there is a competing colony of red ants trying to reach the same victory goals that the player is working towards. The red colony isn't superior in any mechanical way; the enemies are simply red to help the player distinguish friend from foe. When a red and black ant meet, they engage in a quick skirmish that will leave one of the ants dead, with the victorious ant most likely tired and unable to fight much more. In order to take over a red ant colony, the player must leave a scent trail that will lead other worker and soldier ants to it, so that a steady stream of black ants can lay siege to the underground network and eventually kill the breeding queen.Once the colony is taken over, a queen can be placed in the vacated network of tunnels, or the area can be deserted and left unused. In the Quick Game mode, the only objective is to take over the neighboring red ant colony in the same grid space - once that has been accomplished, the game is finished.	</plot>
+	<releasedate>20/12/1993</releasedate>
+	<genre>Simulation</genre>
+	<Developer>Maxis Software Inc.</Developer>
+	<nplayers>1</nplayers>
+	<rating>4.3</rating>
+	<VideoURL>LhQKRJYkiws</VideoURL>
+	<thegamesdb_id>5848</thegamesdb_id>
+	<gamefaqs_url>http://www.gamefaqs.com/snes/588656-simant</gamefaqs_url>
+	<mobygames_url>http://www.mobygames.com/game/snes/simant-the-electronic-ant-colony</mobygames_url>
+	<giantbomb_url>http://www.giantbomb.com/simant-the-electronic-ant-colony/3030-15236/</giantbomb_url>
+	<boxart1>http://i.imgur.com/d0AKqp6.jpg</boxart1>
+	<boxart2>http://i.imgur.com/DYN5qwz.jpg</boxart2>
+	<snapshot1>http://i.imgur.com/Zj2o2GO.gif</snapshot1>
+	<snapshot2>http://i.imgur.com/D4II8PL.png</snapshot2>
+	<snapshot3>http://i.imgur.com/pNLvOPU.png</snapshot3>
+	<snapshot4>http://i.imgur.com/b1TXijq.png</snapshot4>
+	<snapshot5>http://i.imgur.com/RUQacqC.png</snapshot5>
+	<snapshot6>http://i.imgur.com/LsyvzGe.png</snapshot6>
+	<snapshot7>http://i.imgur.com/XRCUlaf.png</snapshot7>
+	<snapshot8>http://i.imgur.com/fOLn3Xk.png</snapshot8>
+	<snapshot9>http://i.imgur.com/Zyeo40g.png</snapshot9>
+	<snapshot10>http://i.imgur.com/y9Ivb6w.png</snapshot10>
+	<fanart1>http://i.imgur.com/xkOoNhR.jpg</fanart1>
+	<banner1>http://i.imgur.com/hiuy3Rb.png</banner1>
+	<clearlogo1>http://i.imgur.com/rfrDaLn.png</clearlogo1>
+	<Notes>The game is essentially a simulation of an ant colony. The game consists of three modes: a Quick Game, a Full Game, and an Experimental Game. It was released for the IBM PC, Commodore Amiga, Apple Macintosh, and Super Nintendo Entertainment System. The Nintendo version also added eight scenarios, where the goal in each is to eliminate the enemy red ants in various locales, each with different hazards.</Notes>
+	<boxart3>http://images.launchbox-app.com/dbb48861-2ca4-46ac-94d8-ebb8d1e6dda6.png</boxart3>
+	<clearlogo2>http://images.launchbox-app.com/ccd74b17-9293-403a-bd40-9d59c3d3aad0.png</clearlogo2>
+	<Publisher>Maxis Software</Publisher>
+</game>

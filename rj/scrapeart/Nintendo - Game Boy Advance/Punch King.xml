@@ -1,0 +1,15 @@
+<Game>
+	<Name>Punch King</Name>
+	<ReleaseDate>2002-05-15T00:00:00-07:00</ReleaseDate>
+	<Plot>The Ring Has A New King! Climb into the squared circle and go head-to-head with the baddest bunch of boxers around. Duck, jab and clobber your way to the championship title!</Plot>
+	<nPlayers>1</nPlayers>
+	<banner1>http://images.launchbox-app.com/428ff7ff-76e0-496d-8a91-5be1e1ad57e1.jpg</banner1>
+	<boxback1>http://images.launchbox-app.com/7d9f0449-e490-47bc-a873-f359d23b4acc.jpg</boxback1>
+	<boxart1>http://images.launchbox-app.com/eb2aee26-ba66-4e1a-9cde-442069d9b7fa.jpg</boxart1>
+	<boxart2>http://images.launchbox-app.com/7fecedb8-54b8-44f9-9b90-345a1053c879.jpg</boxart2>
+	<clearlogo1>http://images.launchbox-app.com/533261b2-cd60-423a-9855-75062f2d3568.png</clearlogo1>
+	<ESRB>E - Everyone</ESRB>
+	<Genre>Sports</Genre>
+	<Developer>Full Fat</Developer>
+	<Publisher>Acclaim</Publisher>
+</game>
