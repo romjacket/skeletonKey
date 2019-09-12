@@ -3662,7 +3662,7 @@ if (GitPush = 1)
 		FileAppend, del /q "%GITD%\rj\ES\*.ini"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\PG\*.ini"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, del /q "%GITD%\rj\RF\*.ini"`n,%SKELD%\!gitupdate.cmd
-		FileAppend, robocopy "rj" "%GITD%\rj" /s /e /w:1 /r:1 /xf "*.ini" "*.tdb" "*.tmp" "*.jak" /xd "syscfgs"`n,%SKELD%\!gitupdate.cmd
+		FileAppend, robocopy "rj" "%GITD%\rj" /s /e /w:1 /r:1 /xf "*.ini" "*.tdb" "*.tmp" "*.jak" /xd "scrapeArt" "netArt" "syscfgs"`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy "img" "%GITD%\img" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, robocopy "rj\emucfgs" "%GITD%\rj\emuCfgs" /s /e /w:1 /r:1`n,%SKELD%\!gitupdate.cmd
 		FileAppend, copy /y "rj\scrapeArt\*.7z" "%GITD%\rj\scrapeArt"`n,%SKELD%\!gitupdate.cmd
