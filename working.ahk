@@ -7566,7 +7566,6 @@ guicontrolget,EMUGUIDDL,,EMUGUIDDL
 guicontrolget,AUTOGUI,,AUTOGUI
 iniread,supgui,Settings.ini,GLOBAL,supported_guis
 ag=
-supgui= 
 if (AUTOGUI = 1)
 	{
 		ifnotinstring,supgui,%EMUGUIDDL%|
@@ -7583,6 +7582,7 @@ if (AUTOGUI = 0)
 	}
 iniwrite,%supgui%,Settings.ini,GLOBAL,supported_guis
 return
+
 AUTOPGS:
 gui,submit,nohide
 if (AUTOPGS = 1)
@@ -9194,7 +9194,23 @@ exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 			}
 		else
 			{
-				MsgBox,0,Error, There was a problem accessing the server.`nCheck status file for details.,3
+				SB_SetText(" " FNM ".status being deleted")
+				if (batchdl = "")
+					{
+						MsgBox,260,Error, There was a problem accessing the server.`nLog status file for details?,3
+						ifmsgbox,Yes
+							{
+								FileRead,statdel,%$CACHESTAT%\%$FNM%.status
+								fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+								statdel= 
+							}
+					}
+				if (batchdl = 1)
+					{
+						FileRead,statdel,%$CACHESTAT%\%$FNM%.status
+						fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+						statdel= 					
+					}					
 				FileDelete, %$CACHESTAT%\%$FNM%.status
 				Return false
 			}
@@ -62129,8 +62145,21 @@ Loop, Parse, existlst,|
 												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
 												break
 											}
-									}								
+									}
+								if (ESIMG = 1)
+									{
+										break
+									}
 							}					
+					}
+				if (ESIMG = "")
+					{
+						MISREPIMG= Icons
+						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+							{
+								ESIMG= 1
+								ROMIMAGEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+							}
 					}
 			}
 		
@@ -62189,8 +62218,21 @@ Loop, Parse, existlst,|
 												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%
 												break
 											}
-									}								
+									}
+								if (ESMARQ = 1)
+									{
+										break
+									}	
 							}					
+					}
+				if (ESMARQ = "")
+					{
+						MISREPIMG= Logos
+						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+							{
+								ESMARQ= 1
+								ROMMARQUEEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+							}
 					}
 			}
 		ESTHU=
@@ -62249,8 +62291,21 @@ Loop, Parse, existlst,|
 												break
 											}
 									}								
-							}					
+							if (ESTHU = 1)
+								{
+									break
+								}
+							}	
 					}
+					if (ESTHU = "")
+						{
+							MISREPIMG= Backdrops
+							ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+								{
+									ESTHU= 1
+									ROMTHUMBNAILMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+								}
+						}
 			}
 		ESVID=
 		imgetv= %imgetn%
@@ -62289,7 +62344,7 @@ Loop, Parse, existlst,|
 								newxt=
 								splitpath,ROMVIDEOEMATCH,,,newxt
 								ESVID= 1
-								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-video.%newxt%
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%
 								break
 							}
 					}
@@ -62305,11 +62360,23 @@ Loop, Parse, existlst,|
 												newxt=
 												splitpath,ROMVIDEOEMATCH,,,newxt
 												ESVID= 1
-												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-video.%newxt%
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%
 												break
 											}
 									}								
-							}					
+								if (ESVID = 1)
+									{
+										break
+									}
+							}			
+					}
+				if (ESVID = "")
+					{
+						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%.mp4
+							{
+								ESVID= 1
+								ROMVIDEOEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%mp4
+							}										
 					}
 			}
 		if (ESUSESCR = 1)
@@ -66301,6 +66368,10 @@ if (FERAD2A = 1)
 							{
 								continue
 							}
+						if (A_Index > 1)
+							{
+								batchdl= 1
+							}
 						if (FECHKA = 1)
 							{
 								URLFILE= %bckdrpd%/%A_LoopField%.png
@@ -66701,6 +66772,7 @@ if (FERAD2C = 1)
 				SB_SetText("Scraping Complete")
 				gosub, cleanprgb
 	}
+batchdl= 	
 arpause= enable
 gosub,ARTPAUSE
 return
@@ -72467,7 +72539,22 @@ Loop, rj\*.jak
 				emuloc= %RJEMULOC%
 				nickpath= %emuloc%
 			}
-		SplitPath,emuloc,emuxe,emulocd,emulocn
+		SplitPath,emuloc,emuxe,emulocd,emulocx,emulocn
+		if (emulocn = "retroarch")
+			{
+				rjcorea= mame_libretro.dll
+				iniread,rjcoreas,sets\emuCfgPresets.set,%curjf%,SUPCORE
+				Loop,Parse,rjcoreas,|
+					{
+						ifexist,%libretrodirectory%\%A_LoopField%
+							{
+								rjcorea= %A_LoopField%
+								break
+							}
+					}
+				stringreplace,RJEMUOPTS,RJEMUOPTS,[libretrodirectory],%libretrodirectory%,All
+				stringreplace,RJEMUOPTS,RJEMUOPTS,[core],%rjcorea%,All			
+			}
 		FileRead, toapa,sets\rjcmd_header.set
 		FileRead, toapb,sets\rjcmd_prejoy.set
 		FileRead, toapc,sets\rjcmd_runloop.set

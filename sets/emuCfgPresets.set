@@ -840,14 +840,17 @@ BIOS=R
 
 
 [retroArch]
-RJPRECFG=
-RJEMUOPTS=<-L [libretrodirectory]\[core]<|<
+RJPRECFG=<copy /y "%GAMDIR%\retroarch.cfg" "%EMUL%"|<copy /y "%GAMDIR%\retroarch_core_options.cfg" "%EMUL%" 
+RJPOSTCFG=<copy /y "%EMUL%\retroarch.cfg" "%GAMDIR%"
+RJEMUOPTS=<-L "[libretrodirectory]\[core]"<|<
 RJEXTRARC=0
-RJRUNDIR=0
+RJRUNDIR=1
+PEREMUCFG=1
 RJLNCHP=0
 URLPTH=retroArch/retroArch-[ARCH].7z
 EXENAM=retroarch.exe
 CFGPTH=retroarch.cfg|retroarch-core-options.cfg
+run_location="1"
 BIOS=M
 
 
