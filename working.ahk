@@ -2664,8 +2664,8 @@ Gui, Add, Text, x416 y401 vPLCLRTXT, Clear
 Gui, Add, Button, x367 y457 w75 h23 vPLINIT gPlaylistInit, Rebuild DB
 Gui, Add, Text, x364 y483 h15 vPLDBTXT, Playlist Database
 ;{;  EMULATIONSTATION  ;;
-Gui, Add, Radio, x516 y82 h13 vESROMONLY gESFLDRCR hidden, ROMs Only
-Gui, Add, Radio, x448 y82 h13 vESINCLF gESFLDRCR hidden checked, Folders
+;;Gui, Add, Radio, x516 y82 h13 vESROMONLY gESFLDRCR hidden, ROMs Only
+;;Gui, Add, Radio, x448 y82 h13 vESINCLF gESFLDRCR hidden checked, Folders
 Gui,Add,DropDownList, hwndDplHndl86 x451 y31 w90 vESPLCORE gESPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
 Gui, Add, CheckBox, x373 y52 h13 vESBACKUP gESBackupPl Checked hidden, Backup
 Gui,Font,Bold
@@ -2673,12 +2673,12 @@ Gui, Add, Button,x678 y27 w60 h25 vESSVPL gESSavePl hidden, CREATE
 Gui,Font,Normal
 Gui,Add,ComboBox, hwndCbxHndl60 x450 y55 w252 vESPLXMP gEsPlaylistNames hidden, %systmfldrs%%escommon%
 Gui, Add, Button, x703 y54 w36 h23 vESOPENPL gEsOpenPl hidden, Open
-Gui, Add, CheckBox, x547 y23 w125 h13 vESUSESCR gESUSESCR hidden checked, Use Scraped Assets
-Gui, Add, CheckBox, x572 y40 w97 h13 vESCPYSCR gESCPYSCR hidden disabled checked, `& copy to home
+;;Gui, Add, CheckBox, x547 y23 w125 h13 vESUSESCR gESUSESCR hidden checked, Use Scraped Assets
+;;Gui, Add, CheckBox, x572 y40 w97 h13 vESCPYSCR gESCPYSCR hidden disabled checked, `& copy to home
 Gui,Add,DropDownList, hwndDplHndl168 x24 y22 w283 vESDWNLPOS gESPopDownloads,%systmfldrs%
-Gui, Add, Radio, x22 y46 vESRPOPDL gESRPopJ checked hidden, Jackets
+Gui, Add, Radio, x22 y46 vESRPOPDL gESRPopJ hidden, Jackets
 Gui, Add, Radio, x85 y46 vESRPOPPL gESRPopMir hidden, Mirrors
-Gui, Add, Radio, x139 y46 vESRPOPROM gESRPopRom hidden, ROMs
+Gui, Add, Radio, x139 y46 vESRPOPROM gESRPopRom checked hidden, ROMs
 Gui,Add,DropDownList, hwndDplHndl88 x195 y44 vESMIRSEL gESMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
 Gui, Add, Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, ...
 Gui, Add, Text, x230 y46 w125 h13 vESRRTXT hidden, NOT SET
@@ -2804,9 +2804,9 @@ Gui,Add,ComboBox, hwndCbxHndl62 x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, 
 Gui, Add, CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden checked, Use Scraped Assets
 Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden checked, `& copy to home
 Gui,Add,DropDownList, hwndDplHndl170 x24 y22 w283 vRFDWNLPOS gRFPopDownloads,%systmfldrs%
-Gui, Add, Radio, x22 y46 vRFRPOPDL gRFRPopJ checked hidden, Jackets
+Gui, Add, Radio, x22 y46 vRFRPOPDL gRFRPopJ hidden, Jackets
 Gui, Add, Radio, x85 y46 vRFRPOPPL gRFRPopMir hidden, Mirrors
-Gui, Add, Radio, x139 y46 vRFRPOPROM gRFRPopRom hidden, ROMs
+Gui, Add, Radio, x139 y46 vRFRPOPROM gRFRPopRom checked hidden, ROMs
 Gui,Add,DropDownList, hwndDplHndl96 x195 y44 vRFMIRSEL gRFMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
 Gui, Add, Button, x197 y44 w25 h19 vRFROMROOT gRFROMROOT hidden, .Dir.
 Gui, Add, Text, x230 y46 w125 h19 vRFRRTXT hidden, NOT SET
@@ -52035,6 +52035,7 @@ loop,parse,mamelistedmedia,`n`r
 SB_SetText(" Mame listed media indexing complete ")
 mlmame= 1
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52326,7 +52327,7 @@ guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x265 y64 w120 h15
 guicontrol,,FERAD5A, Jackets
-guicontrol,,FERAD5A, 1
+guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x265 y84 w53 h15
@@ -52336,7 +52337,7 @@ guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
-guicontrol,,FERAD5C, 0
+guicontrol,,FERAD5C, 1
 ;;guicontrol,%fetog%,FERAD2A
 ;;guicontrol,enable,FERAD2A
 ;;guicontrol,move,FERAD2A,x661 y241 w44 h13
@@ -56146,7 +56147,7 @@ guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x265 y64 w120 h15
 guicontrol,,FERAD5A, Jackets
-guicontrol,,FERAD5A, 1
+guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x265 y84 w53 h15
@@ -56156,7 +56157,7 @@ guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
-guicontrol,,FERAD5C, 0
+guicontrol,,FERAD5C, 1
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x645 y241 w57 h13
@@ -60199,7 +60200,7 @@ guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x265 y64 w120 h15
 guicontrol,,FERAD5A, Jackets
-guicontrol,,FERAD5A, 1
+guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x265 y84 w53 h15
@@ -62101,10 +62102,11 @@ Loop, Parse, existlst,|
 			}
 		ESK=
 		imgetb= %imgetn%
-		if (ESUSESCR = 1)
+		ESBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
+		imgetb= %imgetn%
+		ifnotexist,%ESBOXPATH%\
 			{
-				ESBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
-				imgetb= %imgetn%
+				ESBOXPATH= 
 			}
 		if (ESBOXPATH = "")
 			{
@@ -62122,7 +62124,7 @@ Loop, Parse, existlst,|
 				if (ESCPYSCR = 1)
 					{
 						ESIMG= 1
-						FileCopy, %ROMIMAGEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
+						FileCopy, %ROMIMAGEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%,1
 					}
 				break
 			}
@@ -62136,7 +62138,7 @@ Loop, Parse, existlst,|
 								newxt=
 								splitpath,ROMIMAGEMATCH,,,newxt
 								ESIMG= 1
-								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%,1
 								break
 							}
 					}
@@ -62152,7 +62154,7 @@ Loop, Parse, existlst,|
 												newxt=
 												splitpath,ROMIMAGEMATCH,,,newxt
 												ESIMG= 1
-												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%,1
 												break
 											}
 									}
@@ -62175,10 +62177,11 @@ Loop, Parse, existlst,|
 		
 		ESMARQ=
 		imgetm= %imgetn%
-		if (ESUSESCR = 1)
+		ESMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
+		imgetb= %imgetn%
+		ifnotexist,%ESMARQUEEPATH%\
 			{
-				ESMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
-				imgetb= %imgetn%
+				ESMARQUEEPATH= 
 			}
 		if (ESMARQUEEPATH = "")
 			{
@@ -62195,7 +62198,7 @@ Loop, Parse, existlst,|
 				if (ESCPYSCR = 1)
 					{
 						ESMARQ= 1
-						FileCopy, %ROMMARQUEEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%
+						FileCopy, %ROMMARQUEEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%,1
 					}
 				break
 			}
@@ -62247,10 +62250,11 @@ Loop, Parse, existlst,|
 			}
 		ESTHU=
 		imgett= %imgetn%
-		if (ESUSESCR = 1)
+		ESTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
+		imgetb= %imgetn%
+		ifnotexist,%ESTHUMBNAILPATH%\
 			{
-				ESTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
-				imgetb= %imgetn%
+				ESTHUMBNAILPATH=
 			}
 		if (ESTHUMBNAILPATH = "")
 			{
@@ -62267,7 +62271,7 @@ Loop, Parse, existlst,|
 				if (ESCPYSCR = 1)
 					{
 						ESTHU= 1
-						FileCopy, %ROMTHUMBNAILMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%
+						FileCopy, %ROMTHUMBNAILMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%,1
 					}
 				break
 			}
@@ -62281,7 +62285,7 @@ Loop, Parse, existlst,|
 								newxt=
 								splitpath,ROMTHUMBNAILMATCH,,,newxt
 								ESTHU= 1
-								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%
+								FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%,1
 								break
 							}
 					}
@@ -62297,7 +62301,7 @@ Loop, Parse, existlst,|
 												newxt=
 												splitpath,ROMTHUMBNAILMATCH,,,newxt
 												ESTHU= 1
-												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%
+												FileCopy, %A_LoopFileFullPath%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%,1
 												break
 											}
 									}								
@@ -62319,10 +62323,11 @@ Loop, Parse, existlst,|
 			}
 		ESVID=
 		imgetv= %imgetn%
-		if (ESUSESCR = 1)
+		ESVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
+		imgetb= %imgetn%
+		ifnotexist,%ESVIDEOPATH%\
 			{
-				ESVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
-				imgetb= %imgetn%
+				ESVIDEOPATH= 
 			}
 		if (ESVIDEOPATH = "")
 			{
@@ -62340,7 +62345,7 @@ Loop, Parse, existlst,|
 					{
 						ESVID= 1
 						FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%\
-						FileCopy, %ROMVIDEOEMATCH%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%
+						FileCopy, %ROMVIDEOEMATCH%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%,1
 					}
 				break
 			}
@@ -62389,124 +62394,122 @@ Loop, Parse, existlst,|
 							}										
 					}
 			}
-		if (ESUSESCR = 1)
+		pulmeta=
+		pulrate=
+		puldate=
+		pulhid=
+		puldev=
+		pulpub=
+		pulgen=
+		pulpl=
+		pulkid=
+		pulfav=
+		metaspl1=
+		metaspl2=
+		metaspl3=
+		Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
 			{
-				pulmeta=
-				pulrate=
-				puldate=
-				pulhid=
-				puldev=
-				pulpub=
-				pulgen=
-				pulpl=
-				pulkid=
-				pulfav=
-				metaspl1=
-				metaspl2=
-				metaspl3=
-				Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
+				fndmet=
+				FileRead,metadt,%A_loopfilefullpath%
+				Loop, Parse, metadt,`n`r
 					{
-						fndmet=
-						FileRead,metadt,%A_loopfilefullpath%
-						Loop, Parse, metadt,`n`r
+						if (A_Loopfield = "")
 							{
-								if (A_Loopfield = "")
+								continue
+							}
+						stringsplit,metaspl,A_LoopField,<>
+						if (metaspl2 = "hidden")
+							{
+								pulhid= %metaspl3%
+							}
+						if (metaspl2 = "kidgame")
+							{
+								pulfav= %metaspl3%
+							}
+						if (metaspl2 = "favorite")
+							{
+								pulfav= %metaspl3%
+							}
+						if (metaspl2 = "released")
+							{
+								puldate= %metaspl3%
+							}
+						if (metaspl2 = "developer")
+							{
+								puldev= %metaspl3%
+							}
+						if (metaspl2 = "publisher")
+							{
+								pulpub= %metaspl3%
+							}
+						if (metaspl2 = "genre")
+							{
+								pulgen= %metaspl3%
+							}
+						if (metaspl2 = "players")
+							{
+								pulpl= %metaspl3%
+							}
+						if (metaspl2 = "lastplayed")
+							{
+								pullast= %metaspl3%
+							}
+						if (metaspl2 = "playcount")
+							{
+								pulcnt= %metaspl3%
+							}
+						if (metaspl2 = "rating")
+							{
+								pulrate= %metaspl3%
+							}
+						if (metaspl2 = "desc")
+							{
+								fndmet= 1
+								pulmeta.= metaspl3
+								if (metaspl4 = "/desc")
 									{
-										continue
-									}
-								stringsplit,metaspl,A_LoopField,<>
-								if (metaspl2 = "hidden")
-									{
-										pulhid= %metaspl3%
-									}
-								if (metaspl2 = "kidgame")
-									{
-										pulfav= %metaspl3%
-									}
-								if (metaspl2 = "favorite")
-									{
-										pulfav= %metaspl3%
-									}
-								if (metaspl2 = "released")
-									{
-										puldate= %metaspl3%
-									}
-								if (metaspl2 = "developer")
-									{
-										puldev= %metaspl3%
-									}
-								if (metaspl2 = "publisher")
-									{
-										pulpub= %metaspl3%
-									}
-								if (metaspl2 = "genre")
-									{
-										pulgen= %metaspl3%
-									}
-								if (metaspl2 = "players")
-									{
-										pulpl= %metaspl3%
-									}
-								if (metaspl2 = "lastplayed")
-									{
-										pullast= %metaspl3%
-									}
-								if (metaspl2 = "playcount")
-									{
-										pulcnt= %metaspl3%
-									}
-								if (metaspl2 = "rating")
-									{
-										pulrate= %metaspl3%
-									}
-								if (metaspl2 = "desc")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/desc")
-											{
-												fndmet=
-											}
-									}
-								if (metaspl2 = "plot")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/plot")
-											{
-												fndmet=
-											}
-									}
-								if (metaspl2 = "overview")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/overview")
-											{
-												fndmet=
-											}
-									}
-								if (metaspl2 = "notes")
-									{
-										fndmet= 1
-										pulmeta.= metaspl3
-										if (metaspl4 = "/notes")
-											{
-												fndmet=
-											}
-									}
-								if (fndmet = 1)
-									{
-										pulmeta.= A_loopfield . "`n"
-										ifinstring, pulmeta,</desc>
-											{
-												fndmet=
-											}
+										fndmet=
 									}
 							}
-				break
+						if (metaspl2 = "plot")
+							{
+								fndmet= 1
+								pulmeta.= metaspl3
+								if (metaspl4 = "/plot")
+									{
+										fndmet=
+									}
+							}
+						if (metaspl2 = "overview")
+							{
+								fndmet= 1
+								pulmeta.= metaspl3
+								if (metaspl4 = "/overview")
+									{
+										fndmet=
+									}
+							}
+						if (metaspl2 = "notes")
+							{
+								fndmet= 1
+								pulmeta.= metaspl3
+								if (metaspl4 = "/notes")
+									{
+										fndmet=
+									}
+							}
+						if (fndmet = 1)
+							{
+								pulmeta.= A_loopfield . "`n"
+								ifinstring, pulmeta,</desc>
+									{
+										fndmet=
+									}
+							}
 					}
+		break
 			}
+			
 		pthrom= %TOTPTH%
 		if (ESVID = 1)
 			{
@@ -62604,6 +62607,7 @@ if ((FECHKG = 1)&&(FECREATE = 1)or(PLCREATE = 1)&&(PlaylistAppend = 1))
 	{
 		plovr= 1
 	}
+SB_SetText(" creating " plstdir " gamelist")
 FileCopy,tmp.xml,%plstdir%\gamelist.xml,%plovr%
 if (ERRORLEVEL = 0)
 	{	
@@ -63012,6 +63016,7 @@ guicontrolget,ESDWNLPOS,,ESDWNLPOS
 guicontrol,,ROMPOP,|
 if (ESRPOPPL = 1)
 	{
+		LNKLSTP= 
 		guicontrol,,ESPLXMP,|%ESDWNLPOS%||%ESPLPLST%%escommon%%systmfldrs%
 		Loop, %CMIRLOC%\%ESDWNLPOS%\*.lnk,,1
 			{
@@ -63025,6 +63030,7 @@ if (ESRPOPPL = 1)
 	
 if (ESRPOPDL = 1)
 	{
+		LNKLSTP= 
 		guicontrol,,ESPLXMP,|%ESDWNLPOS%||%ESPLPLST%%escommon%%systmfldrs%
 		Loop, %RJSYSTEMS%\%ESDWNLPOS%\*.bat,,1
 			{
@@ -69071,6 +69077,7 @@ if ((FECBXA = "") or (FEDDLF = "Image Name"))
 	}
 iniwrite,%FECBXA%,MediaFE.ini,%FEDDLA%,%FEDDLF%
 return
+
 MediaFECBXB:
 gui,submit,nohide
 guicontrolget,FECBXB,,FECBXB
