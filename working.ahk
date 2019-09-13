@@ -11569,8 +11569,11 @@ Loop, parse, ksiv,|
 			{
 				continue
 			}
-		jsiv.= A_LoopField . "|" 	
-		EMPRLT.= A_LoopField . "|"
+		jsiv.= A_LoopField . "|"
+		ifnotinstring,EMPRLT,%A_LoopField%|
+			{
+				EMPRLT.= A_LoopField . "|"
+			}
 	}	
 if (EMUASIGN = 1)
 	{
@@ -11578,10 +11581,10 @@ if (EMUASIGN = 1)
 		guicontrol,,EMPRLST,|%EMPRLT%
 	}		
 else {
-	jsiv.= EMPRDDL . "|"
-	EMPRLT= %jsiv%
-	iniwrite,"%jsiv%",Assignments.ini,OVERRIDES,%semu%
-	guicontrol,,EMPRLST,|%jsiv%
+		jsiv.= EMPRDDL . "|"
+		EMPRLT= %jsiv%
+		iniwrite,"%jsiv%",Assignments.ini,OVERRIDES,%semu%
+		guicontrol,,EMPRLST,|%jsiv%
 }	
 iniread,trmb,AppParams.ini,%semu%
 if ((trmb <> "ERROR")&&(trmp <> ""))
@@ -12295,7 +12298,7 @@ if (LNCHPRDDL = "Emulators")
 									{
 										continue
 									}
-								ifinstring,repw,%A_LoopField%
+								ifinstring,repw,%A_LoopField%|
 									{
 										continue
 									}
@@ -12381,6 +12384,10 @@ if (LNCHPRDDL = "retroarch")
 						Loop,Parse,aik,|
 							{
 								if (A_LoopField = nwv)
+									{
+										continue
+									}
+								ifinstring,repw,%A_LoopField%|
 									{
 										continue
 									}
@@ -30956,7 +30963,10 @@ Loop,Parse,asig,`n`r
 									}
 								ifexist,%raexeloc%\cores\%a_loopField%
 									{
-										nevfdg.= A_LoopField . "|"
+										ifnotinstring,nevfdg,%A_LoopField%|
+											{
+												nevfdg.= A_LoopField . "|"
+											}
 									}
 							}
 						nevfdg.= fej
@@ -63114,6 +63124,7 @@ guicontrol,hide,ESRRTXT
 guicontrol,hide,ESROMROOT
 guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%|%systmfldrs%
 guicontrol,,ROMPOP,|
+gosub, ESPopDownloads
 return
 ESRPopRom:
 gui,submit,nohide
@@ -63122,7 +63133,12 @@ guicontrol,,ESDWNLPOS,|
 guicontrol,show,ESRRTXT
 guicontrol,show,ESROMROOT
 guicontrol,hide,ESMIRSEL
-guicontrol,,ESDWNLPOS,|%ESPLPLST%%systmfldrs%
+ESPLPLSD:= ESPLPLST
+if (ESDWNLPOS <> "")
+	{
+		ESPLPLSD= %ESDWNLPOS%||%ESPLPLSD%
+	}
+guicontrol,,ESDWNLPOS,|%ESPLPLSD%%systmfldrs%
 stringleft,esptr,ESPLPLST,1
 if (esptr = "|")
 	{
@@ -63147,6 +63163,7 @@ Loop, %ESROOTFLD%\*.*
 		ESROMLST.= A_LoopFileFullPath . "|"
 	}
 guicontrol,,ROMPOP,|%ESROMLST%
+gosub, ESPopDownloads
 return
 ESMIRSEL:
 gui,submit,nohide
