@@ -840,8 +840,8 @@ BIOS=R
 
 
 [retroArch]
-RJPRECFG=<copy /y "%GAMDIR%\retroarch.cfg" "%EMUL%"|<copy /y "%GAMDIR%\retroarch_core_options.cfg" "%EMUL%" 
-RJPOSTCFG=<copy /y "%EMUL%\retroarch.cfg" "%GAMDIR%"
+RJPRECFG=<copy /y "%GAMDIR%\retroarch.cfg" "%EMUL%"|<copy /y "%GAMDIR%\retroarch_core_options.cfg" "%EMUL%"
+RJPOSTCFG=<copy /y "%EMUL%\retroarch.cfg" "%GAMDIR%"|<copy /y "%EMUL%\retroarch-core_options.cfg" "%GAMDIR%"
 RJEMUOPTS=<-L "[libretrodirectory]\[core]"<|<
 RJEXTRARC=0
 RJRUNDIR=1

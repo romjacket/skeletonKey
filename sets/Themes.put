@@ -77,6 +77,18 @@ ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple.zip
 [simplified-static-canela]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/simplified-static-canela.zip
 
+[angular]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/angular.zip
+
+[switch]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/switch.zip
+
+[switch-dark]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/switch-dark.zip
+
+[SuperRetroboy]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/SuperRetroboy.zip
+
 [zoid]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/zoid.zip
 

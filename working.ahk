@@ -3163,7 +3163,7 @@ gui, add, Radio, x32 y287 h13 vAincTog gAincTog checked,Include
 gui, add, Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
 Gui,Add,DropDownList, hwndDplHndl124 x124 y324 w199 vSRCHDDL gSRCHDDL, All||%syslist%
 Gui, Add, Button, x329 y326 w18 h18 vExpndASrch gExpndASrch hidden,+
-Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWND 	 vSRCHRSLT gArcSrchRes hidden,
+Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
 Gui,Add,listbox, x350 y19 w388 h459 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 Gui, Add, Button, x350 y480 w61 h15 vCLIPURL gClipURL, CLIP URL
@@ -8237,6 +8237,10 @@ if (FILT_UNSUP <> 1)
 		Ident_sys=
 	}
 guicontrolget,coretmp,,LCORE
+if (coretmp <> LCORE)
+	{
+		gosub, ShowOnlyEmuGui
+	}
 guicontrol,,LCORE,||%runlist%
 guicontrolget,RUNPLRAD,,RUNPLRAD
 guicontrolget,OPTYP,,RUNSYSDDL
@@ -36804,6 +36808,7 @@ return
 SRCHDDL:
 gui,submit,nohide
 guicontrolget,SRCHDDL,,SRCHDDL
+guicontrol,disable,ENHAK
 guicontrol,enable,ARCSYS
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
@@ -36820,10 +36825,18 @@ guicontrolget,ENHAK,,ENHAK
 HACKAPN=
 genlst=
 ArchiveSysRefresh:
+guicontrol,enable,ENHAK
 if (ENHAK = 1)
 	{
 		HACKAPN= #HACKS#
 	}
+if (ENHAK <> 1)
+	{
+		ifnotexist,%GAMSRCS%\#HACKS#%ARCSYS%.gam
+			{
+				guicontrol,disable,ENHAK
+			}
+	}	
 guicontrol,,ARCLNCH,PLAY ::>
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
@@ -38026,6 +38039,37 @@ if (tmprm <> "")
 					{
 						iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd
 					}
+				;;URLFILE= %sysurl%%ave1%
+				URLFILE1= %URLFILE%
+				abnum:= 1
+				Loop,parse,ave4,>
+					{
+						abnum+=1
+						URLFILE%abnum%= %A_LoopField%
+					}
+				ifinstring,ave4,http
+					{
+						ariadltyp=http
+					}
+				ifinstring,ave4,ftp
+					{
+						ariadltyp=ftp
+					}
+				ifinstring,ave4,magnet:
+					{
+						ariadltyp=magnet
+					}
+				ifinstring,ave1,://
+					{
+						URLFILE= %ave1%
+					}
+				if (ave2 = "")
+					{
+						splitpath,ave1,,,,sanfile
+						gosub, SanUrl
+						stringreplace,sanfile,sanfile,_,%A_space%,All
+						ave2= %sanfile%
+					}
 				if (ave2 = arcpopcul)
 					{
 						;;URLFILE= %ArcSite%/%sysurl%%ave1%
@@ -38090,7 +38134,7 @@ if (tmpsr <> "")
 									{
 										ariadltyp=http
 									}
-								ifinstring,ave4,ftp
+								ifinstring,ave4,ftp 
 									{
 										ariadltyp=ftp
 									}
@@ -60245,7 +60289,6 @@ guicontrol,move,FERAD7B,x530 y367 w78 h13
 guicontrol,,FERAD7B, Home Logo
 guicontrol,,FERAD7A,1
 guicontrol,,FERAD7B,0
-*/
 
 guicontrol,%fetog%,FERAD4A
 guicontrol,enable,FERAD4A
@@ -60257,6 +60300,7 @@ guicontrol,move,FERAD4B,x579 y472 w76 h13
 guicontrol,,FERAD4B, ROMs only
 guicontrol,,FERAD4A,1
 guicontrol,,FERAD4B,0
+*/
 
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
@@ -61709,7 +61753,6 @@ return
 
 EmulationstationFERAD4A:
 gui,submit,nohide
-guicontrol,,ESINCLF,1	
 return
 
 EmulationstationFERAD4B:
@@ -61918,15 +61961,6 @@ return
 
 ESFLDRCR:
 gui,submit,nohide
-otbo= FERAD4A
-if (ESROMONLY = 1)
-	{
-		otbo= FERAD4B
-	}
-if (FEDDLJ = "EmulationStation")
-	{
-		guicontrol,,%otbo%,1	
-	}
 return
 
 ESPOPCORE:
@@ -62551,7 +62585,7 @@ Loop, Parse, existlst,|
 			}
 		if (fldrcr = 1)
 			{
-				if ((FERAD4A = 1)&&(FECREATE = 1)or(PLCREATE = 1)&&(ESINCLF = 1))
+				if ((FECREATE = 1)or(PLCREATE = 1)&&(ESINCLF = 1))
 					{
 						FileAppend,<folder>`n,tmp.xml
 						FileAppend,<name>%romname%</name>`n,tmp.xml
@@ -70006,7 +70040,7 @@ guicontrol,,utlCHKF,0
 guicontrol,move,utlCHKF,x400 y343 w204 h16
 guicontrol,,utlCHKF,User-Defined Extraction Path
 guicontrol,show,utlCHKG
-guicontrol,disable,utlCHKG
+guicontrol,enable,utlCHKG
 guicontrol,,utlCHKG,0
 guicontrol,move,utlCHKG,x366 y382 w57 h16
 guicontrol,,utlCHKG,Enable
@@ -70059,7 +70093,7 @@ guicontrol,,utlDDLC,|Other|%emuinstpop%
 guicontrol,show,utlDDLC
 guicontrol,move,utlBUTF, x364 y400 w75 h23
 guicontrol,show,utlBUTF
-guicontrol,disable,utlBUTF
+guicontrol,enable,utlBUTF
 guicontrol,,utlBUTF,Icon
 guicontrol,move,utlGRPD, x364 y427 w391 h86
 guicontrol,show,utlGRPD
@@ -70389,14 +70423,15 @@ ifexist,%outsv%
 	{
 		FileDelete,%outsv%
 	}
-RunWait, %comspec% /c copy /b "bin\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
-wicon=
+filecopy,bin\7zsd%ARCH%.sfx,%cacheloc%\7zsd%ARCH%.sfx,1
 ifexist,executable\exe.ico
 	{
 		sleep, 2000
-		RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%outsv%" --set-icon executable\exe.ico,,hide
+		RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%cacheloc%\7zsd%ARCH%.sfx" --set-icon executable\exe.ico,,hide
 		wicon= with icon
 	}
+RunWait, %comspec% /c copy /b "%cacheloc%\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+wicon=
 guicontrol,enable,utlBUTJ
 SB_SetText("Executable " outsv " " wicon " created")
 return

@@ -77,6 +77,18 @@ ESTHEME=http://github.com/romjacket/esthemes/raw/master/simple.zip
 [simplified-static-canela]
 ESTHEME=http://github.com/romjacket/esthemes/raw/master/simplified-static-canela.zip
 
+[angular]
+ESTHEME=http://github.com/romjacket/esthemes/raw/master/angular.zip
+
+[switch]
+ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch.zip
+
+[switch-dark]
+ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch-dark.zip
+
+[SuperRetroboy]
+ESTHEME=http://github.com/romjacket/esthemes/raw/master/SuperRetroboy.zip
+
 [zoid]
 ESTHEME=http://github.com/romjacket/esthemes/raw/master/zoid.zip
 
