@@ -2609,7 +2609,7 @@ Gui,Add,DropDownList, hwndDplHndl83 x523 y202 w75 vemjr2 gemjr2 Hidden,
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[PLAYLISTS TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Progress, 30,....Loading Playlist Interface....
+;;Progress, 30,....Loading Playlist Interface.
 Gui, Tab, 5
 Gui, Tab, Playlists
 Gui,Add,DropDownList, hwndDplHndl167 x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
@@ -56220,7 +56220,7 @@ guicontrol,%fetog%,FETXTA
 guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x643 y55 w110 h13
 guicontrol,,FETXTA,Global Theme
-guicontrol,%fetog%,FETXTB
+guicontrol,hide,FETXTB
 guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x508 y437 w120 h15
 guicontrol,,FETXTB,Remove
@@ -56315,7 +56315,7 @@ iniRead,URLFILE,sets\themes.set,%FEDDLD%,RFTHEME
 iniRead,extractpthadd,sets\themes.set,%FEDDLD%,RFEXPTH
 if (URLFILE = "ERROR")
 	{
-		SB_SetText("This theme is not available from the seletonKey repository")
+		SB_SetText("This theme is not available from the skeletonKey repository")
 		return
 	}
 save= rj\RF\%FEDDLD%.7z
@@ -60006,14 +60006,14 @@ if (sysordr <> "ERROR")
 	}
 insttheme= simple
 Loop,%ESHOME%\themes\*,2
-{
-	insttheme= %A_LoopFileName%
-	ifexist,%ESHOME%\themes\rj
-		{
-			insttheme= rj
-		}
-	break
-}
+	{
+		insttheme= %A_LoopFileName%
+		ifexist,%ESHOME%\themes\rj
+			{
+				insttheme= rj
+			}
+		break
+	}
 cursysthemelist=
 avblnk=
 Loop, %ESHOME%\themes\%insttheme%\*,2
@@ -60096,6 +60096,7 @@ if (estransition = "slide")
 		estrans:= 1
 		estrans2:= 0
 	}
+
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    ES CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,%fetog%,FEBUTA
@@ -60110,8 +60111,8 @@ guicontrol,move,FEBUTB,x659 y473 w93 h23
 guicontrol,,FEBUTB,CREATE
 guicontrol,%fetog%,FEBUTC
 guicontrol,enable,FEBUTC
-guicontrol,move,FEBUTC,x505 y456 w46 h17
-guicontrol,,FEBUTC,delete
+guicontrol,move,FEBUTC,x394 y475 w52 h22
+guicontrol,,FEBUTC,Delete
 guicontrol,%fetog%,FEBUTD
 guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x355 y105 w37 h19
@@ -60130,8 +60131,8 @@ guicontrol,move,FEBUTH,x261 y130 w62 h20
 guicontrol,,FEBUTH,Emulator
 guicontrol,%fetog%,FEBUTG
 guicontrol,enable,FEBUTG
-guicontrol,move,FEBUTG,x506 y477 w46 h17
-guicontrol,,FEBUTG,clear
+guicontrol,move,FEBUTG,x450 y475 w52 h22
+guicontrol,,FEBUTG,Clear
 guicontrol,%fetog%,FEBUTI
 guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x508 y352 w18 h18
@@ -60322,11 +60323,11 @@ guicontrol,%fetog%,FETXTA
 guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x643 y55 w110 h13
 guicontrol,,FETXTA,Global Theme
-guicontrol,%fetog%,FETXTB
+guicontrol,hide,FETXTB
 guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x508 y437 w120 h15
 guicontrol,,FETXTB,Remove
-guicontrol,%fetog%,FETXTK
+guicontrol,hide,FETXTK
 guicontrol,enable,FETXTK
 guicontrol,move,FETXTK,x597 y452 w106 h15
 guicontrol,,FETXTK,Load es_systems.cfg
@@ -60349,14 +60350,14 @@ guicontrol,%fetog%,FETXTF
 guicontrol,enable,FETXTF
 guicontrol,move,FETXTF,x583 y263 w71 h13
 guicontrol,,FETXTF, Gamelist Style
-guicontrol,%fetog%,FETXTG
+guicontrol,hide,FETXTG
 guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
 guicontrol,,FETXTG, Added Systems
 guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
-guicontrol,move,FETXTH, x316 y480 w85 h19
-guicontrol,,FETXTH, Add system
+guicontrol,move,FETXTH, x329 y480 w47 h14
+guicontrol,,FETXTH, System
 guicontrol,%fetog%,FETXTN
 guicontrol,enable,FETXTN
 guicontrol,move,FETXTN,x619 y190 w70 h16
@@ -60439,7 +60440,7 @@ if (URLFILE = "ERROR")
 		guicontrol,enable,FEBUTA
 		return
 	}
-save= rj\ES\%FEDDLD%.7z
+save= rj\ES\%FEDDLD%.zip
 extractpath= %ESHOME%\themes
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
@@ -62016,7 +62017,7 @@ if (PLCREATE = 1)
 if (FECREATE = 1)
 	{
 		existlst=
-		Loop, %rmp_es%\*.*,0,%ESINCLF%
+		Loop, %rmp_es%\*.*,0,1
 			{
 				ifinstring,ext_es,.%A_loopFileExt%
 					{
@@ -62087,17 +62088,20 @@ Loop, Parse, existlst,|
 			{
 				curromnlst.= romname . "|"
 			}
-			else {
-				if ((FECREATE = 1)&&(FERAD4B = 1)or(PLCREATE = 1)&&(ESROMONLY = 1))
-					{
-						addtildtoromn:
-						romname.= "~"
-						ifinstring,curromnlst,%romname%
-							{
-								goto, addtildtoromn
-							}
-						curromnlst.= romname . "|"							
-					}
+			else {	
+					addtildtoromn:
+					if (romext <> "")
+						{
+							romname.= "~"
+							ifinstring,curromnlst,%romname%
+								{
+									goto, addtildtoromn
+								}
+							curromnlst.= romname . "|"
+						}
+						else {
+							continue
+						}	
 			}
 		imgetn= %romname%
 		avr= 
@@ -62155,11 +62159,8 @@ Loop, Parse, existlst,|
 				ROMIMAGEMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMIMAGEMATCH,,,newxt
-				if (ESCPYSCR = 1)
-					{
-						ESIMG= 1
-						FileCopy, %ROMIMAGEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%,1
-					}
+				ESIMG= 1
+				FileCopy, %ROMIMAGEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-image.%newxt%,1
 				break
 			}
 		if (ESIMG = "")
@@ -62201,14 +62202,22 @@ Loop, Parse, existlst,|
 				if (ESIMG = "")
 					{
 						MISREPIMG= Icons
-						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+						ifexist,%ESHOME%\downloaded_images\%SYSNAME%.png
 							{
 								ESIMG= 1
-								ROMIMAGEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+								ROMIMAGEMATCH= %ESHOME%\downloaded_images\%SYSNAME%.png
+							}
+							else {
+									ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+										{
+											filecopy, rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png,%ESHOME%\downloaded_images\%SYSNAME%.png
+											ESIMG= 1
+											ROMIMAGEMATCH= %ESHOME%\downloaded_images\%SYSNAME%.png
+										}
 							}
 					}
 			}
-		
+
 		ESMARQ=
 		imgetm= %imgetn%
 		ESMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
@@ -62229,11 +62238,8 @@ Loop, Parse, existlst,|
 				ROMMARQUEEMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMMARQUEEMATCH,,,newxt
-				if (ESCPYSCR = 1)
-					{
-						ESMARQ= 1
-						FileCopy, %ROMMARQUEEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%,1
-					}
+				ESMARQ= 1
+				FileCopy, %ROMMARQUEEMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-marquee.%newxt%,1
 				break
 			}
 		if (ESMARQ = "")
@@ -62275,11 +62281,19 @@ Loop, Parse, existlst,|
 				if (ESMARQ = "")
 					{
 						MISREPIMG= Logos
-						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
-							{
-								ESMARQ= 1
-								ROMMARQUEEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
-							}
+						ifexist,%ESHOME%\downloaded_images\%SYSNAME%-logo.png
+								{
+									ESMARQ= 1
+									ROMMARQUEEMATCH= %ESHOME%\downloaded_images\%SYSNAME%-logo.png
+								}
+								else {
+										ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+											{
+												filecopy, rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png,%ESHOME%\downloaded_images\%SYSNAME%-logo.png
+												ESMARQ= 1
+												ROMMARQUEEMATCH= %ESHOME%\downloaded_images\%SYSNAME%-logo.png
+											}
+								}
 					}
 			}
 		ESTHU=
@@ -62302,11 +62316,8 @@ Loop, Parse, existlst,|
 				ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMTHUMBNAILMATCH,,,newxt
-				if (ESCPYSCR = 1)
-					{
-						ESTHU= 1
-						FileCopy, %ROMTHUMBNAILMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%,1
-					}
+				ESTHU= 1
+				FileCopy, %ROMTHUMBNAILMATCH%, %ESHOME%\downloaded_images\%SYSNAME%\%romname%-thumb.%newxt%,1
 				break
 			}
 		if (ESTHU = "")
@@ -62348,10 +62359,18 @@ Loop, Parse, existlst,|
 					if (ESTHU = "")
 						{
 							MISREPIMG= Backdrops
-							ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+							ifexist,%ESHOME%\downloaded_images\%SYSNAME%-thumb.png
 								{
 									ESTHU= 1
-									ROMTHUMBNAILMATCH= rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+									ROMTHUMBNAILMATCH= %ESHOME%\downloaded_images\%SYSNAME%-thumb.png
+								}
+								else {
+										ifexist,rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png
+											{
+												filecopy, rj\netart\%FEDDLD%\%SYSNAME%\%MISREPIMG%\%SYSNAME%.png,%ESHOME%\downloaded_images\%SYSNAME%-thumb.png
+												ESTHU= 1
+												ROMTHUMBNAILMATCH= %ESHOME%\downloaded_images\%SYSNAME%-thumb.png
+											}
 								}
 						}
 			}
@@ -62375,12 +62394,9 @@ Loop, Parse, existlst,|
 				ROMVIDEOEMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMVIDEOEMATCH,,,newxt
-				if (ESCPYSCR = 1)
-					{
-						ESVID= 1
-						FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%\
-						FileCopy, %ROMVIDEOEMATCH%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%,1
-					}
+				ESVID= 1
+				FileCreateDir, %ESHOME%\downloaded_videos\%SYSNAME%\
+				FileCopy, %ROMVIDEOEMATCH%, %ESHOME%\downloaded_videos\%SYSNAME%\%romname%-video.%newxt%,1
 				break
 			}
 		if (ESVID = "")
@@ -62421,11 +62437,24 @@ Loop, Parse, existlst,|
 					}
 				if (ESVID = "")
 					{
-						ifexist,rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%.mp4
+						ifexist,%ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4
 							{
 								ESVID= 1
-								ROMVIDEOEMATCH= rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%mp4
-							}										
+								ROMVIDEOEMATCH= %ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4
+							}
+						else {
+								ifexist,rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%.mp4
+									{
+										ESVID= 1
+										filecopy,rj\netart\%FEDDLD%\%SYSNAME%\Video\%SYSNAME%.mp4,%ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4
+										ROMVIDEOEMATCH= %ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4
+									}										
+									else {
+										ifexist,%ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4							
+										ESVID= 1
+										ROMVIDEOEMATCH= %ESHOME%\downloaded_videos\%SYSNAME%\%SYSNAME%.mp4
+									}
+						}	
 					}
 			}
 		pulmeta=
@@ -62585,30 +62614,27 @@ Loop, Parse, existlst,|
 			}
 		if (fldrcr = 1)
 			{
-				if ((FECREATE = 1)or(PLCREATE = 1)&&(ESINCLF = 1))
-					{
-						FileAppend,<folder>`n,tmp.xml
-						FileAppend,<name>%romname%</name>`n,tmp.xml
-						stringreplace,pthromf,pthrom,/%romn%,,All
-						FileAppend,<path>./%pthromf%</path>`n,tmp.xml
-						FileAppend,<image>%ROMIMAGEMATCH%</image>`n,tmp.xml
-						FileAppend,<thumbnail>%ROMTHUMBNAILMATCH%</thumbnail>`n,tmp.xml
-						FileAppend,<marquee>%ROMBANMATCH%</marquee>`n,tmp.xml
-						FileAppend,<video>%ROMVIDMATCH%</video>`n,tmp.xml
-						FileAppend,<rating>%pulrate%</rating>`n,tmp.xml
-						FileAppend,<kidgame>%pulkid%</kidgame>`n,tmp.xml
-						FileAppend,<hidden>%pulhid%</hidden>`n,tmp.xml
-						FileAppend,<favorite>%pulfav%</favorite>`n,tmp.xml
-						FileAppend,<releasedate>%puldate%</releasedate>`n,tmp.xml
-						FileAppend,<developer>%puldev%</developer>`n,tmp.xml
-						FileAppend,<publisher>%pulpub%</publisher>`n,tmp.xml
-						FileAppend,<desc>%pulmeta%</desc>`n,tmp.xml
-						FileAppend,<genre>%pulgen%</genre>`n,tmp.xml
-						FileAppend,<players>%pulpl%</players>`n,tmp.xml
-						FileAppend,<playcount>%pulcnt%</playcount>`n,tmp.xml
-						FileAppend,<lastplayed>%pullast%</lastplayed>`n,tmp.xml
-						FileAppend,</folder>`n,tmp.xml
-					}
+				FileAppend,<folder>`n,tmp.xml
+				FileAppend,<name>%romname%</name>`n,tmp.xml
+				stringreplace,pthromf,pthrom,/%romn%,,All
+				FileAppend,<path>./%pthromf%</path>`n,tmp.xml
+				FileAppend,<image>%ROMIMAGEMATCH%</image>`n,tmp.xml
+				FileAppend,<thumbnail>%ROMTHUMBNAILMATCH%</thumbnail>`n,tmp.xml
+				FileAppend,<marquee>%ROMBANMATCH%</marquee>`n,tmp.xml
+				FileAppend,<video>%ROMVIDMATCH%</video>`n,tmp.xml
+				FileAppend,<rating>%pulrate%</rating>`n,tmp.xml
+				FileAppend,<kidgame>%pulkid%</kidgame>`n,tmp.xml
+				FileAppend,<hidden>%pulhid%</hidden>`n,tmp.xml
+				FileAppend,<favorite>%pulfav%</favorite>`n,tmp.xml
+				FileAppend,<releasedate>%puldate%</releasedate>`n,tmp.xml
+				FileAppend,<developer>%puldev%</developer>`n,tmp.xml
+				FileAppend,<publisher>%pulpub%</publisher>`n,tmp.xml
+				FileAppend,<desc>%pulmeta%</desc>`n,tmp.xml
+				FileAppend,<genre>%pulgen%</genre>`n,tmp.xml
+				FileAppend,<players>%pulpl%</players>`n,tmp.xml
+				FileAppend,<playcount>%pulcnt%</playcount>`n,tmp.xml
+				FileAppend,<lastplayed>%pullast%</lastplayed>`n,tmp.xml
+				FileAppend,</folder>`n,tmp.xml
 			}		
 		FileAppend,<game>`n,tmp.xml
 		FileAppend,<name>%romname%</name>`n,tmp.xml
@@ -62921,13 +62947,6 @@ gui,submit,nohide
 return
 ESUSESCR:
 gui,submit,nohide
-guicontrol,disable,ESCPYSCR
-if (ESUSESCR = 1)
-{
-guicontrol,enable,ESCPYSCR
-return
-}
-guicontrol,,ESCPYSCR,0
 return
 ESMARQSRCHBUT:
 gui,submit,nohide
@@ -63145,6 +63164,7 @@ if (ESRPOPROM = 1)
 			}
 	}
 return
+
 ESRPopJ:
 gui,submit,nohide
 RPDND=
