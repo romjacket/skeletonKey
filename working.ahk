@@ -58510,6 +58510,8 @@ Loop, Parse, existlst,|
 		FileAppend,players = %pulpl%`n,rj\RF\%SYSNAME%\%romname%.txt
 		FileAppend,%pulmeta%`n,rj\RF\%SYSNAME%\%romname%_story.cfg
 	}
+	}
+
 if (RFBACKUP = 1)
 	{
 		FileCopy,%RFHOME%\collections\%SYSNAME%\include.txt,%RFHOME%\collections\%SYSNAME%\include.txt.bak,1
