@@ -55912,7 +55912,7 @@ ifnotexist,RFcfg.ini
 splitpath,RetroFE,RFFEXE,RFPROGD
 splitpath,rfprogd,,rfprog
 iniread,RFHOME,rfcfg.ini,CONFIG,home_directory
-if (RFHOME = "ERROR")
+if ((RFHOME = "ERROR")or(RFHOME = ""))
 	{
 		RFHOME= %rfprog%
 		iniwrite,%RFHOME%,rfcfg.ini,CONFIG,home_directory
@@ -56177,16 +56177,21 @@ guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
-guicontrol,+altsubmit,FELVA
-guicontrol,+checked,FELVA
-guicontrol,+Multi,FELVA
-gui,ListView,FELVA
+Gui,ListView,FELVA
+Guicontrol,-checked,FELVA
+Guicontrol,-Multi,FELVA
+;;Loop, Parse, systmfldrs,|
 LV_Delete()
-Loop, Parse, systmfldrs,|
+Loop, Parse, RfNpts,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
+guicontrol,hide,FEDDLF
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x265 y64 w120 h15
@@ -56348,6 +56353,7 @@ SB_SetText("Current theme is " RFTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 RetroFEFEBUTB:
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
@@ -56357,6 +56363,13 @@ TCURPL=
 IniRead,prsy,RFcfg.ini,ORDER,system_order
 FileDelete,rj\RF\cursys.cfg
 FileDelete,rj\RF\*.conf
+
+ifnotexist,%rfhome%\layouts\%FEDDLD%\
+	{
+		SB_SetText("The current theme is not installed/downloaded.")
+		return
+	}
+FileDelete,rj\RF\menu.txt
 Loop, Parse, prsy,|
 	{
 		if (A_LoopField = "")
@@ -56440,6 +56453,7 @@ Loop, Parse, prsy,|
 							}
 						filemove,rj\RF\%emunmc%.conf,%RFHOME%\launchers\%emunmc%.conf,1
 						filemove,rj\RF\%injvar2%.settings.conf,%RFHOME%\collections\%ffj2%\settings.conf,1
+						SYSNAME= %ans1%
 						/*
 						FileAppend,collection: %injvar2%`n,rj\RF\metadata.retroFE.txt
 						FileAppend,shortname: %sysesc%`n,rj\RF\metadata.retroFE.txt
@@ -58093,6 +58107,7 @@ filecreatedir,rj\RF\%SYSNAME%
 FileDelete,rj\RF\%SYSNAME%\*.txt
 FileDelete,rj\RF\%SYSNAME%\*.cfg
 FileDelete,rj\RF\%SYSNAME%\include.txt
+
 Loop, Parse, existlst,|
 	{
 		TOTPTH= %RFROOTFLD%\%A_LoopField%
@@ -58112,11 +58127,9 @@ Loop, Parse, existlst,|
 			}
 		RFK=
 		imgetb= %imgetn%
-		if (RFUSESCR = 1)
-			{
-				RFBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
-				imgetb= %imgetn%
-			}
+		RFBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
+		imgetb= %imgetn%
+
 		if (RFBOXPATH = "")
 			{
 				RFBOX= 1
@@ -58136,13 +58149,48 @@ Loop, Parse, existlst,|
 					}
 				break
 			}
+		if (RFIMG = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\Folder.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+							{
+								ROMIMAGEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMIMAGEMATCH,,,newxt
+								RFIMG= 1
+								FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front\%romname%.%newxt%,1
+								break
+							}
+					}
+				if ((RFIMG = "")&&(RFPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Folder.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+											{				
+												ROMIMAGEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMIMAGEMATCH,,,newxt
+												RFIMG= 1
+												FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\artwork_front\%romname%.%newxt%,1
+												break
+											}
+									}
+								if (RFIMG = 1)
+									{
+										break
+									}
+							}					
+					}
+			}	
 		RFMARQ=
 		imgetm= %imgetn%
-		if (RFUSESCR = 1)
-			{
-				RFMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
-				imgetb= %imgetn%
-			}
+		RFMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
+		imgetb= %imgetn%
+		
 		if (RFMARQUEEPATH = "")
 			{
 				RFMARQ= 1
@@ -58155,20 +58203,52 @@ Loop, Parse, existlst,|
 				ROMMARQUEEMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMMARQUEEMATCH,,,newxt
-				if (RFCPYSCR = 1)
-					{
-						RFMARQ= 1
-						FileCopy, %ROMMARQUEEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%.%newxt%
-					}
+				RFMARQ= 1
+				FileCopy, %ROMMARQUEEMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%.%newxt%,1
 				break
 			}
+		if (RFMARQ = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\Logo.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+							{
+								ROMMARQUEEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMMARQUEEMATCH,,,newxt
+								RFMARQ= 1
+								FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%.%newxt%,1
+								break
+							}
+					}
+				if ((RFMARQ = "")&&(RFPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Logo.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
+											{
+												ROMMARQUEEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMMARQUEEMATCH,,,newxt
+												RFMARQ= 1
+												FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\bezel\%romname%.%newxt%,1
+												break
+											}
+									}
+								if (RFMARQ = 1)
+									{
+										break
+									}	
+							}					
+					}
+			}	
 		RFTHU=
 		imgett= %imgetn%
-		if (RFUSESCR = 1)
-			{
-				RFTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
-				imgetb= %imgetn%
-			}
+		
+		RFTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
+		imgetb= %imgetn%
 		if (RFTHUMBNAILPATH = "")
 			{
 				RFTHU= 1
@@ -58181,20 +58261,52 @@ Loop, Parse, existlst,|
 				ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
 				newxt=
 				splitpath,ROMTHUMBNAILMATCH,,,newxt
-				if (RFCPYSCR = 1)
-					{
-						RFTHU= 1
-						FileCopy, %ROMTHUMBNAILMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%.%newxt%
-					}
+				RFTHU= 1
+				FileCopy, %ROMTHUMBNAILMATCH%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%.%newxt%
 				break
 			}
+		if (RFTHU = "")
+			{
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\.snaps\*.*
+					{
+						if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
+							{
+								ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMTHUMBNAILMATCH,,,newxt
+								RFTHU= 1
+								FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%.%newxt%,1
+								break
+							}
+					}
+				if ((RFTHU = "")&&(RFPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\Logo.*
+									{
+										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
+											{
+												ROMTHUMBNAILMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMTHUMBNAILMATCH,,,newxt
+												RFTHU= 1
+												FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\screenshot\%romname%.%newxt%,1
+												break
+											}
+									}								
+							if (RFTHU = 1)
+								{
+									break
+								}
+							}	
+					}
+			}	
 		RFVID=
 		imgetv= %imgetn%
-		if (RFUSESCR = 1)
-			{
-				RFVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
-				imgetb= %imgetn%
-			}
+		RFVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
+		imgetb= %imgetn%
+		
 		if (RFVIDEOPATH = "")
 			{
 				RFVID= 1
@@ -58215,104 +58327,138 @@ Loop, Parse, existlst,|
 					}
 				break
 			}
-		if (RFUSESCR = 1)
+		if (RFVID = "")
 			{
-				pulmeta=
-				pulrate=
-				puldate=
-				pulhid=
-				puldev=
-				pulpub=
-				pulgen=
-				pulpl=
-				pulkid=
-				pulfav=
-				metaspl1=
-				metaspl2=
-				metaspl3=
-				Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
+				Loop,Files,%RJSYSTEMS%\%SYSNAME%\%romname%\backdrops\*.*
 					{
-						fndmet=
-						FileRead,metadt,%A_loopfilefullpath%
-						Loop, Parse, metadt,`n`r
+						if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
 							{
-								if (A_Loopfield = "")
+								ROMVIDEOEMATCH= %A_LoopFileFullPath%
+								newxt=
+								splitpath,ROMVIDEOEMATCH,,,newxt
+								RFVID= 1
+								FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\video\%romname%.%newxt%
+								break
+							}
+					}
+				if ((RFVID = "")&&(RFPLCORE = "Fuzzy-Match"))
+					{
+						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
+							{
+								Loop, %A_loopfilefullpath%\*.*
 									{
-										continue
-									}
-								stringsplit,metaspl,A_LoopField,<>
-								if (metaspl2 = "released")
+										if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
+											{
+												ROMVIDEOEMATCH= %A_LoopFileFullPath%
+												newxt=
+												splitpath,ROMVIDEOEMATCH,,,newxt
+												RFVID= 1
+												FileCopy, %A_LoopFileFullPath%, %RFHOME%\collections\%SYSNAME%\medium_artwork\video\%romname%.%newxt%
+												break
+											}
+									}								
+								if (RFVID = 1)
 									{
-										puldate= %metaspl3%
+										break
 									}
-								if (metaspl2 = "developer")
-									{
-										puldev= %metaspl3%
-									}
-								if (metaspl2 = "publisher")
-									{
-										pulpub= %metaspl3%
-									}
-								if (metaspl2 = "genre")
-									{
-										pulgen= %metaspl3%
-									}
-								if (metaspl2 = "players")
-									{
-										pulpl= %metaspl3%
-									}
-								if (metaspl2 = "rating")
-									{
-										pulrate= %metaspl3%
-									}
-								if (metaspl2 = "desc")
+							}			
+					}
+			pulmeta=
+			pulrate=
+			puldate=
+			pulhid=
+			puldev=
+			pulpub=
+			pulgen=
+			pulpl=
+			pulkid=
+			pulfav=
+			metaspl1=
+			metaspl2=
+			metaspl3=
+			Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
+				{
+					fndmet=
+					FileRead,metadt,%A_loopfilefullpath%
+					Loop, Parse, metadt,`n`r
+						{
+							if (A_Loopfield = "")
+								{
+									continue
+								}
+							stringsplit,metaspl,A_LoopField,<>
+							if (metaspl2 = "released")
+								{
+									puldate= %metaspl3%
+								}
+							if (metaspl2 = "developer")
+								{
+									puldev= %metaspl3%
+								}
+							if (metaspl2 = "publisher")
+								{
+									pulpub= %metaspl3%
+								}
+							if (metaspl2 = "genre")
+								{
+									pulgen= %metaspl3%
+								}
+							if (metaspl2 = "players")
+								{
+									pulpl= %metaspl3%
+								}
+							if (metaspl2 = "rating")
+								{
+									pulrate= %metaspl3%
+								}
+							if (metaspl2 = "desc")
+								{
+									fndmet= 1
+									pulmeta.= metaspl3
+									if (metaspl4 = "/desc")
+										{
+											fndmet=
+										}
+								}
+							if (metaspl2 = "plot")
 									{
 										fndmet= 1
 										pulmeta.= metaspl3
-										if (metaspl4 = "/desc")
+										if (metaspl4 = "/plot")
 											{
 												fndmet=
 											}
 									}
-								if (metaspl2 = "plot")
-										{
-											fndmet= 1
-											pulmeta.= metaspl3
-											if (metaspl4 = "/plot")
-												{
-													fndmet=
-												}
-										}
-								if (metaspl2 = "overview")
-										{
-											fndmet= 1
-											pulmeta.= metaspl3
-											if (metaspl4 = "/overview")
-												{
-													fndmet=
-												}
-										}
-								if (metaspl2 = "notes")
-										{
-											fndmet= 1
-											pulmeta.= metaspl3
-											if (metaspl4 = "/notes")
-												{
-													fndmet=
-												}
-										}
-								if (fndmet = 1)
+							if (metaspl2 = "overview")
 									{
-										pulmeta.= A_loopfield . "`n"
-										ifinstring, pulmeta,</desc>
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/overview")
 											{
 												fndmet=
 											}
 									}
-							}
-						break
-					}
-			}
+							if (metaspl2 = "notes")
+									{
+										fndmet= 1
+										pulmeta.= metaspl3
+										if (metaspl4 = "/notes")
+											{
+												fndmet=
+											}
+									}
+							if (fndmet = 1)
+								{
+									pulmeta.= A_loopfield . "`n"
+									ifinstring, pulmeta,</desc>
+										{
+											fndmet=
+										}
+								}
+						}
+					break
+				}
+	
 		pthrom= %A_LoopField%
 		if (RFVID = 1)
 			{
