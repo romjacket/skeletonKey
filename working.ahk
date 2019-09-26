@@ -407,6 +407,19 @@ if (ArcSiteN = "")
 		iniwrite, "%ArcSiteN%", Settings.ini,GLOBAL,RemoteRepository
 	}
 */
+
+IniRead,ArcPRep,%ARCORG%,REPOSITORIES,
+Loop,Parse,ArcPRep,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,air,A_LoopField,=,"
+		;"
+		stringreplace,air2,air2,`%ARCHR`%,%ARCHR%,All
+		%air1%= %air2%
+	}
 IniRead,ArcSRCv,%ARCORG%,SOURCES,
 srcfnd=
 Loop,Parse,ArcSRCv,`n`r
@@ -1284,11 +1297,7 @@ xmbVerticalThumbnails= 0
 xmbShowVideo= true
 xmbTheme= 0
 ASSETS= Assets
-buildBotCore=http://buildbot.libretro.com
-BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
-imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
-SHADERHOST= http://raw.githubusercontent.com/libretro/shader-previews/master/
-curlobby= http://newlobby.libretro.com/list
+
 if (INITIAL = 1)
 	{
 		gosub, DestroySplashGUI
@@ -1824,7 +1833,7 @@ if (INITIAL = 1)
 	}
 	
 ;;Progress, 16,......Loading Options......
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ~~~RUN OPTIONS MENU GROUP~~~   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   __RUN_OPTIONS_MENU_GROUP__   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 2
 Gui Tab, :=: MAIN :=:
 Gui,Font,Bold
@@ -3135,9 +3144,11 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 Gui, Tab, 7
 Gui, Tab, Repository
 Gui,Font,Bold
-Gui, Add, GroupBox, x16 y2 w332 h284 +0x400000 vARCGSYS Center, SYSTEMS
+Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center, SYSTEMS
 Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x26 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
+Gui,Add,ComboBox, hwndCbxHndl121 x26 y20 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
+Gui,Add,Button,x11 y23 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
 Gui,Add,DropDownList, hwndDplHndl122 x26 y48 w136 vARCCORES gArcCores, Emu_Preset||%runlist%
 Gui, Add, Checkbox, x169 y47 h10 vREDWN gReDownload, Redownload
 Gui, Add, CheckBox, x169 y61 h13 vDOWNONLY gDownOnly, Download Only
@@ -3146,7 +3157,7 @@ Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 ;;Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-Gui, Add, Checkbox, x287 y29 w25 vENHAK gENHAK +0x200,+hacks
+Gui, Add, Checkbox, x287 y29 w25 vENHAK gENHAK,+hacks
 Gui, Add, Checkbox, x287 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
@@ -31439,7 +31450,7 @@ guicontrol,show,NETHOSTLIST
 guicontrol, ,NETHINFO
 guicontrol, ,ARCDET
 BRKO= 1
-FileDelete,lobby.ini
+FileDelete,lobby*.ini
 guicontrol,disable,NETHOSTLIST
 LV_Delete()
 HOSTSELECT=
@@ -31456,14 +31467,24 @@ NewLobby:
 ;;IniRead,curlobby,%ARCORG%,GLOBAL,LOBBY
 ;;FileReadLine,curlobby,arcorg.set,3
 ;;URLDownloadToFile,%curlobby%,%A_ScriptDir%\lobby.ini
-save= %A_ScriptDir%\lobby.ini
-URLFILE= %curlobby%
-splitpath,save,svaf,svap
-exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-if ErrorLevel = 1
-  {
-	MsgBox,16,NETHOST,NETHOSTs-List could not be retrieved., 3
-  }
+lobn= 
+Loop,parse,curlobby,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		lobn+=1 
+		URLFILE= %A_LoopField%
+		save= %A_ScriptDir%\lobby%lobn%.ini
+		splitpath,save,svaf,svap,svaxtn,svajn
+		exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+		if (ErrorLevel = 1)
+		  {
+			MsgBox,16,NETHOST,NETHOSTs-List could not be retrieved., 3
+		  }
+	}
+
 ;{;;;;;;;;;;;;   REFRESH HOSTINGS  ;;;;;;;;;;;;;;;;;;
 LPNUM=
 Loop, 50
@@ -31486,148 +31507,157 @@ NETHOSTGAMES=
 NETHOSTPASSWDS=
 NETHOSTSPECPASSWDS=
 NETHOSTCOREVERSIONS=
-Loop, Read, lobby.ini
+lobbies= 
+Loop,lobby*.ini
 	{
-	ARBIP=
-	PORTOPEN=
-	PORTAV= ?
-	guicontrolget,CHKPORTS,,CHKPORTS
-	arrsp1=
-	arrsp2=
-	arrsp3=
-	arrsp4=
-	stringsplit,arrsp,A_LoopReadLine,:,`" `,
-;;"
-	if (arrsp1 = "username")
-		{
-			NETHOSTNAMES:= arrsp2
-		}
-		if (arrsp1 = "game_crc")
-		{
-			NETHOSTCRCD:= arrsp2
-		}
-	if (arrsp1 = "mitm_ip")
-		{
-			MITMIP:= arrsp2
-		}
-	if (arrsp1 = "created")
-		{
-			STARTTIME= %arrsp2%:%arrsp3%
-		}
-	if (arrsp1 = "core_version")
-		{
-			NETHOSTCOREVERSIONS:= arrsp2
-		}
-	if (arrsp1 = "ip")
-		{
-			NETHOSTIPS:= arrsp2
-		}
-	if (arrsp1 = "country")
-		{
-			WORLDLOC= %arrsp2%
-		}
-	if (arrsp1 = "retroarch_version")
-		{
-			RAEXEVERS= %arrsp2%
-		}
-	if (arrsp1 = "updated")
-		{
-			UPDATETIME= %arrsp2%:%arrsp3%
-		}
-	if (arrsp1 = "host_method")
-		{
-			NETHOSTMETHODS:= arrsp2
-		}
-	if (arrsp1 = "has_password")
-		{
-			NETHOSTPASSWDS:= arrsp2
-		}
-	if (arrsp1 = "frontend")
-		{
-			FRONTENDOS:= arrsp2
-		}
-	if (arrsp1= "game_name")
-		{
-			gamsplt1=
-			gamsplt2=
-			stringsplit,gamsplt,A_LoopReadLine,:","
-			NETHOSTGAMES= %gamsplt5%
-		}
-	if (arrsp1 = "has_spectate_password")
-		{
-			NETHOSTSPECPASSWDS:= arrsp2
-		}
-	if (arrsp1 = "core_name")
-		{
-			NETHOSTCORES:= arrsp2
-		}
-	if (arrsp1 = "mitm_port")
-		{
-			MITMPORTS:= arrsp2
-		}
-	if (arrsp1 = "fixed")
-		{
-			FIXEDHOST:= arrsp2
-		}
-	PORTOPEN=
-	PORTAV= !
-	if (NETHOSTMETHODS = "3")
-		{
-			NETHOSTPORTS:= MITMPORTS
-			PORTAV= Yes
-			CHKPORTS= 0
-			gosub, evalurl
-		}
-	HOSTPW= =
-	if (NETHOSTPASSWDS = "true")
-		{
-			HOSTPW= ?
-		}
-	if (arrsp1 = "port")
-		{
-			NETHOSTPORTS:= arrsp2
-			if (ARBIP <> "")
-				{
-					NETHOSTIPS:= ARBIP
-					NETHOSTPORTS:= MITMPORTS
-				}
-			if (CHKPORTS = 1)
-				{
-					PORTOPEN=
-					HOSTINGIPS= %NETHOSTINGIPS%
-					HOSTINGPORTS= %NETHOSTPORTS%
-					HOSTINGNAMES= %NETHOSTNAMES%
-					PORTAV= No
-					gosub, PortCheck
-				}
-			if (PORTOPEN= 1)
-				{
-					PORTAV= Yes
-				}
-			gosub, PopPlay
-		}
-	if (arrsp1 = "}")
-		{
-			MITMIP=
-			WORLDLOC=
-			RAEXEVERS=
+		lobbies.= A_LoopFileFullPath . "|"
+	}
+Loop,Parse,lobbies,|
+	{
+		Loop, Read, %A_LoopField%
+			{
+			ARBIP=
 			PORTOPEN=
-			STARTTIME=
-			NETHOSTIPS=
-			NETPWDZ=
-			UPDATETIME=
-			NETHOSTPORTS=
-			NETHOSTCORES=
-			NETHOSTNAMES=
-			NETHOSTGAMES=
-			NETHOSTPASSWDS=
-			NETHOSTSPECPASSWDS=
-			NETHOSTCOREVERSIONS=
-		}
-	if (arrsp1 = "]")
-		{
-			return
-		}
+			PORTAV= ?
+			guicontrolget,CHKPORTS,,CHKPORTS
+			arrsp1=
+			arrsp2=
+			arrsp3=
+			arrsp4=
+			stringsplit,arrsp,A_LoopReadLine,:,`" `,
+			;;"
+			if (arrsp1 = "username")
+				{
+					NETHOSTNAMES:= arrsp2
+				}
+				if (arrsp1 = "game_crc")
+				{
+					NETHOSTCRCD:= arrsp2
+				}
+			if (arrsp1 = "mitm_ip")
+				{
+					MITMIP:= arrsp2
+				}
+			if (arrsp1 = "created")
+				{
+					STARTTIME= %arrsp2%:%arrsp3%
+				}
+			if (arrsp1 = "core_version")
+				{
+					NETHOSTCOREVERSIONS:= arrsp2
+				}
+			if (arrsp1 = "ip")
+				{
+					NETHOSTIPS:= arrsp2
+				}
+			if (arrsp1 = "country")
+				{
+					WORLDLOC= %arrsp2%
+				}
+			if (arrsp1 = "retroarch_version")
+				{
+					RAEXEVERS= %arrsp2%
+				}
+			if (arrsp1 = "updated")
+				{
+					UPDATETIME= %arrsp2%:%arrsp3%
+				}
+			if (arrsp1 = "host_method")
+				{
+					NETHOSTMETHODS:= arrsp2
+				}
+			if (arrsp1 = "has_password")
+				{
+					NETHOSTPASSWDS:= arrsp2
+				}
+			if (arrsp1 = "frontend")
+				{
+					FRONTENDOS:= arrsp2
+				}
+			if (arrsp1= "game_name")
+				{
+					gamsplt1=
+					gamsplt2=
+					stringsplit,gamsplt,A_LoopReadLine,:","
+					NETHOSTGAMES= %gamsplt5%
+				}
+			if (arrsp1 = "has_spectate_password")
+				{
+					NETHOSTSPECPASSWDS:= arrsp2
+				}
+			if (arrsp1 = "core_name")
+				{
+					NETHOSTCORES:= arrsp2
+				}
+			if (arrsp1 = "mitm_port")
+				{
+					MITMPORTS:= arrsp2
+				}
+			if (arrsp1 = "fixed")
+				{
+					FIXEDHOST:= arrsp2
+				}
+			PORTOPEN=
+			PORTAV= !
+			if (NETHOSTMETHODS = "3")
+				{
+					NETHOSTPORTS:= MITMPORTS
+					PORTAV= Yes
+					CHKPORTS= 0
+					gosub, evalurl
+				}
+			HOSTPW= =
+			if (NETHOSTPASSWDS = "true")
+				{
+					HOSTPW= ?
+				}
+			if (arrsp1 = "port")
+				{
+					NETHOSTPORTS:= arrsp2
+					if (ARBIP <> "")
+						{
+							NETHOSTIPS:= ARBIP
+							NETHOSTPORTS:= MITMPORTS
+						}
+					if (CHKPORTS = 1)
+						{
+							PORTOPEN=
+							HOSTINGIPS= %NETHOSTINGIPS%
+							HOSTINGPORTS= %NETHOSTPORTS%
+							HOSTINGNAMES= %NETHOSTNAMES%
+							PORTAV= No
+							gosub, PortCheck
+						}
+					if (PORTOPEN= 1)
+						{
+							PORTAV= Yes
+						}
+					gosub, PopPlay
+				}
+			if (arrsp1 = "}")
+				{
+					MITMIP=
+					WORLDLOC=
+					RAEXEVERS=
+					PORTOPEN=
+					STARTTIME=
+					NETHOSTIPS=
+					NETPWDZ=
+					UPDATETIME=
+					NETHOSTPORTS=
+					NETHOSTCORES=
+					NETHOSTNAMES=
+					NETHOSTGAMES=
+					NETHOSTPASSWDS=
+					NETHOSTSPECPASSWDS=
+					NETHOSTCOREVERSIONS=
+				}
+			if (arrsp1 = "]")
+				{
+					;return
+					continue
+				}
+			}
 	}
 return
 PopPlay:
@@ -36127,6 +36157,86 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 return
 
+fltrRpoBtn:
+gui,submit,nohide
+guicontrolget,fltrRpoBtn,,fltrRpoBtn
+if (fltrRpoBtn = "E")
+	{
+		guicontrol,,ARCSYS,| ||Select a System|%syslist%
+		guicontrol,hide,ARCSYS
+		guicontrol,show,ARCCBX
+		guicontrol,,fltrRpoBtn,>
+		guicontrol,focus,ARCCBX
+		Controlfocus,ahk_id %CbxHndl121%
+		return	
+	}
+guicontrol,show,ARCSYS
+guicontrol,hide,ARCCBX
+guicontrol,,fltrRpoBtn,E
+return	
+
+
+ArchiveCBX:
+guicontrolget,RPSYSX,,ARCCBX
+if (RPTYP = "")
+	{
+		ROMSYS=  
+	}
+Sleep, 1100
+gui,submit,nohide
+guicontrolget,RPSYS,,ARCCBX
+if (RPSYS <> RPSYSX)
+	{
+		goto,ArchiveCBX
+	}
+if (RPSYS = "")
+	{
+		ROMSYS=  
+	}
+if ((RPSYS = "")or(RPSYS = "Select a System"))
+	{
+		ROMSYS= Select a System
+		main_search= %ROMSYS%||%syslist%
+		guicontrol,,ARCSYS,|%main_search%
+		guicontrol,show,ARCSYS	
+		guicontrol,hide,ARCCBX
+		guicontrol,,fltrRpoBtn,E
+		return
+	}
+
+RPTYP= 
+main_search= 
+
+Loop,parse,syslist,|
+	{
+		if (A_LoopField = RPSYS)
+			{
+				RPTYP= %A_LoopField%
+				EXTRSYS= %A_LoopField%
+				main_search= %A_LoopField%||%syslist%
+				guicontrol,show,ARCSYS
+				guicontrol,hide,ARCCBX
+				guicontrol,,ARCCBX,|%main_search%
+				guicontrol,,ARCSYS,|%main_search%
+				guicontrol,,fltrRpoBtn,E
+				goto, ArchiveSystems
+			}
+	}
+Loop,Parse,syslist,|
+	{
+		if Instr(A_LoopField, RPSYS)
+			{
+				main_search.=  A_LoopField . "|"
+			}
+	}
+if (main_search = "")
+		{
+			main_search= %swpparv%
+		}
+guicontrol,,ARCCBX,|%RPSYS%||%main_search%
+Control, ShowDropDown, , ,ahk_id %CbxHndl121%
+return
+
 ExpndASrch:
 gui,submit,nohide
 ExpndTog= show
@@ -36813,6 +36923,7 @@ guicontrol,enable,ARCSYS
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
 return
+
 ArchiveSystems:
 opndgam= 
 gui, submit, nohide
@@ -36821,7 +36932,7 @@ overrdx:= % (%urlsv%_EULA)
 guicontrol,,ENHAK,0
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
-guicontrolget,ENHAK,,ENHAK
+guicontrolget,ENHAK,,ENHAK	
 HACKAPN=
 genlst=
 ArchiveSysRefresh:
@@ -36882,8 +36993,12 @@ guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
+if (ARCSYS = "")
+	{
+		return
+	}
 EXTRSYS= %ARCSYS%
-if ((ARCSYS = "Select a System")or(ARCSYS = ""))
+if (ARCSYS = "Select a System")
 	{
 		guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 		guicontrol,,SRCHDDL,|All||%sysddllist%
