@@ -3300,8 +3300,8 @@ sktmv=
 FileRead, sktmp,%SKELD%\skeletonkey.tmp
 StringReplace,sktmc,sktmp,[VERSION],%date% %TimeString%,All
 StringReplace,sktmv,sktmc,[CURV],%vernum%,All
-stringreplace,sktmv,sktmv,/*  ;;[DEBUGOV],,All
-stringreplace,sktmv,sktmv,*/  ;;[DEBUGOV],,All
+stringreplace,sktmv,sktmv,`/`*  `;`;[DEBUGOV],,All
+stringreplace,sktmv,sktmv,`*`/  `;`;[DEBUGOV],,All
 FileAppend,%sktmv%,%SKELD%\skeletonkey.ahk
 FileDelete,%SKELD%\skeletonkey.tmp
 
