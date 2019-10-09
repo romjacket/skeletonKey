@@ -3925,7 +3925,7 @@ KBGP_TT :="Enables using the keyboard as a gamepad"
 LANIPRAD_TT :="Local network address"
 OVEXTL_TT :="Extensions automatically identified by the selected system.`nSave the nickname to assign an emulator to the extension."
 LATENCY_TT :="Desired audio latency in milliseconds. Might not be honored if driver can't provide given latency."
-LCORE_TT :="Select a libretro core or emulator"
+LCORE_TT :="Select an emulator/core"
 LNCHBUT_TT :="Launch the currently displayed ROM`nRight-Click for emulator-quick-select"
 JACKETMODE_TT :="Downloads the ROM to a directory of its title"
 LOCEMUIN_TT :="Selects an emulator executable and assigns it to the selected systems"
@@ -8294,7 +8294,9 @@ if (RUNPLRAD = 1)
 					{
 						romhn1=
 						romhn2=
-						if (A_LoopReadLine = "{")
+						stringreplace,fah,a_loopreadline,%A_Space%,,All
+						stringreplace,fah,fah,%A_Tab%,,All
+						if (fah = "{")
 							{
 								newPlF= 1
 								continue
@@ -8431,6 +8433,9 @@ if (RUNPLRAD = 1)
 				guicontrol,,SRCHLOCDDL,|%OPTYP%||History|%plistfiles%
 				guicontrol,,SRCHROMLBX,|
 				gosub, SRCHROMBUT
+			}
+			else {
+					guicontrol,,SRCHROMLBX,|%poptadd%			
 			}
 		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 		gosub, EDTROM
@@ -34378,7 +34383,7 @@ return
 CorePLInfo:
 gui, submit, nohide
 guicontrolget,plcortmp,,PLCORE
-stringtrimright,ccv,plcortmp,13`
+stringtrimright,ccv,plcortmp,13
 splitpath,plcortmp,slkp,,dlx
 CRDETECT= %libretrodirectory%\%plcortmp%
 NMDETECT= %corcfgnam%
@@ -34541,6 +34546,7 @@ guicontrol,enable,EXTPARSED
 guicontrol,enable,RECURSE
 guicontrol,enable,FLTXT
 return
+
 PopFolders:
 Iniread, RJSYSTEMS, Settings.ini,GLOBAL,systems_directory
 if (RJSYSTEMS = "ERROR")
@@ -34678,47 +34684,58 @@ omitxtv:= omitxj
 if (EXCLBOOL = 1)
 	{
 		stringreplace, omitxtt, omitxtt,`,,|, All
-		guicontrol,,EXTPARSED, |%omitxtv%
+		guicontrol,,EXTPARSED, |%omitxtv%||
 		goto, EXFilter
 	}
+goto, ExtParBegin
+
+ExtParBegin:
 
 ExtParsing:
+omitxtv=
 listswp=
 matchinfo=
 POPLDWN=
 EXTPARSED=
 extoutp1=
 extoutp2=
+omitxtv= 
+omitxtr= 
+allxtn= 
 guicontrolget,PLCORE,,PLCORE
-ifinstring,PLCORE,_libretro
+Loop, Parse, libMatSet,`n`r
 	{
-		Loop, Parse, libMatSet,`n`r
+		libmlk1=
+		libmlk2=
+		StringSplit,libmlk, A_LoopField,|
+		if (libmlk2 = DWNLPOS)
 			{
-				libmlk1=
-				libmlk2=
-				StringSplit,libmlk, A_LoopField,|
-				if (libmlk2 = DWNLPOS)
+				SplitPath,libmlk1,,,,matchinfo
+				matchinfo= %matchinfo%.info
+				Loop, Read, %raexeloc%\info\%matchinfo%
 					{
-						SplitPath,libmlk1,,,,matchinfo
-						matchinfo= %matchinfo%.info
-						Loop, Read, %raexeloc%\info\%matchinfo%
+						extoutp1=
+						extoutp2=
+						stringsplit,extoutp, A_LoopReadLine,=,%A_Space% ""
+						if (extoutp1 = "supported_extensions")
 							{
-								extoutp1=
-								extoutp2=
-								stringsplit,extoutp, A_LoopReadLine,=,%A_Space% ""
-								if (extoutp1 = "supported_extensions")
+								Loop,Parse,extoutp2,|
 									{
-										listswp= 1
-										StringReplace, omitxtr, extoutp2,|,`,,All
-										omitxtv:= omitxtr . "|" . "|" . omitxtv
-										guicontrol,,INCLBOOL,1
-										break
+										ifnotinstring,allxtn,%A_LoopField%
+											{
+												allxtn.= A_LoopField . ","
+											}
 									}
+								listswp= 1
+								StringReplace, omitxtv, extoutp2,|,`,,All
+								libxtn= %omitxtv%	
+;;								guicontrol,,INCLBOOL,1
+								break
 							}
-					}							
-			}
-	goto, PIIPDXTF
+					}
+			}							
 	}
+;;	goto, PIIPDXTF
 iniread,fein,sets\emuCfgPresets.set,%DWNLPOS%,RJROMXT
 
 if ((fein <> "ERROR")&&(fein <> ""))
@@ -34739,13 +34756,29 @@ if ((fein <> "ERROR")&&(fein <> ""))
 								continue
 							}
 						omitxtc.= "," . A_LoopField
+						ifnotinstring,omitxtv,%A_LoopField%
+							{
+								if (A_LoopField = "zip")
+									{
+										if (noinclz <> 1)
+											{
+												omitxtc:= A_LoopField . "," . omitxtc											
+											}
+									}
+								else {
+										omitxtc:= A_LoopField . "," . omitxtc									
+									}
+							ifnotinstring,allxtn,%A_LoopField%
+								{
+									allxtn.= A_LoopField . ","
+								}		
+							}
 					}
 			}
-			
-		omitxtc.= "," . omitxtv
-		omitxtv= %omitxtc%
+		omitxtv:= omitxtc . "," . omitxtv
 		stringreplace,omitxtv,omitxtv,.,,All
 	}
+
 if (extoutp2 = "")
 	{
 		if (EXCLBOOL = 1)
@@ -34757,28 +34790,34 @@ if (extoutp2 = "")
 				}
 			}
 	}
+if instr(PLCORE,"_libretro.dll")&&(DETECTCORE <> 1)
+	{
+		omitxtv:= libxtn . "|" . "|" . omitxtv . "|" . allxtn
+	}
+	else {
+		if (omitxtc <> "")
+			{
+				omitxtv:= omitxtv . "|" . "|" . omitxtc
+			}
+	}
 PIIPDXTF:
 guicontrol,,EXTPARSED, |%omitxtv%
 stringsplit,omitxtf,omitxtv,|
 stringreplace, pipxtr, omitxtf1,`,,|, All
+stringreplace,pipxtr,pipxtr,||,|,All
 stringsplit,omitxtn,pipxtr,|
-stringreplace,omitxtn,omitxtn,||,|,All
 goto, faromitgn
 
 FilterTargetButton:
-if (omitxtn = "")
+if (omitxtn0 = "")
 	{
 		gosub, PopDownloads
 	}
 
-faromitgn:	
+faromitgn:
 ar := Object()
 Loop, %omitxtn0%
 	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
 		new= % (omitxtn%a_index%)
 		if (omitxtn%a_index% <> "")
 			{
@@ -34896,10 +34935,11 @@ EXTPARSED=
 extoutp1=
 extoutp2=
 omitxtd=
-guicontrolget,omitxtt,, EXTPARSED
+guicontrolget,omitxtt,,EXTPARSED
 stringsplit,omitxtp,omitxtt,|
 stringreplace,omitxty,omitxp1,`,,|,All
 stringsplit,omitxtn,omitxty,|
+
 OutList:
 POPLDWN=
 ar := Object()
@@ -34914,7 +34954,7 @@ Loop, %omitxtn0%
 Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 	{
 		ext= %A_LoopFileExt%
-		noapl=
+		noapl= 0
 		for k, v in ar
 			{
 				extm:= v
@@ -34923,7 +34963,7 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 						noapl= 1
 					}
 			}
-		if (noapl = "")
+		if (noapl = INCLBOOL)
 			{
 				POPLDWN .= A_LoopFileFullPath . "|"
 			}
@@ -34931,6 +34971,7 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 return
+
 MVPLOU:
 ;{;;;;;;;;;   MOVE ORDER UP  ;;;;;;;;;;;;;;;;;
 SB_SetText("")
@@ -35098,8 +35139,14 @@ if (PGCONFG = 1)
 return
 PopulateCore:
 gui, submit, nohide
+guicontrolget,PLCOREG,,PLCORE
+if (PLCOREG = "")
+	{
+		
+	}
 gosub, CorePLInfo
 return
+
 RemFromPL:
 ifexist,rj\ES\%syssub%\%gamesel%.ini
 	{
@@ -35449,7 +35496,7 @@ Loop, Parse, existlst,|
 				;;stringreplace,romname,romname,[,(,All
 				;;stringreplace,romname,romname,],),All
 				FileAppend,%pspce%"label":%A_Space%"%romname%"`,`n,*tmp.lpl
-				stringreplace,CRCDETECT,CRCDETECT,\,\\,All
+				stringreplace,CRDETECT,CRDETECT,\,\\,All
 				FileAppend,%pspce%"core_path":%A_Space%"%CRDETECT%"`,`n,*tmp.lpl
 				FileAppend,%pspce%"core_name":%A_Space%"%NMDETECT%"`,`n,*tmp.lpl
 				ApndCRC= 0000000
@@ -35807,7 +35854,7 @@ if (CRCZ <> "")
 				;;stringreplace,ziprn,ziprn,[,(,All
 				;;stringreplace,ziprn,ziprn,],),All
 				FileAppend,%pspce%"label":%A_Space%"%ziprn%"`,`n,*tmp.lpl
-				stringreplace,CRCDETECT,CRCDETECT,\,\\,All
+				stringreplace,CRDETECT,CRDETECT,\,\\,All
 				FileAppend,%pspce%"core_path":%A_Space%"%CRDETECT%"`,`n,*tmp.lpl
 				FileAppend,%pspce%"core_name":%A_Space%"%NMDETECT%"`,`n,*tmp.lpl
 				FileAppend,%pspce%"crc32":%A_Space%"%CRCZ%|crc"`,`n,*tmp.lpl
@@ -36047,11 +36094,11 @@ splitpath,urlaloc,urlalocf,,urlaext
 iniread,EULA,Settings.ini,Global,%urltxt%_EULA
 %urlsv%_EULA= %EULA%
 dispeula= %urltxt%
-ifnotexist,sets\%urltxt%eula.set
+ifnotexist,sets\%urltxt%_eula.set
 	{
-		dispeula= generic_
+		dispeula= generic
 	}
-filecopy,sets\%dispeula%eula.set,tmp.htm,1
+filecopy,sets\%dispeula%_eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
 		ARCEULA=file:///%A_ScriptDir%\tmp.htm
@@ -37828,8 +37875,10 @@ if (ENHAK = 1)
 	{
 		HACKAPN= #HACKS#
 	}
+guicontrolget,ArcMove,,ArcMove
 guicontrolget,OVDLDS,,OVDLDS
 guicontrolget,romdwnlst,,ARCPOP
+
 if (romdwnlst = "")
 	{
 		srcharcs= 1
@@ -38673,13 +38722,17 @@ if (EXTEXPLD = 1)
 	{
 		xtrvar= e
 	}
+srvn= 
 runwait, %comspec% cmd /c  "bin\7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
+srvn= %ERRORLEVEL%
 SB_SetText(" extraction complete to " xtrdir " ")
 if (RUNXTRACT = 1)
 	{
-		gosub, ArcExtract
+		goto, ArcExtract
 	}
+goto, ArcMtst	
 return
+
 ArcExtract:
 fndpath= %xtrdir%
 gosub, LkExtrExt
@@ -38694,15 +38747,17 @@ if (klp = "")
 					}
 			}
 	}
+ArcMtst:
 if (ArcMove = 1)
 	{
 		FileCreateDir,%cacheloc%\%romsys%\%romname%
-		if (save <> romf)
+		if ((save <> romf)or(srvn = 0))
 			{
 				FileMove,%save%,%cacheloc%\%romsys%\%romname%,1
 			}
 	}
 return
+
 LkExtrExt:
 klp=
 iniread,lookf,sets\emucfgPresets.set,%romsys%,RJROMXT
@@ -38747,6 +38802,7 @@ Loop, Parse, lookf,`,
 			}
 	}
 return
+
 GetXtr:
 ;{;;;;;;;;;;;;;  GET XT-RATED ROM  ;;;;;;;;;;;;;;;
 stringsplit,coreslc,coreslv,.
@@ -78729,7 +78785,9 @@ if (RUNPLRAD = 1)
 					{
 						ttnf1=
 						ttnf2=
-						if (A_LoopReadLine = "{")
+						stringreplace,kif,A_LoopReadLine,%A_Space%,,All
+						stringreplace,kif,kif,%A_Tab%,,All
+						if (kif = "{")
 							{
 								newPlF= 1
 								continue
@@ -78745,13 +78803,18 @@ if (RUNPLRAD = 1)
 										stringreplace,ttnf,ttnf,\\,\,All
 										stringreplace,ttnf,ttnf,",,All
 										;"
+										rom_f= %ttnf%
 										ifinstring,ttnf,.zip#
 											{
 												stringsplit,romhn,ttnf,#
-												romf= %romhn2%
+												rom_f= %romhn2%
 											}
 											else {
-													romf= %ttnf%
+													rom_f= %ttnf%
+											}
+										if (rom_f <> romf)
+											{
+												continue
 											}
 										filereadline,coreselz,%selectedplaylist%,%lnumfnd%
 										Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
@@ -78928,6 +78991,7 @@ gosub, LNCHCHK
 SK_MODE= 1
 RUNSYSCHNG=
 return
+
 NEWROM:
 if romf=
 gosub, GetROM
