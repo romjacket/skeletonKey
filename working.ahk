@@ -11,7 +11,7 @@ CURPID= %ERRORLEVEL%
 GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
-RASTABLE= 1.7.8
+RASTABLE= 1.8.0
 #Include src\tf.ahk
 #Include src\lbex.ahk
 #Include src\LVA.ahk
@@ -595,6 +595,7 @@ FileRead,LibMatSet,sets\libmatch.set
 FileRead,ArcOrgSet,%ARCORG%
 FileRead,PgLkUp,sets\Pglkup.set
 FileRead,feLkUp,sets\felkup.set
+
 stringreplace,rfLkUp,feLkUp,[ROMPATH],`%ITEM_FILEPATH`%,All
 stringreplace,rfLkUp,rfLkUp,[ROMNAME],`%ITEM_NAME`%,All
 stringreplace,pgLkUp,feLkUp,[ROMPATH],{file.path},All
@@ -621,6 +622,7 @@ stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 iniRead, EmuPartSet,sets\EmuParts.set,EMULATORS
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
+AllPartSet:= KMPARTSET . "`n" . UTLPARTSET . "`n" . FEPARTSET . "`n" . EMUPARTSET
 gosub, RBLDRUNLST
 if (repoloc = "ERROR")
 	{
@@ -10236,6 +10238,7 @@ GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
 GuiControl, Enable, CNCLDWN
+
 EMURJINT:
 Loop, Parse,UrlIndex,`n`r
 	{
@@ -10378,6 +10381,7 @@ Loop, Parse,UrlIndex,`n`r
 						if (emuxetmp1 = urloc1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
+								break
 							}
 					}
 				guicontrol,,EINSTLOC,%xtractmfp%
@@ -11343,6 +11347,7 @@ IniWrite, %ADDFK%,AppParams.ini,%sysni%,%CMDRT%
 IniWrite, %ADDFO%,AppParams.ini,%sysni%,%CMDRO%
 IniWrite, %ADDFW%,AppParams.ini,%sysni%,%CMDRS%
 return
+
 InstEmuDDL:
 gui,submit,nohide
 EINSTLOC=
@@ -11382,7 +11387,7 @@ if (selfnd = "Other")
 	}
 return
 EmuLkup:
-Loop, Parse,EmuPartSet,`n`r
+Loop, Parse,AllPartSet,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -11393,12 +11398,16 @@ Loop, Parse,EmuPartSet,`n`r
 		emupts3=
 		emupts4=
 		StringSplit,emupts,A_LoopField,=,:
+		;;msgbox,,,loop=%a_loopField%`nemupts1="%emupts1%"`nemupts2="%emupts2%"`nemupts3="%emupts3%"
 		if (emupts1 = selfnd)
 			{
-				emuxe:= emupts3
+				emuxe= %emupts3%	
+				break
 			}
 	}
+;;msgbox,,,selfnd=%selfnd%`nemuxe=%emuxe%
 return
+
 ChkMu:
 ifexist, %RJEMUD%\%selfnd%\
 	{
@@ -11456,7 +11465,7 @@ Loop, Parse, avar,`n`r
 				SplitPath,sefnr,nple,npld,nplx,npln
 				if (nplx <> "dll")
 					{
-						Loop, Parse, EmuPartSet,`n`r
+						Loop, Parse, AllPartSet,`n`r
 							{
 								if (A_LoopField = "")
 									{
@@ -52639,6 +52648,7 @@ guicontrol,%fetog%,FEPRGA
 guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
+gosub, FERAD5C
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   PG DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52710,6 +52720,7 @@ Loop, Parse, prsy,|
 			{
 				continue
 			}
+		sysfix.= A_LoopField . "|"
 		sysfin=
 		sysesc= %A_loopField%
 		iniread,tmpes,PGcfg.ini,GLOBAL
@@ -52758,18 +52769,18 @@ Loop, Parse, prsy,|
 						injvar6=
 						injvar7=
 						stringsplit,injvar,sysvlz,|
-						iniread,emucmd,apps.ini,EMULATORS,%injvar4%
+						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
 						ifinstring,injvar4,:
 							{
-								emucmd= %injvar4%
+								emushrtn= %injvar4%
 							}
 						FileAppend,collection: %injvar2%`n,rj\PG\metadata.pegasus.txt
 						FileAppend,shortname: %sysesc%`n,rj\PG\metadata.pegasus.txt
 						stringreplace,extn,injvar3,.,%A_Space%,All
 						FileAppend,extensions: %extn%`n,rj\PG\metadata.pegasus.txt
-						stringreplace,emucmd,emucmd,",,All
+						stringreplace,emushrtn,emushrtn,",,All
 						;"
-						FileAppend,launch: "%emucmd%" %injvar5% `n,rj\PG\metadata.pegasus.txt
+						FileAppend,launch: "%emushrtn%" %injvar5% `n,rj\PG\metadata.pegasus.txt
 						;;filecopy,rj\PG\%sysesc%.pegasus.txt,%injvar6%\metadata.pegasus.txt,%FECHKB%
 						stringreplace,injvnp,injvar6,\,/,All
 						;;FileAppend,%injvnp%`n,rj\PG\GD.cfg
@@ -56598,13 +56609,13 @@ Loop, Parse, prsy,|
 						injvar6=
 						injvar7=
 						stringsplit,injvar,sysvlz,|
-						iniread,emucmd,apps.ini,EMULATORS,%injvar4%
+						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
 						emunmc= %injvar4%
 						ifinstring,injvar4,:
 							{
-								stringsplit,emunmc,emucmd
+								stringsplit,emunmc,emushrtn
 								emunmc=
-								emucmd= %injvar4%
+								emushrtn= %injvar4%
 							}
 						stringreplace,injvnp,injvar6,\,/,All
 						FileAppend,list.path = %injvnp%`n,rj\RF\%injvar2%.settings.conf
@@ -56614,7 +56625,7 @@ Loop, Parse, prsy,|
 						FileAppend,list.menuSort = true`n,rj\RF\%injvar2%.settings.conf
 						FileAppend,list.romHierarchy = true`n,rj\RF\%injvar2%.settings.conf
 						FileAppend,launcher = %emunmc%`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,executable = %emucmd%`n,rj\RF\%emunmc%.conf
+						FileAppend,executable = %emushrtn%`n,rj\RF\%emunmc%.conf
 						FileAppend,arguments = %injvar5%`n,rj\RF\%emunmc%.conf
 						FileAppend,%ffj2%`n,rj\RF\menu.txt
 						RunWait,"core\retrofe.exe" -createcollection "%ffj2%",%rfprog%,hide
@@ -56630,9 +56641,9 @@ Loop, Parse, prsy,|
 						FileAppend,shortname: %sysesc%`n,rj\RF\metadata.retroFE.txt
 						stringreplace,extn,injvar3,.,%A_Space%,All
 						FileAppend,extensions: %extn%`n,rj\RF\metadata.retroFE.txt
-						stringreplace,emucmd,emucmd,",,All
+						stringreplace,emushrtn,emushrtn,",,All
 						;"
-						FileAppend,launch: "%emucmd%" %injvar5% `n,rj\RF\metadata.retroFE.txt
+						FileAppend,launch: "%emushrtn%" %injvar5% `n,rj\RF\metadata.retroFE.txt
 						;;filecopy,rj\RF\%sysesc%.retroFE.txt,%injvar6%\metadata.retroFE.txt,%FECHKB%
 						;;FileAppend,%injvnp%`n,rj\RF\GD.cfg
 						FileAppend,directory: %injvnp%`n,rj\RF\metadata.retroFE.txt
@@ -60551,7 +60562,7 @@ guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
-guicontrol,+checked,FELVA
+;;guicontrol,+checked,FELVA
 guicontrol,+Multi,FELVA
 gui,ListView,FELVA
 LV_Delete()
@@ -60824,10 +60835,10 @@ Loop, Parse, prsy,|
 		iniread,ext_es,EScfg.ini,%sysesc%,ext_es
 		iniread,emu_es,EScfg.ini,%sysesc%,emu_es
 		stringreplace,extn,ext_es,`,,%A_Space%,All
-		iniread,emucmd,apps.ini,EMULATORS,%emu_es%
+		iniread,emushrtn,apps.ini,EMULATORS,%emu_es%
 		ifinstring,emu_es,:
 			{
-				emucmd= %emu_es%
+				emushrtn= %emu_es%
 			}
 		iniread,arg_es,EScfg.ini,%sysesc%,arg_es
 		iniread,rmp_es,EScfg.ini,%sysesc%,rmp_es
@@ -60837,9 +60848,9 @@ Loop, Parse, prsy,|
 		FileAppend,<fullname>%dsp_es%</fullname>`n,rj\ES\cursys.cfg
 		FileAppend,<path>%rmp_es%</path>`n,rj\ES\cursys.cfg
 		FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
-		stringreplace,emucmd,emucmd,",,All
+		stringreplace,emushrtn,emushrtn,",,All
 		;"
-		splitpath,emucmd,fxe,fp,xe,fn,fd
+		splitpath,emushrtn,fxe,fp,xe,fn,fd
 		stringleft,fd,fd,1
 		stringtrimleft,fp,fp,3
 		FileAppend,<command>%fd%":\%fp%\%fxe%" %arg_es%</command>`n,rj\ES\cursys.cfg

@@ -1,5 +1,6 @@
 [RJ]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/rj.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/rj.zip
+ESTHEME=http://archive.org/download/esthemes/rj.zip
 PGTHEME=http://github.com/romjacket/pgthemes/raw/master/rj.zip
 RFTHEME=http://archive.org/download/RJ_retroFE_theme/RJ.7z
 RFEXPTH=
@@ -51,97 +52,127 @@ ESTHEME=http://github.com/romjacket/esthemes/raw/master/SpaceOddity.zip
 PGTHEME=http://github.com/romjacket/pgthemes/raw/master/gameOS.zip
 
 [carbon-centered]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/carbon-centered.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/carbon-centered.zip
+ESTHEME=http://archive.org/download/esthemes/carbon-centered.zip
 
 [carbon-nometa]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/carbon-nometa.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/carbon-nometa.zip
+ESTHEME=http://archive.org/download/esthemes/carbon-nometa.zip
 
 [clean-look]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/clean-look.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/clean-look.zip
+ESTHEME=http://archive.org/download/esthemes/clean-look.zip
 
 [fundamental]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/fundamental.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/fundamental.zip
+ESTHEME=http://archive.org/download/esthemes/fundamental.zip
 
 [nbba]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/nbba.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/nbba.zip
+ESTHEME=http://archive.org/download/esthemes/nbba.zip
 
 [pixel]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/pixel.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/pixel.zip
+ESTHEME=http://archive.org/download/esthemes/pixel.zip
 
 [simple-dark]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/simple-dark.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/simple-dark.zip
+ESTHEME=http://archive.org/download/esthemes/simple-dark.zip
 
 [retrowave]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/retrowave.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/retrowave.zip
+ESTHEME=http://archive.org/download/esthemes/retrowave.zip
 
 [cygnus]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/cygnus.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/cygnus.zip
+ESTHEME=http://archive.org/download/esthemes/cygnus.zip
 
 [RVGM]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/RVGM.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/RVGM.zip
+ESTHEME=http://archive.org/download/esthemes/RVGM.zip
 
 [nostalgic]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/nostalgic.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/nostalgic.zip
+ESTHEME=http://archive.org/download/esthemes/nostalgic.zip
 
 [BMO]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/BMO.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/BMO.zip
+ESTHEME=http://archive.org/download/esthemes/BMO.zip
 
 [tronkyjared]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/tronkyjared.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/tronkyjared.zip
+ESTHEME=http://archive.org/download/esthemes/tronkyjared.zip
 
 [clarity]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/clarity.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/clarity.zip
+ESTHEME=http://archive.org/download/esthemes/clarity.zip
 
 [tronkyfran]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/tronkyfran.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/tronkyfran.zip
+ESTHEME=http://archive.org/download/esthemes/tronkyfran.zip
 
 [NextFull]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/NextFull.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/NextFull.zip
+ESTHEME=http://archive.org/download/esthemes/NextFull.zip
 
 [raohmaru-dark]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/raohmaru-dark.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/raohmaru-dark.zip
+ESTHEME=http://archive.org/download/esthemes/raohmaru-dark.zip
 
 [es-theme-soda-master]
 ESTHEME=https://github.com/RetroHursty69/es-theme-soda/archive/master.zip
 
 [simple]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/simple.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/simple.zip
+ESTHEME=http://archive.org/download/esthemes/simple.zip
 
 [retrobat]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/retrobat.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/retrobat.zip
+ESTHEME=http://archive.org/download/esthemes/retrobat.zip
 
 [ssimplebox]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/ssimplebox.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/ssimplebox.zip
+ESTHEME=http://archive.org/download/esthemes/ssimplebox.zip
 
 [simplified-static-canela]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/simplified-static-canela.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/simplified-static-canela.zip
+ESTHEME=http://archive.org/download/esthemes/simplified-static-canela.zip
 
 [angular]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/angular.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/angular.zip
+ESTHEME=http://archive.org/download/esthemes/angular.zip
 
 [switch]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch.zip
+ESTHEME=http://archive.org/download/esthemes/switch.zip
 
 [switch-dark]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch-dark.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/switch-dark.zip
+ESTHEME=http://archive.org/download/esthemes/switch-dark.zip
 
 [SuperRetroboy]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/SuperRetroboy.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/SuperRetroboy.zip
+ESTHEME=http://archive.org/download/esthemes/SuperRetroboy.zip
 
 [zoid]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/zoid.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/zoid.zip
+ESTHEME=http://archive.org/download/esthemes/zoid.zip
 
 [Game-Vault]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/Game-Vault.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/Game-Vault.zip
+ESTHEME=http://archive.org/download/esthemes/Game-Vault.zip
 
 [snes-mini]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/snes-mini.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/snes-mini.zip
+ESTHEME=http://archive.org/download/esthemes/snes-mini.zip
 
 [Rom-core]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/Rom-core.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/Rom-core.zip
+ESTHEME=http://archive.org/download/esthemes/Rom-core.zip
 
 [nes-mini]
-ESTHEME=http://github.com/romjacket/esthemes/raw/master/nes-mini.zip
+;;ESTHEME=http://github.com/romjacket/esthemes/raw/master/nes-mini.zip
+ESTHEME=http://archive.org/download/esthemes/nes-mini.zip
 
 #[magazinemadness]
 #ESTHEME=http://github.com/romjacket/esthemes/raw/master/magazinemadness.zip
