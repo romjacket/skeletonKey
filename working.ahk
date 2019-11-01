@@ -274,13 +274,18 @@ If (playlistloctmp <> "ERROR")
 					}
 			}
 	}
-	
+
+
+
+;;;;;;;;;	
 supguiitems= mednafen|mame|retroarch|snes9x
+;;;;;;;;;
 iniread,supgui,Settings.ini,GLOBAL,supported_guis
 if (supgui = "ERROR")
 	{
 		supgui= %supguiitems%
 	}
+supjguiitems:= supgui . "|Antimicro"
 	
 AUTOGUIc=	
 ifinstring,supgui,retroarch
@@ -622,7 +627,7 @@ stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 iniRead, EmuPartSet,sets\EmuParts.set,EMULATORS
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
-AllPartSet:= KMPARTSET . "`n" . UTLPARTSET . "`n" . FEPARTSET . "`n" . EMUPARTSET
+AllPartSet:= KMPPARTSET . "`n" . UTLPARTSET . "`n" . FEPARTSET . "`n" . EMUPARTSET
 gosub, RBLDRUNLST
 if (repoloc = "ERROR")
 	{
@@ -1458,15 +1463,15 @@ IfExist,apps.ini
 			{
 				if (keympr = "Antimicro")
 					{
-						IniRead,amicropth,apps.ini,KEYBOARD_MAPPERS,%keympr%
+						IniRead,amicropth,apps.ini,KEYMAPPERS,%keympr%
 						kmprxtn= .amgp
 					}
 				if (keympr = "Xpadder")
 					{
-						IniRead,xpaddrpth,apps.ini,KEYBOARD_MAPPERS,%keympr%
+						IniRead,xpaddrpth,apps.ini,KEYMAPPERS,%keympr%
 						kmprxtn= .xpadderprofile
 					}
-				iniread,kmprloc,apps.ini,KEYBOARD_MAPPERS,%keympr%
+				iniread,kmprloc,apps.ini,KEYMAPPERS,%keympr%
 				if (kmprloc <> 0)
 					{
 						SplitPath,kmprloc,,kmprd
@@ -1485,12 +1490,12 @@ IfExist,apps.ini
 			{
 				DCHANGER=
 			}
-		IniRead,XPDK,apps.ini,KEYBOARD_MAPPERS,Xpadder
+		IniRead,XPDK,apps.ini,KEYMAPPERS,Xpadder
 		if (XPDK = "ERROR")
 			{
 				XPDK=
 			}
-		IniRead,AMCK,apps.ini,KEYBOARD_MAPPERS,Antimicro
+		IniRead,AMCK,apps.ini,KEYMAPPERS,Antimicro
 		if (AMCK = "ERROR")
 			{
 				AMCK=
@@ -9862,6 +9867,7 @@ guicontrol,enable,LOCEMUIN
 guicontrol,enable,EMUINST
 guicontrol,enable,INSTEMUDDL
 guicontrol,enable,CHEMUINST
+curtxt= 
 LineNum=
 Loop,Parse,PrgLst,`n`r
 	{
@@ -9882,6 +9888,7 @@ Loop,Parse,PrgLst,`n`r
 		emuplst= %stemu2%
 		if (stemu1 = semu)
 			{
+				curtxt= %semu%
 				selfnd= %stemu2%
 				guicontrol,,INSTEMUDDL,|%stemu2%||%emuplst%|%emuinstpop%Other
 				gosub, ChkMu
@@ -9893,7 +9900,7 @@ noselb=
 Stringsplit,noselb,noBrws,|
 if (SALIST = "Emulators")
 	{
-		guicontrol,,INSTEMUDDL,|%semu%||
+		guicontrol,,INSTEMUDDL,|%semu%||Other
 		IniRead, ksvel,apps.ini,EMULATORS,%semu%
 		if ((ksvel = "")or(ksvel = "ERROR"))
 			{
@@ -9936,7 +9943,7 @@ for k, v in ar
 				guicontrol,hide,EINSTLOC
 			}
 	}
-if (UAVAIL = "Xpadder")
+if (semu = "Xpadder")
 	{
 		guicontrol,enable,EMUASIGN
 		IniRead, kmprt, Settings.ini,GLOBAL,Keymapper
@@ -9947,7 +9954,7 @@ if (UAVAIL = "Xpadder")
 		guicontrol,show,EMUASIGN
 		guicontrol,,EMUASIGN,Default Keymapper
 	}
-if (UAVAIL = "Antimicro")
+if (semu = "Antimicro")
 	{
 		guicontrol,enable,EMUASIGN
 		IniRead, kmprt, Settings.ini,GLOBAL,Keymapper
@@ -10238,7 +10245,10 @@ GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
 GuiControl, Enable, CNCLDWN
-
+if (selfnd = "Other")
+	{
+	
+	}
 EMURJINT:
 Loop, Parse,UrlIndex,`n`r
 	{
@@ -10365,7 +10375,7 @@ Loop, Parse,UrlIndex,`n`r
 						GuiControl, Disable, CNCLDWN
 						return
 					}
-				Loop, Parse, EmuPartSet,`n`r
+				Loop, Parse, AllPartSet,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -10377,7 +10387,7 @@ Loop, Parse,UrlIndex,`n`r
 						emuxetmp4=
 						emuxetmp5=
 						emuxetmp6=
-						StringSplit, emuxetmp, A_LoopField,=,:
+						StringSplit,emuxetmp,A_LoopField,=,:
 						if (emuxetmp1 = urloc1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
@@ -10415,7 +10425,7 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						if (selfnd = "Xpadder")
 							{
-								inisect= KEYBOARD_MAPPERS
+								inisect= KEYMAPPERS
 							}
 						if (selfnd = "Display_Changer")
 							{
@@ -10428,7 +10438,7 @@ Loop, Parse,UrlIndex,`n`r
 							}
 						if (selfnd = "Antimicro")
 							{
-								inisect= KEYBOARD_MAPPERS
+								inisect= KEYMAPPERS
 							}
 					iniwrite, "%xtractmfp%",apps.ini,%inisect%,%urloc1%
 					}
@@ -10608,7 +10618,7 @@ if (EINSTLOC <> "")
 				guicontrol,show,MULTINST
 			}
 		splitpath,EINSTLOC,emutfpx,,,selfnd
-		Loop, Parse,EmuPartSet,`n`r
+		Loop, Parse,AllPartSet,`n`r
 			{
 				if (A_LoopField = "")
 					{
@@ -11387,25 +11397,26 @@ if (selfnd = "Other")
 	}
 return
 EmuLkup:
+emuxe= 
+emumatch= 
 Loop, Parse,AllPartSet,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
-			}
+			} 
 		emupts1=
 		emupts2=
 		emupts3=
 		emupts4=
 		StringSplit,emupts,A_LoopField,=,:
-		;;msgbox,,,loop=%a_loopField%`nemupts1="%emupts1%"`nemupts2="%emupts2%"`nemupts3="%emupts3%"
 		if (emupts1 = selfnd)
 			{
-				emuxe= %emupts3%	
+				emuxe= %emupts3%
+				emumatch= 1
 				break
 			}
-	}
-;;msgbox,,,selfnd=%selfnd%`nemuxe=%emuxe%
+	} 
 return
 
 ChkMu:
@@ -11425,11 +11436,11 @@ if (SALIST = "Utilities")
 		ASREX= Utilities
 		if (curtxt = "Xpadder")
 			{
-				ASREX= KEYBOARD_MAPPERS
+				ASREX= KEYMAPPERS
 			}
 		if (curtxt = "Antimicro")
 			{
-				ASREX= KEYBOARD_MAPPERS
+				ASREX= KEYMAPPERS
 			}
 	}
 if (SALIST = "Frontends")
@@ -11440,8 +11451,26 @@ if (SALIST = "Emulators")
 	{
 		ASREX= Assignments
 	}
-iniread,avar,%ASREP%.ini,%ASREP%,
+iniread,avar,%ASREP%.ini,%ASREX%,
 oemum=
+if ((avar = "ERROR")or(avar = ""))
+	{		
+		iniread,nplcmx,sets\EmuParts.set,%ASREX%,%semu%
+		if ((nplcmx <> "")&&(nplcmx <> "ERROR"))
+			{
+				stringsplit,fjei,nplcmx,=
+				if (emumatch = 1)
+					{
+						ifexist,%RJEMUD%\%semu%\%fjei2%
+							{
+								sefnr= %RJEMUD%\%semu%\%fjei2%
+								iniwrite,"%RJEMUD%\%semu%\%fjei2%",%ASREP%.ini,%ASREX%,%semu%
+								SB_SetText(" " selfnd " is installed - ")
+								guicontrol,,EINSTLOC,%RJEMUD%\%semu%\%fjei2%
+							}
+					}
+			}
+	}
 Loop, Parse, avar,`n`r
 	{
 		if (A_LoopField = "")
@@ -11450,12 +11479,16 @@ Loop, Parse, avar,`n`r
 			}
 		nplc1=
 		nplc2=
-		stringsplit,nplc,A_LoopField,=,"`n`r
+		stringsplit,nplc,A_LoopField,=,"
 		;"
+		if (nplc2 = "")
+			{
+				continue
+			}
 		if (nplc1 = semu)
 			{
-				iniread,sefnr,%ASREP%.ini,%ASREX%,%nplc2%
-				if (sefnr = "ERROR")
+				iniread,sefnr,%ASREP%.ini,%ASREX%,%nplc1%
+				if ((sefnr = "ERROR")&&(nplc2 <> ""))
 					{
 						sefnr= %nplc2%
 					}
@@ -11490,8 +11523,8 @@ Loop, Parse, avar,`n`r
 						guicontrol,hide,CHEMUINST
 						guicontrol,hide,EINSTTXT
 						iniread,aimt,Apps.ini,EMULATORS,%semu%
-								SB_SetText(" " npln " is installed -- ")
-								guicontrol,,EINSTLOC,%npld%\%nple%
+						SB_SetText(" " npln " is installed -- ")
+						guicontrol,,EINSTLOC,%npld%\%nple%
 						oemum:= nplc2
 						guicontrol,,INSTEMUDDL,|Other||%emuinstpop%
 						IniRead, xemt, apps.ini,EMULATORS
@@ -11888,13 +11921,13 @@ Loop, Parse, UAVAIL,|
 				if (semu = "Xpadder")
 					{
 						xpaddrpth= %EMUINSTLOCT%
-						iniwrite, "%EMUINSTLOCT%",apps.ini,KEYBOARD_MAPPERS,%semu%
+						iniwrite, "%EMUINSTLOCT%",apps.ini,KEYMAPPERS,%semu%
 						return
 					}
 				if (semu = "Antimicro")
 					{
 						amicropth= %EMUINSTLOCT%
-						iniwrite, "%EMUINSTLOCT%",apps.ini,KEYBOARD_MAPPERS,%semu%
+						iniwrite, "%EMUINSTLOCT%",apps.ini,KEYMAPPERS,%semu%
 						return
 					}
 				if (semu = "Display_Changer")
@@ -30632,10 +30665,10 @@ Loop, Parse, KMPartSet,`n`r
 				if (prgom = 1)
 					{
 						fecnt+=1
-						iniread,fetmp,apps.ini,KEYBOARD_MAPPERS,%emupx1%
+						iniread,fetmp,apps.ini,KEYMAPPERS,%emupx1%
 						if (fetmp = "ERROR")
 							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYBOARD_MAPPERS,%emupx1%
+								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYMAPPERS,%emupx1%
 							}
 						stringreplace,kmpxelst,kmpxelst,%emupx1%>%emunmz%,,All
 						SB_SetText(" " emupx1 " found ")
@@ -44837,6 +44870,37 @@ srchtog= show
 gosub, TOGGLESEARCHBOX
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;; ANTIMICRO JOYSTICK ;;;;;;;;;;;;;;;;;;;
+AntimicroCTRLS:
+rajoytog= Hide
+gosub, RAJOYTOG
+emjtog= disable
+gosub, EMJTOG
+guicontrol,show,emjBUTA
+guicontrol,enable,emjBUTA
+guicontrol,,emjBUTA,Open
+return	
+
+JAntimicroBUTA:
+Process, Exist, %$amc_mcr%
+if (ERRORLEVEL <> 1)
+	{
+		SB_SetText("Antimicro is running")
+		return
+	}
+iniread,spjn,apps.ini,KEYMAPPERS,antimicro
+if ((spjn = "ERROR")or(spjn = ""))
+	{
+		SB_SetText("Antimicro not found")
+		return
+	}
+$amc_mcr= 	
+ifexist, %spjn%
+	{
+		Run, %spjn%,,$amc_mcr
+	}
+return
+;}
 ;{;;;;;;;;;;;;;;;;   MEDNAFEN JOYSTICK  ;;;;;;;;;;;;;;;;;;;;
 mednafenCTRLS:
 guicontrol,,JOYCORE,|mednafen||retroArch|Antimicro|Xpadder|%supguiitems%|%corelist%
@@ -69185,7 +69249,7 @@ guicontrolget,FEDDLG,,FEDDLG
 iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
 if (FEDDLG <> "Jackets")
 	{
-		iniread,feexchk,Apps.ini,FRONTENDS,%FEDDLG%
+		iniread,feexchk,Apps.ini,HTPC_FRONTENDS,%FEDDLG%
 		if ((feexchk = "ERROR")or(feexchk = ""))
 			{
 				SB_SetText("This frontend is not installed/detected")
@@ -75192,7 +75256,7 @@ return
 RJMAPDD:
 gui,submit,nohide
 guicontrolget,RJMAPDD,,RJMAPDD
-iniread, kmprloc,apps.ini,KEYBOARD_MAPPERS,%RJMAPDD%
+iniread, kmprloc,apps.ini,KEYMAPPERS,%RJMAPDD%
 if (RJMAPDD = "Antimicro")
 	{
 		kmprxtn= .amgp
@@ -76693,12 +76757,12 @@ gui,submit,nohide
 guicontrol,,RJENMAP,0
 if (rjaval2 = 1)
 	{
-		iniread,kmpchkt,apps.ini,KEYBOARD_MAPPERS,Xpadder
+		iniread,kmpchkt,apps.ini,KEYMAPPERS,Xpadder
 		if (kmpchkt <> "ERROR")
 			{
 				guicontrol,,RJENMAP,1
 			}
-		iniread,kmpchkt,apps.ini,KEYBOARD_MAPPERS,Antimicro
+		iniread,kmpchkt,apps.ini,KEYMAPPERS,Antimicro
 		if (kmpchkt <> "ERROR")
 			{
 				guicontrol,,RJENMAP,1
@@ -77036,6 +77100,11 @@ if (rajoycore = "retroArch")
 			}
 		return	
 	}
+if (JOYCORE = "Antimicro")
+	{
+		gosub,HIDEJOYCTRLS
+		
+	}
 if (emujchk2 <> "dll")
 	{
 		if (emujchk1 = "")
@@ -77061,7 +77130,7 @@ if (emujchk2 <> "dll")
 		guicontrol,,JCFGEDT,|
 		stringsplit,JOYCORD,JOYCORE,_
 		JOYCORE= %JOYCORD1%
-		Loop,parse,supgui,|
+		Loop,parse,supjguiitems,|
 			{
 				if (JOYCORE = A_LoopField)
 					{
@@ -77441,6 +77510,7 @@ emjtog= Hide
 goto, EMJTOG
 FusionCTRLS:
 ejcex= 1
+
 EMJTOG:
 Loop,Parse,EMUINPUTNULLITEMS,|
 	{
@@ -77450,6 +77520,7 @@ Loop,Parse,EMUINPUTGUIITEMS,|
 	{
 		guicontrol,%emjtog%,%A_Loopfield%
 	}
+
 EMJBTOG:
 Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
@@ -77459,6 +77530,7 @@ Loop,Parse,EMUJOYCBXGUIITEMS,|
 	{
 		guicontrol,%emjtog%,%A_LoopField%
 	}
+
 return
 EmuJoy:
 rajoytog= Hide
@@ -79206,7 +79278,7 @@ FileAppend, global_filter = "1"`n, Settings.ini
 FileAppend, history_append = "1"`n, Settings.ini
 filedelete, apps.ini
 FileAppend, [EMULATORS]`n, apps.ini
-FileAppend, [KEYBOARD_MAPPERS]`n, apps.ini
+FileAppend, [KEYMAPPERS]`n, apps.ini
 FileAppend, [HTPC_FRONTENDS]`n, apps.ini
 FileAppend, [UTILITIES]`n, apps.ini
 return

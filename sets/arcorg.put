@@ -13,8 +13,6 @@ Archive=http://archive.org/download
 Archive:SET=[REPOSRC]/ARCHIVE/Archive.7z
 the-eye=https://the-eye.eu/public/rom
 the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
-moonbound=https://roms.moonbound.net/Systems
-moonbound:SET=[REPOSRC]/MOONBOUND/moonbound.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com
