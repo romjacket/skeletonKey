@@ -596,7 +596,6 @@ if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
 	}
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
-FileRead,LibMatSet,sets\libmatch.set
 FileRead,ArcOrgSet,%ARCORG%
 FileRead,PgLkUp,sets\Pglkup.set
 FileRead,feLkUp,sets\felkup.set
@@ -11396,6 +11395,7 @@ if (selfnd = "Other")
 			}
 	}
 return
+
 EmuLkup:
 emuxe= 
 emumatch= 
@@ -11487,7 +11487,7 @@ Loop, Parse, avar,`n`r
 			}
 		if (nplc1 = semu)
 			{
-				iniread,sefnr,%ASREP%.ini,%ASREX%,%nplc1%
+				iniread,sefnr,%ASREP%.ini,%ASREX%,%semu%
 				if ((sefnr = "ERROR")&&(nplc2 <> ""))
 					{
 						sefnr= %nplc2%
@@ -11508,7 +11508,8 @@ Loop, Parse, avar,`n`r
 								emuprt2=
 								emuprt3=
 								StringSplit,emuprt,A_LoopField,=
-								if (emuprt3 = nple)
+								splitpath,emuprt3,nexv
+								if (nexv = nple)
 									{
 										if (aimt = sefnr)
 											{
@@ -29299,7 +29300,8 @@ if (sysni = 0)
 	guicontrol,,DCORE,0
 	guicontrol,,ARDCORE,0
 	gosub,DApp
-ifinstring,libMatSet,|%ADDCORE%
+;;ifinstring,libMatSet,|%ADDCORE%
+ifinstring,ADDCORE,_libretro.dll
 	{
 		guicontrol,enable,ARDCORE
 		guicontrol,enable,DAPP
@@ -34709,16 +34711,15 @@ if (DWNLPOS = ":=:System List:=:")
 		guicontrol, ,EXTPARSED, |%omitxtv%
 		return
 	}
-Loop, Parse, libMatSet,`n`r
+IniRead,stevr,sets\EmuCfgPresets.set,%DWNLPOS%,SUPCORE
+if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
-		libmlk1=
-		libmlk2=
-		StringSplit,libmlk, A_LoopField,|
-		if (libmlk2 = DWNLPOS)
+		Loop, Parse, stevr,|
 			{
-				ifExist, %libretrodirectory%\%libmlk1%
+				ifExist, %libretrodirectory%\%A_LoopField%
 					{
-						guicontrol,,PLCORE,|%libmlk1%||%runlist%
+						guicontrol,,PLCORE,|%A_LoopField%||%runlist%
+						break
 					}
 			}
 	}
@@ -34745,14 +34746,13 @@ omitxtv=
 omitxtr= 
 allxtn= 
 guicontrolget,PLCORE,,PLCORE
-Loop, Parse, libMatSet,`n`r
+
+IniRead,stevr,sets\EmuCfgPresets.set,%DWNLPOS%,SUPCORE
+if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
-		libmlk1=
-		libmlk2=
-		StringSplit,libmlk, A_LoopField,|
-		if (libmlk2 = DWNLPOS)
+		Loop, Parse, stevr,|
 			{
-				SplitPath,libmlk1,,,,matchinfo
+				SplitPath,A_LoopField,,,,matchinfo
 				matchinfo= %matchinfo%.info
 				Loop, Read, %raexeloc%\info\%matchinfo%
 					{
@@ -34771,13 +34771,11 @@ Loop, Parse, libMatSet,`n`r
 								listswp= 1
 								StringReplace, omitxtv, extoutp2,|,`,,All
 								libxtn= %omitxtv%	
-;;								guicontrol,,INCLBOOL,1
 								break
 							}
 					}
-			}							
+			}
 	}
-;;	goto, PIIPDXTF
 iniread,fein,sets\emuCfgPresets.set,%DWNLPOS%,RJROMXT
 
 if ((fein <> "ERROR")&&(fein <> ""))
@@ -35640,16 +35638,7 @@ PlaylistEdit:
 SYSNAME= %PLNAMEDT%
 gui, submit, nohide
 return
-MatchCore:
-loop, Parse, LibMatSet,`n`r
-	{
-		stringsplit,crmt,A_LoopField,|
-		if (crmt1 = curcore)
-			{
-				SySMat= %crmt2%
-			}
-	}
-return
+
 MatchEmu:
 recore=
 if (LNCHPT = 0)
@@ -35755,18 +35744,25 @@ if (core_gui <> ARCCORES)
 	}
 return
 MatchSyst:
-Loop, Parse, libMatSet,`n`r
+coretograb= 
+IniRead,stevr,sets\EmuCfgPresets.set,%EXTRSYS%,SUPCORE
+if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
-		stringsplit,symt,A_LoopField,|
-		if (symt2 = EXTRSYS)
+		Loop, Parse, stevr,|
 			{
-				ifexist, %libretroDirectory%\%symt1%
+				if (A_Index = 1)
 					{
-						recore .= symt1 . "|"
-						selctdcore= %symt1%
+						coretograb= %A_LoopField%
+					}
+				ifexist, %libretroDirectory%\%A_LoopField%
+					{
+						recore .= A_LoopField . "|"
+						selctdcore= %A_LoopField%
+						break
 					}
 			}
 	}
+
 if (selctdcore <> "")
 	{
 		coreselv= %selctdcore%
@@ -37185,12 +37181,9 @@ if (GLBLRUN = "")
 	{
 		gosub, MatchEmu
 	}
-if (NPLC = "")
+if ((NPLC = "")&&(GLBLRUN = 1))
 	{
-		if (GLBLRUN = "1")
-			{
-				gosub, MatchSyst
-			}
+		gosub, MatchSyst
 	}
 if (ARCSEL = 2)
 	{
@@ -44872,6 +44865,19 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;; ANTIMICRO JOYSTICK ;;;;;;;;;;;;;;;;;;;
 AntimicroCTRLS:
+iniread,amcloc,Apps.ini,KEYMAPPERS,antimicro
+if ((amcloc = "") or (amcloc = "ERROR") or !fileexist(amcloc))
+	{
+		SB_SetText("Use the Install tab to install Antimicro.")
+		guicontrol,choose,TABMENU,3
+		guicontrol,,SALIST,|Utilities||Systems|Emulators|RetroArch|Frontends
+		SALIST= Utilities
+		guicontrol,enable,SALIST
+		gosub, SALIST
+		Guicontrol,choose,UAVAIL,|1
+		guicontrol, ChooseString, UAVAIL,Antimicro
+		return
+	}
 rajoytog= Hide
 gosub, RAJOYTOG
 emjtog= disable
@@ -66088,11 +66094,16 @@ guicontrolget,SaList,,SaList
 SB_SetText("Deleteing Emulator")
 Guicontrolget,emutd,,EINSTLOC
 splitpath,emutd,emuxtd,emuptd
+SALSTYP= %SaList%
+if ((selfnd = "Antimicro")or(selfnd = "XPadder"))
+	{
+		SALSTYP= KEYMAPPERS
+	}
 MsgBox,8707,Confirm Delete,Are you sure you want to delete %selfnd%?
 ifMsgBox,Yes
 	{
 		FileRemoveDir,%emuptd%,1
-		inidelete,Apps.ini,%SaList%,%selfnd%
+		inidelete,Apps.ini,%SALSTYP%,%selfnd%
 		iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
 		gosub, RBLDRUNLST
 		gosub, SALIST
@@ -66104,7 +66115,11 @@ gui,submit,nohide
 guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,SaList,,SaList
 SB_SetText("Clearing Emulator")
-inidelete,Apps.ini,%SaList%,%selfnd%
+if ((selfnd = "Antimicro")or(selfnd = "XPadder"))
+	{
+		SALSTYP= KEYMAPPERS
+	}
+inidelete,Apps.ini,%SALSTYP%,%selfnd%
 iniwrite,"",Assignments.ini,ASSIGNMENTS,%selfnd%
 gosub, RBLDRUNLST
 gosub, SALIST

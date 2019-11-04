@@ -22,6 +22,7 @@ FileCreateDir,rj\emuCfgs\ActiveGS
 FileCreateDir,rj\emuCfgs\ADAMEm
 FileCreateDir,rj\emuCfgs\adviemulator
 FileCreateDir,rj\emuCfgs\agat
+FileCreateDir,rj\emuCfgs\AGD
 FileCreateDir,rj\emuCfgs\alice32
 FileCreateDir,rj\emuCfgs\Altirra
 FileCreateDir,rj\emuCfgs\anex86
@@ -1025,6 +1026,7 @@ FileInstall,rj\emucfgs\ActiveGS\default.activegsxml.ret,rj\emucfgs\ActiveGS\defa
 FileInstall,rj\emucfgs\ADAMEm\ADAMEmMam.ini.set,rj\emucfgs\ADAMEm\ADAMEmMam.ini.set,1
 FileInstall,rj\emucfgs\adviemulator\AdViEmulator.ini.ret,rj\emucfgs\adviemulator\AdViEmulator.ini.ret,1
 FileInstall,rj\emucfgs\agat\emulator.ini.ret,rj\emucfgs\agat\emulator.ini.ret,1
+FileInstall,rj\emucfgs\AGD\agd.cfg.ret,rj\emucfgs\AGD\agd.cfg.ret,1
 FileInstall,rj\emucfgs\alice32\alice32.ini.set,rj\emucfgs\alice32\alice32.ini.set,1
 FileInstall,rj\emucfgs\alice32\default.ini.set,rj\emucfgs\alice32\default.ini.set,1
 FileInstall,rj\emucfgs\Altirra\Altirra.ini.ret,rj\emucfgs\Altirra\Altirra.ini.ret,1
