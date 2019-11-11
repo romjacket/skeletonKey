@@ -11,7 +11,7 @@ CURPID= %ERRORLEVEL%
 GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
-RASTABLE= 1.8.0
+RASTABLE= 1.8.1
 #Include src\tf.ahk
 #Include src\lbex.ahk
 #Include src\LVA.ahk
@@ -29300,7 +29300,6 @@ if (sysni = 0)
 	guicontrol,,DCORE,0
 	guicontrol,,ARDCORE,0
 	gosub,DApp
-;;ifinstring,libMatSet,|%ADDCORE%
 ifinstring,ADDCORE,_libretro.dll
 	{
 		guicontrol,enable,ARDCORE

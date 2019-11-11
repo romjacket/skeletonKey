@@ -116,7 +116,7 @@ ex80|ex80/ex80.7z
 exodus|exodus/exodus.7z
 familybasic|familybasic/familybasic.7z
 faux1|faux1/faux1.7z
-fceux|fceux/fceux.7z
+fceux|fceux/fceux-[ARCH].7z
 FinalBurnAlpha|FinalBurnAlpha/FinalBurnAlpha-[ARCH].7z
 firegb|firegb/firegb.7z
 FishNChips|FishNChips/FishNChips.7z
@@ -216,7 +216,7 @@ melonDS|melonDS/melonDS.7z
 mesadx|mesadx/mesadx.7z
 Mesen|Mesen/Mesen.7z
 mess|mess/Mess-[ARCH].7z
-mgba|mgba/mgba.7z
+mgba|mgba/mgba-[ARCH].7z
 micro64|micro64/micro64.7z
 minimon|minimon/minimon.7z
 minivmac|minivmac/minvmac[ARCH].7z

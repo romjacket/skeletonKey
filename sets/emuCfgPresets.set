@@ -395,7 +395,7 @@ MEMPTH=UserData\BeebState\*.*
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".Mem\*.*" "%EMUL%"|copy /y ".sstates\*.*" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini"|copy /y "%EMUL%\*.sav" "%GAMDIR%\.Mem"|copy /y "%EMUL%\*.ss" "%GAMDIR%\.sstates"
 RJLNCHP=0
-URLPTH=mgba/mgba.7z
+URLPTH=mgba/mgba-[ARCH].7z
 EXENAM=mgba.exe
 CFGPTH=mgba.ini
 BIOS=O
@@ -1584,7 +1584,7 @@ URLPTH=euphoric/euphoric.7z
 EXENAM=euphoric.exe
 
 [fceux]
-URLPTH=fceux/fceux.7z
+URLPTH=fceux/fceux-[ARCH].7z
 EXENAM=fceux.exe
 BIOS=O
 
@@ -2832,7 +2832,7 @@ MAME?RJEMUARGS=<
 MAME?RJEMUOPTS=<cpc6128p -[RJRTYP]<|<cpc6128p -cass<|cpc6128p -flop<
 SHORTNM=AMSCPC
 SUPEMU=WinApe|arnold|Arnimedes|caprice|no$cpc|cpce|javacpc|sugarbox|wincpc|MAME
-SUPCORE=crocods_libretro.dll|mame_libretro.dll
+SUPCORE=crocods_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=amstradcpc
 
@@ -2902,7 +2902,7 @@ RJROMXT=.z26,.a26,.zip,.bin,.rom,.zip
 MAME?RJEMUOPTS=<a2600p -cart<|<a2600 -cart<
 SHORTNM=AT26
 SUPEMU=Stella|no$2k6|z26|MAME
-SUPCORE=stella_libretro.dll||mame_libretro.dll
+SUPCORE=stella_libretro.dll|
 LNCHPRM=$|1|1|1|1|0
 FENAM=atari2600
 
@@ -2928,7 +2928,7 @@ MAME?RJEMUOPTS=<a7800p -cart<|<a7800 -cart<
 RJZIPPEEK=0
 SHORTNM=AT78
 SUPEMU=prosystem|bliss|emu7800|Bizhawk|MAME
-SUPCORE=prosystem_libretro.dll|mame_libretro.dll
+SUPCORE=prosystem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atari7800
 
@@ -2941,7 +2941,7 @@ MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1
 Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 SHORTNM=AT8H
 SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
-SUPCORE=atari800_libretro.dll|mame_libretro.dll
+SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atari800
 
@@ -2954,7 +2954,7 @@ MAME?RJEMUOPTS=<a800xl -[RJRTYP]<|<a800xl -flop1<|<a800xl -cart<|<a800xlp -flop1
 Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
 SHORTNM=AT8B
 SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
-SUPCORE=atari800_libretro.dll|mame_libretro.dll
+SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Atari - Jaguar CD]
@@ -2977,7 +2977,7 @@ MAME?RJEMUOPTS=<jaguar -cart<
 RJZIPPEEK=0
 SHORTNM=ATJAG
 SUPEMU=virtualJaguar|jagulator|projecttempest|MAME
-SUPCORE=virtualjaguar_libretro.dll|mame_libretro.dll
+SUPCORE=virtualjaguar_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atarijaguar
 
@@ -2990,7 +2990,7 @@ MAME?RJEMUOPTS=<lynx -cart<
 RJZIPPEEK=0
 SHORTNM=ATLYNX
 SUPEMU=Mednafen|Bizhawk|MAME
-SUPCORE=mednafen_lynx_libretro.dll|handy_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_lynx_libretro.dll|handy_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atarilynx
 
@@ -3002,7 +3002,7 @@ RJROMXT=.stx,.st,.msa,.zip,.ipf
 MAME?RJMAMEOPTS=<st -[RJRTYP]<|<st -cart<|<st -flop1<
 SHORTNM=ATST
 SUPEMU=STeem|hatari|gemulator|sainT|MAME
-SUPCORE=hatari_libretro.dll|mame_libretro.dll
+SUPCORE=hatari_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atarist
 
@@ -3039,7 +3039,7 @@ MAME?RJEMUOPTS=<wswan -cart<
 RJZIPPEEK=0
 SHORTNM=BWSWANC
 SUPEMU=Mednafen|oswan|Bizhawk|xe|bws|MAME
-SUPCORE=mednafen_wswan_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_wswan_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wonderswancolor
 
@@ -3052,7 +3052,7 @@ MAME?RJEMUOPTS=<wswan -cart<
 RJZIPPEEK=0
 SHORTNM=BWSWAN
 SUPEMU=Mednafen|oswan|Bizhawk|bws|xe|MAME
-SUPCORE=mednafen_wswan_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_wswan_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wonderswan
 
@@ -3197,7 +3197,7 @@ RJROMXT=.x64,.t64,.d64,.g64,.fdi,.p00,.prg,.tap,.wav,.80,.a0,.e0,.crt,.g41,.d77,
 MAME?RJEMUOPTS=<c64 -[RJRTYP]<|<c64 -cass<|<c64 -cart<|<c64 -flop<
 SHORTNM=COM64
 SUPEMU=WinVICE|ccs64|no$c64|comeback64|dream64|emu64|hoxs64|vb64|frodo|hyper64|virtualc64|yape|micro64|MAME
-SUPCORE=vice_x64_libretro.dll|mame_libretro.dll
+SUPCORE=vice_x64_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=c64
 
@@ -3550,7 +3550,7 @@ RJMAMENM=odyssey2
 RJROMXT=.bin,.rom,.zip
 MAME?RJEMUOPTS=<odyssey2 -cart<
 RJZIPPEEK=0
-SUPCORE=o2em_libretro.dll|mame_libretro.dll
+SUPCORE=o2em_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=odyssey2
 
@@ -3591,7 +3591,7 @@ MAME?RJEMUOPTS=<intv2 -cart<|<intv -cart<
 RJZIPPEEK=0
 SHORTNM=MINTEL
 SUPEMU=Nostalgia|jzintv|MAME
-SUPCORE=freeintv_libretro.dll|mame_libretro.dll
+SUPCORE=freeintv_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=intellivision
 
@@ -3627,7 +3627,7 @@ RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.m
 MAME?RJEMUOPTS=<fsa1st -[RJRTYP]<|<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
 SHORTNM=LLGSYS
 SUPEMU=BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr
-SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Microsoft - MSX2]
@@ -3639,7 +3639,7 @@ RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.m
 MAME?RJEMUOPTS=<canonv30f -[RJRTYP]<|<canonv30f -cart1<|<canonv30f -cass<|<canonv30f -flop1<
 SHORTNM=MSX2
 SUPEMU=BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU
-SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=msx2
 
@@ -3653,7 +3653,7 @@ MAME?RJEMUOPTS=<hbf9sp -flop<
 RJZIPPEEK=0
 SHORTNM=MMSXP
 SUPEMU=BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX
-SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Microsoft - MSX]
@@ -3665,7 +3665,7 @@ RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.m
 MAME?RJEMUOPTS=<canonv10 -[RJRTYP]<|<canonv10 -cart1<|<canonv10 -cass<|<canonv10 -flop1<
 SHORTNM=MSX
 SUPEMU=BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|vdmgr|nlmsx|Xspeccy|openMSX
-SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=msx
 
@@ -3707,7 +3707,7 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr.sgx,.pce,.bin,.zip,.img
 MAME?RJEMUOPTS=<sgx -[RJRTYP]<|<sgx -cdrm<|<sgx -cart<
 SHORTNM=NSGX
 SUPEMU=Mednafen|Ootake|pcengine|turboengine|finalburnalpha|BizHawk|MAME
-SUPCORE=mednafen_supergrafx_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_supergrafx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=supergrafx
 
@@ -3720,7 +3720,7 @@ RJROMXT=.bin,.pce,.zip
 RJZIPPEEK=0
 SHORTNM=NPCENG
 SUPEMU=Mednafen|hu6280|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME
-SUPCORE=mednafen_pce_fast_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=pcengine
 
@@ -3745,7 +3745,7 @@ MAME?RJEMUOPTS=<pce -cdrm<|<tg16 -cdrm<
 RJZIPPEEK=0
 SHORTNM=NPCECD
 SUPEMU=hu6280|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME
-SUPCORE=mednafen_pce_fast_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=tgcd
 
@@ -3770,7 +3770,7 @@ MAME?RJEMUOPTS=<pcfxga -cdrm<|<pcfx -cdrm<
 RJZIPPEEK=0
 SHORTNM=NPCFX
 SUPEMU=Mednafen|xe
-SUPCORE=mednafen_pcfx_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_pcfx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=pcfx
 
@@ -3820,7 +3820,7 @@ RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1d
 MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
 SHORTNM=NPC98
 SUPEMU=Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME
-SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
+SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll
 SHORTNM=NPC9821
 
 [NEC - PC98]
@@ -3831,7 +3831,7 @@ RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1d
 MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
 SHORTNM=NPC98
 SUPEMU=Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME
-SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll|mame_libretro.dll
+SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll
 LNCHPRM=$|1|0|1|1|1
 
 [Nintendo - Nintendo 64DD]
@@ -3852,7 +3852,7 @@ MAME?RJEMUOPTS=<n64 -cart<
 RJZIPPEEK=0
 SHORTNM=NN64
 SUPEMU=Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME
-SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll|mame_libretro.dll
+SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=n64
 
@@ -3892,7 +3892,7 @@ MAME?RJEMUOPTS=<nes -cart<|<nespal -cart<|<nes -cart<
 RJZIPPEEK=0
 SHORTNM=NNES
 SUPEMU=nestopia|virtuanes|virtuanesplus|Mesen|Mednafen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|MAME
-SUPCORE=nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll||mame_libretro.dll
+SUPCORE=nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nes
 
@@ -3906,7 +3906,7 @@ MAME?RJEMUOPTS=<famicom -cart<
 RJZIPPEEK=0
 SHORTNM=NNFAM
 SUPEMU=nestopia|Mednafen|Mesen|xe|fceux|dsp|vdmgr|BizHawk|kindred|MAME
-SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
+SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=fds
 
@@ -3919,7 +3919,7 @@ RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
 MAME?RJEMUOPTS=<famitwin -[RJRTYP]<|<fds -flop<|<fds -flop<|<famitwin -cart<
 SHORTNM=NNFDS
 SUPEMU=nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|Mednafen|MAME
-SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll|mame_libretro.dll
+SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nfds
 
@@ -3933,7 +3933,7 @@ MAME?RJEMUOPTS=<gba -cart<
 RJZIPPEEK=0
 LNCHPRM=$|1|1|1|1|0
 SUPEMU=VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME
-SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
+SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll
 FENAM=gbaE
 
 [Nintendo - Game Boy Advance]
@@ -3945,7 +3945,7 @@ MAME?RJEMUOPTS=<gba -cart<
 RJZIPPEEK=0
 SHORTNM=NNGBA
 SUPEMU=VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME
-SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
+SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gba
 
@@ -3958,7 +3958,7 @@ MAME?RJEMUOPTS=<supergb -cart<|<supergb2 -cart<|<gbcolor -cart<
 RJZIPPEEK=0
 SHORTNM=NNGBC
 SUPEMU=bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|sameboy|dsp|MAME
-SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
+SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gbc
 
@@ -3971,7 +3971,7 @@ MAME?RJEMUOPTS=<gbcolor -cart<|<supergb -cart<|<supergb2 -cart<|<gameboy -cart<
 RJZIPPEEK=0
 SHORTNM=NNGB
 SUPEMU=bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|sameboy|kigb|MAME
-SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
+SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gb
 
@@ -4062,7 +4062,7 @@ RJROMXT=.sfc,.bml,.smc,.zip
 MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
 SHORTNM=NSFAM
 SUPEMU=snes9x|bsnes|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zmz|zsnes
-SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll|mame_libretro.dll
+SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=sfam
 
@@ -4075,7 +4075,7 @@ MAME?RJEMUOPTS=<supergb2 -cart<|<supergb -cart<
 RJZIPPEEK=0
 SHORTNM=NSGB
 SUPEMU=Visualboyadvance-M|Visualboyadvance|bgb|kigb|gest|mgba|tgbdual|BizHawk|MAME
-SUPCORE=higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll|mame_libretro.dll
+SUPCORE=higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Nintendo - Super Nintendo Entertainment System]
@@ -4087,7 +4087,7 @@ MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
 RJZIPPEEK=0
 SHORTNM=NSNES
 SUPEMU=snes9x|bsnes|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt
-SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll|mame_libretro.dll
+SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=snes
 
@@ -4200,7 +4200,7 @@ RJEXTRARC=0
 RJZIPPEEK=0
 SHORTNM=SNEOAES
 SUPEMU=FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME
-SUPCORE=fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+SUPCORE=fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=neogeoaes
 
@@ -4305,7 +4305,7 @@ MAME?RJEMUOPTS=<sg1000m2 -cart<|<sg1000m2 -cass<|<sg1000m3 -cart<|<sg1000m3 -car
 RJZIPPEEK=0
 SHORTNM=SSG1K
 SUPEMU=Fusion|meka|regen|twombit|coolcv|Bizhawk|BlueMSX|xe|vdmgr|cogwheel|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=sg-1000
 
@@ -4349,7 +4349,7 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.md5,.cdi,.img
 MAME?RJEMUOPTS=<saturn -[RJRTYP]<|<saturn -cart<|<saturneu -cdrm<|<saturneu -cart<|<saturnjp -cdrm<|<saturnjp -cart<|<saturn -cdrm<
 SHORTNM=SEGSAT
 SUPEMU=SSF|Mednafen|kronos|Yabause|nova|BizHawk|MAME
-SUPCORE=mednafen_saturn_libretro.dll|yabause_libretro.dll|yabasanshiro_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_saturn_libretro.dll|yabause_libretro.dll|yabasanshiro_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=saturn
 
@@ -4481,7 +4481,7 @@ RJEXTRARC=0
 MAME?RJEMUOPTS=<naomi -[RJRTYP]<|<naomi -cdrm<|<naomi2 -cdrm<|<naomigd -gdrm<
 SHORTNM=SNAOMI
 SUPEMU=Demul|reicast|NullDC|mame_arcade|MAME|Makaron
-SUPCORE=reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+SUPCORE=reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=naomi
 
@@ -4552,7 +4552,7 @@ RJROMXT=.xdf,.hdm,.2hd,.dim,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.c
 MAME?RJEMUOPTS=<x68ksupr -[RJRTYP]<|<x68ksupr -hard1<|<x68ksupr -cdrm<|<x68kvi -flop1<|<x68kvi -hard1<|<x68kvi -cdrm<|<x68030 -flop1<|<x68030 -hard1<|<x68030 -cdrm<|<x68000 -flop1<|<x68000 -hard1<|<x68000 -cdrm<|<x68k -flop1<|<x68k -hard1<|<x68k -cdrm<|<x68ksupr -flop1<
 SHORTNM=SHARPX68K
 SUPEMU=XM6|Anex86|Winx68k|ex68|MAME
-SUPCORE=px68k_libretro.dll|mame_libretro.dll
+SUPCORE=px68k_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=x68k
 
@@ -4564,7 +4564,7 @@ RJROMXT=.mdv,.zip,.rom,.bin
 MAME?RJEMUOPTS=<ql -[RJRTYP]<|<ql -cass<|<ql_us -cart<|<ql_us -cass<|<ql_de -cart<|<ql_de -cass<|<ql_dk -cart<|<ql_dk -cass<|<ql_es -cart<|<ql_es -cass<|<ql_fr -cart<|<ql_fr -cass<|<ql_gr -cart<|<ql_se -cass<|<ql_se -cart<|<ql_it -cass<|<ql_gr -cass<|<ql_it -cart<|<ql_it -cass<
 SHORTNM=SINQL
 SUPEMU=ql2k|MAME
-SUPCORE=fuse_libretro.dll|mame_libretro.dll
+SUPCORE=fuse_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Sinclair - ZX Spectrum]
@@ -4575,7 +4575,7 @@ MAME?RJEMUOPTS=<spec128 -[RJRTYP]<|spec128 -cass<|<spec128 -dump<|<spec128 -cart
 RJROMXT=.bin,.rom,.ach,.frz,.plusd.prg,.sem,.sit,.sna,.snp,.snx,.sp,.z80,.zx,.wav,.tzx,.tap,.blk,.zip
 SHORTNM=SINZXS
 SUPEMU=ZXSpin|jvz200|Ascd|zesarux|no$zx|dsp|tunix|ep128emu|mzxx|MAME|EMU
-SUPCORE=fuse_libretro.dll|crocods_libretro.dll|mame_libretro.dll
+SUPCORE=fuse_libretro.dll|crocods_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=zxspectrum
 
@@ -4600,7 +4600,7 @@ MAME?RJEMUOPTS=<zx81 -cass1<
 RJZIPPEEK=0
 SHORTNM=SINZX81
 SUPEMU=ZXSpin|eightyone|zesarux|mzxx|MAME
-SUPCORE=81_libretro.dll|mame_libretro.dll
+SUPCORE=81_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Sony - Playstation 2]
@@ -4650,7 +4650,7 @@ RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm
 MAME?RJEMUOPTS=<psu -[RJRTYP]<|<psu -cdrm<|<psj -cdrm<|<psa -cdrm<|<psu -memc1<|<pse -memc1<|<psj -memc1<|<psa -memc1<|<pse -cdrm<
 SHORTNM=SPLAY
 SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx
-SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psx
 
@@ -4663,7 +4663,7 @@ RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm
 MAME?RJEMUOPTS=<pse -[RJRTYP]<|<pse -cdrm<|<psj -cdrm<|<psa -cdrm<|<psu -memc1<|<pse -memc1<|<psj -memc1<|<psa -memc1<|<psu -cdrm<
 SHORTNM=SPALAY
 SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx
-SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
+SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psx
 
@@ -4772,7 +4772,7 @@ RJROMXT=.m7,.rom,.wav,.k7,.fd,.sap,.qd,.fdi,.td0,.imd,.cqm,.dsk,.d77,.d88,.1dd,.
 MAME?RJEMUOPTS=<to8 -[RJRTYP]<|<to8 -flop1<|<to8 -cass<|<to8d -flop1<|<to8d -cass<|<to8d -cart<|<to8 -cart<
 SHORTNM=TMO8
 SUPEMU=MAME
-SUPCORE=theodore_libretro.dll|mame_libretro.dll
+SUPCORE=theodore_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Tiger - Game-com]
@@ -4802,7 +4802,7 @@ RJROMXT=dsk,.ima,.img,.ufi,.360,.hdm,.fdi,.fdd,.dcp,.dcu,.dip,.nfd,.d77,.d88,.1d
 MAME?RJEMUOPTS=<pc9821xs -[RJRTYP]<|<pc9821xs -hard<|<pc9821xs -cdrm<|<pc9821ne -flop1<|<pc9821ne -hard<|<pc9821ne -cdrm<|<pc9821ce2 -flop1<|<pc9821ce2 -hard<|<pc9821ce2 -cdrm<|<pc9821as -flop1<|<pc9821as -hard<|<pc9821as -cdrm<|<pc9821ap2 -flop1<|<pc9821ap2 -hard<|<pc9821ap2 -cdrm<|<pc9821 -flop1<|<pc9821 -hard<|<pc9821 -cdrm<|<pc9801vm -flop1<|<pc9801vm -hard<|<pc9801vm -cdrm<|<pc9801ux -flop1<|<pc9801ux -hard<|<pc9801ux -cdrm<|<pc9801rs -flop1<|<pc9801rs -hard<|<pc9801rs -cdrm<|<pc9801f -flop1<|<pc9801f -hard<|<pc9801bx2 -flop1<|<pc9801bx2 -hard<|<pc9801bx2 -cdrm<|<pc9821xs -flop1<
 SHORTNM=TOUHOU
 SUPEMU=Anex86|Winx68k
-SUPCORE=nekop2_libretro.dll|np2kai_libretro.dll|mame_libretro.dll
+SUPCORE=nekop2_libretro.dll|np2kai_libretro.dll
 LNCHPRM=$|1|1|0|1|1
 
 [VTech - CreatiVision]
@@ -4908,7 +4908,7 @@ RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 RJZIPPEEK=0
 SHORTNM=32XP
 SUPEMU=Fusion|gensplus|gens|MAME
-SUPCORE=picodrive_libretro.dll|mame_libretro.dll
+SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Sega - 32X - JAP]
@@ -4919,7 +4919,7 @@ RJZIPPEEK=0
 RJROMXT=.bin,32x,.zip,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 SHORTNM=32XJ
 SUPEMU=Fusion|gensplus|gens|MAME
-SUPCORE=picodrive_libretro.dll|mame_libretro.dll
+SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Atari - 2600 - PAL]
@@ -5598,7 +5598,7 @@ MAME?RJEMUOPTS=<gamegearj -cart<
 RJZIPPEEK=0
 SHORTNM=SGGJ
 SUPEMU=Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [TimeTop - GameKing]
@@ -5882,7 +5882,7 @@ MAME?RJEMUOPTS=<juicebox<
 RJZIPPEEK=0
 SHORTNM=MATJB
 SUPEMU=Nostalgia|jzintv|MAME
-SUPCORE=freeintv_libretro.dll|mame_libretro.dll
+SUPCORE=freeintv_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Tiger - K28 7-232]
@@ -6071,7 +6071,7 @@ MAME?RJEMUOPTS=<megadriv -cart<
 RJZIPPEEK=0
 SHORTNM=SMDP
 SUPEMU=Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|exodus|xe|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|picodrive_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll|picodrive_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Amstrad - Mega PC]
@@ -6091,7 +6091,7 @@ MAME?RJEMUOPTS=<megatech -cart<
 RJZIPPEEK=0
 SHORTNM=SEGMT
 SUPEMU=Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 
 [Milton Bradley - MicroVision]
@@ -6486,7 +6486,7 @@ RJMAMENM=plus4
 MAME?RJEMUOPTS=<plus4 -[RJRTYP]<|<plus4 -cart<|<plus4 -cass<|<plus4 -flop<
 SHORTNM=COMPLUS
 SUPEMU=WinVICE|MAME
-SUPCORE=vice_xplus_libretro.dll|mame_libretro.dll
+SUPCORE=vice_xplus_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Tesla - PMD-85]
@@ -6765,7 +6765,7 @@ MAME?RJEMUOPTS=<smsj -cart<
 RJZIPPEEK=0
 SHORTNM=SMSJ
 SUPEMU=Fusion|mednafen|twombit|dega|emukon|gensplus|dsp|gearsystem|mesadx|kindred|xe|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Sega - Master System - PAL]
@@ -6775,7 +6775,7 @@ MAME?RJEMUOPTS=<smspal -cart<
 RJZIPPEEK=0
 SHORTNM=SMSP
 SUPEMU=Fusion|mednafen|twombit|dega|emukon|dsp|gensplus|gearsystem|kindred|mesadx|xe|osmose|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME
-SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|mame_libretro.dll
+SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [Nintendo - Super Nintendo Entertainment System - PAL]
@@ -7459,7 +7459,7 @@ LNCHPRM=$|1|1|0|1|0
 
 [Nintendo - Sufami Turbo]
 SUPEMU=snes9x|bsnes|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt
-SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mame_libretro.dll
+SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
 SHORTNM=NSUFM
 
 [Nintendo - Nintendo Switch]

@@ -188,7 +188,7 @@ dreamvmu=dreamvmu/dreamvmu.7z=DreamVMU.exe=
 emukon=emukon/emukon.7z=Emukon.exe=esms.cfg=
 euphoric=euphoric/euphoric.7z=euphoric.exe=
 einweggerat=einweggerat/einweggerat[ARCH].7z=einweggerat.exe=
-fceux=fceux/fceux.7z=fceux.exe=
+fceux=fceux/fceux-[ARCH].7z=fceux.exe=
 firegb=firegb/firegb.7z=FireGB.exe=
 fm77=fm77/fm77.7z=fm77.exe=fm77.ini=
 fm77av40=fm77av40/fm77av40.7z=fm77av40.exe=fm77av40.ini=
@@ -267,7 +267,7 @@ mastersystem=mastersystem/mastersystem.7z=mastersystem.exe=mastersystem.ini=
 meka=meka/meka.7z=mekaw.exe=
 melonDS=melonDS/melonDS.7z=melonDS.exe=
 mesadx=mesadx/mesadx.7z=MesaDX.exe=
-mgba=mgba/mgba.7z=mgba.exe=mgba.ini
+mgba=mgba/mgba-[ARCH].7z=mgba.exe=mgba.ini
 micro64=micro64/micro64.7z=micro64.exe=
 msx1=msx1/msx1.7z=msx1.exe=msx1.ini=
 msx2=msx2/msx2.7z=msx2.exe=msx2.ini=
