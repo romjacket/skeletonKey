@@ -363,6 +363,7 @@ demul\roms\dc.zip=:1_01d_02.bin:A2564FAD
 demul\roms\dc.zip=:1_004_01.bin:545481F
 demul\roms\dc.zip=:1_011_01.bin:2186E0E5
 demul\roms\dc.zip=:1_022_01.bin:786168F9
+
 nullDC\data=reicast\data=retroarch\system\dc=:DC - BIOS (All).bin:61D5613F
 nullDC\data=reicast\data=retroarch\system\dc=:DC - Flash (All).bin:E0D202A2
 nullDC\data=reicast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.cdi>
@@ -813,6 +814,7 @@ fsuae=WinUAE=:V1.3_34.5 A500-A2000 1987.rom:C4F0F55F
 fsuae=WinUAE=:V3.1_40.60 CD32 1993.rom:1E62D4A5
 fsuae=WinUAE=:Kickstart 1.3.rom:F6290043
 fsuae=WinUAE=:Kickstart 3.1.rom:FC24AE0D
+
 bizhawk\firmware=:7800highscore.bin:9BE408D3>
 bizhawk\firmware=:AppleIIe.rom:1D70B193>
 bizhawk\firmware=:c64-basic.bin:F833D117>
