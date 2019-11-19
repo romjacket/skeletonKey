@@ -9697,6 +9697,7 @@ for k, v in ar
 			}
 	}
 return
+
 SanUrl:
 stringreplace,sanfile,sanfile,`%25,`%,All
 stringreplace,sanfile,sanfile,`%26,&,All
@@ -9716,6 +9717,7 @@ stringreplace,sanfile,sanfile,`%3B,`;,All
 stringreplace,sanfile,sanfile,`%27,',All
 stringreplace,sanfile,sanfile,`%7E,~,All
 return
+
 INST_Kodi_XBMC:
 guicontrol,enable,CNCLDWN
 kodiinst=
@@ -37011,9 +37013,14 @@ return
 ArchiveSystems:
 opndgam= 
 gui, submit, nohide
+guicontrol,hide,ENHAK
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 overrdx:= % (%urlsv%_EULA)
 guicontrol,,ENHAK,0
+ifinstring,hacksyst,%ARCSYS%
+	{
+		guicontrol,show,ENHAK
+	}
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
 guicontrolget,ENHAK,,ENHAK	
