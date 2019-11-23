@@ -146,7 +146,7 @@ IfNotExist, skopt.cfg
 		_GITPASS=
 		_GITPAT=
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
-		_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+		_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= http://github.com/romjacket/skeletonkey
 		_REPOURL= http://github.com/romjacket
@@ -290,7 +290,7 @@ IfNotExist, skopt.cfg
 						CONTPARAM13= 1
 						iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
 						
-						UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+						UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 						_UPDTFILE= %UPDTFILE%
 						CONTPARAM14= 1
 						iniwrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
@@ -827,7 +827,7 @@ guicontrol,,txtbld,(not set) Build-Directory
 guicontrol,,txtdpl,(not set) Deployment-Directory
 guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
-guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 guicontrol,,irepo, https://github.com/romjacket>http://github.com/jomracket
 Loop,16
 	{
@@ -1124,7 +1124,7 @@ if (GITUSER = "")
 			if (UPDTFILE = "")
 				{
 					CONTPARAM14= 1
-					UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+					UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 					iniwrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
 					guicontrol,,UFLU,%UPDTFILE%
 				}
@@ -1224,12 +1224,12 @@ gui,submit,nohide
 guicontrolget,UFLU,,UFLU
 if (GITUSER = "")
 	{
-		UFLU= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip			
+		UFLU= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip			
 		guicontrol,,UFLU,%UFLU%
 	}
 if (UFLU = "")
 	{
-		UFLU= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+		UFLU= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 		guicontrol,,UFLU,%UFLU%
 	}
 CONTPARAM14= 1
@@ -1264,7 +1264,7 @@ iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
 guicontrol,,uVer,http://raw.githubusercontent.com/%gituser%/skeletonkey/master/site/version.txt
 CONTPARAM13= 1
 iniwrite,%uVer%,skopt.cfg,GLOBAL,update_url
-guicontrol,,uFLU,https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+guicontrol,,uFLU,https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 CONTPARAM14= 1
 iniwrite,%uFLU%,skopt.cfg,GLOBAL,update_file
 return
@@ -2717,12 +2717,12 @@ gui,submit,nohide
 UPDTFILE= 
 if (UPDTFILET = "")
 	{
-		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip	
+		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip	
 	}
 inputbox,UPDTFILE,Version,Enter the url of the file which contains your update information,,345,140,,,,,%UPDTFILET%
 if (UPDTFILE = "")
 	{
-		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 		UPDTFILE= %UPDTFILET%
 	}
 IniWrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
@@ -3087,7 +3087,7 @@ if (RESDD = "Portable-Build")
 	{
 		PortBld= 
 		PBOV= 
-		FileSelectFile,PortBld,3,skeletonKey-portable.zip,Select Portable Build
+		FileSelectFile,PortBld,3,skeletonKey.zip,Select Portable Build
 		if (PortBld = "")
 			{
 				return
@@ -3103,7 +3103,7 @@ if (RESDD = "Dev-Build")
 	{
 		DevBld= 
 		DBOV= 
-		FileSelectFile,DevBld,3,skeletonKey-portable.zip,Select Portable Build
+		FileSelectFile,DevBld,3,skeletonKey.zip,Select Portable Build
 		if (DevBld = "")
 			{
 				return
@@ -3547,9 +3547,9 @@ if (PortVer = 1)
 		COMPLIST= 
 		if (PBOV <> 1)
 			{
-				FileDelete, %DEPL%\skeletonKey-portable.zip
+				FileDelete, %DEPL%\skeletonKey.zip
 				RunWait, %comspec% cmd /c echo.##################  CREATE PORTABLE ZIP  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
-				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a "%DEPL%\skeletonKey-portable.zip" "%DEPL%\skeletonkey.exe" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a "%DEPL%\skeletonKey.zip" "%DEPL%\skeletonkey.exe" >>"%DEPL%\deploy.log"", %SKELD%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 				sleep, 1000
 			}
@@ -3776,7 +3776,7 @@ if (ServerPush = 1)
 					{	
 						FileAppend, "%GITRLS%" delete -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" release -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n skeletonKey-portable.zip -f "%DEPL%\skeletonKey-portable.zip"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t portable -l portable -n skeletonKey.zip -f "%DEPL%\skeletonKey.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (DATBLD = 1)
@@ -3910,7 +3910,7 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
-		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey-portable.zip,All
+		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip,All
 		
 		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
 		StringReplace,skelhtml,skelhtml,[RELEASEPG],https://github.com/%gituser%/skeletonKey/releases,All

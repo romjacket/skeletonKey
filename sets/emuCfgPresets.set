@@ -678,7 +678,6 @@ RJPRECFG=for /f "delims=" %%a in ('dir /b/a-d-h "*.ini"') do copy /y "%%~a" "%EM
 RJPOSTCFG=[XFG]move /Y "%EMUL%\Setting\Saturn\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\*.ini" "%GAMDIR%"|move /Y "%EMUL%\SaveState\Saturn\*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\Snapshot\*" "%GAMDIR%\.snaps"|move /Y "%EMUL%\Backup\InternalBackup\*.bin" "%GAMDIR%\.Mem"
 RJLNCHP=X
 
-
 [Steem]
 RJPRECFG=copy /y "steem.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\steem.ini" "%GAMDIR%"
@@ -688,7 +687,6 @@ URLPTH=steem/steem-[ARCH].7z
 EXENAM=steem.exe
 CFGPTH=ini
 BIOS=R
-
 
 [NullDc]
 RJPRECFG=copy /y "nulldc.cfg" "%EMUL%"
@@ -2163,7 +2161,10 @@ BIOS=O
 
 [phoenix]
 URLPTH=phoenix\phoenix.7z
-EXENAM=EmuProject.exe
+EXENAM=PhoenixEmuProject.exe
+RJRUNDIR=1
+RJLNCHP=0
+BIOS=R
 
 [potator]
 URLPTH=potator/potator.7z
