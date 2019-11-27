@@ -4889,10 +4889,10 @@ SHORTNM=MSWIN3X
 cmdfun= 1
 
 [Windows - Games]
-RJEMUPRESET=BSL
+RJEMUPRESET=DosBox
 RJROMXT=.lnk,.exe,.bat,.cmd,.jar
 SHORTNM=WINGAME
-SUPEMU=BSL|FMBocks|x86box
+SUPEMU=DoxBox|WinBox|BSL|FMBocks|x86box
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=pc
