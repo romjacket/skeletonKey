@@ -75,7 +75,7 @@ Mess=Mess/Mess-[ARCH].7z=Mess.exe=mess.ini|cfg\[ROMNAME]*.cfg
 minimon=minimon/minimon.7z=Minimon.exe=minimon.cfg
 Neko=Neko/Neko.7z=np21.exe=np21nt.ini=|=*.S00
 NeoRaine=NeoRaine/NeoRaine.7z=NeoRaine32.exe=raine32_sdl.cfg=savegame\*.*=savedata\*.bin
-No$GBA=No$GBA/No$GBA.7z=No$GBA.exe=No$GBA.ini|NoZoomer.ini
+No$GBA=no-gba/No$GBA.7z=NoGBA.exe=No$GBA.ini|NoZoomer.ini
 Nostalgia=Nostalgia/Nostalgia.7z=Nostalgia.exe=ini
 NullDC=NullDC/NullDC.7z=nullDC_Win32_Release.exe=NullDC.cfg=|=*.bin
 Ootake=Ootake/Ootake.7z=Ootake.exe=Ootake.dat
@@ -217,7 +217,7 @@ calcem=calcem/calcem.7z=calcem.exe=
 pkemu=pkemu/pkemu.7z=pkemu.exe=
 pk201=pk201/pk201.7z=pk201.exe=
 cpspemu=cpspemu/cpspemu.7z=cpspemu.exe=
-Play=Play-/Play!.7z=Play.exe=
+Play!=Play-/Play!.7z=Play.exe=
 modeller=modeller/modeller.7z=Modeller.exe=
 exodus=exodus/exodus.7z=exodus.exe=settings.xml=SaveStates\*=
 hpsx=hpsx/hpsx.7z=hps1x64.exe=*.hcfg=

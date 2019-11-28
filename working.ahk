@@ -10302,7 +10302,7 @@ Loop, Parse,UrlIndex,`n`r
 					}
 				if (xtractmu = "")
 					{
-						xtractmu= %RJEMUD%\%urloc1%
+						xtractmu= %RJEMUD%\%selfnd%
 					}
 				splitpath,save,svaf,svap
 				rtrcnt= 
@@ -10389,7 +10389,7 @@ Loop, Parse,UrlIndex,`n`r
 						emuxetmp5=
 						emuxetmp6=
 						StringSplit,emuxetmp,A_LoopField,=,:
-						if (emuxetmp1 = urloc1)
+						if (emuxetmp1 = slfm1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
 								break
@@ -10399,7 +10399,7 @@ Loop, Parse,UrlIndex,`n`r
 				guicontrolget,INSTLTYP,,SaList
 				if (INSTLTYP = "Frontends")
 					{
-						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%urloc1%
+						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%slfm1%
 					}
 				if (INSTLTYP = "Utilities")
 						{
@@ -10441,18 +10441,18 @@ Loop, Parse,UrlIndex,`n`r
 							{
 								inisect= KEYMAPPERS
 							}
-					iniwrite, "%xtractmfp%",apps.ini,%inisect%,%urloc1%
+					iniwrite, "%xtractmfp%",apps.ini,%inisect%,%slfm1%
 					}
 				if (INSTLTYP = "Emulators")
 					{
 						inisect= EMULATORS
-						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%urloc1%
-						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%urloc1%
-						ifnotinstring,emulist,%urloc1%
+						iniwrite, "%xtractmfp%",apps.ini,%inisect%,%slfm1%
+						iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%slfm1%
+						ifnotinstring,emulist,%slfm1%
 							{
 								emulist.= urloc1 . "|"
 							}
-						ifnotinstring,addemu,|%urloc1%
+						ifnotinstring,addemu,|%slfm1%
 							{
 								addemu.= "|" . urloc1
 							}
@@ -10471,16 +10471,16 @@ Loop, Parse,UrlIndex,`n`r
 								continue
 							}
 						StringSplit,emuprt,A_LoopField,=,:
-						if (emuprt1 = urloc1)
+						if (emuprt1 = slfm1)
 							{
 								emuxe= %emuprt3%
 								OVRKND= %emuprt1%
-								iniwrite, "%xtractmu%\%emuxe%",apps.ini,EMULATORS,%urloc1%
-								ifnotinstring,preEmuCfg,%urloc1%
+								iniwrite, "%xtractmu%\%emuxe%",apps.ini,EMULATORS,%slfm1%
+								ifnotinstring,preEmuCfg,%slfm1%
 									{
-										preEmuCfg.= urloc1 . "|"
+										preEmuCfg.= slfm1 . "|"
 									}
-								guicontrol,,EMPRDDL,|%urloc1%||%runlist%
+								guicontrol,,EMPRDDL,|%slfm1%||%runlist%
 								gosub, EMPRBUTASPLIT
 								iniwrite, "%xtractmu%\%emuxe%",Assignments.ini,ASSIGNMENTS,%OVRKND%
 								break
@@ -10524,7 +10524,7 @@ Loop, Parse,UrlIndex,`n`r
 								gosub, MAMETOG
 							}
 					}
-				return
+				;;return
 			}
 		SB_SetText(" " selfnd " installed")
 	}
@@ -10543,8 +10543,8 @@ if (selfnd = "retroArch")
 	}
 if (INSTLTYP = "Systems")
 	{
-		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%urloc1%
-		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%urloc1%
+		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%
+		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
 	}
 ifinstring,selfnd,MAME
 	{
@@ -10584,8 +10584,10 @@ if (EMUASIGN = 1)
 				goto, MultInst
 			}
 	}
+msgbox,,,k	
 gosub, uavailsel
 return
+
 MultiSys:
 EmuAsign:
 gui, submit, nohide
@@ -11412,8 +11414,10 @@ Loop, Parse,AllPartSet,`n`r
 		emupts3=
 		emupts4=
 		StringSplit,emupts,A_LoopField,=,:
+		StringSplit,emupg,emupts2,/
 		if (emupts1 = selfnd)
 			{
+				emupth= %emupg1%
 				emuxe= %emupts3%
 				emumatch= 1
 				break
@@ -11422,6 +11426,19 @@ Loop, Parse,AllPartSet,`n`r
 return
 
 ChkMu:
+loop,parse,AllPartSet,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,aen,A_LoopField,=/
+		if (aen1 = selfnd)
+			{
+				pthloc= %aen2%
+			}
+		break
+	}
 ifexist, %RJEMUD%\%selfnd%\
 	{
 		gosub,EmuLkup
@@ -11723,6 +11740,7 @@ Loop, parse, ksiv,|
 		EMPRLT.= A_LoopField . "|"
 	}
 guicontrol,,EMPRLST,|%EMPRLT%
+
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%emprcur%",Assignments.ini,ASSIGNMENTS,%semu%
 return

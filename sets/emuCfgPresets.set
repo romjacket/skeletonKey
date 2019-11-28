@@ -1195,8 +1195,8 @@ EXENAM=Minimon.exe
 CFGPTH=minimon.cfg
 
 [No$GBA]
-URLPTH=No$GBA/No$GBA.7z
-EXENAM=No$GBA.exe
+URLPTH=no-gba/No$GBA.7z
+EXENAM=NoGBA.exe
 CFGPTH=No$GBA.ini|NoZoomer.ini
 BIOS=R
 
@@ -1713,7 +1713,7 @@ EXENAM=pk201.exe
 URLPTH=cpspemu/cpspemu.7z
 EXENAM=cpspemu.exe
 
-[Play]
+[Play!]
 URLPTH=Play-/Play!.7z
 EXENAM=Play.exe
 BIOS=R
