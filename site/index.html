@@ -213,7 +213,7 @@
       </div>
       <div id="inner">
          <h3>Command-Line</h3>
-         <p>An emulator-preset can be specified to override any assocation from the command-line.</p>
+         <p>An emulator-preset can be specified to override any default association from the command-line.</p>
          <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset
             followed by the path to the rom. Any options specified by the preset are respected.<br>
          </p>
@@ -271,11 +271,8 @@
 					   for the currently selected title upon launch if none are detected.
 					</p>
 					<h4>Systems Directory</h4>
-					<p>By default, ROMs are <em>[categorically]</em> stored by system-name in the
-					   <code><em>..[Systems ROOT]</em>\<em>[SYSTEM NAME]</em></code> folder.
-					<p> Repository ROMs will be downloaded to the corresponding system-name which follows the
-					   no-intro naming nomenclature.
-					</p>
+					<p>Systems follow the no-intro naming nomenclature wherever possible.<br>Jackets and frontends deployed by 
+					skeletonKey can be populated with ROMs categorically stored beneath the systems directory.</p>
 					<h4>Emulators Directory</h4>
 					<p>By default, all emulators will be installed to the Emulator Directory. Upon assigning a
 					   directory to the Emulators Directory, skeletonKey will search subdirectories for previously
@@ -500,7 +497,7 @@
                      <p>Spaces are observed for options, arguments and command-lines.</p>
                      <p>The < character must be escaped or it will be converted to a space.</p>
                      <p><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong>
-                        are special tags assigned to MAME and other emulators which allow the passing of
+                        are special tags assigned to MAME and other emulators which allows skeletonKey to detect and automate the passing of
                         overriding-options and arguments at runtime via the &quot;switches&quot;
                         checkbox in the Global-Launch-Menu or Repository-Systems-Menu.
                      </p>
@@ -581,8 +578,8 @@
                      software. Windows 10 users who need Daemon Tools should
                      download and install it separately. Consider alternatives.
                   </p>
-                  <p>The Daemon Tools program is needed for the SSF Sega Saturn emulator, the UNZ FM-Towns
-                     emulator and may be required for any emulator which cannot directly read cd/dvd image files.
+                  <p>The Daemon Tools program may be needed by the SSF Sega Saturn emulator, the UNZ FM-Towns
+                     emulator and any emulator which cannot directly read cd/dvd image files.
                      Mounting disc images with Daemon Tools is desireable
                      for users who wish to switch disks reliably or have disc-images in formats unreadable by an
                      emulator.
@@ -718,7 +715,6 @@
                   <p>
                   <ul>
                      <li>Box-Art files: ~/downloaded_images/[ROM_TITLE]-image.png</li>
-                     <li>Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png</li>
                      <li>Thumbnail images: ~/downloaded_images/[ROM_TITLE]-thumb.png</li>
                      <li>Marquee images: ~/downloaded_images/[ROM_TITLE]-marquee.png</li>
                      <li>Video snaps: ~/downloaded_images/[ROM_TITLE]-video.mp4</li>
@@ -784,9 +780,9 @@
 				 
 				 <h4>&gt;...\skeletonKey\gam\<em>Your_Repository_Name\Your_List.gam</em></h4>
 				<br>The following structures are observed for repository list files:<br>
-				  <code><strong>url|ROM title|options to pass to the emulator|alternate url|System-Name|torrent_index_number|<code>?</code>filename<em>delimited by</em><code> :</code>|genres delimited by ''/''|login_toggle
-				 </strong></code><p></p>
-				  <p>Each line only needs to contain a direct link to a file and the <code>ROM title</code> will be inferred from the filename.<br>eg: paramaters are pipe delimited, and a single space may be used to specify default/detected settings.</p>
+				  <code><strong>url|ROM title|options to pass to the emulator|alternate url|System-Name|torrent_index_number?filename:file2:file3:...|genre/genre2/...|login_toggle</code>
+				 </strong><p></p>
+				  <p>Each line only needs to contain a direct link to a file.<br>The <code>ROM title</code> will be inferred from the filename if none is specified<br> eg: paramaters are pipe delimited, and a single space may be used to specify default/detected settings.</p>
               </div>
             </div>
          </div>
@@ -802,7 +798,7 @@
          </p>
          <p>The right-click menu may be useful for users wishing to scrape artwork and create playlists.</p>
          <h3>Media</h3>
-         <p>Asset-Management is the primary component of skeletonKey. Deploying a frontend means creating a unique
+         <p>Asset-Management is a primary component of skeletonKey. Deploying a frontend means creating a unique
             data-structure, and because the arrangement and naming of assets and artwork vary from emulator to
             frontend, skeletonKey opts to prioritize
             a local-storage system (ROM-Jackets) to enable migration and deployment indipendently of any proprietary
@@ -840,8 +836,7 @@
       <div id="inner">
          <h3>XMB</h3>
          <p>XMB is retroArch's premiere GUI with thumnail support.</p>
-         <p>Using skeletonKey users can easily see which thumnails have been downloaded and copy any image to match
-            the names corresponding to the unmatched ROMs .
+         <p>Inspired by the PS3's UI, XMB for retroArch is very flexible, feature-rich and navigatable via the joystick.
          </p>
          <h4><a>XMB Menu Options</a></h4>
       </div>

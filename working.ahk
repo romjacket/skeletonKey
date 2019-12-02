@@ -7406,12 +7406,12 @@ guicontrol,enable,UpdateSK
 return
 getupdate:
 upcnt=
-loop, %cacheloc%\skeletonkey-portable*.zip
+loop, %cacheloc%\skeletonkey.zip
 	{
 		upcnt+=1
 	}
 URLFILE= %UPDATEFILE%
-save= %cacheloc%\skeletonKey-portable%upcnt%.zip
+save= %cacheloc%\skeletonKey%upcnt%.zip
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ;;DownloadFile(URLFILE, save, True, True)
@@ -10583,8 +10583,7 @@ if (EMUASIGN = 1)
 			{
 				goto, MultInst
 			}
-	}
-msgbox,,,k	
+	}	
 gosub, uavailsel
 return
 
@@ -13725,6 +13724,7 @@ if (GCOR = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%gammaCorrection%", %curcfg%,OPTIONS,gamma_correction
 return
+
 Aspect:
 gui, submit, nohide
 ARIAPND=
@@ -13753,6 +13753,7 @@ VIDTMP .= "|"ARIENUM "||" ARIAPND
 gosub, RACHKOPTLINE
 IniWrite, "%aspectRatioIndex%", %curcfg%,OPTIONS,aspect_ratio_index
 return
+
 GLShdGet:
 Gui, Submit, NoHide
 shdvar= %GLSHDVAR%
@@ -13770,16 +13771,25 @@ loop files, %raexeloc%\shaders\shaders_glsl\*.glslp, R
 		ShaderName= %A_LoopFilename%
 		ShaderDir= %A_LoopFileDir%
 		if (ShaderName = GLSHDVAR)
-			break
+			{
+				break
+			}
 	}
 if (ShaderName <> "")
-	videoShader= %ShaderDir%\%ShaderName%
+	{
+		videoShader= %ShaderDir%\%ShaderName%
+		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_glsl\,,All
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr=#reference "..\shaders_glsl\%shadv%"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.glslp
+	}
 if ShaderName = nul
 	videoShader=
 SB_SetText(" " ShaderName " ")
 gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
+
 SLShdGet:
 Gui, Submit, NoHide
 shdvar= %SLSHDVAR%
@@ -13796,17 +13806,27 @@ loop files, %raexeloc%\shaders\shaders_slang\*.slangp, R
 	{
 		ShaderName= %A_LoopFilename%
 		ShaderDir= %A_LoopFileDir%
+		shadv= \%shadret%%Shadername%
 		if (ShaderName = SLSHDVAR)
 			break
 	}
 if (ShaderName <> "")
-	videoShader= %ShaderDir%\%ShaderName%
+	{
+		videoShader= %ShaderDir%\%ShaderName%
+		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_slang\,,All
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr= #reference "..\shaders_slang\%shadv%"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.slangp
+	}
+
+
 if ShaderName = nul
 	videoShader=
 SB_SetText(" " ShaderName " ")
 gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
+
 CGShdGet:
 Gui, Submit, NoHide
 shdvar= %CGSHDVAR%
@@ -13826,10 +13846,17 @@ loop files, %raexeloc%\shaders\shaders_cg\*.cgp, R
 			break
 	}
 if (ShaderName <> "")
-	videoShader= %ShaderDir%\%ShaderName%
+	{
+		videoShader= %ShaderDir%\%ShaderName%
+		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_cg\,,All
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr= #reference "..\shaders_cg\%shadv%"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.cgp
+	}
 SB_SetText(" " ShaderName " ")
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
+
 FltShdGet:
 Gui, Submit, NoHide
 vfilt= %FLTFILE%
@@ -28479,14 +28506,32 @@ if (inival2 = "true")
 	}
 gui, submit, nohide
 return
+
 videoShader:
 gui, submit, nohide
 videoShader= %inival2%
-splitpath, inival2, toShdList
+splitpath, inival2, toShdList,,toshx
+fileread,fijn,%raexeloc%\shaders\presets\global.%toshx%
+INFN= 
+ifnotinstring,fijn,%toshdlist%
+	{
+		if ((fijn <> "")&&(fijn <> "ERROR"))
+			{
+				tonex1= 
+				tonex2= 
+				stringsplit,tonex,fijn,"
+				;"
+				stringreplace,infn,tonex2,..\,%raexeloc%\shaders\,All
+				splitpath,infn,toShdList	
+				videoShader= %infn%
+				iniwrite, "%videoShader%",%curcfg%,OPTIONS,video_shader			
+			}
+	}
 guicontrol,, CGSHDVAR, |nul|%toShdList%||%cg_list%
 guicontrol,, SLSHDVAR, |nul|%toShdList%|%sl_list%
 guicontrol,, GLSHDVAR, |nul|%toShdList%||%gl_list%
 return
+
 videoSharedContext:
 gui, submit, nohide
 GuiControl,, SHAREDV, 0
