@@ -20,6 +20,8 @@ if (RJSYSTEMS = "")
 		RJSYSTEMS=%drvp%\Console
 		rjsyst= %RJSYSTEMS%
 	}	
+ADJDIRS_TT :="Enables detection and renaming/linking of supported nomenclature"
+LNKDIR_TT :="Links detected console directories to supported nomenclature"
 RNMDIR_TT :="Renames detected console directories to supported nomenclature"
 INTRMSYS_TT :="The directory where ROMs should be located."
 INTRMEMU_TT :="The directory where Emulators should be located."
@@ -31,14 +33,16 @@ CONTINUE_TT :="Confirm the current settings and initializes setup."
 Gui,Font, Bold
 Gui, Add, GroupBox, x4 y0 w265 h162 +Center, SETUP
 Gui,Font, Normal
-Gui, Add, Text, x14 y18 w44 h16, Systems
-Gui, Add, Text, x13 y89 w46 h18, Emulators
+Gui, Add, Text, x80 y26 w44 h16, Systems
+Gui, Add, Text, x80 y96 w46 h18, Emulators
 Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly,:DEFAULT:%rjsyst%
-Gui, Add, Edit, x14 y110 w247 h42 vintrmemu +readonly,:DEFAULT:%rjemut%
-Gui, Add, CheckBox, x139 y18 w122 h17 vRNMDIR checked, Rename Directories
+Gui, Add, Edit, x13 y110 w247 h42 vintrmemu +readonly,:DEFAULT:%rjemut%
+Gui, Add, Checkbox, x13 y10 h14 vADJDIRS gADJDIRS checked,Overwrite
+Gui, Add, Radio, x170 y10 h14 Right vLNKDIR gLNKDIR,Link Directories
+Gui, Add, Radio, x150 y26 h14 Right vRNMDIR gRNMDIR checked,Rename Directories
 Gui,Font, Bold
-Gui, Add, Button, x58 y19 w65 h18 gSETJKR, BROWSE
-Gui, Add, Button, x58 y89 w65 h18 gSETEMUD, BROWSE
+Gui, Add, Button, x13 y24 w65 h18 gSETJKR, BROWSE
+Gui, Add, Button, x13 y92 w65 h18 gSETEMUD, BROWSE
 Gui Add, Button, x190 y163 w80 h23 vCONTINUE gCONTINUE, CONTINUE
 Gui,Font, Normal
 Gui Add, Text, x10 y168 w120 h13, Drag'n Drop supported
@@ -203,8 +207,32 @@ if ((RJSYSTEMS <> "") && (RJEMUD <> "") && (RJSYSTEMS <> "ERROR") && (RJEMUD <> 
 	{
 		guicontrol,enable,CONTINUE
 	}
-
 return
+
+LNKDIR:
+gui,submit,nohide
+return
+
+RNMDIR:
+gui,submit,nohide
+return
+
+
+ADJDIRS:
+gui,submit,nohide
+guicontrolget,ADJDIRS,,ADJDIRS
+if (ADJDIRS = 0)
+	{
+		guicontrol,disable,LNKDIR
+		guicontrol,disable,RNMDIR
+		iniwrite,"0",Settings.ini,GLOBAL,global_filter
+		return
+	}
+iniwrite,"1",Settings.ini,GLOBAL,global_filter
+guicontrol,enable,LNKDIR
+guicontrol,enable,RNMDIR
+return
+
 
 SETEMUD:
 ifexist, %A_ScriptDir%\apps
@@ -305,6 +333,7 @@ return
 CONTINUE:
 gui,submit,nohide
 guicontrolget,RJEMUF,,intrmemu
+guicontrolget,ADJDIRS,,ADJDIRS
 guicontrolget,RJSYSTEMS,,intrmsys
 if ((RJEMUF = "") or (RJSYSTEMS = "") or (RJEMUF = ":DEFAULT:") or (RJSYSTEMS = ":DEFAULT:"))
 	{
@@ -312,6 +341,7 @@ if ((RJEMUF = "") or (RJSYSTEMS = "") or (RJEMUF = ":DEFAULT:") or (RJSYSTEMS = 
 		return
 	}	
 stringreplace,RJEMUF,RJEMUF,:DEFAULT:,,All
+
 ifnotexist,%RJEMUF%\
 	{
 		filecreatedir,%RJEMUF%
@@ -338,14 +368,60 @@ IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
 exlst= |
 exls= |
 guicontrolget,RNMDIR,,RNMDIR
-if (RNMDIR = 1)
+
+guicontrol,disable,continue
+guicontrol,disable,SETJKR
+guicontrol,disable,LNKDIR
+guicontrol,disable,RNMDIR
+guicontrol,disable,ADJDIRS
+guicontrol,disable,SETEMUD
+FileRead,SysLLst,sets\lkup.set
+FileRead,fuzsys,sets\fuzsyslk.set	
+SB_SetText("Detecting systems")
+if (ADJDIRS = 1)
 	{
-		guicontrol,disable,continue
-		guicontrol,disable,SETJKR
-		guicontrol,disable,SETEMUD
-		FileRead,SysLLst,sets\lkup.set
-		FileRead,fuzsys,sets\fuzsyslk.set
-		SB_SetText("Detecting systems")
+		loop, %RJSYSTEMS%\*,2
+			{
+				if sym_link(A_LoopFileLongPath,nii)
+				 {
+					 SB_SetText(" " A_LoopFileName " ")
+					 lnk_List .= (lnk_List?"`n":"") A_LoopFileFullPath
+				 }
+			}
+		loop,parse,lnk_List,`n
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				filedelete,dxt.ini	
+				runwait, %comspec% cmd /c "for /f "tokens=2`,3 delims=<>" `%a in ('dir /a:d "%a_LoopField%*?`"') do if "`%~a"=="JUNCTION" for /f "tokens=* delims= " `%n in ("`%~b") do echo."`%~n" >dxt.ini &&exit /b ",,hide
+				ifexist, dxt.ini
+					{
+						filereadline,fei,dxt.ini,1
+						stringsplit,fnn,fei,:
+						stringtrimright,fax,fnn1,3
+						stringreplace,fax,fax,",,All
+						;"
+						stringright,hh,fnn1,1
+						stringtrimright,fam,fnn2,4
+						knin= %hh%:%fam%
+						ifnotexist,%knin%\
+							{
+								fileremovedir,%fax%
+							}
+						a= 
+						loop,%knin%\*.*
+							{
+								a+=1
+								break
+							}
+						if (a < 1)
+							{
+								fileremovedir,%A_LoopFileLongPath%
+							}	
+					}
+			}	
 		Loop, Parse, SysLLst,`n`r
 			{
 				if (A_LoopField = "")
@@ -388,11 +464,22 @@ if (RNMDIR = 1)
 									{
 										continue
 									}
-								FileMoveDir,%A_LoopFileFullPath%,%A_LoopFileDir%\%fsys%,R
-								if (ERRORLEVEL <> 0)
+								if (RNMDIR = 1)
 									{
-										SB_SetText("Could not rename " A_LoopFileName "")
-										continue
+										FileMoveDir,%A_LoopFileFullPath%,%A_LoopFileDir%\%fsys%,R							
+										if (ERRORLEVEL <> 0)
+											{
+												SB_SetText("Could not rename " A_LoopFileName "")
+												continue
+											}
+									}
+									else {
+										Runwait,%comspec% /c mklink /J "%A_LoopFileDir%\%fsys%" "%A_LoopFileName%",%A_LoopFileDir%,hide
+										if (ERRORLEVEL <> 0)
+											{
+												SB_SetText("Could not Link " A_LoopFileName "")
+												continue
+											}								
 									}
 								ax+= 1	
 							}
@@ -461,4 +548,22 @@ WM_MOUSEMOVE(){
 	RemoveToolTip:
 	ToolTip
 	return
+}
+
+sym_link(filepath,ByRef target="", ByRef type="")
+{
+SplitPath, filepath , FileName, DirPath,
+objShell :=   ComObjCreate("Shell.Application")
+objFolder :=   objShell.NameSpace(DirPath)      ;set the directry path
+objFolderItem :=   objFolder.ParseName(FileName)   ;set the file name
+att := objFolder.GetDetailsOf(objFolderItem, 6)
+target := objFolder.GetDetailsOf(objFolderItem, 189)
+if (att="AL")
+    type:="File"
+else if (att="DL")
+    type := "Folder"
+if (att="AL" or att="DL")
+    return 1
+else
+    return 0
 }

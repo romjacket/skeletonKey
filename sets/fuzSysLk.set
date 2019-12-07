@@ -35,10 +35,10 @@ sc3k|sc3000|sc-3000|sega*sc*>SG3K
 *Atari*ST*>ATST
 *GX*4000*>AMGX4K
 *Emerson*|*Arcadia*>EMARC
-*Wonder*swan*Color|*Wonder*swan*Colour|>BWSWANC
-*wonder*swan>BWSWAN
-*Commodore*64*|*C64*>COM64
-*3do|*3D-O>T3DO
+bwsc|wswanc*|*Wonder*swan*Color|*Wonder*swan*Colour|>BWSWANC
+bws|wswan|*wonder*swan>BWSWAN
+c64|com64|*com*64*|*C64*>COM64
+*3do|*3D-O*|>T3DO
 *xbox*360*>MS360
 *CD I*|*CD-I*|*CDI*>PCDI
 *fm*towns*>FFMTOWN
@@ -47,7 +47,7 @@ ngp|*neo*pocket>SNEOPKT
 ngpc|*neo*cd*>SNEOCD
 *NEO*MVS*|*NEO*AES*|*neo*geo>SNEOMVS
 *flash*|*adobe*>AFLASH
-pc|*windows*|*win32*>WIN32
+pc|*windows*|*win32*>WINGAME
 *amiga*500|*amiga>AMIG
 *amiga*1000|*amiga 1K>AMIG1K
 *amig*1200>AMIG12
@@ -96,7 +96,7 @@ DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 *VG*5000*|*VG*5K*>PVG5K
 *videopac*>PVIDPAC
 *rca*studio*>RSTUDII
-*atari*lynx*>ATLYNX
+lynx|*atari*lynx*>ATLYNX
 *nintendo*64*DD|*n64*DD|*nintendo64*DD>N64DD
 *nintendo*64|*n64*|*nintendo64>NN64
 *Nintendo DS*|*NDS*|*NintendoDS*>NNDS
@@ -108,34 +108,34 @@ Wii|*Wii>NNWII
 *V*boy*>NNVB
 *GBA*|*N*Game*boy*Advance*>NNGBA
 *N*game*boy*color|*GBC>NNGBC
-*game*boy>NNGB
+gb|ngb|*game*boy>NNGB
 nfam|*famicom>NNFAM
 nfds|*famicom*disk*>NNFDS
 *snes*pal*|Super*Nes*pal*|*Super Nintendo*pal*>NSNESPAL
 *NES*PAL*|*Nintendo Entertainment System*PAL*>NESPAL
-*snes*|Super*Nes*|*Super Nintendo*>NSNES
+snes|*snes*|Super*Nes*|*Super Nintendo*>NSNES
 nintendo*NES|N.E.S|NES|*Nintendo Entertainment System*>NNES
 sfc|*super*famicom*>NSFAM
 switch|*nintendo*Switch*>NSWITCH
 *pc-fx*|*pcfx*>NPCFX
 oric|*oric*atmos*>ORIC
 *pc*98*>NPC98
-*mega*drive*|*genesis*>SMEGAD
+smd|*mega*drive*|*genesis*>SMEGAD
 *pico*>SPICO
-*master*system*|*mark*III*|*mark*3*>SEGMS
-*dream*cast*>SDREAM
-*game*gear*>SGG
+sms|*master*system*|*mark*III*|*mark*3*>SEGMS
+dc|segadc|*dream*cast*>SDREAM
+gamegear|*game*gear*>SGG
 *sega*cd*|mega*cd*>SMEGCD
-*saturn*|*satourne*>SEGSAT
+sat|saturn|*saturn*|*satourne*>SEGSAT
 *32*X*J*>32XJ
 *32*X*P*|32*X*eu*>32XP
-*32*X*>SG32X
+32x|*32*X*>SG32X
 *pocket*station*>SPKSTAT
 Watara*|superv|*supervision*>SVISION
-*psx*|*ps1*|*playstation 1*|*ps 1*|*playstation>SPLAY
-*psp*|*playstation*portable*>SPLAYP
-*ps2*|*ps 2*|*playstation 2*>SPS2
-*ps3*|*ps 3*|*playstation 3*>SPLAY3
+ps1|*psx*|*ps1*|*playstation 1*|*ps 1*|*playstation>SPLAY
+psp|*psp*|*playstation*portable*>SPLAYP
+ps2|*ps2*|*ps 2*|*playstation 2*>SPS2
+ps3|*ps3*|*ps 3*|*playstation 3*>SPLAY3
 *turbo*grafx*CD|*pc*engine*CD*|*pce*cd*>NPCECD
 *turbo*grafx*16*|*tg*16*|*pc*engine|pce>NPCENG
 *supergrafx*|*super*grafx*|*sgx*>NSGX
