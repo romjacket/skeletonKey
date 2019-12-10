@@ -745,7 +745,6 @@ FileInstall,sets\Keymappers.set,sets\Keymappers.set,1
 FileInstall,sets\launchparams.set,sets\launchparams.set,1
 FileInstall,sets\libmatch.set,sets\libmatch.set,1
 FileInstall,sets\LkUp.set,sets\LkUp.set,1
-FileInstall,sets\MAME - Arcade.set,sets\MAME - Arcade.set,1
 FileInstall,sets\mediafe.set,sets\mediafe.set,1
 FileInstall,sets\pgsettings.set,sets\pgsettings.set,1
 FileInstall,sets\PgThemes.set,sets\PgThemes.set,1

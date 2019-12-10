@@ -2208,6 +2208,11 @@ CFGPTH=default.ini|VINTER.ini
 URLPTH=vecxgl/vecxgl.7z
 EXENAM=vecxgl.exe
 
+[videoplayer]
+URLPTH=videoplayer/videoplayer.7z
+EXENAM=vlc.exe
+
+
 [infovectrex]
 URLPTH=infovectrex/infovectrex.7z
 EXENAM=infovectrex.exe
@@ -3678,6 +3683,16 @@ SUPEMU=Xenia
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=xbox360
+
+[Movies - TV - Video]
+RJEMUPRESET=videoplayer
+RJMULTIDISC=
+SHORTNM=MLTMED
+SEUPEMU=videoplayer|vlc|mplayerc|wmplayer
+SUPCORE=ffmpeg_libretro.dll
+LNCHPRM=
+$|1|1|0|1|1
+FENAM=videoplayer
 
 [Microsoft - XBOX]
 RJEMUPRESET=Cxbx
