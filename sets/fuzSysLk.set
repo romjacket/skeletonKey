@@ -99,13 +99,13 @@ DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 lynx|*atari*lynx*>ATLYNX
 *nintendo*64*DD|*n64*DD|*nintendo64*DD>N64DD
 *nintendo*64|*n64*|*nintendo64>NN64
-*Nintendo DS*|*NDS*|*NintendoDS*>NNDS
-*Nintendo*3*DS*|*3DS*>NN3DS
-*Wii*U*>NNWIIU
+NDS|DS|*Nintendo DS*|*NDS*|*NintendoDS*>NNDS
+N3DS|3DS|*Nintendo*3*DS*|*3DS*>NN3DS
+wiiu|*Wii*U*>NNWIIU
 Wii|*Wii>NNWII
-*Atomis*wave*>SATOM
+awave|*Atomis*wave*>SATOM
 *gamecube*|*game cube*>NNGC
-*V*boy*>NNVB
+vb|*V*boy*>NNVB
 *GBA*|*N*Game*boy*Advance*>NNGBA
 *N*game*boy*color|*GBC>NNGBC
 gb|ngb|*game*boy>NNGB
@@ -121,7 +121,7 @@ switch|*nintendo*Switch*>NSWITCH
 oric|*oric*atmos*>ORIC
 *pc*98*>NPC98
 smd|*mega*drive*|*genesis*>SMEGAD
-*pico*>SPICO
+pico|*pico*>SPICO
 sms|*master*system*|*mark*III*|*mark*3*>SEGMS
 dc|segadc|*dream*cast*>SDREAM
 gamegear|*game*gear*>SGG

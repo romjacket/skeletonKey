@@ -3689,10 +3689,10 @@ FENAM=xbox360
 RJEMUPRESET=videoplayer
 RJMULTIDISC=
 SHORTNM=MLTMED
-SEUPEMU=videoplayer|vlc|mplayerc|wmplayer
+SEUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
+RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv
 SUPCORE=
-LNCHPRM=
-$|1|1|0|1|1
+LNCHPRM=$|1|1|0|1|1
 FENAM=videoplayer
 
 [Microsoft - XBOX]

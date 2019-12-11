@@ -3655,7 +3655,7 @@ Gui,Add,Listbox, hwndLbxHndl7 x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidde
 ;;Progress, 94,......GUI is initializing......
 gosub, NetSET
 gosub, HideCoreUI
-gosub, ShowBB
+;;gosub, ShowBB
 gosub, DestroySplashGUI
 TrayTip
 Menu,Tray,Tip
@@ -6532,6 +6532,7 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 								return
 							}
 						goto, RAEXELOCTMP
+						gosub, ShowBB
 					}
 				if (SALIST <> "Emulators")
 					{
@@ -8537,12 +8538,12 @@ Loop,Parse,kiv,|
 SB_SetText("... Directory Indexed ...")
 guicontrol,,RUNROMCBX,|%romf%||%poptadd%
 if (SRCHCOMPL = 1)
-{
-	guicontrol,,SRCHFLRAD,1
-	guicontrol,,SRCHLOCDDL,|%OPTYP%||%knownfldrs%
-	guicontrol,,SRCHROMLBX,|
-	gosub, SRCHROMBUT
-}
+	{
+		guicontrol,,SRCHFLRAD,1
+		guicontrol,,SRCHLOCDDL,|%OPTYP%||%knownfldrs%
+		guicontrol,,SRCHROMLBX,|
+		gosub, SRCHROMBUT
+	}
 if (Ident_sys = "")
 	{
 		goto, SkipCoreGet
@@ -8842,6 +8843,9 @@ if (SRCHPLRAD = 1)
 		return
 	}
 IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
+lsrchpok=
+lsrchpop=
+existingpop=
 Loop,Parse,kiv,|
 	{
 		if (A_LoopField = "")
@@ -8866,9 +8870,6 @@ Loop,Parse,kiv,|
 					}
 			}
 		SB_SetText("...Searching...")
-		lsrchpok=
-		lsrchpop=
-		existingpop=
 		Loop,%LOCSRCHFLDR%\*%SRCHROMEDT%*,,%SRCHRCRSCHK%
 			{
 				ext= %A_LoopFileExt%
@@ -8891,7 +8892,11 @@ Loop,Parse,kiv,|
 					}
 			}
 		lsrchpok= %lsrchpop%
-		stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All
+		
+		if instr(LOCSRCHFLDR,RJSYSTEMS)
+			{
+				stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All			
+			}
 		guicontrolget, existingpop,,SRCHROMLBX
 		guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
 		SB_SetText("Search Complete")
@@ -8944,9 +8949,9 @@ Loop, Parse, romOVf,|
 						isofldr1=
 						StringSplit,isofldr,nocad,\
 						SRCHLOCDDL:= isofldr1
-						guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
+						;;guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
 						coreslv=
-						iniread, coreord,Assignments.ini,OVERRIDES,%isofldr%
+						iniread, coreord,Assignments.ini,OVERRIDES,%isofldr2%
 						/*
 						if coreord is digit
 							{
@@ -8966,7 +8971,7 @@ Loop, Parse, romOVf,|
 					{
 						if (RUNSYSDDL <> SRCHLOCDDL)
 							{
-								guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
+								;;guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%INITFLDRS%
 							}
 						guicontrol,,RUNROMCBX,|%romf%||%lsrchpop%
 					}
@@ -12183,6 +12188,7 @@ Loop, Parse, EAVAIL,|
 		gosub, RomDLocM
 	}
 return
+
 RomDLoc:
 ROMDFLDR=
 FileSelectFolder,ROMDFLDR,,3,Locate the %semu% folder
@@ -12204,6 +12210,8 @@ ifinstring,kiv,%ROMDFLDR%|
 		SB_SetText("This location already exists in the " semu " list")
 		return
 	}
+initfldrs.= ROMDFLDR . "|"
+guicontrol,,RUNSYSDDL,|%initfldrs%
 iniWrite,"%ROMDFLDR%|%kiv%",SystemLocations.ini,LOCATIONS,%semu%
 guicontrol,,ROMDEDT,|%ROMDFLDR%|%kiv%
 gosub, resetCoreAssets
@@ -72864,7 +72872,7 @@ ifnotinstring,supguiitems,%guito%
 	{
 		guito= unimp
 	}
-goto, %EMUSN%_GUI
+goto, %guito%_GUI
 return
 EMUNAMEPOP:
 GuiControl, Choose, TABMENU, 2
