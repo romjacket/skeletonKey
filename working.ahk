@@ -17422,6 +17422,8 @@ core_cannonballDDLA:
 core_reminiscenceDDLA:
 core_vemulatorDDLA:
 core_openlaraDDLA:
+core_dhewm3_xpDDLA:
+core_dhewm3DDLA:
 core_theodoreDDLA:
 core_squirreljmeDDLA:
 core_nekop2DDLA:
@@ -22563,6 +22565,8 @@ core_remotejoyRESET:
 core_tryquakeRESET:
 core_pokeminiRESET:
 core_openlaraRESET:
+core_dhewm3RESET:
+core_dhewm3_xpRESET:
 core_nekop2RESET:
 core_quasi88RESET:
 core_np2kaiRESET:

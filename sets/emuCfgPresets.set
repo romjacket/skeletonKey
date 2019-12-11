@@ -3661,6 +3661,7 @@ SHORTNM=MMSXP
 SUPEMU=BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX
 SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FENAM=msx2p
 
 [Microsoft - MSX]
 RJEMUPRESET=BlueMSX
@@ -3689,7 +3690,7 @@ RJEMUPRESET=videoplayer
 RJMULTIDISC=
 SHORTNM=MLTMED
 SEUPEMU=videoplayer|vlc|mplayerc|wmplayer
-SUPCORE=ffmpeg_libretro.dll
+SUPCORE=
 LNCHPRM=
 $|1|1|0|1|1
 FENAM=videoplayer
@@ -4022,7 +4023,7 @@ MAME?RJEMUOPTS=<vboy -cart<
 RJZIPPEEK=0
 SHORTNM=NNVB
 SUPEMU=Mednafen|realityboy|vbjin|retroarch|MAME
-SUPCORE=mednafen_vboy_libretro.dll
+SUPCORE=mednafen_vb_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=virtualboy
 
