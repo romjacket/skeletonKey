@@ -20,7 +20,7 @@ if (RJSYSTEMS = "")
 		RJSYSTEMS=%drvp%\Console
 		rjsyst= %RJSYSTEMS%
 	}	
-ADJDIRS_TT :="Enables detection and renaming/linking of supported nomenclature"
+ADJDIRS_TT :="Enables identification, detection and renaming or linking to supported nomenclature"
 LNKDIR_TT :="Links detected console directories to supported nomenclature"
 RNMDIR_TT :="Renames detected console directories to supported nomenclature"
 INTRMSYS_TT :="The directory where ROMs should be located."
@@ -28,18 +28,20 @@ INTRMEMU_TT :="The directory where Emulators should be located."
 SETJKR_TT :="Selcts the systems directory"
 SETEMUD_TT :="Selects the emulators directory."
 CONTINUE_TT :="Confirm the current settings and initializes setup."
-
+LNKTOD_TT :="Sets the destination for linked folders`n***This will be skeletonKey's ''systems'' folder"
 
 Gui,Font, Bold
-Gui, Add, GroupBox, x4 y0 w265 h162 +Center, SETUP
+Gui, Add, GroupBox, x100 y0 w169 h42
+Gui, Add, GroupBox, x4 y0 w265 h162 +Center,< SETUP >
 Gui,Font, Normal
-Gui, Add, Text, x80 y26 w44 h16, Systems
+Gui, Add, Text, x13 y10 h14, System Scan
 Gui, Add, Text, x80 y96 w46 h18, Emulators
 Gui, Add, Edit, x13 y42 w247 h42 vintrmsys +readonly,:DEFAULT:%rjsyst%
 Gui, Add, Edit, x13 y110 w247 h42 vintrmemu +readonly,:DEFAULT:%rjemut%
-Gui, Add, Checkbox, x13 y10 h14 vADJDIRS gADJDIRS checked,Overwrite
-Gui, Add, Radio, x170 y10 h14 Right vLNKDIR gLNKDIR,Link Directories
-Gui, Add, Radio, x150 y26 h14 Right vRNMDIR gRNMDIR checked,Rename Directories
+Gui, Add, Checkbox, x105 y16 h16 Right vADJDIRS gADJDIRS checked,Identify Folders
+Gui, Add, Radio, x205 y10 h14 vLNKDIR gLNKDIR,Link
+Gui, Add, Radio, x205 y26 h14 vRNMDIR gRNMDIR checked,Rename
+Gui, Add, Button, x248 y10 h16 w16 vLNKTOD gLNKTOD hidden,>
 Gui,Font, Bold
 Gui, Add, Button, x13 y24 w65 h18 gSETJKR, BROWSE
 Gui, Add, Button, x13 y92 w65 h18 gSETEMUD, BROWSE
@@ -211,10 +213,30 @@ return
 
 LNKDIR:
 gui,submit,nohide
+guicontrol,show,LNKTOD
+guicontrolget,RJSTMX,,intrmsys
+stringreplace,RJSTMX,RJSTMX,:DEFAULT:,,All
+SB_SetText("''Systems'' set to " RJSTMX "")
+return
+
+LNKTOD:
+gui,submit,nohide
+guicontrolget,RJSTMX,,intrmsys
+stringreplace,RJSTMX,RJSTMX,:DEFAULT:,,All
+stringleft,rjlimit,RJSTMX,3
+LNKDEST= 
+FileSelectFolder, LNKDEST,%rjlimit%,3,Select the Destination for Linked Directories
+	if (LNKDEST = "")
+		{
+			return
+			SB_SetText("The systems directory has been set to " RJSYSTEMS "")
+		}
+SB_SetText("Links --> " LNKDEST "")
 return
 
 RNMDIR:
 gui,submit,nohide
+guicontrol,hide,LNKTOD
 return
 
 
@@ -339,9 +361,9 @@ if ((RJEMUF = "") or (RJSYSTEMS = "") or (RJEMUF = ":DEFAULT:") or (RJSYSTEMS = 
 	{
 		msgbox,,Not Set,An Emulator Directory and a Systems Directory Must be set to continue
 		return
-	}	
-stringreplace,RJEMUF,RJEMUF,:DEFAULT:,,All
+	}
 
+stringreplace,RJEMUF,RJEMUF,:DEFAULT:,,All
 ifnotexist,%RJEMUF%\
 	{
 		filecreatedir,%RJEMUF%
@@ -363,8 +385,13 @@ ifnotexist,%RJSYSTEMS%\
 				return
 			}
 	}
+LNKVRJ= %LNKDEST%
+if (LNKVRJ = "")
+	{
+		LNKVRJ= %RJSYSTEMS%
+	}
 IniWrite, "%RJEMUF%",Settings.ini,GLOBAL,emulators_directory
-IniWrite, "%RJSYSTEMS%",Settings.ini,GLOBAL,systems_directory
+IniWrite, "%LNKVRJ%",Settings.ini,GLOBAL,systems_directory
 exlst= |
 exls= |
 guicontrolget,RNMDIR,,RNMDIR
@@ -435,7 +462,15 @@ if (ADJDIRS = 1)
 						av+= 1
 						exlst.= afe1 . "|"
 						exls.= afe2 . "|"
-					}
+						if (LNKDEST = "")
+							{
+								continue
+							}
+						ifnotexist,%LNKDEST%\%afe1%\
+							{
+								Runwait,%comspec% /c mklink /J "%LNKDEST%\%fsys%" "%RJSYSTEMS%\%afe1%",,hide	
+							}
+					}	
 			}
 		SB_SetText(" " av " systems detected")
 		Loop, parse, fuzsys,`n`r
@@ -463,7 +498,7 @@ if (ADJDIRS = 1)
 								ifinstring,exlst,|%A_LoopFileName%|
 									{
 										continue
-									}
+									}	
 								if (RNMDIR = 1)
 									{
 										FileMoveDir,%A_LoopFileFullPath%,%A_LoopFileDir%\%fsys%,R							
@@ -474,10 +509,16 @@ if (ADJDIRS = 1)
 											}
 									}
 									else {
-										Runwait,%comspec% /c mklink /J "%A_LoopFileDir%\%fsys%" "%A_LoopFileName%",%A_LoopFileDir%,hide
-										if (ERRORLEVEL <> 0)
+										van= %LNKDEST%
+										if (LNKDEST = "")
+											{
+												van= %A_LoopFileDir%
+											}
+										Runwait,%comspec% /c mklink /J "%van%\%fsys%" "%A_LoopFileName%",%A_LoopFileDir%,hide
+										ifnotexist, %van%\%fsys%\
 											{
 												SB_SetText("Could not Link " A_LoopFileName "")
+												fileappend,"%van%\%fsys%\:%A_LoopFileName%"`n,C:\users\romjacket\desktop\error.txt
 												continue
 											}								
 									}
