@@ -13,8 +13,8 @@ Archive=http://archive.org/download
 Archive:SET=[REPOSRC]/ARCHIVE/Archive.7z
 the-eye=https://the-eye.eu/public/rom
 the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
-various=https://github.com/romjacket/various/raw/master
-various:SET=[REPOSRC]/various/various.7z
+various=https://github.com/romjacket/VARIOUS/raw/master
+various:SET=[REPOSRC]/VARIOUS/various.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com
