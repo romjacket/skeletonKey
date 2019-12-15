@@ -37691,6 +37691,18 @@ return
 ArcCull:
 gui,submit,nohide
 guicontrolget,ArcCull,,ArcCull
+guicontrolget,RJNMJACK,,RNMJACK
+if (ARCCULL = 1)
+	{
+		stringsplit,nnn,RNMJACK,([
+		RNMJACK= %nnn1%
+		guicontrol,,RNMJACK,%RNMJACK%
+		return
+	}
+ifinstring,aftpth2,%RNMJACK%
+	{
+		guicontrol,,RNMJACK,%aftpth2%
+	}
 return
 
 ArcMove:
