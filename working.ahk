@@ -3188,6 +3188,7 @@ Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
 Gui, Add, Checkbox, x262 y100 h15 vArcMove gArcMove hidden,cleanup
+Gui, Add, Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
 Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
 Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
 Gui, Add, CheckBox, x26 y119 h15 vJACKETMODE gDWNINJACK,Jacketize
@@ -36021,6 +36022,7 @@ if (DOWNONLY = 1)
 			}
 		guicontrol,,RUNXTRACT,0
 		guicontrol,,ArcMove,0
+		guicontrol,,ArcCull,1
 		norun= 1
 		ARCSEL= 1
 		return
@@ -36146,6 +36148,7 @@ guicontrol,,OVDCHK,0
 guicontrol,,EXTRURL,0
 guicontrol,,RUNXTRACT,0
 guicontrol,,ArcMove,0
+guicontrol,,ArcCull,1
 guicontrol,,CUSTSWITCH,0
 guicontrol,,EXTEXPLD,0
 guicontrol,,JACKETMODE,0
@@ -36560,6 +36563,7 @@ guicontrolget,EXTRURL,,EXTRURL
 guicontrolget,EXTEXPLD,,EXTEXPLD
 guicontrolget,RUNXTRACT,,RUNXTRACT
 guicontrolget,ARCMOVE,,ARCMOVE
+guicontrolget,ARCCULL,,ARCCULL
 guicontrol,enable,RNMJACK
 return
 ArcPopulateList:
@@ -36692,6 +36696,11 @@ if (DownOnly = 0)
 						break
 					}
 			}
+	}
+if (ARCCULL = 1)
+	{
+		stringsplit,anv,aftpth2,([
+		aftpth2= %anv1%
 	}
 guicontrol,,RNMJACK,%aftpth2%
 if (arcpnum > 1)
@@ -37022,7 +37031,11 @@ ifinstring,urlpth,://
 	{
 		URLFILE= %urlpth%
 	}
-
+splitpath,urlfile,,,inxck
+if (inxck = "inx")
+	{
+		
+	}
 SB_SetText(" " urlfile " ")
 return
 
@@ -37153,6 +37166,7 @@ guicontrol,,OVDCHK,0
 guicontrol,,EXTRURL,0
 guicontrol,,RUNXTRACT,0
 guicontrol,,ArcMove,0
+guicontrol,,ArcCull,1
 guicontrol,,CUSTSWITCH,0
 guicontrol,,EXTEXPLD,0
 guicontrol,,JACKETMODE,0
@@ -37342,6 +37356,7 @@ if (EXTRSYS = "BIOS - BIOS")
 if (MAMESWCHK = 1)
 	{
 		guicontrol,,ARCMOVE,0
+		guicontrol,,ARCCULL,0
 		guicontrol,,EXTRURL,0
 		guicontrol,,EXTEXPLD,0
 		guicontrol,,RUNXTRACT,0
@@ -37650,12 +37665,14 @@ if (EXTRURL = 0)
 		guicontrol,, ArcMove,0
 		ARCMOVE= 0
 		guicontrol, hide, ArcMove
+		guicontrol, hide, ArcCull
 	}
 if (EXTRURL = 1)
 	{
 		guicontrol,show,EXTEXPLD
 		guicontrol, show, RUNXTRACT
 		guicontrol, show, ArcMove
+		guicontrol, show, ArcCull
 		EXTEXPLD= %tmpsx4%
 		RUNXTRACT= %tmpsx5%
 		ARCMOVE= %tmpsx6%
@@ -37670,10 +37687,17 @@ iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 stringsplit,tmpsx,tmpsw,|
 iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%EXTEXPLD%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
+
+ArcCull:
+gui,submit,nohide
+guicontrolget,ArcCull,,ArcCull
+return
+
 ArcMove:
 gui,submit,nohide
 guicontrol,,sortoverride,0
 guicontrolget,ARCMOVE,,ARCMOVE
+guicontrolget,ARCCULL,,ARCCULL
 iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 stringsplit,tmpsx,tmpsw,|
 iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%ARCMOVE%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
@@ -37996,6 +38020,7 @@ if (ENHAK = 1)
 		HACKAPN= #HACKS#
 	}
 guicontrolget,ArcMove,,ArcMove
+guicontrolget,ArcCull,,ArcCull
 guicontrolget,OVDLDS,,OVDLDS
 guicontrolget,romdwnlst,,ARCPOP
 
