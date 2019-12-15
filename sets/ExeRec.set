@@ -768,6 +768,7 @@ FileInstall,sets\the-eye_eula.set,sets\the-eye_eula.set,1
 FileInstall,sets\themes.set,sets\themes.set,1
 FileInstall,sets\urls.set,sets\urls.set,1
 FileInstall,sets\Utilities.set,sets\Utilities.set,1
+FileInstall,sets\various_eula.set,sets\various_eula.set,1
 FileInstall,sets\arcorg.put,sets\arcorg.put,1
 FileInstall,sets\Themes.put,sets\Themes.put,1
 FileInstall,Init.exe,Init.exe,1
