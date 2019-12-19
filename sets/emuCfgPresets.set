@@ -802,6 +802,8 @@ run_location="1"
 BIOS=M
 
 [Fusion]
+RJPRECFG=copy /y "Fusion.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\Fusion.ini" "%GAMDIR%"
 RJRUNDIR=1
 RJEMUOPTS=<|<-FullScreen<|<
 PEREMUCFG=1
@@ -2210,6 +2212,7 @@ EXENAM=vecxgl.exe
 
 [videoplayer]
 URLPTH=videoplayer/videoplayer.7z
+options=" --no-video-deco --qt-minimal-view --qt-video-autoresize --align=0 --autoscale --fullscreen "
 EXENAM=vlc.exe
 
 
@@ -3689,7 +3692,7 @@ FENAM=xbox360
 RJEMUPRESET=videoplayer
 RJMULTIDISC=
 SHORTNM=MLTMED
-SEUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
+SUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
 RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1

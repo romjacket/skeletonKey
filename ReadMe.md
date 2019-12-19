@@ -1,6 +1,6 @@
-skeletonKey 0.99.70.30
+skeletonKey 0.99.70.31
 
- 2019-12-15 1:15 PM
+ 2019-12-18 8:34 PM
  
 by romjacket 
 
@@ -16,9 +16,9 @@ http://github.com/romjacket/skeletonKey
 https://www.paypal.me/romjacket
 
               
-			  All feature-requests are considered relative to my interest.
+			  Software wants to be free and so please donate.
 			  
-			  Donate $5 and get a personalized Golden skeletonKey!
+			  Busta $5' and get a personalized Golden skeletonKey!
 			  
 			  
 
@@ -32,7 +32,7 @@ Upon installtion, a quick-start wizard will allow users to get up and running qu
 
 ###########################################
 
-# Forking skeletonKey
+# Developing and forking skeletonKey
 
 SKey-Deploy.exe:  
 
@@ -45,10 +45,10 @@ License information:
 
 This software is for personal, non-commercial use only.
 You may not deploy or distribute this tool in any manner which facilitates financial profit.  
-Only authorized parties may distribute this tool which include closed-source software.  
+You may not distribute this tool to include any additional closed-source software.  
 
 In no way may you deploy this tool to promote piracy.  
 
 You must include this readme file when distributing any binary.
 
-You cannot modify this readme file or any other included license file in any manner not created or modified by romjacket via the original deployment tool.
+You may modify this readme file or any other included license file in any manner not created or modified by romjacket via the original deployment tool.
