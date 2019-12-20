@@ -7422,7 +7422,7 @@ ifexist,%save%
 	{
 		Process, close, Invader.exe
 		Process, close, Skey-Deploy.exe
-		Run, "Update.exe" %save%
+		Run, "Update.exe" "%save%"
 		Process, close, skeletonKey.exe
 		gosub, QUITOUT
 		exitapp
@@ -9234,14 +9234,16 @@ exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 						ifmsgbox,Yes
 							{
 								FileRead,statdel,%$CACHESTAT%\%$FNM%.status
-								fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+								;;fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+								fileappend,%statdel%,%$FNM%.log
 								statdel= 
 							}
 					}
 				if (batchdl = 1)
 					{
 						FileRead,statdel,%$CACHESTAT%\%$FNM%.status
-						fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+						;;fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+						fileappend,%statdel%,%$FNM%.log
 						statdel= 					
 					}					
 				FileDelete, %$CACHESTAT%\%$FNM%.status
