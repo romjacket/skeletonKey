@@ -690,11 +690,17 @@ if (alra = 1)
 				gosub,resetSYS
 			}
 		Loop,Read,sys.ini
-		syslist.= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			{
+				syslist.= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			}
 		Loop,Read,hacksyst.ini
-		hacksyst .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			{
+				hacksyst .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			}
 		Loop,Read,msys.ini
-		msyslist.= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			{
+				msyslist.= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+			}
 	}
 appcfg= AppParams.ini
 IfNotExist, AppParams.ini
@@ -720,8 +726,50 @@ Loop,Parse,asig,`n
 				reasign .= rasig1 . "|"
 			}
 	}
+MsysRst:	
 mame_sys=
 fileread,emucfgpr,sets\emucfgPresets.set
+iniread,pnvf,sets\emucfgPresets.set
+systrt=
+Loop,parse,pnvf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if (A_LoopField = "END_EMU")
+			{
+				systrt= 1
+			}
+		if (systrt = "")
+			{
+				continue
+			}
+		nwsys= %A_LoopField%
+		ecfsysn= %A_LoopField%
+		iniread,bbvr,sets\emucfgPresets.set,%nwsys%,RJMAMENM
+		mamad= 
+		sysfnd= 
+		Loop, Parse, msyslist,|
+			{
+				einv= %A_LoopField%
+				ifnotinstring,mame_sysk,%einv%|
+					{
+						mame_sysk.= einv . "|"
+					}
+				if (bbvr = einv)
+					{
+						MAME_%bbvr%= %einv%
+						mame_syst.= ecfsysn . "|"
+						rev_%bbvr%= %ecfsysn%
+						mamesplit.= einv . "|" . ecfsysn . "`n"
+						mamad= 1
+						break
+					}
+			}
+	}
+
+/*	
 Loop, Parse, emucfgpr,`n`r
 	{
 		if (A_LoopField = "")
@@ -763,6 +811,8 @@ Loop, Parse, emucfgpr,`n`r
 					}
 			}
 	}
+*/
+
 afep= |
 Loop, Parse, mamesplit,`n`r
 	{
@@ -784,8 +834,10 @@ Loop, Parse, mamesplit,`n`r
 	}
 mame_sys.= mame_sysk
 sort,mame_sys, Alphabetically D|
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;      ITERATE VALUES           ;;;;;;;;;;;;;;;;;;;;;;;
+
 omitxi= jpg|ini|cfg|png|html|dll|nfo|srm|exe|sav|bak|conf|shader|inp|zst|cg|settings|gif|bat|cmd|pdf|ips|xdelta|7z|rar|001|mp3|mp4|shortcuts|config|tmp|readme|txt|rtf|htm|js|xml|bmp|gif|css|amgp|xpadderprofile|input|lnk|state|dat|ogg|log|flv|doc|php|text|tiff|brm|ps2|sys
 omitxt:= omitxi
 noBrws= Xinput_Drivers|DirectX|Visual_C++_Runtimes|Winows_Icons|IAGL|AdvancedLauncher|ICE|ROM_Collection_Browser
@@ -793,6 +845,7 @@ rjdexcl= .Mem|.Man|backdrops|.sstates|.snaps|.patches|.cheats|
 rjfexcl= Folder.png|Folder.jpg|Backdrop.jpg|Backdrop.png|Banner.png|Banner.jpg|Logo.png|Logo.jpg|marquee.png|marquee.jpg|back.jpg|back.png|title.png|title.jpg|Cover.png|Cover.jpg|BoxFront.jpg|BoxFront.png|BoxBack.png|BoxBack.jpg|Spine.jpg|Spine.png|Disc.png|Disc.jpg
 omtiall:= omitxt . "|" . rjdexcl
 StringReplace, omitxtv, omitxt, |,`,,All
+
 omitxj:= omitxtv
 medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
 mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
@@ -803,10 +856,12 @@ optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|
 menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|quit_press_twice|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red|menu_enable_widgets|video_stream_port|video_stream_quality|video_stream_url|video_stream_scale_factor|youtube_stream_key|video_stream_config|menu_left_thumbnails|menu_thumbnails|apply_cheats_after_toggle|apply_cheats_after_load|apply_cheats_after_load|rgui_background_filler_thickness_enable|streaming_mode
 INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen | --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s
 INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
+
 Loop, rj\emuCfgs\*,2
 	{
 		SUPEMUOPT.= A_LoopFileName . "|"
 	}
+
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 noinstallers= |Media|Mirrored_Links|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
@@ -36059,6 +36114,7 @@ stringreplace,urlsv,urlsv,-,,All
 stringreplace,urlsv,urlsv,`,,,All
 stringreplace,urlsv,urlsv,~,,All
 stringreplace,urlsv,urlsv,%A_Space%,,All
+
 if (UrlTxt = "Add Repository")
 	{
 		guicontrol,,ARCSYS,|Select A System||
@@ -36069,6 +36125,7 @@ iniread,olarna,Settings.ini,GLOBAL,%urltxt%_EULA
 iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
 iniwrite, "%UrlTxt%",Settings.ini,GLOBAL,RemoteRepository
 alra=
+
 if ((urlTxt <> olarcnm)or(olarna <> 1))
 	{
 		arcsite= %ArcSiteX%
@@ -36081,6 +36138,7 @@ if ((urlTxt <> olarcnm)or(olarna <> 1))
 		return
 	}
 return
+
 EnableAltURL:
 gui, submit, nohide
 guicontrolget,ALTURL,,ALTURL
@@ -38526,12 +38584,17 @@ ifnotexist, %save%
 		RETRYTHR:
 		Sleep, %RETRYTHR%
 		magfile= 
+		meganz= 
 		splitpath,save,svaf,svap,svax
 		stringleft,magchk,URLFILE,7
 		if (magchk = "magnet:")
 			{
 				magfile= 1	
 				URLFILE= "%URLFILE%"
+			}
+		ifinstring,URLFILE,mega.nz/#
+			{
+				meganz= 1
 			}
 		if (svax = "torrent")
 			{
@@ -38544,6 +38607,18 @@ ifnotexist, %save%
 					}
 				magfile= 1	
 				URLFILE= -T"%sttm%"	
+			}
+		if (meganz = 1)	
+			{
+				stringreplace,MEGALINK,URLFILE,https://mega.nz/,,All
+				concatcmd= "%A_Scriptdir%\bin\megadl.exe" --path="%save%" "%MEGALINK%"
+				meganzOut := StdoutToVar_CreateProcess(concatcmd)
+				Loop,parse,meganzOut,`n`r
+					{
+						stringsplit,abz,A_LoopField,%A_Space%
+					}
+				sb_settext(" " abz3 "`% complete")
+				goto, DWNLOADTST
 			}
 		if (magfile = 1)
 			{
@@ -80839,6 +80914,7 @@ guicontrol,,PLCORE,|%lastcore%||%runlist%
 guicontrol,,ASCORE,|%corelist%
 guicontrol,,JOYCORE,|Antimicro||Xpadder|%supguiitems%|%corelist%
 return
+
 resetSYS:
 FileDelete, msys.ini
 FileDelete, sys.ini
@@ -80879,6 +80955,47 @@ fileappend,%hacksyst%,hacksyst.ini
 fileappend,%syslist%,sys.ini
 fileappend,%msyslist%,msys.ini
 guicontrol,,ARCSYS,|Select A System||%syslist%
+mame_sys=
+fileread,emucfgpr,sets\emucfgPresets.set
+iniread,pnvf,sets\emucfgPresets.set
+systrt=
+Loop,parse,pnvf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if (A_LoopField = "END_EMU")
+			{
+				systrt= 1
+			}
+		if (systrt = "")
+			{
+				continue
+			}
+		nwsys= %A_LoopField%
+		ecfsysn= %A_LoopField%
+		iniread,bbvr,sets\emucfgPresets.set,%nwsys%,RJMAMENM
+		mamad= 
+		sysfnd= 
+		Loop, Parse, msyslist,|
+			{
+				einv= %A_LoopField%
+				ifnotinstring,mame_sysk,%einv%|
+					{
+						mame_sysk.= einv . "|"
+					}
+				if (bbvr = einv)
+					{
+						MAME_%bbvr%= %einv%
+						mame_syst.= ecfsysn . "|"
+						rev_%bbvr%= %ecfsysn%
+						mamesplit.= einv . "|" . ecfsysn . "`n"
+						mamad= 1
+						break
+					}
+			}
+	}
 return
 resetCoreAssets:
 dwnlfldrs=

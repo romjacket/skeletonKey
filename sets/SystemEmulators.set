@@ -94,14 +94,12 @@ Commodore - Amiga|FS-UAE|WinUAE|winfellow|MAME|:mame_libretro.dll
 Commodore - C128|WinVice|MAME|:mame_libretro.dll
 Commodore - C16|WinVICE|MAME|:mame_libretro.dll
 Commodore - CBM-II|WinVICE|MAME|:mame_libretro.dll
-Commodore - MAX|WinVICE|MAME|:mame_libretro.dll
 Commodore - PET - 8096|WinVICE|MAME|:mame_libretro.dll
 Commodore - PET - 8296|WinVICE|MAME|:mame_libretro.dll
 Commodore - PET|WinVICE|MAME|:mame_libretro.dll
 Commodore - Plus-4|WinVICE|MAME|:vice_xplus_libretro.dll|mame_libretro.dll
 Commodore - VIC-10 - Max Machine - UltiMax|WinVICE|MAME|:mame_libretro.dll
 Commodore - VIC-1001|WinVICE|MAME|:mame_libretro.dll
-Commodore - VIC-10|WinVICE|MAME|:mame_libretro.dll
 Commodore - VIC-20|WinVICE|aipc|MAME|:vice_xvic_libretro.dll
 Commodore - BX256-80HP|MAME|:mame_libretro.dll
 Compucolor - Compucolor II|xroar|MAME|:mame_libretro.dll

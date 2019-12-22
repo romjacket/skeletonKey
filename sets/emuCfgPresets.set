@@ -2733,7 +2733,7 @@ URLPTH=z80tvgame_i8255/z80tvgame_i8255.7z
 [z80tvgame_z80pio]
 URLPTH=z80tvgame_z80pio/z80tvgame_z80pio.7z
 
-[*************************************************************************]
+[END_EMU]
 
 [MAME - Arcade]
 RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
@@ -2953,6 +2953,17 @@ SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
 SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atari800
+
+[Atari - 800 - PAL]
+RJMULTIDISC=1
+RJROMXT=.atr,.dsk,.xfd,.bin,.rom,.car,.xex,.wav,.bas,.cas,.bin,.zip,.atx,.pro,.obx,.com,.zip
+MAME?RJEMUOPTS=<a800pal -[RJRTYP]<|<a800pal -flop1<|<a800pal -cart<|<a800xlp -flop1<|<a800xlp -cart<|<a800 -flop1<|<a800 -cart<|<a800pal -flop1<|<a800pal -cart<|<a800xe -flop1<|<a800xe -cart<
+Altirra?RJEMUOPTS=</hardware:800xl</disk<|</hardware:800xl</tape<|</hardware:800xl</cart<
+SHORTNM=AT8P
+SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
+SUPCORE=atari800_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+FENAM=atari800p
 
 [Atari - 8Bit]
 RJEMUPRESET=Altirra
@@ -3298,17 +3309,6 @@ SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Commodore - MAX]
-RJEMUPRESET=MAME
-RJMAMENM=vic10
-RJMULTIDISC=1
-RJROMXT=.wav,.tap,.e0,.80,.zip
-MAME?RJEMUOPTS=<vic10 -[RJRTYP]<|<vic10 -cass<|<vic10 -cart<
-SHORTNM=COMMAX
-SUPEMU=WinVICE|MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
-
 [Commodore - PET]
 RJEMUPRESET=MAME
 RJMAMENM=pet8032
@@ -3325,6 +3325,7 @@ RJEMUPRESET=WinVICE
 RJMAMENM=vic20
 RJMULTIDISC=1
 SUPEMU=WinVICE|aipc|MAME
+RJMAMENM=COMVIC
 WinVice?RJEMUOPTS=<-ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric<|<-ntsc +confirmexit -saveres +warp -cartgeneric<
 RJROMXT=.wav,.tap,.d64,.g64,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk .p00,.prg,.20,.40,.60,.70,.a0,.b0,.crt,.zip
 MAME?RJEMUOPTS=<vic20 -[RJRTYP]<|<vic20 -cass<|<vic20 -cart<|<vic20 -flop<
@@ -3796,7 +3797,7 @@ FENAM=pcfx
 
 [NEC - PC88]
 RJEMUPRESET=m88
-RJMAMENM=pc88va
+RJMAMENM=pc8801
 RJMULTIDISC=1
 RJPRECFG=copy /y "%GAMDIR%\vaeg.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\vaeg.ini" "%GAMDIR%"
@@ -4444,7 +4445,7 @@ FENAM=megadrive
 
 [Sega - Mega-CD - Sega CD]
 RJEMUPRESET=Fusion
-RJMAMENM=segacd
+RJMAMENM=megacd
 RJMEDNM=md
 Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
 MAME?RJEMUOPTS=<32x_scd -cdrm<|<megacd -cdrm<|<megacda -cdrm<|<megacdj -cdrm<|<megacd2 -cdrm<|<megacd2j -cdrm<|<32x_mcd -cdrm<|<32x_mcdj -cdrm<|<segacd -cdrm<
@@ -4958,12 +4959,6 @@ SUPEMU=Stella|no$2k6|z26|Bizhawk|pcae|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
-[Atari - 800]
-RJEMUPRESET=MAME
-RJMAMENM=a800
-MAME?RJEMUOPTS=<a800 -flop<
-RJZIPPEEK=0
-
 [Atari - 800 - PAL]
 RJEMUPRESET=MAME
 RJMAMENM=a800pal
@@ -5287,17 +5282,6 @@ RJEMUPRESET=MAME
 RJMAMENM=bx256hp
 MAME?RJEMUOPTS=<bx256hp -flop<
 RJZIPPEEK=0
-
-[Commodore - VIC-10]
-SHORTNM=COM128
-RJEMUPRESET=MAME
-RJMAMENM=c128
-MAME?RJEMUOPTS=<c128 -flop<
-RJZIPPEEK=0
-SHORTNM=COMVIC10
-SUPEMU=WinVICE|MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
 
 [Commodore - 65]
 RJEMUPRESET=MAME
@@ -7231,7 +7215,7 @@ RJZIPPEEK=0
 [Commodore - VIC-10 - Max Machine - UltiMax]
 RJEMUPRESET=MAME
 RJMAMENM=vic10
-MAME?RJEMUOPTS=<vic10 -flop<
+MAME?RJEMUOPTS=<vic10 -[RJRTYP]<|<vic10 -cass1<|<vic10 -cart<
 RJZIPPEEK=0
 SHORTNM=COMMAX
 SUPEMU=WinVICE|MAME
