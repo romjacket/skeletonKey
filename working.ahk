@@ -726,7 +726,7 @@ Loop,Parse,asig,`n
 				reasign .= rasig1 . "|"
 			}
 	}
-MsysRst:	
+MsysRst:
 mame_sys=
 fileread,emucfgpr,sets\emucfgPresets.set
 iniread,pnvf,sets\emucfgPresets.set
@@ -1680,6 +1680,7 @@ Loop, Parse, SysLLst,`n`r
 		stringsplit,syscfgfld,A_LoopField,=
 		allsupsys.= syscfgfld1 . "`n"
 		allsupport.= syscfgfld1 . "|"
+		%syscfgfld2%= %syscfgfld1%
 	}
 if (INITIAL = 1)
 	{
@@ -36105,6 +36106,8 @@ norun=
 return
 REPOUrlEdt:
 gui,submit,nohide
+guicontrol,,MAMESWCHK,0
+guicontrol,show,MAMESWCHK
 guicontrolget,UrlTxt,,UrlTxt
 stringreplace,urlsv,urltxt,',,All
 stringreplace,urlsv,urlsv,.,,All
@@ -36126,6 +36129,10 @@ iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
 iniwrite, "%UrlTxt%",Settings.ini,GLOBAL,RemoteRepository
 alra=
 
+ifnotexist,gam\%UrlTxt%\Mame - Systems\
+	{
+		guicontrol, hide, MAMESWCHK
+	}
 if ((urlTxt <> olarcnm)or(olarna <> 1))
 	{
 		arcsite= %ArcSiteX%
@@ -36405,7 +36412,6 @@ guicontrol,show,ARCSYS
 guicontrol,hide,ARCCBX
 guicontrol,,fltrRpoBtn,E
 return	
-
 
 ArchiveCBX:
 guicontrolget,RPSYSX,,ARCCBX
@@ -37423,6 +37429,7 @@ if (MAMESWCHK = 1)
 		guicontrol,,EXTRURL,0
 		guicontrol,,EXTEXPLD,0
 		guicontrol,,RUNXTRACT,0
+		guicontrol,,JACKETMODE,0				  
 	}
 if (EXTRSYS = "- firmware -")
 	{
@@ -37805,6 +37812,7 @@ gui,submit,nohide
 guicontrolget,LCORE,,LCORE
 guicontrolget,coreselv,,ARCCORES
 guicontrolget,RNMJACK,,RNMJACK
+guicontrolget,MAMESWCHK,,MAMESWCHK
 if (arctvl = "")
 	{
 		norun=
@@ -38134,7 +38142,7 @@ Loop, parse, romdwnlst,|
 		;;ACSVDEST= %RJSYSTEMS%\%romsys%
 		ifnotexist, %ACSVDEST%\
 			{
-				if ((romsys <> "BIOS - BIOS") && if (romsys <> "- firmware -"))
+				if ((romsys <> "BIOS - BIOS") && (romsys <> "- firmware -"))
 					{
 						FileCreateDir,%ACSVDEST%
 						gosub, RJSYSRESET
@@ -38367,8 +38375,13 @@ if (tmprm <> "")
 						stringsplit,ji,A_LoopField,|
 						if (ARCSYS = ji2)
 							{
+								srchgmf= %SRCHMET%\%ji1%.gam
 								Loop, read, %SRCHMET%\%ji1%.gam
 									{
+										Loop,10
+											{
+												ave%A_index%=
+											}
 										stringsplit,ave,A_LoopReadLine,|
 										if (ave2 = arcpopcul)
 											{
@@ -38396,6 +38409,17 @@ if (tmprm <> "")
 															{
 																ariadltyp=magnet
 															}
+													}
+												ifinstring,ave1,://
+													{
+														URLFILE= %ave1%
+													}
+												if (ave2 = "")
+													{
+														splitpath,ave1,,,,sanfile
+														gosub, SanUrl
+														stringreplace,sanfile,sanfile,_,%A_space%,All
+														ave2= %sanfile%
 													}
 												break
 											}
@@ -38571,6 +38595,15 @@ ifnotexist, %save%
 		if (ksr = "")
 			{
 				fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+				if (MAMESWCHK = 1)
+					{
+						iniread,carnsys,sets\emuCfgPresets.set,%romsys%,RJMAMENM
+						if ((carnsys = "")or(crnsys = "ERROR"))
+							{
+								carnsys= %romsys%
+							}
+						fndpath= %RJSYSTEMS%\%MESSYS%\%carnsys%
+					}
 			}
 		;;fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
 		gosub, LkExtrExt
@@ -39716,7 +39749,7 @@ guicontrol,,FECHKG,0
 guicontrol,,FECHKH,0
 guicontrol,,FECHKI,0
 guicontrol,,FECHKJ,0
-guicontrol,,FECHKK,0
+guicontrol,,FECHKK,0♣
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
 getboxart=
@@ -80921,6 +80954,9 @@ FileDelete, sys.ini
 FileDelete, hacksyst.ini
 syslist=
 msyslist=
+mamesplit= 
+mame_sysk=
+mame_syst.=
 nsys=
 msys=
 iniread,alra,Settings.ini,GLOBAL,%urlTxt%_EULA
@@ -80959,6 +80995,7 @@ mame_sys=
 fileread,emucfgpr,sets\emucfgPresets.set
 iniread,pnvf,sets\emucfgPresets.set
 systrt=
+
 Loop,parse,pnvf,`n`r
 	{
 		if (A_LoopField = "")
@@ -80996,7 +81033,32 @@ Loop,parse,pnvf,`n`r
 					}
 			}
 	}
+if (msyslist <> "")
+	{
+		afep= |
+		Loop, Parse, mamesplit,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,ji,A_LoopField,|
+				afep.= ji2 . "|"
+				Loop,parse,mame_sysk,|
+					{
+						if (A_Loopfield = ji1)
+							{
+								mame_sys.= ji2 . "|"
+								stringreplace,mame_sysk,mame_sysk,%ji1%|,,
+								break
+							}
+					}
+			}
+		mame_sys.= mame_sysk
+		sort,mame_sys, Alphabetically D|		
+	}
 return
+
 resetCoreAssets:
 dwnlfldrs=
 systmfldrs=

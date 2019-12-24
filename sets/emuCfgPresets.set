@@ -2769,6 +2769,7 @@ RJEXT=1
 RJROMINJ=%ROMF%
 RJEMUOPTS=<[RJMAMESYS] -[RJRTYP]<
 RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1
+SHORTNM=MESSYS
 RJEXTRARC=0
 PEREMUCFG=1
 RJZIPPEEK=1
