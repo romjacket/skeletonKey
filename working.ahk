@@ -37139,6 +37139,7 @@ guicontrol,enable,MAMESWCHK
 INTERRUPTDWN= 1
 Process,close,%$exeg_pid%
 return
+
 MAMESWCHK:
 gui,submit,nohide
 guicontrolget,MAMESWCHK,,MAMESWCHK
@@ -37162,6 +37163,7 @@ guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 gosub, ArchiveSystems
 return
+
 SRCHDDL:
 gui,submit,nohide
 guicontrolget,SRCHDDL,,SRCHDDL
