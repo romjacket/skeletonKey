@@ -11,7 +11,6 @@ CURPID= %ERRORLEVEL%
 GLBTOP:
 RELEASE= [VERSION]
 VERSION= [CURV]
-RASTABLE= 1.8.1
 #Include src\tf.ahk
 #Include src\lbex.ahk
 #Include src\LVA.ahk
@@ -626,6 +625,7 @@ stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 iniRead, EmuPartSet,sets\EmuParts.set,EMULATORS
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
+iniread,RASTABLE,%ARCORG%,GLOBAL,RASTABLE
 AllPartSet:= KMPPARTSET . "`n" . UTLPARTSET . "`n" . FEPARTSET . "`n" . EMUPARTSET
 gosub, RBLDRUNLST
 if (repoloc = "ERROR")
@@ -3208,19 +3208,19 @@ Gui, Tab, Repository
 Gui,Font,Bold
 Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center, SYSTEMS
 Gui,Font,Normal
-Gui,Add,DropDownList, hwndDplHndl121 x24 y20 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
-Gui,Add,ComboBox, hwndCbxHndl121 x26 y20 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
-Gui,Add,Button,x9 y23 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
-Gui,Add,DropDownList, hwndDplHndl122 x26 y48 w136 vARCCORES gArcCores, Emu_Preset||%runlist%
-Gui, Add, Checkbox, x169 y47 h10 vREDWN gReDownload, Redownload
-Gui, Add, CheckBox, x169 y61 h13 vDOWNONLY gDownOnly, Download Only
-Gui, Add, Button,  x265 y47 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
+Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
+Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
+Gui,Add,Button,x9 y32 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
+Gui,Add,DropDownList, hwndDplHndl122 x24 y51 w138 vARCCORES gArcCores, Emu_Preset||%runlist%
+Gui, Add, Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
+Gui, Add, CheckBox, x169 y64 h13 vDOWNONLY gDownOnly, Download Only
+Gui, Add, Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
 Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
 ;;Gui, Add, Checkbox, x28 y240 h13 vALTURL gEnableAltUrl %ARCURLE%, Enable Login
-Gui, Add, Checkbox, x285 y29 w25 vENHAK gENHAK,+hacks
-Gui, Add, Checkbox, x285 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
+Gui, Add, Checkbox, x285 y33 w25 vENHAK gENHAK,+hacks
+Gui, Add, Checkbox, x9 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
 Gui, Add, Button, x320 y259 h18 vADDRPOL gADDRPOL,F
@@ -13833,6 +13833,9 @@ if (shdvar = "nul")
 		videoShader=
 		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr=#reference "nul"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.glslp
 		return
 	}
 ShaderDir=
@@ -13869,6 +13872,9 @@ if (shdvar = "nul")
 		videoShader=
 		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr=#reference "nul"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.slangp
 		return
 	}
 ShaderDir=
@@ -13907,6 +13913,9 @@ if (shdvar = "nul")
 	{
 		videoShader=
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
+		filedelete,%raexeloc%\shaders\presets\global.*
+		refshdr=#reference "nul"
+		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.cgp
 		return
 	}
 loop files, %raexeloc%\shaders\shaders_cg\*.cgp, R
