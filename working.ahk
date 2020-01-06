@@ -3210,6 +3210,8 @@ Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center, SYSTEMS
 Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
+Gui,Add,Edit, x370 y2 w260 vARCMFLT gARCMFLT,
+Gui,Add,Button,x350 y3 w15 h17 vARCLRFLT gARCLRFLT,X
 Gui,Add,Button,x9 y32 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
 Gui,Add,DropDownList, hwndDplHndl122 x24 y51 w138 vARCCORES gArcCores, Emu_Preset||%runlist%
 Gui, Add, Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
@@ -3237,9 +3239,9 @@ gui, add, Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
 Gui,Add,DropDownList, hwndDplHndl124 x124 y324 w199 vSRCHDDL gSRCHDDL, All||%syslist%
 Gui, Add, Button, x329 y326 w18 h18 vExpndASrch gExpndASrch hidden,+
 Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
-Gui, Add, Progress, x742 y20 w10 h459 Vertical -Smooth vARCDPRGRS, 0
-Gui,Add,listbox, x350 y19 w388 h459 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
-Gui, Add, Button, x350 y480 w61 h15 vCLIPURL gClipURL, CLIP URL
+Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
+Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
+Gui, Add, Button, x350 y482 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
@@ -3255,8 +3257,8 @@ Gui,Add,Edit, hwndEdtHndl76 x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
 Gui, Font,Bold
 Gui, Add, Text, cred x93 y495 w531 h15 vARCDET Center,
 Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP,-
-Gui, Add, Button, x678 y482 w75 h23 vARCNCT gARCNCT disabled, CONNECT
-Gui, Add, Button,x604 y486 w49 h19 vARCHOST gArcHost disabled, HOST
+Gui, Add, Button, x678 y489 w75 h23 vARCNCT gARCNCT disabled, CONNECT
+Gui, Add, Button,x604 y493 w49 h19 vARCHOST gArcHost disabled, HOST
 gui, font,Normal
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[JACKETIZE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -3724,7 +3726,7 @@ Loop,108
 	{
 		CtlColors.Attach(EdtHndl%a_Index%, bgcolor, foreColor)
 	}	
-Loop,109
+Loop,125
 	{
 		CtlColors.Attach(CbxHndl%a_Index%, bgcolor, foreColor)
 	}	
@@ -3825,6 +3827,8 @@ ARCLNCH_TT :="Play the selected rom using current settings."
 ARCNCT_TT := "Connect to the selected host with the selected Archive.org ROM"
 ARCPASS_TT :="Archive.org login password."
 ARCPOP_TT :="POPULATED ROMS"
+ARCMFLT_TT :="Filter for current list"
+ARCLRFLT_TT :="clears the current filter"
 ARCSYS_TT :="Select a System to populate ROMs"
 ARDCORE_TT :="Assigns an alternative retroArch core to the selected system."
 ART_TT :="Rate-Control"
@@ -6405,6 +6409,8 @@ guicontrol,,fePRGB,0
 guicontrol,,pgrTransfer,0
 guicontrol,,ARCDPRGRS,0
 return
+
+
 SHRTNMLkUp:
 SHRTNM=
 Loop, Parse, SysLLst,`n`r
@@ -6490,7 +6496,7 @@ guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
 directrun=
 guicontrol,,LCORE,|%runlist%
-If ( (A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) && (A_GuiY <= RDYgrid+RDHgrid) )
+If ((A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) && (A_GuiY <= RDYgrid+RDHgrid))
 	{
 		if (TABMENU = ":=: MAIN :=:")
 			{
@@ -9764,7 +9770,6 @@ for k, v in ar
 return
 
 SanUrl:
-stringreplace,sanfile,sanfile,`%25,`%,All
 stringreplace,sanfile,sanfile,`%26,&,All
 stringreplace,sanfile,sanfile,`%2B,+,All
 stringreplace,sanfile,sanfile,`%20,%A_Space%,All
@@ -9781,6 +9786,7 @@ stringreplace,sanfile,sanfile,`%40,@,All
 stringreplace,sanfile,sanfile,`%3B,`;,All
 stringreplace,sanfile,sanfile,`%27,',All
 stringreplace,sanfile,sanfile,`%7E,~,All
+stringreplace,sanfile,sanfile,`%25,`%,All
 return
 
 INST_Kodi_XBMC:
@@ -17494,6 +17500,7 @@ Select_a_CoreDDLA:
 core_2048DDLA:
 core_playDDLA:
 core_3dengineDDLA:
+core_neocdDDLA:
 core_craftDDLA:
 core_blastemDDLA:
 core_thepowdertoyDDLA:
@@ -22615,6 +22622,7 @@ core_vemulatorRESET:
 core_MesenRESET:
 core_MesensRESET:
 core_tic80RESET:
+core_neocdRESET:
 core_3dengineRESET:
 core_dinothawrRESET:
 core_dolphinLauncherRESET:
@@ -36117,6 +36125,7 @@ REPOUrlEdt:
 gui,submit,nohide
 guicontrol,,MAMESWCHK,0
 guicontrol,show,MAMESWCHK
+guicontrol,Enable,ADDRPOL
 guicontrolget,UrlTxt,,UrlTxt
 stringreplace,urlsv,urltxt,',,All
 stringreplace,urlsv,urlsv,.,,All
@@ -36421,6 +36430,36 @@ guicontrol,show,ARCSYS
 guicontrol,hide,ARCCBX
 guicontrol,,fltrRpoBtn,E
 return	
+
+ARCLRFLT:
+gui,submit,nohide
+guicontrol,,ARCMFLT,
+guicontrol,,ARCPOP,|%pop_list%
+return
+
+ARCMFLT:
+Sleep, 1100
+gui,submit,nohide
+guicontrolget,ARCMFLT,,ARCMFLT
+if (ARCMFLT = "")
+	{
+		return
+	}
+npop_list= 
+Loop,Parse,pop_list,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		if instr(A_LoopField,ARCMFLT)
+			{
+				npop_list.= A_LoopField . "|"
+			}
+	}
+guicontrol,,ARCPOP,|%npop_list%	
+return
+
 
 ArchiveCBX:
 guicontrolget,RPSYSX,,ARCCBX
@@ -37189,6 +37228,7 @@ guicontrol,hide,ENHAK
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 overrdx:= % (%urlsv%_EULA)
 guicontrol,,ENHAK,0
+guicontrol,,ARCMFLT,
 ifinstring,hacksyst,%ARCSYS%
 	{
 		guicontrol,show,ENHAK
@@ -80576,7 +80616,7 @@ if (SKRESDDL = "Scraped-Assets")
 	}
 if (SKRESDDL = "Session")
 	{
-		gosub, RECONFIGURE
+		gosub, resetSYS
 	}
 if (SKRESDDL = "All")
 	{
@@ -80599,10 +80639,12 @@ if (SKRESDDL = "Playlist-DB")
 		gosub, PlaylistInit
 	}
 return
+
 SKRESDDL:
 gui,submit,nohide
 guicontrolget,SKRESDDL,,SKRESDDL
 return
+
 RESET:
 msgbox,4,Are you sure?, Delete All skeletonKey configuration files?
 ifmsgbox, yes

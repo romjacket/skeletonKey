@@ -124,6 +124,7 @@ kronos=kronos/kronos-[ARCH].7z=kronos.exe=kronos.ini=bkram.bin=*.yss
 Yabause=Yabause/Yabause-[ARCH].7z=Yabause.exe=yabause.ini=bkram.bin=*.yss
 ZXSpin=ZXSpin/ZXSpin.7z=ZXSpin.exe=spin.ini=|=*.sna
 Zsnes=Zsnes/Zsnes.7z=Zsnesw.exe=zsnes.cfg|zinput.cfg|zmovie.cfg=*.srm=*.zst
+mesen-s=mesen-s/mesen-s.7z=mesen-s.exe=settings.xml=savestates\*.mss=saves\*.srm
 ace=ace/ace.7z=ace.exe=
 virtu=virtu/virtu.7z=wpf\Jellyfish.Virtu.exe=
 apemuw=apemuw/apemuw.7z=Apf_emuw.exe=

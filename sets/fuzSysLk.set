@@ -140,7 +140,7 @@ cdi910|*CD I*|*CD-I*|*CDI*>PCDI
 pc2000|*PC*2000*|*PC*2K*>PPC2K
 vg5k|*VG*5000*|*VG*5K*>PVG5K
 studio2|*rca*studio*>RSTUDII
-neocd|ngpc|*neo*cd*>SNEOCD
+neocd|neocdz|*neo*cd*>SNEOCD
 aes|*neo*geo*aes*>SNEOAES
 neogeo|*NEO*MVS*|*NEO*AES*|*neo*geo>SNEOMVS
 ngpc|neo*pocket*color|neo*pocket*colour*>SNEOPKTC

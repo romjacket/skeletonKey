@@ -1303,6 +1303,13 @@ MEMPTH=*.yss
 options=" --iso"
 BIOS=R
 
+[mesen-s]
+URLPTH=mesen-s/mesen-s.7z
+EXENAM=mesen-s.exe
+CFGPTH=settings.xml
+STATEPTH=SaveStates\*.mss
+MEMPTH=Saves\*.srm
+
 [Zsnes]
 URLPTH=Zsnes/Zsnes.7z
 EXENAM=Zsnesw.exe
@@ -4209,7 +4216,7 @@ RJMULTIDISC=1
 RJZIPPEEK=0
 SHORTNM=SNEOCD
 SUPEMU=NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME
-SUPCORE=mame_libretro.dll
+SUPCORE=neocd_libretro.dll|fbneo_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
 [SNK - Neo Geo AES]

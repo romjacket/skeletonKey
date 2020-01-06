@@ -88,8 +88,11 @@ VisualBoyAdvance-M=VisualBoyAdvance=vgba=mednafen=retroarch\system=bizhawk\firmw
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin?gba_bios.bin:3363015D
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap.bin?gba_bios.bin:15E1F676
 
-
-
+retroarch\system\neocd:front-sp1.bin:CAC62307>
+retroarch\system\neocd:top-sp1.bin:C36A47C0>
+retroarch\system\neocd=neoraine\roms:neocd.bin:5A86CFF2>
+retroarch\system\neocd=neoraine\roms:uni-bioscd.rom:OFFB3127>
+retroarch\system\neocd:000-lo.lo:5A86CFF2>
 mednafen=retroarch\system=bizhawk\firmware=:lynxboot.img:0D973C9D
 mednafen=retroarch\system=:lynxboot.img:E1FFECB6
 mednafen=retroarch\system=:lynxboot.img:B2AA7578
