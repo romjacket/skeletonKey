@@ -2223,6 +2223,12 @@ options=" --no-video-deco --qt-minimal-view --qt-video-autoresize --align=0 --au
 EXENAM=vlc.exe
 
 
+[mupdf]
+URLPTH=mupdf/mupdf.7z
+options=" "
+EXENAM=mup.exe
+
+
 [infovectrex]
 URLPTH=infovectrex/infovectrex.7z
 EXENAM=infovectrex.exe
@@ -3696,6 +3702,16 @@ SUPEMU=Xenia
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=xbox360
+
+[eBooks - PDFs - Texts]
+RJEMUPRESET=mupdf
+RJMULTIDISC=
+SHORTNM=MLTMED
+SUPEMU=mupdf|Acrobat|foxit
+RJROMXT=.pdf,.epub,.fdf,.xfdf,.xdp,.ppdf
+SUPCORE=
+LNCHPRM=$|1|1|0|1|1
+FENAM=ebook
 
 [Movies - TV - Video]
 RJEMUPRESET=videoplayer

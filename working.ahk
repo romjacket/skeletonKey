@@ -3230,7 +3230,7 @@ Gui, Add, Button, x320 y259 h18 vADDRPOL gADDRPOL,F
 ;;Gui,Add,Edit, hwndEdtHndl73 x187 y215 w154 h21 Password vARCPASS gArcPass %ARCURLCK%,%ARC_PASS%
 ;;Gui, Add, CheckBox, x260 y238 h15 vSAVPASS gSavPass %ARCURLCK% %ARCPSVD%, save
 ;;Gui, Add, Text, x191 y236 h14 vARCPTXT, password
-Gui,Add,Edit, hwndEdtHndl74 x28 y302 w310 h21 vSRCHEDT gSearchInp,
+Gui,Add,Edit, hwndEdtHndl74 x28 y302 w310 h21 vSRCHEDT gSearchInp %EULAOPT%,
 Gui,Font,Bold
 Gui, Add, Button, x42 y323 w75 h23 vSearchArc gSearchArc, SEARCH
 gui,Font,Normal
@@ -36121,10 +36121,12 @@ if (ARCCORES = "")
 	}
 norun=
 return
+
 REPOUrlEdt:
 gui,submit,nohide
 guicontrol,,MAMESWCHK,0
 guicontrol,show,MAMESWCHK
+guicontrol,enable,SRCHEDT
 guicontrol,Enable,ADDRPOL
 guicontrolget,UrlTxt,,UrlTxt
 stringreplace,urlsv,urltxt,',,All
@@ -36159,6 +36161,10 @@ if ((urlTxt <> olarcnm)or(olarna <> 1))
 		GAMSRCS= gam\%UrlTxt%
 		guicontrol,,ARCSYS,|Select A System||
 		gosub,resetSYS
+		if (olarna <> 1)
+			{
+			guicontrol,disable,SRCHEDT
+			}
 		SB_SetText("Repository source changed")
 		return
 	}
@@ -36297,7 +36303,7 @@ if ((urlaloc = "ERROR") or (urlaloc = ""))
 	{
 		SB_SetText(" " URLTXT " repository could not be found")
 		guicontrol,enable,ALTURLGET
-		return
+		;;return
 	}
 splitpath,urlaloc,urlalocf,,urlaext
 iniread,EULA,Settings.ini,Global,%urltxt%_EULA
@@ -36321,12 +36327,15 @@ if (EULA <> 1)
 						goto,AltURLGet
 					}
 				guicontrol,enable,ALTURLGET
+				guicontrol,disable,SRCHEDT
+				guicontrol,,SRCHEDT,
 				guicontrol,enable,ADDRPOL
 				return
 			}
 		%urlsv%_EULA= 1	
 	}
 EULAAGREE:
+guicontrol,enable,SRCHEDT
 guicontrol,disable,ARCSYS
 filedelete,tmp.htm
 AUTOBBUT= show
@@ -36344,7 +36353,7 @@ ifnotexist, %save%
 		guicontrol,enable,ARCSYS
 		guicontrol,enable,ALTURLGET		
 		guicontrol,enable,ADDRPOL		
-		return
+		;;return
 	}
 Runwait,"bin\7za.exe" x -y "%save%" -O"gam",,hide
 if (ERRORLEVEL <> 0)
@@ -36588,6 +36597,13 @@ gui,submit,nohide
 return
 
 SearchArc:
+gui,submit,nohide
+guicontrolget,SRCHEDT,,SRCHEDT
+if (SRCHEDT = "")
+	{
+		SB_SetText("You must enter a search word")
+		return
+	}
 srchpop=
 fndgam1=
 fndgam2=
@@ -38371,7 +38387,7 @@ Loop, parse, romdwnlst,|
 								ACSVDEST= %ACSVDEST%\%rjinsfldr%
 							}
 				}
-		if (instr(savefile,"?")or instr(savefile,"\")or instr(savefile,"*")or instr(savefile,"|")or instr(savefile,":") or instr(savefile,"""")or (savefile = ""))
+		if instr(savefile,"?")or instr(savefile,"\")or instr(savefile,"*")or instr(savefile,"|")or instr(savefile,":") or instr(savefile,"""")or (savefile = "")
 			{
 				savefile= %romfp%
 			}

@@ -215,6 +215,7 @@ Milton Bradley - MicroVision|MAME|:mame_libretro.dll
 Morrow Designs - Micro Decision MD-2|MAME|:mame_libretro.dll
 Morrow Designs - Morrow MPZ80|MAME|:mame_libretro.dll
 Movies - TV - Video|videoplayer|retroarch|vlc|mplayerc|wmplayer|:ffmpeg_libretro.dll
+eBooks - PDFs - Texts|mupdf|:ffmpeg_libretro.dll
 Nascom - I-II|MAME|:mame_libretro.dll
 NCR - Decision Mate V|MAME|:mame_libretro.dll
 NEC - Advanced Personal Computer|MAME|:mame_libretro.dll

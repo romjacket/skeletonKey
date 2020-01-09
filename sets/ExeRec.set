@@ -735,7 +735,6 @@ FileInstall,sets\emuCfgPresets.set,sets\emuCfgPresets.set,1
 FileInstall,sets\EmuParts.set,sets\EmuParts.set,1
 FileInstall,sets\es_input.cfg.set,sets\es_input.cfg.set,1
 FileInstall,sets\es_settings.cfg.set,sets\es_settings.cfg.set,1
-FileInstall,sets\excludeExtract.set,sets\excludeExtract.set,1
 FileInstall,sets\ExeRec.set,sets\ExeRec.set,1
 FileInstall,sets\felkup.set,sets\felkup.set,1
 FileInstall,sets\Frontends.set,sets\Frontends.set,1
