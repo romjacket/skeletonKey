@@ -730,6 +730,7 @@ FileInstall,sets\autoconfig.set,sets\autoconfig.set,1
 FileInstall,sets\bios.set,sets\bios.set,1
 FileInstall,sets\BuildTools.set,sets\BuildTools.set,1
 FileInstall,sets\config.set,sets\config.set,1
+FileInstall,sets\corelk.set,sets\corelk.set,1
 FileInstall,sets\dosbox.set,sets\dosbox.set,1
 FileInstall,sets\emuCfgPresets.set,sets\emuCfgPresets.set,1
 FileInstall,sets\EmuParts.set,sets\EmuParts.set,1

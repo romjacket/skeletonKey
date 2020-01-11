@@ -611,6 +611,7 @@ iniread,origasi,sets\Assignments.set,ASSIGNMENTS,
 iniread,origsys,sets\Assignments.set,OVERRIDES,
 FileRead,UTILst,sets\Utilities.set
 FileRead,KMPLst,sets\Keymappers.set
+FileRead,corslk,sets\corelk.set
 FileRead,FELst,sets\Frontends.set
 FileRead,PrgLst,sets\Programs.set
 FileRead,BiosFSet,sets\Bios.set
@@ -1775,7 +1776,8 @@ Menu, RMVSYSLST, Add, Remove Path, RMVFSYS
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
 Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
 Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
-Menu, delctxtmenu, Add, Delete Emulator Settings, DelCfg_Add
+Menu, delctxtmenu, Add, Delete Game Settings, DelCfg_Add
+Menu, delctxtmenu, Add, Open Game Settings, CfgBrowse
 Menu, RUNMENU, Add, Run Menu, RUNMENU
 Menu, RUNMENU, Add
 Menu, RUNMENU, Add, Run RetroArch, RETALRAXE
@@ -3241,7 +3243,7 @@ Gui, Add, Button, x329 y326 w18 h18 vExpndASrch gExpndASrch hidden,+
 Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
-Gui, Add, Button, x350 y482 w61 h15 vCLIPURL gClipURL, CLIP URL
+Gui, Add, Button, x650 y3 w61 h18 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
@@ -4959,16 +4961,10 @@ If A_GuiControlEvent RightClick
 						return
 					}
 			}
-	if A_GuiControl = CLRCUROM
-		{
-			guicontrolget,SRCHROMLVI,,RUNROMCBX
-			ifnotexist,%SRCHROMLVI%
-				{
-					SB_SetText(" ROM not found ")
-					return
-				}
-			menu, delctxtmenu, show, %A_GuiX% %A_GuiY%
+	if A_GuiControl = OPNCORE
+		{	
 			ClrCfgT= 1
+			menu, delctxtmenu, show, %A_GuiX% %A_GuiY%
 			return
 		}
 	GuiScrapeMenu:
@@ -5933,6 +5929,25 @@ Menu,SQRUN, Show, %Ngx% %Ngy%
 Menu,SQRUN,DeleteAll
 RCLCNCH=
 return
+
+CfgBrowse:
+gui,submit,nohide
+guicontrolget,systmp,,RUNSYSDDL
+guicontrolget,gamtmp,,RUNROMCBX
+guicontrolget,lcrtmp,,LCORE
+if (gamtmp = "")
+	{
+		return
+	}
+splitpath,gamtmp,,,,gamtnm
+ifexist,cfg\%systmp%\%lcrtmp%\%gamtnm%\
+	{
+		Run, Explorer "cfg\%systmp%\%lcrtmp%\%gamtnm%"
+		return
+	}
+SB_SetText(" CONFIG not found ")
+return
+
 DelCfg_Add:
 gui,submit,nohide
 itmlst=
@@ -5943,6 +5958,11 @@ if (ClrCfgT = 1)
 	{
 		guicontrolget,SRCHLOCVI,,RUNSYSDDL
 		guicontrolget,SRCHROMLVI,,RUNROMCBX
+		ifnotexist,%SRCHROMLVI%
+			{
+				SB_SetText(" ROM not found ")
+				return
+			}
 		ClrCfgT=
 	}
 splitpath,SRCHROMLVI,,,,romfnm
@@ -6244,6 +6264,7 @@ ifnotexist, %JEXPLD%
 	}
 Run, explorer.exe %JEXPLD%,%JEXPLD%
 return
+
 Open_Add:
 gui,submit,nohide
 multisel=
@@ -9770,6 +9791,7 @@ for k, v in ar
 return
 
 SanUrl:
+stringreplace,sanfile,sanfile,`%25,`%,All
 stringreplace,sanfile,sanfile,`%26,&,All
 stringreplace,sanfile,sanfile,`%2B,+,All
 stringreplace,sanfile,sanfile,`%20,%A_Space%,All
@@ -9786,7 +9808,6 @@ stringreplace,sanfile,sanfile,`%40,@,All
 stringreplace,sanfile,sanfile,`%3B,`;,All
 stringreplace,sanfile,sanfile,`%27,',All
 stringreplace,sanfile,sanfile,`%7E,~,All
-stringreplace,sanfile,sanfile,`%25,`%,All
 return
 
 INST_Kodi_XBMC:
@@ -14177,13 +14198,13 @@ stringLeft,httpchk,netchk1,4
 StringReplace,revsl,URlFILE,/,\,All
 SplitPath,revsl,dwnlchk,,,romnmspl
 StringCaseSense, On
+stringreplace,dwnlchk,dwnlchk,`%25,`%,All
 stringreplace,dwnlchk,dwnlchk,`%26,&,All
 stringreplace,dwnlchk,dwnlchk,`%2B,+,All
 stringreplace,dwnlchk,dwnlchk,`%20,%A_Space%,All
 stringreplace,dwnlchk,dwnlchk,`%23,#,All
 stringreplace,dwnlchk,dwnlchk,`%24,$,All
 stringreplace,dwnlchk,dwnlchk,`%21,!,All
-stringreplace,dwnlchk,dwnlchk,`%25,`%,All
 stringreplace,dwnlchk,dwnlchk,`%28,(,All
 stringreplace,dwnlchk,dwnlchk,`%29,),All
 stringreplace,dwnlchk,dwnlchk,`%5B,[,All
@@ -16218,199 +16239,6 @@ return
 getCREN:
 szip=
 corcfgnam= %ccv%
-if (ccv = "bsnes_accuracy")
-	{
-		corcfgnam= bSNES
-	    return
-    }
-if (ccv = "bsnes_balanced")
-	{
-		corcfgnam= bSNES
-	    return
-    }
-if (ccv = "bsnes_cplusplus98")
-	{
-		corcfgnam= bSNES
-	    return
-    }
-if (ccv = "bsnes mercury_accuracy")
-	{
-		corcfgnam= bsnes_mercury
-	    return
-    }
-if (ccv = "bsnes_mercury_balanced")
-	{
-		corcfgnam= bsnes-mercury
-	    return
-    }
-if (ccv = "bsnes_mercury_performance")
-	{
-		corcfgnam= bsnes-mercury
-	    return
-    }
-if (ccv = "bsnes_performance")
-	{
-		corcfgnam= bSNES
-	    return
-    }
-if (ccv = "bzsnes")
-	{
-		corcfgnam= bZSNES
-	    return
-    }
-if (ccv = "catsfc")
-	{
-		corcfgnam= CATSFC(SNES9x)
-	    return
-    }
-if (ccv = "emux_chip8")
-	{
-		corcfgnam= emux-chip8
-	    return
-    }
-if (ccv = "emux_gb")
-	{
-		corcfgnam= emux-gb
-	    return
-    }
-if (ccv = "crocods")
-	{
-		corcfgnam= crocods
-	    return
-    }
-if (ccv = "emux_nes")
-	{
-		corcfgnam= emux-nes
-	    return
-    }
-if (ccv = "dolphin")
-	{
-		corcfgnam= Dolphin
-	    return
-    }
-if (ccv = "DeSmuME")
-	{
-		corcfgnam= DeSmuME
-	    return
-    }
-if (ccv = "Citra")
-	{
-		corcfgnam= Citra
-	    return
-    }
-if (ccv = "emux_sms")
-	{
-		corcfgnam= emux-sms
-	    return
-    }
-if (ccv = "fbalpha2012_cps1")
-	{
-		szip= 1
-		corcfgnam= FB Alpha 2012 CPS-1
-	    return
-    }
-if (ccv = "fbalpha2012_cps2")
-	{
-		szip= 1
-		corcfgnam= FB Alpha 2012 CPS-2
-	    return
-    }
-if (ccv = "fbalpha2012")
-	{
-		szip= 1
-		corcfgnam= FB Alpha 2012
-	    return
-    }
-if (ccv = "fbalpha2012_neogeo")
-	{
-		szip= 1
-		corcfgnam= FB Alpha 2012 Neo Geo
-	    return
-    }
-if (ccv = "fbalpha")
-	{
-		szip= 1
-		corcfgnam= FB Alpha
-	    return
-    }
-if (ccv = "fbaneo")
-	{
-		szip= 1
-		corcfgnam= FB Alpha
-	    return
-    }
-if (ccv = "fb_alpha_cps2")
-	{
-		szip= 1
-		corcfgnam= FB Alpha CPS2
-	    return
-    }
-if (ccv = "fb_alpha")
-	{
-		szip= 1
-		corcfgnam= FB Alpha
-	    return
-    }
-if (ccv = "fb_alpha_neo")
-	{
-		szip= 1
-		corcfgnam= FB Alpha Neo Geo
-	    return
-    }
-if (ccv = "fuse")
-	{
-		szip= 1
-		corcfgnam= Sinclair ZX Spectrum
-	    return
-    }
-if (ccv = "freeintv")
-	{
-		szip= 1
-		corcfgnam= FreeIntv
-	    return
-    }
-if (ccv = "81")
-	{
-		szip= 1
-		corcfgnam= Sinclair ZX 81
-	    return
-    }
-if (ccv = "gpSP")
-	{
-		szip= 1
-		corcfgnam= gpSP
-	    return
-    }
-if (ccv = "gambatte_gbc")
-	{
-		corcfgnam= Gambatte-GBC
-	    return
-    }
-if (ccv = "genesis_plus_gx_gg")
-	{
-		corcfgnam= Genesis Plus GX - Game Gear
-	    return
-    }
-if (ccv = "genesis_plus_gx")
-	{
-		corcfgnam= Genesis Plus GX
-	    return
-    }
-if (ccv = "genesis_plus_gx_segacd")
-	{
-		corcfgnam= Genesis Plus GX - Sega CD
-	    return
-    }
-if (ccv = "genesis_plus_gx_sms")
-	{
-		corcfgnam= Genesis Plus GX - SMS
-	    return
-    }
-if (ccv = "parallel_n64")
-	{
-		corcfgnam= ParaLLEl N64
-	    return
-    }
 if (ccv = "glupen64")
 	{
 		glpndr= OpenGL
@@ -16418,231 +16246,25 @@ if (ccv = "glupen64")
 			{
 				glpndr= Vulkan
 			}
-corcfgnam= GlupeN64 %glpndr%
+		corcfgnam= GlupeN64 %glpndr%
 	    return
-    }
-if (ccv = "mame2000")
+	}
+Loop,parse,corslk,`n`r
 	{
-		szip= 1
-		corcfgnam= MAME 2000
-	    return
-    }
-if (ccv = "mame2003")
-	{
-		szip= 1
-		corcfgnam= MAME 2003
-	    return
-    }
-if (ccv = "mame 2010")
-	{
-		szip= 1
-		corcfgnam= MAME 2010
-	    return
-    }
-if (ccv = "mame2016")
-	{
-		szip= 1
-		corcfgnam= MAME 2016
-	    return
-    }
-if (ccv = "mame2014")
-	{
-		szip= 1
-		corcfgnam= MAME 2014
-	    return
-    }
-if (ccv = "mame")
-	{
-		szip= 1
-		corcfgnam= MAME
-	    return
-    }
-if (ccv = "mednafen_gba")
-	{
-		corcfgnam= Mednafen GBA
-	    return
-    }
-if (ccv = "mednafen_lynx")
-	{
-		corcfgnam= Mednafen Lynx
-	    return
-    }
-if (ccv = "mednafen_ngp")
-	{
-		corcfgnam= Mednafen NeoPop
-	    return
-    }
-if (ccv = "mednafen_pce_fast")
-	{
-		corcfgnam= Beetle PCE Fast
-	    return
-    }
-if (ccv = "mednafen_pcfx")
-	{
-		corcfgnam= Mednafen PC-FX
-	    return
-    }
-if (ccv = "mednafen_psx_hw")
-	{
-		corcfgnam= Beetle PSX-HW
-	    return
-    }
-if (ccv = "pcsx_rearmed")
-	{
-		corcfgnam= PCSX-ReARMed
-	    return
-    }
-if (ccv = "mednafen_psx")
-	{
-		corcfgnam= Beetle PSX
-	    return
-    }
-if (ccv = "mednafen_saturn")
-	{
-		corcfgnam= Mednafen Saturn
-	    return
-    }
-if (ccv = "mednafen_snes")
-	{
-		corcfgnam= Mednafen Snes
-	    return
-    }
-if (ccv = "mednafen_supergrafx")
-	{
-		corcfgnam= Mednafen SuperGrafx
-	    return
-    }
-if (ccv = "mednafen_vb")
-	{
-		corcfgnam= Mednafen VB
-	    return
-    }
-if (ccv = "mednafen_wswan")
-	{
-		corcfgnam= Mednafen WonderSwan
-	    return
-    }
-if (ccv = "mess2014")
-	{
-		szip= 1
-		corcfgnam= MESS 2014
-	    return
-    }
-if (ccv = "mess2015")
-	{
-		szip= 1
-		corcfgnam= MESS 2015
-	    return
-    }
-if (ccv = "px68k")
-	{
-		corcfgnam= PX68K
-	    return
-    }
-if (ccv = "puae")
-	{
-		corcfgnam= PUAE
-	    return
-    }
-if (ccv = "fuse")
-	{
-		corcfgnam= fuse
-	    return
-    }
-if (ccv = "bluemsx")
-	{
-		corcfgnam= Blue-MSX
-	    return
-    }
-if (ccv = "quicknes")
-	{
-		corcfgnam= QuickNES
-	    return
-    }
-if (ccv = "flycast_wince")
-	{
-		corcfgnam= flycast
-	    return
-    }
-if (ccv = "flycast")
-	{
-		corcfgnam= flycast
-	    return
-    }
-if (ccv = "redream")
-	{
-		corcfgnam= Redream
-	    return
-    }
-if (ccv = "scummvm")
-	{
-		corcfgnam= ScummVM
-	    return
-    }
-if (ccv = "snes9x2002")
-	{
-		corcfgnam= Snes9x 2002
-	    return
-    }
-if (ccv = "snes9x2005")
-	{
-		corcfgnam= Snes9x 2005
-	    return
-    }
-if (ccv = "snes9x2005_plus")
-	{
-		corcfgnam= Snes9x 2005 plus
-	    return
-    }
-if (ccv = "snes9x2010")
-	{
-		corcfgnam= Snes9x 2010
-	    return
-    }
-if (ccv = "snes9x")
-	{
-		corcfgnam= Snes9x
-	    return
-    }
-if (ccv = "snes9x_next")
-	{
-		corcfgnam= Snes9x Next
-	    return
-    }
-if (ccv = "stella")
-	{
-		corcfgnam= Stella
-	    return
-    }
-if (ccv = "tgbdual")
-	{
-		corcfgnam= TGB Dual
-	    return
-    }
-if (ccv = "ume2014")
-	{
-		szip= 1
-		corcfgnam= UME 2014
-	    return
-    }
-if (ccv = "vbam")
-	{
-		corcfgnam= VBA-M
-	    return
-    }
-if (ccv = "vba_next")
-	{
-		corcfgnam= VBA Next
-	    return
-    }
-if (ccv = "vecx")
-	{
-		corcfgnam= VecX
-	    return
-    }
-if (ccv = "virtualjaguar")
-	{
-		corcfgnam= Virtual Jaguar
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		loop,4
+			{
+				avh%A_index%=
+			}
+		stringsplit,avh,A_LoopField,|
+		if (ccv = avh3)
+			{
+				corcfgnam= %avh1%
+				szip= %avh4%
+			}
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16680,653 +16302,26 @@ if (syslk = "bSNES")
 			}
 	    return
 	}
-if (syslk = "mednafenbSNES")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= mednafen_snes
-	    return
-	}
-if (syslk = "bsnes-mercury")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		ifInString,corever,Accuracy
+else {
+		Loop,Parse,corslk,`n`r
 			{
-				corelk= bsnes mercury_accuracy
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				loop,4
+					{
+						vnr%A_index%=
+					}
+				stringsplit,vnr,A_LoopField,|
+				if (syslk = vnr1)
+					{
+						ASPOP= %vnr2%
+						corelk= %vnr3%
+						szip= %vnr4%
+					}
 			}
-		ifInString,corever,Balanced
-			{
-				corelk= bsnes_mercury_balanced
-			}
-		ifInString,corever,Performance
-			{
-				corelk= bsnes_mercury_performance
-			}
-	    return
 }
-if (syslk = "bZSNES")
-	{
-	ASPOP= Nintendo - Super Nintendo Entertainment System
-	corelk= bzsnes
-	    return
-	}
-if (syslk = "CATSFC(SNES9x)")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= catsfc
-	    return
-	}
-if (syslk = "emux-chip8")
-	{
-		corelk= emux_chip8
-	    return
-	}
-if (syslk = "emux-gb")
-	{
-		ASPOP= Nintendo - Game Boy
-		corelk= emux_gb
-	    return
-	}
-if (syslk = "crocods")
-	{
-		ASPOP= Amstrad - CPC
-		corelk= crocods
-	    return
-	}
-if (syslk = "emux-nes")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		corelk= emux_nes
-	    return
-	}
-if (syslk = "FreeIntv")
-	{
-		ASPOP= Mattel - Intellivision
-		corelk= freeintv
-	    return
-	}
-if (syslk = "Dolphin")
-	{
-		ASPOP= Nintendo - Gamecube
-		corelk= dolphin
-	    return
-	}
-if (syslk = "emux-sms")
-	{
-		ASPOP= Sega - Master System - Mark III
-		corelk= emux_sms
-	    return
-	}
-if (syslk = "ProSystem")
-	{
-		ASPOP= Atari - 7800
-		corelk= prosystem
-	    return
-	}
-if (syslk = "FB Alpha 2012 CPS1")
-	{
-		ASPOP= Capcom Play System - CPS
-		szip= 1
-		corelk= fbalpha2012_cps1
-	    return
-	}
-if (syslk = "FB Alpha 2012 CPS-2")
-	{
-		ASPOP= Capcom Play System - CPS II
-		szip= 1
-		corelk= fbalpha2012_cps2
-	    return
-	}
-if (syslk = "FB Alpha 2012 CPS2")
-	{
-		ASPOP= Capcom Play System - CPS II
-		szip= 1
-		corelk= fbalpha2012_cps2
-	    return
-	}
-if (syslk = "FB Alpha Neo")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= fbaneo
-	    return
-	}
-if (syslk = "FB Alpha 2012")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= fbalpha2012
-	    return
-	}
-if (syslk = "FB Alpha 2012 Neo Geo")
-	{
-		ASPOP= SNK - Neo Geo MVS
-		szip= 1
-		corelk= fbalpha2012_neogeo
-	    return
-	}
-if (syslk = "FB Alpha")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= fbalpha
-	    return
-	}
-if (syslk = "final burn alpha")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= fba
-	    return
-	}
-if (syslk = "Mednafen GBA")
-	{
-		ASPOP= Nintendo - Game Boy Color
-		corelk= mednafen_gba
-	    return
-	}
-if (syslk = "Gambatte-GBC")
-	{
-		ASPOP= Nintendo - Game Boy Color
-		corelk= gambatte_gbc
-	    return
-	}
-if (syslk = "SameBoy")
-	{
-		ASPOP= Nintendo - Game Boy
-		corelk= gambatte
-	    return
-	}
-if (syslk = "Gambatte")
-	{
-		ASPOP= Nintendo - Game Boy
-		corelk= gambatte
-	    return
-	}
-if (syslk = "DesMuME")
-	{
-		ASPOP= Nintendo - Nintendo DS
-		corelk= desmume
-	    return
-	}
-if (syslk = "Citra")
-	{
-		ASPOP= Nintendo - Nintendo 3DS
-		corelk= citra
-	    return
-	}
-if (syslk = "Genesis Plus GX - Game Gear")
-	{
-		ASPOP= Sega - Game Gear
-		corelk= genesis_plus_gx_gg
-	    return
-	}
-if (syslk = "Genesis Plus GX")
-	{
-		ASPOP= Sega - Mega Drive - Genesis
-		corelk= genesis_plus_gx
-	    return
-	}
-if (syslk = "Genesis Plus GX - Sega CD")
-	{
-		ASPOP= Sega - Mega-CD - Sega CD
-		szip= 0
-		corelk= genesis_plus_gx_segacd
-	    return
-	}
-if (syslk = "Genesis Plus GX - SMS")
-	{
-		ASPOP= Sega - Master System - Mark III
-		corelk= genesis_plus_gx_sms
-	    return
-	}
-if (syslk = "Genesis Plus GX - GG")
-	{
-		ASPOP= Sega - Game Gear
-		corelk= genesis_plus_gx_gg
-	    return
-	}
-if (syslk = "GlupeN64 OpenGL")
-	{
-		ASPOP= Nintendo - Nintendo 64
-		corelk= glupen64
-	    return
-	}
-if (syslk = "Mupen64Plus OpenGL")
-	{
-		ASPOP= Nintendo - Nintendo 64
-		corelk= mupen64plus
-	    return
-	}
-if (syslk = "ParaLLEl N64")
-	{
-		ASPOP= Nintendo - Nintendo 64
-		corelk= parallel_n64
-	    return
-	}
-if (syslk = "GlupeN64 Vulkan")
-	{
-		ASPOP= Nintendo - Nintendo 64
-		corelk= glupen64
-	    return
-	}
-if (syslk = "MAME 2000")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame2000
-	    return
-	}
-if (syslk = "MAME 2003")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame2003
-	    return
-	}
-if (syslk = "MAME 2010")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame 2010
-	    return
-	}
-if (syslk = "MAME 2014")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame2014
-	    return
-	}
-if (syslk = "MAME 2016")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame2016
-	    return
-}
-if (syslk = "MAME")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= mame
-	    return
-	}
-if (syslk = "Mr.Boom")
-	{
-		ASPOP= Mr. Boom
-		szip= 1
-		corelk= mrboom
-	    return
-	}
-if (syslk = "Mednafen GBA")
-	{
-		ASPOP= Nintendo - Game Boy Advance
-		corelk= mednafen_gba
-	    return
-	}
-if (syslk = "gpSP")
-	{
-		ASPOP= Nintendo - Game Boy Advance
-		corelk= gpSP
-	    return
-	}
-if (syslk = "Mednafen Lynx")
-	{
-		ASPOP= Atari - Lynx
-		corelk= mednafen_lynx
-	    return
-	}
-if (syslk = "Mednafen NeoPop")
-	{
-		ASPOP= SNK - Neo Geo Pocket
-		corelk= mednafen_ngp
-	    return
-	}
-if (syslk = "Mednafen PCE Fast")
-	{
-		ASPOP= NEC - PC Engine - TurboGrafx 16
-		corelk= mednafen_pce_fast
-	    return
-	}
-if (syslk = "Beetle PCE Fast")
-	{
-		ASPOP= NEC - PC Engine - TurboGrafx 16
-		corelk= mednafen_pce_fast
-	    return
-	}
-if (syslk = "Mednafen/Beetle PCE Fast")
-	{
-		ASPOP= NEC - PC Engine - TurboGrafx 16
-		corelk= mednafen_pce_fast
-	    return
-	}
-if (syslk = "Mednafen PC-FX")
-	{
-		ASPOP= NEC - PC-FX
-		corelk= mednafen_pcfx
-	    return
-	}
-if (syslk = "Mednafen PSX HW")
-	{
-		ASPOP= Sony - Playstation
-		szip= 0
-		corelk= mednafen_psx_hw
-	    return
-}
-if (syslk = "Beetle PSX HW")
-	{
-		ASPOP= Sony - Playstation
-		szip= 0
-		corelk= mednafen_psx_hw
-	    return
-	}
-if (syslk = "Mednafen PSX")
-	{
-		ASPOP= Sony - Playstation
-		szip= 0
-		corelk= mednafen_psx
-	    return
-	}
-if (syslk = "Beetle PSX")
-	{
-		ASPOP= Sony - Playstation
-		szip= 0
-		corelk= mednafen_psx
-	    return
-	}
-if (syslk = "PCSX-ReARMed")
-	{
-		ASPOP= Sony - Playstation
-		szip= 0
-		corelk= pcsx_rearmed
-	    return
-	}
-if (syslk = "Mednafen Saturn")
-	{
-		ASPOP= Sega - Saturn
-		szip= 0
-		corelk= mednafen_saturn
-	    return
-	}
-if (syslk = "Mednafen Snes")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= mednafen_snes
-	    return
-}
-if (syslk = "PicoDrive")
-	{
-		ASPOP= Sega - Mega Drive - Genesis
-		corelk= picodrive
-	    return
-	}
-if (syslk = "Mednafen SuperGrafx")
-	{
-		ASPOP= NEC - PC Engine SuperGrafx
-		corelk= mednafen_supergrafx
-	    return
-	}
-if (syslk = "Mednafen VB")
-	{
-		ASPOP= Nintendo - Virtual Boy
-		corelk= mednafen_vb
-	    return
-	}
-if (syslk = "Mednafen WonderSwan")
-	{
-		ASPOP= Bandai - WonderSwan
-		corelk= mednafen_wswan
-	    return
-	}
-if (syslk = "MESS 2015")
-	{
-		szip= 1
-		corelk= mess2015
-	    return
-	}
-if (syslk = "MESS 2014")
-	{
-		szip= 1
-		corelk= mess2014
-	    return
-	}
-if (syslk = "PUAE")
-	{
-		ASPOP= Commodore - Amiga
-		szip= 0
-		corelk= puae
-	    return
-	}
-if (syslk = "PX68K")
-	{
-		ASPOP= Sharp - X68000
-		szip= 0
-		corelk= px68k
-	    return
-	}
-if (syslk = "QuickNES")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		corelk= quicknes
-	    return
-	}
-if (syslk = "bnes")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		corelk= bnes
-	    return
-	}
-if (syslk = "Mesen")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		corelk= mesen
-	    return
-	}
-if (syslk = "Nestopia")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		corelk= nestopia
-	    return
-	}
-if (syslk = "PPSSPP")
-	{
-		ASPOP= Sony - Playstation Portable
-		corelk= ppsspp
-	    return
-	}
-if (syslk = "flycast WinCE")
-	{
-		ASPOP= Sega - Dreamcast
-		szip= 0
-		corelk= flycast_wince
-	    return
-	}
-if (syslk = "flycast")
-	{
-		ASPOP= Sega - Dreamcast
-		szip= 0
-		corelk= flycast
-	    return
-	}
-if (syslk = "Redream")
-	{
-		ASPOP= Sega - Dreamcast
-		szip= 0
-		corelk= redream
-	    return
-	}
-if (syslk = "ScummVM")
-	{
-		corelk= scummvm
-	    return
-	}
-if (syslk = "Snes9x 2002")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x2002
-	    return
-	}
-if (syslk = "Snes9x 2005")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x2005
-	    return
-	}
-if (syslk = "Snes9x 2005 plus")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x2005_plus
-	    return
-}
-if (syslk = "Snes9x 2010")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x2010
-	    return
-}
-if (syslk = "Snes9x")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x
-	    return
-}
-if (syslk = "Snes9x Next")
-	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
-		corelk= snes9x_next
-	    return
-}
-if (syslk = "Stella")
-	{
-		ASPOP= Atari - 2600
-		corelk= stella
-	    return
-}
-if (syslk = "Sinclair ZX 81")
-	{
-		ASPOP= Sinclair - ZX 81
-		corelk= 81
-	    return
-}
-if (syslk = "Sinclair ZX Spectrum")
-	{
-		ASPOP= Sinclair - ZX Spectrum
-		corelk= fuse
-	    return
-}
-if (syslk = "TGB Dual")
-	{
-		ASPOP= Nintendo - Game Boy
-		corelk= tgbdual
-	    return
-}
-if (syslk = "UME 2014")
-	{
-		ASPOP= MAME - Arcade
-		szip= 1
-		corelk= ume2014
-	    return
-}
-if (syslk = "VBA-M")
-	{
-		ASPOP= Nintendo - Game Boy Advance
-		corelk= vbam
-	    return
-}
-if (syslk = "mGBA")
-	{
-		ASPOP= Nintendo - Game Boy Advance
-		corelk= mgba
-	    return
-}
-if (syslk = "VBA Next")
-	{
-		ASPOP= Nintendo - Game Boy Advance
-		corelk= vba_next
-	    return
-}
-if (syslk = "VecX")
-	{
-		ASPOP= GCE - Vectrex
-		corelk= vecx
-	    return
-}
-if (syslk = "Virtual Jaguar")
-	{
-		ASPOP= Atari - Jaguar
-		szip= 2
-		corelk= virtualjaguar
-	    return
-}
-if (syslk = "4do")
-	{
-		ASPOP= The 3DO Company - 3DO
-		szip= 0
-		corelk= 4do
-	    return
-}
-if (syslk = "Blue MSX")
-	{
-		ASPOP= Microsoft - MSX
-		szip= 0
-		corelk= bluemsx
-	    return
-}
-if (syslk = "FCEUmm")
-	{
-		ASPOP= Nintendo - Nintendo Entertainment System
-		szip= 0
-		corelk= fceumm
-	    return
-}
-if (syslk = "fmsx")
-	{
-		ASPOP= Microsoft - MSX
-		szip= 0
-		corelk= fmsx
-	    return
-}
-if (syslk = "Blue-MSX")
-	{
-		ASPOP= Microsoft - MSX
-		szip= 0
-		corelk= bluemsx
-	    return
-}
-if (syslk = "handy")
-	{
-		ASPOP= Atari - Lynx
-		szip= 0
-		corelk= handy
-	    return
-}
-if (syslk = "hatari")
-	{
-		ASPOP= Atari - ST
-		szip= 0
-		corelk= hatari
-	    return
-}
-if (syslk = "x64")
-	{
-		ASPOP= Commodore - 64
-		szip= 0
-		corelk= x64
-	    return
-}
-if (syslk = "Vice")
-	{
-		ASPOP= Commodore - 64
-		szip= 0
-		corelk= vice_x64
-	    return
-}
-if (syslk = "yabause")
-	{
-		ASPOP= Sega - Saturn
-		szip= 0
-		corelk= yabause
-	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 CoreDDLA:
@@ -36127,6 +35122,7 @@ gui,submit,nohide
 guicontrol,,MAMESWCHK,0
 guicontrol,show,MAMESWCHK
 guicontrol,enable,SRCHEDT
+guicontrol,enable,ARCSYS
 guicontrol,Enable,ADDRPOL
 guicontrolget,UrlTxt,,UrlTxt
 stringreplace,urlsv,urltxt,',,All
@@ -36137,7 +35133,6 @@ stringreplace,urlsv,urlsv,-,,All
 stringreplace,urlsv,urlsv,`,,,All
 stringreplace,urlsv,urlsv,~,,All
 stringreplace,urlsv,urlsv,%A_Space%,,All
-
 if (UrlTxt = "Add Repository")
 	{
 		guicontrol,,ARCSYS,|Select A System||
@@ -36148,10 +35143,9 @@ iniread,olarna,Settings.ini,GLOBAL,%urltxt%_EULA
 iniread,ArcSitex,%ARCORG%,SOURCES,%UrlTxt%
 iniwrite, "%UrlTxt%",Settings.ini,GLOBAL,RemoteRepository
 alra=
-
 ifnotexist,gam\%UrlTxt%\Mame - Systems\
 	{
-		guicontrol, hide, MAMESWCHK
+		guicontrol,hide,MAMESWCHK
 	}
 if ((urlTxt <> olarcnm)or(olarna <> 1))
 	{
@@ -36163,7 +35157,7 @@ if ((urlTxt <> olarcnm)or(olarna <> 1))
 		gosub,resetSYS
 		if (olarna <> 1)
 			{
-			guicontrol,disable,SRCHEDT
+				guicontrol,disable,SRCHEDT
 			}
 		SB_SetText("Repository source changed")
 		return
@@ -36195,16 +35189,19 @@ opndgam= 1
 FileSelectFile,addrplst,3,,Open a .gam file,(*.gam)
 if (addrplst = "")
 	{
+		opndgam= 
 		return
 	}
+syslist= 
+guicontrol,,URLTxt,|Add Repository||%ARCSRCS%
 splitpath,addrplst,,,,addrplstn	
 ARCSYS= 
-guicontrol,,ARCSYS,|Select a System||%syslist%
+guicontrol,,ARCSYS,|Select a System||
+EXTRSYS= %ARCSYS%
+ARCSYS= %addrplstn%
 ifinstring,SysLLst,%addrplstn%=
 	{
-		ARCSYS= %addrplstn%
-		EXTRSYS= %ARCSYS%
-		guicontrol,,ARCSYS,|%ARCSYS%||Select a System|%syslist%
+		guicontrol,,ARCSYS,|%ARCSYS%||
 	}
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 guicontrol,,ENHAK,0
@@ -36216,6 +35213,7 @@ HACKAPN=
 genlst=
 guicontrol,,ARCLNCH,PLAY ::>
 guicontrol,disable,ARCLNCH
+guicontrol,disable,ARCSYS
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
 ARCSEL=
@@ -36239,20 +35237,22 @@ guicontrol,hide,CUSTMOPT
 guicontrol,hide,CUSTMARG
 guicontrol,,REDWN,0
 guicontrol,,OVDCHK,0
-guicontrol,,EXTRURL,0
-guicontrol,,RUNXTRACT,0
+guicontrol,,EXTRURL,1
+guicontrol,,RUNXTRACT,1
 guicontrol,,ArcMove,0
 guicontrol,,ArcCull,1
 guicontrol,,CUSTSWITCH,0
 guicontrol,,EXTEXPLD,0
-guicontrol,,JACKETMODE,0
+guicontrol,,JACKETMODE,1
 guicontrol,,RNMJACK,
-guicontrol,hide,RNMJACK
+guicontrol,,SRCHEDT,
+guicontrol,disable,SRCHEDT
+guicontrol,show,RNMJACK
 BRKO= 1
 guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 guicontrolget,ARCSYS,,ARCSYS
-guicontrol,,SRCHDDL,|All|%ARCSYS%||%sysddllist%
+guicontrol,,SRCHDDL,|%ARCSYS%||
 pop_list=
 loop, Read, %addrplst%
 	{
@@ -36759,9 +35759,18 @@ if (DownOnly = 0)
 						if (A_LoopReadLine = "")
 							{
 								continue
+							}							
+						Loop,12
+							{
+								aftpth%A_Index%=
 							}
-						aftpth2=
 						stringsplit,aftpth,A_LoopReadLine,|
+						if ((aftpth5 <> "") && (aftpth5 <> " "))
+							{
+								ARCSYS:= aftpth5
+								EXTRSYS:= ARCSYS
+								guicontrol,,ARCSYS,|%EXTRSYS%||
+							}
 						if (aftpth8 = "$")
 							{
 								if (ARC_USER = "")
@@ -36784,19 +35793,19 @@ if (DownOnly = 0)
 							}
 						if (opndgam = 1)
 							{
-								if ((aftpth5 = "")&&(ARCSYS = "")or(aftpth5 = A_Space)&&(ARCSYS = ""))
+								if ((aftpth5 = "")&&(ARCSYS = "")or(aftpth5 = A_Space) && (ARCSYS = ""))
 									{
 										EXTRSYS= netplay
 									}
-								guicontrol,,ARCSYS,|%EXTRSYS%||%syslist%
+								guicontrol,disable,ARCSYS	
 							}
 						if (aftpth2 = arcpopcul)
 							{
 								aftpth= %aftpth1%
 								StringCaseSense, On
-								stringreplace,aftpth,aftpth,`%2F,/,All
+								stringreplace,aftmp,aftpth,`%25,`%,All
+								stringreplace,aftpth,aftmp,`%2F,/,All
 								stringreplace,aftmp,aftpth,/,\,All
-								stringreplace,aftmp,aftmp,`%25,`%,All
 								stringreplace,aftmp,aftmp,`%26,&,All
 								stringreplace,aftmp,aftmp,`%2B,+,All
 								stringreplace,aftmp,aftmp,`%20,%A_Space%,All
@@ -37086,9 +36095,9 @@ Loop, %srchgamf%
 						urlpth= %getpth1%
 						
 						StringCaseSense, On
-						stringreplace,dwnchk,urlpth,`%2F,/,All
+						stringreplace,dwnchk,urlpth,`%25,`%,All
+						stringreplace,dwnchk,dwnchk,`%2F,/,All
 						stringreplace,dwnchk,dwnchk,/,\,All
-						stringreplace,dwnchk,dwnchk,`%25,`%,All
 						stringreplace,dwnchk,dwnchk,`%26,&,All
 						stringreplace,dwnchk,dwnchk,`%2B,+,All
 						stringreplace,dwnchk,dwnchk,`%20,%A_Space%,All
@@ -37426,39 +36435,41 @@ if (ARCSEL = 2)
 	}
 jacktshw= hide
 guicontrol,,ARCPOP,|%pop_list%
-iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,
-OVDCHKB= $
-Loop, parse, lnchparam,`n`r
+iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+OVDCHKB= $	
+if (lnchparam = "ERROR")
 	{
-		stringsplit,apr,A_Loopfield,=
-		guicontrol,,OVDTXT,
-		if (apr1 = EXTRSYS)
+		guicontrol,,JACKETMODE,1
+		guicontrol,,EXTRURL,1
+		guicontrol,,EXTEXPLD,0
+		guicontrol,,RUNXTRACT,1
+		guicontrol,show,RNMJACK
+		guicontrol,,ARCMOVE,0
+	}
+else {
+		stringsplit,aprm,lnchparam,|
+		if (aprm1 <> "$")
 			{
-				stringsplit,aprm,apr2,|
-				if (aprm1 <> "$")
-					{
-						OVDCHKB= %aprm1%
-						guicontrol,,OVDCHK,1
-						guicontrol,,OVDLDS,|Other||Matching|Netplay|%systmfldrs%
-						guicontrol,,OVDTXT,%aprm1%
-					}
-				guicontrol,,JACKETMODE,%aprm2%
-				guicontrol,,EXTRURL,%aprm3%
-				guicontrol,,EXTEXPLD,%aprm4%
-				guicontrol,,RUNXTRACT,%aprm5%
-				RUNXTRACT= %aprm5%
-				if (aprm3 = 1)
-					{
-						jacktshw= show
-					}
-				guicontrol,%jacktshw%,RNMJACK
-				if (sortoverride = 0)
-					{
-						gosub, ExtractURL
-					}
-				guicontrol,,ARCMOVE,%aprm6%
-				break
+				OVDCHKB= %aprm1%
+				guicontrol,,OVDCHK,1
+				guicontrol,,OVDLDS,|Other||Matching|Netplay|%systmfldrs%
+				guicontrol,,OVDTXT,%aprm1%
 			}
+		guicontrol,,JACKETMODE,%aprm2%
+		guicontrol,,EXTRURL,%aprm3%
+		guicontrol,,EXTEXPLD,%aprm4%
+		guicontrol,,RUNXTRACT,%aprm5%
+		RUNXTRACT= %aprm5%
+		if (aprm3 = 1)
+			{
+				jacktshw= show
+			}
+		guicontrol,%jacktshw%,RNMJACK
+		if (sortoverride = 0)
+			{
+				gosub, ExtractURL
+			}
+		guicontrol,,ARCMOVE,%aprm6%
 	}
 if (EXTRSYS = "MAME - Arcade")
 	{

@@ -1,0 +1,103 @@
+bsnes-mercury|Nintendo - Super Nintendo Entertainment System
+mednafenbSNES|Nintendo - Super Nintendo Entertainment System|mednafen_snes
+bZSNES|Nintendo - Super Nintendo Entertainment System|bzsnes
+CATSFC(SNES9x)|Nintendo - Super Nintendo Entertainment System|catsfc
+emux-chip8|corelk= emux_chip8
+emux-gb|Nintendo - Game Boy|emux_gb
+crocods|Amstrad - CPC|crocods
+emux-nes|Nintendo - Nintendo Entertainment System|emux_nes
+FreeIntv|Mattel - Intellivision|freeintv
+Dolphin|Nintendo - Gamecube|dolphin
+emux-sms|Sega - Master System - Mark III|emux_sms
+ProSystem|Atari - 7800|prosystem
+FB Alpha 2012 CPS-1|Capcom Play System - CPS|fbalpha2012_cps1|1
+FB Alpha 2012 CPS1|Capcom Play System - CPS|fbalpha2012_cps1|1
+FB Alpha 2012 CPS-2|Capcom Play System - CPS II|fbalpha2012_cps2|1
+FB Alpha 2012 CPS2|Capcom Play System - CPS II|fbalpha2012_cps2|1
+FB Alpha Neo|MAME - Arcade|fbaneo|1
+FB Alpha 2012|MAME - Arcade|fbalpha2012|1
+FB Alpha 2012 Neo Geo|SNK - Neo Geo MVS|fbalpha2012_neogeo|1
+FB Alpha|MAME - Arcade|fbalpha|1
+final burn alpha|MAME - Arcade|fba|1
+Mednafen GBA|Nintendo - Game Boy Color|mednafen_gba
+Gambatte-GBC|Nintendo - Game Boy Color|gambatte_gbc
+SameBoy|Nintendo - Game Boy|gambatte
+Gambatte|Nintendo - Game Boy|gambatte
+DesMuME|Nintendo - Nintendo DS|desmume
+Citra|Nintendo - Nintendo 3DS|citra
+Genesis Plus GX - Game Gear|Sega - Game Gear|genesis_plus_gx_gg
+Genesis Plus GX|Sega - Mega Drive - Genesis|genesis_plus_gx
+Genesis Plus GX - Sega CD|Sega - Mega-CD - Sega CD|genesis_plus_gx_segacd|0
+Genesis Plus GX - SMS|Sega - Master System - Mark III|genesis_plus_gx_sms
+Genesis Plus GX - GG|Sega - Game Gear|genesis_plus_gx_gg
+GlupeN64 OpenGL|Nintendo - Nintendo 64|glupen64
+Mupen64Plus OpenGL|Nintendo - Nintendo 64|mupen64plus
+ParaLLEl N64|Nintendo - Nintendo 64|parallel_n64
+GlupeN64 Vulkan|Nintendo - Nintendo 64|glupen64
+MAME 2000|MAME - Arcade|mame2000|1
+MAME 2003|MAME - Arcade|mame2003|1
+MAME 2010|MAME - Arcade|mame 2010|1
+MAME 2014|MAME - Arcade|mame2014|1
+MAME 2016|MAME - Arcade|mame2016|1
+MAME|MAME - Arcade|mame|1
+Mr.Boom|Mr. Boom|mrboom|1
+Mednafen GBA|Nintendo - Game Boy Advance|mednafen_gba
+gpSP|Nintendo - Game Boy Advance|gpSP
+Mednafen Lynx|Atari - Lynx|mednafen_lynx
+Mednafen NeoPop|SNK - Neo Geo Pocket|mednafen_ngp
+Mednafen PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
+Beetle PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
+Mednafen/Beetle PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
+Mednafen PC-FX|NEC - PC-FX|mednafen_pcfx
+Mednafen PSX HW|Sony - Playstation|mednafen_psx_hw|0
+Beetle PSX HW|Sony - Playstation|mednafen_psx_hw|0
+Mednafen PSX|Sony - Playstation|mednafen_psx|0
+Beetle PSX|Sony - Playstation|mednafen_psx|0
+PCSX-ReARMed|Sony - Playstation|pcsx_rearmed|0
+Mednafen Saturn|Sega - Saturn|mednafen_saturn|0
+Mednafen Snes|Nintendo - Super Nintendo Entertainment System|mednafen_snes
+PicoDrive|Sega - Mega Drive - Genesis|picodrive
+Mednafen SuperGrafx|NEC - PC Engine SuperGrafx|mednafen_supergrafx
+Mednafen VB|Nintendo - Virtual Boy|mednafen_vb
+Mednafen WonderSwan|Bandai - WonderSwan|mednafen_wswan
+MESS 2015|mess2015|1
+MESS 2014|mess2014|1
+PUAE|Commodore - Amiga|puae|0
+PX68K|Sharp - X68000|px68k|0
+QuickNES|Nintendo - Nintendo Entertainment System|quicknes
+bnes|Nintendo - Nintendo Entertainment System|bnes
+Mesen|Nintendo - Nintendo Entertainment System|mesen
+Nestopia|Nintendo - Nintendo Entertainment System|nestopia
+PPSSPP|Sony - Playstation Portable|ppsspp
+flycast WinCE|Sega - Dreamcast|flycast_wince|0
+flycast|Sega - Dreamcast|flycast|0
+Redream|Sega - Dreamcast|redream|0
+ScummVM|ScummVM - ScummVM|scummvm|
+Snes9x 2002|Nintendo - Super Nintendo Entertainment System|snes9x2002
+Snes9x 2005|Nintendo - Super Nintendo Entertainment System|snes9x2005
+Snes9x 2005 plus|Nintendo - Super Nintendo Entertainment System|snes9x2005_plus
+Snes9x 2010|Nintendo - Super Nintendo Entertainment System|snes9x2010
+Snes9x|Nintendo - Super Nintendo Entertainment System|snes9x
+Snes9x Next|Nintendo - Super Nintendo Entertainment System|snes9x_next
+Stella|Atari - 2600|stella
+Sinclair ZX 81|Sinclair - ZX 81|81
+Sinclair ZX Spectrum|Sinclair - ZX Spectrum|fuse
+TGB Dual|Nintendo - Game Boy|tgbdual
+UME 2014|MAME - Arcade|ume2014|0
+VBA-M|Nintendo - Game Boy Advance|vbam
+mGBA|Nintendo - Game Boy Advance|mgba
+VBA Next|Nintendo - Game Boy Advance|vba_next
+VecX|GCE - Vectrex|vecx
+Virtual Jaguar|Atari - Jaguar|virtualjaguar|2
+4do|The 3DO Company - 3DO|4do|0
+Blue MSX|Microsoft - MSX|bluemsx|0
+FCEUmm|Nintendo - Nintendo Entertainment System|fceumm|0
+fmsx|Microsoft - MSX|fmsx|0
+Blue-MSX|Microsoft - MSX|bluemsx|0
+handy|Atari - Lynx|handy|0
+hatari|Atari - ST|hatari|0
+x64|Commodore - 64|x64|0
+Vice|Commodore - 64|vice_x64|0
+yabause|Sega - Saturn|yabause|0
+yabasanshiro|Sega - Saturn|yabasanshiro|0
+kronos|Sega - Saturn|kronos|0

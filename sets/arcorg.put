@@ -16,6 +16,8 @@ the-eye=https://the-eye.eu/public/rom
 the-eye:SET=[REPOSRC]/THE-EYE/THE-EYE.7z
 various=https://github.com/romjacket/VARIOUS/raw/master
 various:SET=[REPOSRC]/VARIOUS/various.7z
+edgeemu=https://github.com/romjacket/EDGEEMU/raw/master
+edgeemu:SET=SET=[REPOSRC]/EDGEEMU/edgeemu.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com
