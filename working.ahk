@@ -31241,19 +31241,19 @@ if (RETROM = 1)
 Loop, Parse, syslist,|
 	{
 if (NETLPARSE = A_LoopField)
-				{
-					guicontrol,,ARCSYS,|%A_LoopField%||%syslist%
-					if (MAMESWCHK = 1)
-						{
-							guicontrol,,ARCSYS,|%A_LoopField%||%mame_sys%
-						}
-					NPLC= 1
-					gosub, ArchiveSystems
-					coreselv= %CONNECTINGCORE%
-					guicontrol,,ARCCORES,|%coreselv%||%runlist%
-					NPLC=
-					break
-				}
+	{
+		guicontrol,,ARCSYS,|%A_LoopField%||%syslist%
+		if (MAMESWCHK = 1)
+			{
+				guicontrol,,ARCSYS,|%A_LoopField%||%mame_sys%
+			}
+		NPLC= 1
+		gosub, ArchiveSystems
+		coreselv= %CONNECTINGCORE%
+		guicontrol,,ARCCORES,|%coreselv%||%runlist%
+		NPLC=
+		break
+	}
 	}
 iniwrite, "%RJSYSTEMS%\%NETLPARSE%",Settings.ini,GLOBAL,netplay_core_assets_directory
 actit=
@@ -35699,6 +35699,7 @@ guicontrolget,ARCMOVE,,ARCMOVE
 guicontrolget,ARCCULL,,ARCCULL
 guicontrol,enable,RNMJACK
 return
+
 ArcPopulateList:
 ;{;;;;;;;;;;;;;;;;;;;   MAIN ARCHIVE LIST   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 tmprm=
@@ -35719,13 +35720,14 @@ norun=
 Loop, parse, tmprm,|
 	{
 		arcpnum+=1
-		arcpopcul= %A_LoopField%
-		aftpth2= %arcpopcul%
+						  
 		if (arcpnum > 1)
 			{
 				norun= 1
 				break
 			}
+		arcpopcul= %A_LoopField%
+		aftpth2= %arcpopcul%
 	}
 guicontrol,enable,MAMESWCHK
 guicontrol,enable,ARCSYS
@@ -35760,17 +35762,11 @@ if (DownOnly = 0)
 							{
 								continue
 							}							
-						Loop,12
+						Loop, 12
 							{
 								aftpth%A_Index%=
-							}
+							}										 
 						stringsplit,aftpth,A_LoopReadLine,|
-						if ((aftpth5 <> "") && (aftpth5 <> " "))
-							{
-								ARCSYS:= aftpth5
-								EXTRSYS:= ARCSYS
-								guicontrol,,ARCSYS,|%EXTRSYS%||
-							}
 						if (aftpth8 = "$")
 							{
 								if (ARC_USER = "")
@@ -35801,6 +35797,26 @@ if (DownOnly = 0)
 							}
 						if (aftpth2 = arcpopcul)
 							{
+								if ((aftpth5 <> "") && (aftpth5 <> " "))
+									{
+										ARCSYS:= aftpth5
+										EXTRSYS:= ARCSYS
+										guicontrol,,ARCSYS,|%EXTRSYS%||%syslist%
+									}
+								if ((arcpopcul = ARCSYS) && instr(aftpth3,">")&& instr(aftpth3,"<"))
+									{
+										stringsplit,axrm,aftpth3,:,<>
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+										guicontrol,,DOWNONLY,1
+										gosub,DownOnly
+										guicontrol,,JACKETMODE,%axrm2%
+										guicontrol,,EXTRURL,%axrm3%
+										guicontrol,,EXTEXPLD,%axrm4%
+										guicontrol,,RUNXTRACT,%axrm5%
+										guicontrol,hide,RNMJACK,
+										guicontrol,,RNMJACK,
+										guicontrol,,ARCMOVE,%axrm6%
+									}
 								aftpth= %aftpth1%
 								StringCaseSense, On
 								stringreplace,aftmp,aftpth,`%25,`%,All
@@ -36024,6 +36040,7 @@ return
 
 GamFIND:
 cmdfun=
+mlturl= 
 SRCHMET= %GAMSRCS%
 SRCHGAM= %EXTRSYS%
 stringreplace,romsys,EXTRSYS,#HACKS#,,All
@@ -36060,7 +36077,7 @@ splitpath,srchgamf,fnew,nesn,aien,krvm
 
 Loop, %srchgamf%
 	{
-		
+  
 		Loop, Read, %A_LoopFileFullPath%
 			{
 				
@@ -36073,7 +36090,6 @@ Loop, %srchgamf%
 						getpth%A_Index%=
 					}
 				stringsplit,getpth,A_LoopReadLine,|
-				
 				URLFILE= %getpth1%
 				if (getpth2 = "")
 					{
@@ -36093,7 +36109,6 @@ Loop, %srchgamf%
 						EXT7Z=
 						romshere=
 						urlpth= %getpth1%
-						
 						StringCaseSense, On
 						stringreplace,dwnchk,urlpth,`%25,`%,All
 						stringreplace,dwnchk,dwnchk,`%2F,/,All
@@ -36143,6 +36158,15 @@ Loop, %srchgamf%
 						krbrk= 1
 						stringsplit,save,fsvfn,fsvmp,fsvmx,fsvnm
 						save= %fsvmp%\%romname%.%fsvmx%
+						stringsplit,pv,getpth4,>
+						Loop, %pv0%
+							{
+								URLFILE%A_Index%= % pv%A_Index%
+								if (A_Index > 1)
+									{
+										mlturl= 1
+									}
+							}
 						break
 					}
 			}
@@ -36655,6 +36679,7 @@ guicontrol,,OVDLDS,|Other||%systmfldrs%
 guicontrol,,OVDTXT,%OVDFLDR%
 iniwrite,%OVDFLDR%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
+
 DWNINJACK:
 gui,submit,nohide
 guicontrol,enable,RNMJACK
@@ -37153,13 +37178,56 @@ if (tmpsr <> "")
 						FileCreateDir,%ACSVDEST%
 					}
 				save= %ACSVDEST%\%savefile%
+				splitpath,save,svaf,svap,svax,svaj
 				gosub, RomSavePPND
 				if (updtguirst = 1)
 					{
 						gosub, RJSYSRESET
 					}
+				;;;   extraction instructions   ;;;	
+				/*
+				if (romfname = EXTRSYS)
+					{
+						cmdfun= 1
+						stringsplit,axrm,emucmdf,:,<>
+						iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+						guicontrol,,DOWNONLY,1
+						gosub,DownOnly
+						guicontrol,,JACKETMODE,%axrm2%
+						guicontrol,,EXTRURL,%axrm3%
+						guicontrol,,EXTEXPLD,%axrm4%
+						guicontrol,,RUNXTRACT,%axrm5%
+						guicontrol,,RNMJACK,
+						guicontrol,,ARCMOVE,%axrm6%
+					}
+				*/	
+				if (mlturl = 1)
+					{
+						kimx= 
+						Loop,
+							{
+								kj= % URLFILE%kim%
+								URLFILE= %kj%
+								if (kj = "")
+									{
+										break
+									}
+								splitpath,kj,inm,inp,inx,ine
+								if (ine <> inx)
+									{
+										save= %svaf%\%svaj%.%inx%
+									}
+									else {
+										save= %svaf%\%inm%
+									}
+								gosub, RomDownload
+								kimx+= 1
+							}
+						goto, EVEIS
+					}	
 				gosub, RomDownload
 			}
+		EVEIS:	
 		tmpsr=
 		guicontrol,enable,ARCSYS
 		guicontrol,enable,RNMJACK
@@ -37413,12 +37481,44 @@ Loop, parse, romdwnlst,|
 				romfname=%romjnm%
 			}
 		save= %ACSVDEST%\%savefile%
-		splitpath,save,svaf,svap,svax
+		splitpath,save,svaf,svap,svax,svaj
 		
 		gosub, RomSavePPND
 		gosub, GetArcURL
+		stringsplit,arxnm,lnchparam,:,<>
+		guicontrol,,JACKETMODE,%axrm2%
+		guicontrol,,EXTRURL,%axrm3%
+		guicontrol,,EXTEXPLD,%axrm4%
+		guicontrol,,RUNXTRACT,%axrm5%
+		guicontrol,,RNMJACK,
+		guicontrol,,ARCMOVE,%axrm6%
+		if (mlturl = 1)
+			{
+				kimx= 
+				Loop,
+					{
+						kj= % URLFILE%kim%
+						URLFILE= %kj%
+						if (kj = "")
+							{
+								break
+							}
+						splitpath,kj,inm,inp,inx,ine
+						if (ine <> inx)
+							{
+								save= %svaf%\%svaj%.%inx%
+							}
+							else {
+								save= %svaf%\%inm%
+								splitpath,save,svaf,svap,svax,svaj
+							}
+						gosub, RomDownload
+						kimx+= 1
+					}
+				goto, EVEI
+			}
 		gosub, RomDownload
-		
+		EVEI:
 		guicontrol,enable,ARCSYS
 		guicontrol,enable,RNMJACK
 		guicontrol,enable,ARCPOP
@@ -37430,6 +37530,7 @@ Loop, parse, romdwnlst,|
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 GetArcURL:
+mlturl= 
 if (arcpnum > 1)
 	{
 		SB_SetText("select a single item")
@@ -37459,6 +37560,7 @@ if (tmprm <> "")
 										Loop,10
 											{
 												ave%A_index%=
+												URLFILE%A_index%=
 											}
 										stringsplit,ave,A_LoopReadLine,|
 										if (ave2 = arcpopcul)
@@ -37487,6 +37589,20 @@ if (tmprm <> "")
 															{
 																ariadltyp=magnet
 															}
+													}
+												if (instr(ave3,"<") && instr(ave3,">"))
+													{
+														stringsplit,axrm,ave3,:,<>
+														iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+														guicontrol,,DOWNONLY,1
+														gosub, DownOnly
+														guicontrol,,JACKETMODE,%axrm2%
+														guicontrol,,EXTRURL,%axrm3%
+														guicontrol,,EXTEXPLD,%axrm4%
+														guicontrol,,RUNXTRACT,%axrm5%
+														guicontrol,,RNMJACK,
+														guicontrol,,ARCMOVE,%axrm6%
+														;;special extraction instructions
 													}
 												ifinstring,ave1,://
 													{
@@ -37523,7 +37639,22 @@ if (tmprm <> "")
 					}
 				if ((ave3 <> "")&&(ave3 <> A_Space))
 					{
-						iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd
+						if (instr(ave3,">")&& instr(ave3,"<"))
+							{
+								stringsplit,axrm,ave3,:,<>
+								iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+								guicontrol,,DOWNONLY,1
+								gosub,DownOnly
+								guicontrol,,JACKETMODE,%axrm2%
+								guicontrol,,EXTRURL,%axrm3%
+								guicontrol,,EXTEXPLD,%axrm4%
+								guicontrol,,RUNXTRACT,%axrm5%
+								guicontrol,,RNMJACK,
+								guicontrol,,ARCMOVE,%axrm6%
+							}
+							else {
+									iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd							
+							}
 					}
 				;;URLFILE= %sysurl%%ave1%
 				URLFILE1= %URLFILE%
@@ -37548,6 +37679,10 @@ if (tmprm <> "")
 				ifinstring,ave1,://
 					{
 						URLFILE= %ave1%
+					}
+				if (abnum > 1)
+					{
+						mlturl= 1
 					}
 				if (ave2 = "")
 					{
@@ -37604,7 +37739,22 @@ if (tmpsr <> "")
 						;;URLFILE= %ArcSite%/%sysurl%%ave1%
 						if ((ave3 <> "")&&(ave3 <> A_Space))
 							{
-								iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd
+								if (instr(ave3,">")&& instr(ave3,"<"))
+									{
+										stringsplit,avtst,ave3,:,<>
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+										guicontrol,,DOWNONLY,1
+										gosub,DownOnly
+										guicontrol,,JACKETMODE,%axrm2%
+										guicontrol,,EXTRURL,%axrm3%
+										guicontrol,,EXTEXPLD,%axrm4%
+										guicontrol,,RUNXTRACT,%axrm5%
+										guicontrol,,RNMJACK,
+										guicontrol,,ARCMOVE,%axrm6%
+									}
+									else {
+										iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd
+									}
 							}
 						ifinstring,ave4,://
 							{
@@ -37627,6 +37777,10 @@ if (tmpsr <> "")
 								ifinstring,ave4,magnet
 									{
 										ariadltyp=magnet
+									}
+								if (abnum > 1)
+									{
+										mlturl= 1
 									}
 							}
 						break
@@ -37838,11 +37992,11 @@ if (chkxt = "chd")
 				gosub, ChdXtr
 			}
 	}
-if (chkxt = "rar")
+if ((chkxt = "rar") or (chkxt = "r01"))
 	{
 		gosub, RarXtr
 	}
-if (chkxt = "7z")
+if ((chkxt = "7z") or (chkxt = "001"))
 	{
 		gosub, 7zXtr
 	}
@@ -37851,6 +38005,13 @@ if (cmdfun = 1)
 		gosub, 7zXtr
 	}
 if (chkxt = "zip")
+	{
+		if (EXTRURL = 1)
+			{
+				Gosub, ZipXtr
+			}
+	}
+if (chkxt = "tar")
 	{
 		if (EXTRURL = 1)
 			{

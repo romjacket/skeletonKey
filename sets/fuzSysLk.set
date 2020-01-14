@@ -45,7 +45,8 @@ switch|*nintendo*Switch*>NSWITCH
 pcfx|pcfxga|*pc-fx*|*pcfx*>NPCFX
 *Taito*Type*|*TYPE*X*>TAITOTX
 *Chip*8*>RCACHP8
-*xbox*360*>MS360
+360|*xbox*360*>MS360
+XBONE|*xbox*one*>MSXBONE
 *flash*|*adobe*>AFLASH
 *model 2*|*model2>SMOD2
 *pc*engine*>PCENJ
@@ -66,6 +67,7 @@ gamegear|*game*gear*>SGG
 psp|*sony*psp*|*playstation*portable*>SPLAYP
 ps2|*sony*ps2*|*sony*ps 2*|*playstation 2*>SPS2
 ps3|*sony*ps3*|*playstation 3*>SPLAY3
+ps4|*sony*ps4*|*playstation 4*>SPLAY4
 naomi|sega*naomi*>SNAOMI
 x1|x1turbo|*SHARP*X1*|*sharp*x-1>SHARPX1
 x68000|x68ksupr|x68030|*sharp*68*|*x*68k*>SHARPX68K

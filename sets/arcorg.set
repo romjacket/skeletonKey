@@ -5,7 +5,7 @@ ALTHOST=http://github.com/jomracket
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 IP_LOOKUP=http://www.netikus.net/show_ip.html
 UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
-RASTABLE=1.8.2
+RASTABLE=1.8.3
 
 [SOURCES]
 Public-Domain=https://github.com/romjacket/publicdomain/raw/master/
@@ -18,6 +18,12 @@ various=https://github.com/romjacket/VARIOUS/raw/master
 various:SET=https://github.com/romjacket/skeletonKey/releases/download/VARIOUS/various.7z
 edgeemu=https://github.com/romjacket/EDGEEMU/raw/master
 edgeemu:SET=https://github.com/romjacket/skeletonKey/releases/download/EDGEEMU/edgeemu.7z
+odsets=https://github.com/romjacket/ODSETS/raw/master/
+odsets:SET=https://github.com/romjacket/skeletonKey/releases/download/ODSETS/fullsets.7z
+portalroms=https://github.com/romjacket/PORTALROMS/raw/master/
+portalroms:SET=https://github.com/romjacket/skeletonKey/releases/download/PORTALROMS/portalroms.7z
+fullsets=https://github.com/romjacket/FULLSETS/raw/master
+fullsets:SET=https://github.com/romjacket/skeletonKey/releases/download/FULLSETS/fullsets.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com

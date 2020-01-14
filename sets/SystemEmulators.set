@@ -205,6 +205,7 @@ Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro
 Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
+Microsoft - XBOX ONE|Xerg
 Microsoft - Windows 3x|WinBox
 Microsoft - XBOX|Cxbx|cxbxreloaded|xqemu
 Mikro - Mikro-80|MAME|:mame_libretro.dll
@@ -359,6 +360,7 @@ Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx
 Sony - Playstation 3|rpcs3|nucleus|shortwave
+Sony - Playstation 4|rpcs4
 Sony - Playstation Portable|PPSSPP|jpcsp|cpspemu|:ppsspp_libretro.dll
 Sony - Playstation Vita|BSL
 Sony - Playstation - PAL|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
