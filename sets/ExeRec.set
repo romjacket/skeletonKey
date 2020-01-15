@@ -739,6 +739,7 @@ FileInstall,sets\es_settings.cfg.set,sets\es_settings.cfg.set,1
 FileInstall,sets\ExeRec.set,sets\ExeRec.set,1
 FileInstall,sets\felkup.set,sets\felkup.set,1
 FileInstall,sets\Frontends.set,sets\Frontends.set,1
+FileInstall,sets\fullsets_eula.set,sets\fullsets_eula.set,1
 FileInstall,sets\fuzSysLk.set,sets\fuzSysLk.set,1
 FileInstall,sets\generic_eula.set,sets\generic_eula.set,1
 FileInstall,sets\Keymappers.set,sets\Keymappers.set,1

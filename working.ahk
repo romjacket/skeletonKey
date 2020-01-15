@@ -35808,14 +35808,18 @@ if (DownOnly = 0)
 										stringsplit,axrm,aftpth3,:,<>
 										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 										guicontrol,,DOWNONLY,1
-										gosub,DownOnly
-										guicontrol,,JACKETMODE,%axrm2%
-										guicontrol,,EXTRURL,%axrm3%
-										guicontrol,,EXTEXPLD,%axrm4%
-										guicontrol,,RUNXTRACT,%axrm5%
-										guicontrol,hide,RNMJACK,
+										gosub, DownOnly
 										guicontrol,,RNMJACK,
+										guicontrol,,JACKETMODE,%axrm2%
+										gosub, DWNINJACK
+										guicontrol,,EXTRURL,%axrm3%
+										gosub, ExtractURL
+										guicontrol,,EXTEXPLD,%axrm4%
+										gosub, EXTEXPLD
+										guicontrol,,RUNXTRACT,%axrm5%
+										gosub, RunXtract
 										guicontrol,,ARCMOVE,%axrm6%
+										gosub, ArcMove
 									}
 								aftpth= %aftpth1%
 								StringCaseSense, On
