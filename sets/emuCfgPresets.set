@@ -886,6 +886,17 @@ STATEPTH=
 MEMPTH=SAVE\*.*
 options=" -conf "
 
+[DosBox-X]
+RJPRECFG=copy /y ".sstates\*.*" "%EMUL%\STATES"|copy /y "dosbox.conf" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\dosbox.conf" "%GAMDIR%"|move /y "%EMUL%\STATES\*.*" "%GAMDIR%\.sstates"
+RJLNCHP=0
+URLPTH=DOSBox-X/DOSBox-X[ARCH].7z
+EXENAM=DOSBox-x.exe
+CFGPTH=dosbox.conf
+STATEPTH= 
+MEMPTH=SAVE\*.*
+options=" -conf "
+
 [Project64]
 RJPRECFG=copy /Y "Rice*.cfg" "%EMUL%\Plugin\GFX"|copy /Y "Rice*.ini" "%EMUL%\Plugin\GFX"|copy /Y "Glide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "MyGlide64.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "NRage.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "tr64_ogl.ini" "%EMUL%\Plugin\1.6 Plugins"|copy /Y "Project64.cfg" "%EMUL%\Config"
 RJPOSTCFG=copy /Y "%EMUL%\Plugin\GFX\*.ini" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\GFX\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Config\*.cfg" "%GAMDIR%"|copy /Y "%EMUL%\Plugin\1.6 Plugins\*.ini" "%GAMDIR%"
@@ -3357,11 +3368,11 @@ SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Microsoft - DOS]
-RJEMUPRESET=DOSBox
+RJEMUPRESET=DOSBox-X
 RJMULTIDISC=1
 RJROMXT=.conf
 SHORTNM=MSDOS
-SUPEMU=DOSBox|DosPlus
+SUPEMU=DOSBox-X|DOSBox|DosPlus
 SUPCORE=dosbox_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=dos
@@ -3590,9 +3601,9 @@ RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
 
 [Magnavox - Odyssey]
-RJEMUPRESET=DOSBox
+RJEMUPRESET=DOSBox-X
 SHORTNM=MODYS
-SUPEMU=DOSBox
+SUPEMU=DOSBox-X|DOSBox
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 
@@ -4952,10 +4963,10 @@ SHORTNM=MSWIN3X
 cmdfun= 1
 
 [Windows - Games]
-RJEMUPRESET=DosBox
+RJEMUPRESET=DosBox-X
 RJROMXT=.lnk,.exe,.bat,.cmd,.jar
 SHORTNM=WINGAME
-SUPEMU=DoxBox|WinBox|BSL|FMBocks|x86box
+SUPEMU=DOSBox-X|DoxBox|WinBox|BSL|FMBocks|x86box
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=pc

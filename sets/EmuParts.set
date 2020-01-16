@@ -47,6 +47,7 @@ Colem=Colem/Colem.7z=VColeco.exe=ini
 Cxbx=Cxbx/Cxbx.7z=CxBx.exe=settings.ini
 decaf=decaf/decaf.7z=decaf-qt.exe=
 DOSBox=DOSBox/DOSBox.7z=DOSBox.exe=dosbox.conf= =SAVE\*.*
+DOSBox-X=DOSBox-X/DOSBox-X[ARCH].7z=DOSBox-x.exe=dosbox.conf= =SAVE\*.*
 Demul=Demul/Demul.7z=Demul.exe=gdrImage.ini|gpuDX11.ini|padDemul.ini|Demul.ini|gdrCHD.ini|netDemul.ini=sstaes\*.*=memsaves\vms00.bin|memsaves\vms10.bin|nvram\*.*
 DesMume=DesMume/DesMume-[ARCH].7z=DesMume-x[ARCH].exe=desmume.ini=*.dsv=*.ds1
 Dolphin=Dolphin/Dolphin-[ARCH].7z=Dolphin.exe=User\Config\Dolphin.ini|User\Config\GFX.ini|User\Config\Hotkeys.ini|User\Config\GCPadNew.ini|User\Config\WiimoteNew.ini=User\GC\*.raw=|=User\SaveStates\*.s*

@@ -188,7 +188,7 @@ MITS - Altair8800|MAME|:mame_libretro.dll
 MOS Technology - KIM-1|MAME|:mame_libretro.dll
 Magnavox - Odyssey2|MAME|o2em|:o2em_libretro.dll|mame_libretro.dll
 Magnavox - Odyssey3|MAME|mame_libretro.dll
-Magnavox - Odyssey|DOSBox
+Magnavox - Odyssey|DOSBox-X|DOSBox
 Matra - Alice 32|alice32|DCAlice|DCMicroColor|MAME|:mame_libretro.dll
 Matra - Alice 90|MAME|:mame_libretro.dll
 Mattel - Aquarius|Aqemu|vaquarius|MAME|:mame_libretro.dll
@@ -199,7 +199,7 @@ MCA - Laserdisc Arcade|daphne|:mame_libretro.dll
 Memotech - MTX|mtxemu|MAME|mame_libretro.dll
 Mephisto - Super Mondial II|MAME|:mame_libretro.dll
 Microkey - Primo|ultimo|MAME|mame_libretro.dll
-Microsoft - DOS|DOSBox|DosPlus|:dosbox_libretro.dll
+Microsoft - DOS|DOSBox-X|DOSBox|DosPlus|:dosbox_libretro.dll
 Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
