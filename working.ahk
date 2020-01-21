@@ -504,7 +504,7 @@ if (INITIAL = 1)
 	{
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
-if (raexefile <> "NOT-FOUND.exe")
+if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
 	{
 		ifNotExist, sl.ini
 			{
@@ -526,6 +526,15 @@ if (raexefile <> "NOT-FOUND.exe")
 			{
 				gosub, resetFILT
 			}
+		iniread,fealn,apps.ini,EMULATORS,retroarch
+		if ((fealn <> "")&&(fealn <> "ERROR"))
+			{
+				ifnotinstring,feavail,retroarch
+					{
+						Menu, rjscopy, Add, Export to retroarch, Export_retroarch
+						feavail.= "retroarch" . "|"
+					}
+			}	
 	}
 if (INITIAL = 1)
 	{
@@ -791,7 +800,7 @@ rjdexcl= .Mem|.Man|backdrops|.sstates|.snaps|.patches|.cheats|
 rjfexcl= Folder.png|Folder.jpg|Backdrop.jpg|Backdrop.png|Banner.png|Banner.jpg|Logo.png|Logo.jpg|marquee.png|marquee.jpg|back.jpg|back.png|title.png|title.jpg|Cover.png|Cover.jpg|BoxFront.jpg|BoxFront.png|BoxBack.png|BoxBack.jpg|Spine.jpg|Spine.png|Disc.png|Disc.jpg
 omtiall:= omitxt . "|" . rjdexcl
 StringReplace, omitxtv, omitxt, |,`,,All
-
+imgonl= |png|jpg|svg|bmp|jpeg|gif|
 omitxj:= omitxtv
 medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswapDown|medswapUp|medswapLeft|medswapRight|medswapL|medswapR|medswapL2|medswapR2|medswapR3|medswapL3|medswapLXMinus|medswapRXMinus|medswapRXPlus|medswapLXPlus|medswapLYPlus|medswapLYMinus|medswapRYPlus|medswapRYMinus|medswapHome|medSwapATXT|medSwapBTXT|medSwapCTXT|medSwapDTXT|medSwapETXT|medSwapFTXT|medSwapGTXT|medSwapHTXT|medSwapITXT|medSwapJTXT|medSwapLTXT|medSwapMTXT|medSwapCGRP|medSwapDGRP|medSwapEGRP
 mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
@@ -810,6 +819,7 @@ Loop, rj\emuCfgs\*,2
 
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
+fesup= retroArch|EmulationStation|RetroFE|Pegasus
 noinstallers= |Media|Mirrored_Links|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
 JUNCTOPT= 2
 INPKND= KB|J|AXIS
@@ -1303,7 +1313,7 @@ xmbShowSettings= true
 xmbVerticalThumbnails= 0
 xmbShowVideo= true
 xmbTheme= 0
-ASSETS= Assets
+ASSETS= %A_Scriptdir%\Assets
 
 if (INITIAL = 1)
 	{
@@ -1456,6 +1466,7 @@ Loop, Read, ovr.ini
 		StringTrimLeft,jstpth,A_LoopReadLine,ovrplngthpls
 		ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
 	}
+fesup= retroArch|EmulationStation|RetroFE|Pegasus
 IfExist,apps.ini
 	{
 		iniread,keympr,Settings.ini,GLOBAL,Keymapper
@@ -1477,6 +1488,15 @@ IfExist,apps.ini
 						SplitPath,kmprloc,,kmprd
 					}
 			}
+		Loop,parse,fesup,|
+			{
+				iniread,fealn,apps.ini,HTPC_FRONTENDS,%A_LoopField%
+				if ((fealn <> "")&&(fealn <> "ERROR"))
+					{
+						Menu, rjscopy, Add, Export to %A_LOopField%, Export_%A_LoopField%
+						feavail.= A_LoopField . "|"
+					}
+			}	
 		DAMVAR=
 		XPDK=
 		AMCK=
@@ -1680,6 +1700,14 @@ Gui, Font,%fontColor% %fontXmed%,%fontName%
 Menu, ContextMenu, Add, Check port, Check_Port
 Menu, ContextMenu, Add
 Menu, rjscopy, Add, Export to Jacket, Export_image
+Loop,parse,feavail,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		Menu, rjscopy, Add, Export to %A_LoopField%, Export_%A_LoopField%
+	}
 Menu, rjscopy, Add
 Menu, rjscopy, Add, Save As..., Renamesave_image
 Menu, rjscopy, Add
@@ -3034,11 +3062,12 @@ Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
 Gui,Add,Edit, x370 y2 w260 vARCMFLT gARCMFLT,
-Gui,Add,Button,x350 y3 w15 h17 vARCLRFLT gARCLRFLT,X
+Gui,Add,Button,x350 y3 w15 h15 vARCLRFLT gARCLRFLT,X
 Gui,Add,Button,x9 y32 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
 Gui,Add,DropDownList, hwndDplHndl122 x24 y51 w138 vARCCORES gArcCores, Emu_Preset||%runlist%
 Gui, Add, Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
 Gui, Add, CheckBox, x169 y64 h13 vDOWNONLY gDownOnly, Download Only
+Gui, Add, CheckBox, x189 y78 h13 vstrmvid gSTRMVID hidden, Stream
 Gui, Add, Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
 Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
@@ -3055,11 +3084,11 @@ gui,Font,Normal
 gui, add, Radio, x32 y287 h13 vAincTog gAincTog checked,Include
 gui, add, Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
 Gui,Add,DropDownList, hwndDplHndl124 x124 y324 w199 vSRCHDDL gSRCHDDL, All||%syslist%
-Gui, Add, Button, x329 y326 w18 h18 vExpndASrch gExpndASrch hidden,+
+Gui, Add, Button, x329 y326 w15 h15 vExpndASrch gExpndASrch hidden,+
 Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
-Gui, Add, Button, x650 y3 w61 h18 vCLIPURL gClipURL, CLIP URL
+Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
 Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
@@ -5189,6 +5218,7 @@ Loop, Parse, SysLLst,`n`r
 			}
 	}
 return
+
 ASCFG:
 gui,submit,nohide
 guicontrolget,RCLSYSTEM,,RUNSYSDDL
@@ -5219,6 +5249,7 @@ Loop, Parse, allsupsys,`n`r
 	}
 gosub, ADDCORE
 return
+
 ASEMUCFG:
 guicontrolget,SEMURUN,,LCORE
 ifinstring,SEMURUN,_libretro.dll
@@ -5247,6 +5278,7 @@ gosub,SYSNICK
 LBEX_SELECTSTRING(trxvail,SEMURUN)
 guicontrol, Focus, UAVAIL
 gosub, UAvailSel
+
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
 stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
@@ -6142,6 +6174,22 @@ SB_SetText("Explorer is opening Assets" "\" FEDDLA "\" curtxt "\" FEDDLE "")
 return
 Renamesave_image:
 sbrim= 1
+gosub,reinvimg
+return
+Export_RETROARCH:
+sbrim=
+gosub,reinvimg
+return
+Export_Pegasus:
+sbrim=
+gosub,reinvimg
+return
+Export_EmulationStation:
+sbrim=
+gosub,reinvimg
+return
+Export_retroFE:
+sbrim=
 gosub,reinvimg
 return
 Export_image:
@@ -9071,6 +9119,70 @@ exe_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = 
 			}
 	}
 return
+exen_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT = "")
+	{
+		Global $exeg_pid
+		StringReplace, $URL, $URL, "&", "^&", All
+		;;$CMD = "%$ARIA%" --always-resume=false --http-no-cache=true --allow-overwrite=true --stop-with-process=%$SAG% --truncate-console-readout=false --check-certificate=false --dir="%$TARGET%" --out="%$FNM%" "%$URL%" 1>"%$CACHESTAT%\%$FNM%.status" 2>&1
+		$CMD = "%$ARIA%" -i uri.txt 1>"%$CACHESTAT%\%$FNM%.status" 2>&1
+		Run, %comspec% /c "%$CMD%",,hide,$exeg_pid
+		Process, Exist, %$exeg_pid%
+		$lastline = 
+		while ErrorLevel != 0
+			{
+				Loop Read, %$CACHESTAT%\%$FNM%.status
+					{
+						L = %A_LoopReadLine%						
+						if ( InStr(L, `%) != 0 )
+							{
+								StringSplit, DownloadInfo, L, (`%,
+								StringLeft, L1, DownloadInfo2, 3
+								stringsplit,tosb,DownloadInfo1,/%A_Space%
+								stringsplit,spr,DownloadInfo3,%A_Space%:,]
+								SB_SetText("" spr5 "ps " tosb2 "/" tosb3 " [" spr7 "]")
+								if ( L1 = "100" )
+									{
+										Guicontrol, ,utlPRGA, 0
+										Guicontrol, ,ARCDPRGRS, 0
+										Guicontrol, ,DWNPRGRS, 0
+										Guicontrol, ,FEPRGA, 0
+										Break
+									}
+							}
+						if ( InStr(L, `%) = 0 )
+							{	
+								L = 0
+							}
+					}
+				if ( L1 is digit )
+				Guicontrol, ,utlPRGA, %L1%
+				Guicontrol, ,ARCDPRGRS, %L1%
+				Guicontrol, ,DWNPRGRS, %L1%
+				Guicontrol, ,FEPRGA, %L1%
+				Process, Exist, %$exeg_pid%
+				Sleep, 50
+			}
+		sleep 200
+		FileGetSize, d_size, %$TARGET%\%$FNM%
+		if d_size > 0
+			{
+				FileDelete, %$CACHESTAT%\%$FNM%.status
+				FileDelete, uri.txt
+				Return true
+			}
+		else
+			{
+				SB_SetText(" " FNM ".status being deleted")
+				FileRead,statdel,%$CACHESTAT%\%$FNM%.status
+				;;fileappend,%statdel%,%$CACHESTAT%\%$FNM%.log
+				fileappend,%statdel%,%$FNM%.log
+				statdel=				
+				FileDelete, %$CACHESTAT%\%$FNM%.status
+				FileDelete, uri.txt
+				Return false
+			}
+	}
+return
 
 DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True)
 	{
@@ -10204,6 +10316,7 @@ Loop, Parse,UrlIndex,`n`r
 						GuiControl, Disable, CNCLDWN
 						return
 					}
+				feavail= 
 				Loop, Parse, AllPartSet,`n`r
 					{
 						if (A_LoopField = "")
@@ -10226,7 +10339,12 @@ Loop, Parse,UrlIndex,`n`r
 				guicontrol,,EINSTLOC,%xtractmfp%
 				guicontrolget,INSTLTYP,,SaList
 				if (INSTLTYP = "Frontends")
-					{
+					{	
+						if (instr(fesup,slmf1)&& !instr(feavail,slmf1))
+							{
+								Menu, rjscopy, Add, Export to %slfm1%, Export_%slfm1%
+								feavail.= slfm1 . "|"
+							}
 						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%slfm1%
 					}
 				if (INSTLTYP = "Utilities")
@@ -11767,7 +11885,12 @@ Loop, Parse, UAVAIL,|
 				iniwrite, "%EMUINSTLOCT%",apps.ini,UTILITIES,%semu%
 			}
 		if (systatus = "Frontends")
-			{
+			{					
+				if (instr(fesup,semu)&& !instr(feavail,semu))
+					{
+						Menu, rjscopy, Add, Export to %semu%, Export_%semu%
+						feavail.= semu . "|"
+					}
 				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
 			}
 	}
@@ -12081,6 +12204,7 @@ if ((ovrob <> "ERROR") and (ovrob <> ""))
 	}
 gosub, SysNick
 return
+
 Emu_popasgn:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
@@ -14737,7 +14861,16 @@ iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
 iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
 iniread,racht,Apps.ini,EMULATORS,retroarch
 if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
-	{
+	{		
+		iniread,fealn,apps.ini,EMULATORS,retroarch
+		if ((fealn <> "")&&(fealn <> "ERROR"))
+			{
+				ifnotinstring,feavail,retroarch
+					{
+						Menu, rjscopy, Add, Export to retroarch, Export_retroarch
+						feavail.= "retroarch" . "|"
+					}
+			}
 		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
 	}
 iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
@@ -29528,6 +29661,11 @@ Loop, Parse, FEPartSet,`n`r
 						iniread,fetmp,apps.ini,HTPC_FRONTENDS,%emupx1%
 						if (fetmp = "ERROR")
 							{
+								if (instr(fesup,emupx1)&& !instr(feavail,emupx1))
+									{
+										Menu, rjscopy, Add, Export to %emupx1%, Export_%emupx1%
+										feavail.= emupx1 . "|"
+									}
 								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
 							}
 						stringreplace,fexelst,fexelst,%emupx1%>%emunmz%,,All
@@ -29691,6 +29829,11 @@ Loop, parse, farvr,`n`r
 										IniWrite, "%emuxefp%",apps.ini,HTPC_FRONTENDS,%splemu1%
 									}
 							}
+						if (instr(fesup,splemu1)&& !instr(feavail,splemu1))
+							{
+								Menu, rjscopy, Add, Export to %splemu1%, Export_%splemu1%
+								feavail.= splemu1 . "|"
+							}	
 					}
 			}
 		Loop, Parse, emuxelst,|
@@ -29745,6 +29888,15 @@ if (fileexist(ratstchk))
 		if (INITIAL <> 1)
 			{
 				emunumtot+=1
+				iniread,fealn,apps.ini,EMULATORS,retroarch
+				if ((fealn <> "")&&(fealn <> "ERROR"))
+					{
+						ifnotinstring,feavail,retroarch
+							{
+								Menu, rjscopy, Add, Export to retroarch, Export_retroarch
+								feavail.= "retroarch" . "|"
+							}
+					}
 				IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
 				IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
 				IniWrite, "%raexeloc%\%raexefile%",Assignments.ini,Assignments,retroarch
@@ -32850,7 +33002,7 @@ if (fenam = "Pegasus")
 			{
 				PGHOME= %RJEMUD%\Pegasus\config
 			}
-		Loop, read, %PGHOME%\game_dirs.txt
+		Loop, read, %PGHOME%\metadata.pegasus.txt
 			{
 				if (A_LoopReadline = "")
 					{
@@ -32884,6 +33036,8 @@ if (fenam = "Pegasus")
 						continue
 					}
 			}
+		stringsplit,ffa,A_LoopField,=
+		pgcommon.=	ffa1 . "|"
 		stringreplace,PGPLPLST,PGPLPLST,||,|,All
 		stringreplace,pgcommon,pgcommon,||,|,All
 		if (PGRPOPPL = 1)
@@ -33034,6 +33188,8 @@ if (fenam = "RetroFE")
 		return
 	}
 return
+
+
 HideOtherFEPL:
 guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%%systmfldrs%
 Loop,Parse,ESPLITEMS,|
@@ -33051,6 +33207,7 @@ Loop,Parse,RFPLITEMS,|
 		guicontrol,%opltog%,%A_LoopField%
 	}
 return
+
 CURPLST:
 gui,submit,nohide
 guicontrolget,CURPLST,,CURPLST
@@ -33101,6 +33258,7 @@ if (RPDND = 1)
 		Guicontrol,,ESCPYSCR,1
 	}
 return
+
 PLALSYSBUT:
 guicontrol,,Fltxt
 Loop, Files, %RJSYSTEMS%\*,DR
@@ -33110,6 +33268,7 @@ Loop, Files, %RJSYSTEMS%\*,DR
 			}
 	}
 return
+
 Recurse:
 gui,submit,nohide
 guicontrol, hide, EXTPARSED
@@ -33137,6 +33296,7 @@ if (RECURSE = 1)
 	}
 gosub, PopDownloads
 return
+
 RPopPl:
 gui,submit,nohide
 guicontrol, hide, RECURSE
@@ -33207,6 +33367,7 @@ guicontrol,,CURPLST,|
 existingpop=
 POPLDWN=
 return
+
 ClearROMPop:
 popPlist=
 poptl=
@@ -33236,6 +33397,7 @@ POPLDWN=
 noadpl=
 gui, submit, nohide
 return
+
 CorePLInfo:
 gui, submit, nohide
 guicontrolget,plcortmp,,PLCORE
@@ -34551,6 +34713,7 @@ if (core_gui <> ARCCORES)
 		gosub, ShowOnlyEmuGui
 	}
 return
+
 MatchSyst:
 coretograb= 
 IniRead,stevr,sets\EmuCfgPresets.set,%EXTRSYS%,SUPCORE
@@ -34739,6 +34902,8 @@ if (DOWNONLY = 1)
 		guicontrol,,ARCLNCH,Download
 		guicontrol,Disable,ARCNCT
 		guicontrol,Disable,ARCHOST
+		guicontrol,hide,strmvid
+		guicontrol,,strmvid,0
 		if (tmpsr <> "")
 			{
 				guicontrol,enable,ARCLNCH
@@ -34754,6 +34919,7 @@ if (DOWNONLY = 1)
 		ARCSEL= 1
 		return
 	}
+	
 PostMessage, 0x185, 1, -1, SRCHSLT  ; Select all items. 0x185 is LB_SETSEL.
 PostMessage, 0x185, 0, -1, SRCHSLT  ; Deselect all items.
 GuiControl, Choose, SRCHSLT,0
@@ -34770,6 +34936,20 @@ if (ARCCORES = "")
 	}
 norun=
 return
+
+STRMVID:
+gui,submit,nohide
+guicontrolget,STRMVID,,STRMVID
+guicontrol,,DOWNONLY,0
+guicontrol,,ARCLNCH,STREAM ::>
+if (STRMVID = 0)
+	{
+		guicontrol,,ARCLNCH,PLAY ::>
+	}
+gosub,DownOnly
+return
+
+
 
 REPOUrlEdt:
 gui,submit,nohide
@@ -35206,7 +35386,7 @@ if (ExpndASrch = "")
 		guicontrol,hide,ARCGSYS
 		guicontrol,move,SETOVD,x360 y136 w59 h17
 		guicontrol,move,OVDLDS,x430 y131 w254
-		guicontrol,move,ExpndASrch,x19 y480 w18 h18
+		guicontrol,move,ExpndASrch,x19 y480 w15 h15
 		guicontrol,move,SRCHRSLT,x24 y157 w710 h325
 		guicontrol,move,SRCHEDT,x350 y19 w310 h21
 		guicontrol,move,SearchArc,x662 y19 w75 h23
@@ -35236,7 +35416,7 @@ guicontrol,move,SETOVD,x25 y157 w59 h17
 guicontrol,move,OVDLDS,x87 y155 w254
 guicontrol,move,AincTog,x32 y287 w62 h13
 guicontrol,move,AexcTog,x93 y287 w62 h13
-guicontrol,move,ExpndASrch,x329 y326 w18 h18
+guicontrol,move,ExpndASrch,x329 y326 w15 h15
 guicontrol,move,SearchArc,x42 y323 w75 h23
 guicontrol,move,SRCHRSLT,x24 y346 w320 h147
 guicontrol,move,SRCHEDT,x28 y302 w310 h21
@@ -35363,6 +35543,7 @@ genlst=
 gui,submit,nohide
 guicontrol,enable,RNMJACK
 guicontrolget,EXTRSYS,,ARCSYS
+guicontrolget,DOWNONLY,,DOWNONLY
 guicontrolget,tmprm,,ARCPOP
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
@@ -35373,6 +35554,10 @@ arcpnum=
 norun=
 Loop, parse, tmprm,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		arcpnum+=1
 						  
 		if (arcpnum > 1)
@@ -35403,7 +35588,7 @@ if (DownOnly = 0)
 		GuiControl, ChooseString, ARCPOP, %arcpopcul%
 		krbrk=
 		arcpnum=
-		searchparams= %SRCHMET%\%HACKAPN%%ARCSYS%.gam
+		searchparams= %SRCHMET%\%HACKAPN%%EXTRSYS%.gam
 		if (opndgam = 1)
 			{
 				searchparams= %addrplst%
@@ -35419,8 +35604,12 @@ if (DownOnly = 0)
 						Loop, 12
 							{
 								aftpth%A_Index%=
-							}										 
+							}
 						stringsplit,aftpth,A_LoopReadLine,|
+						if (aftpth2 = "")
+							{
+								continue
+							}
 						if (aftpth8 = "$")
 							{
 								if (ARC_USER = "")
@@ -35454,8 +35643,12 @@ if (DownOnly = 0)
 								if ((aftpth5 <> "") && (aftpth5 <> " "))
 									{
 										ARCSYS:= aftpth5
-										EXTRSYS:= ARCSYS
+										;;EXTRSYS:= ARCSYS
 										guicontrol,,ARCSYS,|%EXTRSYS%||%syslist%
+									}
+								if (instr(aftpth5,"Movies")or instr(aftpth5,"Television")or (aftpth5 = "Video - Media"))
+									{
+										guicontrol,show,strmvid
 									}
 								if ((arcpopcul = ARCSYS) && instr(aftpth3,">")&& instr(aftpth3,"<"))
 									{
@@ -35934,6 +36127,8 @@ gui, submit, nohide
 guicontrol,hide,ENHAK
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 overrdx:= % (%urlsv%_EULA)
+guicontrol,,STRMVID,0
+guicontrol,hide,STRMVID
 guicontrol,,ENHAK,0
 guicontrol,,ARCMFLT,
 ifinstring,hacksyst,%ARCSYS%
@@ -36127,8 +36322,14 @@ if (lnchparam = "ERROR")
 		guicontrol,,RUNXTRACT,1
 		guicontrol,show,RNMJACK
 		guicontrol,,ARCMOVE,0
+		if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media"))
+			{
+				iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,Video - Media
+				guicontrol,show,strmvid
+			}
 	}
-else {
+if (lnchparam <> "ERROR")
+	{
 		stringsplit,aprm,lnchparam,|
 		if (aprm1 <> "$")
 			{
@@ -37157,6 +37358,7 @@ Loop, parse, romdwnlst,|
 					}
 				goto, EVEI
 			}
+		
 		gosub, RomDownload
 		EVEI:
 		guicontrol,enable,ARCSYS
@@ -37430,6 +37632,7 @@ if (tmpsr <> "")
 SB_SetText(" " URLFILE " in clipboard ")
 return
 
+
 RomDownload:
 rtryn:= 1
 RETRYTHR= 10
@@ -37441,6 +37644,10 @@ if (REDOWN = 1)
 				filemove,%save%,%cacheloc%\%romname%\%romtitle%.bak,1
 			}
 	}
+if (STRMVID = 1)
+	{
+		goto, ROMSTREAM
+	}	
 ifnotexist, %save%
 	{
 		if (REDOWN = 0)
@@ -37687,7 +37894,7 @@ ifnotexist, %save%
 	}
 Guicontrol, ,ARCDPRGRS, 0
 SB_SetText(" ")
-
+ROMSTREAM:
 if (cmdfun = 1)
 	{
 		If InStr(coreselv, "dosbox") or InStr(coreselv, "winbox")
@@ -37746,12 +37953,10 @@ if (HOSTING = 1)
 	{
 		return
 	}
-
 if (URLDWN = 1)
 	{
 		return
 	}
-
 if (APLA = 1)
 	{
 		if (norun = "")
@@ -51557,6 +51762,13 @@ if (pgfullscreen = "ERROR")
 		pgfscr= 0
 		pgfullscreen= false
 	}
+pgdet= 1
+IniRead, pgaltsrcs,PGcfg.ini,CONFIG,DetectPlaylists
+if (pgaltsrcs = "ERROR")
+	{
+		pgdet= 0
+		pgaltsrcs= false
+	}
 pgscr= 1
 IniRead, pgscraper,PGcfg.ini,CONFIG,scraper
 if (pgscraper = "ERROR")
@@ -51568,7 +51780,7 @@ if (pgscraper = "ERROR")
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    PG CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA, x537 y33 w60 h19
+guicontrol,move,FEBUTA, x527 y33 w70 h19
 guicontrol,,FEBUTA,Download
 guicontrol,%fetog%,FEBUTB
 guicontrol,enable,FEBUTB
@@ -51631,7 +51843,11 @@ guicontrol,%fetog%,FECHKE
 guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Scraper Enabled
-guicontrol,,FECHKE,%pgscr%
+guicontrol,%fetog%,FECHKF
+guicontrol,enable,FECHKF
+guicontrol,move,FECHKF,x642 y398 w120 h23
+guicontrol,,FECHKF,Detect Playlists
+guicontrol,,FECHKE,%pgdet%
 guicontrol,%fetog%,FEEDTA
 guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
@@ -51644,7 +51860,7 @@ guicontrol,,FEEDTB,
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
-guicontrol,,FEDDLD,|rj||%pgthemes%
+guicontrol,,FEDDLD,gameOS||%pgthemes%
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
@@ -51713,7 +51929,7 @@ guicontrol,,FETXTB,Remove
 guicontrol,%fetog%,FETXTK
 guicontrol,enable,FETXTK
 guicontrol,move,FETXTK,x597 y452 w106 h15
-guicontrol,,FETXTK,Load game_dirs.txt
+guicontrol,,FETXTK,Load System List
 guicontrol,%fetog%,FETXTC
 guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
@@ -51768,6 +51984,7 @@ if (FEDDLD = "")
 		SB_SetText("You need select a theme!")
 		return
 	}
+guicontrol,disable,FEBUTA
 pgteo=
 dwnovr= false
 if (FECHKC = 1)
@@ -51786,6 +52003,7 @@ iniRead,URLFILE,sets\themes.set,%FEDDLD%,PGTHEME
 if (URLFILE = "ERROR")
 	{
 		SB_SetText("This theme is not avaiable from the skeletonKey repository")
+		guicontrol,enable,FEBUTA
 		return
 	}
 save= rj\PG\%FEDDLD%.7z
@@ -51797,11 +52015,13 @@ filegetsize,pgtsz,%save%,K
 if (pgtsz < 1)
 	{
 		SB_SetText("Download Failed")
+		guicontrol,enable,FEBUTA
 		return
 	}
 ifnotexist,%save%
 	{
 		SB_SetText("Download Failed")
+		guicontrol,enable,FEBUTA
 		return
 	}
 if (pgteo = "")
@@ -51809,6 +52029,7 @@ if (pgteo = "")
 		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
 	}
 guicontrol,,FECBXA,|%PgNpts%
+guicontrol,enable,FEBUTA
 SB_SetText("Current theme is " PGTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
@@ -51902,6 +52123,10 @@ FileRead,pgcfg,sets\pgsettings.set
 stringreplace,pgcfg,pgcfg,[THEME],%FEDDLD%,All
 stringreplace,pgcfg,pgcfg,[PGSCR],%pgscraper%,All
 stringreplace,pgcfg,pgcfg,[PGFS],%pgfullscreen%,All
+stringreplace,pgcfg,pgcfg,[PGGOG],%pgaltsrcs%,All
+stringreplace,pgcfg,pgcfg,[PGSTM],%pgaltsrcs%,All
+stringreplace,pgcfg,pgcfg,[PGES],%pgaltsrcs%,All
+stringreplace,pgcfg,pgcfg,[PGAND],%pgaltsrcs%,All
 stringreplace,PGHOMER,PGHOME,\,/,All
 stringreplace,pgcfg,pgcfg,[PGHOME],%PGHOMER%,All
 if (FECHKB = 1)
@@ -51909,7 +52134,7 @@ if (FECHKB = 1)
 		FileMove,%PGHOME%\settings.txt,%PGHOME%\settings.txt.bak,1
 		FileMove,%PGHOME%\metafiles\metadata.pegasus.txt,%PGHOME%\metafiles\metadata.pegasus.txt.bak,1
 	}
-FileDelete,	%PGHOME%\metafiles\metadata.pegasus.txt
+FileDelete,%PGHOME%\metafiles\metadata.pegasus.txt
 filecopy,rj\PG\metadata.pegasus.txt,%PGHOME%\metafiles,%FECHKB%
 FileDelete,	%PGHOME%\settings.txt
 FileAppend,%pgcfg%,%PGHOME%\settings.txt
@@ -52715,13 +52940,14 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LOAD PG CONFIG   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTF:
 pgcfgtmp=
-FileSelectFile,pgcfgtmp,3,,Select the game_dirs.txt,
+FileSelectFile,pgcfgtmp,3,,Select the metadata.pegasus.txt
 if (pgcfgtmp = "")
 	{
 		return
 	}
-gosub,loadpgcfg
+gosub, loadpgcfg
 return
+
 loadpgcfg:
 PGLDPL=
 LOADEDCFG=
@@ -52762,12 +52988,25 @@ Loop, read, %pgcfgtmp%
 					{
 						continue
 					}
-				stringsplit,efx,A_LoopReadLine,:
-				if (efx1 = extensions)
+				stringsplit,efx,A_LoopReadLine,:,"
+				;"
+				if (efx1 = "directory")
+					{
+						pgdpth= %efx2%
+					}
+				if (efx1 = "collection")
+					{
+						pgcol= %efx2%
+					}
+				if (efx1 = "shortname")
+					{
+						pgssn= %efx2%
+					}
+				if (efx1 = "extensions")
 					{
 						pglt= %efx2%
 					}
-				if (efx1 = launch)
+				if (efx1 = "launch")
 					{
 						pgln=
 						ark1=
@@ -52810,6 +53049,7 @@ iniwrite, %LOADEDCFG%,rj\PG\loadsys.ini,GLOBAL
 iniwrite,%pgfullscreen%,rj\PG\loadsys.ini,CONFIG,FullScreen
 iniwrite,%pgscraper%,rj\PG\loadsys.ini,CONFIG,scraper
 iniwrite,%pgtheme%,rj\PG\loadsys.ini,CONFIG,theme
+iniwrite,%pgtheme%,rj\PG\loadsys.ini,CONFIG,DetectPlaylists
 iniwrite,%PGHOME%,rj\PG\loadsys.ini,CONFIG,home_directory
 guicontrol,,FELBXA,|%PGTOPOP%
 iniwrite,%PGTOPOP%,rj\PG\loadsys.ini,ORDER,system_order
@@ -53280,6 +53520,15 @@ if (FECHKD = 1)
 iniwrite,%pgfullscreen%,PGcfg.ini,CONFIG,fullscreen
 return
 PegasusFECHKF:
+gui,submit,nohide
+pgaltsrcs= false
+if (FECHKF = 1)
+	{
+		pgaltsrcs= true
+	}
+iniwrite,%pgaltsrcs%,PGcfg.ini,CONFIG,DetectPlaylists
+return
+
 return
 PegasusFERAD2B:
 return
@@ -65086,7 +65335,7 @@ Loop
 		If ( RowNumber = RowChecked )
 		   {
 				LV_Modify(RowNumber, "-Check")
-				stringreplace,FE_TDB,FE_TDB,%curtxt%|1,%curtxt%|0,All
+				stringreplace,FE_TDB,FE_TDB,%curtxt%|1,%curtxt%|0,Alsl
 			}
 		Else
 			{
@@ -65217,11 +65466,11 @@ Loop, Parse, esmlist,|
 			}
 	}
 guicontrol,enable,FEPICA
-guicontrol,move,FEPICA,x590 y70 w169 h138
+guicontrol,move,FEPICA,x495 y5 w240 h205
 guicontrol,,FEPICA,
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA,x368 y463 w93 h23
+guicontrol,move,FEBUTA,x458 y420 w83 h33
 guicontrol,,FEBUTA,Download
 gui,font,Bold
 Guicontrol,font,FEBUTA
@@ -65280,14 +65529,14 @@ guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python not detec
 guicontrol,move,FELNKB,x435 y5 w137 h13
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
-guicontrol,move,FELNKA,x379 y208 w128 h13
+guicontrol,move,FELNKA,x289 y208 w128 h13
 guicontrol,enable,FEEDTA
 guicontrol,hide,FEEDTA
-guicontrol,move,FEEDTA,x341 y158 w186 h21
+guicontrol,move,FEEDTA,x341 y158 w100 h21
 guicontrol,,FEEDTA,%ssuser%
 guicontrol,enable,FEEDTB
 guicontrol,hide,FEEDTB
-guicontrol,move,FEEDTB,x341 y180 w186 h21
+guicontrol,move,FEEDTB,x341 y180 w100 h21
 guicontrol,+password,FEEDTB
 guicontrol,,FEEDTB,%sspassw%
 guicontrol,enable,FEEDTC
@@ -65309,6 +65558,7 @@ guicontrol,,FECBXA,|ImageName||
 guicontrol,enable,FECBXA
 guicontrol,move,FECBXA,x444 y89 w100 h21
 guicontrol,hide,FECBXB
+guicontrol,+Right,FECBXB
 guicontrol,,FECBXB,|
 guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x565 y474 w171
@@ -65345,7 +65595,7 @@ guicontrol,move,FECHKP, x466 y243 w80 h13
 guicontrol,,FECHKP,Photos
 guicontrol,%fetog%,FECHKF
 guicontrol,enable,FECHKF
-guicontrol,move,FECHKF,x591 y323 w80 h13
+guicontrol,move,FECHKF,x385 y323 w80 h13
 guicontrol,,FECHKF,Overwrite
 guicontrol,%fetog%,FECHKG
 guicontrol,enable,FECHKG
@@ -65384,19 +65634,19 @@ guicontrol,,FECHKM,Marquee
 guicontrol,hide,FECHKM
 guicontrol,%fetog%,FECHKN
 guicontrol,enable,FECHKN
-guicontrol,move,FECHKN,x385 y423 w82 h13
+guicontrol,move,FECHKN,x285 y423 w82 h13
 guicontrol,,FECHKN,Redundancy
 guicontrol,hide,FECHKN
 guicontrol,hide,FECHKO
 guicontrol,enable,FECHKO
-guicontrol,move,FECHKO,x360	 y62 w69 h13
+guicontrol,move,FECHKO,x265 y463 w69 h13
 guicontrol,,FECHKO,Scrape to
 ;};;;;;
 ;{;;;; DROPDOWNS ;;;;;;
 guicontrol,hide,FEDDLG
 guicontrol,enable,FEDDLG
-guicontrol,move,FEDDLG,x430 y58 w130
-guicontrol,,FEDDLG,|Jackets||retroArch|EmulationStation|RetroFE|Pegasus
+guicontrol,move,FEDDLG,x340 y460 w130
+guicontrol,,FEDDLG,|Jackets||%feavail%
 guicontrolget,FEDDLG,,FEDDLG
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
@@ -65557,7 +65807,7 @@ guicontrol,move,FETXTN,x470 y75 w88 h13
 guicontrol,,FETXTN,Image-Name
 ;};;;;;
 guicontrol,%fetog%,FEGRPA
-guicontrol,move,FEGRPA,x282 y133 w264 h98
+guicontrol,move,FEGRPA,x282 y133 w180 h98
 guicontrol,hide,FEGRPA
 guicontrol,,FEGRPA,ScreenScraper
 guicontrol,%fetog%,FEPRGA
@@ -65930,7 +66180,7 @@ if (FERAD2A = 1)
 						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 						;;DownloadFile(URLFILE,save, DWNOVR, True)
 						FileGetSize,imgsz,%save%,K
-						SB_SetText(" " A_LoopField " photoss downloaded")
+						SB_SetText(" " A_LoopField " photos downloaded")
 						if (imgsz < 1)
 							{
 								DWNFLD= 1
@@ -66096,7 +66346,14 @@ if (FERAD2C = 1)
 				rmfnpth= %A_LoopField%
 				splitpath,A_LoopField,romfnam,,,jaktit
 				realname= %jaktit%
-				SYSROMD= %FEDDLA%
+				if (FERAD2B = 1)
+					{
+						SYSROMD= %FEDDLA%
+					}
+				if (FERAD2C = 1)
+					{
+						SYSROMD= %romfnam%
+					}
 				SYSLKLOC= %RJSYSTEMS%\%SYSROMD%
 				REALSYS= %SYSROMD%
 				SCRPDIR= %SYSLKLOC%
@@ -66116,8 +66373,9 @@ batchdl=
 arpause= enable
 gosub,ARTPAUSE
 return
-;{;;;;;;;;;;;;;;;;   ROM SCRAPING   ;;;;;;;;;;;;;;;;;;
+
 JACKETSCRAPE:
+;{;;;;;;;;;;;;;;;;   ROM SCRAPING   ;;;;;;;;;;;;;;;;;;
 SYSLKUP= %FEDDLA%
 BROMSCRAPE:
 mameget=
@@ -66631,10 +66889,28 @@ Loop, %omitxtn0%
 	}
 if (FERAD2C = 1)
 	{
-		if (rmfnpth = "")
+		iniread,bbnbz,sets\EmuCfgPresets.set,%rmfnpth%,RJROMXT
+		if (bbnbz = "ERROR")
 			{
-				rmfnpth= *.*
+				krmswp= 1
+				bbnbz= %extpvr%
 			}
+		stringreplace bbnbz,bbnbz,.,,All
+		stringsplit,extpvx,bbnbz,`,
+		sxtn := Object()
+		Loop, %extpvx0%
+			{
+				new= % (extpvx%a_index%)
+				if (extpvx%a_index% <> "")
+					{
+						sxtn.insert(new)
+					}
+			}
+		;;if (rmfnpth = "")
+			;;{
+				rmfnpth= *.*
+			;;}
+			;;msgbox,,,SYSLKLOC=%SYSLKLOC%\rmfnpth=%rmfnpth%
 		Loop, %SYSLKLOC%\%rmfnpth%,0,1
 			{
 				if A_LoopFileAttrib contains H
@@ -66647,7 +66923,7 @@ if (FERAD2C = 1)
 						continue
 					}
 				noapl=
-				for k, v in ar
+				for k, v in sxtn
 					{
 						extm:= v
 						if (ext = extm)
@@ -66655,7 +66931,7 @@ if (FERAD2C = 1)
 								noapl= 1
 							}
 					}
-				if (noapl = 1)
+				if (noapl = krmswp)
 					{
 						continue
 					}
@@ -66716,22 +66992,22 @@ if (FERAD2C = 1)
 							{
 								gosub, DBSCRAPE
 								if (CNCLKUP = 1)
-										{
-											SB_SetText("Process Interrupted")
-											gosub, cleanprgb
-											break
-										}
+									{
+										SB_SetText("Process Interrupted")
+										gosub, cleanprgb
+										break
+									}
 								continue
 							}
 						if (ccnt1 = ccnv1)
 							{
 								gosub, DBSCRAPE
 								if (CNCLKUP = 1)
-										{
-									 		SB_SetText("Process Interrupted")
-											gosub, cleanprgb
-											break
-										}
+									{
+										SB_SetText("Process Interrupted")
+										gosub, cleanprgb
+										break
+									}
 								continue
 							}
 					}
@@ -66907,12 +67183,29 @@ RRDboxart:
 		if (getboxart = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%Boxartimgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					;;msgbox,,,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" "`ndir=%sysfrd%
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%thumbnailsDirectory%\%REALSYS%\%jaktit%.%scrsufx%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_image.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_image.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -66924,12 +67217,28 @@ RRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%Snapshotimgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%scrsufx%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_screen.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_screen.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_screen.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -66946,12 +67255,28 @@ RRDbackdrop:
 							artx=fly
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
-					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%Backdropimgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
+					RunWait, %comspec% cmd /c " "%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" ",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%scrsufx%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_fanart.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_fanart.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_fanart.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -66975,6 +67300,22 @@ RRDlogo:
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%scrsufx%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_logo.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_logo.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_logo.%scrsufx%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -66991,6 +67332,22 @@ RRD3dboxart:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%scrsufx%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_3dbox.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3dbox.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3dbox.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67014,6 +67371,22 @@ RRDcart:
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%scrsufx%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%.%Cartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_cart.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_cart.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_cart.%scrsufx%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67032,6 +67405,22 @@ RRDlabel:
 									if (Jackets_scrape = 1)
 										{
 											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%scrsufx%
+										}
+									if (EmulationStation_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_label.%scrsufx%
+										}
+									if (retroArch_scrape = 1)
+										{
+											;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+										}
+									if (retroFE_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_label.%scrsufx%
+										}
+									if (Pegasus_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_label.%scrsufx%
 										}
 								}
 						}
@@ -67053,6 +67442,22 @@ RRDbanner:
 											{
 												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
 											}
+										if (EmulationStation_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%scrsufx%
+											}
+										if (retroArch_scrape = 1)
+											{
+												;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+											}
+										if (retroFE_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%scrsufx%
+											}
+										if (Pegasus_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_banner.%scrsufx%
+											}
 									}
 						}
 					if (FECHKN = 1)
@@ -67073,6 +67478,22 @@ RRD3mix:
 										{
 											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3Mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%scrsufx%
 										}
+									if (EmulationStation_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-3mix.%scrsufx%
+										}
+									if (retroArch_scrape = 1)
+										{
+											;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+										}
+									if (retroFE_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3mix.%scrsufx%
+										}
+									if (Pegasus_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3mix.%scrsufx%
+										}
 								}
 					}
 					if (FECHKN = 1)
@@ -67092,6 +67513,22 @@ RRD4mix:
 									if (Jackets_scrape = 1)
 										{
 											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%scrsufx%
+										}
+									if (EmulationStation_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-4mix.%scrsufx%
+										}
+									if (retroArch_scrape = 1)
+										{
+											;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+										}
+									if (retroFE_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_4mix.%scrsufx%
+										}
+									if (Pegasus_scrape = 1)
+										{
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_4mix.%scrsufx%
 										}
 								}
 						}
@@ -67119,6 +67556,22 @@ RRDmarquee:
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-marquee.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_marquee.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_marquee.%scrsufx%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67137,6 +67590,22 @@ RRDvid:
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.%scrsufx%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
+								}
+							if (retroArch_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
+								}
+							if (Pegasus_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67153,6 +67622,22 @@ RRDmetadata:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%eshome%\gamelists\%REALSYS%\%jaktit%.xml
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%.xml
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%.xml
 								}
 						}
 					if (FECHKN = 1)
@@ -67246,6 +67731,22 @@ JRDboxart:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Boxart\%realname%%scrsufx%.%Boxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%Boxartimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Boxartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Boxartimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_image.%Snapshotimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Boxartimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_image.%Snapshotimagefrmt%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67271,7 +67772,23 @@ JRDsnapshot:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Boxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%Boxartimagefrmt%
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Snapshotimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%Snapshotimagefrmt%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Snapshotimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_screen.%Snapshotimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Snapshotimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_screen.%Snapshotimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Snapshotimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_screen.%Snapshotimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67305,6 +67822,22 @@ JRDbackdrop:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%backdropimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_fanart.%backdropimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_fanart.%backdropimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_fanart.%backdropimagefrmt%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67337,6 +67870,22 @@ JRDlogo:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%logoimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_logo.%logoimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_logo.%logoimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_logo.%logoimagefrmt%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67363,6 +67912,22 @@ JRD3dboxart:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%3dboximagefrmt%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_3dbox.%3dboximagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3dbox.%3dboximagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3dbox.%3dboximagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67396,6 +67961,22 @@ JRDcart:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%Cartimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_cart.%Cartimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_cart.%Cartimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_cart.%Cartimagefrmt%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67426,6 +68007,22 @@ JRDlabel:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%Labelimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_label.%Labelimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_label.%Labelimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_label.%Labelimagefrmt%
+								}
 						}	
 					if (FECHKN = 1)
 						{
@@ -67455,6 +68052,22 @@ JRDbanner:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%marqueeimagefrmt%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%marqueeimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%marqueeimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_banner.%marqueeimagefrmt%
 								}
 						}		
 					if (FECHKN = 1)
@@ -67490,6 +68103,22 @@ JRD3mix:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\3Mix\%realname%%scrsufx%.%3miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%3miximagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-3mix.%3miximagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3mix.%3miximagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3mix.%3miximagefrmt%
+								}
 						}			
 				}
 JRD4mix:
@@ -67515,6 +68144,22 @@ JRD4mix:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%4miximagefrmt%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-4mix.%4miximagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_4mix.%4miximagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_4mix.%4miximagefrmt%
 								}
 						}				
 					if (FECHKN = 1)
@@ -67561,6 +68206,22 @@ JRDmarquee:
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%Marqueeimagefrmt%
 								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-marquee.%Marqueeimagefrmt%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_marquee.%Marqueeimagefrmt%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_marquee.%Marqueeimagefrmt%
+								}
 						}
 					if (FECHKN = 1)
 						{
@@ -67587,6 +68248,22 @@ JRDvideo:
 							if (Jackets_scrape = 1)
 								{
 									FileCopy,%ASSETS%\%REALSYS%\%realname%\Videos\%realname%%scrsufx%.mp4,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.mp4
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
+								}
+							if (retroArch_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
+								}
+							if (Pegasus_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
 								}
 						}
 					if (FECHKN = 1)
@@ -67726,7 +68403,7 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 								ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 									{
 										SB_SetText("Downloading " realname " Video")
-										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i --id "%xlmb3%" --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
+										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i -c --id "%xlmb3%" --no-check-certificate --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
 										FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
 										if (imgsz < 1)
 											{
@@ -67785,7 +68462,9 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 		ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%urlf%
 			{
 				splitpath,save,svaf,svap
-				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+				fileappend, %URLFILE%`n%A_Space%%A_Space%always-resume=false`n%A_Space%%A_Space%http-no-cache=true`n%A_Space%%A_Space%allow-overwrite=true`n%A_Space%%A_Space%stop-with-process=%CURPID%`n,uri.txt
+				fileappend, %A_Space%%A_Space%truncate-console-readout=false`n%A_Space%%A_Space%check-certificate=false`n%A_Space%%A_Space%dir=%svap%`n%A_Space%%A_Space%out=%svaf%,uri.txt
+				exen_get(ARIA,,,,,cacheloc)
 				;;DownloadFile(URLFILE, save, DWNOVR, True)
 				ifNotExist, %save%
 					{
@@ -68066,8 +68745,16 @@ return
 MediaFELBXB:
 gui,submit,nohide
 guicontrolget,imgdat,,FELBXB
-guicontrol,,FEPICA,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%
-guicontrol,move,FEPICA,x590 y70 w169 h138
+if (FERAD2B = 1)
+	{
+		guicontrol,,FEPICA,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%
+	}
+	else {
+		guicontrolget,FECBXB,,FECBXB
+		guicontrolget,FEDDLE,,FEDDLE
+		guicontrol,,FEPICA,%FECBXB%\%FEDDLE%\%imgdat%
+	}
+guicontrol,move,FEPICA,x505 y5 w240 h205
 return
 MediaFELBXA:
 gui,submit,nohide
@@ -68210,6 +68897,7 @@ SCRIMGHEIGHT:
 iniwrite,%FEEDTD%,mediafe.ini,CONFIG,%GRANDORDER%_image_height
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
+
 MediaFEDDLA:
 mfedlachn= %FEDDLA%
 guicontrolget,FEDDLA,,FEDDLA
@@ -68219,7 +68907,12 @@ if (fromcfg = 1)
 	}
 Gui,ListView,FELVA
 if (FERAD2B = 1)
-	{
+	{	
+		if ((FEDDLA = "Systems")or (FEDDLA = ""))
+			{
+				SB_SetText("Select a System")
+				return
+			}
 		Gui,ListView,FELVA
 		LV_Delete()
 		Loop, %RJSYSTEMS%\%FEDDLA%\*,2
@@ -68248,7 +68941,25 @@ if (FERAD2A = 1)
 	}
 if (FERAD2C = 1)
 	{
+		guicontrolget,FECBXB,,FECBXB
+		
 		stringsplit,omitxtn,omitxt,= | ""
+		menr= 
+		Loop, %FECBXB%\*,2
+			{
+				if (A_Index = 1)
+					{
+						fen= %A_LoopFileName%
+					}
+				menr.= A_LoopFileName . "|"
+			}
+		guicontrol,,FEDDLE,|%menr%
+		guicontrolget,FEDDLE,,FEDDLE
+		if (FEDDLE = "")
+			{
+				SB_SetText("Select a folder")
+				return
+			}
 		ar := Object()
 		Loop, %omitxtn0%
 			{
@@ -68258,8 +68969,8 @@ if (FERAD2C = 1)
 						ar.insert(new)
 					}
 			}
-		LV_Delete()
-		Loop, %RJSYSTEMS%\%FEDDLA%\*.*,0,1
+		nrnr= 	
+		Loop, %FECBXB%\%FEDDLE%\*.*,0,1
 			{
 				if A_LoopFileAttrib contains H
 					{
@@ -68281,13 +68992,15 @@ if (FERAD2C = 1)
 						}
 					if (noapl = "")
 						{
-							stringreplace,lving,A_LoopFileFullPath,%RJSYSTEMS%\%FEDDLA%\,,All
-							LV_Add("",A_LoopFileName)
+							stringreplace,lving,A_LoopFileFullPath,%RJSYSTEMS%\%curtxt%\,,All
+							nrnr.= A_LoopFileName . "|"
+							
 						}
 			}
-		LV_ModifyCol()
+			guicontrol,,FELBXB,|%nrnr%
 	}
 return
+
 MediaFEDDLE:
 Gui,ListView,FELVA
 guicontrolget,FEDDLE,,FEDDLE
@@ -68302,7 +69015,27 @@ Loop
 			}
 		LV_GetNext(RowNumber, Focused)
 		LV_GetText(curtxt, RowNumber)
-		gosub, MEDIMGPOP
+		if (FERAD2B = 1)
+			{
+				gosub, MEDIMGPOP
+			}
+		if (FERAD2C = 1)
+			{
+				guicontrolget,FECBXB,,FECBXB
+				dianew=
+				anbe= 
+				AvINNG= 
+				Loop, %FECBXB%\%FEDDLE%\*.*
+					{
+						ifinstring,imgonl,|%A_LoopFileExt%|
+							{
+								AvINNG.= A_LoopFileName . "|"
+								fibv= %A_LoopFileFullPath%							
+							}
+					}
+				dianew.= A_LoopFileFullPath . "|"
+			}
+			guicontrol,,FELBXB,|%AvINNG%
 	}
 return
 
@@ -68315,11 +69048,14 @@ if ((curtxn <> "") && (curtxn <> curtxt))
 	{
 		curtxt= %curtxn%
 	}
-Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*.*
+if (FERAD2B = 1)
 	{
-		SUBFFILES.= A_LoopFileName . "|"
+		Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*.*
+			{
+				SUBFFILES.= A_LoopFileName . "|"
+			}	
+		GuiControl,,FELBXB,|%SUBFFILES%
 	}
-GuiControl,,FELBXB,|%SUBFFILES%
 return
 
 MediaFEDDLC:
@@ -68458,6 +69194,8 @@ guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
 guicontrol,enable,FELVA
 guicontrol,enable,FEDDLD
+guicontrol,show,FETXTA
+guicontrol,show,FEDDLD
 guicontrol,enable,FERAD5B
 guicontrol,,FEDDLA,|Systems||
 Gui,ListView,FELVA
@@ -68475,6 +69213,7 @@ Loop, %RJSYSTEMS%\*,2
 	}
 LV_ModifyCol()
 return
+
 MediaFERAD2B:
 gui,submit,nohide
 guicontrol,enable,FECHKD
@@ -68498,18 +69237,28 @@ Loop, %RJSYSTEMS%\*,2
 				scrble.= A_LoopFileName . "|"
 			}
 		}
-guicontrol,,FEDDLA,|%scrpp%||%scrble%
+guicontrol,,FEDDLA,|Systems||%scrble%
 Gui,ListView,FELVA
 LV_Delete()
 if (PYEXIST = "")
 	{
 	}
 return
+
 MediaFERAD2C:
 fromcfg=
-guicontrol,,FEDDLA,|Systems||%systmfldrs%
+guicontrol,,FEDDLA,|
 gui,ListView,FELVA
 LV_Delete()
+loop,Parse,systmfldrs,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		LV_Add("",A_LoopFIeld)
+	}
+LV_ModifyCol()		
 guicontrol,hide,FERAD5A
 guicontrol,hide,FERAD5B
 guicontrol,hide,FETXTB
@@ -68522,7 +69271,7 @@ guicontrol,show,FEDDLG
 guicontrol,show,FEBUTM
 guicontrol,show,FECBXB
 guicontrol,show,FERAD2B
-guicontrol,move,FECHKF,x385 y440
+guicontrol,move,FECHKF,x285 y440
 guicontrol,,FECHKA,0
 guicontrol,,FECHKB,0
 guicontrol,,FECHKC,0
@@ -68544,6 +69293,8 @@ guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
 guicontrol,enable,FELVA
 guicontrol,disable,FERAD5B
+guicontrol,hide,FETXTA
+guicontrol,hide,FEDDLD
 guicontrol,disable,FEDDLD
 return
 MediaFEBUTL:
@@ -68566,7 +69317,6 @@ if (ASTDV = "")
 	}
 guicontrol,,FECBXB,|%ASTDV%||
 guicontrol,,FEDDLE,|
-imgonl= |png|jpg|svg|bmp|jpeg|gif|
 ijv= 
 Loop, %ASTDV%\*.*
 	{
@@ -68576,9 +69326,6 @@ Loop, %ASTDV%\*.*
 			}
 	}
 guicontrol,,FELBXB,|%ijv%
-return	
-MedaiFELBXB:
-;;showimage;;
 return
 MediaFERAD4A:
 guicontrolget,FEDDLC,,FEDDLC
@@ -68621,6 +69368,7 @@ return
 MediaFERAD5A:
 guicontrol,enable,FELVA
 return
+
 MediaFERAD7B:
 scrlrset=
 guicontrol,enable,FELVA
@@ -68687,9 +69435,11 @@ Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*.*
 	}
 guicontrol,,FELBXB,|%submeds%
 return
+
 MediaFEPICA:
 gosub, MEDIATOOLTIP
 return
+
 MediaFEBUTH:
 if (FEUPDCn < 1)
 {
@@ -68698,6 +69448,7 @@ if (FEUPDCn < 1)
 FEUPDCn-=1
 gosub, FLDRCARRIER
 return
+
 MediaFEBUTG:
 if (FEUPDCn > 9)
 {
@@ -68706,9 +69457,11 @@ if (FEUPDCn > 9)
 FEUPDCn+=1
 gosub, FLDRCARRIER
 return
+
 MediaFEBUTI:
 CNCLKUP= 1
 return
+
 FLDRCARRIER:
 curtxt=
 goto, medpoppic
@@ -68717,12 +69470,23 @@ if ("" = "")
 		SB_SetText("foldername")
 	}
 return
+
 medpoppic:
 tmpic=
 fuzn=
 afuzn=
 tmpfldr= Global|
-Loop,%ASSETS%\%FEDDLA%\%srchsh%*,2
+if (FERAD2B = 1)
+	{
+		systmem= %FEDDLA%
+		febe= %ASSETS%\%FEDDLA%\%srchsh%
+	}
+if (FERAD2C = 1)
+	{
+		systmem= %curtxt%
+		guicontrolget,febe,,FECBXB
+	}
+Loop,%febe%*,2
 	{
 		fuzn+= 1
 		fldrnm= %A_LoopFileName%
@@ -68736,8 +69500,8 @@ Loop,%ASSETS%\%FEDDLA%\%srchsh%*,2
 					if (A_LoopFileName = "BoxArt")
 						{
 							tmpfldr= %A_LoopFileName%|
-							cfils=
-							Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*.*
+								cfils=
+							Loop, %febe%\%FEDDLE%\*.*
 								{
 									cfils.= A_LoopFileName . "|"
 								}
@@ -68756,12 +69520,12 @@ Loop,%ASSETS%\%FEDDLA%\%srchsh%*,2
 if (afuzn > fuzn)
 		{
 			FEUPDCn=
-			Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*,2
+			Loop, %febe%\%FEDDLE%\*,2
 				{
 					if (A_LoopFileName = "BoxArt")
 						{
 							cfils=
-							Loop, %ASSETS%\%FEDDLA%\%fldrnm%\%tmpfldr%\*.*
+							Loop, %ASSETS%\%systmem%\%fldrnm%\%tmpfldr%\*.*
 								{
 									cfils.= A_LoopFileName . "|"
 								}
@@ -68778,6 +69542,7 @@ if (afuzn > fuzn)
 guicontrol,show,FEBUTG
 guicontrol,show,FEBUTH
 return
+
 MediaFERAD7A:
 MEDFLDDDWN:
 medlpn=
@@ -68791,6 +69556,7 @@ return
 MediaFERAD5B:
 guicontrol,disable,FELVA
 return
+
 MediaFELVA:
 gui,submit,nohide
 curtxt=
@@ -68810,6 +69576,7 @@ if	(ErrorLevel == "C")
 	   }
 curtxt=
 RowNumber = 0
+dialg= 
 Loop
 	{
 		RowNumber := LV_GetNext(RowNumber)
@@ -68819,19 +69586,76 @@ Loop
 			}
 		LV_GetNext(RowNumber, Focused)
 		LV_GetText(curtxt, RowNumber)
-		gosub, MEDIMGPOP
+		if (curtxt = "")
+			{
+				continue
+			}
+		if (FERAD2B = 1)
+			{
+				gosub, MEDIMGPOP
+			}
+		if (FERAD2C = 1)
+			{
+				dialg= 
+				Loop,%ASSETS%\%curtxt%\*,2
+					{
+						dialg.= A_LoopFilefullpath . "|"
+					}
+			}	
 	}
-ARINNG=
+ASINNG=
 splitpath,curtxt,,,,curtxn
 if ((curtxn <> "") && (curtxn <> curtxt))
 	{
 		curtxt= %curtxn%
 	}
-Loop, %ASSETS%\%FEDDLA%\%curtxt%\*,2
+if (FERAD2B = 1)
 	{
-		ARINNG.= A_LoopFileName . "|"
+		Loop, %ASSETS%\%FEDDLA%\%curtxt%\*,2
+			{
+				ASINNG.= A_LoopFileName . "|"
+			}
+		guicontrol,,FEDDLE,|Boxart||%ASINNG%
 	}
-guicontrol,,FEDDLE,|Boxart||%ARINNG%
+if (FERAD2C = 1)
+	{
+		dianew= 
+		anbe= 
+		ARINNG= 
+		Loop, parse, dialg,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				fibv= %A_LoopField%
+				/*
+				Loop,%A_LoopField%\*,2
+					{
+						Loop, %A_LoopField%\%A_LoopFileName%\*,2
+							{
+								if (anbe > 1)
+									{
+										break
+									}
+								if (A_Index = 1)
+									{
+										fibx= %a_Loopfilename%
+									}
+								ARINNG.= A_LoopFileName . "|"
+							}
+						if (ARINNG <> "")
+							{
+								anbe=2
+							}
+					}
+				*/	
+				dianew.= A_LoopField . "|"
+			}
+		;;guicontrol,,FEDDLE,|%fibx%||%ARINNG%
+		guicontrol,,FECBXB,|%fibv%||%dianew%
+		gosub, FEDDLE
+	}
 return
 MEDIATOOLTIP:
 gui,submit, nohide
@@ -76920,6 +77744,8 @@ if (coreselv = "Run with...")
 	{
 		goto,DDLS
 	}
+
+
 OVRAP:
 SplitPath,coreselv,cfn,cod,coe,con,cod
 if (coe <> "dll")
@@ -77031,6 +77857,7 @@ if (coe <> "dll")
 													}
 											}
 									}
+								
 							}
 						if (CSTINJOPT <> "")
 							{
@@ -77050,6 +77877,10 @@ if (coe <> "dll")
 							}
 					}
 			}
+		if (strmvid = 1)
+			{
+				stringreplace,RunOptions,RunOptions,[CUSTMOPT],--sout file/muxer:"[ROMPATH]\[ROMFILE]"%A_Space%,All
+			}
 		iniread,RunArgs,AppParams.ini,%coreselv%,arguments
 		iniread,omtxt,AppParams.ini,%coreselv%,extension
 		iniread,RunFrom,AppParams.ini,%coreselv%,run_location
@@ -77061,7 +77892,9 @@ if (coe <> "dll")
 		stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%%A_SPACE%,All
 		stringreplace,RunOptions,RunOptions,[ROMPATH],%A_SPACE%%rompth%%A_SPACE%,All
 		stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All
-		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,Allc`
+		stringreplace,RunArgs,RunArgs,[ROMFILE],%romtitle%,All
+		stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
+		stringreplace,RunOptions,RunOptions,[ROMFILE],%romtitle%,All
 		stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
 		if (DDRUN = 1)
 			{
@@ -78417,6 +79250,10 @@ ifinstring,RunOptions,[
 					}
 			}
 		else {
+			if (strmvid = 1)
+				{
+				 stringreplace,RunOptions,RunOptions,[CUSTMOPT],--sout file/muxer:"[ROMPATH]\[ROMFILE]",All
+				}
 			stringreplace,CUSTMOPT,CUSTMOPT,[CUSTMOPT],,All
 			stringreplace,CUSTMARG,CUSTMARG,[CUSTMARG],,All
 		}
@@ -78441,6 +79278,8 @@ stringreplace,RunOptions,RunOptions,[CUSTMOPT],%A_SPACE%%CUSTMOPT%,All
 stringreplace,RunArgs,RunArgs,[CUSTMARG],%A_SPACE%%CUSTMARG%,All
 stringreplace,RunOptions,RunOptions,[ROMPATH],%rompth%,All
 stringreplace,RunArgs,RunArgs,[ROMPATH],%rompth%,All
+stringreplace,RunArgs,RunArgs,[ROMFILE],%romtitle%,All
+stringreplace,RunOptions,RunOptions,[ROMFILE],%romtitle%,All
 SplitPath,OvrExtAs,emuexe,emupth,emuxtn,emuname,emudrv
 stringreplace,RunOptions,RunOptions,[EMUPATH],%emupth%,All
 stringreplace,RunArgs,RunArgs,[EMUPATH],%emupth%,All
@@ -78598,6 +79437,11 @@ if (EPGC = 1)
 						}
 			}
 	}
+if (STRMVID = 1)
+	{
+		RUNROM= %URLFILE%
+	}
+	
 splitpath,OvrExtAs,xenm,xenmp
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH

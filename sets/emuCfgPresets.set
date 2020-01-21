@@ -3733,10 +3733,30 @@ SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=ebook
 
-[Movies - TV - Video]
+[Video - Media]
 RJEMUPRESET=videoplayer
 RJMULTIDISC=
 SHORTNM=MLTMED
+SUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
+RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
+SUPCORE=
+LNCHPRM=$|1|1|0|1|1
+FENAM=videoplayer
+
+[Television - Series]
+RJEMUPRESET=videoplayer
+RJMULTIDISC=
+SHORTNM=TVSERIES
+SUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
+RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
+SUPCORE=
+LNCHPRM=$|1|1|0|1|1
+FENAM=videoplayer
+
+[Movies - Films]
+RJEMUPRESET=videoplayer
+RJMULTIDISC=
+SHORTNM=MOVFILM
 SUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
 RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
 SUPCORE=
@@ -7616,6 +7636,9 @@ EXENAM=NARL.exe
 [bottlenose]
 URLPTH=bottlenose/bottlenose.7z
 EXENAM=bottlenose.exe
+[attractMode]
+URLPTH=attractMode/attractMode[ARCH].7z
+EXENAM=attract.exe
 [emulationStation]
 URLPTH=emulationStation/emulationStation.7z
 EXENAM=emulationstation.exe
@@ -7633,7 +7656,7 @@ URLPTH=retroFE/retroFE.7z
 EXENAM=core\retroFe.exe
 [SimpleTouchFE]
 URLPTH=SimpleTouchFE/SimpleTouchFE.7z
-EXENAM=SimplTouchFE.exe
+EXENAM=STFE.exe
 [Daemon_Tools]
 URLPTH=Daemon_Tools/DTLite.7z
 EXENAM=DTLite.exe

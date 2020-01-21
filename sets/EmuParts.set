@@ -395,13 +395,14 @@ IAGL=IAGL/plugin.program.iagl-master.7z=null
 ROM_Collection_Browser=ROM_Collection_Browser/ROM_Collection_Browser.7z=null
 XBMC_Kodi=XBMC_Kodi/XBMC.7z=XBMC.exe=
 CabrioFE=CabrioFE/cabrio.7z=cabrio.exe=
+attractMode=attractMode/attractMode[ARCH].7z=attract.exe=
 emulationStation=emulationStation/emulationStation.7z=emulationstation.exe=
 Hyperspin=Hyperspin/Hyperspin.7z=Hyperspin.exe=
 ice=ice/ice.7z=ice.exe=
 pegasus=pegasus/pegasus.7z=pegasus-fe.exe=
 MediaBrowser=MediaBrowser/MediaBrowser.7z=Configurator.exe=
 retroFE=retroFE/retroFE.7z=core\retroFe.exe=
-SimpleTouchFE=SimpleTouchFE/simpletouchfe.7z=SimplTouchFE.exe=
+SimpleTouchFE=SimpleTouchFE/simpletouchfe.7z=STFE.exe=
 [UTILITIES]
 Daemon_Tools=Daemon_Tools/DTLite.7z=DTLite.exe=
 WinCDEmu=WinCDEmu/WinCDEmu.7z=WinCDEmu.exe=

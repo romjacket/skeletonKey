@@ -5,7 +5,7 @@ ALTHOST=http://github.com/jomracket
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 IP_LOOKUP=http://www.netikus.net/show_ip.html
 UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
-RASTABLE=1.8.3
+RASTABLE=1.8.4
 
 [SOURCES]
 Public-Domain=https://github.com/romjacket/publicdomain/raw/master/

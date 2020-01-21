@@ -1,7 +1,7 @@
 [RJ]
 ;;ESTHEME=[HOSTINGURL]/esthemes/raw/master/rj.zip
 ESTHEME=http://archive.org/download/es_themes/rj.zip
-PGTHEME=[HOSTINGURL]/pgthemes/raw/master/rj.zip
+PGTHEME=[HOSTINGURL]/pgthemes/raw/master/gameOS.zip
 RFTHEME=http://archive.org/download/RJ_retroFE_theme/RJ.7z
 RFEXPTH=
 Photos=[HOSTINGURL]/ORIGINAL/raw/master/Photos.7z

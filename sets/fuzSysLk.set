@@ -7,6 +7,9 @@ supracan|Super*a*can|acan>FSACAN
 sorcerer|*sorcerer*>EXIDSOR
 stv|*sega*s.t.v*>SEGSTV
 super6|*Super Six*|*Super 6>SUPRSIX
+documentaries|films|movies|*movies*|*films*|*documentaries*>MOVFILM
+Television|TV|Series|Streaming Services|*Television*|*TV*Series*|*TV*Shows*>TVSERIES
+Anime|Animation|*Anime*|*Animation*>MLTMED
 vic20|*VIC*20*>COMVIC
 sg1k|sg1000|sg-1000|sega*sg*>SG1K
 sc3k|sc3000|sc-3000|sega*sc*>SG3K
