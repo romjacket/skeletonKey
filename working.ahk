@@ -29979,11 +29979,11 @@ Loop,Parse,asig,`n`r
 							{
 								continue
 							}
-						ifnotinstring,fej,|%A_LoopField%
+						ifnotinstring,fej,%A_LoopField%|
 							{
-								fej.= "|" . A_LoopField
+								fej.= A_LoopField . "|"
 								stringreplace,fej,fej,||,|,All
-								iniwrite, "%fej%|",Assignments.ini,OVERRIDES,%rasig1%
+								iniwrite, "%fej%",Assignments.ini,OVERRIDES,%rasig1%
 								prifnd= 1
 								continue
 							}
@@ -30003,7 +30003,7 @@ Loop,Parse,asig,`n`r
 									}
 								ifexist,%raexeloc%\cores\%a_loopField%
 									{
-										ifnotinstring,nevfdg,%A_LoopField%|
+										if (!instr(nevfdg,A_LoopField . "|") && !instr(fej,A_LoopField . "|"))
 											{
 												nevfdg.= A_LoopField . "|"
 											}
@@ -35653,7 +35653,7 @@ if (DownOnly = 0)
 										;;EXTRSYS:= ARCSYS
 										guicontrol,,ARCSYS,|%EXTRSYS%||%syslist%
 									}
-								if (instr(aftpth5,"Movies")or instr(aftpth5,"Television")or (aftpth5 = "Video - Media"))
+								if (instr(aftpth5,"Movies")or (aftpth5 = "Television - Series")or (aftpth5 = "Video - Media"))
 									{
 										guicontrol,show,strmvid
 									}
@@ -36330,7 +36330,7 @@ if (lnchparam = "ERROR")
 		guicontrol,,RUNXTRACT,1
 		guicontrol,show,RNMJACK
 		guicontrol,,ARCMOVE,0
-		if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+		if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime") or (EXTRSYS = "Television - Series") or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 			{
 				iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,Video - Media
 				guicontrol,show,strmvid
@@ -36835,7 +36835,7 @@ if (tmpsr <> "")
 					{
 						ksr=
 						ACSVDEST= %RJSYSTEMS%\%romsys%
-						if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+						if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or (EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 							{
 								iniread,ksr,launchparams.ini,LAUNCHPARAMS,Video - Media
 							}
@@ -36856,7 +36856,7 @@ if (tmpsr <> "")
 				if ((ksr = "")or(ksr = "ERROR"))
 					{
 						ACSVDEST= %RJSYSTEMS%\%romsys%
-						if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+						if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or(EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 							{
 								iniread,ksr,launchparams.ini,LAUNCHPARAMS,Video - Media
 							}
@@ -36873,7 +36873,7 @@ if (tmpsr <> "")
 						iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%romsys%
 						if ((jkspl = "")or(jkspl = "ERROR"))
 							{
-								if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+								if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or(EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 									{
 										iniread,jkspl,launchparams.ini,LAUNCHPARAMS,Video - Media
 									}
@@ -36896,7 +36896,7 @@ if (tmpsr <> "")
 											if ((ksr = "ERROR") or (ksr = ""))
 												{
 													ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
-													if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+													if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or(EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 														{
 															iniread,ksr,launchparams.ini,LAUNCHPARAMS,Video - Media
 														}
@@ -36994,7 +36994,7 @@ if (tmpsr <> "")
 												iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
 												if ((ksr = "ERROR") or (ksr = ""))
 													{
-														if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+														if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or(EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 															{
 																iniread,ksr,launchparams.ini,LAUNCHPARAMS,Video - Media
 															}
@@ -37019,7 +37019,7 @@ if (tmpsr <> "")
 																if ((ksr = "ERROR") or (ksr = ""))
 																	{
 																		ACSVDEST= %RJSYSTEMS%\%OVDLDS%
-																		if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or instr(EXTRSYS,"Television")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
+																		if (instr(EXTRSYS,"Movies")or instr(EXTRSYS,"Anime")or(EXTRSYS = "Television - Series")or (EXTRSYS = "Video - Media")or instr(ARCSRC,"Media"))
 																			{
 																				iniread,ksr,launchparams.ini,LAUNCHPARAMS,Video - Media
 																			}
