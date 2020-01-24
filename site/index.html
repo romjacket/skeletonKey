@@ -187,84 +187,41 @@
 			<div class="tabWrapper">
             <div class="tabItem close">
               <h2 class="tabItemHeading" align="center">
-			  <table>
+			  <table align="center">
 				<tr><th>
-				<a href=""><p>ROM - Launcher </p></a></th>
+				<a href="#MAIN"><p>ROM - Launcher </p></a></th><th>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </th>
 				<th><a href="#FRONTENDS"><p> Frontend - Deployment</p></a></th></tr>
 				</table>
-			  </div>
-          </div>
+            </div>
+             <table>
+             	<tr>
+             		<th>
+             		
+              <p>SkeletonKey functions both as a ROM launcher and as a configuration tool for HTPC frontends. </p>	
+             		</th>
+             		
+             	</tr>
+             </table>
+             <h3>ROMs can be launched quickly in many ways:</h3>
+             <ul>
+               <li>Drag &amp; drop a ROM file to the desktop icon,</li>
+               <li>Drag &amp; drop a ROM into the main tab</li>
+               <li>Categorically filtered from playlists, ROM directories or search functions.</li>
+               <li>From an internet ROM-repository</li>
+               <li>From the command line</li>
+             </ul>
+             <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to  automate the launching of hundreds of emulators</p>
+			  <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users
+                who desire a means to maintain the integrity of settings and assets indipendently of a frontend or
+                emulator. 
+              </p>
+	      </div>
          </div>
 		 </div>
         </div>
-   <div align="left" id="outer">
-      <div id="inner">
-	   
-         <p>SkeletonKey functions both as a ROM launcher and as a configuration tool for HTPC frontends.
-         </p>
-         <h3>ROMs can be launched quickly in many ways:</h3>
-         <ul>
-            <li>Drag &amp; drop a ROM file to the desktop icon,</li>
-            <li>Drag &amp; drop a ROM into the main tab</li>
-            <li>Categorically filtered from playlists, ROM directories or search functions.</li>
-            <li>Downloaded from a ROM repository</li>
-            <li>From the command line</li>
-         </ul>
-         <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users
-            who desire a means to maintain the integrity of settings and assets indipendently of a frontend or
-            emulator.
-         </p>
-         <p>Nearly every skeletonKey option has a mouse-over tool-tip . Operational feedback appears in the
-            statusbar at the bottom of the window.
-         </p>
-         <h3>Basic Overview</h3>
-         <p>After installing skeletonKey, use the <strong>"EMU :=: SYS"</strong> tab to import your systems and emulators, or download new ones.
-         </p>
-      </div>
-      <div id="inner">
-         <h3>Command-Line</h3>
-         <p>An emulator-preset can be specified to override any default association from the command-line.</p>
-         <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset
-            followed by the path to the rom. Any options specified by the preset are respected.<br>
-         </p>
-         <div class="tabWrapper">
-            <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ CLI Details ↕</h8>
-               <div class="tabItemContent" id="detailsdiv">
-                  <p>SkeletonKey launched from the command line <em>without</em> the <code>-run=</code> option
-                     functions identically to drag'n drop.
-                  </p>
-                  <p><em>...nkey&gt;</em>
-                     <code>skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
-                     <span style="font-size: x-small">**Nicknames must not contain spaces**</span>
-                  </p>
-                  <hr>
-                  <h3>Options to reset and initialize skeletonKey:</h3>
-                  <code>-clearrj </code> will reset the ROM-Jacket system-setup preferences and queue<br>
-                  <code>-clearcfg </code> will reset the per-game settings for all <strong>skeletonkey
-                  launcher</strong> presets :: (not ROM-Jackets)<br>
-                  <code>-clearset </code> will reset the skeletonkey program settings<br>
-                  <code>-clearra </code> will reset global retroarch settings<br>
-                  <code>-clearexe </code> will reset emulator executable settings<br>
-                  <code>-clearscrape </code> will delete scraped art and assets<br> adding a <code>!q </code>
-                  to the end of your clear command will override and assume yes on all deletion queries.<br>
-                  eg <code>-clearra!q</code><br>
-                  <hr>
-                  <h3>The Skey-Deploy utility accepts the following:</h3>
-                  <code>-reset</code> command to reset the while keeping credentials for github.<br>
-                  <code>-gituser=<strong>USERNAME</strong></code> your git username (must be the first
-                  argument).<br>
-                  <code>-gitpass=<strong>PASSWORD</strong></code> your git password (must be the 2nd
-                  argument).<br>
-                  <code>-gittoken=<strong>TOKEN-STRING</strong></code> your git authentication token (must be
-                  the 3rd argument).
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+   <div align="left" id="outer"></div>
    <div id="SectSeparate" align="center">		
-      <span class="dtext">Settings</span>
+      <span class="dtext">[Settings]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -301,12 +258,12 @@
    </div>
    <a id="MAIN"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Main</span>
+      <span class="dtext">[MAIN]</span>
    </div>
    <div align="left" id="outer">
-      <div id="inner">
-         <p>Options are categorized by type. The Launch tab is responsive and will populate options for the
-            currently selected supported emulator. Any previous settings for the currently selected ROM are
+     <div id="inner">
+         <p>Options are categorized by type. The main tab is responsive and will populate options for the
+            currently selected supported emulator. Any existing settings for the currently selected ROM are
             loaded.
          </p>
          <h3>Global-Launch-Menu</h3>
@@ -388,38 +345,43 @@
                      currently selected emulator/core.
                   </p>
                </div>
+            <h3>Emulator Configuration Options</h3>
+               <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time
+                 should load and populate the GUI after lauching. </p>
             </div>
          </div>
+         
+         <hr>
+         
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+       <div id="inner2">
+         <h3>Drag &amp; Drop</h3>
+           <p>Drag &amp; Drop a ROM into the Main tab and with the Auto-Launch option enabled, skeletonKey will
+             detect the ROM and launch it using the system's associated emulator, or bring forth the menu if
+             undetected/Auto-Launch is disabled. </p>
+           <h3>Search &amp; Find</h3>
+           <p>The &quot;find&quot; button can be found in the lower right hand corner of the tab and will expand
+             the search fields.<br>
+             skeletonKey can search for ROMs in your &quot;Systems&quot; directories or
+             playlists.<br>
+             Selecting a title will
+             repopulate the System-List &amp; make it active in the ROM list. </p>
+         <p>A right-click menu allows for a single ROM to be launched by any installed emulator or it's directory
+             opened by windows explorer. Additionally, multiple files can be selected and added to the current
+             playlist.           </p>
+       </div>
       </div>
       <br>
-      <div id="inner">
-         <h3>Emulator Configuration Options</h3>
-         <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time
-            should load and populate the GUI after lauching.
-         </p>
-         <h3>Drag &amp; Drop</h3>
-         <p>Drag &amp; Drop a ROM into the Main tab and with the Auto-Launch option enabled, skeletonKey will
-            detect the ROM and launch it using the system's associated emulator, or bring forth the menu if
-            undetected/Auto-Launch is disabled.
-         </p>
-         <h3>Search &amp; Find</h3>
-         <p>The &quot;find&quot; button can be found in the lower right hand corner of the tab and will expand
-            the search fields.<br> skeletonKey can search for ROMs in your &quot;Systems&quot; directories or
-            playlists.<br> Selecting a title will
-            repopulate the System-List &amp; make it active in the ROM list.
-         </p>
-         <p>A right-click menu allows for a single ROM to be launched by any installed emulator or it's directory
-            opened by windows explorer. Additionally, multiple files can be selected and added to the current
-            playlist.
-         </p>
-      </div>
    </div>
    <a id="INSTALL"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Emu :=: Sys</span>
+      <span class="dtext">[Emu:=:Sys]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
+         <h3>Basic Overview</h3>
+         <p>After installing skeletonKey, use the <strong>"EMU :=: SYS"</strong> tab to import your systems and emulators, or download new ones. </p>
          <h3>RetroArch, Systems, Emulators, Frontends &amp; Utilities</h3>
          <p>SkeletonKey can be used to quickly install emulators, frontends, retroArch and utilities. The Install
             Tab is also used to associate skeletonKey's systems with emulators and retroArch cores when using
@@ -586,7 +548,7 @@
                   <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program
                      through the command-line which will NOT install the included toolbar or any additional
                      software. Windows 10 users who need Daemon Tools should
-                     download and install it separately. Consider alternatives.
+                     download and install it separately.<br>Consider alternatives.
                   </p>
                   <p>The Daemon Tools program may be needed by the SSF Sega Saturn emulator, the UNZ FM-Towns
                      emulator and any emulator which cannot directly read cd/dvd image files.
@@ -610,14 +572,14 @@
    </div>
    <a id="JOYSTICKS"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Joystick</span>
+      <span class="dtext">[Joysticks]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
-         <h4><a>Joystick Options</a></h4>
+        <h4><a>Joystick Options</a></h4>
          <p>Joystick options are dynamic and respond to the currently selected supported input-remap system and
-            emulator.<br> RetroArch, MAME, Snes9x &amp; Mednafen are currently supported.
-         </p>
+            emulator.<br> 
+            RetroArch, MAME, Snes9x &amp; Mednafen are currently supported with directinput and xinput.</p>
          <h3>Keyboard-Mappers</h3>
 		   <p>Many emulators have features such as rewind/fast-forward and save-state saving/loading which can be assigned to keyboard shortcuts.</p>
 		   <p>Keyboard-mappers facilitate these features by allowing button combinations to trigger these keyboard shortcuts.</p>
@@ -633,38 +595,31 @@
             <div class="tabWrapper">
                <div class="tabItem close">
                   <h8 class="tabItemHeading">↕ Keymapper Details ↕</h8>
-                  <div class="tabItemContent" id="detailsdiv">
+                 <div class="tabItemContent" id="detailsdiv">
                      <h4>Return Profile</h4>
                      <p>Frontends may require a unique joystick profile to properly function. This profile is
                         loaded when returning from a game.
                      </p>
                      <h4>Keyboard</h4>
-                     <p>Emulators in the initialized (default) state will map keyboard keys to the system's
-                        buttons and joystick directions. SkeletonKey can create profiles for these keys as they
-                        correspond for pc-joysticks to the native joystick
-                        layout of the machine. If the chosen console is a custom/unsupported system, a generic
-                        and multipurpose configuration is created.
+                     <p>The emulator's default assigned keys are used wherever possible.  Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down a trigger will enable the joystick's hotkey buttons
                      </p>
-                     <h4>Blank</h4>
-                     <p>causes an empty profile to be created for each game to disable xpadder/antimicro while
-                        the emulator is running. This is desirable for users who are processing a console with a
-                        custom emulator. You may choose to create a profile
-                        for your system and propagate it through the console's library using the Config Utility.
-                     </p>
+                   <h4>Blank</h4>
+                     <p>Causes an empty profile to be created for each game to disable the keymapper while
+                     the emulator is running. (this is useful if BSL or a return profile is enabled, but a profile is not available.)</p>
+                     <p>*A blank profile is created for any system which does not have a keymapper preset.*</p>
+                     <br>
                      <h4>Joy</h4>
-                     <p>This is the default option for skeletonKey and creates a profile with only Emulator
-                        functionality mappings such as "Save/Load State" "Reset" "Exit/Power OFF" and unique
-                        functions such as "Rewind/Fast-forward. Emulators are
-                        configured to use directinput/xinput (XBOX 360 Joystick mappings).
-                     </p>
-                  </div>
+                    <p>This is the default option for skeletonKey and creates a profile with only Emulator
+                        functionality.<br>
+                      Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down L trigger will enable the joystick's hotkey buttons                   </p>
+                 </div>
                </div>
             </div>
-         </div>
+     </div>
       </div>
    <a id="PLAYLISTS"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Playlists</span>
+      <span class="dtext">[Playlists]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -698,6 +653,7 @@
             </div>
          </div>
       </div>
+      <br>
       <div id="inner">
          <h3>Playlist Database</h3>
          <p>The playlist database is a cache containing all files in all playlists with their corresponding crc32 value.<br>
@@ -751,7 +707,7 @@
    </div>
    <a id="REPOSITORY"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Repository</span>
+      <span class="dtext">[Repository]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -800,12 +756,15 @@
    </div>
    <a id="FRONTENDS"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Frontends</span>
+      <span class="dtext">[Frontends]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
-         <p>The Frontends tab contains configuration options for many different cabinet and couch-gaming frontends.
+         <p>The Frontends tab contains configuration options for many different cabinet and couch-gaming frontends. ROM-Jackets and Mirrored-Links are integrated.
          </p>
+         <p>Typically, a frontend will have an emluator assigned to a
+                     list of extensions for ROMs in a given directory. (eg: Nintendo's NES library will populate with all extensions of <code>.nes</code> and <code>.fds</code> files in
+         a given folder).</p>
          <p>The right-click menu may be useful for users wishing to scrape artwork and create playlists.</p>
          <h3>Media</h3>
          <p>Asset-Management is a primary component of skeletonKey. The arrangement and naming of assets and artwork vary from emulator to
@@ -848,15 +807,28 @@
          <p>Inspired by the PS3's UI, XMB for retroArch is very flexible, feature-rich and navigatable via the joystick.
          </p>
          <h4><a>XMB Menu Options</a></h4>
+		          <div class="tabWrapper">
+            <div class="tabItem close">
+               <h8 class="tabItemHeading">↕ XMB Details ↕</h8>
+               <div class="tabItemContent" id="detailsdiv">
+                  <p>SkeletonKey can configure the XMB interface for retroArch.  Most cosmetic options are exposed
+				  and provides an easy way to tailor the available options for your needs.
+                  </p>
+                  <p>Many options found for the XMB interface may also affect the RGUI or other available interfaces
+				  for retroArch.
+                  </p>	
+               </div>
+            </div>
+         </div>
       </div>
       <br>
       <div id="inner">
          <h3>EmulationStation</h3>
-         <p>EmulationStation is a lightweight frontend that has metadata, boxart and video-snap capabilities.</p>
+         <p>EmulationStation is a cross-platform frontend that has metadata, boxart and video-snap capabilities.</p>
          <h4><a>EmulationStation Menu Options</a></h4>
          <div class="tabWrapper">
             <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ Operational Details ↕</h8>
+               <h8 class="tabItemHeading">↕ EmulationStation Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
                   <p>SkeletonKey can configure emulationStation to use Jackets (batchscript launchers), mirrors
                      (shortcuts), ROM files or any combination of these types of elements. Additionally,
@@ -873,42 +845,36 @@
       </div>
       <div id="inner">
          <h3>Pegasus</h3>
-         <p>Pegasus is a lightweight frontend that has metadata, boxart and video-snap capabilities.</p>
+         <p>Pegasus is a cross-platform frontend that has metadata, boxart and video-snap capabilities.</p>
          <h4><a>Pegasus Menu Options</a></h4>
          <div class="tabWrapper">
             <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ Operational Details ↕</h8>
+               <h8 class="tabItemHeading">↕ Pegasus Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
-                  <p>SkeletonKey can configure Pegasus to use Jackets (batchscript launchers), mirrors
-                     (shortcuts), ROM files or any combination of these types of elements. Additionally,
-                     skeletonKey can load existing configuration files (metadata.pegasus.txt)
-                     to add, remove, edit and reorder systems.
+                  <p>Pegasus has the unusual ability to import and integrate Steam, GoG and EmulationStation playlists.
                   </p>
-                  <p>The Paradigm: Like Media Browser, Pegasus automatically adds any ROMs found in a directory to
-                     its database.
-                  </p>
-               </div>
+				</div>
             </div>
          </div>
       </div>
       <div id="inner">
          <h3>RetroFE</h3>
-         <p>RetroFE is a lightweight frontend that has metadata, boxart and video-snap capabilities.</p>
+         <p>RetroFE is a cross-platform frontend that has metadata, boxart and video-snap capabilities.</p>
          <h4><a>RetroFE Menu Options</a></h4>
          <div class="tabWrapper">
             <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ Operational Details ↕</h8>
+               <h8 class="tabItemHeading">↕ RetroFE Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
                   <p>SkeletonKey can configure RetroFE to use Jackets (batchscript launchers), mirrors (shortcuts)
                      and ROM files. Additionally, skeletonKey can load existing configuration files to add,
                      remove, edit and reorder systems.
                   </p>
                   <p>RetroFE automatically adds any ROMs found in a directory to its database.</p>
-                  <p>Caveats:</p>
                </div>
             </div>
          </div>
       </div>
+      <br>
       <div id="inner">
          <h3>Mirrored Links</h3>
          <p>Mirrored Links are Windows shortcuts for ROM-Jacket launchers.</p>
@@ -947,7 +913,7 @@
       </div>
    </div>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Cores</span>
+      <span class="dtext">[Cores]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -973,7 +939,7 @@
    </div>
    <div id="SectSeparate" align="center">
    <a id="NETPLAY"></a>
-     <span class="dtext">Netplay</span>
+     <span class="dtext">[Netplay]</span>
    </div>
    <div align="left" id="outer">
       <br>
@@ -1014,7 +980,7 @@
    </div>
    <a id="ROMJACKETS"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">RoM-Jackets</span>
+      <span class="dtext">[RoM-Jackets]</span>
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -1047,7 +1013,7 @@
                      observed:
                   </p>
 				  <p>
-					Content and Artwork such as boxart, fanart, logos, xml/nfo information, videos and other data not exclusive to any frontend or emulator should reside in the root of the jacket.
+					Content and artwork such as box-art, fan-art, logos, xml/nfo information, videos and other data not exclusive to any frontend or emulator should reside in the root of the jacket.
 				  </p>
 				  <p>Titles which contain many files and folders (DOS Titles) should be placed inside a
                      subdirectory of the jacket.
@@ -1093,8 +1059,8 @@
                      <p>eg: region, disk-number, rom-revision, &amp; any other superflous information is pruned
                         to the game title.
                      </p>
-                     <p><span style="font-size: x-small"><code><font color="red">System - Name/</font></code></span><br>
-                     <p><code><em>├── </em><strong><font color="green">Game Title/</font></strong></code><br>
+                     <p><span style="font-size: x-small"><code><font color="red">System - Name</font>/</code></span><br>
+                     <p><code><em>├── </em><strong><font color="lime">Game Title</font>/</strong></code><br>
                               <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title<em>(USA)[version]</em>.rom</font></span><br>
                                  <em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(JAPAN)[v-2]</em>.rom</font></span><br>
                                  <em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(Disk B)</em>.rom</font></span><br>
@@ -1120,15 +1086,15 @@
                <div class="tabItem close">
                   <h8 class="tabItemHeading">↕ Individuate Example ↕</h8>
                   <div class="tabItemContent" id="detailsdiv">
-				  <p><span style="font-size: x-small"><code><font color="red">System - Name/</font></code></span><br>
-                     <code><em>├── </em><strong><font color="green">Game Title (USA)[v-1]</strong>/</font></code><br>
-                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1].rom</font></code></span><br>
-                     <code><em>├── </em><strong><font color="green">Game Title (USA)[v-1.01]</strong>/</font></code><br>
-                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.01].rom</font></code></span><br>
-                     <code><em>├── </em><strong><font color="green">Game Title (USA)[v-1.11]</strong>/</font></code><br>
-                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.11].rom</font></code></span><br>
-                     <code><em>├── </em><strong><font color="green">Game Title (EUR)[b]</strong>/</font></code><br>
-                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (EUR)[b].rom</font></code></span><br>	  
+				  <p><span style="font-size: x-small"><code><font color="red">System - Name</font>/</code></span><br>
+                     <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1]</font></strong>/</code><br>
+                              <code><em>│   └── </em><span style="font-size: x-small">Game Title (USA)[v-1].rom</font></span></code><br>
+                     <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1.01]</font></strong>/</code><br>
+                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.01].rom</font></span></code><br>
+                     <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1.11]</font></strong>/</code><br>
+                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.11].rom</font></span></code><br>
+                     <code><em>├── </em><strong><font color="lime">Game Title (EUR)[b]</font></strong>/</code><br>
+                              <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (EUR)[b].rom</font></span></code><br>	  
                      <p>The abundance of releases a title may have seen throughout the world is multiplied by
                         versions the developer released and again multiplied by ROM-dumps. Subsequently many
                         ROM-collections and system-libraries are simply too
@@ -1308,21 +1274,16 @@
             <div class="tabItem close">
                <h8 class="tabItemHeading">↕ BSL Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
-                  <p>Typically, a frontend will have an emluator assigned to a directory containing a set of ROMs with a
-                     list of extensions to detect. (eg: Nintendo's NES will populate with all extensions of <code>.nes</code> and <code>.fds</code> files in
-                     the NES folder)
-                  </p>
-                  <p>In this case the BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or
-                     &quot;.lnk&quot; is the extension for any ROM-Jacket library.
-                  </p>
-               </div>
+                  <p>BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or
+                 &quot;.lnk&quot; is the extension for any ROM-Jacket library.              </p>
+              </div>
             </div>
          </div>
       </div>
    </div>
    <a id="UTILITIES"></a>
    <div id="SectSeparate" align="center">
-      <span class="dtext">Utilities</span>
+      <span class="dtext">[Utilities]</span>
    </div>
    <div align="left" id="outer">
          <div id="inner">
@@ -1366,6 +1327,7 @@
             </div>
          </div>
       </div>
+      <br>
       <div id="inner">
          <h3>Portable Mode</h3>
          <p>Skeletonkey can be run from a thumbdrive or other portable drive. Many users may desire to transfer an
@@ -1398,7 +1360,44 @@
             must have a <a href="http://github.com/join">github account</a> and <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token">create a token</a>.
          </p>
       </div>
-      <br>
+       <br>
+        <div id="inner">
+          <h3>Command-Line</h3>
+          <p>An emulator-preset can be specified to override any default association from the command-line.</p>
+          <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset
+            followed by the path to the rom. Any options specified by the preset are respected.<br>
+          </p>
+          <div class="tabWrapper">
+            <div class="tabItem close">
+              <h8 class="tabItemHeading">↕ CLI Details ↕</h8>
+              <div class="tabItemContent" id="detailsdiv">
+                <p>SkeletonKey launched from the command line <em>without</em> the <code>-run=</code> option
+                  functions identically to drag'n drop. </p>
+                <p><em>...nkey&gt;</em> <code>skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
+                  <span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
+                <hr>
+                <h3>Options to reset and initialize skeletonKey:</h3>
+                <code>-clearrj </code> will reset the ROM-Jacket system-setup preferences and queue<br>
+                <code>-clearcfg </code> will reset the per-game settings for all <strong>skeletonkey
+                  launcher</strong> presets :: (not ROM-Jackets)<br>
+                <code>-clearset </code> will reset the skeletonkey program settings<br>
+                <code>-clearra </code> will reset global retroarch settings<br>
+                <code>-clearexe </code> will reset emulator executable settings<br>
+                <code>-clearscrape </code> will delete scraped art and assets<br>
+                adding a <code>!q </code> to the end of your clear command will override and assume yes on all deletion queries.<br>
+                eg <code>-clearra!q</code><br>
+                <hr>
+                <h3>The Skey-Deploy utility accepts the following:</h3>
+                <code>-reset</code> command to reset the while keeping credentials for github.<br>
+                <code>-gituser=<strong>USERNAME</strong></code> your git username (must be the first
+                argument).<br>
+                <code>-gitpass=<strong>PASSWORD</strong></code> your git password (must be the 2nd
+                argument).<br>
+                <code>-gittoken=<strong>TOKEN-STRING</strong></code> your git authentication token (must be
+                the 3rd argument). </div>
+            </div>
+          </div>
+        </div>
       <br>
       <div id="inner">
          <div class="tabWrapper">
@@ -1446,7 +1445,7 @@
                <h8 class="tabItemHeading">↕ leave a comment ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
 			   <p><img alt="" height="27" src="key.png" width="24"><a href="https://www.paypal.me/romjacket">A small donation goes a long way</a></p>
-			    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+			    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com"></a>loading comments...</div>
  <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 				   </div>
 			 </p>
@@ -1542,10 +1541,14 @@ smoothie();
     }
 </script>
 
-<style>
+<style>	
 	@font-face {
-		font-family: 'Night Machine';
-		src: url('Night Machine.otf') format('opentype');
+		font-family: 'Opticon';
+		src: url('Opticon.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'Hermit';
+		src: url('Hermit-Regular.otf') format('opentype');
 	}
 	@font-face {
 		font-family: 'Trueno';
@@ -1678,16 +1681,16 @@ main {
 	text-shadow: 1px -1px 2px rgba(255, 255, 255, 0.43);
 	}
 	.tfnt {
-	font-family: 'Night Machine';
+	font-family: 'Opticon';
 	/*
-	font-size: 50px;
-    font-family: Trueno;
+	font-size: 40px;
+    font-family: Source Code Pro Semibold;
 	
     transform: translate(50%,-50%);
 	*/
 	 position: relative;
-    text-transform: uppercase;
-    font-size: 6em;
+   /* text-transform: uppercase;*/
+    font-size: 7em;
     font-weight: 700;
     color: #f5f5f5; 
     text-shadow: 1px 1px 1px #919191,
@@ -1887,25 +1890,25 @@ main {
 }
 
 .dtext {
-    font-family: Trueno;
+    font-family: Hermit;
     position: relative;
 /*	vertical-align: 50%;
         vertical-align: middle;
     transform: translate(50%,-50%);*/
-    text-transform: uppercase;
-    font-size: 6em;
-    font-weight: 700;
-    color: #f5f5f5; 
+    /*text-transform: uppercase;*/
+    font-size: 4em;
+    font-weight: 500;
+    color: #f5f5f5	; 
     text-shadow: 1px 1px 1px #919191,
-        1px 2px 1px #919191,
-        1px 3px 1px #919191,
-        1px 4px 1px #919191,
-        1px 5px 1px #919191,
-        1px 6px 1px #919191,
-        1px 7px 1px #919191,
-        1px 8px 1px #919191,
-        1px 9px 1px #919191,
-        1px 10px 1px #919191,
+	1px 2px 1px #919191,
+	1px 3px 1px #919191,
+	1px 4px 1px #919191,
+	1px 5px 1px #919191,
+	1px 6px 1px #919191,
+	1px 7px 1px #919191,
+	1px 8px 1px #919191,
+	1px 9px 1px #919191,
+	1px 10px 1px #919191,
     1px 18px 6px rgba(16,16,16,0.6),
     1px 22px 10px rgba(16,16,16,0.3),
     1px 25px 35px rgba(16,16,16,0.3),
