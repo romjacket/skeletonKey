@@ -22,8 +22,8 @@ OD_fullsets=https://github.com/romjacket/ODSETS/raw/master/
 OD_fullsets:SET=https://github.com/romjacket/skeletonKey/releases/download/ODSETS/fullsets.7z
 portalroms=https://github.com/romjacket/PORTALROMS/raw/master/
 portalroms:SET=https://github.com/romjacket/skeletonKey/releases/download/PORTALROMS/portalroms.7z
-fullsets=https://github.com/romjacket/FULLSETS/raw/master
-fullsets:SET=https://github.com/romjacket/skeletonKey/releases/download/FULLSETS/fullsets.7z
+archive_fullsets=https://github.com/romjacket/FULLSETS/raw/master
+archive_fullsets:SET=https://github.com/romjacket/skeletonKey/releases/download/FULLSETS/fullsets.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com

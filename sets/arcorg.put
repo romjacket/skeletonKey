@@ -22,8 +22,8 @@ OD_fullsets=https://github.com/romjacket/ODSETS/raw/master/
 OD_fullsets:SET=[REPOSRC]/ODSETS/fullsets.7z
 portalroms=https://github.com/romjacket/PORTALROMS/raw/master/
 portalroms:SET=[REPOSRC]/PORTALROMS/portalroms.7z
-fullsets=https://github.com/romjacket/FULLSETS/raw/master
-fullsets:SET=[REPOSRC]/FULLSETS/fullsets.7z
+archive_fullsets=https://github.com/romjacket/FULLSETS/raw/master
+archive_fullsets:SET=[REPOSRC]/FULLSETS/fullsets.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com
