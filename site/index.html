@@ -37,7 +37,7 @@
                <a href="#UTILITIES" class="pk" data-smoothie>UTILITIES</a>
             </li>
             <li>
-               <img src="key.png" alt="" height="15" /><a href="https://www.paypal.me/romjacket" class="pk">i LIke Dis</a>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.paypal.me/romjacket" class="pk">i LIke Dis</a>
             </li>
          </ul>
       </div>
@@ -339,7 +339,7 @@
                      for the emulator/core (if supported) and any load existing settings the title may have.
                   </p>
                   <p>Right-Clicking on this menu enables assignment and configuration.</p>
-                  <p>RetroArch, MAME, Snes9x &amp; Mednafen are currently supported.</p>
+                  <p>RetroArch, MAME, Snes9x and Mednafen are currently supported.</p>
                   <h3>[X] Clear button</h3>
                   <p>Clears all current launch options. Right-click on this to delete ROM settings for the
                      currently selected emulator/core.
@@ -579,7 +579,7 @@
         <h4><a>Joystick Options</a></h4>
          <p>Joystick options are dynamic and respond to the currently selected supported input-remap system and
             emulator.<br> 
-            RetroArch, MAME, Snes9x &amp; Mednafen are currently supported with directinput and xinput.</p>
+            RetroArch, MAME, Snes9x and Mednafen are currently supported through directinput and xinput.</p>
          <h3>Keyboard-Mappers</h3>
 		   <p>Many emulators have features such as rewind/fast-forward and save-state saving/loading which can be assigned to keyboard shortcuts.</p>
 		   <p>Keyboard-mappers facilitate these features by allowing button combinations to trigger these keyboard shortcuts.</p>
@@ -653,13 +653,6 @@
             </div>
          </div>
       </div>
-      <br>
-      <div id="inner">
-         <h3>Playlist Database</h3>
-         <p>The playlist database is a cache containing all files in all playlists with their corresponding crc32 value.<br>
-		 </p>
-      </div>
-      <br>
       <div id="inner">
          <h3>EmulationStation</h3>
          <p>SkeletonKey can create and edit gamelist.xml files which can be to used cull ROM directories and display
@@ -703,6 +696,12 @@
                </div>
             </div>
          </div>
+      </div>
+      <br>
+      <div id="inner">
+         <h3>Playlist Database</h3>
+         <p>The playlist database is a cache containing all files in all playlists with their corresponding crc32 value.<br>
+		 </p>
       </div>
    </div>
    <a id="REPOSITORY"></a>
@@ -821,7 +820,6 @@
             </div>
          </div>
       </div>
-      <br>
       <div id="inner">
          <h3>EmulationStation</h3>
          <p>EmulationStation is a cross-platform frontend that has metadata, boxart and video-snap capabilities.</p>
@@ -1554,11 +1552,21 @@ smoothie();
 		font-family: 'Trueno';
 		src: url('TruenoLt.otf') format('opentype');
 	}
+</style>
+<style>	
 body {
     overflow-x: hidden;
-    background-color: #D4D4D4;
 	font-family: "Trueno";
     font-size: 14px;
+	background: #E0E0E0;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E0E0E0), color-stop(100%,#919191));
+	background: -webkit-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
+	background: -moz-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
+	background: -ms-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
+	background: -o-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
+	background: linear-gradient(to bottom, #E0E0E0 0%, #919191 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E0E0E0', endColorstr='#919191',GradientType=0 );
+	background-attachment: fixed;
 }
 td,
 th {
@@ -1639,6 +1647,10 @@ main {
     padding-bottom: 9px;
 }
 #inner {
+	background-image: -webkit-linear-gradient(90deg,rgba(207,207,207,1.00) 0%,rgba(232,232,232,1.00) 100%);
+	background-image: -moz-linear-gradient(90deg,rgba(207,207,207,1.00) 0%,rgba(232,232,232,1.00) 100%);
+	background-image: -o-linear-gradient(90deg,rgba(207,207,207,1.00) 0%,rgba(232,232,232,1.00) 100%);
+	background-image: linear-gradient(0deg,rgba(207,207,207,1.00) 0%,rgba(232,232,232,1.00) 100%);
 	margin-left: 5%;
 	margin-bottom: 3px;
 	margin-right: 18px;
@@ -1648,10 +1660,9 @@ main {
 	padding-right: 5px;
 	padding-bottom: 9px;
 	max-width: 70em;
-    -webkit-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
-    -moz-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
-    box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
-	
+	-webkit-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
+	-moz-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
+	box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);	
 }
 #detailsdiv {
     background-color: #515151;
@@ -1663,46 +1674,39 @@ main {
     padding-top: 2%;
 	border-radius: 8px 8px;
     -webkit-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
-    /*-moz-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);*/
+    *-moz-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);*
     padding-right: 3%;
     box-shadow: 4px -4px 4px 4px rgba(230, 230, 230, 1),-3px 3px 6px 6px rgba(80, 80, 80, .7);
     text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
 }
-	#SectSeparate {
+#SectSeparate {
 	text-align: center;
 	}
-	.pk {
+.pk {
 	color: #ffffff;
 	font-weight: bolder;
     text-shadow: -1px 1px 1px rgba(0, 0, 80, 0.8);
 	}
-	.pk:hover {
+.pk:hover {
 	color: blue;
 	text-shadow: 1px -1px 2px rgba(255, 255, 255, 0.43);
 	}
-	.tfnt {
+.tfnt {
 	font-family: 'Opticon';
-	/*
-	font-size: 40px;
-    font-family: Source Code Pro Semibold;
-	
-    transform: translate(50%,-50%);
-	*/
-	 position: relative;
-   /* text-transform: uppercase;*/
+	position: relative;
     font-size: 7em;
     font-weight: 700;
     color: #f5f5f5; 
     text-shadow: 1px 1px 1px #919191,
-        1px 2px 1px #919191,
-        1px 3px 1px #919191,
-        1px 4px 1px #919191,
-        1px 5px 1px #919191,
-        1px 6px 1px #919191,
-        1px 7px 1px #919191,
-        1px 8px 1px #919191,
-        1px 9px 1px #919191,
-        1px 10px 1px #919191,
+	1px 2px 1px #919191,
+	1px 3px 1px #919191,
+	1px 4px 1px #919191,
+	1px 5px 1px #919191,
+	1px 6px 1px #919191,
+	1px 7px 1px #919191,
+	1px 8px 1px #919191,
+	1px 9px 1px #919191,
+	1px 10px 1px #919191,
     1px 18px 6px rgba(16,16,16,0.6),
     1px 22px 10px rgba(16,16,16,0.3),
     1px 25px 35px rgba(16,16,16,0.3),
@@ -1710,73 +1714,73 @@ main {
 	}
 </style>
 <style>
-    .parent {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        display: none;
-        text-align: center;
-        z-index: 9;
-    }
-    
-    .parent:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-    }
-    
-    .parent:after {
-        background: black;
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0.5;
-        z-index: 10;
-    }
-    /* Centered child element can be any width and height */
-    
-    .centeredchild {
-        position: relative;
-        /* position element to participate in z-indexing */
-        z-index: 20;
-        /* higher z-index than overlay */
-        display: inline-block;
-        vertical-align: middle;
-        width: 80%;
-        /* can be any width */
-    }
-    /* Video container to maintain Youtube 16:9 aspect ratio */
-    
-    .videowrapper {
-        position: relative;
-        padding-top: 25px;
-        padding-bottom: 56.25%;
-        /* 16:9 aspect ratio */
-        height: 0;
-        z-index: 9;
-    }
-    /* Make Youtube IFRAME responsive */
-    
-    .videowrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
+.parent {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+	text-align: center;
+	z-index: 9;
+}
+
+.parent:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.parent:after {
+	background: black;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+	z-index: 10;
+}
+/* Centered child element can be any width and height */
+
+.centeredchild {
+	position: relative;
+	/* position element to participate in z-indexing */
+	z-index: 20;
+	/* higher z-index than overlay */
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	/* can be any width */
+}
+/* Video container to maintain Youtube 16:9 aspect ratio */
+
+.videowrapper {
+	position: relative;
+	padding-top: 25px;
+	padding-bottom: 56.25%;
+	/* 16:9 aspect ratio */
+	height: 0;
+	z-index: 9;
+}
+/* Make Youtube IFRAME responsive */
+
+.videowrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
     }
 </style>
 <style>
-	.tabItem {
-    display: block;
-    width: 100%;
-}
+.tabItem {
+display: block;
+width: 100%;
+	}
 .tabItem.close #detailsdiv p {
 }
 .tabItemHeading {

@@ -34633,7 +34633,7 @@ if ((oil = "ERROR")or(EXTRSYS = ""))
 if (oil = "")
 	{
 		iniread,vchk,sets\EmuCfgPresets.set,%EXTRSYS%,SUPEMU
-		if (vchk <> "ERROR")
+		if ((vchk <> "ERROR")&&(vchk <> ""))
 			{
 				Loop,parse,vchk,|
 					{
@@ -34648,7 +34648,7 @@ if (oil = "")
 								break
 							}
 							else {
-								
+								oil= 
 							}
 					}
 			}
@@ -34722,7 +34722,8 @@ if (core_gui <> ARCCORES)
 return
 
 MatchSyst:
-coretograb= 
+coretograb=
+selctdcore= 
 IniRead,stevr,sets\EmuCfgPresets.set,%EXTRSYS%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
@@ -34740,7 +34741,6 @@ if ((stevr <> "")&&(stevr <> "ERROR"))
 					}
 			}
 	}
-
 if (selctdcore <> "")
 	{
 		coreselv= %selctdcore%
@@ -37388,7 +37388,6 @@ Loop, parse, romdwnlst,|
 					}
 				goto, EVEI
 			}
-		
 		gosub, RomDownload
 		EVEI:
 		guicontrol,enable,ARCSYS
@@ -78003,7 +78002,7 @@ if (coe <> "dll")
 			}
 		if (strmvid = 1)
 			{
-				stringreplace,RunOptions,RunOptions,[CUSTMOPT],--sout file/muxer:"[ROMPATH]\[ROMFILE]"%A_Space%,All
+				;;stringreplace,RunOptions,RunOptions,[CUSTMOPT], --sout file/muxer:"[ROMPATH]\[ROMFILE]"%A_Space%,All
 			}
 		iniread,RunArgs,AppParams.ini,%coreselv%,arguments
 		iniread,omtxt,AppParams.ini,%coreselv%,extension
@@ -79376,7 +79375,7 @@ ifinstring,RunOptions,[
 		else {
 			if (strmvid = 1)
 				{
-				 stringreplace,RunOptions,RunOptions,[CUSTMOPT],--sout file/muxer:"[ROMPATH]\[ROMFILE]",All
+					;;stringreplace,RunOptions,RunOptions,[CUSTMOPT], --sout file/muxer:"[ROMPATH]\[ROMFILE]",All
 				}
 			stringreplace,CUSTMOPT,CUSTMOPT,[CUSTMOPT],,All
 			stringreplace,CUSTMARG,CUSTMARG,[CUSTMARG],,All
@@ -79563,7 +79562,7 @@ if (EPGC = 1)
 	}
 if (STRMVID = 1)
 	{
-		RUNROM= %URLFILE%
+		RUNROM= "%URLFILE%"
 	}
 	
 splitpath,OvrExtAs,xenm,xenmp

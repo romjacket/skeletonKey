@@ -1,6 +1,6 @@
 skeletonKey 0.99.70.38
 
- 2020-01-24 9:30 AM
+ 2020-01-24 8:41 PM
  
 by romjacket 
 
@@ -51,4 +51,4 @@ In no way may you deploy this tool to promote piracy.
 
 You must include this readme file when distributing any binary.
 
-You may modify this readme file or any other included license file in any manner not created or modified by romjacket via the original deployment tool.
+You may not modify this readme file or any other included license file in any manner not created or modified via the original deployment tool.
