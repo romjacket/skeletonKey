@@ -806,6 +806,11 @@ medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswap
 mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
 snes9xswaps= snes9xswapB|snes9xswapA|snes9xswapX|snes9xswapY|snes9xswapStart|snes9xswapSelect|snes9xswapDown|snes9xswapUp|snes9xswapLeft|snes9xswapRight|snes9xswapL|snes9xswapR|snes9xswapL2|snes9xswapR2|snes9xswapR3|snes9xswapL3|snes9xswapLXMinus|snes9xswapRXMinus|snes9xswapRXPlus|snes9xswapLXPlus|snes9xswapLYPlus|snes9xswapLYMinus|snes9xswapRYPlus|snes9xswapRYMinus|snes9xswapHome|snes9xSwapATXT|snes9xSwapBTXT|snes9xSwapCTXT|snes9xSwapDTXT|snes9xSwapETXT|snes9xSwapFTXT|snes9xSwapGTXT|snes9xSwapHTXT|snes9xSwapITXT|snes9xSwapJTXT|snes9xSwapLTXT|snes9xSwapMTXT|snes9xSwapCGRP|snes9xSwapDGRP|snes9xSwapEGRP
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
+
+
+ssenms= BoxArt|3DBoxart|Label|4Mix|cart|Logo|Marquee|Label|Logo|3DBoxart|3DBoxart|Snapshot|Logo|Label|3Mix|Backdrop|Snapshot
+altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
+
 viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate|fastforward_ratio
 optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|audio_latency|audio_mute_enable|audio_rate_control_delta|audio_rate_control|audio_sync|auto_shaders_enable|flicker_filter_enable|flicker_filter_index|auto_overrides_enable|autosave_interval|block_sram_overwrite|config_save_on_exit|input_driver|input_joypad_driver|input_remap_binds_enable|keyboard_gamepad_enable|input_autodetect_enable|input_menu_toggle_gamepad_combo|menu_driver|pause_nonactive|rewind_enable|rewind_granularity|savestate_auto_index|savestate_auto_load|savestate_auto_save|sort_savefiles_enable|sort_savestates_enable|savefiles_in_content_dir|savestates_in_content_dir|video_gpu_record|video_gpu_screenshot|auto_remaps_enable|screenshots_in_content_dir|run_ahead_enabled|run_ahead_frames|run_ahead_secondary_instance|enable_device_vibration|input_desktop_menu_toggle|input_cheat_index_plus|enable_device_vibration|input_desktop_menu_toggle_btn|playlist_fuzzy_archive_match|playlist_show_inline_core_name|playlist_show_sublabels|playlist_sort_alphabetical|playlist_sublabel_runtime_type
 menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|quit_press_twice|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red|menu_enable_widgets|video_stream_port|video_stream_quality|video_stream_url|video_stream_scale_factor|youtube_stream_key|video_stream_config|menu_left_thumbnails|menu_thumbnails|apply_cheats_after_toggle|apply_cheats_after_load|apply_cheats_after_load|rgui_background_filler_thickness_enable|streaming_mode
@@ -850,7 +855,7 @@ COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDL
 SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKR|emuCHKG|emuCHKS|emuCHKT|emuDDLA|emuCBXF|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
 SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MAMEGUIITEMS=emuBUTJ|emuBUTK|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
-MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B
+MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTO|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B
 MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
@@ -893,6 +898,7 @@ supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefas
 COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|flycast_cpu_mode|flycast_boot_to_bios|flycast_internal_resolution|flycast_mipmapping|flycast_widescreen_hack|flycast_audio_buffer_size|flycast_cable_type|flycast_broadcast|flycast_region|flycast_precompile_shaders|flycast_enable_rtt|flycast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|flycast_volume_modifier_mode|flycast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
 pspce:= A_Tab . A_Space . A_Space
 pspxe:= A_Tab
+imgtmp= |jpg|bmp|png|jpeg|
 FAN1ART= Backdrops
 FAN2ART= Backdrops
 FAN3ART= Backdrops
@@ -2932,6 +2938,7 @@ Gui, Add, Button, x689 y480 w66 h23 vfeBUTJ gfeBUTJ %fevis%, feBUTJ
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTK gfeBUTK %fevis%, feBUTK
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTL gfeBUTL %fevis%, feBUTL
 Gui, Add, Button, x689 y480 w66 h23 vfeBUTM gfeBUTM %fevis%, feBUTM
+Gui, Add, Button, x689 y480 w66 h23 vfeBUTO gfeBUTO %fevis%, feBUTO
 Gui, Add, Picture, x0 y0 w1 h1 vfePICA gfePICA %fevis%,
 Gui, Add, Picture, x0 y0 w1 h1 vfePICB gfePICB %fevis%,
 Gui, Add, Picture, x0 y0 w1 h1 vfePICC gfePICC %fevis%,
@@ -7925,6 +7932,7 @@ ifinstring,tmpcrs,_libretro.dll
 		raoptgl= hide
 	}
 guicontrolget,FNDGUI,,FNDGUI
+
 if (uuniv = "X")
 	{
 		uuniv= find
@@ -8801,6 +8809,7 @@ SRCHROMEDT:
 gui,submit,nohide
 guicontrolget, SRCHROMEDT,,SRCHROMEDT
 return
+
 SRCHROMLBX:
 gui,submit,nohide
 guicontrolget, SRCHLOCDDL,,SRCHLOCDDL
@@ -14206,6 +14215,8 @@ moptog= enable
 gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
+guicontrol,move,FNDGUI, x720 y516 w42 h19
+guicontrol,,FNDGUI,find
 emutog= hide
 Loop, Parse, EMUTABGUIITEMS,|
 	{
@@ -15722,6 +15733,7 @@ if (raBFTH = 1)
 	}
 iniwrite,"%rguiborderfillerthicknessenable%",%curcfg%,OPTIONS,rgui_border_filler_thickness_enable
 return
+
 raACAL:
 gui,submit,nohide
 applycheatsafterload= false
@@ -15731,6 +15743,7 @@ if (raACAL = 1)
 	}
 iniwrite,"%applycheatsafterload%",%curcfg%,OPTIONS,apply_cheats_after_load
 return
+
 raACAT:
 gui,submit,nohide
 applycheatsaftertoggle= false
@@ -15740,6 +15753,7 @@ if (raACAT = 1)
 	}
 iniwrite,"%applycheatsaftertoggle%",%curcfg%,OPTIONS,apply_cheats_after_toggle
 return
+
 raPLFAM:
 gui,submit,nohide
 playlistfuzzyarchivematch= false
@@ -15749,6 +15763,7 @@ if (raPLFAM = 1)
 	}
 iniwrite,"%playlistfuzzyarchivematch%",%curcfg%,OPTIONS,playlist_fuzzy_archive_match
 return
+
 raPLSICN:
 gui,submit,nohide
 playlistshowinlinecorename= false
@@ -15758,6 +15773,7 @@ if (raPLSICN = 1)
 	}
 iniwrite,"%playlistshowinlinecorename%",%curcfg%,OPTIONS,playlist_show_inline_core_name
 return
+
 raPLSLB:
 gui,submit,nohide
 playlistshowsublabels= false
@@ -15776,6 +15792,7 @@ if (raPLSAL = 1)
 	}
 iniwrite,"%playlistsortalphabetical%",%curcfg%,OPTIONS,playlist_sort_alphabetical
 return
+
 raTHMBDDL:
 gui,submit,nohide
 guicontrolget,raTHMBDDL,,raTHMBDDL
@@ -15797,6 +15814,7 @@ if (raTHMBDDL = "title")
 	}
 iniwrite, "%rathmtyp%",%curcfg%,OPTIONS,menu_thumbnails
 return
+
 raTHMBDDL2:
 gui,submit,nohide
 guicontrolget,raTHMBDDL2,,raTHMBDDL2
@@ -15818,6 +15836,7 @@ if (raTHMBDDL2 = "title")
 	}
 iniwrite, "%rathmtyp%",%curcfg%,OPTIONS,menu_left_thumbnails
 return
+
 raENBLWID:
 gui,submit,nohide
 guicontrolget,raENBLWID,,raENBLWID
@@ -15828,6 +15847,7 @@ if (raENBLWID = 1)
 	}
 iniwrite, "%menuenablewidgets%",%curcfg%,OPTIONS,menu_enable_widgets
 return
+
 raSELSCON:
 gui,submit,nohide
 FileSelectFile,raselsconf,3,%raexeloc%,stream config,*.*
@@ -33009,7 +33029,7 @@ if (fenam = "Pegasus")
 			{
 				PGHOME= %RJEMUD%\Pegasus\config
 			}
-		Loop, read, %PGHOME%\metadata.pegasus.txt
+		Loop, read, %PGHOME%\metafiles\metadata.pegasus.txt
 			{
 				if (A_LoopReadline = "")
 					{
@@ -51799,11 +51819,17 @@ if (pgaltsrcs = "ERROR")
 		pgaltsrcs= false
 	}
 pgscr= 1
-IniRead, pgscraper,PGcfg.ini,CONFIG,scraper
+IniRead,pgscraper,PGcfg.ini,CONFIG,scraper
 if (pgscraper = "ERROR")
 	{
 		pgscr= 0
 		pgscraper= false
+	}
+
+altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
+Loop,parse,altnms,|
+	{
+		altpg%A_Index%:= A_Loopfield
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    PG CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -51853,6 +51879,7 @@ guicontrol,move,FEBUTK,x419 y4 w18 h18
 gui, font, %fontXlg% bold
 guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
+
 gui, font, %fontXmed% normal
 guicontrol,%fetog%,FECHKB
 guicontrol,enable,FECHKB
@@ -52062,6 +52089,7 @@ guicontrol,enable,FEBUTA
 SB_SetText("Current theme is " PGTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTB:
 guicontrolget,FEDDLF,,FEDDLF
@@ -52127,23 +52155,139 @@ Loop, Parse, prsy,|
 						injvar6=
 						injvar7=
 						stringsplit,injvar,sysvlz,|
+						FileDelete,%injvar6%\metadata.pegasus.txt
 						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
 						ifinstring,injvar4,:
 							{
 								emushrtn= %injvar4%
 							}
-						FileAppend,collection: %injvar2%`n,rj\PG\metadata.pegasus.txt
-						FileAppend,shortname: %sysesc%`n,rj\PG\metadata.pegasus.txt
+						FileAppend,collection: %injvar2%`n,%injvar6%\metadata.pegasus.txt
+						FileAppend,shortname: %sysesc%`n,%injvar6%\metadata.pegasus.txt
 						stringreplace,extn,injvar3,.,%A_Space%,All
-						FileAppend,extensions: %extn%`n,rj\PG\metadata.pegasus.txt
+						FileAppend,extensions: %extn%`n,%injvar6%\metadata.pegasus.txt
 						stringreplace,emushrtn,emushrtn,",,All
 						;"
-						FileAppend,launch: "%emushrtn%" %injvar5% `n,rj\PG\metadata.pegasus.txt
-						;;filecopy,rj\PG\%sysesc%.pegasus.txt,%injvar6%\metadata.pegasus.txt,%FECHKB%
+						FileAppend,launch: "%emushrtn%" %injvar5% `n,%injvar6%\metadata.pegasus.txt
 						stringreplace,injvnp,injvar6,\,/,All
-						;;FileAppend,%injvnp%`n,rj\PG\GD.cfg
-						FileAppend,directory: %injvnp%`n,rj\PG\metadata.pegasus.txt
-						FileAppend,`n,rj\PG\metadata.pegasus.txt
+						FileAppend,directory: %injvnp%`n,%injvar6%\metadata.pegasus.txt
+						FileAppend,`n,%injvar6%\metadata.pegasus.txt
+						Loop,files,%injvar6%\*,FD
+							{
+								pgdir= %A_LoopFileName%
+								splitpath,A_LoopFileFullPath,pginf,pgind,pginx,pginn
+								extnum= 
+								extvidn= 
+								pgimp= 
+								pgimgapnd= 
+								pgvidapnd= 
+								Loop,parse,extn,`,,%A_Space%
+									{
+										pinv= 
+										ifexist,%A_LoopFileFullPath%\
+											{
+												pgind= %injvar6%\%pgdir%
+												pinv= R
+											}
+											else {
+												pgimp= 
+											}
+										Loop,files,%pgind%\*.%a_loopfield%,%pinv%
+											{
+												splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
+												stringreplace,pgfullpth,A_LoopFileFullPath,\,/,All
+												stringreplace,pgad,pgd,\,/,All
+												if ((A_Index = 1) && (pgimp <> 1))
+													{
+														fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%injvar6%\metadata.pegasus.txt
+														goto, ParsePGIMGS
+													}													
+												fileappend,%pgfullpth%`n,%injvar6%\metadata.pegasus.txt
+												ParsePGIMGS:
+												pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
+												if (extnum = 1)
+													{
+														continue
+													}
+												Loop,parse,imgonl,|
+													{
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														cextm= %a_loopfield%
+														Loop,parse,pgimgs,|
+															{
+																irnm= %A_LoopField%
+																iimmbn= %pgd%\%irnm%.%cextm%
+																ifexist,%iimmbn%
+																	{
+																		stringreplace,pgcpth,iimmbn,\,/,All
+																		stringreplace,pgimgs,pgimgs,%irnm%|,,All
+																		pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+																		extnum= 1
+																		continue
+																	}
+																etxx= % altpg%A_Index%
+																if (etxx <> irnm)
+																	{
+																		iimmbn= %pgd%\%etxx%.%cextm%
+																		stringreplace,pgcpth,iimmbn,\,/,All
+																		stringreplace,pgimgs,pgimgs,%irnm%|,,All
+																		ifexist,%pgd%\%etxx%.%cextm%
+																			{
+																				stringreplace,pgimgs,pgimgs,%irnm%|,,All
+																				pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+																				extnum= 1
+																				continue
+																			}
+																	}
+																iimmbn= %pghome%\%pgdir%\%irnm%.%cextm%
+																ifexist,%iimmbn%
+																	{
+																		stringreplace,pgcpth,iimmbn,\,/,All
+																		stringreplace,pgimgs,pgimgs,%A_LoopField%|,,All
+																		pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+																		extnum= 1
+																	}
+															}
+													}
+												if (extvidn = 1)
+													{
+														continue
+													}
+												pgvidtyp=mp4|mkv|m4a|avi
+												Loop,parse,pgvidtyp,|
+													{
+													Loop,files,%pgind%\*.%A_LoopField%
+														{
+															iimmbn= %A_LoopFileFullPath%
+															ifexist,%iimmbn%
+																{
+																	stringreplace,pgcpth,iimmbn,\,/,All
+																	stringreplace,pgimgs,pgimgs,%irnm%|,,All
+																	pgvidapnd.= "assets.video:" . A_Space . pgcpth . "`n"
+																	extvidn= 1
+																	continue
+																}
+														}
+												}
+												pgimp= 1
+											}
+									}
+								if (pgimgapnd <> "")
+									{
+										fileappend,%pgimgapnd%,%injvar6%\metadata.pegasus.txt
+									}
+								if (pgvidapnd <> "")
+									{
+										fileappend,%pgvidapnd%,%injvar6%\metadata.pegasus.txt
+									}
+							}
+						fileread,pgsys,%pghome%\game_dirs.txt
+						ifnotinstring,pgsys,%injvnp%
+							{
+								FileAppend,%injvnp%`n,%pghome%\game_dirs.txt
+							}
 						break
 					}
 			}
@@ -52165,10 +52309,11 @@ if (FECHKB = 1)
 	}
 FileDelete,%PGHOME%\metafiles\metadata.pegasus.txt
 filecopy,rj\PG\metadata.pegasus.txt,%PGHOME%\metafiles,%FECHKB%
-FileDelete,	%PGHOME%\settings.txt
+FileDelete,%PGHOME%\settings.txt
 FileAppend,%pgcfg%,%PGHOME%\settings.txt
 msgbox,,Complete,PG configuration created,5
 return
+
 PegasusFEBUTC:
 if (sysfnd = "")
 	{
@@ -52203,6 +52348,7 @@ iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order
 PGCURPL= %TCURPL%
 guicontrol,,FELBXA,|%PGCURPL%
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52263,6 +52409,7 @@ Loop, Parse, pgtv,|
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 return
+
 PegasusFEBUTE:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SNFEITMS=
@@ -52622,6 +52769,7 @@ Loop, Parse, pgtv,|
 	}
 iniwrite,%kkv%,PGcfg.ini,GLOBAL,%FECBXD%
 return
+
 PegasusFECBXD:
 guicontrolget,SYSREORDER,,FELBXA
 guicontrolget,SYSNAMEREP,,FECBXD
@@ -52653,6 +52801,7 @@ Loop, Parse, PGQLIST,|
 guicontrolget,FECBXD,,FECBXD
 guicontrol,,FELBXA,|%PGRELST%
 return
+
 PegasusFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,pgtheme,,FEDDLD
@@ -53528,8 +53677,10 @@ return
 PegasusFERAD2A:
 gui,submit,nohide
 return
+
 PegasusFECHKB:
 return
+
 PegasusFECHKE:
 gui,submit,nohide
 pgscraper= false
@@ -53539,6 +53690,7 @@ if (FECHKE = 1)
 	}
 iniwrite,%pgscraper%,PGcfg.ini,CONFIG,scraper
 return
+
 PegasusFECHKD:
 gui,submit,nohide
 pgfullscreen= false
@@ -53556,8 +53708,6 @@ if (FECHKF = 1)
 		pgaltsrcs= true
 	}
 iniwrite,%pgaltsrcs%,PGcfg.ini,CONFIG,DetectPlaylists
-return
-
 return
 PegasusFERAD2B:
 return
@@ -54508,7 +54658,7 @@ Loop, %CMIRLOC%\*,2
 guicontrol,,PGDWNLPOS,|%GMIR%||%MIRLSTLOC%
 return
 PGTHUMBBUT:
-;{;;;;;;;;;;;;;;  GAMELISTXML THUMBNAIL BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML THUMBNAIL BUTTON  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 PGTHTMP=
 FileSelectFile,PGTHTMP,3,,Select a Thumbnail
@@ -54544,7 +54694,7 @@ guicontrol,,PGTHUMBP,%pgpethumbnail%
 return
 ;};;;;;;;;;;;;;;;;;
 PGMARQBUT:
-;{;;;;;;;;;;;;;;  GAMELISTXML MARQUEE BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML MARQUEE BUTTON  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 PGTHTMP=
 FileSelectFile,PGTHTMP,3,,Select a marquee
@@ -54580,7 +54730,7 @@ guicontrol,,PGMARQPTHTXT,%pgpemarquee%
 return
 ;};;;;;;;;;;;;;;;
 PGVIDBUT:
-;{;;;;;;;;;;;;;;  GAMELISTXML VIDEO BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML VIDEO BUTTON  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 PGTHTMP=
 FileSelectFile,PGTHTMP,3,,Select a video
@@ -54611,7 +54761,7 @@ guicontrol,,PGVIDPTHTXT,%pgpevideo%
 return
 ;};;;;;;;;;;;;;
 PGIMGBUT:
-;{;;;;;;;;;;;;;;  GAMELISTXML IMAGE BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML IMAGE BUTTON  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 PGTHTMP=
 FileSelectFile,PGTHTMP,3,Select a image
@@ -54647,7 +54797,7 @@ guicontrol,,PGOPNIMGPTHTXT,%pgpeimage%
 return
 ;};;;;;;;;;;;;;;;;;;;
 PGDESCEDT:
-;{;;;;;;;;;;;;;;  GAMELISTXML DESCRIPTION EDIT  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML DESCRIPTION EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 guicontrolget,pgpedesc,,PGDESCEDT
 stringreplace,pgpedesc,pgpedesc,`n,[CR],All
@@ -54692,7 +54842,7 @@ FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 PGNAMEDT:
-;{;;;;;;;;;;;;;;  GAMELISTXML NAME EDIT  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML NAME EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 ControlGet,curpllst, List,,,ahk_id %insel%
 PGRNMCHK:
@@ -54730,7 +54880,7 @@ guicontrol,,CURPLST,|%PGINIPOP%
 return
 ;};;;;;;;;;;;;;;
 PGPTHEDT:
-;{;;;;;;;;;;;;;;  GAMELISTXML PATH EDIT  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML PATH EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 guicontrolget,pgpepath,,PGPTHEDT
 PGREPL=
@@ -54757,7 +54907,7 @@ FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;
 PGPUBEDT:
-;{;;;;;;;;;;;;;;  GAMELISTXML PUBLISHER EDIT  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML PUBLISHER EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 guicontrolget,pgpepublisher,,PGPUBEDT
 PGREPL=
@@ -54780,7 +54930,7 @@ FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;
 PGGENEDT:
-;{;;;;;;;;;;;;;;  GAMELISTXML GENRE EDIT  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;  PG_GAMELISTXML GENRE EDIT  ;;;;;;;;;;;;;;;
 gui,submit,nohide
 guicontrolget,pgpegenre,,PGGENEDT
 PGREPL=
@@ -54807,7 +54957,7 @@ FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;;;;;;
 PGDEVEDT:
-;{;;;;;;;;;;;;;;;  GAMELISTXML DEVELOPER EDIT  ;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;  PG_GAMELISTXML DEVELOPER EDIT  ;;;;;;;;;;;;;;
 guicontrolget,pgpedeveloper,,PGDEVEDT
 gui,submit,nohide
 PGREPL=
@@ -54889,7 +55039,7 @@ FileDelete,rj\PG\%syssub%\%gamesel%.ini
 FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 PGEDTPOP:
-;{;;;;;;;;;;;;;;;;;  GAMELIST LOAD GAME-INI  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  PG_GAMELIST LOAD GAME-INI  ;;;;;;;;;;;;;;;
 vvi1=
 vvi2=
 stringsplit,vvi,CURPLST,:
@@ -55163,7 +55313,7 @@ FileDelete,rj\PG\%syssub%\%gamesel%.ini
 FileAppend,%PGGAMP%,rj\PG\%syssub%\%gamesel%.ini
 return
 ;};;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;  GAMELISTXML SAVE BUTTON  ;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;  PG_GAMELISTXML SAVE BUTTON  ;;;;;;;;;;;;;;;;;;;;
 PGSAVEOPL:
 guicontrol,,CURPLST,|
 gamesel=
@@ -55204,7 +55354,7 @@ guicontrol,,CURPLST,|
 FileDelete,rj\PG\%syssub%\*.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;  ADD NEW ROM BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  PG_ADD NEW ROM BUTTON  ;;;;;;;;;;;;;;;
 PGROMADDBUT:
 gui,submit,nohide
 gamesel=
@@ -55253,7 +55403,7 @@ guicontrol,,CURPLST,|%PGINIPOP%
 gosub, CURPLST
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;  ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  PG_ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
 PGFLDADDBUT:
 gui,submit,nohide
 gamesel=
@@ -55322,7 +55472,7 @@ guicontrol,,CURPLST,|%PGINIPOP%
 gosub, CURPLST
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;  GAMELISTXML ROMPATH BUTTON  ;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;  PG_GAMELISTXML ROMPATH BUTTON  ;;;;;;;;;;;;;;;;
 PGROMPTHBUT:
 jtf=
 gui,submit,nohide
@@ -65375,6 +65525,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   MEDIA FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;  INITIALIZE  ;;;;;;;;;;;;;;;;;
+
 MediaToggle:
 gosub, FEUNPOP
 fetog= show
@@ -65494,6 +65645,12 @@ Loop, Parse, esmlist,|
 				continue
 			}
 	}
+ppartb= 	
+Loop,parse,ssenms,|
+	{
+		pggmbt%A_Index%= %A_LoopFIeld%
+		ppartb.= A_LoopField . "|"
+	}
 guicontrol,enable,FEPICA
 guicontrol,move,FEPICA,x495 y5 w240 h205
 guicontrol,,FEPICA,
@@ -65532,6 +65689,10 @@ guicontrol,hide,FEBUTG
 guicontrol,enable,FEBUTG
 guicontrol,move,FEBUTG,x533 y474 w11 h16
 guicontrol,,FEBUTG,<
+guicontrol,hide,FEBUTO
+guicontrol,enable,FEBUTO
+guicontrol,move,FEBUTO,,x534 y240 w30 h19
+guicontrol,,FEBUTO,>All
 guicontrol,hide,FEBUTH
 guicontrol,enable,FEBUTH
 guicontrol,move,FEBUTH,x544 y474 w11 h16
@@ -65561,11 +65722,11 @@ guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
 guicontrol,move,FELNKA,x289 y208 w128 h13
 guicontrol,enable,FEEDTA
 guicontrol,hide,FEEDTA
-guicontrol,move,FEEDTA,x341 y158 w100 h21
+guicontrol,move,FEEDTA,x341 y158 w110 h21
 guicontrol,,FEEDTA,%ssuser%
 guicontrol,enable,FEEDTB
 guicontrol,hide,FEEDTB
-guicontrol,move,FEEDTB,x341 y180 w100 h21
+guicontrol,move,FEEDTB,x341 y180 w110 h21
 guicontrol,+password,FEEDTB
 guicontrol,,FEEDTB,%sspassw%
 guicontrol,enable,FEEDTC
@@ -65690,7 +65851,7 @@ guicontrol,hide,FEDDLE
 guicontrol,hide,FEDDLF
 guicontrol,enable,FEDDLF
 guicontrol,move,FEDDLF,x340 y89 w100
-guicontrol,,FEDDLF,|Image Type||%metaimages%
+guicontrol,,FEDDLF,|Image Type||%ppartb%
 guicontrol,hide,FEDDLF
 guicontrol,%fetog%,FEDDLC
 guicontrol,enable,FEDDLC
@@ -65849,9 +66010,18 @@ Loop, Parse, systmfldrs,|
 	}
 LV_ModifyCol()
 return
+
 MediaFEBUTN:
 gosub, CLRNETP
 return
+MediaFEBUTO:
+efbab=FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN 
+loop,parse,efbab,|
+	{
+		guicontrol,,%a_lOOPfIELD%,1
+	}
+return
+
 MediaFEBUTA:
 CNCLKUP=
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     DOWNLOADING ARTWORK   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -66366,6 +66536,14 @@ if (FERAD2C = 1)
 				SCRPCPY= 1
 				%A_LoopField%_scrape= 1	
 			}
+			if (EmulationStation_scrape = 1)
+				{
+					filecreatedir,%eshome%\downloaded_images\%REALSYS%
+				}		
+			if (retroArch_scrape = 1)
+				{
+					filecreatedir,%thumbnailsDirectory%\%REALSYS%
+				}		
 		Loop, Parse, FEItems,`n`r
 			{
 				if (A_LoopField = "")
@@ -66406,6 +66584,14 @@ return
 JACKETSCRAPE:
 ;{;;;;;;;;;;;;;;;;   ROM SCRAPING   ;;;;;;;;;;;;;;;;;;
 SYSLKUP= %FEDDLA%
+if (EmulationStation_scrape = 1)
+	{
+		filecreatedir,%eshome%\downloaded_images\%SYSLKUP%
+	}		
+if (retroArch_scrape = 1)
+	{
+		filecreatedir,%thumbnailsDirectory%\%SYSLKUP%
+	}	
 BROMSCRAPE:
 mameget=
 JACKINARC:
@@ -66601,6 +66787,11 @@ Loop, Parse, metaimages,|
 					{
 						stringreplace,vixs,vix1,%A_Space%,,All
 						stringreplace,vixs,vixs,-,,All
+						Loop,parse,vixs2,|
+							{
+								%vixs%order= 
+								%vixs%sscrpri= 
+							}
 						Loop, Parse, vix2,|
 							{
 								if (A_LoopField = "IAGL")
@@ -66915,7 +67106,7 @@ Loop, %omitxtn0%
 			{
 				ar.insert(new)
 			}
-	}
+	}	
 if (FERAD2C = 1)
 	{
 		iniread,bbnbz,sets\EmuCfgPresets.set,%rmfnpth%,RJROMXT
@@ -67052,6 +67243,7 @@ if (FERAD2C = 1)
 gosub, ARTPAUSE
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
+
 SCRAPEJAK:
 ;{;;;;;;;;;;;;;;;;;;;;;;   SCRAPE ART  ;;;;;;;;;;;;;;;;;;;;;
 SCRSCRAPE:
@@ -67145,6 +67337,19 @@ if (getmarquee = 1)
 	{
 		FileCreateDir, %ASSETS%\%REALSYS%\%realname%\Marquees
 	}
+if (Pegasus_scrape = 1)
+	{
+		filecreatedir,%pghome%\%REALSYS%\media\%jaktit%
+	}
+if (retroFE_scrape = 1)
+	{
+		filecreatedir,%rfhome%\collections\%REALSYS%\medium_artwork
+	}
+if (Jackets_scrape = 1)
+	{
+		Filecreatedir,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps
+	}
+
 if (FERAD2C = 1)
 	{
 		scrsufx=
@@ -67211,9 +67416,11 @@ RRDboxart:
 		if (getboxart = 1)
 			{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67234,7 +67441,7 @@ RRDboxart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_image.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\BoxFront.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67247,9 +67454,11 @@ RRDsnapshot:
 			{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67270,7 +67479,7 @@ RRDsnapshot:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_screen.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\screenshot.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67288,9 +67497,11 @@ RRDbackdrop:
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67311,7 +67522,7 @@ RRDbackdrop:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_fanart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\background.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67329,9 +67540,11 @@ RRDlogo:
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67352,7 +67565,7 @@ RRDlogo:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_logo.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\logo.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67365,9 +67578,11 @@ RRD3dboxart:
 			{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67388,7 +67603,7 @@ RRD3dboxart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3dbox.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\box.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67406,9 +67621,11 @@ RRDcart:
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_SPace%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67429,7 +67646,7 @@ RRDcart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_cart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\cart.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67444,9 +67661,11 @@ RRDlabel:
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml" 
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
@@ -67467,7 +67686,7 @@ RRDlabel:
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_label.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\boxspine.%scrsufx%
 										}
 								}
 						}
@@ -67483,32 +67702,34 @@ RRDbanner:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
-								if (SCRPCPY = 1)
-									{
-										if (Jackets_scrape = 1)
-											{
-												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
-											}
-										if (EmulationStation_scrape = 1)
-											{
-												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%scrsufx%
-											}
-										if (retroArch_scrape = 1)
-											{
-												;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
-											}
-										if (retroFE_scrape = 1)
-											{
-												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%scrsufx%
-											}
-										if (Pegasus_scrape = 1)
-											{
-												FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_banner.%scrsufx%
-											}
-									}
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
+					if (SCRPCPY = 1)
+						{
+							if (Jackets_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+								}
+							if (EmulationStation_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%scrsufx%
+								}
+							if (retroArch_scrape = 1)
+								{
+									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.%Marqueeimagefrmt%
+								}
+							if (retroFE_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%scrsufx%
+								}
+							if (Pegasus_scrape = 1)
+								{
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\banner.%scrsufx%
+								}
+						}
 						}
 					if (FECHKN = 1)
 						{
@@ -67522,9 +67743,11 @@ RRD3mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%a_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
@@ -67561,9 +67784,11 @@ RRD4mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
 								{
 									if (Jackets_scrape = 1)
@@ -67584,7 +67809,7 @@ RRD4mix:
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_4mix.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\flyer.%scrsufx%
 										}
 								}
 						}
@@ -67600,17 +67825,21 @@ RRDmarquee:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 						}
 					if (mameget = 1)
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 						}
 					if (SCRPCPY = 1)
 						{
@@ -67632,7 +67861,7 @@ RRDmarquee:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_marquee.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\marquee.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67645,10 +67874,11 @@ RRDvid:
 		if (getvideo = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
-					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
+					enfec= -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67669,7 +67899,7 @@ RRDvid:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
+									FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
 								}
 						}
 					if (FECHKN = 1)
@@ -67682,9 +67912,11 @@ RRDmetadata:
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false -use_filename=true -output_file="%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%SYSROMD%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%SYSROMD%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%sysfrd%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false
+					enfec= -use_filename=true -output_file="%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%SYSROMD%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
@@ -67705,7 +67937,7 @@ RRDmetadata:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\%jaktit%.xml
 								}
 						}
 					if (FECHKN = 1)
@@ -67782,9 +68014,11 @@ JRDboxart:
 		if (getboxart = 1)
 				{
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Boxart\%realname%%scrsufx%.%Boxartimagefrmt%
 						{
@@ -67828,9 +68062,11 @@ JRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enefc%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Snapshots\%realname%%scrsufx%.%Snapshotimagefrmt%
 						{
@@ -67879,9 +68115,11 @@ JRDbackdrop:
 							artx=fly
 						}
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Backdrops\%realname%%scrsufx%.%backdropimagefrmt%
 						{
@@ -67930,9 +68168,11 @@ JRDlogo:
 							artx=t
 						}
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Logos\%realname%%scrsufx%.%logoimagefrmt%
 						{
@@ -67976,9 +68216,11 @@ JRD3dboxart:
 		if (get3dboxart = 1)
 				{
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\3D-Boxart\%realname%%scrsufx%.%3dboximagefrmt%
 						{
@@ -68027,9 +68269,11 @@ JRDcart:
 							artx=c
 						}
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Carts\%realname%%scrsufx%.%Cartimagefrmt%
 						{
@@ -68075,9 +68319,11 @@ JRDlabel:
 					if (mameget = "")
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%Labelimagefrmt%
 								{
@@ -68124,9 +68370,11 @@ JRDbanner:
 					if (mameget = "")
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%
 								{
@@ -68173,9 +68421,11 @@ JRD3mix:
 					if (mameget = "")
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\3Mix\%realname%%scrsufx%.%3miximagefrmt%
 								{
@@ -68222,9 +68472,11 @@ JRD4mix:
 					if (mameget = "")
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\4Mix\%realname%%scrsufx%.%4miximagefrmt%
 								{
@@ -68271,9 +68523,11 @@ JRDmarquee:
 					if (mameget = "")
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt% -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%
 								{
@@ -68289,9 +68543,11 @@ JRDmarquee:
 					if (mameget = 1)
 						{
 							
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt% -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
 							ifexist, %ASSETS%\%REALSYS%\%realname%\Marquees\%realname%%scrsufx%.%Marqueeimagefrmt%
 								{
@@ -68336,9 +68592,11 @@ JRDvideo:
 		if (getvideo = 1)
 				{
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -retries=5 -download_images=false -video_suffix="%scrsufx%" -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
+					enfec= -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\Videos\%realname%%scrsufx%.mp4
 						{
@@ -68383,9 +68641,11 @@ JRDmetadata:
 				{
 					
 					
-					filedelete,scrape.cmd
-					fileappend,"%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder% -append=true -retries=5 -download_images=false -use_filename=true -output_file="%ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%%REALSYS%\gamelist.xml",Scrape.cmd
-					RunWait, "%A_ScriptDir%\scrape.cmd",%RJSYSTEMS%\%REALSYS%\%realname%,hide
+					filedelete,%cacheloc%\scrape.cmd
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder% -append=true -retries=5 -download_images=false
+					enfec= -use_filename=true -output_file="%ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
 					ifexist, %ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml
 						{
@@ -68733,6 +68993,7 @@ guicontrol,,FELBXA,|%mediaorder%
 iniwrite,%TMORD%,mediafe.ini,ORDER,%FEDDLC%
 return
 ;};;;;;;;;;;;;;;;
+
 MediaFEBUTD:
 guicontrolget,FEDDLC,,FEDDLC
 stringreplace,FEDDLC,FEDDLC,%A_Space%,,ALL
@@ -68766,6 +69027,7 @@ guicontrol,,FEEDTC, 800
 guicontrol,,FELBXA,|theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 iniwrite,%mediaorder%,mediafe.ini,ORDER,%FEDDLC%
 return
+
 MediaFEBUTE:
 guicontrolget,FEDDLC,,FEDDLC
 curmedord= %mediaorder%
@@ -68911,6 +69173,7 @@ if (FECHKN = 0)
 	}
 return
 MediaFECHKO:
+gui,submit,nohide
 ACTRJ= %FECHKO%
 guicontrolget,FEDDLG,,FEDDLG
 iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
@@ -68923,6 +69186,7 @@ if (FEDDLG <> "Jackets")
 				return
 			}
 	}
+ScrapeDisp:	
 scrapeton= 
 if (FECHKO = 1)
 	{
@@ -68937,18 +69201,10 @@ if (FECHKO = 1)
 					}
 				scrapeton.= A_LoopField . "|"
 			}
-		scrapeton.= FEDDLG
+		scrapeton.= FEDDLG . "|"
 		iniwrite,%scrapeton%,MediaFE.ini,GLOBAL,scrape_destinations
 		SB_SetText("Scraped Artwork will be copied to " FEDDLG ".")
 		return
-	}
-Loop,Parse,scrapeto,|
-	{
-		if (A_LoopField = FEDDLG)
-			{
-				continue
-			}
-		scrapeton.= A_LoopField . "|"	
 	}
 iniwrite,%scrapeton%,MediaFE.ini,GLOBAL,scrape_destinations	
 guicontrol,hide,FEDDLF
@@ -69210,25 +69466,33 @@ if (mediaorder = "ERROR")
 	}
 guicontrol,,FELBXA,|%mediaorder%
 return
+
 MediaFEDDLG:
 gui,submit,nohide
 guicontrol,,FECHKO,0
 guicontrolget,FEDDLG,,FEDDLG
 iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
+scrpt= hide
 ifinstring,scrapeto,%FEDDLG%
 	{
 		guicontrol,,FECHKO,1
+		scrpt= show
 	}
+guicontrol,%scrpt%,FEDDLF
+guicontrol,%scrpt%,FECBXA
+guicontrol,%scrpt%,FETXTN
 return
+
 MediaFEDDLD:
 guicontrolget,FEDDLD,,FEDDLD
 return
+
 MediaFEDDLF:
 gui,submit,nohide
-iniread,fed,Mediafe.ini,GLOBAL,%FEDDLF%
-guicontrolget,FEDDLA,,FEDDLA
 guicontrolget,FEDDLF,,FEDDLF
-iniread,fei,Mediafe.ini,%FEDDLA%,%FEDDLF%
+guicontrolget,FEDDLG,,FEDDLG
+guicontrolget,FEDDLA,,FEDDLA
+iniread,fed,Mediafe.ini,%FEDDLG%,%FEDDLF%
 if ((fei = "ERROR") or (fei = ""))
 	{
 		iniread,fei,Mediafe.ini,GLOBAL,%FEDDLF%
@@ -69238,15 +69502,17 @@ if ((fei = "ERROR") or (fei = ""))
 stringreplace,fed,fed,||,|,All	
 guicontrol,,FECBXA,|%fei%||%fed%
 return
+
 MediaFECBXA:
 gui,submit,nohide
 guicontrolget,FECBXA,,FECBXA
+guicontrolget,FEDDLG,,FEDDLG
 guicontrolget,FEDDLF,,FEDDLF
-if ((FECBXA = "") or (FEDDLF = "Image Name"))
+if ((FECBXA = "") or (FEDDLF = "Image Type"))
 	{
 		return
-	}
-iniwrite,%FECBXA%,MediaFE.ini,%FEDDLA%,%FEDDLF%
+	}	
+iniwrite,%FECBXA%,MediaFE.ini,%FEDDLG%,%FEDDLF%
 return
 
 MediaFECBXB:
@@ -70498,7 +70764,6 @@ if (icotmp = "")
 		return
 	}
 splitpath, icotmp,,,icoxt
-imgtmp= |jpg|bmp|png|jpeg|
 if (icoxt = "ico")
 	{
 		xeico= %icotmp%
@@ -71252,6 +71517,10 @@ return
 feBUTM:
 gui,submit,nohide
 gosub,%FETYP%feBUTM
+return
+feBUTO:
+gui,submit,nohide
+gosub,%FETYP%feBUTO
 return
 fePICA:
 gui,submit,nohide
@@ -72571,6 +72840,8 @@ moptog= hide
 gosub, TOGSKELRUN
 srchtog= hide
 gosub, TOGGLESEARCHBOX
+guicontrol,move,FNDGUI, x720 y516 w42 h19
+guicontrol,,FNDGUI,find
 emutog= show
 guito= %EMUSN%
 ifnotinstring,supguiitems,%guito%

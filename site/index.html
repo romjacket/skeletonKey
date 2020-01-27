@@ -210,7 +210,7 @@
                <li>From an internet ROM-repository</li>
                <li>From the command line</li>
              </ul>
-             <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to  automate the launching of hundreds of emulators</p>
+             <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to automate hundreds of emulators</p>
 			  <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users
                 who desire a means to maintain the integrity of settings and assets indipendently of a frontend or
                 emulator. 
@@ -368,8 +368,7 @@
              Selecting a title will
              repopulate the System-List &amp; make it active in the ROM list. </p>
          <p>A right-click menu allows for a single ROM to be launched by any installed emulator or it's directory
-             opened by windows explorer. Additionally, multiple files can be selected and added to the current
-             playlist.           </p>
+             opened by windows explorer. Additionally, multiple files can be selected and added to the playlist editor.           </p>
        </div>
       </div>
       <br>
@@ -606,8 +605,7 @@
                    <h4>Blank</h4>
                      <p>Causes an empty profile to be created for each game to disable the keymapper while
                      the emulator is running. (this is useful if BSL or a return profile is enabled, but a profile is not available.)</p>
-                     <p>*A blank profile is created for any system which does not have a keymapper preset.*</p>
-                     <br>
+                     <p><span style="font-size: x-small">*A blank profile is created for any system which does not have a keymapper preset.*</span></p>
                      <h4>Joy</h4>
                     <p>This is the default option for skeletonKey and creates a profile with only Emulator
                         functionality.<br>
@@ -1094,7 +1092,7 @@
                      <code><em>├── </em><strong><font color="lime">Game Title (EUR)[b]</font></strong>/</code><br>
                               <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (EUR)[b].rom</font></span></code><br>	  
                      <p>The abundance of releases a title may have seen throughout the world is multiplied by
-                        versions the developer released and again multiplied by ROM-dumps. Subsequently many
+                        versions the developer released and again multiplied by ROM-dumps. Subsequently, many
                         ROM-collections and system-libraries are simply too
                         large and unwieldy for practical purposes.<br>In the interest of bringing forth functional
                         libraries it may be desireable to consolidate each title without regard for region or
@@ -1566,7 +1564,11 @@ body {
 	background: -o-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
 	background: linear-gradient(to bottom, #E0E0E0 0%, #919191 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E0E0E0', endColorstr='#919191',GradientType=0 );
-	background-attachment: fixed;
+	background-attachment: fixed;	
+	transform-origin: inherit;
+	transform-origin: initial;
+	transform-origin: unset;
+	transition: 0.3s;
 }
 td,
 th {
@@ -1637,6 +1639,7 @@ main {
 	border: thick;
 	margin-left: 2%;
 	padding-top: 8px;
+	
 }
 #indent {
     margin-bottom: 3px;
@@ -1663,21 +1666,27 @@ main {
 	-webkit-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
 	-moz-box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);
 	box-shadow: -4px 4px 4px 4px rgba(80, 80, 80, 1);	
+	
 }
 #detailsdiv {
-    background-color: #515151;
-    color: white;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-left: 3%;
-    padding-bottom: 2%;
-    padding-top: 2%;
+	/*background-color: #515151;*/
+	background-image: -webkit-linear-gradient(90deg,rgba(15,15,15,1.00) 0%,rgba(27,27,27,1.00) 25.91%,rgba(33,33,33,1.00) 93.26%,rgba(3,3,3,1.00) 100%);
+	background-image: -moz-linear-gradient(90deg,rgba(15,15,15,1.00) 0%,rgba(27,27,27,1.00) 25.91%,rgba(33,33,33,1.00) 93.26%,rgba(3,3,3,1.00) 100%);
+	background-image: -o-linear-gradient(90deg,rgba(15,15,15,1.00) 0%,rgba(27,27,27,1.00) 25.91%,rgba(33,33,33,1.00) 93.26%,rgba(3,3,3,1.00) 100%);
+	background-image: linear-gradient(0deg,rgba(15,15,15,1.00) 0%,rgba(27,27,27,1.00) 25.91%,rgba(33,33,33,1.00) 93.26%,rgba(3,3,3,1.00) 100%);
+	color: white;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 2%;
+	padding-top: 2%;
 	border-radius: 8px 8px;
-    -webkit-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
+	-webkit-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
     *-moz-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);*
     padding-right: 3%;
-    box-shadow: 4px -4px 4px 4px rgba(230, 230, 230, 1),-3px 3px 6px 6px rgba(80, 80, 80, .7);
-    text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
+	box-shadow: 4px -4px 4px 4px rgba(230, 230, 230, 1),-3px 3px 6px 6px rgba(80, 80, 80, .7);
+	text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
 }
 #SectSeparate {
 	text-align: center;
@@ -1723,6 +1732,7 @@ main {
 	display: none;
 	text-align: center;
 	z-index: 9;
+	
 }
 
 .parent:before {
@@ -1788,19 +1798,25 @@ width: 100%;
     color: blue;
 }
 .close .tabItemContent {
+	transform-origin: top;
     height: 0px;
     -webkit-transform: scaleY(0);
     -o-transform: scaleY(0);
     -ms-transform: scaleY(0);
     transform: scaleY(0);
     display: block;
+  	transition: 0.3s;
 }
 .open .tabItemContent {
+	transform-origin: top;
     height: 100%;
 	margin-top: 15px;
+  	transition: 0.3s;
 }
 .open .tabItemHeading {
+	transform-origin: top;
     color: blue;
+	transition: 0.3s;
 }
 </style>
 <style>
@@ -1835,23 +1851,28 @@ width: 100%;
     background-color: #515151;
     z-index: 1;
     transform-origin: 4px 0px;
-    transition: transform 0.0s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.0s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.0s ease;
+    transition: transform 0.0s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.0s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.25s ease;
 }
 #menuToggle span:first-child {
     transform-origin: 0% 0%;
+	transition: 0.3s;
 }
 #menuToggle span:nth-last-child(2) {
     transform-origin: 0% 100%;
+	transition: 0.3s;
 }
 #menuToggle input:checked~span {
     transform: rotate(45deg) translate(-2px, -1px);
+		transition: 0.3s;
 }
 #menuToggle input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
+		transition: 0.3s;
 }
 #menuToggle input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
+		transition: 0.3s;
 }
 #menu {
 	position: absolute;
