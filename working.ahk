@@ -2685,7 +2685,7 @@ Gui, Add, CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
 Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
 Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
 Gui Add, Text, x361 y79 w35 h15 vPLSELTXT, Select
-Gui Add, Button, x360 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
+Gui Add, Button, x361 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
 Gui Add, Button, x361 y108 w35 h15 +0x100 vPLLISTN gPLLISTN, None
 Gui Add, Button, x416 y100 w32 h15 +0x200 vPLLISTSORT gPLLISTSORT, Sort
 Gui, Add, Button, x358 y150 w50 h18 vCPYPL gCopyToPl, +------>
@@ -66536,14 +66536,14 @@ if (FERAD2C = 1)
 				SCRPCPY= 1
 				%A_LoopField%_scrape= 1	
 			}
-			if (EmulationStation_scrape = 1)
-				{
-					filecreatedir,%eshome%\downloaded_images\%REALSYS%
-				}		
-			if (retroArch_scrape = 1)
-				{
-					filecreatedir,%thumbnailsDirectory%\%REALSYS%
-				}		
+		if (EmulationStation_scrape = 1)
+			{
+				filecreatedir,%eshome%\downloaded_images\%REALSYS%
+			}		
+		if (retroArch_scrape = 1)
+			{
+				filecreatedir,%thumbnailsDirectory%\%REALSYS%
+			}		
 		Loop, Parse, FEItems,`n`r
 			{
 				if (A_LoopField = "")
@@ -66553,14 +66553,7 @@ if (FERAD2C = 1)
 				rmfnpth= %A_LoopField%
 				splitpath,A_LoopField,romfnam,,,jaktit
 				realname= %jaktit%
-				if (FERAD2B = 1)
-					{
-						SYSROMD= %FEDDLA%
-					}
-				if (FERAD2C = 1)
-					{
-						SYSROMD= %romfnam%
-					}
+				SYSROMD= %romfnam%
 				SYSLKLOC= %RJSYSTEMS%\%SYSROMD%
 				REALSYS= %SYSROMD%
 				SCRPDIR= %SYSLKLOC%
@@ -67418,7 +67411,7 @@ RRDboxart:
 					SB_SetText("Downloading " SYSROMD " Boxart ")
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67456,7 +67449,7 @@ RRDsnapshot:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67499,7 +67492,7 @@ RRDbackdrop:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67542,7 +67535,7 @@ RRDlogo:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67580,7 +67573,7 @@ RRD3dboxart:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67623,7 +67616,7 @@ RRDcart:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_SPace%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67663,7 +67656,7 @@ RRDlabel:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml" 
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml" 
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
@@ -67704,7 +67697,7 @@ RRDbanner:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -67745,7 +67738,7 @@ RRD3mix:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%a_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
@@ -67786,7 +67779,7 @@ RRD4mix:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 							if (SCRPCPY = 1)
@@ -67827,7 +67820,7 @@ RRDmarquee:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 						}
@@ -67837,7 +67830,7 @@ RRDmarquee:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 						}
@@ -67876,7 +67869,7 @@ RRDvid:
 					SB_SetText("Downloading " SYSROMD " Video ")
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
-					enfec= -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfec= -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
@@ -68016,7 +68009,7 @@ JRDboxart:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68064,7 +68057,7 @@ JRDsnapshot:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enefc%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68117,7 +68110,7 @@ JRDbackdrop:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68170,7 +68163,7 @@ JRDlogo:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68218,7 +68211,7 @@ JRD3dboxart:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68271,7 +68264,7 @@ JRDcart:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68321,7 +68314,7 @@ JRDlabel:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68372,7 +68365,7 @@ JRDbanner:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68423,7 +68416,7 @@ JRD3mix:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68474,7 +68467,7 @@ JRD4mix:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68525,7 +68518,7 @@ JRDmarquee:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68545,7 +68538,7 @@ JRDmarquee:
 							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="%scrsufx%" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix= -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 							SBNOT= Failed
@@ -68594,7 +68587,7 @@ JRDvideo:
 					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
-					enfec= -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -output_file="" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
+					enfec= -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -nested_img_dir=false -no_thumb -extra_ext= -use_nointro_name=true -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
 					SBNOT= Failed
@@ -68868,7 +68861,7 @@ if (getmetadata = 1)
 	{
 		filecopy, rj\scrapeArt\%SYSLKUP%\%xmlf%, %ASSETS%\%REALSYS%\%realname%\metadata,1
 	}
-return
+return
 ;};;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;
 ARTPAUSE:

@@ -843,6 +843,7 @@ BIOS=R
 RJPRECFG=<copy /y "%GAMDIR%\retroarch.cfg" "%EMUL%"|<copy /y "%GAMDIR%\retroarch_core_options.cfg" "%EMUL%"
 RJPOSTCFG=<copy /y "%EMUL%\retroarch.cfg" "%GAMDIR%"|<copy /y "%EMUL%\retroarch-core_options.cfg" "%GAMDIR%"
 RJEMUOPTS=<-L "[libretrodirectory]\[core]"<|<
+RJEMUARGS= 
 RJEXTRARC=0
 RJRUNDIR=1
 PEREMUCFG=1
@@ -3479,7 +3480,7 @@ MAME?RJEMUOPTS=<vectrex -cart<
 RJZIPPEEK=0
 SHORTNM=GVEXTR
 SUPEMU=ParaJVE|vecxgl|infovectrex
-SUPCORE=mame_libretro.dll
+SUPCORE=vecx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=vectrex
 
@@ -7639,6 +7640,10 @@ EXENAM=bottlenose.exe
 [attractMode]
 URLPTH=attractMode/attractMode[ARCH].7z
 EXENAM=attract.exe
+[emulationStation]
+[emulationStation]
+[emulationStation]
+[emulationStation]
 [emulationStation]
 URLPTH=emulationStation/emulationStation.7z
 EXENAM=emulationstation.exe
