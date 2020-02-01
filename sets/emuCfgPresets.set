@@ -566,6 +566,14 @@ STATEPTH=Saves\*.sram
 MEMPTH=Saves\*.00*
 options="[CUSTMOPT]"
 
+[vvctre]
+RJRUNDIR=1
+RJLNCHP=0
+RJPRECFG=copy /y "*.ini" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
+URLPTH=vvctre/vvctre.7z
+EXENAM=vvctre.exe
+
 [decaf]
 RJRUNDIR=1
 RJLNCHP=0
@@ -3947,7 +3955,7 @@ RJEMUPRESET=Citra
 RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
 RJMAMENM=3ds
 SHORTNM=NN3DS
-SUPEMU=Citra|tronds
+SUPEMU=Citra|vvctre|tronds
 SUPCORE=citra_libretro.dll|citra_canary_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3ds

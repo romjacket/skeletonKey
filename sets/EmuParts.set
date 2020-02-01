@@ -43,6 +43,7 @@ BlueMSX=BlueMSX/BlueMSX.7z=BlueMSX.exe=bluemsx.ini=QuickSave\*.*=SRAM\*.sram
 CD-I=CD-I/CD-I.7z=CD-I.exe=cdiroms.ini
 CEMU=CEMU/CEMU.7z=Cemu.exe=Settings.xml
 Citra=Citra/Citra.7z=citra-qt.exe=user\config\qt-config.ini= =user\config\user\sdmc\Nintendo 3DS\*.*
+vvctre=vvctre/vvctre.7z=vvctre.exe=*.ini|
 Colem=Colem/Colem.7z=VColeco.exe=ini
 Cxbx=Cxbx/Cxbx.7z=CxBx.exe=settings.ini
 decaf=decaf/decaf.7z=decaf-qt.exe=

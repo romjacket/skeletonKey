@@ -357,7 +357,7 @@ if (MIRDDLOC = "")
 stringsplit,ddlcn,CMIR1,_
 IniRead, CMIRLOC,Settings.ini,GLOBAL,%CMIR1%
 IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 MIRFEDDLA= %CMIR1%||%MIRDDLOC%
 if (CMIRLOC = "ERROR")
 	{
@@ -860,7 +860,7 @@ MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|em
 MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
 XMBGUIITEMS=raACAL|raACAT|raPLFAM|raPLSICN|raPLSLB|raPLSAL|raTHMBDDL|raBBT|raBFIL|raBFTH|raTHMBDDL|raTHMBDDL2|raENBLWID|raSELSCON|raSTRMK|raSTRMP|raSTMQSLD|raSTRMURL|raSTRMTDDL|raENBLWID|raSELSCON|raSTRMK|raSTRMP|raSTRMKTXT|raSTRMPTXT|raSTRMQSLD|raSTRMURL|raSTRMTDDL|RASHWM|RASHWCHK|XMBGRP|RETALFE|MNUCLRTXT|CLRPICKR|CLRDDL|OVRLBTN|OVRLYTXT|OVRLAY|OVRLTOG|OVRLMENU|THMTXT|RIBN|RIBTXT|XICNTXT|ICNTXT|XMBTHM|XMBCLRTHM|CLRTHM|MOUSEON|DYNWALL|SHADW|XMBSCLF|XMBSCL|XMBFTXT|FONTSB|OPACDDL|OPASLD|OPAEDT|GLBMENSETGRP|MNUACT|MNUJOY|MNUPNT|MNUFLT|THRTL|NAVWRAP|CMPAN|FILTEXT|VMPSTXT|VMSGX|VMSGY|XMBGXTXT|XMBGYTXT|VFNTEN|XMBGSZTXT|FNTSZ|XMBGATXT|XMBALF|VIDAEDT|DPIOVR|DPIPT|XMBTHMBGRP|MNUSYS|BOXCVR|TITLCVR|SSHTCVR|THUMBON|LFTTHMB|VRTTHMB|STHUMBON|XMBPL|XMBFL|PLRCR|THMBREC|XMBNCTXT|XMBSITXT|GTHMB|SVTHMB|THMBNEDT|IMGLOC|ROMFLS|IMGFLS|raSTRMTDDL|raSTRMSCLTXT|raSTRMSCL|raSTRMUTXT|raSTMMTXT|raTHMBTXT|raTHMBTXT2|raSTMQOUT|raSLSNTXT|raSTMQTXT|raTHMBDDL2
-FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ|feBUTK|feBUTL|feBUTM|fePICA|fePICB|fePICC|fePICD|fePICE|fePICF|fePICG|feCHKD|feCHKE|feCHKF|feCHKG|feCHKH|feCHKI|feCHKJ|feCHKK|feCHKL|feCHKM|feCHKN|feCHKO|feCHKP|feCHKQ|feCHKA|feCHKB|feCHKC|feCBXE|feCBXF|feCBXG|feCBXH|feCBXI|feCBXJ|feCBXA|feCBXB|feCBXC|feCBXD|feDDLE|feDDLG|feDDLF|feDDLG|feDDLH|feDDLI|feLNKA|feLNKB|feDDLC|feDDLD|feDDLA|feDDLB|feEDTA|feEDTB|feEDTC|feEDTD|feEDTE|feEDTF|feEDTG|feEDTI|feUPDA|feEDTH|feUPDB|feLVA|feUPDC|feGRPA|feGRPB|feGRPC|feGRPD|feGRPE|feGRPF|feGRPG|feLBXA|feLBXB|feLVA|feLVB|feLVC|fePRGB|fePRGA|feRad5B|feRad5C|feRad4A|feRad4B|feRad5A|feRad6A|feRad6B|feRad6C|feRad6D|feRad7A|feRad7B|feRad8A|feRad8B|feRad9A|feRad9B|feRad9C|feRad10A|feRad10B|feRad11A|feRad11B|feRad2A|feRad2B|feRad2C|feRad1A|feRad3A|feRad3B|feRad3C|feRad3D|feRad1B|feSLDA|feSLDB|feSLDD|feSLDE|feSLDC|feTXTA|feTXTB|feTXTC|feTXTD|feTXTE|feTXTF|feTXTG|feTXTS|feTXTT|feTXTR|feTXTM|feTXTH|feTXTI|feTXTN|feTXTO|feTXTP|feTXTQ|feTXTJ|feTXTK|feTXTL
+FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ|feBUTK|feBUTL|feBUTM|feBUTO|fePICA|fePICB|fePICC|fePICD|fePICE|fePICF|fePICG|feCHKD|feCHKE|feCHKF|feCHKG|feCHKH|feCHKI|feCHKJ|feCHKK|feCHKL|feCHKM|feCHKN|feCHKO|feCHKP|feCHKQ|feCHKA|feCHKB|feCHKC|feCBXE|feCBXF|feCBXG|feCBXH|feCBXI|feCBXJ|feCBXA|feCBXB|feCBXC|feCBXD|feDDLE|feDDLG|feDDLF|feDDLG|feDDLH|feDDLI|feLNKA|feLNKB|feDDLC|feDDLD|feDDLA|feDDLB|feEDTA|feEDTB|feEDTC|feEDTD|feEDTE|feEDTF|feEDTG|feEDTI|feUPDA|feEDTH|feUPDB|feLVA|feUPDC|feGRPA|feGRPB|feGRPC|feGRPD|feGRPE|feGRPF|feGRPG|feLBXA|feLBXB|feLVA|feLVB|feLVC|fePRGB|fePRGA|feRad5B|feRad5C|feRad4A|feRad4B|feRad5A|feRad6A|feRad6B|feRad6C|feRad6D|feRad7A|feRad7B|feRad8A|feRad8B|feRad9A|feRad9B|feRad9C|feRad10A|feRad10B|feRad11A|feRad11B|feRad2A|feRad2B|feRad2C|feRad1A|feRad3A|feRad3B|feRad3C|feRad3D|feRad1B|feSLDA|feSLDB|feSLDD|feSLDE|feSLDC|feTXTA|feTXTB|feTXTC|feTXTD|feTXTE|feTXTF|feTXTG|feTXTS|feTXTT|feTXTR|feTXTM|feTXTH|feTXTI|feTXTN|feTXTO|feTXTP|feTXTQ|feTXTJ|feTXTK|feTXTL
 JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKI|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
 UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
 XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT|EXCLBOOL|INCLBOOL|PARSEALL|EXTPARSED|FLTXT|SVASPLST
@@ -876,12 +876,13 @@ RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC
+EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
 RAINSTITEMS= AVAIL|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
 SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|EAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
+PSETCFGITEMS= ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
 JSTSET= %JOYSET%
 RJSYSDN= Systems
@@ -1876,11 +1877,6 @@ Gui Tab, :=: MAIN :=:
 Gui,Font,Bold
 Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
-Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
-
-Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E
-Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
-
 Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
 Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
 Gui,Add,ComboBox, hwndCbxHndl1 x18 y24 w640 vRUNROMCBX gEDTROM +0x2 +E0x5000 Right,
@@ -1902,6 +1898,7 @@ Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 gui,font,normal
 Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
 Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;  Speed ;;;;;
 Gui,Add,Edit, hwndEdtHndl6 x362 y247 w92 h21 vRaSpdEdt gRaSpdEdt hidden,
@@ -2215,6 +2212,10 @@ Gui, Add, Text, x688 y96 vemuTXTQ %tmpvis%,
 Gui, Add, Text, x505 y400 vemuTXTR %tmpvis%,
 Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%,
 Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%,
+Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
+Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
+
+Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[INSTALL TAB]]     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2226,7 +2227,7 @@ Gui,Font,Norm
 Gui,Font,Bold
 Gui, Add, GroupBox, x473 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,Norm
-Gui, Add, Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%,AUTO
+Gui, Add, Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%, AUTO
 Gui,Add,Edit, hwndEdtHndl26 x5 y2 w210 vINSFLTR gINSFLTR,
 Gui, Add, Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
 Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
@@ -2281,8 +2282,8 @@ Gui, Add, Text, x180 y490 h15,Installers
 Gui,Font,Bold
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,Norm
-Gui,Add,DropDownList, hwndDplHndl39 x288 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
-Gui, Add, Button, x388 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
+Gui,Add,DropDownList, hwndDplHndl39 x588 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
+Gui, Add, Button, x688 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui,Add,DropDownList, hwndDplHndl40 x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
 Gui,Add,DropDownList, hwndDplHndl41 x503 y73 w52 vOVEXTL gOVEXTL,All||
@@ -2304,6 +2305,7 @@ Gui,Add,ComboBox, hwndCbxHndl26 x505 y192 w120 vAPPOPT gAppOpt Hidden,|[CUSTMOPT
 Gui,Add,ComboBox, hwndCbxHndl27 x505 y218 w120 vAPPARG gAppArg Hidden,|[CUSTMARG]|%INJARG%
 Gui, Add, Text, x633 y191 h23 vOPTTXT hidden, options
 Gui, Add, Text, x633 y215 h23 vARGTXT hidden, arguments
+Gui,Add,Button,x501 y122 h20 w50 vGBLpgs gGBLpgs hidden,Global
 Gui, Add, CheckBox, x595 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Configurations
 Gui, Add, Radio, x506 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
 Gui, Add, Radio, x506 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
@@ -3687,6 +3689,7 @@ ARCPOP_TT :="POPULATED ROMS"
 ARCMFLT_TT :="Filter for current list"
 ARCLRFLT_TT :="clears the current filter"
 ARCSYS_TT :="Select a System to populate ROMs"
+GBLpgs_TT :="Enables per-game settings for all presets."
 ARDCORE_TT :="Assigns an alternative retroArch core to the selected system."
 ART_TT :="Rate-Control"
 ASCORE_TT := "Core to assign to the specified system or extension set"
@@ -9492,6 +9495,7 @@ if (SALIST = "Systems")
 		return	
 	}
 return
+
 SaList:
 gui,submit,nohide
 guicontrolget,SALIST,,SALIST
@@ -9499,10 +9503,13 @@ guicontrol,show,CLRFLTR
 guicontrol,show,INSFLTRX
 guicontrol,show,INSFLTR
 guicontrol,,INSFLTR,
+guicontrol,move,EMUPGC,x595 y122
+guicontrol,move,GBLPgs,x501 y122
 Loop,Parse,EMUTABITEMS,|
 	{
 		guicontrol,hide,%A_LoopField%
 	}
+guicontrol,hide,GBLpgs
 guicontrol,hide,AUTOBIOS
 guicontrol,disable,EMUASIGN
 guicontrol,disable,ROMDLOC
@@ -9543,7 +9550,7 @@ if (SALIST = "Utilities")
 		guicontrol,hide,INSFLTR
 		guicontrol,hide,CLRFLTR
 		guicontrol,hide,INSFLTRX
-		guicontrol,move,CACGRP, x2 y5 w276 h478
+		guicontrol,move,CACGRP,x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol,,UAVAIL,|Antimicro|DS4Windows|Daemon_Tools|DirectX|Visual_C++_Runtimes|Xinput_Drivers|Xpadder|Display_Changer|VirtualCloneDrive|WinCDEmu|360button|Joy2Key
 		guicontrol,,CCGRP,Installer
@@ -9582,13 +9589,18 @@ if (SALIST = "Systems")
 if (SALIST = "Emulators")
 	{
 		guicontrol,,UAVAIL,|%emuinstpop%
+		guicontrol,%AUTOBBUT%,AUTOBIOS
+		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
+		gosub, Dapp
+		
+		Loop,Parse,PSETCFGITEMS,|
+			{
+				guicontrol,hide,%A_LoopField%
+			}
 		Loop,Parse,EMUINSTITEMS,|
 			{
 				guicontrol,show,%A_LoopField%
 			}
-		guicontrol,%AUTOBBUT%,AUTOBIOS
-		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
-		gosub, Dapp
 		guicontrol, hide,DCORE
 		guicontrol, hide,ARDCORE
 		guicontrol, hide,OVLIST
@@ -9601,8 +9613,14 @@ if (SALIST = "Emulators")
 		guicontrol, hide,ROMDEDT
 		guicontrol,hide,OPNSYS
 		guicontrol,hide,ADDCORE
-		guicontrol,show,DAPP
-		guicontrol,show,EXDISPL
+		guicontrol,hide,EXDISPL
+		guicontrol,hide,EXTARUN
+		guicontrol,hide,DAPP
+		guicontrol,hide,EXDISPL
+		guicontrol,show,Gblpgs
+		guicontrol,show,EMUPGC
+		guicontrol,move,EMUPGC,x595 y436
+		guicontrol,move,GBLPgs,x541 y436
 	}
 guicontrol, , SYSNICK,| ||%preEmuCfg%
 Loop, Parse, EmuPartSet,`n`r
@@ -29119,6 +29137,28 @@ EmuPGC:
 gui,submit,nohide
 guicontrolget,EMUPGC,,EMUPGC
 return
+
+GBLpgs:
+gui,submit,nohide
+seirb= enabling
+sbr=1
+if (EMUPGC = 0)
+	{
+		seirb= disabling
+		sbr=0
+	}
+SB_SetText(" "seirb " all  per game settings")
+loop,parse,preEmuCfg,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		iniwrite, %sbr%,AppParams.ini,%A_Loopfield%,per_game_configurations
+	}	
+SB_SetText("completed " seirb "  per game settings for all systems.")
+return	
+
 ERun:
 gui,submit,nohide
 guicontrolget,ERUN,,ERUN
@@ -51956,6 +51996,10 @@ gui,ListView,FELVA
 LV_Delete()
 Loop, Parse, systmfldrs,|
 	{
+		ifnotinstring,SysLLst,%A_LoopField%=
+			{
+				continue
+			}
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
@@ -52513,7 +52557,7 @@ if (FERAD5A = 1)
 		LV_Modify(0, "-Check")
 		return
 	}
-	if (FERAD5B = 1)
+if (FERAD5B = 1)
 	{
 		guicontrolget,FEDDLF,,FEDDLF
 		iniread,pgmirror,Settings.ini,GLOBAL,%FEDDLF%
@@ -55882,7 +55926,7 @@ Guicontrol,-Multi,FELVA
 LV_Delete()
 Loop, Parse, RfNpts,|
 	{
-		if (A_LoopField = "")
+		ifnotinstring,SysLLst,%A_LoopField%=
 			{
 				continue
 			}
@@ -59648,6 +59692,7 @@ return
 ;};;;;;;;;;;;;
 ;};;;
 ;};;;
+
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationToggle:
 gosub, FEUNPOP
@@ -59979,6 +60024,10 @@ gui,ListView,FELVA
 LV_Delete()
 Loop, Parse, systmfldrs,|
 	{
+		ifnotinstring,SysLLst,%A_LoopField%=
+			{
+				continue
+			}
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
@@ -60029,7 +60078,7 @@ guicontrol,,FETXTK,Load es_systems.cfg
 guicontrol,%fetog%,FETXTC
 guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
-guicontrol,,FETXTC,Mirror Location
+guicontrol,,FETXTC,System Location
 guicontrol,%fetog%,FETXTD
 guicontrol,enable,FETXTD
 guicontrol,move,FETXTD,x577 y242 w82 h13
@@ -60374,7 +60423,7 @@ if (FERAD5A = 1)
 				NFEITMS.= A_LoopField . "|"
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
 				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
-				IniWrite,bat,ESCfg.ini,%SLCTDSN%,ext_es
+				IniWrite,.bat,ESCfg.ini,%SLCTDSN%,ext_es
 				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
 				IniWrite,""`%ROM_RAW`%"",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
@@ -60429,6 +60478,10 @@ if (FERAD5B = 1)
 				CHKITM= %A_LoopField%
 				Loop, Parse, EsLkUp,`n`r
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						sfi1=
 						sfi2=
 						sfi3=
@@ -60467,7 +60520,7 @@ if (FERAD5B = 1)
 				NFEITMS.= A_LoopField . "|"
 				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
 				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
-				IniWrite,.bat,ESCfg.ini,%SLCTDSN%,ext_es
+				IniWrite,.lnk,ESCfg.ini,%SLCTDSN%,ext_es
 				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
 				IniWrite,"%SLCTDRW%",ESCfg.ini,%SLCTDSN%,arg_es
 				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
@@ -60525,7 +60578,6 @@ if (FERAD5C = 1)
 			}
 		ESCURPL.= curtxt . "|"
 		guicontrolget,FECBXB,,FECBXB
-		guicontrolget,FECBXB,,FECBXB
 		if (FECBXB = "")
 			{
 				FECBXB= %curtxt%
@@ -60566,12 +60618,9 @@ if (FERAD5C = 1)
 		guicontrolget,SLCTDRW,,FEEDTA
 		if (SLCTDRW = "")
 			{
-				SB_SetText("You must desgnate an execution paramater, eg: ''`%ROM_RAW`%''")
-				Loop,Parse,ESFEGUIITEMS,|
-					{
-						guicontrol,enable,%A_loopField%
-					}
-				return
+				SB_SetText("launch parameter set to  ''`%ROM_RAW`%''")
+				SLCTDRW="`%ROM_RAW`%"
+				guicontrol,,FEEDTA,%SLCTDRW%
 			}
 		SLCTDRW=%A_SPACE%%SLCTDRW%
 	}
@@ -60597,6 +60646,7 @@ Loop,Parse,ESFEGUIITEMS,|
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 EmulationStationFECBXA:
 ;{;;;;;;;;;;;;;;;  STSTEM THEME DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;
 if (sysfnd = "")
@@ -60623,13 +60673,14 @@ guicontrolget,FECBXC,,FECBXC
 guicontrolget,FECBXD,,FECBXD
 iniwrite,%FECBXC%,EScfg.ini,%FECBXD%,abbreviation
 return
+
 EmulationStationFECBXD:
 guicontrolget,SYSREORDER,,FELBXA
 guicontrolget,SYSNAMEREP,,FECBXD
 if (sysfnd = "")
 	{
 		return
-	}
+	}	
 blockinput,on
 iniread,sysreplace,EScfg.ini,%SYSREORDER%
 inidelete,EScfg.ini,%SYSNAMEREP%
@@ -60659,6 +60710,7 @@ Loop, Parse, ESQLIST,|
 		ESRELST.= A_LoopField . "|"
 	}
 guicontrol,,FELBXA,|%ESRELST%
+
 return
 EmulationStationFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61033,8 +61085,7 @@ Loop, read, %escfgtmp%
 				iniwrite, "%vesign%%vesopt%%vesign%",rj\es\loadsys.ini,%ESNM%,arg_es
 				iniwrite, %vespath%,rj\es\loadsys.ini,%ESNM%,rmp_es
 				iniwrite, %vestheme%,rj\es\loadsys.ini,%ESNM%,thm_es
-			}
-		
+			}		
 	}
 iniwrite,%esgameparse%,rj\es\loadsys.ini,CONFIG,Parse_Only
 iniwrite,%esquickselect%,rj\es\loadsys.ini,CONFIG,quick_select
@@ -61051,9 +61102,11 @@ ESCURPL= %ESTOPOP%
 fileCopy,EScfg.ini,EScfg.ini.bak,1
 fileMove,rj\es\loadsys.ini,EScfg.ini,1
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEEDTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  ES EDIT FIELDS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+gui,submit,nohide
 if (sysfnd = "")
 	{
 		return
@@ -61062,16 +61115,17 @@ guicontrolget,FEEDTA,,FEEDTA
 extpop= %curtxt%
 iniwrite,"%FEEDTA%",EScfg.ini,%curtxt%,arg_es
 return
+
 EmulationStationFEEDTB:
 if (sysfnd = "")
 	{
 		return
 	}
 guicontrolget,FEEDTB,,FEEDTB
-iniwrite,%FEEDTB%,EScfg.ini,%curtxt%,ext_es
-	
+iniwrite,%FEEDTB%,EScfg.ini,%curtxt%,ext_es	
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
 EmulationStationFERAD5A:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,hide,FEDDLF
@@ -61094,17 +61148,18 @@ EmulationStationFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,show,FEDDLF
 guicontrolget,FEDDLF,,FEDDLF
-IniRead,mirsl,Settings.ini,%FEDDLF%
+IniRead,mirsl,Settings.ini,GLOBAL,%FEDDLF%
 Gui,ListView,FELVA
 Guicontrol,+checked,FELVA
 Guicontrol,+Multi,FELVA
 LV_Delete()
-Loop, %mirsl%\*,2
+Loop,%mirsl%\*,2
 	{
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61125,6 +61180,7 @@ LV_ModifyCol()
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFELVA:
+GuiControl, Choose, FELBXA, 0
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
 guicontrol,enable,FEBUTE
@@ -61258,6 +61314,7 @@ Loop,Parse,ESFEGUIITEMS,|
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 EmulationStationFELBXA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
@@ -61269,11 +61326,13 @@ Loop,Parse,ESFEGUIITEMS,|
 		guicontrol,disable,%A_loopField%
 	}
 gosub, popesv
+
 Loop,Parse,ESFEGUIITEMS,|
 	{
 		guicontrol,enable,%A_loopField%
 	}
 return
+
 popesv:
 if (FERAD5A = 1)
 	{
@@ -61287,10 +61346,26 @@ if (FERAD5C = 1)
 	{
 		eslocor= %RJSYSTEMS%
 	}
-iniread,ksivi1,EScfg.ini,%curtxt%,abbreviation	
+iniread,ksivi1,EScfg.ini,%curtxt%,abbreviation
+if ((ksivi1 = "ERROR")or(ksivi1 = ""))
+	{
+		ksivi1= other
+	}
 iniread,ksivi2,EScfg.ini,%curtxt%,dsp_es	
+if ((ksivi2 = "ERROR")or(ksivi2 = ""))
+	{
+		ksivi2= other
+	}
 iniread,ksivi3,EScfg.ini,%curtxt%,ext_es	
+if ((ksivi3 = "ERROR")or(ksivi3 = ""))
+	{
+		ksivi3= zip
+	}
 iniread,ksivi4,EScfg.ini,%curtxt%,emu_es
+if ((ksivi4 = "ERROR")or(ksivi4 = ""))
+	{
+		ksivi4= other
+	}
 iniread,ksivir,EScfg.ini,%curtxt%
 Loop,parse,ksivir,`n`r
 	{
@@ -61304,8 +61379,20 @@ Loop,parse,ksivir,`n`r
 				ksivi5:= avn2
 			}
 	}
-iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es	
+if ((ksivi5 = "ERROR")or(ksivi5 = ""))
+	{
+		ksivi5="`%ROM_RAW`%" 
+	}
+iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es
+if ((ksivi6 = "ERROR")or(ksivi6 = ""))
+	{
+		ksivi6= %RJSYSTEMS%\%curtxt%
+	}	
 iniread,ksivi7,EScfg.ini,%curtxt%,thm_es	
+if ((ksivi7 = "ERROR")or(ksivi7 = ""))
+	{
+		ksivi7= other
+	}
 stringreplace,ksivtr,ksivi5,"""",",All
 ;"
 stringreplace,ksivtr,ksivi5,""",",All
@@ -61338,6 +61425,10 @@ if (sysfnd = "")
 		emkx=
 		Loop, Parse, EsLkUp,`n`r
 			{
+				if (A_LoopField = "")
+					{
+						continue
+					}					
 				kvi1=
 				kvi2=
 				kvi3=
@@ -61346,6 +61437,7 @@ if (sysfnd = "")
 				stringsplit,kvi,A_LoopField,=
 				ifinstring,curtxt,_
 					{
+						msgbox,,,kvi2=%kvi2%`nsnlk=%snlk%
 						stringreplace,snlk,cutxt,_,,All
 						if (kvi2 = snlk)
 							{
@@ -61359,8 +61451,21 @@ if (sysfnd = "")
 						return
 					}
 			}
+		if (FERAD5B = 1)
+			{
+				guicontrol,,FEEDTA,"%ROM_RAW%"
+				guicontrol,,FEEDTB,.lnk
+				guicontrol,,FECBXA,|BSL||%preemucfg%
+			}
+		if (FERAD5C = 1)
+			{
+				guicontrol,,FEEDTA,"%ROM_RAW%"
+				guicontrol,,FEEDTB,.bat
+				guicontrol,,FECBXA,|BSL||%preemucfg%
+			}
 	}
 return
+
 nweslk:
 emke= %kvi5%
 SLCTDSN= %kvi2%
@@ -61375,6 +61480,18 @@ ifnotexist,%emkce%
 		SB_SetText(" " emkce " is not found")
 		guicontrol,disable,FEBUTE
 	}
+if (FERAD5B = 1)
+	{
+		guicontrol,,FEEDTA,"%ROM_RAW%"
+		guicontrol,,FEEDTB,.lnk
+		guicontrol,,FECBXA,|BSL||%preemucfg%
+	}
+if (FERAD5C = 1)
+	{
+		guicontrol,,FEEDTA,"%ROM_RAW%"
+		guicontrol,,FEEDTB,.bat
+		guicontrol,,FECBXA,|BSL||%preemucfg%
+	}
 emks= %kvi3%
 emkx= %kvi4%
 emkr= %kvi6%
@@ -61385,22 +61502,23 @@ if (emkx = ":")
 		emkx= .*
 	}
 guicontrol,,FECBXC,|%emks%||%systmfldrs%%cursysthemelist%
-guicontrol,,FECBXD,|%emkt%||%cursysthemelist%
+guicontrol,,FECBXD,|%emkt%||%cursysthemelist%%systmfldrs%
 emky= %emkn%||
-guicontrol,,FECBXA,|%emky%%cursysthemelist%
+guicontrol,,FECBXA,|%emky%%cursysthemelist%%systmfldrs%
 guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
 guicontrol,,FECBXB,|other|%emks%||%systmfldrs%
 guicontrol,,FEEDTB,%emkx%
 guicontrol,,FEEDTA,%emkr%
 guicontrol,,FETXTJ,%eslocor%\%emks%
 selctsys= %eslocor%\%emks%
-ifnotexist, %eslocor%\%emks%
+ifnotexist, %selctsys%
 	{
 		selctsys= %RJSYSTEMS%\%emks%
 		guicontrol,,FETXTJ,NOT SET (defaulting to %RJSYSTEMS%\%emks%)
 	}
 guicontrol,,FEEDTA,%emkr%
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTG:
 MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
@@ -64030,27 +64148,27 @@ guicontrol,move,FEBUTC,x293 y180 w58 h19
 guicontrol,,FEBUTC,MIRROR
 guicontrol,%fetog%,FEBUTD
 guicontrol,enable,FEBUTD
-guicontrol,move,FEBUTD,x293 y140 w51 h19
+guicontrol,move,FEBUTD,x293 y206 w51 h19
 guicontrol,,FEBUTD,ICON
 guicontrol,%fetog%,FEBUTE
 guicontrol,enable,FEBUTE
-guicontrol,move,FEBUTE,x705 y391 w53 h19
+guicontrol,move,FEBUTE,x559 y191 w53 h19
 guicontrol,,FEBUTE,Delete
 guicontrol,%fetog%,FEBUTF
 guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x741 y62 w18 h23
 guicontrol,,FEBUTF,-
-guicontrol,%fetog%,FEBUTG
-guicontrol,enable,FEBUTG
-guicontrol,move,FEBUTG,x10 y9 w75 h23
-guicontrol,,FEBUTG,uncheck all
+;;guicontrol,%fetog%,FEBUTG
+;;guicontrol,enable,FEBUTG
+;;guicontrol,move,FEBUTG,x10 y9 w75 h23
+;;guicontrol,,FEBUTG,uncheck all
 guicontrol,%fetog%,FELBXA
-guicontrol,disable,FELBXA
+guicontrol,+multi,FELBXA
 guicontrol,move,FELBXA,x279 y207 w279 h186
 guicontrol,,FELBXA,|%FEItems%
-g---------------------------------------------uicontrol,%fetog%,FECHKA
+guicontrol,%fetog%,FECHKA
 guicontrol,enable,FECHKA
-guicontrol,move,FECHKA,x270 y402 w132 h13
+guicontrol,move,FECHKA,x289 y403 w132 h13
 guicontrol,,FECHKA,Enable Boxart Icons
 guicontrol,,FECHKA,0
 guicontrol,%fetog%,FECHKB
@@ -64058,7 +64176,7 @@ guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x505 y463 w100 h13
 guicontrol,,FECHKB,Overwrite Mirrors
 guicontrol,%fetog%,FECHKF
-guicontrol,move,FECHKF,x289 y421 w100 h13
+guicontrol,move,FECHKF,x289 y452 w100 h13
 guicontrol,,FECHKF,Fuzzy Matching
 guicontrol,disable,FECHKF
 guicontrol,%fetog%,FECHKC
@@ -64076,16 +64194,16 @@ guicontrol,,FECHKE,Create Icon in ROM-Jacket
 guicontrol,hide,FECHKE
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
-guicontrol,move,FEDDLA,x9 y41 w249
+guicontrol,move,FEDDLA,x9 y11 w249
 guicontrol,,FEDDLA,|Systems||%systmfldrs%
 guicontrol,%fetog%,FEDDLB
 guicontrol,enable,FEDDLB
 guicontrol,move,FEDDLB,x563 y41 w195
 guicontrol,,FEDDLB,|%MIRFEDDLA%
-guicontrol,%fetog%,FEDDLC
-guicontrol,move,FEDDLC,x260 y457 w162
-guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart|Other
-guicontrol,disable,FEDDLC
+;;guicontrol,%fetog%,FEDDLC
+;;guicontrol,move,FEDDLC,x279 y398 w162
+;;guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart|Other
+;;guicontrol,disable,FEDDLC
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x275 y43 w108 h13
@@ -64095,14 +64213,14 @@ guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x275 y63 w105 h13
 guicontrol,,FERAD5B, Mirrors
-guicontrol,hide,FERAD5C
-guicontrol,enable,FERAD5C
-guicontrol,move,FERAD5C,x275 y97 w119 h13
-guicontrol,,FERAD5C, Mirror-Shortcuts
+;;guicontrol,hide,FERAD5C
+;;guicontrol,enable,FERAD5C
+;;guicontrol,move,FERAD5C,x275 y97 w119 h13
+;;guicontrol,,FERAD5C, Mirror-Shortcuts
 guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
-guicontrol,move,FELVA,x10 y64 w247 h433
+guicontrol,move,FELVA,x10 y34 w247 h463
 guicontrol,+altsubmit,FELVA
 guicontrol,+checked,FELVA
 guicontrol,+Multi,FELVA
@@ -64116,18 +64234,18 @@ guicontrol,%fetog%,FETXTB
 guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x472 y44 w70 h13
 guicontrol,,FETXTB,Create Mirrors
-guicontrol,%fetog%,FETXTC
-guicontrol,enable,FETXTC
-guicontrol,move,FETXTC,x267 y480 w158 h13
-guicontrol,,FETXTC,Boxart Subdirectories Source
+;;guicontrol,%fetog%,FETXTC
+;;guicontrol,enable,FETXTC
+;;guicontrol,move,FETXTC,x444 y404 w158 h13
+;;guicontrol,,FETXTC,Boxart Subdirectories Source
 guicontrol,%fetog%,FETXTI
 guicontrol,enable,FETXTI
 guicontrol,move,FETXTI,x354 y185 w73 h13
 guicontrol,,FETXTI,Mirror Root
-guicontrol,%fetog%,FETXTD
-guicontrol,enable,FETXTD
-guicontrol,move,FETXTD,x352 y143 w73 h13
-guicontrol,,FETXTD,Icon Destination
+;;guicontrol,%fetog%,FETXTD
+;;guicontrol,enable,FETXTD
+;;guicontrol,move,FETXTD,x352 y143 w73 h13
+;;guicontrol,,FETXTD,Icon Destination
 guicontrol,%fetog%,FETXTE
 guicontrol,enable,FETXTE
 guicontrol,move,FETXTE,x281 y161 w476 h13
@@ -64136,21 +64254,20 @@ guicontrol,%fetog%,FETXTF
 guicontrol,enable,FETXTF
 guicontrol,move,FETXTF,x281 y123 w476 h13
 guicontrol,,FETXTF,Icons= %CICOLOC%
-guicontrol,%fetog%,FETXTG
-guicontrol,enable,FETXTG
-guicontrol,move,FETXTG,x276 x280 y90 w475 h13
-guicontrol,,FETXTG,Boxart= %CBOXLOC%
+;;guicontrol,%fetog%,FETXTG
+;;guicontrol,enable,FETXTG
+;;guicontrol,move,FETXTG,x276 x280 y90 w475 h13
+;;guicontrol,,FETXTG,Boxart= %CBOXLOC%
 guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
-guicontrol,move,FETXTH,x586 y393 w118 h13
+guicontrol,move,FETXTH,x586 y230 w118 h13
 guicontrol,,FETXTH,Delete Selected Mirrors
-Gui,ListView,FELVA
-Guicontrol,+Multi,FELVA
 Loop, Parse, systmfldrs,|
 	{
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
+gosub, FEDDLB
 return
 Mirrored_LinksfeBUTA:
 ;{;;;;;;;;;;;;;;;;;;;;;   ADD MIRROR   ;;;;;;;;;;;;;;;;;;;;;;;
@@ -64183,7 +64300,7 @@ Loop, Read, Settings.ini
 						}
 				}
 		}
-guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|Retroarch_Boxart|Other
+;;guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|Retroarch_Boxart|Other
 mirnum+=1
 if (NWMIRLOCT = RJSYSTEMS)
 	{
@@ -64192,7 +64309,7 @@ if (NWMIRLOCT = RJSYSTEMS)
 	}
 IniWrite, "%NWMIRLOCT%",Settings.ini,GLOBAL,Mirror_%mirnum%
 IniWrite, "%NWMIRLOCT%",Settings.ini,GLOBAL,Micon_%mirnum%
-IniWrite, "Jacket_Boxart",Settings.ini,GLOBAL,Licon_%mirnum%
+;;IniWrite, "Jacket_Boxart",Settings.ini,GLOBAL,Licon_%mirnum%
 MIRDISP:= "Mirror=" .  NWMIRLOCT . "`n`r" . "Icons=" NWMIRLOCT "`n" . "Boxart=" . Jacket_Boxart
 GuiControl,,FETXTE,Mirror= %NWMIRLOCT%
 GuiControl,,FETXTF,Icons= %NWMIRLOCT%
@@ -64250,12 +64367,12 @@ if (FERAD5A = 1)
 								MIRFEDDLA.= A_LoopFileName . "|"
 								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Mirror_%A_LoopFileName%
 							}
-						IniRead, sysmtmp,Settings.ini,GLOBAL,Licon_%A_LoopFileName%
-						if (sysmtmp = "ERROR")
-							{
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Licon_%A_LoopFileName%
-								systmp= %sysma%
-							}
+						;;IniRead, sysmtmp,Settings.ini,GLOBAL,Licon_%A_LoopFileName%
+						;;if (sysmtmp = "ERROR")
+							;;{
+								;;IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Licon_%A_LoopFileName%
+								;;systmp= %sysma%
+							;;}
 						GuiControl,,FETXTE,Mirror= %systmp%
 						IniRead, sysmtmp,Settings.ini,GLOBAL,Micon_%A_LoopFileName%
 						if (sysmtmp = "ERROR")
@@ -64282,7 +64399,7 @@ if (FERAD5A = 1)
 								MIRFEDDLA.= "Mirror_1" . "|"
 								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Mirror_1
 								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Micon_1
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Licon_1
+								;;IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Licon_1
 								GuiControl,,FETXTE,Mirror= %sysma%
 								GuiControl,,FETXTF,Icons= %sysma%
 								GuiControl,,FETXTG,Boxart= %batmptxt%
@@ -64292,7 +64409,7 @@ if (FERAD5A = 1)
 			}
 		stringsplit,ddlcn,FEDDLB,_
 		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		if (sysma = RJSYSTEMS)
 			{
 				if (FECHKD = 1)
@@ -64325,7 +64442,7 @@ if (FERAD5B = 1)
 		IniRead, sysma,Settings.ini,GLOBAL,%FEDDLA%
 		stringsplit,ddlcn,FEDDLA,_
 		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		if (sysma = RJSYSTEMS)
 			{
 				if (FECHKD = 1)
@@ -64405,7 +64522,7 @@ Loop, Parse, FEItems,`n`r
 							}
 					}
 				BOXPNG= :
-				if (CBOXLOC = "Scraped_Boxart")
+				if (FECHKA = 1)
 					{
 						ifExist,%febart%\%batn%\Boxart
 							{
@@ -64414,110 +64531,147 @@ Loop, Parse, FEItems,`n`r
 										BOXPNG= %A_LoopFileFullPath%
 									}
 							}
-					}
-				if (CBOXLOC = "RetroArch_Boxart")
-					{
-						ifexist,%BOXLOC%\%batn%.png
+						if (BOXPNG = ":")
 							{
-								BOXPNG= %BOXLOC%\%batn%.png
-							}
-						if (FECHKF = 1)
-							{
+								ifexist,%BOXLOC%\%batn%.png
+									{
+										BOXPNG= %BOXLOC%\%batn%.png
+									}
+								if (FECHKF = 1)
+									{
+										if (BOXPNG = ":")
+											{
+												Loop, %BOXLOC%\%batsrch%*.png
+													{
+														BOXPNG= %A_LoopFileFullPath%
+														break
+													}
+											}
+									}
 								if (BOXPNG = ":")
 									{
-										Loop, %BOXLOC%\%batsrch%*.png
+										ifexist,%pghome%\metafiles\%curms%\media\%batn%\BoxFront.png
+											{
+												BOXPNG= %pghome%\metafiles\%curms%\media\%batn%\BoxFront.png
+											}
+										if (FECHKF = 1)
+											{
+												if (BOXPNG = ":")
+													{
+														Loop, %pghome%\metafiles\%curms%\media\%batn%*,2
+															{
+																ifexist,%A_LoopFileFUllPath%\BoxFront.png
+																	{
+																		BOXPNG= %A_LoopFileFUllPath%\BoxFront.png
+																		break
+																	}
+															}
+													}
+											}
+									}
+								if (BOXPNG = ":")
+									{			
+										ifexist,%eshome%\downloaded_images\%curms%\%batn%-image.png
+											{
+												BOXPNG= %eshome%\downloaded_images\%curms%\%batn%-image.png
+											}
+										if (FECHKF = 1)
+											{
+												if (BOXPNG = ":")
+													{
+														Loop, %eshome%\downloaded_images\%curms%\%batn%*image.*
+															{
+																BOXPNG= %A_LoopFileFUllPath%
+																break
+															}
+													}
+											}
+									}
+								if (BOXPNG = ":")
+									{			
+										Loop, %curfldp%\Folder.*
 											{
 												BOXPNG= %A_LoopFileFullPath%
 												break
 											}
+										if (BOXPNG = ":")
+											{
+												BOXPNG= [INS]
+											}
 									}
-							}
-					}
-				if (CBOXLOC = "Jacket_Boxart")
-					{
-						BOXPNG= :
-						Loop, %curfldp%\Folder.*
-							{
-								BOXPNG= %A_LoopFileFullPath%
-								break
-							}
-						if (BOXPNG = ":")
-							{
-								BOXPNG= [INS]
-							}
-					}
-				if (CBOXLOC = "Scraped_Boxart")
-					{
-						BOXPNG= :
-						Loop, %ASSETS%\%curms%\BoxArt\%batsrch%\*.*
-							{
-								BOXPNG= %A_LoopFileFullPath%
-								break
-							}
-						if (BOXPNG = ":")
-							{
-								BOXPNG= [INS]
-							}
-					}
-				ifInString,CBOXLOC,:
-					{
-						ifexist,%CBOXLOC%\%batn%.png
-							{
-								BOXPNG= %CBOXLOC%\%batn%.png
-							}
-						if (FECHKF = 1)
-							{
 								if (BOXPNG = ":")
 									{
-										Loop, %CBOXLOC%\%batsrch%*.png
+										Loop, %ASSETS%\%curms%\BoxArt\%batsrch%\*.*
 											{
 												BOXPNG= %A_LoopFileFullPath%
 												break
 											}
+										if (BOXPNG = ":")
+											{
+												BOXPNG= [INS]
+											}
 									}
 							}
-					}
-				if (FECHKA = 1)
-					{
-						cvtico= %CICOLOC%\%curms%\%batn%.ico
-						if (ICJAK = 1)
+						ifInString,CBOXLOC,:
 							{
-								cvtico= %batd%\%batn%.ico
-							}
-						ifExist, %cvtico%
-							{
-								ALHERE= 1
-							}
-						if (FECHKC = 1)
-							{
-								ALHERE=
-							}
-						ifExist, %BOXPNG%
-							{
-								if (ALHERE = "")
+								ifexist,%CBOXLOC%\%batn%.png
 									{
-										RunWait, %comspec% /c " bin\any2ico.exe "-img=%BOXPNG%" "-icon=%cvtico%" -formats=32`,48`,96`,128`,256 -pngc -stretch ",,hide
-										FileSetAttrib,+H,%cvtico%,2
+										BOXPNG= %CBOXLOC%\%batn%.png
+									}
+								if (FECHKF = 1)
+									{
+										if (BOXPNG = ":")
+											{
+												Loop, %CBOXLOC%\%batsrch%*.png
+													{
+														BOXPNG= %A_LoopFileFullPath%
+														break
+													}
+											}
 									}
 							}
-						ifNotExist, %BOXPNG%
+						if (FECHKA = 1)
 							{
-								cvtico= %CICOLOC%\%curms%\%curms%.ico
+								cvtico= %CICOLOC%\%curms%\%batn%.ico
+								if (ICJAK = 1)
+									{
+										cvtico= %batd%\%batn%.ico
+									}
+								ifExist, %cvtico%
+									{
+										ALHERE= 1
+									}
+								if (FECHKC = 1)
+									{
+										ALHERE=
+									}
+								ifExist, %BOXPNG%
+									{
+										if (ALHERE = "")
+											{
+												RunWait, %comspec% /c " bin\any2ico.exe "-img=%BOXPNG%" "-icon=%cvtico%" -formats=32`,48`,96`,128`,256 -pngc -stretch ",,hide
+												FileSetAttrib,+H,%cvtico%,2
+											}
+									}
+								ifNotExist, %BOXPNG%
+									{
+										cvtico= %CICOLOC%\%curms%\%curms%.ico
+									}
 							}
-					}
-				lnkloc= %sysma%\%curms%\%batn%.lnk
-				if (INJAK = 1)
-					{
-						lnkloc= %batd%\%batn%.lnk
-					}
-				ifExist, %lnkloc%
-					{
-						if (FECHKB = 1)
+						lnkloc= %sysma%\%curms%\%batn%.lnk
+						if (INJAK = 1)
 							{
-								FileDelete, %lnkloc%
+								lnkloc= %batd%\%batn%.lnk
 							}
+						ifExist, %lnkloc%
+							{
+								if (FECHKB = 1)
+									{
+										FileDelete, %lnkloc%
+									}
+							}
+						FileCreateShortcut,%batfile%,%lnkloc%,%batd%,,%batn%,%cvtico%
 					}
-				FileCreateShortcut,%batfile%,%lnkloc%,%batd%,,%batn%,%cvtico%
 			}
 	}
 return
@@ -64790,15 +64944,23 @@ guicontrolget,FERAD5B,,FERAD5B
 guicontrolget,FEDDLA,,FEDDLA
 guicontrolget,FECHKD,,FECHKD
 guicontrolget,FECHKE,,FECHKE
-Gui,ListView,FELVA
+guicontrolget,felbxa,,felbxa
 INJAK=
 ICJAK=
 FEItems=
+Loop,parse,felbxa,|
+	{
+		FEItems.=
+	}
+
+/*
+Gui,ListView,FELVA
 FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
 if (FEItems = "")
 	{
 		return
 	}
+*/	
 Msgbox,3,Delete Selected,Are you sure you want to delete mirrors for the selected items?
 ifMsgBox, No
 		{
@@ -64836,7 +64998,7 @@ if (sysma = "ERROR")
 		SB_SetText("Mirror Location not found")
 		inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
 		inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		return
 	}
 ifnotexist, %sysma%
@@ -64844,11 +65006,11 @@ ifnotexist, %sysma%
 		SB_SetText("Mirror Location not found")
 		inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
 		inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		return
 	}
 IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 if (sysma = RJSYSTEMS)
 	{
 		if (FECHKD = 1)
@@ -64856,7 +65018,7 @@ if (sysma = RJSYSTEMS)
 				INJAK= 1
 			}
 	}
-Loop, Parse, FEItems,`n`r
+Loop, Parse, FEItems,|
 	{
 		if (A_LoopField = "")
 			{
@@ -64908,7 +65070,7 @@ Loop, Parse, FEItems,`n`r
 inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
 FileDelete, %CICOLOC%\*.ico
 inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
 MsgBox,3,Files Deleted,Files were sucessfully deleted.,10
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64919,7 +65081,7 @@ ddlcn1=
 ddlcn2=
 stringsplit,ddlcn,FEDDLB,_
 IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 curms= %FEDDLA%
 if (sysma = RJSYSTEMS)
 	{
@@ -64928,7 +65090,7 @@ if (sysma = RJSYSTEMS)
 				INJAK= 1
 			}
 	}
-Loop, Parse, FEItems,`n`r
+Loop, Parse, FEItems,|
 	{
 		if (A_LoopField = "")
 			{
@@ -64944,7 +65106,7 @@ Loop, Parse, FEItems,`n`r
 			}
 		FileDelete, %sysma%\%curms%\%fltfnd%
 		FileDelete, %sysma%\%curms%\%icofnd%
-	}
+	}	
 MsgBox,3,Files Deleted,Files were sucessfully deleted.,10
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64953,12 +65115,12 @@ Mirrored_LinksfeCHKA:
 guicontrolget,FECHKA,,FECHKA
 guicontrol,disable,FECHKC
 guicontrol,disable,FEBUTC
-guicontrol,disable,FEDDLC
+;;guicontrol,disable,FEDDLC
 guicontrol,disable,FECHKF
 ddlcn1=
 ddlcn2=
 stringsplit,ddlcn,FEDDLB,_
-IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 if (CBOXLOC = "ERROR")
 		{
 			CBOXLOC= Scraped_Boxart
@@ -64968,14 +65130,14 @@ if (FECHKA = 1)
 		guicontrol,enable,FEBUTC
 		guicontrol,enable,FECHKF
 		guicontrol,enable,FECHKC
-		guicontrol,enable,FEDDLC
+		;;guicontrol,enable,FEDDLC
 	}
 ifinstring,CBOXLOC,:
 	{
-		guicontrol,,FEDDLC,|Other|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart
+		;;guicontrol,,FEDDLC,|Other|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart
 		return
 	}
-guicontrol,,FEDDLC,|%CBOXLOC%||Retroarch_Boxart|Scraped_Boxart|Jacket_Boxart|Other
+;;guicontrol,,FEDDLC,|%CBOXLOC%||Retroarch_Boxart|Scraped_Boxart|Jacket_Boxart|Other
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeCHKB:
@@ -65016,7 +65178,7 @@ if (FERAD5A = 1)
 				stringsplit,ddlcn,FEDDLB,_
 				IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
 				IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-				IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+				;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 				if (FEDDLA = "Mirrored")
 					{
 						return
@@ -65061,7 +65223,7 @@ if (FERAD5B = 1)
 		stringsplit,ddlcn,FEDDLA,_
 		IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLA%
 		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		if (FEDDLA = "Mirrored")
 			{
 				return
@@ -65135,7 +65297,7 @@ if (FEDDLB = "")
 stringsplit,ddlcn,FEDDLB,_
 IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
 IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 if (CMIRLOC = "ERROR")
 		{
 			CMIRLOC=
@@ -65198,6 +65360,7 @@ Guicontrol,,FETXTE,Mirror= %CMIRLOC%
 Guicontrol,,FETXTF,Icons= %CICOLOC%
 Guicontrol,,FETXTG,Boxart= %CBOXLOC%
 return
+/*
 Mirrored_LinksfeDDLC:
 guicontrolget,FEDDLC,,FEDDLC
 stringsplit,ddlcn,FEDDLA,_
@@ -65223,13 +65386,14 @@ if (FEDDLC = "Other")
 			{
 				return
 			}
-		IniWrite, "%BXTMP%",Settings.ini,GLOBAL,Licon_%mirnvl2%
+		;;IniWrite, "%BXTMP%",Settings.ini,GLOBAL,Licon_%mirnvl2%
 		guicontrol,,FETXTG,Boxart= %BXTMP%
 		return
 	}
-IniWrite, "%FEDDLC%",Settings.ini,GLOBAL,Licon_%ddlcn2%
+;;IniWrite, "%FEDDLC%",Settings.ini,GLOBAL,Licon_%ddlcn2%
 guicontrol,,FETXTG,Boxart= %FEDDLC%
 return
+*/
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeLVA:
 Gui,ListView,FELVA
@@ -65242,7 +65406,7 @@ loop, parse, FEchki,|
 	{
 		FELBXQ=%A_index%
 	}
-guicontrol,,FELBXA,|[%FELBXQ% SELECTED SYSTEMS]||%FEchki%
+guicontrol,,FELBXA,|%FEchki%
 return
 Mirrored_LinksfeEDTA:
 return
@@ -65279,7 +65443,7 @@ if (CMIR1 <> "Mirrored")
 		stringsplit,ddlcn,FEDDLB,_
 		IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
 		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
+		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
 		CMIR1= %FEDDLB%
 		GUICONTROL,,FEDDLA,|%CMIR1%||%MIRDDLOC%
 		gosub, %FETYP%FEDDLA
@@ -67332,7 +67496,7 @@ if (getmarquee = 1)
 	}
 if (Pegasus_scrape = 1)
 	{
-		filecreatedir,%pghome%\%REALSYS%\media\%jaktit%
+		filecreatedir,%pghome%\metafiles\%REALSYS%\media\%jaktit%
 	}
 if (retroFE_scrape = 1)
 	{
@@ -67340,7 +67504,7 @@ if (retroFE_scrape = 1)
 	}
 if (Jackets_scrape = 1)
 	{
-		Filecreatedir,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps
+		Filecreatedir,%RJSYSTEMS%\%REALSYS%\%jaktit%\.snaps
 	}
 
 if (FERAD2C = 1)
@@ -67434,7 +67598,7 @@ RRDboxart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\BoxFront.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\BoxFront.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67472,7 +67636,7 @@ RRDsnapshot:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\screenshot.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\screenshot.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67515,7 +67679,7 @@ RRDbackdrop:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\background.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\background.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67558,7 +67722,7 @@ RRDlogo:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\logo.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\logo.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67596,7 +67760,7 @@ RRD3dboxart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\box.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\box.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67639,7 +67803,7 @@ RRDcart:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\cart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\cart.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67679,7 +67843,7 @@ RRDlabel:
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\boxspine.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\boxspine.%scrsufx%
 										}
 								}
 						}
@@ -67720,7 +67884,7 @@ RRDbanner:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\banner.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\banner.%scrsufx%
 								}
 						}
 						}
@@ -67802,7 +67966,7 @@ RRD4mix:
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\flyer.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\flyer.%scrsufx%
 										}
 								}
 						}
@@ -67854,7 +68018,7 @@ RRDmarquee:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\marquee.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\marquee.%scrsufx%
 								}
 						}
 					if (FECHKN = 1)
@@ -67930,7 +68094,7 @@ RRDmetadata:
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%pghome%\%REALSYS%\media\%jaktit%\%jaktit%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\%jaktit%.xml
 								}
 						}
 					if (FECHKN = 1)
@@ -68861,7 +69025,8 @@ if (getmetadata = 1)
 	{
 		filecopy, rj\scrapeArt\%SYSLKUP%\%xmlf%, %ASSETS%\%REALSYS%\%realname%\metadata,1
 	}
-return
+return
+
 ;};;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;
 ARTPAUSE:
