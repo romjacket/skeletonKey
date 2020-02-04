@@ -3072,6 +3072,12 @@ Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
 	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+if (VERSION <> "[CURV]")
+	{
+		Gui, Tab, 7
+		Gui, Tab, Repository
+		goto, GUIJAKLOC
+	}
 Gui, Tab, 7
 Gui, Tab, Repository
 Gui,Font,Bold
@@ -3127,6 +3133,7 @@ Gui, Add, Button,x604 y493 w49 h19 vARCHOST gArcHost disabled, HOST
 gui, font,Normal
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[JACKETIZE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+GUIJAKLOC:
 Gui, Tab, 8
 Gui, Tab, Jackets
 Gui,Add,DropDownList, hwndDplHndl126 x14 y12 w245 vRJSYSDD gRJSYSDD disabled, Systems||%systmfldrs%
@@ -3451,7 +3458,10 @@ Gui,Add,Edit, hwndEdtHndl95 x651 y410 w31 h21 vIPD gIp_D Number,
 Gui,Add,Edit, hwndEdtHndl96 x685 y410 w60 h21 vCPORTNUM gCSetPort Right Number
 Gui, Add, Progress, x15 y492 w736 h7 cBlue vpgrTransfer Range0-600, 0
 Gui, Add, CheckBox, x300 y473 h16 vAUTSYS gAutSys Checked, Auto-Sys
-Gui, Add, Checkbox,x365 y474 h13 vSRCHARCORG gArcFind Checked, Web-Lookup
+if (VERSION = "[CURV]")
+	{
+		Gui, Add, Checkbox,x365 y474 h13 vSRCHARCORG gArcFind Checked, Web-Lookup		
+	}
 Gui, Add, CheckBox, x365 y473 h16 vRETROM gRetROM hidden, Recieve ROM
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    HOSTING   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, CheckBox, x13 y411 h13 vINETHOST gInetHost hidden, Relay-Host
