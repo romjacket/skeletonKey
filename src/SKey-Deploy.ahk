@@ -44,7 +44,7 @@ ifinstring,optionONE,-gituser
 					}
 			}
 	}
-
+GITWEB= http://github.com
 ifinstring,optionONE,-reset
 	{
 		FileDelete,%save%
@@ -3285,11 +3285,34 @@ StringReplace,arcorgv,arcorgv,[ALTHOST],%ALTHOST%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
-StringReplace,arcorgv,arcorgv,[REPOSRC],https://github.com/%gituser%/skeletonKey/releases/download,All
+GRARBV= https://github.com/%gituser%/skeletonKey/releases/download
+StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
 FileAppend,%skthemes%,%SKELD%\sets\themes.set
 FileAppend,%arcorgv%,%SKELD%\sets\arcorg.set
+Loop, %BUILDIR%\gam\*,2
+	{
+		REPONM= %A_LoopfileName%
+		stringreplace,REPONM,REPONM,%A_Space%,_,All
+		stringreplace,REPONM,REPONM,-,_,All
+		stringreplace,REPONM,REPONM,`,_,All
+		stringreplace,REPONM,REPONM,),_,All
+		stringreplace,REPONM,REPONM,(,_,All
+		stringreplace,REPONM,REPONM,!,_,All
+		stringreplace,REPONM,REPONM,[,_,All
+		stringreplace,REPONM,REPONM,],_,All
+		stringreplace,REPONM,REPONM,;,_,All
+		stringreplace,REPONM,REPONM,.,_,All
+		stringreplace,REPONM,REPONM,@,_,All
+		REPOROOT= % REPONM%SRC%
+		if (REPOROOT <> "")
+			{
+				iniwrite,%REPOROOT%,%SKELD%\sets\arcorg.set,SOURCES,%REPONM%
+			}
+		stringupper,UPARCNM,REPONM
+		iniwrite,%GRARBV%/%UPARCNM%/%A_LoopFileName%.7z,%SKELD%\sets\arcorg.set,SOURCES,%REPONM%:SET
+	}
 FileDelete, %SKELD%\skeletonKey.exe
 FileDelete,%SKELD%\skeletonkey.tmp
 FileMove,%SKELD%\skeletonkey.ahk,%SKELD%\skel.bak,1

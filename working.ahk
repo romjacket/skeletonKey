@@ -9674,7 +9674,6 @@ for k, v in ar
 return
 
 SanUrl:
-stringreplace,sanfile,sanfile,`%25,`%,All
 stringreplace,sanfile,sanfile,`%26,&,All
 stringreplace,sanfile,sanfile,`%2B,+,All
 stringreplace,sanfile,sanfile,`%20,%A_Space%,All
@@ -9690,7 +9689,10 @@ stringreplace,sanfile,sanfile,`%2C,`,,All
 stringreplace,sanfile,sanfile,`%40,@,All
 stringreplace,sanfile,sanfile,`%3B,`;,All
 stringreplace,sanfile,sanfile,`%27,',All
+stringreplace,sanfile,sanfile,`%7B,{,All
+stringreplace,sanfile,sanfile,`%7D,},All
 stringreplace,sanfile,sanfile,`%7E,~,All
+stringreplace,sanfile,sanfile,`%25,`%,All
 return
 
 INST_Kodi_XBMC:
@@ -14068,7 +14070,6 @@ stringLeft,httpchk,netchk1,4
 StringReplace,revsl,URlFILE,/,\,All
 SplitPath,revsl,dwnlchk,,,romnmspl
 StringCaseSense, On
-stringreplace,dwnlchk,dwnlchk,`%25,`%,All
 stringreplace,dwnlchk,dwnlchk,`%26,&,All
 stringreplace,dwnlchk,dwnlchk,`%2B,+,All
 stringreplace,dwnlchk,dwnlchk,`%20,%A_Space%,All
@@ -14085,6 +14086,9 @@ stringreplace,dwnlchk,dwnlchk,`%40,@,All
 stringreplace,dwnlchk,dwnlchk,`%3B,`;,All
 stringreplace,dwnlchk,dwnlchk,`%27,',All
 stringreplace,dwnlchk,dwnlchk,`%7E,~,All
+stringreplace,dwnlchk,dwnlchk,`%7B,{,All
+stringreplace,dwnlchk,dwnlchk,`%7D,},All
+stringreplace,dwnlchk,dwnlchk,`%25,`%,All
 StringCaseSense, Off
 rjinsfldr=
 rjdwnfldr=
@@ -35737,8 +35741,7 @@ if (DownOnly = 0)
 									}
 								aftpth= %aftpth1%
 								StringCaseSense, On
-								stringreplace,aftmp,aftpth,`%25,`%,All
-								stringreplace,aftpth,aftmp,`%2F,/,All
+								stringreplace,aftpth,aftpth,`%2F,/,All
 								stringreplace,aftmp,aftpth,/,\,All
 								stringreplace,aftmp,aftmp,`%26,&,All
 								stringreplace,aftmp,aftmp,`%2B,+,All
@@ -35756,6 +35759,9 @@ if (DownOnly = 0)
 								stringreplace,aftmp,aftmp,`%3B,`;,All
 								stringreplace,aftmp,aftmp,`%27,',All
 								stringreplace,aftmp,aftmp,`%7E,~,All
+								stringreplace,aftmp,aftmp,`%7B,{,All
+								stringreplace,aftmp,aftmp,`%7D,},All
+								stringreplace,aftmp,aftmp,`%25,`%,All
 								StringCaseSense, Off
 								Loop, Parse, aftmp,\
 									{
@@ -36029,8 +36035,7 @@ Loop, %srchgamf%
 						romshere=
 						urlpth= %getpth1%
 						StringCaseSense, On
-						stringreplace,dwnchk,urlpth,`%25,`%,All
-						stringreplace,dwnchk,dwnchk,`%2F,/,All
+						stringreplace,dwnchk,urlpth,`%2F,/,All
 						stringreplace,dwnchk,dwnchk,/,\,All
 						stringreplace,dwnchk,dwnchk,`%26,&,All
 						stringreplace,dwnchk,dwnchk,`%2B,+,All
@@ -36048,6 +36053,9 @@ Loop, %srchgamf%
 						stringreplace,dwnchk,dwnchk,`%3B,`;,All
 						stringreplace,dwnchk,dwnchk,`%27,',All
 						stringreplace,dwnchk,dwnchk,`%7E,~,All
+						stringreplace,dwnchk,dwnchk,`%7B,{,All
+						stringreplace,dwnchk,dwnchk,`%7D,},All
+						stringreplace,dwnchk,dwnchk,`%25,`%,All
 						StringCaseSense, Off
 						Loop,Parse,dwnchk,\
 							{
@@ -51956,7 +51964,7 @@ guicontrol,,FEEDTB,
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
-guicontrol,,FEDDLD,gameOS||%pgthemes%
+guicontrol,,FEDDLD,|gameOS||%pgthemes%
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
