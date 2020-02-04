@@ -45,6 +45,7 @@ ifinstring,optionONE,-gituser
 			}
 	}
 GITWEB= http://github.com
+GITSWEB= https://github.com
 ifinstring,optionONE,-reset
 	{
 		FileDelete,%save%
@@ -146,7 +147,7 @@ IfNotExist, skopt.cfg
 		_GITPASS=
 		_GITPAT=
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
-		_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
+		_UPDTFILE= %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= %GITWEB%/romjacket/skeletonkey
 		_REPOURL= %GITWEB%/romjacket
@@ -290,7 +291,7 @@ IfNotExist, skopt.cfg
 						CONTPARAM13= 1
 						iniwrite,%UPDTURL%,skopt.cfg,GLOBAL,update_url
 						
-						UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
+						UPDTFILE= %GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 						_UPDTFILE= %UPDTFILE%
 						CONTPARAM14= 1
 						iniwrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
@@ -827,8 +828,8 @@ guicontrol,,txtbld,(not set) Build-Directory
 guicontrol,,txtdpl,(not set) Deployment-Directory
 guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
-guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
-guicontrol,,irepo, https://github.com/romjacket>%GITWEB%/jomracket
+guicontrol,,uflu, %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
+guicontrol,,irepo, %GITSWEB%/romjacket>%GITWEB%/jomracket
 Loop,16
 	{
 		CONTPARAM%A_Index%= 
@@ -1124,7 +1125,7 @@ if (GITUSER = "")
 			if (UPDTFILE = "")
 				{
 					CONTPARAM14= 1
-					UPDTFILE= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
+					UPDTFILE= %GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 					iniwrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
 					guicontrol,,UFLU,%UPDTFILE%
 				}
@@ -1224,12 +1225,12 @@ gui,submit,nohide
 guicontrolget,UFLU,,UFLU
 if (GITUSER = "")
 	{
-		UFLU= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip			
+		UFLU= %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip			
 		guicontrol,,UFLU,%UFLU%
 	}
 if (UFLU = "")
 	{
-		UFLU= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
+		UFLU= %GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 		guicontrol,,UFLU,%UFLU%
 	}
 CONTPARAM14= 1
@@ -1264,7 +1265,7 @@ iniwrite, %GITUSER%,skopt.cfg,GLOBAL,Git_username
 guicontrol,,uVer,http://raw.githubusercontent.com/%gituser%/skeletonkey/master/site/version.txt
 CONTPARAM13= 1
 iniwrite,%uVer%,skopt.cfg,GLOBAL,update_url
-guicontrol,,uFLU,https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
+guicontrol,,uFLU,%GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 CONTPARAM14= 1
 iniwrite,%uFLU%,skopt.cfg,GLOBAL,update_file
 return
@@ -1277,7 +1278,7 @@ if (IALTH = "")
 		iniread,IALTHv,sets\arcorg.set,GLOBAL,ALTHOST
 		if ((IALTHv = "")or(IALTHv = "ERROR"))
 			{	
-				IALTHv= https://archive.org/download/emu_exe_mir
+				IALTHv= 
 				guicontrol,,IALTH,%IALTHv%
 			}
 		IALTH= %IALTHv%
@@ -1324,7 +1325,7 @@ if (IREPO = "")
 				CONTPARAM21= 1
 				return
 			}
-		IREPO= https://github.com/%gituser%
+		IREPO= %GITSWEB%/%gituser%
 		if (reponum2 <> "")
 			{
 				ALTHOST= %reponum2%
@@ -2717,12 +2718,12 @@ gui,submit,nohide
 UPDTFILE= 
 if (UPDTFILET = "")
 	{
-		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip	
+		UPDTFILET= %GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip	
 	}
 inputbox,UPDTFILE,Version,Enter the url of the file which contains your update information,,345,140,,,,,%UPDTFILET%
 if (UPDTFILE = "")
 	{
-		UPDTFILET= https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
+		UPDTFILET= %GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip
 		UPDTFILE= %UPDTFILET%
 	}
 IniWrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
@@ -3285,7 +3286,7 @@ StringReplace,arcorgv,arcorgv,[ALTHOST],%ALTHOST%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
-GRARBV= https://github.com/%gituser%/skeletonKey/releases/download
+GRARBV= %GITSWEB%/%gituser%/skeletonKey/releases/download
 StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
@@ -3934,11 +3935,11 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],%GITWEB%/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
-		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip,All
+		StringReplace,skelhtml,skelhtml,[PORTABLE],%GITSWEB%/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip,All
 		
 		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
-		StringReplace,skelhtml,skelhtml,[RELEASEPG],https://github.com/%gituser%/skeletonKey/releases,All
-		StringReplace,skelhtml,skelhtml,[DATFILES],https://github.com/%gituser%/skeletonKey/releases/download/DATFILES/DATFILES.7z,All
+		StringReplace,skelhtml,skelhtml,[RELEASEPG],%GITSWEB%/%gituser%/skeletonKey/releases,All
+		StringReplace,skelhtml,skelhtml,[DATFILES],%GITSWEB%/%gituser%/skeletonKey/releases/download/DATFILES/DATFILES.7z,All
 		
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All

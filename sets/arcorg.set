@@ -1,5 +1,5 @@
 [GLOBAL]
-CLOUDLOC=http://archive.org/download
+CLOUDLOC=
 HOSTINGURL=http://github.com/romjacket
 ALTHOST=http://github.com/jomracket
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt

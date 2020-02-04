@@ -21,9 +21,11 @@
 			<li>
                <a href="#JOYSTICKS" class="pk" data-smoothie>JOYSTICKS</a>
             </li>
+			<!--
 			<li>
                <a href="#REPOSITORY" class="pk" data-smoothie>REPOSITORY</a>
             </li>
+			-->
             <li>
                <a href="#FRONTENDS" class="pk" data-smoothie>FRONTENDS</a>
             </li>
@@ -148,7 +150,7 @@
          <ul>
             <li><strong>A comprehensive, easy to use &amp; compact GUI</strong></li>
             <li><strong>Drag &amp; Drop ROMs to launch &amp; create playlists.</strong></li>
-            <li><strong>Leverages internet ROM repositories for netplay automation</strong></li>
+            <!--<li><strong>Leverages internet ROM repositories for netplay automation</strong></li>-->
             <li><strong>Global and granular control over libraires of ROMs.</strong></li>
             <li><strong>Deploy a gaming environment to a portable device such as a flash-drive.</strong></li>
             <li><span style="font-size: xx-small">Mirror your saves and save-states into a cloud
@@ -207,7 +209,7 @@
                <li>Drag &amp; drop a ROM file to the desktop icon,</li>
                <li>Drag &amp; drop a ROM into the main tab</li>
                <li>Categorically filtered from playlists, ROM directories or search functions.</li>
-               <li>From an internet ROM-repository</li>
+               <!--<li>From an internet ROM-repository</li>-->
                <li>From the command line</li>
              </ul>
              <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to automate hundreds of emulators</p>
@@ -470,7 +472,7 @@
                      <p><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong>
                         are special tags assigned to MAME and other emulators which allows skeletonKey to detect and automate the passing of
                         overriding-options and arguments at runtime via the &quot;switches&quot;
-                        checkbox in the Global-Launch-Menu or Repository-Systems-Menu.
+                        checkbox in the Global-Launch-Menu<!-- or Repository-Systems-Menu.-->
                      </p>
                      <p>!!!!Enabling the &quot;switches&quot; override will deactivate preset options such as
                         auto-system and ROM-type detection!!!!
@@ -702,6 +704,7 @@
 		 </p>
       </div>
    </div>
+   <!--
    <a id="REPOSITORY"></a>
    <div id="SectSeparate" align="center">
       <span class="dtext">[Repository]</span>
@@ -751,6 +754,7 @@
          </div>
       </div>
    </div>
+   -->
    <a id="FRONTENDS"></a>
    <div id="SectSeparate" align="center">
       <span class="dtext">[Frontends]</span>
@@ -939,11 +943,12 @@
          <div id="indent">
             <h4>Hosting:</h4>
             <p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
-            <p>In the Repository-Tab, users can select any ROM from a repository to host.</p>
+            <!--<p>In the Repository-Tab, users can select any ROM from a repository to host.</p>-->
             <h4>Connecting:</h4>
-            <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs. If the
+            <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs. <!--
+			If the
                ROM is not located on disk, enabling the &quot;web-lookup&quot; option will select a ROM from the
-               Archve tab and enable connection options.
+               Archve tab and enable connection options.-->
             </p>
          </div>
          <div class="tabWrapper">
@@ -951,7 +956,10 @@
                <h8 class="tabItemHeading">↕ Netplay Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
                   <p>When connecting to a client, skeletonKey will search for the matching ROM within playlists or directories.
-                  </p><p>If enabled, skeletonKey will also search within the current repository, automatically selecting the ROM if found.</p>
+                  </p>
+				  <!--
+				  <p>If enabled, skeletonKey will also search within the current repository, automatically selecting the ROM if found.</p>
+				  -->
 				  <h4>Tips:</h4>
                   <p>In the Main tab, uncheck the "Pause In Background" &amp; in the Frontends tab, select
                      &quot;XMB&quot; in the main dropdown menu and uncheck "Pause In Menu" option to help maintain a

@@ -235,7 +235,7 @@ EXENAM=sameboy.exe
 [StreetsOfRageRemake]
 RJRUNDIR=1
 RJLNCHP=0
-URLPTH=http://archive.org/download/SORREMAKE/StreetsOfRageRemake.7z
+URLPTH=SORREMAKE/releases/download/SORREMAKE/StreetsOfRageRemake.7z
 EXENAM=StreetsOfRageRemake.exe
 CFGPTH=mod\games\*.cfg
 
