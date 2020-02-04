@@ -3076,6 +3076,9 @@ if (VERSION <> "[CURV]")
 	{
 		Gui, Tab, 7
 		Gui, Tab, Repository
+		Gui,Font,Bold
+		Gui,Add,Text,x238 y212 SUPPORT YOUR LOCAL ROM-DEALERS.`n`nDon't be duped by Street-ROMS.`n`nPlay safe.  Play smart.
+		Gui,Font,Normal
 		goto, GUIJAKLOC
 	}
 Gui, Tab, 7
