@@ -3305,11 +3305,12 @@ Loop, %BUILDIR%\gam\*,2
 		stringreplace,REPONM,REPONM,;,_,All
 		stringreplace,REPONM,REPONM,.,_,All
 		stringreplace,REPONM,REPONM,@,_,All
-		REPOROOT= % REPONM%SRC%
-		if (REPOROOT <> "")
+		REPOROOT= % REPONM_%SRC%
+		if (REPOROOT = "")
 			{
-				iniwrite,%REPOROOT%,%SKELD%\sets\arcorg.set,SOURCES,%REPONM%
+				REPOROOT= %REPONM%
 			}
+		iniwrite,%REPOROOT%,%SKELD%\sets\arcorg.set,SOURCES,%REPONM%
 		stringupper,UPARCNM,REPONM
 		iniwrite,%GRARBV%/%UPARCNM%/%A_LoopFileName%.7z,%SKELD%\sets\arcorg.set,SOURCES,%REPONM%:SET
 	}
