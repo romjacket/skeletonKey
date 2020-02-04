@@ -148,9 +148,9 @@ IfNotExist, skopt.cfg
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		_UPDTFILE= https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
-		_GITSRC= http://github.com/romjacket/skeletonkey
-		_REPOURL= http://github.com/romjacket
-		_ALTHOST= http://github.com/jomracket
+		_GITSRC= %GITWEB%/romjacket/skeletonkey
+		_REPOURL= %GITWEB%/romjacket
+		_ALTHOST= %GITWEB%/jomracket
 
 		gitrttmp=
 		_GITROOT= (not set) Github-Projects-Directory
@@ -295,7 +295,7 @@ IfNotExist, skopt.cfg
 						CONTPARAM14= 1
 						iniwrite,%UPDTFILE%,skopt.cfg,GLOBAL,update_file
 						
-						GITSRC= http://github.com/%gituser%/skeletonkey
+						GITSRC= %GITWEB%/%gituser%/skeletonkey
 						_GITSRC= %GITSRC%
 						CONTPARAM18= 1
 						iniwrite,%GITSRC%,skopt.cfg,GLOBAL,git_url
@@ -456,7 +456,7 @@ Loop, Read, skopt.cfg
 				}
 		if (curvl1 = "alt_host")
 				{
-					_REPOURL= http://github.com/jomracket
+					_REPOURL= %GITWEB%/jomracket
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							ALTHOST= %curvl2%
@@ -465,7 +465,7 @@ Loop, Read, skopt.cfg
 				}
 		if (curvl1 = "repository_url")
 				{
-					_REPOURL= http://github.com/romjacket
+					_REPOURL= %GITWEB%/romjacket
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							REPOURL= %curvl2%
@@ -828,7 +828,7 @@ guicontrol,,txtdpl,(not set) Deployment-Directory
 guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
-guicontrol,,irepo, https://github.com/romjacket>http://github.com/jomracket
+guicontrol,,irepo, https://github.com/romjacket>%GITWEB%/jomracket
 Loop,16
 	{
 		CONTPARAM%A_Index%= 
@@ -891,7 +891,7 @@ if (CONTPARAM16 = "")
 			}
 		if (ALTHOST = "")
 			{
-				ALTHOST= http://github.com/jomracket
+				ALTHOST= %GITWEB%/jomracket
 			}
 		CONTPARAM16= 1
 	}
@@ -1160,7 +1160,7 @@ if (GITUSER = "")
 						}
 					if (GITSRC= "")
 						{
-							GITSRC= http://github.com/%gituser%/skeletonkey
+							GITSRC= %GITWEB%/%gituser%/skeletonkey
 							CONTPARAM18= 1
 							iniwrite,%GITSRC%,skopt.cfg,GLOBAL,git_url
 						}
@@ -1287,7 +1287,7 @@ if (IALTH = "")
 	}
 if (IALTH = "")
 	{
-		IALTH= http://github.com/jomracket
+		IALTH= %GITWEB%/jomracket
 	}
 IniWrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
 guicontrol,,IALTH,%IALTH%
@@ -1316,7 +1316,7 @@ if (IREPO = "")
 					}
 				if (ALTHOST = "")
 					{
-						ALTHOST= http://github.com/jomracket
+						ALTHOST= %GITWEB%/jomracket
 					}
 				IniWrite,%reponum1%,skopt.cfg,GLOBAL,repository_url
 				IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host
@@ -1331,7 +1331,7 @@ if (IREPO = "")
 			}
 		if (ALTHOST = "")
 			{
-				ALTHOST= http://github.com/jomracket
+				ALTHOST= %GITWEB%/jomracket
 			}
 		guicontrol,,IREPO,%IREPO%
 		IniWrite,%ALTHOST%,skopt.cfg,GLOBAL,alt_host
@@ -1344,7 +1344,7 @@ return
 RepoUrl:
 gui,submit,nohide
 REPOURL= 
-UPDTFILE= http://github.com/%GITUSER%/skeletonKey/releases/download/nodats
+UPDTFILE= %GITWEB%/%GITUSER%/skeletonKey/releases/download/nodats
 if (REPORURLT = "")
 	{
 		iniread,REPOURLT,sets\arcorg.set,GLOBAL,HOSTINGURL
@@ -1938,7 +1938,7 @@ if ((GITT = BUILDIR)or(GITT = SKELD))
 		SB_SetText("Github SkeletonKey project directory should not be your source or build directories")
 	}
 GITD:= GITT
-GITSRC= http://github.com/%gituser%/skeletonkey
+GITSRC= %GITWEB%/%gituser%/skeletonkey
 iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
 IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
 CONTPARAM10= 1
@@ -2405,7 +2405,7 @@ if ((av = "")or(gcle <> 0))
 confirmSkelClone:	
 ifexist,%GITROOT%\skeletonkey\
 	{
-		GitSRC= http://github.com/%gituser%/skeletonkey
+		GitSRC= %GITWEB%/%gituser%/skeletonkey
 		GITD= %GITROOT%\skeletonkey
 		CONTPARAM10= 1
 		CONTPARAM18= 1
@@ -2848,13 +2848,13 @@ gui,submit,nohide
 GitSRC= 
 if (GitSRCT = "")
 	{
-		GitSRCT= http://github.com/%GITUSER%/skeletonkey
+		GitSRCT= %GITWEB%/%GITUSER%/skeletonkey
 	}
 
 inputbox,GitSRC,Git Repo,Enter the url for the skeletonKey git repo,,345,140,,,,,%GitSRCT%
 if (GitSRC = "")
 	{
-		GitSRCT= http://github.com/romjacket/skeletonkey
+		GitSRCT= %GITWEB%/romjacket/skeletonkey
 		GitSRC= %GitSRCT%
 	}
 
@@ -3323,7 +3323,7 @@ sktmc=
 sktmv= 
 FileRead, sktmp,%SKELD%\skeletonkey.tmp
 StringReplace,sktmc,sktmp,[VERSION],%date% %TimeString%,All
-StringReplace,sktmv,sktmc,[CURV],%vernum%,1
+StringReplace,sktmv,sktmc,[CURV],%vernum%
 stringreplace,sktmv,sktmv,`/`*  `;`;[DEBUGOV],,All
 stringreplace,sktmv,sktmv,`*`/  `;`;[DEBUGOV],,All
 FileAppend,%sktmv%,%SKELD%\skeletonkey.ahk
@@ -3933,7 +3933,7 @@ if (SiteUpdate = 1)
 		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io/skeletonkey,All
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
-		StringReplace,skelhtml,skelhtml,[REVISION],http://github.com/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
+		StringReplace,skelhtml,skelhtml,[REVISION],%GITWEB%/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All
 		StringReplace,skelhtml,skelhtml,[PORTABLE],https://github.com/%gituser%/skeletonKey/releases/download/portable/skeletonKey.zip,All
 		
 		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
