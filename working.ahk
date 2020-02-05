@@ -31911,7 +31911,7 @@ if (ASPOP = "Tomb Raider")
 		guicontrol,enable,NETCONNECT
 		romf=
 	}
-if (SRCHARCORG = 0)
+if (SRCHARCORG <> 1)
 	{
 		return
 	}
@@ -31932,6 +31932,7 @@ HOSTINGROMX= %fvff1%
 if (jumptab = 1)
 GuiControl, Choose, TABMENU, 7
 jumptab=
+
 gosub, FindInArc
 if (HOSTFND = 2)
 	{
