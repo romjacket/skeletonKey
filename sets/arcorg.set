@@ -32,4 +32,4 @@ buildBotCore=http://buildbot.libretro.com
 BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
 imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
 SHADERHOST= http://raw.githubusercontent.com/libretro/shader-previews/master/
-curlobby= http://newlobby.libretro.com/list|http://playarch.online/
+curlobby= http://lobby.libretro.com/list|http://playarch.online/list
