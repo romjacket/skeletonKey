@@ -35796,7 +35796,10 @@ if (DownOnly = 0)
 if (ARCCULL = 1)
 	{
 		stringsplit,anv,aftpth2,([
-		aftpth2= %anv1%
+		if (anv1 <> "")
+			{
+				aftpth2= %anv1%
+			}
 	}
 guicontrol,,RNMJACK,%aftpth2%
 if (arcpnum > 1)
@@ -36817,7 +36820,10 @@ guicontrolget,RJNMJACK,,RNMJACK
 if (ARCCULL = 1)
 	{
 		stringsplit,nnn,RNMJACK,([
-		RNMJACK= %nnn1%
+		if (nnn <> "")
+			{
+				RNMJACK= %nnn1%
+			}
 		guicontrol,,RNMJACK,%RNMJACK%
 		return
 	}
@@ -64152,7 +64158,7 @@ return
 ;};;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MIRRORED LINKS FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MIRRORED LINKSMIRRORED LINKS FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksToggle:
 gosub, FEUNPOP
 fetog= show
@@ -64160,7 +64166,7 @@ guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA,x544 y40 w18 h23
 guicontrol,,FEBUTA,+
-guicontrol,%fetog%,FEBUTB
+guicontrol,%fetog%,FEBUTBf
 guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x684 y476 w75 h23
 guicontrol,,FEBUTB,CREATE
@@ -64170,7 +64176,7 @@ guicontrol,move,FEBUTC,x293 y180 w58 h19
 guicontrol,,FEBUTC,MIRROR
 guicontrol,%fetog%,FEBUTD
 guicontrol,enable,FEBUTD
-guicontrol,move,FEBUTD,x293 y206 w51 h19
+guicontrol,move,FEBUTD,x293 y138 w51 h19
 guicontrol,,FEBUTD,ICON
 guicontrol,%fetog%,FEBUTE
 guicontrol,enable,FEBUTE

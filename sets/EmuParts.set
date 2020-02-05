@@ -338,6 +338,7 @@ redsquirrel=redsquirrel/redsquirrel.7z=RedSquirrel.exe=
 regen=regen/regen.7z=Regen.exe=
 retroArch=retroArch/retroArch-[ARCH].7z=retroarch.exe=retroarch.cfg|retroarch-core-options.cfg=|=|=|=|=|
 rpcemu=rpcemu/rpcemu.7z=RPCEmu-Recompiler.exe=
+gpcs4=gpcs4/gpcs4.7z=GPCS4.exe=|=|=|=|=|=|
 rpcs3=rpcs3/rpcs3.7z=rpcs3.exe=config*.yml=|=|=|=|=|
 sc3000=sc3000/sc3000.7z=sc3000.exe=sc3000.ini=
 scummvm=scummvm/scummvm.7z=scummvm.exe=

@@ -476,6 +476,13 @@ URLPTH=rpcs3/rpcs3.7z
 EXENAM=rpcs3.exe
 CFGPTH=config*.yml
 
+[gcps4]
+RJPRECFG=
+RJPOSTCFG=
+RJLNCHP=0
+URLPTH=gcps4/gcps4.7z
+EXENAM=GPCS4.exe
+CFGPTH=
 
 [XM6]
 RJPRECFG=copy /Y "XM6.ini" "%EMUL%"|copy /Y ".sstates\STATE.XM6" "%EMUL%"
@@ -4709,11 +4716,11 @@ LNCHPRM=$|1|1|1|1|0
 FENAM=ps2
 
 [Sony - Playstation 4]
-RJEMUPRESET=rcps4
+RJEMUPRESET=gcps4
 RJMULTIDISC=1
 RJROMXT= .elf,.bin
 SHORTNM=SPLAY4
-SUPEMU=rpcs4
+SUPEMU=gpcs4
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=ps4
@@ -4879,7 +4886,7 @@ SUPEMU=MAME
 SUPCORE=theodore_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Tiger - Game-com]
+[Tiger - Game.com]
 RJEMUPRESET=MAME
 RJMAMENM=gamecom
 MAME?RJEMUOPTS=<gamecom -cart<
@@ -4942,7 +4949,7 @@ SUPEMU=Winvz300|jvz200|tunix|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[VTech - V-Smile]
+[VTech - V.Smile]
 RJEMUPRESET=MAME
 RJMAMENM=vsmile
 MAME?RJEMUOPTS=<vsmilepro -[RJRTYP]<|<vsmilepro -cdrm<|<vsmile -cart<|<vsmileb -cart<|<vsmilef -cart<|<vsmileg -cart<|<vsmilepro -cart<
@@ -4953,7 +4960,7 @@ SUPCORE=mame_libretro.dll
 RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
 
-[VideoBrain - Interact Family Computer]
+[VideoBrain - FamilyComputer]
 RJEMUPRESET=MAME
 RJMAMENM=vidbrain
 RJROMXT=.bin,.zip

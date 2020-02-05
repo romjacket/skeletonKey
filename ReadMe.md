@@ -1,13 +1,13 @@
 skeletonKey 0.99.70.41
 
- 2020-02-04 5:13 PM
+ 2020-02-05 12:00 PM
  
 by romjacket 
 
 This tool is a unified interface for ROMs, emulators and frontends.
 SkeletonKey can be used as a GUI to download and configure emulators, deploy frontends, 
-launch ROMs, and manage assets & artwork by leveraging internet ROM-repositories, metadata-databases,
- art/video-scrapers and retroArch's netplay capabilities
+launch ROMs, manage assets & artwork by leveraging metadata-databases,
+ art/video-scrapers.
 
 Official files are found at GITHUB
 http://github.com/romjacket/skeletonKey
@@ -16,10 +16,7 @@ http://github.com/romjacket/skeletonKey
 https://www.paypal.me/romjacket
 
               
-			  Software wants to be free and so please donate.
-			  
-			  Busta $5' and get a personalized Golden skeletonKey!
-			  
+			  Software wants to be free, so donate!
 			  
 
 ################  USAGE  ##################

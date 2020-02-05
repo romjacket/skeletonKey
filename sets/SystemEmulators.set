@@ -362,7 +362,7 @@ Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx
 Sony - Playstation 3|rpcs3|nucleus|shortwave
-Sony - Playstation 4|rpcs4
+Sony - Playstation 4|gpcs4
 Sony - Playstation Portable|PPSSPP|jpcsp|cpspemu|:ppsspp_libretro.dll
 Sony - Playstation Vita|BSL
 Sony - Playstation - PAL|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
@@ -412,7 +412,7 @@ Thomson - TO7 - TO7-70A|MAME|:mame_libretro.dll
 Thomson - TO7 - TO7-70|MAME|:mame_libretro.dll
 Thomson - To7|MAME|:mame_libretro.dll
 Thomson - To8|MAME|:theodore_libretro.dll|mame_libretro.dll
-Tiger - Game-com|gamecomemu|MAME|:mame_libretro.dll
+Tiger - Game.com|gamecomemu|MAME|:mame_libretro.dll
 Tiger - K28 7-232|MAME|:mame_libretro.dll
 Tiger Telematics - Gizmondo|MAME|:mame_libretro.dll
 Tiki Data A-S - TIKI 100|MAME|:mame_libretro.dll
@@ -441,10 +441,10 @@ VTech - Laser 200|Winvz300|jvz200|tunix|MAME|:mame_libretro.dll
 VTech - Laser 310|Winvz300|jvz200|tunix|MAME|:mame_libretro.dll
 VTech - PreComputer 1000|MAME|:mame_libretro.dll
 VTech - PreComputer 1000|MAME|:mame_libretro.dll
-VTech - V-Smile|MAME|:mame_libretro.dll
+VTech - V.Smile|MAME|:mame_libretro.dll
 Victor Business Products - Victor 9000 - ACT Sirius 1|MAME|:mame_libretro.dll
 Video Technology - Socrates|MAME|:mame_libretro.dll
-VideoBrain - Interact Family Computer|MAME|:mame_libretro.dll
+VideoBrain - FamilyComputer|MAME|:mame_libretro.dll
 Videoton - TVC 64|MAME|:mame_libretro.dll
 Visual Technology - Visual 1050|MAME|:mame_libretro.dll
 Voltmace - Database|MAME|:mame_libretro.dll
