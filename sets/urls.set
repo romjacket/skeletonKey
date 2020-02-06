@@ -120,6 +120,7 @@ familybasic|familybasic/familybasic.7z
 faux1|faux1/faux1.7z
 fceux|fceux/fceux-[ARCH].7z
 FinalBurnAlpha|FinalBurnAlpha/FinalBurnAlpha-[ARCH].7z
+FBNeo|FBNeo/FBNeo-[ARCH].7z
 firegb|firegb/firegb.7z
 FishNChips|FishNChips/FishNChips.7z
 FlashPlayer|FlashPlayer/FlashPlayer.7z
@@ -349,6 +350,8 @@ reicast|reicast/reicast[ARCH].7z
 retroArch|retroArch/retroArch-[ARCH].7z
 rpcemu|rpcemu/rpcemu.7z
 gpcs4|gpcs4/gpcs4.7z
+duckstation|duckstation/duckstation.7z
+PS4Delta|PS4Delta/PS4Delta.7z
 rpcs3|rpcs3/rpcs3.7z
 rx78|rx78/rx78.7z
 ryujinx|ryujinx/ryujinx.7z

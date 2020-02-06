@@ -69,9 +69,9 @@ COMX - 35|elf|emma02|MAME|:mame_libretro.dll
 Cambridge Computers - Z88|MAME|:mame_libretro.dll
 Camputers - Lynx|jynx|MAME|:mame_libretro.dll
 Canon - X-07|MAME|:mame_libretro.dll
-Capcom Play System - CPS III|FinalBurnAlpha|cps3emulator|mame_arcade|MAME|:fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS II|FinalBurnalpha|ace|nebula|WinKawaks|mame_arcade|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
-Capcom Play System - CPS|FinalBurnalpha|callus|WinKawaks|ace|nebula|mame_arcade|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS III|FinalBurnAlpha|FBNeo|cps3emulator|mame_arcade|MAME|:fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS II|FinalBurnalpha|FBNeo|ace|nebula|WinKawaks|mame_arcade|MAME|:fbalpha2012_cps2_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+Capcom Play System - CPS|FinalBurnalpha|FBNeo|callus|WinKawaks|ace|nebula|mame_arcade|MAME|:fbalpha2012_cps1_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 Casio - Loopy|MAME|:mame_libretro.dll
 Casio - PB-2000C|MAME|:mame_libretro.dll
 Casio - PV-1000|pv1000|MAME|:mame_libretro.dll
@@ -182,7 +182,7 @@ Lianozovo Electromechanical Factory - Mikrosha|MAME|:mame_libretro.dll
 Luxor - ABC 1600|MAME|:mame_libretro.dll
 Luxor - ABC 80|MAME|:mame_libretro.dll
 Luxor - Video Entertainment System|MAME|:mame_libretro.dll
-MAME - Arcade|mame_arcade|MAME|FinalBurnalpha|calice|ace|zinc|:mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+MAME - Arcade|mame_arcade|MAME|FinalBurnalpha|FBNeo|calice|ace|zinc|:mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 MGT - Sam Coupe|simcoupe|speccy|zesarux|Ascd|MAME|:mame_libretro.dll
 MITS - Altair8800|MAME|:mame_libretro.dll
 MOS Technology - KIM-1|MAME|:mame_libretro.dll
@@ -203,7 +203,7 @@ Microsoft - DOS|DOSBox-X|DOSBox|DosPlus|:dosbox_libretro.dll
 Microsoft - MSX TurboR|BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2+|BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - MSX2|BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
-Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
+Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|FBNeo|vdmgr|nlmsx|Xspeccy|openMSX|:bluemsx_libretro.dll|fmsx_libretro.dll|mame_libretro.dll
 Microsoft - XBOX 360|Xenia
 Microsoft - XBOX ONE|Xerg
 Microsoft - Windows 3x|WinBox
@@ -225,7 +225,7 @@ NEC - Advanced Personal Computer|MAME|:mame_libretro.dll
 NEC - PC Engine - JAP|Mednafen|Ootake|pcengine|hu6280|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll
 NEC - PC Engine - TurboGrafx 16|Mednafen|hu6280|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
 NEC - PC Engine CD - TurboGrafx CD|hu6280|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|:mednafen_pce_fast_libretro.dll|mame_libretro.dll
-NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|turboengine|finalburnalpha|BizHawk|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
+NEC - PC Engine SuperGrafx|Mednafen|Ootake|pcengine|turboengine|finalburnalpha|FBNeo|BizHawk|MAME|:mednafen_supergrafx_libretro.dll|mame_libretro.dll
 NEC - PC-6001|pc6001|pc6601|MAME|:mame_libretro.dll
 NEC - PC-8201(A) Option|xm8|Neko|m88|mx88|MAME|:mame_libretro.dll
 NEC - PC-FX|Mednafen|xe|:mednafen_pcfx_libretro.dll|mame_libretro.dll
@@ -306,8 +306,8 @@ Rockwell - AIM 65|MAME|:mame_libretro.dll
 Rowtron - Television Computer System|MAME|:mame_libretro.dll
 SAM SKB VM - Partner-01.01|MAME|:mame_libretro.dll
 SNK - Neo Geo CD|NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME|:neocd_libretro.dll
-SNK - Neo Geo AES|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
-SNK - Neo Geo MVS|FinalBurnAlpha|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+SNK - Neo Geo AES|FinalBurnAlpha|FBNeo|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+SNK - Neo Geo MVS|FinalBurnAlpha|FBNeo|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME|:fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 SNK - Neo Geo Pocket Color|Mednafen|koyote|race|neopopcott|neopop|MAME|:mednafen_ngp_libretro.dll
 SNK - Neo Geo Pocket|Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|:mednafen_ngp_libretro.dll
 Sage Technology - Sage II|MAME|:mame_libretro.dll
@@ -362,11 +362,11 @@ Signetics - Pipbug|winarcadia|MAME|:mame_libretro.dll
 Small Systems Engineering - SSE Softbox|MAME|:mame_libretro.dll
 Sony - Playstation 2|pcsx2|Play|hpsx
 Sony - Playstation 3|rpcs3|nucleus|shortwave
-Sony - Playstation 4|gpcs4
+Sony - Playstation 4|gpcs4|PS4Delta
 Sony - Playstation Portable|PPSSPP|jpcsp|cpspemu|:ppsspp_libretro.dll
 Sony - Playstation Vita|BSL
 Sony - Playstation - PAL|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
-Sony - Playstation|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
+Sony - Playstation|epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|duckstation|:mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|mame_libretro.dll
 Sony - Pocketstation|pkemu|pk201|xebra|MAME|:mame_libretro.dll
 Sony - SMC777|MAME|:mame_libretro.dll
 Sord - M5|m5|MAME|:mame_libretro.dll
