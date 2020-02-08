@@ -39775,7 +39775,7 @@ if (SK_MODE = 1)
 		indvcp= %A_ScriptDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 		RVLKUP= %EXTRSYS%	
 		iniread,indvcpx,Apps.ini,EMULATORS,%nicktst%
-		if (indvcpx <> "ERROR")
+		if ((indvcpx <> "ERROR")or(indvcpx = ""))
 			{
 				splitpath,indvcpx,,indvcp
 				nickpath= %indvcp%
@@ -43082,58 +43082,10 @@ FileRead,mednafenopts,%emucfgloc%
 if (core_gui = "mednafen")
 	{
 		goto, medguicreated
-	}
+	}	
 if (medjgrab = "")
 	{
-		SetTitleMatchMode,1
-		iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
-		if (medapx = "")
-			{
-				medjgrab= 0x0
-				goto, MEDJGRAB
-			}
-		RunWait, %comspec% /c " set MEDNAFEN_NOPOPUPS=1&&"%medapx%" nofile >"tmp.tmp"",,hide
-		kbr=
-		Loop, Read, tmp.tmp
-			{
-				ifinstring,A_LoopReadLine,ID:
-					{
-						stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
-						medjgrab.= (kbr < 1 ? "" : "|") . fvir2
-						medjid%A_Index%= fvir2
-						kbr+= 1
-					}
-			}
-		if (medjgrab = "")
-			{
-				medjgrab= 0x0
-			}
-		MEDJGRAB:
-		jnum=
-		jvar=
-		jman=
-		Loop, 16
-			{
-				jnum+= 1
-				jvar=
-				Loop, Parse, medjgrab,|
-					{
-						jman+= 1
-						if (A_Index = jnum)
-							{
-								stringreplace,mednafenopts,mednafenopts,[0x0%jman%],%A_LoopField%,All
-								jvar= %A_LoopField%
-								medjid%jnum%= %A_LoopField%
-								break
-							}
-					}
-				if (jvar = "")
-					{
-						stringreplace,mednafenopts,mednafenopts,[0x0%A_Index%],0x0,All
-						medjid%A_Index%= 0x0
-					}
-				medjindex= % medjid%A_index%
-			}
+		gosub, GetMedJoys
 	}
 ;{;;;;;;;;;;;;;;;;;;;;  mednafen gui populate ;;;;;;;;;;;;;;;;;;;;;;
 if (uuniv = "X")
@@ -43661,6 +43613,59 @@ return
 UndoMednafenReset:
 filecopy,%emucfgloc%.bak,%emucfgloc%,1
 gosub, medguicreated
+return
+
+GetMedJoys:
+SetTitleMatchMode,1
+iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
+if (medapx = "")
+	{
+		medjgrab= 0x0
+		goto, MEDJGRAB
+	}
+RunWait, %comspec% /c " set MEDNAFEN_NOPOPUPS=1&&"%medapx%" nofile >"tmp.tmp"",,hide
+kbr=
+Loop, Read, tmp.tmp
+	{
+		ifinstring,A_LoopReadLine,ID:
+			{
+				stringsplit,fvir,A_LoopReadLine,:-,%A_Space%
+				medjgrab.= (kbr < 1 ? "" : "|") . fvir2
+				medjid%A_Index%= fvir2
+				kbr+= 1
+				break
+			}
+	}
+if (medjgrab = "")
+	{
+		medjgrab= 0x0
+	}
+MEDJGRAB:
+jnum=
+jvar=
+jman=
+Loop, 16
+	{
+		jnum+= 1
+		jvar=
+		Loop, Parse, medjgrab,|
+			{
+				jman+= 1
+				if (A_Index = jnum)
+					{
+						stringreplace,mednafenopts,mednafenopts,[0x0%jman%],%A_LoopField%,All
+						jvar= %A_LoopField%
+						medjid%jnum%= %A_LoopField%
+						break
+					}
+			}
+		if (jvar = "")
+			{
+				stringreplace,mednafenopts,mednafenopts,[0x0%A_Index%],0x0,All
+				medjid%A_Index%= 0x0
+			}
+		medjindex= % medjid%A_index%
+	}
 return
 
 mednafenBUTC:
@@ -64166,7 +64171,7 @@ guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA,x544 y40 w18 h23
 guicontrol,,FEBUTA,+
-guicontrol,%fetog%,FEBUTBf
+guicontrol,%fetog%,FEBUTB
 guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x684 y476 w75 h23
 guicontrol,,FEBUTB,CREATE

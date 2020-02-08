@@ -1,6 +1,6 @@
 skeletonKey 0.99.70.41
 
- 2020-02-05 6:43 PM
+ 2020-02-08 7:22 AM
  
 by romjacket 
 
@@ -29,23 +29,20 @@ Upon installtion, a quick-start wizard will allow users to get up and running qu
 
 ###########################################
 
-# Developing and forking skeletonKey
+# DEVELOPING AND FORKING SKELETONKEY
 
 SKey-Deploy.exe:  
 
-To deploy your own installer, binary and github-website 
-you will need a [github account](https://github.com/join) and a [token](https://github.com/settings/tokens).  
+You are free to deploy your own installer, binary and github-website 
+
+You will need a [github account](https://github.com/join) and a [token](https://github.com/settings/tokens).  
 
 ###########################################
 
 License information:
 
 This software is for personal, non-commercial use only.
-You may not deploy or distribute this tool in any manner which facilitates financial profit.  
-You may not distribute this tool to include any additional closed-source software.  
+You may not compile, deploy or distribute skeletonKey in any manner which facilitates financial profit.  
+You may not compile, deploy or distribute skeletonKey in any manner which facilitates piracy.
 
-In no way may you deploy this tool to promote piracy.  
-
-You must include this readme file when distributing any binary.
-
-You may not modify this readme file or any other included license file in any manner not created or modified via the original deployment tool.
+You must include this unaltered readme along with any binary.
