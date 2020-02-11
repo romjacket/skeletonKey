@@ -3928,10 +3928,10 @@ if (SiteUpdate = 1)
 									}
 							}
 					}
-			}			
+			}		
 		guicontrol,,progb,90
 		StringReplace,skelhtml,skelhtml,[RSHA1],%ApndSHA%,All
-		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io/skeletonkey,All
+		StringReplace,skelhtml,skelhtml,[WEBURL],http://%GITUSER%.github.io,All
 		StringReplace,skelhtml,skelhtml,[PAYPAL],%donation%
 		StringReplace,skelhtml,skelhtml,[GITSRC],%GITSRC%,All
 		StringReplace,skelhtml,skelhtml,[REVISION],%GITWEB%/%gituser%/skeletonKey/releases/download/Installer/Installer.zip,All

@@ -1896,7 +1896,7 @@ Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
 Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled, LAUNCH
 Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 gui,font,normal
-Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
+;;Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
 Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -78,7 +78,7 @@
       <br>
       <div id="inner">
          <br>
-         <strong>Website:</strong> <a href="[WEBURL]/index.html" target="_top">[WEBURL]/index.html</a><br>
+         <strong>Developer Website:</strong> <a href="[WEBURL]/index.html" target="_top">[WEBURL]</a><br>
          <strong>Source code:</strong>
          <a id="COMMENT"></a> <a href="[GITSRC]">Github Page</a><br>
          <!-- <strong>Resources and Releases:</strong>
@@ -104,7 +104,7 @@
                      <p> Tutorials coming soon</p>
 				<img alt="" height="34" src="video.svg" width="34">
 				  </a></h2>
-                            <div align="left">
+                        <!--    <div align="left">
 						<p>Enjoy.</p>
 						<a class="lightbox" href="https://www.youtube.com/embed/KqjwlBFwZHw?showinfo=0">
 							<img alt="" height="14" src="video.svg" width="14">__Arcades__
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-                  </div>
+                  --></div>
                </div>
             </div>
          </div>
@@ -342,10 +342,9 @@
                   </p>
                   <p>Right-Clicking on this menu enables assignment and configuration.</p>
                   <p>RetroArch, MAME, Snes9x and Mednafen are currently supported.</p>
-                  <h3>[X] Clear button</h3>
-                  <p>Clears all current launch options. Right-click on this to delete ROM settings for the
-                     currently selected emulator/core.
-                  </p>
+                  <!-- <h3>[X] Clear button</h3>
+                  <p>Clears all current launch options. 
+                  </p> -->
                </div>
             <h3>Emulator Configuration Options</h3>
                <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time
@@ -1461,6 +1460,9 @@
 </div>
 </div>
 </body>
+  
+         </div>
+	 </div>
   <script>
 !function(e,t){if("function"==typeof define&&define.amd)define(["module","exports"],t);else if("undefined"!=typeof exports)t(module,exports);else{var o={exports:{}};t(o,o.exports),e.smoothie=o.exports}}(this,function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};e=o({},r,e);var t=document.querySelectorAll("[data-smoothie]");Array.from(t).forEach(function(t){var o=t.getAttribute("href");t.addEventListener("click",function(t){t.preventDefault(),history.pushState(null,null,o),document.querySelector(o).scrollIntoView(e)})})};var o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var r in o)Object.prototype.hasOwnProperty.call(o,r)&&(e[r]=o[r])}return e},r={block:"start",behavior:"smooth"};e.exports=t.default});
 </script>
