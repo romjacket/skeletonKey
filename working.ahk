@@ -7290,10 +7290,11 @@ guicontrol,,SKDSETXT, Detected Supported Emulators: %emunumtot%
 guicontrol,,SKEMUDISP,%RJEMUD%
 return
 UpdateSK:
-guicontrol,disable,UpdateSK
 FileDelete, site\version.txt
+guicontrol,disable,UpdateSK
 IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
 IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
+splitpath,UPDATEURLF,UPDATEFILE
 URLFILE= %sourceHost%
 save= %A_ScriptDir%\site\version.txt
 splitpath,save,svaf,svap
@@ -7313,7 +7314,10 @@ if ((VERCHKC3 <> RELEASE)or(DATECHK = "404: Not Found")or(DATECHK = "[CURV]"))
 			{
 				gosub, getupdate
 				guicontrol,enable,UpdateSK
-				return
+				ifnotexist,%cacheloc%\%UPDATEFILE%
+					{
+						return
+					}
 			}
 		ifmsgbox, no
 			{
@@ -7325,11 +7329,11 @@ guicontrol,enable,UpdateSK
 return
 getupdate:
 upcnt=
-loop, %cacheloc%\skeletonkey.zip
+loop, %cacheloc%\%UPDATEFILE%
 	{
 		upcnt+=1
 	}
-URLFILE= %UPDATEFILE%
+URLFILE= %UPDATEURLF%
 save= %cacheloc%\skeletonKey%upcnt%.zip
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
