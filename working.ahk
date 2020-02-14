@@ -1822,11 +1822,12 @@ Gui, Add, Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x18 y88 vSKSYSTXT, Systems Dir
 Gui, Add, Text, x18 y173 vSKEMUDTXT, Emulators Dir
 Gui,Font,Normal
-Gui, Add, CheckBox, x399 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
+Gui, Add, CheckBox, x150 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
+Gui, Add, CheckBox, x399 y90 vRENONDET gRENONDET checked, Rename Detected
 Gui, Add, Button, x579 y460 w55 h18 vUpdateSK gUpdateSK, UPDATE
 Gui, Font, Bold
-Gui Add, Text, x18 y311, Playlists Dir
-Gui Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
+Gui, Add, Text, x18 y311, Playlists Dir
+Gui, Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
 Gui,Add,Edit, hwndEdtHndl1 x61 y268 w443 h41 Right vplaylisttxt ReadOnly, %playlistloc%
 Gui, Font, Bold
@@ -1837,8 +1838,8 @@ Gui, Add, Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui,Add,Edit, hwndEdtHndl2 x61 y346 w443 h41 vhisttxt Right ReadOnly, %historyloc%
 Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
 Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
-Gui, Add, Text, x150 y173 vSKDSETXT, Detected Supported Emulators: %emunumtot%
-Gui, Add, Text, x150 y90 vSKDETSTXT, Detected Systems: %totsys% supported and %allsys% total
+Gui, Add, Text, x581 y60 vSKDSETXT, Detected Emulators: %emunumtot%
+Gui, Add, Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported and %allsys% total
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,Edit, hwndEdtHndl3 x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
@@ -3099,7 +3100,7 @@ Gui, Add, Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
 Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
 Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
-Gui, Add, Checkbox, x285 y33 w25 vENHAK gENHAK,+hacks
+Gui, Add, Checkbox, x287 y33 w25 vENHAK gENHAK,+hacks
 Gui, Add, Checkbox, x9 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
 Gui, Add, Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
@@ -4205,6 +4206,7 @@ ZIPSEEK_TT :="Searches within archives (.zip/.7z) for files.`nturn this off for 
 ZIPSEEK_TT :="Gets and writes the CRC Hash number of ROMs to the playlist.`nThis can be expensive for CD/DVD systems.`nturn this off for Arcade/MAME-Style ROMs and archives."
 SHDEN_TT :="Toggles shader"
 FILT_UNSUP_TT :="Any dropdown listing the contents of your ''systems'' directory`n will filter out any directories which have not been detected or assigned"
+RENONDET_TT :="Any systems-folders will be renamed to the supported nomenclature."
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 */  ;;[DEBUGOV]
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -8050,6 +8052,12 @@ playlistloc= %A_WorkingDir%\cfg
 guicontrol,,playlisttxt,%A_WorkingDir%\cfg
 iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
 return
+
+RENONDET:
+gui,submit,nohide
+
+return
+
 FILT_UNSUP:
 gui,submit,nohide
 gosub, RJSYSRESET
@@ -73039,6 +73047,11 @@ ifnotinstring,supguiitems,%guito%
 	{
 		guito= unimp
 	}
+	else {
+		guicontrol,,LCORE,|%guito%||%runlist%
+		guicontrol,,RUNSYSDDL,|:=:System List:=:||%knownfldrs%
+		guicontrol,,RUNROMCBX,|
+	}	
 goto, %guito%_GUI
 return
 EMUNAMEPOP:

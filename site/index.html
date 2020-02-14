@@ -1467,65 +1467,6 @@
 !function(e,t){if("function"==typeof define&&define.amd)define(["module","exports"],t);else if("undefined"!=typeof exports)t(module,exports);else{var o={exports:{}};t(o,o.exports),e.smoothie=o.exports}}(this,function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};e=o({},r,e);var t=document.querySelectorAll("[data-smoothie]");Array.from(t).forEach(function(t){var o=t.getAttribute("href");t.addEventListener("click",function(t){t.preventDefault(),history.pushState(null,null,o),document.querySelector(o).scrollIntoView(e)})})};var o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var r in o)Object.prototype.hasOwnProperty.call(o,r)&&(e[r]=o[r])}return e},r={block:"start",behavior:"smooth"};e.exports=t.default});
 </script>
 <script>
-smoothie();
-</script>
-<script>
-    var tag = document.createElement('script')
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0]
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
-    var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null
-    var youtubelightbox = document.getElementById('youtubelightbox')
-    var player
-    youtubelightbox.addEventListener('click', function() {
-        this.style.display = 'none'
-        player.stopVideo()
-    }, false)
-    youtubelightbox.querySelector('.centeredchild').addEventListener('click', function(e) {
-        e.stopPropagation()
-    }, false)
-
-    function onYouTubeIframeAPIReady() {
-        createlightbox()
-    }
-
-    function getyoutubeid(link) {
-        var youtubeidreg = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
-        return youtubeidreg.exec(link)[1]
-    }
-
-    function createyoutubeplayer(videourl) {
-        player = new YT.Player('playerdiv', {
-            videoId: videourl,
-            playerVars: {
-                autoplay: 1
-            }
-        })
-    }
-
-    function createlightbox() {
-        var targetlinks = document.querySelectorAll('.lightbox')
-        for (var i = 0; i < targetlinks.length; i++) {
-            var link = targetlinks[i]
-            link._videoid = getyoutubeid(link)
-            targetlinks[i].addEventListener('click', function(e) {
-                youtubelightbox.style.display = 'block'
-                if (typeof player == 'undefined') {
-                    createyoutubeplayer(this._videoid)
-                } else {
-                    if (isiOS) {
-                        player.cueVideoById(this._videoid)
-                    } else {
-                        player.loadVideoById(this._videoid)
-                    }
-                }
-                e.preventDefault()
-            }, false)
-        }
-    }
-</script>
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24JLRJucSrI22etQ%2FQfGi39%2F"+"&opts=16862&num=10&ts=1568687731532");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<script>
   var accItem = document.getElementsByClassName('tabItem');
     var accHD = document.getElementsByClassName('tabItemHeading');
     for (i = 0; i < accHD.length; i++) {
@@ -1541,7 +1482,6 @@ smoothie();
         }
     }
 </script>
-
 <style>	
 	@font-face {
 		font-family: 'Opticon';
@@ -1561,7 +1501,7 @@ body {
     overflow-x: hidden;
 	font-family: "Trueno";
     font-size: 14px;
-	background: #E0E0E0;
+	/*background: #E0E0E0;*/
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E0E0E0), color-stop(100%,#919191));
 	background: -webkit-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
 	background: -moz-linear-gradient(top,  #E0E0E0 0%, #919191 100%);
