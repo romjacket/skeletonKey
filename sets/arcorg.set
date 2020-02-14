@@ -4,7 +4,7 @@ HOSTINGURL=http://github.com/romjacket
 ALTHOST=http://github.com/jomracket
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 IP_LOOKUP=http://www.netikus.net/show_ip.html
-UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey-portable.zip
+UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 RASTABLE=1.8.4
 
 [SOURCES]
