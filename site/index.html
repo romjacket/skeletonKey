@@ -123,8 +123,7 @@
 						<br>
 						<br>
 						<a class="lightbox" href="https://www.youtube.com/embed/f15aDWKoI7A?showinfo=0">
-							<img alt="" height="14" src="video.svg" width="14">__Outer Space__
-				 </a>
+							<img alt="" height="14" src="video.svg" width="14">__Outer Space__</a>
 						</span>
 			  </div>
             <div class="parent" id="youtubelightbox">
@@ -799,26 +798,24 @@
          </div>
       </div>
       <br>
-      <div id="inner">
-         <h3>XMB</h3>
-         <p>XMB is retroArch's premiere GUI with thumnail support.</p>
-         <p>Inspired by the PS3's UI, XMB for retroArch is very flexible, feature-rich and navigatable via the joystick.
+	        <div id="inner">
+         <h3>Mirrored Links</h3>
+         <p>Mirrored Links are Windows shortcuts for ROM-Jacket launchers.</p>
+         <p>Leveraging Windows shortcuts allows for easy customization of frontends. As these files can be moved,
+            copied and deleted without affecting launchers or ROM-Jackets, creating custom playlists is as easy as
+            navigating Windows Explorer.
          </p>
-         <h4><a>XMB Menu Options</a></h4>
-		          <div class="tabWrapper">
+         <h4><a>Mirrored Links Menu Options</a></h4>
+         <div class="tabWrapper">
             <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ XMB Details ↕</h8>
+               <h8 class="tabItemHeading">↕ Mirrored Link Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
-                  <p>SkeletonKey can configure the XMB interface for retroArch.  Most cosmetic options are exposed
-				  and provides an easy way to tailor the available options for your needs.
-                  </p>
-                  <p>Many options found for the XMB interface may also affect the RGUI or other available interfaces
-				  for retroArch.
-                  </p>	
+                  <p>Each Mirrored file can be assigned an icon found</p>
                </div>
             </div>
          </div>
       </div>
+	  <br>
       <div id="inner">
          <h3>EmulationStation</h3>
          <p>EmulationStation is a cross-platform frontend that has metadata, boxart and video-snap capabilities.</p>
@@ -831,7 +828,7 @@
                      SkeletonKey can load existing configuration files (es_systems.cfg),
                      gamelist files (gamelist.xml) to add, remove, edit and reorder games and systems.
                   </p>
-                  <p>The Paradigm: Like Media Browser, emulationStation automatically adds any ROMs found in a
+                  <p>The Paradigm: EmulationStation automatically adds any ROMs found in a
                      directory to its database, however skeletonkey can edit and create gamelist.xml
                      playlist-files to explicitly parse.
                   </p>
@@ -868,24 +865,27 @@
             </div>
          </div>
       </div>
-      <br>
-      <div id="inner">
-         <h3>Mirrored Links</h3>
-         <p>Mirrored Links are Windows shortcuts for ROM-Jacket launchers.</p>
-         <p>Leveraging Windows shortcuts allows for easy customization of frontends. As these files can be moved,
-            copied and deleted without affecting launchers or ROM-Jackets, creating custom playlists is as easy as
-            navigating Windows Explorer.
+	        <div id="inner">
+         <h3>XMB</h3>
+         <p>XMB is retroArch's premiere GUI with thumnail support.</p>
+         <p>Inspired by the PS3's UI, XMB for retroArch is very flexible, feature-rich and navigatable via the joystick.
          </p>
-         <h4><a>Mirrored Links Menu Options</a></h4>
-         <div class="tabWrapper">
+         <h4><a>XMB Menu Options</a></h4>
+		          <div class="tabWrapper">
             <div class="tabItem close">
-               <h8 class="tabItemHeading">↕ Mirrored Link Details ↕</h8>
+               <h8 class="tabItemHeading">↕ XMB Details ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
-                  <p>Each Mirrored file can be assigned an icon found</p>
+                  <p>SkeletonKey can configure the XMB interface for retroArch.  Most cosmetic options are exposed
+				  and provides an easy way to tailor the available options for your needs.
+                  </p>
+                  <p>Many options found for the XMB interface may also affect the RGUI or other available interfaces
+				  for retroArch.
+                  </p>	
                </div>
             </div>
          </div>
       </div>
+
    </div>
    <div align="left" id="outer">
       <div id="inner">
@@ -893,7 +893,7 @@
             <div class="tabItem close">
                <h8 class="tabItemHeading">↕ In Development ↕</h8>
                <div class="tabItemContent" id="detailsdiv">
-                  <h3>Media Browser for Windows Media Center</h3>
+                  <h3>Simpletouch FE</h3>
                   <h3>Hyperspin</h3>
                   <h3>KODI/XBMC</h3>
                   <ul>
@@ -1467,6 +1467,62 @@
 !function(e,t){if("function"==typeof define&&define.amd)define(["module","exports"],t);else if("undefined"!=typeof exports)t(module,exports);else{var o={exports:{}};t(o,o.exports),e.smoothie=o.exports}}(this,function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};e=o({},r,e);var t=document.querySelectorAll("[data-smoothie]");Array.from(t).forEach(function(t){var o=t.getAttribute("href");t.addEventListener("click",function(t){t.preventDefault(),history.pushState(null,null,o),document.querySelector(o).scrollIntoView(e)})})};var o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var r in o)Object.prototype.hasOwnProperty.call(o,r)&&(e[r]=o[r])}return e},r={block:"start",behavior:"smooth"};e.exports=t.default});
 </script>
 <script>
+    var tag = document.createElement('script')
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0]
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+    var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null
+    var youtubelightbox = document.getElementById('youtubelightbox')
+    var player
+    youtubelightbox.addEventListener('click', function() {
+        this.style.display = 'none'
+        player.stopVideo()
+    }, false)
+    youtubelightbox.querySelector('.centeredchild').addEventListener('click', function(e) {
+        e.stopPropagation()
+    }, false)
+
+    function onYouTubeIframeAPIReady() {
+        createlightbox()
+    }
+
+    function getyoutubeid(link) {
+        var youtubeidreg = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
+        return youtubeidreg.exec(link)[1]
+    }
+
+    function createyoutubeplayer(videourl) {
+        player = new YT.Player('playerdiv', {
+            videoId: videourl,
+            playerVars: {
+                autoplay: 1
+            }
+        })
+    }
+
+    function createlightbox() {
+        var targetlinks = document.querySelectorAll('.lightbox')
+        for (var i = 0; i < targetlinks.length; i++) {
+            var link = targetlinks[i]
+            link._videoid = getyoutubeid(link)
+            targetlinks[i].addEventListener('click', function(e) {
+                youtubelightbox.style.display = 'block'
+                if (typeof player == 'undefined') {
+                    createyoutubeplayer(this._videoid)
+                } else {
+                    if (isiOS) {
+                        player.cueVideoById(this._videoid)
+                    } else {
+                        player.loadVideoById(this._videoid)
+                    }
+                }
+                e.preventDefault()
+            }, false)
+        }
+    }
+</script>
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24JLRJucSrI22etQ%2FQfGi39%2F"+"&opts=16862&num=10&ts=1568687731532");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<script>
   var accItem = document.getElementsByClassName('tabItem');
     var accHD = document.getElementsByClassName('tabItemHeading');
     for (i = 0; i < accHD.length; i++) {
@@ -1858,7 +1914,7 @@ width: 100%;
   transition: none;
   zoom: 1;
 	filter: alpha(opacity=100);
-  opacity: 1.0;
+  opacity: 0.8;
 	transition: 0.15s ease-in;
 }
 #menu li {

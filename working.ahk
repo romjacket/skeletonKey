@@ -822,7 +822,6 @@ Loop, rj\emuCfgs\*,2
 		SUPEMUOPT.= A_LoopFileName . "|"
 	}
 
-netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 fesup= retroArch|EmulationStation|RetroFE|Pegasus
 noinstallers= |Media|Mirrored_Links|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
@@ -833,18 +832,14 @@ mednfsc= gb|gg|gba|lynx|md|nes|ngp|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|
 mamefsc= default|32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a310|a500n|a5200|a7800|a800|a800pal|abc1600|abc80|adam|advantage|advision|aim65|aleste|alice32|alice90|alphatro|altos5|amiga|ampro|apc|apfimag|apfm1000|apogee|apollo|apple1|apple2|apple2gs|apple3|apricot|aquarius|arcadia|archimedes|astrocde|atom|attache|b2m|bbca|bbcb|bbcbc|bbcm|bbcmc|bk0010|bw12|bw14|bw2|bx256hp|c128|c64|c65|canonv30f|canonv8|casloopy|cbm2|cbm8096|cbm8296|cc40|cdtv|cgenie|channelf|chessmstdm|coco|coleco|colecop|compclr2|compis|comx35|copera|cpc|cpc6128p|crvision|cx3000tc|dai|database|dgnalpha|dgnbeta|dim68k|dmv|dps1|dragon|e01|ec1841|einstein|electron|ep64|epson|exl100|famicom|fidel|fm7|fm77av|fmtowns|fsa1st|g7400|galaxy|gamate|gameboy|gamecom|gamegear|gamegearj|gameking|gameking3|gamepock|gba|gbcolor|genesis|genius|genius6|gimix|gjmovie|gl2000|gl6000sl|glcolor|gmaster|gp32|guab|gx4000|h21|hbf9sp|horizon|hp|hp85|hp9835a|hp9845a|hp9845b|ht68k|hx20|i7000|ibm5140|ibm5150|ibm5170|ibm6580|ibmpcjr|interact|intv|intvecs|iq151|jaguar|juicebox|jupace|k28m2|kayproii|kc|kim1|konami|korvet|lantutor|laser2001|leapster|lisa|lisa2|lviv|lynx|m20|m5|mac|MAME-BIOS|mbc200|mbc55x|mc10|mc1502|md2|megadriv|megaduck|megapc|megatech|microvision|mikro80|mikrosha|misterx|mm1|mo5|mo6|mpu1000|mpz80|msx1|msx2|msx2p|msxr|mtx|mtx512|myvision|mz2000|mz2500|mz700|mz800|n64|n64dd|nascom|neocd|neogeo|nes|nespal|next|ngp|ngpc|nimbus|octopus|odyssey2|ondra|orao|orionide|orionpro|osborne1|osborne2|p500|partner|pasogo|pb2000c|pc1000|pc1512|pc1640|pc8201|pc8801|pc88va|pc98|pc9821xs|pce|pcecd|pcw|pcw16|pecom|pecom32|pegasus|pencil2|pentagon|pet64|phc25|picno|pico|picou|pippin|plus4|pmd853|pockchalv2|pockchalw|pofo|poisk1|pokemini|princ|pro128|pro128s|prof180|prof80|psi98|psion1|psion2|psx|pt68k2|pv1000|pv2000|px4|px8|pyl601|ql|qx10|r9751|radio86|rainbow|rwtrntcs|rx78|sage2|samcoupe|sat|saturnu|sawatte|sc3000|scv|sf7000|sg1000|sgx|sitcom|smc777|smondial2|sms|smsj|smspal|snes|snespal|snotec|snread|snspell|socrates|softbox|sol20|sorcerer|spc1000|spc1500|spec128|special|specpls3|spectrum|st|studio2|stv|super6|super80|superpet|supracan|sv8000|svi318|svision|svmu|t1000|tandy200|tandy2k|tandy6k|tdv2324|tek4052|tg16|ti74|ti95|ti99|tiki100|timex|tntell|to7|to770|to770a|to8|trs80m2|trsm100|tutor|tvc|unichamp|ut88|uzebox|v1050|vboy|vc4000|vector06|vectrex|vg5k|vic10|vic1001|victor9k|vidbrain|vii|vip|visicom|vixen|vsmile|vsmileb|vsmilef|vsmileg|vz|wangpc|waveterm|wicat|wmbullet|wscolor|wswan|x07|x1|x68k|x68ksupr|x820ii|xegs|xerox820|z80ne|z88|zorba|zx80|zx81
 JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|+0|\-2|+2|\-3|+3|+4|+5|nul
 FELIST=XMB|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IAGL|Steam
-dirlocations= assets_directory|audio_filter_dir|bundle_assets_dst_path_subdir|cache_directory|content_history_dir|cursor_directory|dynamic_wallpapers_directory|input_remapping_directory|joypad_autoconfig_dir|libretro_directory|osk_overlay_directory|overlay_directory|playlist_directory|recording_config_directory|recording_output_directory|resampler_directory|video_shader_dir|video_filter_dir|rgui_browser_directory|rgui_config_directory|savefile_directory|savestate_directory|screenshot_directory|libretro_info_path|system_directory|thumbnails_directory|core_assets_directory
-pathlocations= content_database_path|cheat_database_path|content_favorites_path|content_history_path|content_image_history_path|content_music_history_path|content_video_history_path|bundle_assets_dst_path|bundle_assets_src_path|core_options_path|menu_wallpaper|video_filter|video_font_path|core_updater_buildbot_assets_url|core_updater_buildbot_url|video_shader|input_overlay
 joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_Plus|_R_Y_Minus|_R|_L|_B|_A|_X|_Y|_L2|_R2|_L3|_R3|_Start|_Select|_Up|_Down|_Left|_Right|_Turbo
 stringreplace,joyitervars,joyiterate,_,,All
-hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_hold_slowmotion|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle|input_desktop_menu_toggle|input_cheat_index_plus
+
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSBTN|RUNSYSCBX|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
+RJLSTCTRLS=RJSYSDDRJINCEXCLRJSETRANGERJRNGTXTRJLSTYPRJRFRSHLSTRJEDTDRJEDTDNRJTXTHRJEDTBRJEDTBNRJFLTRLSTRJEDTCgRJEDTCRJFNDINLSTRJLSTVRJSALITMSRJTXTNRJCHKLRJCHKMRJCHKPRJCHKHRJCHKIRJDELCOMPRLSTOTRJGRPARJCHKGRJSYSRADARJSYSRADBRJSYSRADCRJSYSLOADRJSYSSAVRJSYSSAVASRJGRPGRJENMAPRJOVKMRJTXTCRJTXTFRJMAPDDRJMAPRETRJMAPRETOPNRJMAP1ROFTYPARJMAP1ROFTYPBRJMAP1ROFTYPCRJTXTDRJMAP1PLRJMAP1PLOPNRJMAP2ROFTYPARJMAP2ROFTYPBRJMAP2ROFTYPCRJTXTERJMAP2PLRJMAP2PLOPNRJGRPIRJENLNCHRRJLNCHOVRRJRad4BRJRad4ARJEXEBRJTXTBPRJEMUPRECFGRJEMUPRMRJCHKQRJBUTMRJCHKKRJGRPERJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
-RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
-RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
-RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
 EMUINPUTNULLITEMS=INDWRN|emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT|emjOtxt
 EMUINPUTGUIITEMS=emjRAD1A|emjRAD1B|emjRAD1C|emjRAD1D|emjBGRP|emjRAD2A|emjRAD2B|emjRAD2C|emjBUTA|emjBUTB|emjRAD3A|emjRAD3B|emjCBA|emjDDLA|emjDDLB|emjDDLD|emjCHKA|emjCHKB|emjCHKC|emjCHKD|emjCHKE|emjCHKX|emjCHKY|emjCHKZ|emjCHKH|emjDDLE|emjSLDA|emjCHKF|emjDDLF|emjUDA|emjEDTA|emjEDTB|emjUDB|emjCHKG|emjDDLC
 EMUJOYBUTGUIITEMS=emjTURBOIN|emjL2In|emjLIn|emjR2In|emjRIn|emjLYPlusIn|emjLXMinusIn|emjLXPlusIn|emjLYMinusIn|emjL3In|emjRYPlusIn|emjRXMinusIn|emjRXPlusIn|emjRYMinusIn|emjR3In|emjDownIn|emjUpIn|emjLeftIn|emjRightIn|emjSelectIn|emjStartIn|emjYIn|emjXIn|emjBIn|emjAIn|emjINPBUTIN
@@ -872,6 +867,9 @@ PGPLSWAP=PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGVIDP
 PGPLITEMS=PGPLCORE|PGBACKUP|PGSVPL|PGPLXMP|PGOPENPL|PGUSESCR|PGCPYSCR|PGDWNLPOS|PGRPOPDL|PGRPOPPL|PGRPOPROM|PGMIRSEL|PGROMROOT|PGRRTXT|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT|PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGOPNIMGPTHTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
 RFPLRI=RFBACKUP|RFSVPL|RFPLXMP|RFCPYSCR|RFUSESCR|RFRPOPDL|RFRPOPPL|RFPLCORE|RFRPOPROM|RFROMROOT|RFRRTXT|RFMIRSEL|RFDWNLPOS|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT
 RFPLSWAP=RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFSAVEOPL|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFOPNIMGPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
+pspce:= A_Tab . A_Space . A_Space
+pspxe:= A_Tab
+imgtmp= |jpg|bmp|png|jpeg|
 RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|RFRPOPDL|RFRPOPPL|RFRPOPROM|RFMIRSEL|RFROMROOT|RFRRTXT|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT|RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFOPNIMGPTHTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
@@ -882,24 +880,22 @@ SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKM
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
-PSETCFGITEMS= ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL
+PSETCFGITEMS= ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
 JSTSET= %JOYSET%
 RJSYSDN= Systems
 AXISET= nul|nul
-RASERVERLIST= nyc|madrid|montreal
+sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
 SUBDLST= .Mem||.snaps|.sstates|.Man|.patches|.cheats
 SUBDLSTR:= SUBDLST
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
 qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bits 60hz|800x480 32bits 60hz|848x480 32bits 60hz|1024x600 32bits 60hz|800x600 32bits 60hz|1024x768 32bits 60hz|1152x864 32bits 60hz|1280x1024 32bits 60hz|1280x720 32bits 60hz|1280x800 32bits 60hz|1280x900 32bits 60hz|1280x960 32bits 60hz|1366x768 32bits 60hz|1360x1024 32bits 60hz|1440x900 32bits 60hz|1400x1050 32bits 60hz|1600x1024 32bits 60hz|1920x1080 32bits 60hz|1600x1024 32bits 60hz|1680x1050 32bits 60hz|1920x1200 32bits 60hz|2560x1440 32bits 60hz|3840x2160 32bits 60hz|5120x2880 32bits 60hz|7680x4320 32bits 60hz
-sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
-hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputHoldSlowmotion|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
+
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
-supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|flycast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fbaneo|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
-COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|flycast_cpu_mode|flycast_boot_to_bios|flycast_internal_resolution|flycast_mipmapping|flycast_widescreen_hack|flycast_audio_buffer_size|flycast_cable_type|flycast_broadcast|flycast_region|flycast_precompile_shaders|flycast_enable_rtt|flycast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|flycast_volume_modifier_mode|flycast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
-pspce:= A_Tab . A_Space . A_Space
-pspxe:= A_Tab
-imgtmp= |jpg|bmp|png|jpeg|
+RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
+RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
+RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
+
 FAN1ART= Backdrops
 FAN2ART= Backdrops
 FAN3ART= Backdrops
@@ -925,8 +921,6 @@ BANNR= Logos
 BANNR1= Logos
 BANNR2= Logos
 VIDID= Videos
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;      SET GUI VALUES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 rjcaching= enabled
 PLYRTYP= J
 JXT= _btn
@@ -955,372 +949,11 @@ RDXgrid= %RegionX%
 RDYgrid= %RegionY%
 RDWgrid= %RegionW%
 RDHgrid= %RegionH%
-ART= 1
-ARI= 4x3|16x9|16x10|16x15|1x1|2x1|3x2|3x4|4x1|9x16|5x4|6x5|7x9|8x3|8x7|19x12|19x14|30x17|32x9|CONFIG|1x1(PAR)|CORE|Custom
-ASYNC= 1
-AUM= 0
-AUO= 0
-AUTOASPECT= 1
-BSV=
-AUTSHD= 1
-CHECKFRAMES= 600
-CHKPORTS= 1
-CONFEXIT= 0
-COV= 0
-CROP= 0
-FRAMEDELAY= 16
-DTCOMP= 1
-FILTOG= 0
-FLICK= 0
-FLK= 0
-FORCEAR= 1
-FORCEAR= 1
-FRMDL= 0
-GCOR= 0
-GPUSS= 1
-GPUV= 1
-GPUVREC= 0
-GSNC= 1
-GUIRES= 21
-INTG= 1
-JOYIND1= 0
-JOYIND2= 1
-LATENCY= 64
-listswp= 1
-MONUM= 0
-MUTE= 0
-OUTFS= 0
-OUTFW= 0
-OUTW= 1
-PAUSEBG= 0
-PAUSMNU= 0
-PGM= 0
-thumbType= Named_Boxarts
-MPORTNUM= 55435
-HPORTNUM= 55435
-RATESLD=50
-RDELTADISP= 0.005
-REWEN= 0
-REWGRAN= 1
-SAVEXIT= 1
-SDL2= 0
-SHAREDV= 0
-SHDEN= 0
-SMTHV= 1
-STAI= 1
-STAL= 0
-STAS= 0
-STRCH= 0
-SWPV= 1
-THRDV= 0
-TRIPB= 0
-VIDASPECT= 24
-AVIDSYNC= 0
-VIDSCL= 3
-VIDSYNC= 0
-NOROT= 1
-ROT90= 0
-ROT180= 0
-ROT270= 0
-PLYRTYP= J
-PLAYERNUM= 1
-XMBCLRTHM= Electric Blue
-CORECOPY= 1
-CRDETECT= DETECT
-NMDETECT= DETECT
-DDLU= 1
-OPTYP= History
-CMDRO= EMPREOPT
-CMDRT= EMPRERUN
-CMDRS= EMPREW
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;      SET CONFIG VALUES       ;;;;;;;;;;;;;;;;;;;;
-allUsersControlMenu= false
-aspectRatioIndex= 21
-audioDriver= dsound
-audioLatency= 64
-audioMuteEnable= false
-audioRateControl= true
-audioRateControlDelta= 0.005000
-audioSync= true
-autoOverridesEnable= true
-autoSaveInterval= 0
-autoShadersEnable= true
-coreSpecificConfig= false
-customViewportX= 0
-customViewportY= 0
-customViewportWidth= %MonitorWorkAreaRight%
-customViewportHeight= %MonitorWorkAreaBottom%
-currentResolutionId= 0
-flickerFilterIndex= 0
-flickerFilterEnable= false
-fpsShow= 0
-gameSpecificOptions= false
-gammaCorrection= false
-menuDriver= xmb
-netplayCheckFrames= 600
-netplayDelayFrames= 16
-netplayIpPort= 54355
-perfcntEnable= false
-netplayNickname= %A_Username%
-pauseNonactive= false
-rewindEnable= false
-rewindGranularity= 1
-runaheadenabled= false
-runaheadsecondaryinstance= false
-runaheadframes= 1
-savestateAutoIndex= 1
-savestateAutoLoad= false
-savestateAutoSave= false
-shaderon= false
-softFilterEnable= false
-softFilterIndex= 0
-sortSavefilesEnable= false
-sortSavestatesEnable= false
-savefilesincontentdir= false
-savestatesincontentdir= false
-screenshotsincontentdir= false
-tripleBufferingEnable= false
-threadedDataRunloopEnable= true
-videoAdaptiveVsync= false
-videoAspectRatio= -1.00000
-videoAspectRatioAuto= false
-videoBlackFrameInsertion= false
-videoCropOverscan= true
-videoDisableComposition= true
-videoDriver= gl
-videoFontSize= 32
-videoForceAspect= true
-videoForceSrgbDisable= false
-videoFrameDelay= 0
-videoFullscreen= false
-videoFullscreenX= %MonitorWorkAreaRight%
-videoFullscreenY= %MonitorWorkAreaBottom%
-videoGpuRecord= false
-videoGpuScreenshot= true
-videoHardSync= false
-videoHardSyncFrames= 0
-videoMaxSwapchainImages= 3
-videoMonitorIndex= 0
-videoPostFilterRecord= false
-videoRotation= 0
-videoScale= 3
-videoScaleInteger= true
-videoShaderEnable= false
-videoSharedContext= false
-videoSmooth= false
-videoSwapInterval= 1
-videoThreaded= false
-videoVsync= false
-videoWindowedFullscreen= false
-gamcfg= tmp.ini
-;;;;;;;;;;;;;;;;;;;;;;;;;    INPUT    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-inputDriver= dinput
-inputJoypadDriver= xinput
-inputDeviceP1= 0
-inputDeviceP2= 0
-inputPlayer1MouseIndex= 1
-inputPlayer2MouseIndex= 2
-inputPlayer1JoypadIndex= 1
-inputPlayer2JoypadIndex= 2
-inputAutodetectEnable= true
-inputRemapBindsEnable= true
-inputExitEmulator= escape
-inputMenuToggle= f1
-inputMenuToggleGamepadCombo= 0
-inputMaxUsers= 5
-inputPlayer1AnalogDpadMode= 0
-inputPlayer2AnalogDpadMode= 0
-keyboardGamepadEnable= true
-keyboardGamepadMappingType= 1
-inputDescriptorHideUnbound= false
-inputDescriptorLabelShow= true
-inputBindTimeout= 5
-inputDutyCycle= 3
-inputPollTypeBehavior= 2
-inputLibretroDeviceP1= 1
-inputLibretroDeviceP2= 1
-backAsMenuToggleEnable= true
-menuScrollDownBtn= 11
-menuLeftThumbnails= 0
-menuScrollUpBtn= 10
-menuSearchBtn= 9
-menuCancelBtn=  0
-menuDefaultBtn= 3
-menuInfoBtn= 2
-menuOkBtn= 8
-;;;;;;;;;;;;;;;;;;;;;;;    NETPLAY   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-netplayClientSwapInput= true
-netplaySpectatorModeEnable= false
-netplayPublicAnnounce= true
-networkCmdEnable= false
-networkCmdPort= 55344
-netplayUseMitmServer= false
-networkRemoteBasePort= 55400
-networkRemoteEnable= fals
-netplayInputLatencyFramesMin= 0
-netplayInputLatencyFramesRange= 0
-networkRemoteEnableUserP1= false
-networkRemoteEnableUserP10= false
-networkRemoteEnableUserP11= false
-networkRemoteEnableUserP12= false
-networkRemoteEnableUserP13= false
-networkRemoteEnableUserP14= false
-networkRemoteEnableUserP15= false
-networkRemoteEnableUserP16= false
-networkRemoteEnableUserP2= false
-networkRemoteEnableUserP3= false
-networkRemoteEnableUserP4= false
-networkRemoteEnableUserP5= false
-networkRemoteEnableUserP6= false
-networkRemoteEnableUserP7= false
-networkRemoteEnableUserP8= false
-networkRemoteEnableUserP9= false
-audioBlockFrames= 0
-audioEnable= true
-audioMaxTimingSkew= 0.050000
-audiomixermuteenable= false
-audiomixervolume= 0.000000
-audiowasapiexclusivemode= true
-audiowasapifloatformat= false
-audiowasapishbufferlength= -16
-audioOutRate= 48000
-audioResampler= sinc
-audioVolume= 0.000000
-autoRemapsEnable= true
-autoScreenshotFilename= true
-blockSramOverwrite= false
-builtinImageviewerEnable= true
-builtinMediaplayerEnable= true
-bundleAssetsExtractEnable= false
-bundleAssetsExtractLastVersion= 0
-bundleAssetsExtractVersionCurrent= 0
-cameraAllow= false
-cameraDriver= null
-cheevosEnable= false
-cheevosHardcoreModeEnable= false
-cheevosTestUnofficial= false
-cheevosUsername= %A_UserName%
-contentHistorySize= 100
-coreSetSupportsNoGameEnable= true
-coreUpdaterAutoExtractArchive= true
-fastforwardRatio= 1.000000
-historyListEnable= true
-libretroLogLevel= 0
-loadDummyOnCoreShutdown= true
-locationAllow= false
-locationDriver= null
-logVerbosity= false
-recordDriver= ffmpeg
-showHiddenFiles= true
-slowmotionRatio= 3.000000
-stateSlot= 0
-stdinCmdEnable= false
-suspendScreensaverEnable= true
-videoAllowRotate= true
-wifiDriver= null
-fileServerPort= 54354
-fileServerEnable= false
-;;;;;;;;;;;;;;;;;;;;;;    MENU   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-raShowImages= xmb_show_images
-raShowMusic= xmb_show_music
-raShowVideo= xmb_show_video
-raShowMemory= memory_show
-raShowImport_Content= xmb_show_add
-raShowDownload_Thumbnails= quick_menu_show_download_thumbnails
-raShowRecording= quick_menu_show_recording
-raShowReset_Core_Association= quick_menu_show_reset_core_association
-raShowSave_Content_Overrides= quick_menu_show_save_content_dir_overrides
-raShowStart_recording= quick_menu_show_start_recording
-raShowStart_Streaming= quick_menu_show_start_streaming
-raShowStreaming= quick_menu_show_streaming
-raShowStatistics= statistics_show 
-raShowShutdown= menu_show_shutdown
-raShowOverlays= menu_show_overlays
-raShowRewind= menu_show_rewind
-raShowSublabels= menu_show_sublabels
-raShowLatency= menu_show_latency
-raShowHistory= xmb_show_history
-raShowBattery_Level= menu_battery_level_enable
-raShowAdvanced_Settings= menu_show_advanced_settings
-raShowConfigurations= menu_show_configurations
-raShowQuit_Retroarch= menu_show_quit_retroarch
-raShowOnline_Updater= menu_show_online_updater
-raShowLoad_Core= menu_show_Load_Core
-raShowLoad_Content= menu_show_Load_Content
-raShowReboot= menu_show_Reboot
-raShowInformation= menu_show_Information
-raShowhelp= menu_show_help
-raShowTime_and_Date= menu_timedate_enable
-raShowCore_Updater= menu_show_core_updater
-raShowSettings= xmb_show_settings
-raShowHidden= xmb_show_hidden
-raShowHidden_Files= show_hidden_files
-raShowFPS= fps_show
-raShowFrame_counter= framecount_show
-customBgmEnable= false
-dpiOverrideEnable= true
-dpiOverrideValue= 200
-inputOskOverlayEnable= true
-inputOverlayEnable= true
-inputOverlayEnableAutopreferred= true
-inputOverlayHideInMenu= true
-inputOverlayOpacity= 0.7000000
-inputOverlayScale= 1.0000000
-materialuiMenuColorTheme=  0
-materialuiiconsenable= true
-menuCoreEnable= true
-menuDynamicWallpaperEnable= false
-menuEntryHoverColor= ff64ff64
-menuEntryNormalColor= ffffffff
-menuFooterOpacity= 1.0000000
-menuHeaderOpacity= 1.0000000
-menuLinearFilter= true
-menuMouseEnable= true
-menuNavigationBrowserFilterSupportedExtensionsEnable= true
-menuNavigationWraparoundEnable= true
-menuPauseLibretro= false
-menuPointerEnable= false
-menuShaderPipeline= 2
-menuShowAdvancedSettings= true
-menuThrottleFramerate= true
-menuThumbnails= 3
-menuTimedateEnable= true
-menuTitleColor=  ff64ff64
-menuWallpaperOpacity= 0.3000000
-quickmenushowaddtofavorites= true
-quickmenushowcheats= true
-quickmenushowcontrols= true
-quickmenushowinformation= true
-quickmenushowoptions= true
-quickmenushowsavecoreoverrides= true
-quickmenushowsavegameoverrides= true
-quickmenushowsaveloadstate= true
-quickmenushowshaders= true
-quickmenushowtakescreenshot= true
-quickmenushowundosaveloadstate= true
-rguiShowStartScreen= false
-uiCompanionEnable= false
-uiCompanionStartOnBoot= true
-uiMenubarEnable= true
-userLanguage= 0
-videoFontEnable= true
-videoMessagePosX= .050000
-videoMessagePosY= .050000
-videoFontSize= 32.000000
-xmbAlphaFactor= 75
-xmbMenuColorTheme= 4
-xmbScaleFactor= 100
-xmbShadowsEnable= true
-xmbShowHistory= true
-xmbShowHidden= true
-xmbShowImages= true
-xmbShowMusic= true
-xmbShowSettings= true
-xmbVerticalThumbnails= 0
-xmbShowVideo= true
-xmbTheme= 0
-ASSETS= %A_Scriptdir%\Assets
+
+if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+	{
+		goto, retroarch_init
+	}
 
 if (INITIAL = 1)
 	{
@@ -1375,40 +1008,10 @@ if ((fontXsm = "")or(fontXsm = "ERROR"))
 		fontXsm= s7
 		iniwrite,%fontXsm%,Settings.ini,THEME,font_small
 	}
-;;;;;;;;;;;;;;;;;;;    LOCATIONS    ;;;;;;;;;;;;;;;;;
-gosub, DefLocs
-;;;;;;;;;;;;;;;;;;;       DEFAULT PATHS       ;;;;;;;;;;;;;;;;;
-gosub, DefPaths
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-netplayRomLocation= 2
-netplayPlaylistDirectory= %playlistLoc%
-netplayCoreAssetsDirectory= %RJSYSTEMS%
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SUPRSRCH= 1
-AUTOFUZ= 0
-FUZENB= Checked
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;      GENERATE CONFIG    ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-ifnotexist, %curcfg%
-	{
-		Menu,Tray,Tip, Generating retroArch settings
-		filecopy,sets\config.set,config.cfg,1
-		gosub, VARtoINI
-	}
-ifnotexist, %racoreopt%
-	{
-		Menu,Tray,Tip, Generating retroArch core-settings
-		filecopy,sets\racoreopt.set,racoreopt.cfg,1
-		gosub, VARtoINI
-	}
-if (INITIAL > 1)
-	{
-		TrayTip
-		iniwrite, "%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
-		coreasssetsdirectory= %RJSYSTEMS%
-	}
+
 if (INITIAL = "")
 	{
+	
 		gosub, DestroySplashGUI
 		SplashImage = img\splash.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
@@ -1417,27 +1020,83 @@ if (INITIAL = "")
 		WinSet, AlwaysOnTop
 		WinGetPos,,, Width, Height, skelprg
 		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
-	}
-IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
-hovvalue=
-if (HOVPREV = 1)
+	}	
+;;;;;;;;;;;;;;;;;;;    LOCATIONS    ;;;;;;;;;;;;;;;;;
+if (raexist = 1)
 	{
-		hovvalue= checked
-	}
-if (HOVPREV = "ERROR")
-	{
-		iniwrite,0,Settings.ini,GLOBAL,hover_preview
-		HOVPREV= 0
-	}
-Iniread, CORECOPY, Settings.ini,GLOBAL,core_option_copy
-if (CORECOPY = 1)
-	{
-		guicontrol,,COREOPTCPY,1
-	}
-if (CORECOPY = 0)
-	{
-		guicontrol,disable,COREDDLA
-	}
+		gosub, DefLocs
+;;;;;;;;;;;;;;;;;;;       DEFAULT PATHS       ;;;;;;;;;;;;;;;;;
+		gosub, DefPaths
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		netplayRomLocation= 2
+		netplayPlaylistDirectory= %playlistLoc%
+		netplayCoreAssetsDirectory= %RJSYSTEMS%
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		SUPRSRCH= 1
+		AUTOFUZ= 0
+		FUZENB= Checked
+		;;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;;{;;;;;;;;;;;;;;;;;;;      GENERATE CONFIG    ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		ifnotexist, %curcfg%
+			{
+				Menu,Tray,Tip, Generating retroArch settings
+				filecopy,sets\config.set,config.cfg,1
+				gosub, VARtoINI
+			}
+		ifnotexist, %racoreopt%
+			{
+				Menu,Tray,Tip, Generating retroArch core-settings
+				filecopy,sets\racoreopt.set,racoreopt.cfg,1
+				gosub, VARtoINI
+			}
+		if (INITIAL > 1)
+			{
+				TrayTip
+				iniwrite, "%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
+				coreasssetsdirectory= %RJSYSTEMS%
+			}
+		IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
+		hovvalue=
+		if (HOVPREV = 1)
+			{
+				hovvalue= checked
+			}
+		if (HOVPREV = "ERROR")
+			{
+				iniwrite,0,Settings.ini,GLOBAL,hover_preview
+				HOVPREV= 0
+			}
+		Iniread, CORECOPY, Settings.ini,GLOBAL,core_option_copy
+		if (CORECOPY = 1)
+			{
+				guicontrol,,COREOPTCPY,1
+			}
+		if (CORECOPY = 0)
+			{
+				guicontrol,disable,COREDDLA
+			}
+		
+			joycfg= %curcfg%
+			Loop, %playlistLoc%\*.lpl,
+				{
+					plistfiles .= A_LoopFileName . "|"
+					SplitPath,A_LoopFileName,,,,plistNam
+					plistNamz .= plistNam . "|"
+				}
+			ifNotExist, ovr.ini
+				{
+					gosub, resetOVR
+				}
+			ovr_list =
+			StringLen,ovrplngth,OverlayDirectory
+			ovrplngthpls:= ovrplngth+1
+			Loop, Read, ovr.ini
+				{
+					StringTrimLeft,jstpth,A_LoopReadLine,ovrplngthpls
+					ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
+				}
+	
+	}	
 ifNotExist, hashdb.ini
 	{
 		gosub, PlaylistInit
@@ -1462,25 +1121,7 @@ ifnotexist,%cacheloc%
 		cacheloc= %A_Temp%
 		iniWrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
 	}
-joycfg= %curcfg%
-Loop, %playlistLoc%\*.lpl,
-	{
-		plistfiles .= A_LoopFileName . "|"
-		SplitPath,A_LoopFileName,,,,plistNam
-		plistNamz .= plistNam . "|"
-	}
-ifNotExist, ovr.ini
-	{
-		gosub, resetOVR
-	}
-ovr_list =
-StringLen,ovrplngth,OverlayDirectory
-ovrplngthpls:= ovrplngth+1
-Loop, Read, ovr.ini
-	{
-		StringTrimLeft,jstpth,A_LoopReadLine,ovrplngthpls
-		ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
-	}
+
 fesup= retroArch|EmulationStation|RetroFE|Pegasus
 IfExist,apps.ini
 	{
@@ -2677,7 +2318,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,Bold
-Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w120 vPLISTTYP gPLISTYP,XMB||EmulationStation|RetroFE  ;;to Add Pegasus
+Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w120 vPLISTTYP gPLISTYP,skeletonKeY||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl58 x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui,Add,ComboBox, hwndCbxHndl59 x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
@@ -2922,8 +2563,15 @@ Gui, Add, Button, x419 y4 h18 w18 vRETALFE gRETAL,>
 ;SplashTextOn, ,skeletonKey,Loading Frontend Interface ......,
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;        FRONTEND GUI         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,Bold
-Gui,Add,DropDownList, hwndDplHndl110 x265 y2 w150 vfeDDLJ gfeDDLJ, XMB||Media|Mirrored_Links|EmulationStation|Pegasus|RetroFE
-;Gui,Add,DropDownList, hwndDplHndl111 x15 y0 w150 vfeDDLJ gfeDDLJ , XMB||%FELIST%
+JDLIN= Media||XMB|Mirrored_Links|EmulationStation|Pegasus|RetroFE	
+fvnbh= Media||%FELIST%
+if (raexist = 1)
+	{
+		JDLIN= XMB||Media|Mirrored_Links|EmulationStation|Pegasus|RetroFE
+		fvnbh= XMB||%FELIST%
+	}
+Gui,Add,DropDownList, hwndDplHndl110 x265 y2 w150 vfeDDLJ gfeDDLJ, %JDLIN%
+;Gui,Add,DropDownList, hwndDplHndl111 x15 y0 w150 vfeDDLJ gfeDDLJ , %fvnbh%
 Gui,Font,Normal
 fenam= XMB
 fetog= Hide
@@ -3069,6 +2717,10 @@ Gui, Add, Text, x688 y96 vfeTXTQ %fevis%, feTXTQ
 Gui, Add, Text, x504 y416 vfeTXTS %fevis%,
 Gui, Add, Text, x504 y432 vfeTXTT %fevis%,
 Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
+if (raexist = "")
+	{
+		gosub, feDDLJ
+	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -3141,48 +2793,48 @@ GUIJAKLOC:
 Gui, Tab, 8
 Gui, Tab, Jackets
 Gui,Add,DropDownList, hwndDplHndl126 x14 y12 w245 vRJSYSDD gRJSYSDD disabled, Systems||%systmfldrs%
-Gui,Add,DropDownList, hwndDplHndl127 x13 y36 w64 vRJINCEXCL gRJINCEXCL, All||A-Z|#
+Gui,Add,DropDownList, hwndDplHndl127 x13 y36 w64 vRJINCEXCL gRJINCEXCL disabled, All||A-Z|#
 Gui, Add, Button, x79 y35 w37 h23 vRJSETRANGE gRJSETRANGE hidden, Range
 Gui, Add, Text, x83 y40 h23 vRJRNGTXT, Range
-Gui,Add,DropDownList, hwndDplHndl128 x126 y36 w100 vRJLSTYP gRJLSTYP, Jackets+ROMs||Jackets ONLY|ROMs ONLY|All files
-Gui, Add, Button, x228 y35 w49 h23 vRJRFRSHLST gRJRFRSHLST, Refresh
+Gui,Add,DropDownList, hwndDplHndl128 x126 y36 w100 vRJLSTYP gRJLSTYP disabled, Jackets+ROMs||Jackets ONLY|ROMs ONLY|All files
+Gui, Add, Button, x228 y35 w49 h23 vRJRFRSHLST gRJRFRSHLST disabled, Refresh
 Gui,Add,Edit, hwndEdtHndl77 x13 y61 w30 h21 Number vRJEDTD gRJEDTD hidden, 0
 Gui,Add,Edit, hwndEdtHndl78 x13 y61 w30 h21 Limit1 vRJEDTDN gRJEDTDN hidden, A
 Gui, Add, Text, x47 y65 h13 vRJTXTH hidden, to
 Gui,Add,Edit, hwndEdtHndl79 x58 y61 w30 h21 Number vRJEDTB gRJEDTB hidden, 1000
 Gui,Add,Edit, hwndEdtHndl80 x58 y61 w30 h21 Limit1 vRJEDTBN gRJEDTBN hidden, Z
 Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
-Gui,Add,Edit, hwndEdtHndl81 x122 y60 w118 h21 vRJEDTC gRJEDTC,
-Gui, Add, Button, x241 y59 w35 h23 vRJFNDINLST gRJFNDINLST, Find
+Gui,Add,Edit, hwndEdtHndl81 x122 y60 w118 h21 vRJEDTC gRJEDTC disabled,
+Gui, Add, Button, x241 y59 w35 h23 vRJFNDINLST gRJFNDINLST disabled, Find
 Gui,Add,ListView, x12 y86 w254 h414 -Hdr -ReadOnly altsubmit Multi background%bgcolor% c%foreColor% vRJLSTV gRJLSTV hwndRJLV checked,|
 /*  ;;[DEBUGOV]
 RJRN1 := New LV_InCellEdit(RJLV)
 RJRN1.SetColumns(1)
 */  ;;[DEBUGOV]
-Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS, ALL
+Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS disabled, ALL
 Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All ROMs
 Gui, Add, GroupBox, x266 y155 w100 h113 vRJGRPN
-Gui, Add, CheckBox, x267 y165 h15 vRJCHKL gRJCHKL, Launchers
-Gui, Add, CheckBox, x267 y180 h15 vRJCHKM gRJCHKM, Config Files
-Gui, Add, CheckBox, x267 y195 h15 vRJCHKP gRJCHKP, Joystick Profiles
-Gui, Add, CheckBox, x267 y210 h15 vRJCHKH gRJCHKH, Logs
-Gui, Add, CheckBox, x271 y250 h15 vRJCHKI gRJCHKI, Emulators
+Gui, Add, CheckBox, x267 y165 h15 vRJCHKL gRJCHKL disabled, Launchers
+Gui, Add, CheckBox, x267 y180 h15 vRJCHKM gRJCHKM disabled, Config Files
+Gui, Add, CheckBox, x267 y195 h15 vRJCHKP gRJCHKP disabled, Joystick Profiles
+Gui, Add, CheckBox, x267 y210 h15 vRJCHKH gRJCHKH disabled, Logs
+Gui, Add, CheckBox, x271 y250 h15 vRJCHKI gRJCHKI disabled, Emulators
 Gui, Add, Button, x284 y226 w55 h21 vRJDELCOMP gRJDELCOMP Disabled, Delete
 Gui, Add, Text, x274 y270 h18 vRLSTOT,total item #
 Gui, Font, Bold
 Gui, Add, GroupBox, x278 y26 w107 h88 vRJGRPA, System Settings
 Gui,Font, Normal
-Gui, Add, CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked, Auto-Pop
-Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked, Reset
-Gui, Add, Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD, Default ;Settings
-Gui, Add, Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD, Custom ;Settings
-Gui, Add, Button, x281 y89 w42 h20 vRJSYSLOAD gRJSYSLOAD, Load ;Settings
-Gui, Add, Button, x326 y89 w42 h20 vRJSYSSAV gRJSYSSAV, Save ;Settings
-Gui, Add, Button, x368 y95 w12 h14 +0x800 vRJSYSSAVAS gRJSYSSAVAS, v ;Settings
+Gui, Add, CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked disabled, Auto-Pop
+Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked disabled, Reset
+Gui, Add, Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD disabled, Default ;Settings
+Gui, Add, Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD disabled, Custom ;Settings
+Gui, Add, Button, x281 y89 w42 h20 vRJSYSLOAD gRJSYSLOAD disabled, Load ;Settings
+Gui, Add, Button, x326 y89 w42 h20 vRJSYSSAV gRJSYSSAV disabled, Save ;Settings
+Gui, Add, Button, x368 y95 w12 h14 +0x800 vRJSYSSAVAS gRJSYSSAVAS disabled, v ;Settings
 Gui, Font, Bold
 Gui, Add, GroupBox, x388 y6 w371 h109 vRJGRPG, Keymapper
 Gui,Font, Normal
-Gui, Add, CheckBox, x398 y27 h13 vRJENMAP gRJENMAP, Enable ;Mapper
+Gui, Add, CheckBox, x398 y27 h13 vRJENMAP gRJENMAP disabled, Enable ;Mapper
 Gui, Add, Checkbox, x679 y15 h13 vRJOVKM gRJOVKM Disabled, Overwrite
 Gui, Add, Text, x513 y28 h13 vRJTXTC, JoyMapper
 Gui, Add, Text, x601 y28 h13 vRJTXTF, Return Profile
@@ -3204,11 +2856,11 @@ Gui, Add, Button, x732 y69 w21 h23 vRJMAP2PLOPN gRJMAP2PLOPN Disabled, O ;player
 Gui,Font,Bold
 Gui, Add, GroupBox, x371 y115 w191 h117 vRJGRPI, Launchers
 Gui,Font,Normal
-Gui, Add, CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR, Create ;Launcher Creation
+Gui, Add, CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR disabled, Create ;Launcher Creation
 Gui, Add, CheckBox, x467 y122 w90 h20 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
 Gui, Add, Radio, x487 y144 h13 vRJRad4B gRJRad4B Disabled, Global
 Gui, Add, Radio, x487 y160 h13 vRJRad4A gRJRad4A checked  Disabled, Per-Game
-Gui, Add, Checkbox, x379 y149 vRJEXEB gRJEXEB, Per-EXE
+Gui, Add, Checkbox, x379 y149 vRJEXEB gRJEXEB disabled, Per-EXE
 Gui, Add, Text, x379 y163 vRJTXTBP, preset
 Gui,Add,DropDownList, hwndDplHndl130 x379 y177 w156 vRJEMUPRECFG gRJEMUPRECFG Disabled, %emulist%
 Gui, Add, Button, x537 y177 w22 h23 vRJEMUPRM gRJEMUPRM Disabled, C
@@ -3218,12 +2870,12 @@ Gui, Add, CheckBox, x394 y221 h23 +0x20 vRJCHKK gRJCHKK Disabled, Write ROM-Name
 Gui,Font,Bold
 Gui, Add, GroupBox, x567 y115 w192 h97 vRJGRPE, Jacketize
 Gui,Font,Normal
-Gui, Add, CheckBox, x572 y130 h13 vRJCHKA gRJCHKA, Jacketize
-Gui, Add, Button, x740 y152 w16 h16 vRJADDSUBD gRJADDSUBD, +
-Gui, Add, Button, x740 y167 w16 h16 vRJREMSUBD gRJREMSUBD, X
-Gui,Add,ComboBox, hwndCbxHndl82 x646 y156 w92 vRJSUBDCBX gRJSUBDCBX, %SUBDLST%
+Gui, Add, CheckBox, x572 y130 h13 vRJCHKA gRJCHKA disabled, Jacketize
+Gui, Add, Button, x740 y152 w16 h16 vRJADDSUBD gRJADDSUBD disabled, +
+Gui, Add, Button, x740 y167 w16 h16 vRJREMSUBD gRJREMSUBD disabled, X
+Gui,Add,ComboBox, hwndCbxHndl82 x646 y156 w92 vRJSUBDCBX gRJSUBDCBX disabled, %SUBDLST%
 Gui, Add, Text, x611 y155 w33 h18 vRJTXTA1 +0x200, sub-dir
-Gui, Add, CheckBox, x684 y179 w54 h13 +0x20 vRJSUBDH gRJSUBDH checked, Hidden
+Gui, Add, CheckBox, x684 y179 w54 h13 +0x20 vRJSUBDH gRJSUBDH checked disabled, Hidden
 Gui,Add,DropDownList, hwndDplHndl131 x651 y125 w84 vRJCNSLDD gRJCNSLDD Disabled, ()[]||()|[]|Individuate
 Gui, Add, CheckBox,x741 y126 h13 w16 vRJENCNSLD gRJENCNSLD Disabled,  ;Consolidate Individuate
 Gui, Add, CheckBox, x569 y178 h13 vRJENXTRARC gRJENXTRARC Disabled, Extract Archives
@@ -3234,21 +2886,21 @@ Gui,Add,DropDownList, hwndDplHndl132 x649 y197 w100 vRJXTRARCDD gRJXTRARCDD Disa
 Gui, Font,Bold
 Gui, Add, GroupBox, x565 y227 w194 h112 vRJGRPF, Pre Cmd/ Post Cmd
 Gui, Font,Normal
-Gui, Add, Button, x568 y282 w21 h23 vRJBUTV gRJBUTV, ~ ;Edit Command
-Gui, Add, Radio, x642 y247 h13 vRJRad11A gRJRad11A, Local
-Gui, Add, Radio, x694 y247 h13 vRJRad11B gRJRad11B checked, Absolute
-Gui, Add, CheckBox, x571 y263 w43 h18 vRJCHKW gRJCHKW +0x20, Wait
-Gui,Add,DropDownList, hwndDplHndl133 x615 y261 w118 vRJDDLF gRJDDLF, Pre-Command||Post-Command
-Gui, Add, Button, x735 y260 w16 h16 vRJBUTG gRJBUTG, + ;PrePost Add
+Gui, Add, Button, x568 y282 w21 h23 vRJBUTV gRJBUTV disabled, ~ ;Edit Command
+Gui, Add, Radio, x642 y247 h13 vRJRad11A gRJRad11A disabled, Local
+Gui, Add, Radio, x694 y247 h13 vRJRad11B gRJRad11B checked disabled, Absolute
+Gui, Add, CheckBox, x571 y263 w43 h18 vRJCHKW gRJCHKW +0x20 disabled, Wait
+Gui,Add,DropDownList, hwndDplHndl133 x615 y261 w118 vRJDDLF gRJDDLF disabled, Pre-Command||Post-Command
+Gui, Add, Button, x735 y260 w16 h16 vRJBUTG gRJBUTG disabled, + ;PrePost Add
 Gui,Add,ComboBox, hwndCbxHndl83 x590 y283 w143 vRJCBXH gRJCBXH +0x2 +E0x5000 Right hidden,
-Gui,Add,DropDownList, hwndDplHndl134 x590 y283 w143 vRJDDLP gRJDDLP +0x2 +E0x5000 Right,
+Gui,Add,DropDownList, hwndDplHndl134 x590 y283 w143 vRJDDLP gRJDDLP +0x2 +E0x5000 Right disabled,
 Gui, Add, Button, x620 y308 w43 h23 vRJBUTO gRJBUTO hidden, Add
-Gui,Add,Edit, hwndEdtHndl82 x590 y308 w163 vRJEDTO gRJEDTO
-Gui, Add, Button, x735 y282 w16 h16 vRJBUTH gRJBUTH, X ;PrePostDelete
+Gui,Add,Edit, hwndEdtHndl82 x590 y308 w163 vRJEDTO gRJEDTO disabled,
+Gui, Add, Button, x735 y282 w16 h16 vRJBUTH gRJBUTH disabled, X ;PrePostDelete
 Gui,Font,Bold
 Gui, Add, GroupBox, x524 y340 w235 h86 vRJGRPD, Disk Mounting
 Gui,Font,Normal
-Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT, Enable ;Disc Mounting
+Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT disabled, Enable ;Disc Mounting
 Gui,Add,DropDownList, hwndDplHndl135 x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 Gui, Add, Button, x706 y361 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
 Gui, Add, Radio, x536 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
@@ -3258,7 +2910,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x503 y430 w256 h77 vRJGRPC, Emulator Config Files
 Gui,Font,Normal
 Gui, Add, Text, x510 y463 h18 vRJTXTL, Pre-Run
-Gui, Add, CheckBox, x630 y443 h13 vRJCHKF gRJCHKF, Create ;CfgCreation
+Gui, Add, CheckBox, x630 y443 h13 vRJCHKF gRJCHKF Disabled, Create ;CfgCreation
 Gui, Add, CheckBox, x687 y443 h13 vRJCHKO gRJCHKO Disabled, Overwrite
 Gui,Add,ComboBox, hwndCbxHndl84 x557 y459 w158 vRJPRECFGCBX gRJPRECFGCBX disabled,
 Gui, Add, Button, x715 y458 w16 h16 vRJADDPRECFG gRJADDPRECFG disabled, + ;Add Pre Cfg Cmd
@@ -3267,33 +2919,33 @@ Gui, Add, Text, x510 y486 h18 vRJTXTM, Post-Run
 Gui,Add,ComboBox, hwndCbxHndl85 x557 y481 w158 vRJPOSTCFGCBX gRJPOSTCFGCBX disabled,
 Gui, Add, Button, x715 y480 w16 h16 vRJADDPOSTCFG gRJADDPOSTCFG disabled, + ;Add Post Cfg Cmd
 Gui, Add, Button, x734 y480 w16 h16 vRJREMPOSTCFG gRJREMPOSTCFG disabled, - ;Remove Pre Cfg Cmd
-Gui, Add, CheckBox, x401 y269 h15 vRJCHKR gRJCHKR, Multi-Disk
+Gui, Add, CheckBox, x401 y269 h15 vRJCHKR gRJCHKR disabled, Multi-Disk
 Gui,Add,ComboBox,x372 y247 w191 vRJCBXJ gRJCBXJ Disabled, (Disk 1 of||(Disk 1 of|(Disk A|Disk 1
 Gui, Add, Text, x484 y270 vRJTXTJ, disk identifiers
-Gui, Add, CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked,
-Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX, .exe`,.cmd`,,bat||.bin`,.cue
+Gui, Add, CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked disabled,
+Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX Disabled, .exe`,.cmd`,,bat||.bin`,.cue
 Gui, Add, Text, x280 y314 h16 vRJTXTG, ROM extensions
-Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked, Quotes
-Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked, Path
-Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked, Extension
-Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX, %rjemuopt%
+Gui, Add, CheckBox, x383 y315 h17 vRJCHKU gRJCHKU checked Disabled, Quotes
+Gui, Add, CheckBox, x440 y315 h17 vRJCHKT gRJCHKT checked Disabled, Path
+Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked Disabled, Extension
+Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX Disabled, %rjemuopt%
 Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
-Gui,Add,ComboBox, hwndCbxHndl89 x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX, %rjemuarg%
+Gui,Add,ComboBox, hwndCbxHndl89 x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX Disabled, %rjemuarg%
 Gui, Add, Text, x456 y365 h17 vRJTXT1A, arguments
-Gui, Add, CheckBox, x430 y392 h17 vRJZJP gRJZJP checked, Zip-Peek
-Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked, Run from Emulator Directory
-Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B, Run from ROM Directory
-gui,add,Button, x278 y494 h18 vRJCHKJ gRJCHKJ, Preview Queue
-Gui,Add,DropDownList, hwndDplHndl136 x273 y437 w199 vRJQLSTDD gRJQLSTDD, QUEUE||%SYSTMQ%
+Gui, Add, CheckBox, x430 y392 h17 vRJZJP gRJZJP checked disabled, Zip-Peek
+Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked disabled, Run from Emulator Directory
+Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B disabled, Run from ROM Directory
+gui,add,Button, x278 y494 h18 vRJCHKJ gRJCHKJ disabled, Preview Queue
+Gui,Add,DropDownList, hwndDplHndl136 x273 y437 w199 vRJQLSTDD gRJQLSTDD Disabled, QUEUE||%SYSTMQ%
 Gui, Add, Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
-Gui, Add, Button, x477 y438 w16 h16 vRJREMQSYS gRJREMQSYS, X
+Gui, Add, Button, x477 y438 w16 h16 vRJREMQSYS gRJREMQSYS Disabled, X
 Gui, Add, Text, x340 y468 h15 v vRJTXTAB, %RJQNUM% Systems
 CNFRMT= Disabled
 if (RJQNUM > 0)
 {
 	CNFRMT=
 }
-Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT%, CONFIRM %RJQNUM%
+Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT% Disabled, CONFIRM %RJQNUM%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[UTILITIES TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 9
@@ -5313,7 +4965,12 @@ gosub,SYSNICK
 LBEX_SELECTSTRING(trxvail,SEMURUN)
 guicontrol, Focus, UAVAIL
 gosub, UAvailSel
-
+Loop,parse,PSETCFGITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+guicontrol,show,EMUPGC
+	
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
 stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
@@ -5354,6 +5011,7 @@ if (CHKRMP = "")
 		}
 iniwrite,"%CHKRUNE%",Assignments.ini,OVERRIDES,%CHKRUNS%
 return
+
 PLEDITCORE:
 gui,submit,nohide
 guicontrolget,PLISTTYP,,PLISTTYP
@@ -9317,6 +8975,386 @@ if (INTERRUPTDWN = 1)
 Return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;    RETROARCH FUNCTIONS     ;;;;;;;;;;;;;;;;
+retroarch_init:
+raexist= 1
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;      SET GUI VALUES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+hkDDL= inputAudioMute|inputCheatIndexMinus|inputCheatIndexPlus|inputCheatToggle|inputDiskEjectToggle|inputDiskNext|inputDiskPrev|inputEnableHotkey|inputExitEmulator|inputFrameAdvance|inputToggleFullscreen|inputGrabMouseToggle|inputHoldFastForward|inputHoldSlowmotion|inputLoadState|inputMenuToggle|inputMovieRecordToggle|inputNetplayFlipPlayers|inputOskToggle|inputOverlayNext|inputPauseToggle|inputReset|inputRewind|inputSaveState|inputScreenshot|inputShaderNext|inputShaderPrev|inputSlowmotion|inputStateSlotDecrease|inputStateSlotIncrease|inputToggleFastForward|inputToggleFullscreen|inputVolumeDown|inputVolumeUp
+ART= 1
+ARI= 4x3|16x9|16x10|16x15|1x1|2x1|3x2|3x4|4x1|9x16|5x4|6x5|7x9|8x3|8x7|19x12|19x14|30x17|32x9|CONFIG|1x1(PAR)|CORE|Custom
+ASYNC= 1
+AUM= 0
+AUO= 0
+AUTOASPECT= 1
+BSV=
+AUTSHD= 1
+CHECKFRAMES= 600
+CHKPORTS= 1
+CONFEXIT= 0
+COV= 0
+CROP= 0
+FRAMEDELAY= 16
+DTCOMP= 1
+FILTOG= 0
+FLICK= 0
+FLK= 0
+FORCEAR= 1
+FORCEAR= 1
+FRMDL= 0
+GCOR= 0
+GPUSS= 1
+GPUV= 1
+GPUVREC= 0
+GSNC= 1
+GUIRES= 21
+INTG= 1
+JOYIND1= 0
+JOYIND2= 1
+LATENCY= 64
+listswp= 1
+MONUM= 0
+MUTE= 0
+OUTFS= 0
+OUTFW= 0
+OUTW= 1
+PAUSEBG= 0
+PAUSMNU= 0
+PGM= 0
+thumbType= Named_Boxarts
+MPORTNUM= 55435
+HPORTNUM= 55435
+RATESLD=50
+RDELTADISP= 0.005
+REWEN= 0
+REWGRAN= 1
+SAVEXIT= 1
+SDL2= 0
+SHAREDV= 0
+SHDEN= 0
+SMTHV= 1
+STAI= 1
+STAL= 0
+STAS= 0
+STRCH= 0
+SWPV= 1
+THRDV= 0
+TRIPB= 0
+VIDASPECT= 24
+AVIDSYNC= 0
+VIDSCL= 3
+VIDSYNC= 0
+NOROT= 1
+ROT90= 0
+ROT180= 0
+ROT270= 0
+PLYRTYP= J
+PLAYERNUM= 1
+XMBCLRTHM= Electric Blue
+CORECOPY= 1
+CRDETECT= DETECT
+NMDETECT= DETECT
+DDLU= 1
+OPTYP= History
+CMDRO= EMPREOPT
+CMDRT= EMPRERUN
+CMDRS= EMPREW
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;      SET CONFIG VALUES       ;;;;;;;;;;;;;;;;;;;;
+RASERVERLIST= nyc|madrid|montreal
+hkiterate= input_Audio_Mute|input_Cheat_Index_Minus|input_Cheat_Index_Plus|input_Cheat_Toggle|input_Disk_Eject_Toggle|input_Disk_Next|input_Disk_Prev|input_Enable_Hotkey|input_Exit_Emulator|input_Frame_Advance|input_Toggle_Fullscreen|input_Game_Focus_Toggle|input_Grab_Mouse_Toggle|input_Hold_Fast_Forward|input_hold_slowmotion|input_Load_State|input_Menu_Toggle|input_Movie_Record_Toggle|input_netplay_game_watch|input_Osk_Toggle|input_Overlay_Next|input_Pause_Toggle|input_Reset|input_Rewind|input_Save_State|input_Screenshot|input_Shader_Next|input_Shader_Prev|input_Slowmotion|input_State_Slot_Decrease|input_State_Slot_Increase|input_Toggle_Fast_Forward|input_Toggle_Fullscreen|input_Volume_Down|input_Volume_Up|input_Turbo_Period|input_Duty_cycle|input_desktop_menu_toggle|input_cheat_index_plus
+supCoreLst= mgba|genesisplusgx|mame|desmume|ppsspp|nestopia|mesen|mednafenpcefast|mednafensaturn|redream|flycast|blusemsx|dosbox|picodrive|snes9x|mednafenPsx|mednafenngp|mednafensupergrafx|mednafenvb|fceumm|mame2014|fbaneo|fbalpha2012|fbalpha2012neogeo|fbalpha2012cps2|fbalphacps2012|mupen64plus|4do|gambatte|mame2000|mame2010|mame|bsnes|yabause|fuse|fmsx
+COREVARS= mgba_solar_sensor_level|mgba_allow_opposing_directions|mgba_use_bios|mgba_skip_bios|mgba_idle_optimization|genesis_plus_gx_system_hw|genesis_plus_gx_region_detect|genesis_plus_gx_force_dtack|genesis_plus_gx_bios|genesis_plus_gx_bram|genesis_plus_gx_addr_error|genesis_plus_gx_lock_on|genesis_plus_gx_ym2413|genesis_plus_gx_dac_bits|genesis_plus_gx_blargg_ntsc_filter|genesis_plus_gx_lcd_filter|genesis_plus_gx_overscan|genesis_plus_gx_gg_extra|genesis_plus_gx_render|genesis_plus_gx_gun_cursor|genesis_plus_gx_invert_mouse|mame2014_read_config|mame2014_write_config|mame2014_saves|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_gameinfo|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_softlists_enable|mame2014_softlists_auto_media|mame2014_media_type|mame2014_boot_to_bios|mame2014_boot_to_osd|mame2014_boot_from_cli|ume2014_read_config|ume2014_write_config|ume2014_saves|ume2014_auto_save|ume2014_mouse_enable|ume2014_throttle|ume2014_cheats_enable|ume2014_hide_nagscreen|ume2014_hide_gameinfo|ume2014_hide_warnings|ume2014_alternate_renderer|ume2014_softlists_enable|ume2014_softlists_auto_media|ume2014_media_type|ume2014_boot_to_bios|ume2014_boot_to_osd|ume2014_boot_from_cli|mame_read_config|mame_write_config|mame_saves|mame_auto_save|mame_mouse_enable|mame_throttle|mame_cheats_enable|mame_hide_nagscreen|mame_hide_gameinfo|mame_hide_warnings|mame_alternate_renderer|mame_softlists_enable|mame_softlists_auto_media|mame_media_type|mame_boot_to_bios|mame_boot_to_osd|mame_boot_from_cli|desmume_internal_resolution|desmume_num_cores|desmume_cpu_mode|desmume_jit_block_size|desmume_screens_layout|desmume_pointer_mouse|desmume_pointer_type|desmume_pointer_colour|desmume_pointer_device|desmume_pointer_device_deadzone|desmume_pointer_device_acceleration_mod|desmume_pointer_stylus_pressure|desmume_pointer_stylus_jitter|desmume_load_to_memory|desmume_advanced_timing|desmume_firmware_language|desmume_frameskip|desmume_screens_gap|desmume_gfx_edgemark|desmume_gfx_linehack|desmume_gfx_txthack|desmume_mic_force_enable|desmume_mic_mode|desmume_hybrid_layout_scale|ppsspp_cpu_core|ppsspp_locked_cpu_speed|ppsspp_language|ppsspp_rendering_mode|ppsspp_auto_frameskip|ppsspp_frameskip|ppsspp_framerate_limit|ppsspp_force_max_fps|ppsspp_audio_latency|ppsspp_internal_resolution|ppsspp_output_resolution|ppsspp_button_preference|ppsspp_fast_memory|ppsspp_set_rounding_mode|ppsspp_block_transfer_gpu|ppsspp_texture_scaling_level|ppsspp_texture_scaling_type|ppsspp_texture_anisotropic_filtering|ppsspp_texture_deposterize|ppsspp_internal_shader|ppsspp_gpu_hardware_transform|ppsspp_vertex_cache|ppsspp_prescale_uv|ppsspp_separate_io_thread|ppsspp_unsafe_func_replacements|ppsspp_sound_speedhack|ppsspp_threaded_input|nestopia_blargg_ntsc_filter|nestopia_palette|nestopia_nospritelimit|nestopia_fds_auto_insert|nestopia_overscan_v|nestopia_overscan_h|nestopia_aspect|nestopia_genie_distortion|nestopia_favored_system|nestopia_ram_power_state|pce_fast_cdimagecache|pce_nospritelimit|pce_ocmultiplier|pce_hoverscan|pce_initial_scanline|pce_last_scanline|pce_cddavolume|pce_adpcmvolume|pce_cdpsgvolume|pce_cdspeed|Turbo_Delay|p0_turbo_I_enable|p0_turbo_II_enable|p1_turbo_I_enable|p1_turbo_II_enable|p2_turbo_I_enable|p2_turbo_II_enable|p3_turbo_I_enable|p3_turbo_II_enable|p4_turbo_I_enable|p4_turbo_II_enable|beetle_saturn_cdimagecache|beetle_saturn_initial_scanline|beetle_saturn_initial_scanline_pal|beetle_saturn_last_scanline|beetle_saturn_last_scanline_pal|flycast_cpu_mode|flycast_boot_to_bios|flycast_internal_resolution|flycast_mipmapping|flycast_widescreen_hack|flycast_audio_buffer_size|flycast_cable_type|flycast_broadcast|flycast_region|flycast_precompile_shaders|flycast_enable_rtt|flycast_enable_purupuru|bluemsx_msxtype|bluemsx_vdp_synctype|bluemsx_ym2413_enable|dosbox_machine_type|dosbox_emulated_mouse|dosbox_cpu_cycles_0|dosbox_cpu_cycles_1|dosbox_cpu_cycles_2|dosbox_cpu_cycles_3|dosbox_mapper_y|dosbox_mapper_x|dosbox_mapper_b|dosbox_mapper_a|dosbox_mapper_l|dosbox_mapper_r|dosbox_mapper_up|dosbox_mapper_down|dosbox_mapper_left|dosbox_mapper_right|dosbox_mapper_select|dosbox_mapper_start|picodrive_input1|picodrive_input2|picodrive_sprlim|picodrive_ramcart|picodrive_region|picodrive_region_fps|picodrive_aspect|snes9x_overclock|snes9x_layer_1|snes9x_layer_2|snes9x_layer_3|snes9x_layer_4|snes9x_layer_5|snes9x_gfx_clip|snes9x_gfx_transp|snes9x_sndchan_1|snes9x_sndchan_2|snes9x_sndchan_3|snes9x_sndchan_4|snes9x_sndchan_5|snes9x_sndchan_6|snes9x_sndchan_7|snes9x_sndchan_8|beetle_psx_renderer|beetle_psx_renderer_software_fb|beetle_psx_cdimagecache|beetle_psx_cpu_overclock|beetle_psx_skipbios|beetle_psx_widescreen_hack|beetle_psx_internal_resolution|beetle_psx_filter|beetle_psx_internal_color_depth|beetle_psx_scale_dither|beetle_psx_wireframe|beetle_psx_display_vram|beetle_psx_dither_mode|beetle_psx_pgxp_mode|beetle_psx_pgxp_caching|beetle_psx_pgxp_texture|beetle_psx_use_mednafen_memcard0_method|beetle_psx_enable_memcard1|beetle_psx_shared_memory_cards|beetle_psx_analog_calibration|beetle_psx_initial_scanline|beetle_psx_initial_scanline_pal|beetle_psx_last_scanline|beetle_psx_last_scanline_pal|beetle_psx_analog_toggle|beetle_psx_enable_multitap_port1|beetle_psx_enable_multitap_port2|beetle_psx_frame_duping_enable|beetle_psx_display_internal_framerate|beetle_psx_crop_overscan|beetle_psx_image_offset|beetle_psx_image_crop|ngp_language|fceumm_palette|fceumm_nospritelimit|fceumm_overclocking|fceumm_overscan|fceumm_aspect|mame2014_read_config|mame2014_auto_save|mame2014_mouse_enable|mame2014_throttle|mame2014_cheats_enable|mame2014_hide_nagscreen|mame2014_hide_infoscreen|mame2014_hide_warnings|mame2014_alternate_renderer|mame2014_boot_to_osd|mame2014_boot_from_cli|mame2016_read_config|mame2016_auto_save|mame2016_mouse_enable|mame2016_throttle|mame2016_cheats_enable|mame2016_hide_nagscreen|mame2016_hide_infoscreen|mame2016_hide_warnings|mame2016_alternate_renderer|mame2016_boot_to_osd|mame2016_boot_from_cli|fba-diagnostics|fba-unibios|fba-cpu-speed-adjust|fba-controls|fba-aspect|fba-controls-p1|fba-controls-p2|fba-sh2-mode|fba-hiscores|fba-lr-controls-p1|fba-lr-controls-p2|fba-neogeo-mode|fba-neogeo-controls-p1|fba-neogeo-controls-p2|mupen64-cpucore|mupen64-audio-buffer-size|mupen64-astick-deadzone|mupen64-pak1|mupen64-pak2|mupen64-pak3|mupen64-pak4|mupen64-disable_expmem|mupen64-gfxplugin-accuracy|mupen64-gfxplugin|mupen64-rspplugin|mupen64-screensize|mupen64-aspectratiohint|mupen64-filtering|mupen64-polyoffset-factor|mupen64-polyoffset-units|mupen64-angrylion-vioverlay|mupen64-virefresh|mupen64-bufferswap|mupen64-framerate|mupen64-vcache-vbo|mupen64-boot-device|mupen64-64dd-hardware|flycast_volume_modifier_mode|flycast_framerate|4do_high_resolution|gambatte_gb_colorization|gambatte_gb_internal_palette|gambatte_gbc_color_correction|gambatte_gb_hwmode|gambatte_gb_link_mode|gambatte_gb_link_network_port|gambatte_gb_link_network_server_ip_octet1|gambatte_gb_link_network_server_ip_octet2|gambatte_gb_link_network_server_ip_octet3|gambatte_gb_link_network_server_ip_octet4|mame_current_mouse_enable|mame_current_videoapproach1_enable|mame_current_skip_nagscreen|mame_current_skip_gameinfo|mame_current_skip_warnings|mame2003-frameskip|mame2003-dcs-speedhack|mame2003-skip_disclaimer|mame2003-skip_warnings|mame2003-samples|mame2003-sample_rate|mame2003-cheats|mame2003-dialsharexy|mame2003-mouse_device|mame2003-rstick_to_btns|mame2000-skip_disclaimer|mame2000-show_gameinfo|cpu-speed-adjust|diagnostics|vbam_layer_1|vbam_layer_2|vbam_layer_3|vbam_layer_4|vbam_layer_5|vbam_layer_6|vbam_layer_7|vbam_layer_8|vbanext_bios|yabause_frameskip|yabause_force_hle_bios|yabause_addon_cart|handy_rot|bsnes_violate_accuracy|bsnes_chip_hle|bsnes_superfx_overclock|vb_anaglyph_preset|vb_color_mode|fuse_machine|fuse_hide_border|fuse_fast_load|fuse_load_sound|fuse_speaker_type|fuse_ay_stereo_separation|fuse_key_ovrlay_transp|fuse_key_hold_time|fmsx_mode|fmsx_video_mode|fmsx_mapper_type_mode|glupen64-cpucore|glupen64-rspmode|glupen64-43screensize|glupen64-169screensize|glupen64-aspect|glupen64-BilinearMode|glupen64-EnableFBEmulation|glupen64-UseNativeResolutionFactor|glupen64-EnableCopyAuxiliaryToRDRAM|glupen64-EnableCopyColorToRDRAM|glupen64-EnableCopyDepthToRDRAM|glupen64-EnableCopyColorFromRDRAM|glupen64-EnableHWLighting|glupen64-CorrectTexrectCoords|glupen64-EnableNativeResTexrects|glupen64-EnableLegacyBlending|glupen64-astick-deadzone|glupen64-pak1|glupen64-pak2|glupen64-pak3|glupen64-pak4|virtualjaguar_usefastblitter|virtualjaguar_doom_res_hack|vice_Statusbar|vice_Drive8Type|vice_DriveTrueEmulation|vice_RetroJoy|vice_Controller|px68k_cpuspeed|px68k_ramsize|px68k_analog|px68k_joytype1|px68k_joytype2
+allUsersControlMenu= false
+aspectRatioIndex= 21
+audioDriver= dsound
+audioLatency= 64
+audioMuteEnable= false
+audioRateControl= true
+audioRateControlDelta= 0.005000
+audioSync= true
+autoOverridesEnable= true
+autoSaveInterval= 0
+autoShadersEnable= true
+coreSpecificConfig= false
+customViewportX= 0
+customViewportY= 0
+customViewportWidth= %MonitorWorkAreaRight%
+customViewportHeight= %MonitorWorkAreaBottom%
+currentResolutionId= 0
+flickerFilterIndex= 0
+flickerFilterEnable= false
+fpsShow= 0
+gameSpecificOptions= false
+gammaCorrection= false
+menuDriver= xmb
+netplayCheckFrames= 600
+netplayDelayFrames= 16
+netplayIpPort= 54355
+perfcntEnable= false
+netplayNickname= %A_Username%
+pauseNonactive= false
+rewindEnable= false
+rewindGranularity= 1
+runaheadenabled= false
+runaheadsecondaryinstance= false
+runaheadframes= 1
+savestateAutoIndex= 1
+savestateAutoLoad= false
+savestateAutoSave= false
+shaderon= false
+softFilterEnable= false
+softFilterIndex= 0
+sortSavefilesEnable= false
+sortSavestatesEnable= false
+savefilesincontentdir= false
+savestatesincontentdir= false
+screenshotsincontentdir= false
+tripleBufferingEnable= false
+threadedDataRunloopEnable= true
+videoAdaptiveVsync= false
+videoAspectRatio= -1.00000
+videoAspectRatioAuto= false
+videoBlackFrameInsertion= false
+videoCropOverscan= true
+videoDisableComposition= true
+videoDriver= gl
+videoFontSize= 32
+videoForceAspect= true
+videoForceSrgbDisable= false
+videoFrameDelay= 0
+videoFullscreen= false
+videoFullscreenX= %MonitorWorkAreaRight%
+videoFullscreenY= %MonitorWorkAreaBottom%
+videoGpuRecord= false
+videoGpuScreenshot= true
+videoHardSync= false
+videoHardSyncFrames= 0
+videoMaxSwapchainImages= 3
+videoMonitorIndex= 0
+videoPostFilterRecord= false
+videoRotation= 0
+videoScale= 3
+videoScaleInteger= true
+videoShaderEnable= false
+videoSharedContext= false
+videoSmooth= false
+videoSwapInterval= 1
+videoThreaded= false
+videoVsync= false
+videoWindowedFullscreen= false
+gamcfg= tmp.ini
+;;;;;;;;;;;;;;;;;;;;;;;;;    INPUT    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+inputDriver= dinput
+inputJoypadDriver= xinput
+inputDeviceP1= 0
+inputDeviceP2= 0
+inputPlayer1MouseIndex= 1
+inputPlayer2MouseIndex= 2
+inputPlayer1JoypadIndex= 1
+inputPlayer2JoypadIndex= 2
+inputAutodetectEnable= true
+inputRemapBindsEnable= true
+inputExitEmulator= escape
+inputMenuToggle= f1
+inputMenuToggleGamepadCombo= 0
+inputMaxUsers= 5
+inputPlayer1AnalogDpadMode= 0
+inputPlayer2AnalogDpadMode= 0
+keyboardGamepadEnable= true
+keyboardGamepadMappingType= 1
+inputDescriptorHideUnbound= false
+inputDescriptorLabelShow= true
+inputBindTimeout= 5
+inputDutyCycle= 3
+inputPollTypeBehavior= 2
+inputLibretroDeviceP1= 1
+inputLibretroDeviceP2= 1
+backAsMenuToggleEnable= true
+menuScrollDownBtn= 11
+menuLeftThumbnails= 0
+menuScrollUpBtn= 10
+menuSearchBtn= 9
+menuCancelBtn=  0
+menuDefaultBtn= 3
+menuInfoBtn= 2
+menuOkBtn= 8
+;;;;;;;;;;;;;;;;;;;;;;;    NETPLAY   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+netplayClientSwapInput= true
+netplaySpectatorModeEnable= false
+netplayPublicAnnounce= true
+networkCmdEnable= false
+networkCmdPort= 55344
+netplayUseMitmServer= false
+networkRemoteBasePort= 55400
+networkRemoteEnable= fals
+netplayInputLatencyFramesMin= 0
+netplayInputLatencyFramesRange= 0
+networkRemoteEnableUserP1= false
+networkRemoteEnableUserP10= false
+networkRemoteEnableUserP11= false
+networkRemoteEnableUserP12= false
+networkRemoteEnableUserP13= false
+networkRemoteEnableUserP14= false
+networkRemoteEnableUserP15= false
+networkRemoteEnableUserP16= false
+networkRemoteEnableUserP2= false
+networkRemoteEnableUserP3= false
+networkRemoteEnableUserP4= false
+networkRemoteEnableUserP5= false
+networkRemoteEnableUserP6= false
+networkRemoteEnableUserP7= false
+networkRemoteEnableUserP8= false
+networkRemoteEnableUserP9= false
+audioBlockFrames= 0
+audioEnable= true
+audioMaxTimingSkew= 0.050000
+audiomixermuteenable= false
+audiomixervolume= 0.000000
+audiowasapiexclusivemode= true
+audiowasapifloatformat= false
+audiowasapishbufferlength= -16
+audioOutRate= 48000
+audioResampler= sinc
+audioVolume= 0.000000
+autoRemapsEnable= true
+autoScreenshotFilename= true
+blockSramOverwrite= false
+builtinImageviewerEnable= true
+builtinMediaplayerEnable= true
+bundleAssetsExtractEnable= false
+bundleAssetsExtractLastVersion= 0
+bundleAssetsExtractVersionCurrent= 0
+cameraAllow= false
+cameraDriver= null
+cheevosEnable= false
+cheevosHardcoreModeEnable= false
+cheevosTestUnofficial= false
+cheevosUsername= %A_UserName%
+contentHistorySize= 100
+coreSetSupportsNoGameEnable= true
+coreUpdaterAutoExtractArchive= true
+fastforwardRatio= 1.000000
+historyListEnable= true
+libretroLogLevel= 0
+loadDummyOnCoreShutdown= true
+locationAllow= false
+locationDriver= null
+logVerbosity= false
+recordDriver= ffmpeg
+showHiddenFiles= true
+slowmotionRatio= 3.000000
+stateSlot= 0
+stdinCmdEnable= false
+suspendScreensaverEnable= true
+videoAllowRotate= true
+wifiDriver= null
+fileServerPort= 54354
+fileServerEnable= false
+;;;;;;;;;;;;;;;;;;;;;;    MENU   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+raShowImages= xmb_show_images
+raShowMusic= xmb_show_music
+raShowVideo= xmb_show_video
+raShowMemory= memory_show
+raShowImport_Content= xmb_show_add
+raShowDownload_Thumbnails= quick_menu_show_download_thumbnails
+raShowRecording= quick_menu_show_recording
+raShowReset_Core_Association= quick_menu_show_reset_core_association
+raShowSave_Content_Overrides= quick_menu_show_save_content_dir_overrides
+raShowStart_recording= quick_menu_show_start_recording
+raShowStart_Streaming= quick_menu_show_start_streaming
+raShowStreaming= quick_menu_show_streaming
+raShowStatistics= statistics_show 
+raShowShutdown= menu_show_shutdown
+raShowOverlays= menu_show_overlays
+raShowRewind= menu_show_rewind
+raShowSublabels= menu_show_sublabels
+raShowLatency= menu_show_latency
+raShowHistory= xmb_show_history
+raShowBattery_Level= menu_battery_level_enable
+raShowAdvanced_Settings= menu_show_advanced_settings
+raShowConfigurations= menu_show_configurations
+raShowQuit_Retroarch= menu_show_quit_retroarch
+raShowOnline_Updater= menu_show_online_updater
+raShowLoad_Core= menu_show_Load_Core
+raShowLoad_Content= menu_show_Load_Content
+raShowReboot= menu_show_Reboot
+raShowInformation= menu_show_Information
+raShowhelp= menu_show_help
+raShowTime_and_Date= menu_timedate_enable
+raShowCore_Updater= menu_show_core_updater
+raShowSettings= xmb_show_settings
+raShowHidden= xmb_show_hidden
+raShowHidden_Files= show_hidden_files
+raShowFPS= fps_show
+raShowFrame_counter= framecount_show
+customBgmEnable= false
+dpiOverrideEnable= true
+dpiOverrideValue= 200
+inputOskOverlayEnable= true
+inputOverlayEnable= true
+inputOverlayEnableAutopreferred= true
+inputOverlayHideInMenu= true
+inputOverlayOpacity= 0.7000000
+inputOverlayScale= 1.0000000
+materialuiMenuColorTheme=  0
+materialuiiconsenable= true
+menuCoreEnable= true
+menuDynamicWallpaperEnable= false
+menuEntryHoverColor= ff64ff64
+menuEntryNormalColor= ffffffff
+menuFooterOpacity= 1.0000000
+menuHeaderOpacity= 1.0000000
+menuLinearFilter= true
+menuMouseEnable= true
+menuNavigationBrowserFilterSupportedExtensionsEnable= true
+menuNavigationWraparoundEnable= true
+menuPauseLibretro= false
+menuPointerEnable= false
+menuShaderPipeline= 2
+menuShowAdvancedSettings= true
+menuThrottleFramerate= true
+menuThumbnails= 3
+menuTimedateEnable= true
+menuTitleColor=  ff64ff64
+menuWallpaperOpacity= 0.3000000
+quickmenushowaddtofavorites= true
+quickmenushowcheats= true
+quickmenushowcontrols= true
+quickmenushowinformation= true
+quickmenushowoptions= true
+quickmenushowsavecoreoverrides= true
+quickmenushowsavegameoverrides= true
+quickmenushowsaveloadstate= true
+quickmenushowshaders= true
+quickmenushowtakescreenshot= true
+quickmenushowundosaveloadstate= true
+rguiShowStartScreen= false
+uiCompanionEnable= false
+uiCompanionStartOnBoot= true
+uiMenubarEnable= true
+userLanguage= 0
+videoFontEnable= true
+videoMessagePosX= .050000
+videoMessagePosY= .050000
+videoFontSize= 32.000000
+xmbAlphaFactor= 75
+xmbMenuColorTheme= 4
+xmbScaleFactor= 100
+xmbShadowsEnable= true
+xmbShowHistory= true
+xmbShowHidden= true
+xmbShowImages= true
+xmbShowMusic= true
+xmbShowSettings= true
+xmbVerticalThumbnails= 0
+xmbShowVideo= true
+xmbTheme= 0
+dirlocations= assets_directory|audio_filter_dir|bundle_assets_dst_path_subdir|cache_directory|content_history_dir|cursor_directory|dynamic_wallpapers_directory|input_remapping_directory|joypad_autoconfig_dir|libretro_directory|osk_overlay_directory|overlay_directory|playlist_directory|recording_config_directory|recording_output_directory|resampler_directory|video_shader_dir|video_filter_dir|rgui_browser_directory|rgui_config_directory|savefile_directory|savestate_directory|screenshot_directory|libretro_info_path|system_directory|thumbnails_directory|core_assets_directory
+netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
+pathlocations= content_database_path|cheat_database_path|content_favorites_path|content_history_path|content_image_history_path|content_music_history_path|content_video_history_path|bundle_assets_dst_path|bundle_assets_src_path|core_options_path|menu_wallpaper|video_filter|video_font_path|core_updater_buildbot_assets_url|core_updater_buildbot_url|video_shader|input_overlay
+ASSETS= %A_Scriptdir%\Assets
+return
+
 AVAILSEL:
 gui, submit, nohide
 guicontrolget,availsel,,AVAIL
@@ -9902,7 +9940,7 @@ Loop,Parse,PrgLst,`n`r
 noselb=
 Stringsplit,noselb,noBrws,|
 if (SALIST = "Emulators")
-	{
+	{	
 		guicontrol,,INSTEMUDDL,|%semu%||Other
 		IniRead, ksvel,apps.ini,EMULATORS,%semu%
 		if ((ksvel = "")or(ksvel = "ERROR"))
@@ -9917,6 +9955,11 @@ if (SALIST = "Emulators")
 		gosub, DApp
 		guicontrol, hide,ROMDTXT
 		guicontrol, hide,ROMDEDT
+		Loop,parse,PSETCFGITEMS,|
+			{
+				guicontrol,hide,%A_LoopField%
+			}
+		guicontrol,show,EMUPGC
 		return
 	}
 ar := Object()
@@ -10105,12 +10148,12 @@ if (SALIST = "Emulators")
 	}
 IniRead,sysexlst,sets\emuCfgPresets.set,%semu%,RJROMXT
 if (sysexlst <> "ERROR")
-		{
-			stringreplace,sysxl,sysexlst,`,,|,All
-			guicontrol,enable,OVEXTL
-			guicontrol,enable,OVSETRM
-			guicontrol,,OVEXTL,|All||%sysxl%
-		}
+	{
+		stringreplace,sysxl,sysexlst,`,,|,All
+		guicontrol,enable,OVEXTL
+		guicontrol,enable,OVSETRM
+		guicontrol,,OVEXTL,|All||%sysxl%
+	}
 Loop, Parse, reasign,|
 	{
 		if (semu = A_LoopField)
@@ -10130,7 +10173,6 @@ stemu3=
 stemu4=
 stemu5=
 emuplst=
-
 iniread,asiu,sets\emuCfgPresets.set,%semu%,SUPEMU
 Loop,parse,asiu,|
 	{
@@ -10142,9 +10184,7 @@ selfnd= %stemu1%
 guicontrol,,INSTEMUDDL,|%stemu1%||%emuplst%%emuinstpop%Other
 gosub, ChkMu
 guicontrolget,selfnd,,INSTEMUDDL
-
 emuname= %semu%
-
 guicontrol,,EMPRLST,|%ksiv%
 guicontrol,,ROMDEDT,
 guicontrol,enable,EMBUTV
@@ -10541,6 +10581,7 @@ if (selfnd = "retroArch")
 			{
 				iniwrite, "%emuxetmp3%",Settings.ini,GLOBAL,retroarch_executable
 				raexefile= %emuxetmp3%
+				raexist= 1
 				iniwrite, "%xtractmu%",Settings.ini,GLOBAL,retroarch_location
 				raexeloc= %xtractmu%
 				gosub, GRAVER
@@ -11961,6 +12002,7 @@ if ((UAVAIL = "retroArch") && (raexefile = "NOT-FOUND.exe"))
 		raexefile= %emuxe%
 		iniwrite, "%EINSTPTH%",Settings.ini,GLOBAL,retroarch_location
 		raexeloc= %EINSTPTH%
+		raexist= 
 		gosub, GRAVER
 		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 		gosub, RAInit
@@ -12143,6 +12185,7 @@ if (UAVAIL = "retroArch")
 				raexefile= %EINSTFNM%
 				iniwrite, "%EINSTDIR%",Settings.ini,GLOBAL,retroarch_location
 				raexeloc= %EINSTDIR%
+				raexist= 
 				gosub, GRAVER
 				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 				gosub, RAInit
@@ -14701,6 +14744,7 @@ iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
 if ((raexeloc = "")or(raexeloc = "ERROR"))
 	{
 		raexeloc= %RJEMUD%\retroarch
+		raexist= 
 	}
 ifnotexist,%raexeloc%\
 	{
@@ -14926,7 +14970,8 @@ iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
 iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
 iniread,racht,Apps.ini,EMULATORS,retroarch
 if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
-	{		
+	{	
+		raexist= 
 		iniread,fealn,apps.ini,EMULATORS,retroarch
 		if ((fealn <> "")&&(fealn <> "ERROR"))
 			{
@@ -14939,8 +14984,10 @@ if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
 		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
 	}
 iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
+raexist= 1
 if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
 	{
+		raexist= 
 		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
 		guicontrol,,SKRADISP,%raexeloc%\%raexefile%
 	}
@@ -24746,6 +24793,7 @@ return
 BLANKRA:
 raexeloc= %RJEMUD%\retroArch
 RaExefile= NOT-FOUND.exe
+raexist= 
 locfnd= 1
 ifnotexist,%raexeloc%
 	{
@@ -24773,16 +24821,18 @@ if (raexeloctmp = "")
 					}
 				locfnd=
 				raexeloc= %RJEMUD%\retroarch
+				raexist= 1
 				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-				ifnotexist, %raexeloc%\
-					{
-						FileCreateDir,%raexeloc%
-						locfnd= 1
-					}
-				raexefile= NOT-FOUND.exe
 				ifexist, %raexeloc%\retroarch.exe
 					{
 						raexefile= retroarch.exe
+					}
+				ifnotexist, %raexeloc%\
+					{
+						FileCreateDir,%raexeloc%
+						raexist= 
+						locfnd= 1
+						raexefile= NOT-FOUND.exe
 					}
 				iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
 				raexepath= %raexeloc%\%raexefile%
@@ -24951,6 +25001,7 @@ RAInit:
 filecopy, config.cfg,config.bak,1
 filecopy,sets\config.set,config.cfg,1
 RAinitProc:
+gosub,retroarch_init
 SB_SetText("RELOADING VARIABLES")
 gosub, GetIniVars
 SB_SetText(" ...initializing shaders... ")
@@ -25016,6 +25067,9 @@ guicontrol,,CGSHDVAR,|nul||%cg_list%
 guicontrol,,SLSHDVAR,|nul||%sl_list%
 guicontrol,,FLTFILE,|nul||%flt_list%
 return
+
+xmbinit:
+
 DLLCRCreset:
 FileDelete,corecrc.ini
 Loop, Read, cores.ini
@@ -29164,7 +29218,7 @@ guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%ROM%xdisp%%qdisp%%aparg%
 return
 EmuPGC:
 gui,submit,nohide
-guicontrolget,EMUPGC,,EMUPGC
+guicontrolget,EMUPGC,,EMUPGC	
 return
 
 GBLpgs:
@@ -32954,7 +33008,7 @@ PLISTYP:
 gui, submit, nohide
 guicontrolget,fenam,,PLISTTYP
 INPLAYL=
-if (fenam = "XMB")
+if (fenam = "skeletonKeY")
 	{
 		xmbtog= show
 		opltog= hide
@@ -71890,20 +71944,38 @@ gui,submit,nohide
 gosub,%FETYP%feDDLI
 return
 feDDLJ:
+if (feddlj <> "")
+	{
+		vndlj= %feDDLJ%		
+	}
+	else {
+		vndlj= Media
+	}
+	
 gui,submit,nohide
 fetog= Hide
 fromcfg=
 guicontrolget,FETYP,,feDDLJ
 xmbtog= Hide
-Loop, Parse, FELIST, |
+if (FETYP = "XMB")
 	{
-		if (FETYP = "XMB")
-			{
-				xmbtog= Show
-				gosub, %FETYP%TOGGLE
-				gosub, FEUNPOP
-				return
-			}
+		if (raexist = "")
+		{
+			SB_SetText("Use the Install tab to install retroArch.")
+			guicontrol,choose,TABMENU,3
+			guicontrol,,FEDDLJ,|%vndlj%||Media|XMB|Mirrored_Links|EmulationStation|Pegasus|RetroFE
+			guicontrol,,SALIST,|RetroArch||Frontends|Systems|Emulators|Utilities
+			SALIST= RetroArch
+			guicontrol,enable,SALIST
+			gosub, SALIST
+			Guicontrol,choose,UAVAIL,|5
+			guicontrol, ChooseString, UAVAIL,retroArch
+			return
+		}
+		xmbtog= Show
+		gosub, XMBTOGGLE
+		gosub, FEUNPOP
+		return
 	}
 gosub, XMBTOGGLE
 gosub, FEUNPOP
@@ -72142,7 +72214,6 @@ FEOPTPOP:
 xmbtog= show
 fetog= hide
 gosub, FEUNPOP
-goto, XMBTOGGLE
 XMBTOGGLE:
 Loop, Parse,XMBGUIITEMS,|
 	{
@@ -72980,6 +73051,7 @@ gui,submit,nohide
 FileCopy, rj\cur.ini,rj\%RJSYSDD%.ini,1
 guicontrol,,RJSYSRADC,1
 return
+
 RJRFRSHLST:
 gui,submit,nohide
 FileDelete,rj\%RJSYSDD%*.tdb
@@ -72999,6 +73071,7 @@ guicontrol,,RJFNDINLST,Find
 guicontrol,,RJINCEXCL,|All||A-Z|#
 gosub,RJSYSDD
 return
+
 RJMAP1ROFTYP:
 if (rjaval2 = 0)
 	{
@@ -73028,6 +73101,7 @@ if (rjaval2 = 2)
 	}
 return
 ;{;;;;;;  Configure Emulator  ;;;;;;;;;
+
 RJEMUPRM:
 gui,submit,nohide
 guicontrol,,CFGSWITCH,|||RJ|||
@@ -73058,6 +73132,7 @@ ifnotinstring,supguiitems,%guito%
 	}	
 goto, %guito%_GUI
 return
+
 EMUNAMEPOP:
 GuiControl, Choose, TABMENU, 2
 guicontrol,,LCORE,|%RJEMUTG%||%runlist%
@@ -73067,6 +73142,7 @@ svgbrnv=
 guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supguiitems%|%corelist%
 return
 ;};;;;;;;;;;;;;;;;;
+
 RJBUTH:
 ADDFW=
 ADDFK=
@@ -76091,23 +76167,74 @@ LSTCTRLS= enable
 gosub, LSTCTRLS
 return
 LSTCTRLS:
+/*
+Loop,parse,RJLSTCTRLS,|
+	{
+		guicontrol,%LSTCTRLS%,%A_LoopField%		
+	}
+return
+*/
+guicontrol,%LSTCTRLS%,RJCHKR
 guicontrol,%LSTCTRLS%,RJBUTA
+guicontrol,%LSTCTRLS%,RJSYSRADA
+guicontrol,%LSTCTRLS%,RJSYSRADB
+guicontrol,%LSTCTRLS%,RJSYSRADC
 guicontrol,%LSTCTRLS%,RJRFRSHLST
 guicontrol,%LSTCTRLS%,RJSETRANGE
+guicontrol,%LSTCTRLS%,RJENMAP
+guicontrol,%LSTCTRLS%,RJCHKU
+guicontrol,%LSTCTRLS%,RJCHKT
+guicontrol,%LSTCTRLS%,RJCHKS
+guicontrol,%LSTCTRLS%,RJCHKW
+guicontrol,%LSTCTRLS%,RJQLSTDD
 guicontrol,%LSTCTRLS%,RJADDQ
+guicontrol,%LSTCTRLS%,RJBUTH
+guicontrol,%LSTCTRLS%,RJBUTG
+guicontrol,%LSTCTRLS%,RJBUTV
+guicontrol,%LSTCTRLS%,RJDDLP
+guicontrol,%LSTCTRLS%,RJDDLF
+guicontrol,%LSTCTRLS%,RJLNCHTYP
+guicontrol,%LSTCTRLS%,RJSYSRADB
+guicontrol,%LSTCTRLS%,RJSYSRADA
+guicontrol,%LSTCTRLS%,RJRad1B
+guicontrol,%LSTCTRLS%,RJRad11A
+guicontrol,%LSTCTRLS%,RJRad11B
 guicontrol,%LSTCTRLS%,RJFLTRLST
+guicontrol,%LSTCTRLS%,RJEDTO
 guicontrol,%LSTCTRLS%,RJCHKK
+guicontrol,%LSTCTRLS%,RJENDMNT
+guicontrol,%LSTCTRLS%,RJEXEB
+guicontrol,%LSTCTRLS%,RJENLNCHR
 guicontrol,%LSTCTRLS%,RJFNDINLST
 guicontrol,%LSTCTRLS%,RJDELCOMP
 guicontrol,%LSTCTRLS%,RJSALITMS
 guicontrol,%LSTCTRLS%,RJLSTYP
+guicontrol,%LSTCTRLS%,RJSUBDCBX
 guicontrol,%LSTCTRLS%,RJINCEXCL
 guicontrol,%LSTCTRLS%,RJLSTV
+guicontrol,%LSTCTRLS%,RJEDTC
+guicontrol,%LSTCTRLS%,RJZIP
 guicontrol,%LSTCTRLS%,RJSYSSAV
+guicontrol,%LSTCTRLS%,RJSYSSAVAS
+guicontrol,%LSTCTRLS%,RJREMQSYS
+guicontrol,%LSTCTRLS%,RJEOPTSCBX
+guicontrol,%LSTCTRLS%,RRJEARGSCBX
 guicontrol,%LSTCTRLS%,RJPROCQ
 guicontrol,%LSTCTRLS%,RJADDQ
+guicontrol,%LSTCTRLS%,RJCHKL
+guicontrol,%LSTCTRLS%,RJCHKM
+guicontrol,%LSTCTRLS%,RJCHKP
+guicontrol,%LSTCTRLS%,RJCHKH
+guicontrol,%LSTCTRLS%,RJCHKI
+guicontrol,%LSTCTRLS%,RJCHKF
+guicontrol,%LSTCTRLS%,RJCHKG
+guicontrol,%LSTCTRLS%,RJCHKJ
+guicontrol,%LSTCTRLS%,RJEMUXTCBX
 guicontrol,%LSTCTRLS%,RJREMQSYS
 guicontrol,%LSTCTRLS%,RJXTRARCDD
+guicontrol,%LSTCTRLS%,RJSUBDH
+guicontrol,%LSTCTRLS%,RJADDSUBD
+guicontrol,%LSTCTRLS%,RJREMSUBD
 guicontrol,%LSTCTRLS%,RJPRECFGCBX
 guicontrol,%LSTCTRLS%,RJADDPRECFG
 guicontrol,%LSTCTRLS%,RJREMPRECFG
