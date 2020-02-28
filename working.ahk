@@ -126,14 +126,14 @@ if (romf <> "")
 		IniRead,curcfg,Settings.ini,GLOBAL,working_config
 		IniRead,raexeloc,Settings.ini,GLOBAL,retroarch_location
 		IniRead,autoExec,Settings.ini,GLOBAL,auto_exec
-		IniRead,RaExeFile,Settings.ini,GLOBAL,retroarch_executable
-		if (raexefile <> "NOT-FOUND.exe")
+		splitpath,raexeloc,RaExeFile,raexedir
+		if (raexefile <> "")
 			{
 				gosub, RACHKOPTLINE
 				IniRead,libretroDirectory,%curcfg%,OPTIONS,libretro_directory
 				if (libretrodirectory = "")
 					{
-						libretroDirectory= %raexeloc%\cores
+						libretroDirectory= %raexedir%\cores
 					}
 				gameoverdcfg= -c "%curcfg%"
 				Loop,Read,cores.ini
@@ -227,7 +227,8 @@ IfNotExist,mediafe.ini
 	{
 		FileCopy,sets\mediafe.set,mediafe.ini
 	}
-Iniread, raexeloc, Settings.ini,GLOBAL,retroarch_location
+Iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
+splitpath,raexeloc,RaExeFile,raexedir
 RJQNUM:= 0
 Loop, rj\*_q.tdb
 	{
@@ -255,7 +256,8 @@ if (RJEMUD = "")
 		gosub, SETEMUD
 	}
 IniRead,raexeloc,Settings.ini,GLOBAL,retroarch_location
-If (raexeloc = "")
+splitpath,raexeloc,RaExeFile,raexedir
+If (raexedir = "")
 	{
 		gosub, NORA
 	}
@@ -266,9 +268,9 @@ If (playlistloctmp <> "ERROR")
 		ifnotexist, %playlistloctmp%
 			{
 				playlistloctmp= ERROR
-				ifexist,%raexeloc%\playlists\
+				ifexist,%raexedir%\playlists\
 					{
-						playlistloctmp= %raexeloc%\playlists
+						playlistloctmp= %raexedir%\playlists
 						playlistloc= %playlistloctmp%
 					}
 			}
@@ -504,7 +506,7 @@ if (INITIAL = 1)
 	{
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
-if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+if (raexefile <> "")
 	{
 		ifNotExist, sl.ini
 			{
@@ -585,7 +587,7 @@ if (INITIAL = 1)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 RACORETAB= |Netplay|Cores
-if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+if (raexefile = "")
 	{
 		LNCHPT= 1
 		RACORETAB=
@@ -950,9 +952,9 @@ RDYgrid= %RegionY%
 RDWgrid= %RegionW%
 RDHgrid= %RegionH%
 
-if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+if (raexefile <> "")
 	{
-		goto, retroarch_init
+		gosub, retroarch_init
 	}
 
 if (INITIAL = 1)
@@ -1307,7 +1309,7 @@ Loop, Parse, SysLLst,`n`r
 if (INITIAL = 1)
 	{
 		RACORETAB= |Netplay|Cores
-		if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+		if (raexefile = "")
 			{
 				RACORETAB=
 				LNCHPT= 1
@@ -1973,7 +1975,7 @@ Gui,Add,Listbox, hwndLbxHndl3 x285 y234 w171 h123 vROMDEDT Multi +HScroll,
 ;;;;;;;;;;;;;;;;;;;;  RETROARCH UI  ;;;;;;;;;;;;;;;;;
 Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXEP hidden, SET
 Gui, Add, Text, x515 y42 w109 h13 vSKRAXETXT hidden, Retroarch Location
-Gui,Add,Edit, hwndEdtHndl31 x516 y58 w203 h40 Multi ReadOnly vSKRADISP hidden, %RAEXELOC%
+Gui,Add,Edit, hwndEdtHndl31 x516 y58 w203 h40 Multi ReadOnly vSKRADISP hidden, %raexedir%
 Gui, Add, Text, x519 y123 vSKIMPRATXT hidden, Import Retroarch.cfg
 Gui, Add, Button, x516 y100 w51 h18 vSKRAIMP gIMPRTCFG hidden, Import
 Gui, Add, Text, x659 y123 vSKSAVTXT hidden,retroarch cfg
@@ -2318,7 +2320,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,Bold
-Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w120 vPLISTTYP gPLISTYP,skeletonKeY||EmulationStation|RetroFE  ;;to Add Pegasus
+Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w130 vPLISTTYP gPLISTYP,skeletonKeY/XMB||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl58 x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui,Add,ComboBox, hwndCbxHndl59 x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
@@ -3872,7 +3874,7 @@ if (locfnd = 1)
 	{
 		GuiControl, Choose, TABMENU, 3
 	}
-if ((RaExeFile <> "NOT-FOUND.exe") && (RaExeFile <> ""))
+if (RaExeFile <> "")
 	{
 		gosub, GetIniVars
 		gosub, NetplaySet
@@ -5264,7 +5266,7 @@ Loop,parse,aim,|
 				poprc.= A_LoopField . "|"
 			}
 	}
-if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+if (raexefile <> "")
 	{
 		iniread,aimc,sets\emuCfgPresets.set,%EXTRSYS%,SUPCORE
 		Loop, Parse,aimc,|
@@ -5428,7 +5430,7 @@ Loop,parse,aim,|
 				poprc.= A_LoopField . "|"
 			}
 	}
-if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+if (raexefile <> "")
 	{
 		iniread,aimc,sets\emuCfgPresets.set,%RUNSYSDDL%,SUPCORE
 		Loop, Parse,aimc,|
@@ -5583,7 +5585,7 @@ ifinstring,ccoreLBX,_libretro.dll
 	{
 		stringreplace,ccv,ccoreLBX,_libretro.dll,,All
 		gosub, getCREN
-		FileDelete,%raexeloc%\config\%corcfgnam%\%romfnm%.cfg
+		FileDelete,%raexedir%\config\%corcfgnam%\%romfnm%.cfg
 		if (ERRORLEVEL > 0)
 			{
 				SB_SetText("could not delete " romfnm " retroArch config file")
@@ -6154,16 +6156,16 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 				guicontrolget,SALIST,,SALIST
 				if (SALIST = "Retroarch")
 					{
-						raexeloctmp= %A_GuiEvent%
+						raexedirtmp= %A_GuiEvent%
 						ifinstring,A_GuiEvent,retroarch.exe
 							{
-								splitpath,A_GuiEvent,,raexeloctmp
+								splitpath,A_GuiEvent,,raexedirtmp
 							}
-						ifnotexist,%raexeloctmp%\
+						ifnotexist,%raexedirtmp%\
 							{
 								return
 							}
-						goto, RAEXELOCTMP
+						goto, raexedirTMP
 						gosub, ShowBB
 					}
 				if (SALIST <> "Emulators")
@@ -7106,9 +7108,9 @@ if (cacheloctmp <> "")
 		SB_SetText(" Temp location set to " cacheloc " ")
 		guicontrol,,tmpdispl,%cacheloc%
 		iniwrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
-		ifnotexist,%raexeloc%\%raexefile%
+		ifnotexist,%raexedir%\%raexefile%
 			{
-				if (raexeloc <> "")
+				if (raexedir <> "")
 					{
 						cacheDirectory= %cacheloc%
 					}
@@ -7285,7 +7287,7 @@ FileDelete, crcs.ini
 sysDir= %systemDirectory%
 if (sysdir = "")
 	{
-		sysdir= %raexeloc%\system
+		sysdir= %raexedir%\system
 	}
 ifnotexist, %sysdir%\
 	{
@@ -7982,7 +7984,7 @@ if (RUNPLRAD = 1)
 							}
 						coreselv=
 					}
-				if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+				if (raexefile = "")
 					{
 						iniread,aixm,sets\emuCfgPresets.set,%DDLUX%,SUPEMU
 						Loop,Parse,aixm,|
@@ -8015,12 +8017,12 @@ if (RUNPLRAD = 1)
 		stringmid,romhnck,romfj1,2,1
 		if (romhnck <> ":")
 			{
-				ifexist, %raexeloc%\%romfj1%
+				ifexist, %raexedir%\%romfj1%
 					{
-						romf= %raexeloc%\%romfj1%
+						romf= %raexedir%\%romfj1%
 						if (romfj2 <> "")
 							{
-								romf= %raexeloc%\%romfj1%#%romfj2%
+								romf= %raexedir%\%romfj1%#%romfj2%
 							}
 					}
 			}
@@ -8141,7 +8143,7 @@ if (Ident_sys = "")
 	}
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; GET CORE FROM SYSTEM ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 iniread,coreselz,Assignments.ini,OVERRIDES,%OPTYP%
-if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+if (raexefile = "")
 	{
 		goto, emucoredd
 	}
@@ -8591,12 +8593,12 @@ Loop, Parse, romOVf,|
 						stringmid,romhnck,romfj1,2,1
 						if (romhnck <> ":")
 							{
-								ifexist, %raexeloc%\%romfj1%
+								ifexist, %raexedir%\%romfj1%
 									{
-										romf= %raexeloc%\%romfj1%
+										romf= %raexedir%\%romfj1%
 										if (romfj2 <> "")
 											{
-												romf= %raexeloc%\%romfj1%#%romfj2%
+												romf= %raexedir%\%romfj1%#%romfj2%
 											}
 									}
 							}
@@ -8637,12 +8639,12 @@ Loop, Parse, romOVf,|
 		stringmid,romhnck,romfj1,2,1
 		if (romhnck <> ":")
 			{
-				ifexist, %raexeloc%\%romfj1%
+				ifexist, %raexedir%\%romfj1%
 					{
-						romf= %raexeloc%\%romfj1%
+						romf= %raexedir%\%romfj1%
 						if (romfj2 <> "")
 							{
-								romf= %raexeloc%\%romfj1%#%romfj2%
+								romf= %raexedir%\%romfj1%#%romfj2%
 							}
 					}
 			}
@@ -9635,6 +9637,8 @@ if (SALIST = "RetroArch")
 		if ((raexefnd = "") or (raexefnd = "ERROR"))
 			{
 				guicontrol,,EXELIST,1
+				raexedir= %RJEMUD%\retroarch
+				guicontrol,,SKRADISP,%raexedir%
 				goto, ExeList
 			}
 		guicontrol,,RALIST,1
@@ -10577,13 +10581,12 @@ Loop, Parse,UrlIndex,`n`r
 	}
 if (selfnd = "retroArch")
 	{
-		if (raexefile = "NOT-FOUND.exe")
+		if (raexefile = "")
 			{
-				iniwrite, "%emuxetmp3%",Settings.ini,GLOBAL,retroarch_executable
+				iniwrite, "%xtractmu%\%emuxetmp3%",Settings.ini,GLOBAL,retroarch_location
+				raexedir= %xtractmu%
 				raexefile= %emuxetmp3%
 				raexist= 1
-				iniwrite, "%xtractmu%",Settings.ini,GLOBAL,retroarch_location
-				raexeloc= %xtractmu%
 				gosub, GRAVER
 				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 				gosub, RAInit
@@ -11996,12 +11999,11 @@ Loop, Parse, UAVAIL,|
 				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
 			}
 	}
-if ((UAVAIL = "retroArch") && (raexefile = "NOT-FOUND.exe"))
+if ((UAVAIL = "retroArch") && (raexefile = ""))
 	{
-		iniwrite, "%emuxe%",Settings.ini,GLOBAL,retroarch_executable
 		raexefile= %emuxe%
-		iniwrite, "%EINSTPTH%",Settings.ini,GLOBAL,retroarch_location
-		raexeloc= %EINSTPTH%
+		iniwrite, "%EINSTPTH%\%emuxe%",Settings.ini,GLOBAL,retroarch_location
+		raexedir= %EINSTPTH%
 		raexist= 
 		gosub, GRAVER
 		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
@@ -12179,12 +12181,11 @@ ifnotinstring,selfnd,_libretro.dll
 	}
 if (UAVAIL = "retroArch")
 	{
-		if (raexefile = "NOT-FOUND.exe")
+		if (raexefile = "")
 			{
-				iniwrite, "%EINSTFNM%",Settings.ini,GLOBAL,retroarch_executable
+				iniwrite, "%EINSTDIR%\%EINSTFNM%",Settings.ini,GLOBAL,retroarch_location
 				raexefile= %EINSTFNM%
-				iniwrite, "%EINSTDIR%",Settings.ini,GLOBAL,retroarch_location
-				raexeloc= %EINSTDIR%
+				raexedir= %EINSTDIR%
 				raexist= 
 				gosub, GRAVER
 				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
@@ -12410,7 +12411,7 @@ if (LNCHPRDDL = "Emulators")
 							}
 					}
 				repw.= inix . repx
-				if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+				if (raexefile <> "")
 					{
 						Loop,Parse,aic,|
 							{
@@ -12432,7 +12433,7 @@ if (LNCHPRDDL = "Emulators")
 	}
 if (LNCHPRDDL = "retroarch")
 	{
-		if ((RaExeFile = "NOT-FOUND.exe") or (RaExeFile = ""))
+		if (RaExeFile = "")
 				{
 					SB_SetText("Retroarch is not present")
 					guicontrol,,SALIST,|Systems|Emulators|RetroArch||Utilities|Frontends
@@ -12522,7 +12523,7 @@ if (LNCHPRDDL = "retroarch")
 	}
 if (INITIAL = 1)
 	{
-		if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+		if (raexefile <> "")
 			{
 				locfnd=
 				gosub, RETROARCHINIT
@@ -12570,7 +12571,7 @@ Loop, Parse, origsys,`n`r
 					}
 			}
 		repw.= inix . repx
-		if ((raexefile <> "NOT-FOUND.exe") && (raexefile <> ""))
+		if (raexefile <> "")
 			{
 				Loop,Parse,aic,|
 					{
@@ -12608,7 +12609,7 @@ stringreplace,aei,aei,|",",All
 stringreplace,aei,aei,"|,",All
 FileAppend,%aei%,Assignments.ini
 RACORETAB= |Netplay|Cores
-if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+if (raexefile = "")
 	{
 		RACORETAB=
 		return
@@ -12622,19 +12623,19 @@ if (INITIAL = 1)
 	{
 		ifnotexist,config.cfg
 			{
-				msgbox,260,Config File Detected,Would you like to import the detected retroarch.cfg file?`n%raexeloc%\retroarch.cfg
+				msgbox,260,Config File Detected,Would you like to import the detected retroarch.cfg file?`n%raexedir%\retroarch.cfg
 				ifmsgbox,Yes
 					{
-						NwCfgFile= %raexeloc%\retroarch.cfg
+						NwCfgFile= %raexedir%\retroarch.cfg
 						gosub,NWCFGSPLIT
 					}
 			}
 		ifnotexist,racoreopt.cfg
 			{
-				ifexist, %raexeloc%\retroarch-core-options.cfg
+				ifexist, %raexedir%\retroarch-core-options.cfg
 					{
-						NwCoreCfg= %raexeloc%\retroarch-core-options.cfg
-						MsgBox,260,Config File Detected,Would you like to import the detected retroarch-core-options.cfg file?`n%raexeloc%\retroarch-core-options.cfg
+						NwCoreCfg= %raexedir%\retroarch-core-options.cfg
+						MsgBox,260,Config File Detected,Would you like to import the detected retroarch-core-options.cfg file?`n%raexedir%\retroarch-core-options.cfg
 						ifmsgbox,Yes
 							{
 								ifexist, racoreopt.cfg
@@ -13328,14 +13329,14 @@ return
 SelectShader:
 gui, submit, nohide
 videoShader=
-FileSelectFile, videoShader, 3, %raexeloc%\shaders, any shader, (*.*)
+FileSelectFile, videoShader, 3, %raexedir%\shaders, any shader, (*.*)
 gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
 SelectFilter:
 gui, submit, nohide
 videoFilter=
-FileSelectFile, videoFilter, 3, %raexeloc%\filters\video, any filter, (*.*)
+FileSelectFile, videoFilter, 3, %raexedir%\filters\video, any filter, (*.*)
 gosub, RACHKOPTLINE
 IniWrite, "%filtvar%", %curcfg%,OPTIONS,video_filter
 return
@@ -13800,14 +13801,14 @@ if (shdvar = "nul")
 		videoShader=
 		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
-		filedelete,%raexeloc%\shaders\presets\global.*
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr=#reference "nul"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.glslp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.glslp
 		return
 	}
 ShaderDir=
 ShaderName=
-loop files, %raexeloc%\shaders\shaders_glsl\*.glslp, R
+loop files, %raexedir%\shaders\shaders_glsl\*.glslp, R
 	{
 		ShaderName= %A_LoopFilename%
 		ShaderDir= %A_LoopFileDir%
@@ -13819,10 +13820,10 @@ loop files, %raexeloc%\shaders\shaders_glsl\*.glslp, R
 if (ShaderName <> "")
 	{
 		videoShader= %ShaderDir%\%ShaderName%
-		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_glsl\,,All
-		filedelete,%raexeloc%\shaders\presets\global.*
+		stringreplace,shadv,videoshader,%raexedir%\shaders\shaders_glsl\,,All
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr=#reference "..\shaders_glsl\%shadv%"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.glslp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.glslp
 	}
 if ShaderName = nul
 	videoShader=
@@ -13839,14 +13840,14 @@ if (shdvar = "nul")
 		videoShader=
 		gosub, RACHKOPTLINE
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
-		filedelete,%raexeloc%\shaders\presets\global.*
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr=#reference "nul"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.slangp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.slangp
 		return
 	}
 ShaderDir=
 ShaderName=
-loop files, %raexeloc%\shaders\shaders_slang\*.slangp, R
+loop files, %raexedir%\shaders\shaders_slang\*.slangp, R
 	{
 		ShaderName= %A_LoopFilename%
 		ShaderDir= %A_LoopFileDir%
@@ -13857,10 +13858,10 @@ loop files, %raexeloc%\shaders\shaders_slang\*.slangp, R
 if (ShaderName <> "")
 	{
 		videoShader= %ShaderDir%\%ShaderName%
-		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_slang\,,All
-		filedelete,%raexeloc%\shaders\presets\global.*
+		stringreplace,shadv,videoshader,%raexedir%\shaders\shaders_slang\,,All
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr= #reference "..\shaders_slang\%shadv%"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.slangp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.slangp
 	}
 
 
@@ -13880,12 +13881,12 @@ if (shdvar = "nul")
 	{
 		videoShader=
 		IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
-		filedelete,%raexeloc%\shaders\presets\global.*
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr=#reference "nul"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.cgp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.cgp
 		return
 	}
-loop files, %raexeloc%\shaders\shaders_cg\*.cgp, R
+loop files, %raexedir%\shaders\shaders_cg\*.cgp, R
 	{
 		ShaderName= %A_LoopFilename%
 		ShaderDir= %A_LoopFileDir%
@@ -13895,10 +13896,10 @@ loop files, %raexeloc%\shaders\shaders_cg\*.cgp, R
 if (ShaderName <> "")
 	{
 		videoShader= %ShaderDir%\%ShaderName%
-		stringreplace,shadv,videoshader,%raexeloc%\shaders\shaders_cg\,,All
-		filedelete,%raexeloc%\shaders\presets\global.*
+		stringreplace,shadv,videoshader,%raexedir%\shaders\shaders_cg\,,All
+		filedelete,%raexedir%\shaders\presets\global.*
 		refshdr= #reference "..\shaders_cg\%shadv%"
-		fileappend,%refshdr%,%raexeloc%\shaders\presets\global.cgp
+		fileappend,%refshdr%,%raexedir%\shaders\presets\global.cgp
 	}
 SB_SetText(" " ShaderName " ")
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
@@ -13916,7 +13917,7 @@ if (vfilt = "nul")
 	}
 FilterDir=
 FilterName=
-loop files, %raexeloc%\filters\video\*.filt, R
+loop files, %raexedir%\filters\video\*.filt, R
 	{
 		FilterName= %A_LoopFilename%
 		FilterDir= %A_LoopFileDir%
@@ -13935,13 +13936,13 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;  LAUNCH FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;
 RETAL:
 gui,submit,nohide
-runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg"",%A_WorkingDir%
+runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg"",%A_WorkingDir%
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
 
 RETALRAXE:
-runwait, %comspec% /c " "%raexeloc%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
+runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
@@ -14061,7 +14062,7 @@ if (PGM = 1)
 	{
 		stringreplace,ccv,coreselv,_libretro.dll
 		gosub, getCREN
-		Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+		Loop,%raexedir%\config\%corcfgnam%\%romname%.*
 			{
 				if (A_Index = 1)
 					{
@@ -14079,7 +14080,7 @@ if (romf <> "")
 corecnct= "%libretroDirectory%\%coreselv%"
 gosub, PreOpt
 guicontrolget,netplayRemotePort,,CPORTNUM
-Runwait, "%raexeloc%\%RaExeFile%" -C %IPADR% --port %netplayRemotePort% -L %corecnct% %romcnct% %gameoverdcfg%%pgmargs%,%raexeloc%
+Runwait, "%raexedir%\%RaExeFile%" -C %IPADR% --port %netplayRemotePort% -L %corecnct% %romcnct% %gameoverdcfg%%pgmargs%,%raexedir%
 SRCHARCORG= 0
 gosub, PostOpt
 guicontrolget, SAVEXIT
@@ -14182,7 +14183,7 @@ if (JACKETMODE = 1)
 					}
 			}
 	}
-save= %raexeloc%\downloads\%romsys%\%rjinsfldr%%dwnlchk%
+save= %raexedir%\downloads\%romsys%\%rjinsfldr%%dwnlchk%
 if (httpchk = "http")
 	{
 		URLDWN= 1
@@ -14256,7 +14257,7 @@ if (PGM = 1)
 	{
 		stringreplace,ccv,coreselv,_libretro.dll
 		gosub, getCREN
-		Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+		Loop,%raexedir%\config\%corcfgnam%\%romname%.*
 			{
 				if (A_Index = 1)
 					{
@@ -14265,7 +14266,7 @@ if (PGM = 1)
 				pgmargs.= "%A_LoopField%" . "|"
 			}
 	}
-Runwait, "%raexeloc%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%%pgmargs%,%raexeloc%
+Runwait, "%raexedir%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%%pgmargs%,%raexedir%
 gosub, PostOpt
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
@@ -14326,7 +14327,7 @@ IfMsgBox, Yes
 	}
 return
 QRSETUP:
-if (raexefile <> "NOT-FOUND.exe")
+if (raexefile <> "")
 	{
 		Msgbox,1,Install,Retroarch is installed.`nReinstall with the current stable version?`n    %RASTABLE%   ?
 		ifmsgbox,Cancel
@@ -14386,7 +14387,7 @@ SB_SetText(" Downloading Retroarch Update ")
 URLFILE= %BLDBOT%/%RAUPDT%
 save= %cacheloc%\%RAUPDT%
 saveloc= %cacheloc%
-XTRACTLOC= %raexeloc%
+XTRACTLOC= %raexedir%
 updtmsg= %RAUPDT%
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
@@ -14543,8 +14544,7 @@ GuiControl, Enable, UPDBTN
 GuiControl, Disable, CNCLDWN
 return
 ShowBB:
-RAUPDF= 
-ifexist, %raexeloc%\retroarch.exe
+ifexist, %raexedir%\retroarch.exe
 	{
 		RAUPDF= %UPDATERAEXE%
 	}
@@ -14569,8 +14569,7 @@ PostMessage, 0x186, -1, 0,,ahk_id %nocrsl%
 gui, submit, nohide
 return
 ShowCIC:
-RAUPDF= 
-ifexist, %raexeloc%\retroarch.exe
+ifexist, %raexedir%\retroarch.exe
 	RAUPDF= %UPDATERAEXE%
 	UPDTONLY= 1
 gui, submit, nohide
@@ -14605,7 +14604,7 @@ GuiControl, Disable, EAVAIL
 GuiControl, Disable, SaList
 corexist=
 redistr= redist.7z
-RAUPDF= 
+;;RAUPDF= 
 ifinstring,SLCTCORES,stable|
 	{
 		SLCTCORES=
@@ -14616,6 +14615,7 @@ ifinstring,SLCTCORES,stable|
 			}
 	}
 updprts=
+msgbox,,,raexedir=%raexedir%
 Loop, Parse, SLCTCORES,|
 	{
 		if (A_LoopField = "")
@@ -14739,18 +14739,19 @@ GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
 GuiControl, Disable, EAVAIL
 GuiControl, Disable, SaList
-updtmsg= _RetroArch.7z
+updtmsg= RetroArch.7z
 iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
+splitpath,raexeloc,raexefile,raexedir
 if ((raexeloc = "")or(raexeloc = "ERROR"))
 	{
-		raexeloc= %RJEMUD%\retroarch
+		raexedir= %RJEMUD%\retroarch
 		raexist= 
 	}
-ifnotexist,%raexeloc%\
+ifnotexist,%raexedir%\
 	{
-		filecreatedir,%raexeloc%
+		filecreatedir,%raexedir%
 	}
-XTRACTLOC= %raexeloc%
+XTRACTLOC= %raexedir%
 URLFILE= %buildBotCore%/stable/%RASTABLE%/windows/x86%ARCHR%/%updtmsg%
 gosub, GettingRA
 guicontrolget, NETNAME,,NETNAME
@@ -14778,6 +14779,7 @@ GuiControl, enable, EXELIST
 GuiControl, enable, EAVAIL
 GuiControl, enable, SaList
 return
+
 RBundle:
 SB_SetText("Downloading Bundle")
 GuiControl, Enable, CNCLDWN
@@ -14792,7 +14794,7 @@ GuiControl, Disable, EXELIST
 GuiControl, Disable, EAVAIL
 GuiControl, Disable, SaList
 updtmsg= bundle.zip
-XTRACTLOC= %raexeloc%
+XTRACTLOC= %raexedir%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 GuiControl, disable, CNCLDWN
@@ -14822,7 +14824,7 @@ GuiControl, Disable, EXELIST
 GuiControl, Disable, EAVAIL
 GuiControl, Disable, SaList
 updtmsg= redist.7z
-XTRACTLOC= %raexeloc%
+XTRACTLOC= %raexedir%
 URLFILE= %BLDBOT%/%updtmsg%
 gosub GettingRA
 GuiControl, disable, CNCLDWN
@@ -14841,7 +14843,7 @@ return
 RAssets:
 SB_SetText("Downloading Assets")
 updtmsg= assets.zip
-XTRACTLOC= %raexeloc%\assets
+XTRACTLOC= %raexedir%\assets
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
@@ -14849,16 +14851,16 @@ return
 Rinfo:
 SB_SetText("Downloading Info")
 updtmsg= info.zip
-XTRACTLOC= %raexeloc%\info
+XTRACTLOC= %raexedir%\info
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
-gosub GettingRA
+gosub, GettingRA
 return
 
 Rdatabaserdb:
 SB_SetText("Downloading Databases")
 Rdatabasecursors:
 updtmsg= %crdll1%.zip
-XTRACTLOC= %raexeloc%\database\%crdll1%
+XTRACTLOC= %raexedir%\database\%crdll1%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
@@ -14866,14 +14868,14 @@ return
 RCheats:
 SB_SetText("Downloading Cheats")
 updtmsg= cheats.zip
-XTRACTLOC= %raexeloc%\cheats
+XTRACTLOC= %raexedir%\cheats
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
 ROverlays:
 SB_SetText("Downloading Overlays")
 updtmsg= overlays.zip
-XTRACTLOC= %raexeloc%\overlays
+XTRACTLOC= %raexedir%\overlays
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
@@ -14886,7 +14888,7 @@ shdtg1=
 shdtg2=
 stringsplit,shdtg,crdll1,_
 updtmsg= shaders_%shdtg2%.zip
-XTRACTLOC= %raexeloc%\shaders\shaders_%shdtg2%
+XTRACTLOC= %raexedir%\shaders\shaders_%shdtg2%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
@@ -14894,15 +14896,19 @@ return
 RAutoconfig:
 SB_SetText("Downloading Autoconfigs")
 updtmsg= autoconfig.zip
-XTRACTLOC= %raexeloc%\autoconfig
+XTRACTLOC= %raexedir%\autoconfig
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
 
 RStable:
 SB_SetText("Downloading Stable")
-updtmsg= _RetroArch.7z
-XTRACTLOC= %raexeloc%
+updtmsg= RetroArch.7z
+XTRACTLOC= %raexedir%
+if (XTRACTLOC = "")
+	{
+		XTRACTLOC= %RJEMUD%\retroarch
+	}
 URLFILE= %buildBotCore%/stable/%RASTABLE%/windows/x86%ARCHR%/%updtmsg%
 gosub GettingRA
 guicontrolget, NETNAME,,NETNAME
@@ -14948,28 +14954,28 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;     XTRACT RA   ;;;;;;;;;;;;;;;;;;;;;;;;
 XTRACTRA:
+msgbox,,,save=%save%`nraexeloc=%raexeloc%`nxtractloc=%xtractloc%
 splitpath, save, raname, savepth, ext, ranoxt, radrive
 SB_SetText(" " save " " "extracting")
 guicontrolget,BCKCORE,,BCKCORE
 if (BCKCORE = 1)
 	{
-		ifexist,%raexeloc%\retroarch.exe
+		ifexist,%raexedir%\retroarch.exe
 			{
 				bak= .bak
-				ifnotexist,%raexeloc%\retroarch.exe%bak%
+				ifnotexist,%raexedir%\retroarch.exe%bak%
 					{
 						bak= .orig
 					}
-				FileCopy,%raexeloc%\retroarch.exe,%raexeloc%\retroarch.exe%bak%,1
+				FileCopy,%raexedir%\retroarch.exe,%raexedir%\retroarch.exe%bak%,1
 			}
 	}
-raexefile= retroarch.exe
-runwait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -x"!*.cfg" -O"%XTRACTLOC%" ", ,hide
+RunWait, %comspec% cmd /c " "bin\7za.exe" x -y "%save%" -O"%XTRACTLOC%" ",,hide
+splitpath,XTRACTLOC,raexefile,raexedir
 SB_SetText(" " save " " "was extracted")
-iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 iniread,racht,Apps.ini,EMULATORS,retroarch
-if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
+if ((racht = "ERROR") or (racht = ""))
 	{	
 		raexist= 
 		iniread,fealn,apps.ini,EMULATORS,retroarch
@@ -14981,15 +14987,16 @@ if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
 						feavail.= "retroarch" . "|"
 					}
 			}
-		iniwrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
+		iniwrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
 	}
+msgbox,,,	%raexedir%\%raexefile%
 iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
 raexist= 1
-if (racht = "ERROR") or Instr(racht, "NOT-FOUND")
+if ((racht = "ERROR") or (racht = ""))
 	{
 		raexist= 
-		iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
-		guicontrol,,SKRADISP,%raexeloc%\%raexefile%
+		iniwrite, "%raexedir%\%raexefile%",Assignments.ini,ASSIGNMENTS,retroarch
+		guicontrol,,SKRADISP,%raexedir%\%raexefile%
 	}
 if (KARC = 0)
 	{
@@ -15944,7 +15951,7 @@ return
 
 raSELSCON:
 gui,submit,nohide
-FileSelectFile,raselsconf,3,%raexeloc%,stream config,*.*
+FileSelectFile,raselsconf,3,%raexedir%,stream config,*.*
 if (raselsconf = "")
 	{
 		return
@@ -16147,20 +16154,20 @@ guicontrol, ,COREDDLA,|Select_A_Core|%currstcore%||%corelist%
 return
 SaveCoreOptions:
 gosub, WriteOptVars
-FileCopy,%racoreopt%,%raexeloc%\retroarch-core-options.cfg, 1
+FileCopy,%racoreopt%,%raexedir%\retroarch-core-options.cfg, 1
 return
 SelectCoreCfgLoc:
 coreoptflie=
 gosub, getCREN
-FileSelectFile, coreoptfile, S24, %raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
+FileSelectFile, coreoptfile, S24, %raexedir%\config\%corcfgnam%\%corcfgnam%.cfg
 if (coreoptfile <> "")
 	{
-		guicontrol,,CORENAMEDT,%raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
+		guicontrol,,CORENAMEDT,%raexedir%\config\%corcfgnam%\%corcfgnam%.cfg
 		return
 	}
 else
 	{
-		guicontrol,,CORENAMEDT,%raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
+		guicontrol,,CORENAMEDT,%raexedir%\config\%corcfgnam%\%corcfgnam%.cfg
 	}
 return
 SaveCoreCfg:
@@ -16177,7 +16184,7 @@ DeleteCoreCfg:
 gosub, getCREN
 if (coreoptfile = "")
 	{
-		coreoptfile= %raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
+		coreoptfile= %raexedir%\config\%corcfgnam%\%corcfgnam%.cfg
 	}
 MsgBox,3,Confirm,Are you sure you want to delete %coreoptfile% ?
 ifmsgbox, yes
@@ -16288,7 +16295,7 @@ coreconc4=
 stringsplit, coreconc,ccv,_
 corecfg= %ccv%.cfg
 gosub, getCREN
-guicontrol,,CORENAMEDT,%raexeloc%\config\%corcfgnam%\%corcfgnam%.cfg
+guicontrol,,CORENAMEDT,%raexedir%\config\%corcfgnam%\%corcfgnam%.cfg
 guicontrol,,CORENAMTXT,%corcfgnam%
 FileReadLine, optline, %racoreopt%, 1
 if (optline <> "[OPTIONS]")
@@ -23069,15 +23076,15 @@ ifexist,%JCFLPD%\
 	}
 if (joycfg = curcfg)
 	{
-		lkdir= %raexeloc%\config\remaps
+		lkdir= %raexedir%\config\remaps
 		IfExist, %inputRemappingDirectory%\%corcfgnam%\
 			{
 				lkdir= %inputRemappingDirectory%\%corcfgnam%
 			}
 			else
 				{
-					FileCreateDir, %raexeloc%\config\remaps\%corcfgnam%
-					guicontrol,,JCFGEDT,|%raexeloc%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
+					FileCreateDir, %raexedir%\config\remaps\%corcfgnam%
+					guicontrol,,JCFGEDT,|%raexedir%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
 					guicontrolget,lkdtmp,,JCFGEDT
 					SplitPath,lkdtmp,,lkdir
 				}
@@ -23103,15 +23110,15 @@ if (emujchk2 <> "dll")
 	{
 		return
 	}
-lkdir= %raexeloc%\config\remaps
+lkdir= %raexedir%\config\remaps
 IfExist, %inputRemappingDirectory%\%corcfgnam%\
 	{
 		lkdir= %inputRemappingDirectory%\%corcfgnam%
 	}
 	else
 		{
-			FileCreateDir, %raexeloc%\config\remaps
-			guicontrol,,JCFGEDT,|%raexeloc%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
+			FileCreateDir, %raexedir%\config\remaps
+			guicontrol,,JCFGEDT,|%raexedir%\config\remaps\%corcfgnam%.rmp||%joycfg%|%curcfg%
 			guicontrolget,lkdtmp,,JCFGEDT
 			SplitPath,lkdtmp,,lkdir
 		}
@@ -24435,7 +24442,7 @@ Loop,parse,dirlocations,|
 		stringRight, rewtmpd, wroptv,255
 		if (rewtmp = ":")
 			{
-				wroptv := raexeloc . SubStr(rewtmpd,2,255)
+				wroptv := raexedir . SubStr(rewtmpd,2,255)
 			}
 		if (( %INPDBX%) != "")
 			{
@@ -24608,8 +24615,8 @@ return
 ;{;;;;;;;;;;;;;;;;;;;  RA Inits  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 GRAVER:
 gui,submit,nohide
-Run, %comspec% cmd /c " "%raexeloc%\%RaExeFile%" --verbose >"%A_ScriptDir%\ralog.txt" 2>&1 ",%raexeloc%,hide,kilra
-SB_SetText(" " raexeloc "\" raexefile "")
+Run, %comspec% cmd /c " "%raexedir%\%RaExeFile%" --verbose >"%A_ScriptDir%\ralog.txt" 2>&1 ",%raexedir%,hide,kilra
+SB_SetText(" " raexedir "\" raexefile "")
 SetTitleMatchMode, 2
 WinWait, RetroArch,RetroArch,3
 Process,close,%RaExeFile%
@@ -24657,18 +24664,16 @@ if (raexepath <> "ERROR")
 						raexepath= %RJEMUDtst%
 					}
 			}
-		splitpath,raexepath,raexefile,raexeloc
-		iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-		iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+		splitpath,raexepath,raexefile,raexedir
+		iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 		locfnd=
 		return
 	}
 if (FileExist(RJEMUDtst))
 	{
 		raexepath= %RJEMUDtst%
-		splitpath,raexepath,raexefile,raexeloc
-		iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-		iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+		splitpath,raexepath,raexefile,raexedir
+		iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 	}
 return
 
@@ -24680,23 +24685,22 @@ if (INITIAL > 1)
 	}
 RaExePath=
 RACORETAB= |Netplay|Cores
-raexeloctmp=
+raexedirtmp=
 RaExePathtmp=
-raexeloctmp=
-FileSelectFolder, raexeloctmp,,3,Select the retroarch directory
-RAEXELOCTMP:
-if (raexeloctmp <> "")
+raexedirtmp=
+FileSelectFolder, raexedirtmp,,3,Select the retroarch directory
+raexedirTMP:
+if (raexedirtmp <> "")
 	{
-		Loop, %raexeloctmp%\retroarch.exe
+		raexedir= %raexedirTMP%
+		Loop, %raexedir%\retroarch.exe
 			{
 				RaExePath= %A_LoopFileFullPath%
-				raexeloc= %A_LoopFileDir%
 				RaExeFile= %A_LoopFileName%
 				RaExe= %RaExeFile%
-				iniwrite, "%raexeloc%", Settings.ini,GLOBAL,retroarch_location
+				iniwrite, "%RaExePath%", Settings.ini,GLOBAL,retroarch_location
 				iniwrite, "%RaExePath%", Apps.ini,EMULATORS,retroarch
-				iniwrite, "%RaExeFile%", Settings.ini,GLOBAL,retroarch_executable
-				guicontrol,,SKRADISP,%raexeloc%
+				guicontrol,,SKRADISP,%raexedir%
 				SB_SetText("Initializing retroarch interface")
 				gosub, RAInit
 				gosub, resetOVR
@@ -24707,7 +24711,6 @@ if (raexeloctmp <> "")
 				gosub, CoreOptInit
 				RACORETAB= |Netplay|Cores
 				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
-				
 				return
 			}
 	}
@@ -24722,42 +24725,41 @@ if (RaExePath = "")
 				gosub, BLANKRA
 				return
 			}
-		if (raexeloc <> "")
+		if (raexedir <> "")
 			{
 				MsgBox,1,Clear,Clear the current retroarch assignment?
 				ifmsgbox,Yes
 					{
-						raexeloc= %raexeloctmp%
-						if (raexeloctmp = "")
+						raexedir= %raexedirtmp%
+						if (raexedirtmp = "")
 							{
-								raexeloc= %RJEMUD%\retroarch
+								raexedir= %RJEMUD%\retroarch
 							}
-						ifnotexist, %raexeloc%\
+						ifnotexist, %raexedir%\
 							{
-								FileCreateDir, %raexeloc%
+								FileCreateDir, %raexedir%
 							}
-						raexefile= NOT-FOUND.exe
-						raexepath= %raexeloc%\%raexefile%
+						raexefile= 
+						raexepath= %raexedir%\%raexefile%
 					}
 				ifmsgbox,Cancel
 					{
 						return
 					}
 			}
-		if (raexeloc = "")
+		if (raexedir = "")
 			{
 				if (raexepath = "")
 					{
-						raexepath= %RJEMUD%\retroarch\NOT-FOUND.exe
+						raexepath= 
 					}
 			}
 	}
-SplitPath, RaExePath, RaExeFile, raexeloc
+SplitPath, RaExePath, RaExeFile, raexedir
 RaExe= %RaExeFile%
-iniwrite, "%raexeloc%", Settings.ini,GLOBAL,retroarch_location
+iniwrite, "%RaExePath%", Settings.ini,GLOBAL,retroarch_location
 iniwrite, "%RaExePath%", Apps.ini,EMULATORS,retroarch
-iniwrite, "%RaExeFile%", Settings.ini,GLOBAL,retroarch_executable
-if (RAEXEFILE <> "NOT-FOUND.exe")
+if (RAEXEFILE <> "")
 	{
 		RACORETAB= |Netplay|Cores
 		gosub, PREFERON
@@ -24767,7 +24769,7 @@ if (locfnd = 1)
 		return
 	}
 RETROARCHINIT:
-guicontrol,,SKRADISP,%raexeloc%
+guicontrol,,SKRADISP,%raexedir%
 SB_SetText("Initializing retroarch interface")
 gosub, RAInit
 gosub, resetOVR
@@ -24791,17 +24793,15 @@ loop, parse, aei,`n
 	}
 return
 BLANKRA:
-raexeloc= %RJEMUD%\retroArch
-RaExefile= NOT-FOUND.exe
+raexedir= %RJEMUD%\retroArch
+RaExefile= 
 raexist= 
 locfnd= 1
-ifnotexist,%raexeloc%
+ifnotexist,%raexedir%
 	{
-		FileCreateDir,%raexeloc%
+		FileCreateDir,%raexedir%
 	}
-iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
-ifexist,%raexeloc%\retroarch.cfg
+ifexist,%raexedir%\retroarch.cfg
 	{
 		gosub, IMPRTCFG
 	}
@@ -24809,8 +24809,8 @@ return
 selRaLoc:
 racrtmp= %RJEMUD%
 raresetloc:
-FileSelectFolder, raexeloctmp,*%racrtmp%,3,Select the destination folder to create a retroarch directory
-if (raexeloctmp = "")
+FileSelectFolder, raexedirtmp,*%racrtmp%,3,Select the destination folder to create a retroarch directory
+if (raexedirtmp = "")
 	{
 		if (INITIAL = 1)
 			{
@@ -24820,70 +24820,70 @@ if (raexeloctmp = "")
 						goto, raresetloc
 					}
 				locfnd=
-				raexeloc= %RJEMUD%\retroarch
+				raexedir= %RJEMUD%\retroarch
 				raexist= 1
-				iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-				ifexist, %raexeloc%\retroarch.exe
+				ifexist, %raexedir%\retroarch.exe
 					{
 						raexefile= retroarch.exe
 					}
-				ifnotexist, %raexeloc%\
+				ifnotexist, %raexedir%\
 					{
-						FileCreateDir,%raexeloc%
+						FileCreateDir,%raexedir%
 						raexist= 
 						locfnd= 1
-						raexefile= NOT-FOUND.exe
+						raexefile= 
 					}
-				iniwrite, "%raexefile%",Settings.ini,GLOBAL,retroarch_executable
-				raexepath= %raexeloc%\%raexefile%
+				iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
+				raexepath= %raexedir%\%raexefile%
 				goto, INITIATEGEN
 			}
 	}
-if (raexeloctmp = "")
+if (raexedirtmp = "")
 	{
-		raexeloctmp= %RJEMUD%
+		raexedirtmp= %RJEMUD%
 	}
-stringright,efi,raexeloctmp,2
-stringLeft,efix,raexeloctmp,2
+stringright,efi,raexedirtmp,2
+stringLeft,efix,raexedirtmp,2
 if (efi = ":\")
 	{
-		raexeloctmp= %efix%
+		raexedirtmp= %efix%
 	}		
 locfnd= 1
 ranmt=
+
 REINPUTRA:
-raexeloc=
+raexedir=
 InputBox,ranmt,Directory Name,Name of the retroarch folder
 If Instr(ranmt, ":") or Instr(ranmt, "\") or Instr(ranmt, "<") or Instr(ranmt, "?") or Instr(ranmt, ">") or Instr(ranmt, "*") or Instr(ranmt, "|") or Instr(ranmt, "*") or Instr(ranmt, "/")
 	{
 		gosub, REINPUTRA
 	}
-splitpath,raexeloctmp,ragetnm
+splitpath,raexedirtmp,ragetnm
 if (ragetnm = "retroarch")
 	{
-		stringtrimright,raexeloc,raexeloctmp,10
+		stringtrimright,raexedir,raexedirtmp,10
 	}
 if (ranmt = "")
 	{
-		if (raexeloc = "")
+		if (raexedir = "")
 			{
-				raexeloc= %raexeloctmp%\retroarch
+				raexedir= %raexedirtmp%\retroarch
 			}
 	}
-if (raexeloc = "")
+if (raexedir = "")
 		{
 			goto, REINPUTRA
 		}
+
 INITIATEGEN:
 RACORETAB= |Netplay|Cores
-iniwrite, "%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-raexefile= NOT-FOUND.exe
-ifexist, %raexeloc%\retroarch.exe
+raexefile= 
+ifexist, %raexedir%\retroarch.exe
 	{
 		raexefile= retroarch.exe
 	}
-iniwrite, "%raexefile%", Settings.ini,GLOBAL,retroarch_executable
-if (raexefile = "NOT-FOUND.exe")
+iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
+if (raexefile = "")
 	{
 	   RACORETAB=
 	   LNCHPT= 1
@@ -24891,7 +24891,7 @@ if (raexefile = "NOT-FOUND.exe")
 if (INITIAL = 1)
 	{
 	}
-guicontrol,,SKRADISP,%raexeloc%
+guicontrol,,SKRADISP,%raexedir%
 GuiControl, Choose, TABMENU, 3
 guicontrol,,SaList,|Systems|Emulators|RetroArch||Utilities|Frontends
 gosub, SaList
@@ -24899,13 +24899,13 @@ return
 PreOpt:
 if (CORECOPY = 1)
 	{
-		FileCopy, %racoreopt%,%raexeloc%\retroarch-core-options.cfg,1
+		FileCopy, %racoreopt%,%raexedir%\retroarch-core-options.cfg,1
 	}
 return
 PostOpt:
 if (CORECOPY = 1)
 	{
-		FileCopy,%raexeloc%\retroarch-core-options.cfg,%racoreopt%,1
+		FileCopy,%raexedir%\retroarch-core-options.cfg,%racoreopt%,1
 	}
 return
 ;{;;;;;;;;;;;;  RESET SHADERS  ;;;;;;;;;;;;;
@@ -24913,7 +24913,7 @@ resetGL:
 Menu,Tray,Tip, Generating GLSL Shader cache
 if (videoShaderDir= "")
 	{
-		videoShaderDir= %raexeloc%\shaders
+		videoShaderDir= %raexedir%\shaders
 	}
 filedelete, gl.ini
 glFiles =
@@ -24970,7 +24970,7 @@ resetFILT:
 Menu,Tray,Tip, Generating Video Filter cache
 if (videoFilterDir= "")
 	{
-		videoFilterDir= %raexeloc%\filters\video
+		videoFilterDir= %raexedir%\filters\video
 	}
 filedelete, fltlist.ini
 fltFiles =
@@ -25019,7 +25019,7 @@ rewrovld=
 Menu,Tray,Tip, Generating Overlay cache
 if (OverlayDirectory = "")
 	{
-		OverlayDirectory= %raexeloc%\overlays
+		OverlayDirectory= %raexedir%\overlays
 	}
 filedelete, ovr.ini
 ovr_list =
@@ -25039,7 +25039,7 @@ Menu,Tray,Tip, Generating core-list cache
 filedelete, getcores.ini
 if (libretroDirectory = "")
 	{
-		libretroDirectory= %raexeloc%\cores
+		libretroDirectory= %raexedir%\cores
 	}
 filedelete, cores.ini
 CORENUM:= 0
@@ -25084,39 +25084,39 @@ Loop, %A_temp%\
 	{
 			lpful = %A_LoopFileLongPath%
 	}
-assetsDirectory= %raexeloc%\assets
-audioFilterDir= %raexeloc%\filters\audio
+assetsDirectory= %raexedir%\assets
+audioFilterDir= %raexedir%\filters\audio
 cacheDirectory= %lpful%
-contentHistoryDir= %raexeloc%\database\rdb
+contentHistoryDir= %raexedir%\database\rdb
 coreAssetsDirectory= %RJSYSTEMS%
-cursorDirectory= %raexeloc%\database\cursors
-dynamicWallpapersDirectory= %raexeloc%\assets\wallpapers
-inputRemappingDirectory= %raexeloc%\config\remaps
-joypadAutoconfigDir= %raexeloc%\autoconfig
-libretroDirectory= %raexeloc%\cores
-oskOverlayDirectory= %raexeloc%\overlays
-overlayDirectory= %raexeloc%\overlays
+cursorDirectory= %raexedir%\database\cursors
+dynamicWallpapersDirectory= %raexedir%\assets\wallpapers
+inputRemappingDirectory= %raexedir%\config\remaps
+joypadAutoconfigDir= %raexedir%\autoconfig
+libretroDirectory= %raexedir%\cores
+oskOverlayDirectory= %raexedir%\overlays
+overlayDirectory= %raexedir%\overlays
 playlistDirectory= %playlistLoc%
-recordingConfigDirectory= %raexeloc%\config
+recordingConfigDirectory= %raexedir%\config
 rguiBrowserDirectory= default
-rguiConfigDirectory= %raexeloc%\config
-savefileDirectory= %raexeloc%\saves
-savestateDirectory= %raexeloc%\states
-screenshotDirectory= %raexeloc%\screenshots
-systemDirectory= %raexeloc%\system
-thumbnailsDirectory= %raexeloc%\thumbnails
-videoFilterDir= %raexeloc%\filters\video
-videoShaderDir= %raexeloc%\shaders
-libretroInfoPath= %raexeloc%\info
+rguiConfigDirectory= %raexedir%\config
+savefileDirectory= %raexedir%\saves
+savestateDirectory= %raexedir%\states
+screenshotDirectory= %raexedir%\screenshots
+systemDirectory= %raexedir%\system
+thumbnailsDirectory= %raexedir%\thumbnails
+videoFilterDir= %raexedir%\filters\video
+videoShaderDir= %raexedir%\shaders
+libretroInfoPath= %raexedir%\info
 return
 DefPaths:
-cheatDatabasePath= %raexeloc%\cheats
-contentDatabasePath= %raexeloc%\database\rdb
+cheatDatabasePath= %raexedir%\cheats
+contentDatabasePath= %raexedir%\database\rdb
 contentHistoryPath= %historyLoc%
-contentImageHistoryPath= %raexeloc%\content_image_history.lpl
-contentMusicHistoryPath= %raexeloc%\content_music_history.lpl
-contentVideoHistoryPath= %raexeloc%\content_video_history.lpl
-coreOptionsPath= %raexeloc%\retroarch-core-options.cfg
+contentImageHistoryPath= %raexedir%\content_image_history.lpl
+contentMusicHistoryPath= %raexedir%\content_music_history.lpl
+contentVideoHistoryPath= %raexedir%\content_video_history.lpl
+coreOptionsPath= %raexedir%\retroarch-core-options.cfg
 coreUpdaterBuildbotAssetsUrl= %buildBotCore%/assets/
 coreUpdaterBuildbotUrl= %buildBotCore%/nightly/windows/x86%ARCHR%/latest/
 menuWallpaper=
@@ -25193,7 +25193,7 @@ Loop, parse, dirlocations,|
 		stringRight, rewtmpd, inivar,255
 		if (rewtmp = ":")
 			{
-				readvl := raexeloc . SubStr(rewtmpd,2,255)
+				readvl := raexedir . SubStr(rewtmpd,2,255)
 				iniwrite, "%readvl%",%curcfg%,OPTIONS,%A_LoopField%
 			}
 		gosub, %INPDBX%
@@ -25221,7 +25221,7 @@ Loop, parse,pathlocations,|
 		stringRight, rewtmpd, inivar,255
 		if (rewtmp = ":")
 			{
-				readvl := raexeloc . SubStr(rewtmpd,2,255)
+				readvl := raexedir . SubStr(rewtmpd,2,255)
 				iniwrite, "%readvl%",%curcfg%,OPTIONS,%A_LoopField%
 			}
 		gosub, %INPDBX%
@@ -25709,7 +25709,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		assetsdirectory := raexeloc . SubStr(rewtmpd,2,255)
+		assetsdirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 audioFilterDir:
@@ -25720,7 +25720,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		audioFilterDir := raexeloc . SubStr(rewtmpd,2,255)
+		audioFilterDir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 bundleAssetsDstPathSubdir:
@@ -25731,7 +25731,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		bundleAssetsDstPathSubdir := raexeloc . SubStr(rewtmpd,2,255)
+		bundleAssetsDstPathSubdir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 cacheDirectory:
@@ -25746,7 +25746,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		cacheDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		cacheDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentHistoryDir:
@@ -25757,7 +25757,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentHistoryDir := raexeloc . SubStr(rewtmpd,2,255)
+		contentHistoryDir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 coreAssetsDirectory:
@@ -25783,7 +25783,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		cursorDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		cursorDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 dynamicWallpapersDirectory:
@@ -25794,7 +25794,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		dynamicWallpapersDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		dynamicWallpapersDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 inputRemappingDirectory:
@@ -25805,7 +25805,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		inputRemappingDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		inputRemappingDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 joypadAutoconfigDir:
@@ -25816,7 +25816,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		joypadAutoconfigDir := raexeloc . SubStr(rewtmpd,2,255)
+		joypadAutoconfigDir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 libretroDirectory:
@@ -25827,7 +25827,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		libretroDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		libretroDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 oskOverlayDirectory:
@@ -25838,7 +25838,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		oskOverlayDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		oskOverlayDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 overlayDirectory:
@@ -25849,7 +25849,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		overlayDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		overlayDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 playlistDirectory:
@@ -25860,7 +25860,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		playlistDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		playlistDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 recordingConfigDirectory:
@@ -25871,7 +25871,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		recordingConfigDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		recordingConfigDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 recordingOutputDirectory:
@@ -25882,7 +25882,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		recordingOutputDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		recordingOutputDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 resamplerDirectory:
@@ -25893,7 +25893,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		resamplerDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		resamplerDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 rguiBrowserDirectory:
@@ -25904,7 +25904,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		rguiBrowserDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		rguiBrowserDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 rguiConfigDirectory:
@@ -25915,7 +25915,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		rguiConfigDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		rguiConfigDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 savefileDirectory:
@@ -25926,7 +25926,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		savefileDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		savefileDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 savestateDirectory:
@@ -25937,7 +25937,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		savestateDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		savestateDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 screenshotDirectory:
@@ -25948,7 +25948,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		screenshotDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		screenshotDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 systemDirectory:
@@ -25959,7 +25959,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		systemDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		systemDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 thumbnailsDirectory:
@@ -25970,7 +25970,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		thumbnailsDirectory := raexeloc . SubStr(rewtmpd,2,255)
+		thumbnailsDirectory := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 videoFilterDir:
@@ -25981,7 +25981,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		videoFilterDir := raexeloc . SubStr(rewtmpd,2,255)
+		videoFilterDir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 videoShaderDir:
@@ -25992,7 +25992,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		videoShaderDir := raexeloc . SubStr(rewtmpd,2,255)
+		videoShaderDir := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26005,7 +26005,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		bundleAssetsDstPath := raexeloc . SubStr(rewtmpd,2,255)
+		bundleAssetsDstPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 bundleAssetsSrcPath:
@@ -26016,7 +26016,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		bundleAssetsSrcPath := raexeloc . SubStr(rewtmpd,2,255)
+		bundleAssetsSrcPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 cheatDatabasePath:
@@ -26027,7 +26027,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		cheatDatabasePath := raexeloc . SubStr(rewtmpd,2,255)
+		cheatDatabasePath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentfavoritespath:
@@ -26038,7 +26038,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentfavoritespath := raexeloc . SubStr(rewtmpd,2,255)
+		contentfavoritespath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentDatabasePath:
@@ -26049,7 +26049,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentDatabasePath := raexeloc . SubStr(rewtmpd,2,255)
+		contentDatabasePath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentHistoryPath:
@@ -26060,7 +26060,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentHistoryPath := raexeloc . SubStr(rewtmpd,2,255)
+		contentHistoryPath := raexedir . SubStr(rewtmpd,2,255)
 		ifnotexist,%contenthistorypath%
 			{
 				contentHistoryPath= %historyLoc%
@@ -26075,7 +26075,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentImageHistoryPath := raexeloc . SubStr(rewtmpd,2,255)
+		contentImageHistoryPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentMusicHistoryPath:
@@ -26086,7 +26086,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentMusicHistoryPath := raexeloc . SubStr(rewtmpd,2,255)
+		contentMusicHistoryPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 contentVideoHistoryPath:
@@ -26097,7 +26097,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		contentVideoHistoryPath := raexeloc . SubStr(rewtmpd,2,255)
+		contentVideoHistoryPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 coreOptionsPath:
@@ -26108,7 +26108,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		coreOptionsPath := raexeloc . SubStr(rewtmpd,2,255)
+		coreOptionsPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 coreUpdaterBuildbotAssetsUrl:
@@ -26119,7 +26119,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		coreUpdaterBuildbotAssetsUrl := raexeloc . SubStr(rewtmpd,2,255)
+		coreUpdaterBuildbotAssetsUrl := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 coreUpdaterBuildbotUrl:
@@ -26130,7 +26130,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		coreUpdaterBuildbotUrl := raexeloc . SubStr(rewtmpd,2,255)
+		coreUpdaterBuildbotUrl := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 libretroInfoPath:
@@ -26141,7 +26141,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		libretroInfoPath := raexeloc . SubStr(rewtmpd,2,255)
+		libretroInfoPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 menuWallpaper:
@@ -26152,7 +26152,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		menuWallpaper := raexeloc . SubStr(rewtmpd,2,255)
+		menuWallpaper := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 videoFilter:
@@ -26164,7 +26164,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		videoFilter := raexeloc . SubStr(rewtmpd,2,255)
+		videoFilter := raexedir . SubStr(rewtmpd,2,255)
 	}
 splitpath, inival2, toFltLst
 guicontrol,, FLTFILE, |nul|%toFltLst%||%fltlist%
@@ -26177,7 +26177,7 @@ stringLeft, rewtmp, inival2,1
 stringRight, rewtmpd, inival2,255
 if (rewtmp = ":")
 	{
-		videoFontPath := raexeloc . SubStr(rewtmpd,2,255)
+		videoFontPath := raexedir . SubStr(rewtmpd,2,255)
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -27553,7 +27553,7 @@ videoShader:
 gui, submit, nohide
 videoShader= %inival2%
 splitpath, inival2, toShdList,,toshx
-fileread,fijn,%raexeloc%\shaders\presets\global.%toshx%
+fileread,fijn,%raexedir%\shaders\presets\global.%toshx%
 INFN= 
 ifnotinstring,fijn,%toshdlist%
 	{
@@ -27563,7 +27563,7 @@ ifnotinstring,fijn,%toshdlist%
 				tonex2= 
 				stringsplit,tonex,fijn,"
 				;"
-				stringreplace,infn,tonex2,..\,%raexeloc%\shaders\,All
+				stringreplace,infn,tonex2,..\,%raexedir%\shaders\,All
 				splitpath,infn,toShdList	
 				videoShader= %infn%
 				iniwrite, "%videoShader%",%curcfg%,OPTIONS,video_shader			
@@ -29669,7 +29669,7 @@ guicontrol,disable,LNCHPT
 guicontrol,disable,EMUDETECT
 SB_SetText("...Indexing Emulator Directory....")
 RACORETAB= |Netplay|Cores
-if ((raexefile = "NOT-FOUND.exe") or (raexefile = ""))
+if (raexefile = "")
 	{
 		RACORETAB=
 	}
@@ -30032,7 +30032,7 @@ Loop, Parse, amultmp,`n`r
 		emunumtot+=1
 	}
 ratstchk=
-IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
+IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_location
 if (fileexist(ratstchk))
 	{
 		if (INITIAL <> 1)
@@ -30047,22 +30047,21 @@ if (fileexist(ratstchk))
 								feavail.= "retroarch" . "|"
 							}
 					}
-				IniWrite, "%raexeloc%\%raexefile%",Apps.ini,EMULATORS,retroarch
+				IniWrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
 				IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
-				IniWrite, "%raexeloc%\%raexefile%",Assignments.ini,Assignments,retroarch
+				IniWrite, "%raexedir%\%raexefile%",Assignments.ini,Assignments,retroarch
 			}
 	}
-IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_executable
-if ((ratstchk = "NOT-FOUND.exe") or (ratstchk = ""))
+IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_location
+if (ratstchk = "")
 	{
 		iniread,raexetmp,Apps.ini,EMULATORS,retroarch
 		if ((raexetmp <> "ERROR") && (raexetmp <> ""))
 			{
 				ifexist,%raexetmp%
 					{
-						splitpath,raexetmp,raexefile,raexeloc
-						iniwrite,"%raexeloc%",Settings.ini,GLOBAL,retroarch_location
-						iniwrite,"%raexefile%",Settings.ini,GLOBAL,retroarch_executable
+						splitpath,raexetmp,raexefile,raexedir
+						iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 					}
 			}
 	}
@@ -30136,7 +30135,7 @@ Loop,Parse,asig,`n`r
 		nevfdg= 
 		if (INITIAL = 1)
 			{
-				ifexist,%raexeloc%\%raexefile%
+				ifexist,%raexedir%\%raexefile%
 					{
 						Loop, parse,stfe,|
 							{
@@ -30144,7 +30143,7 @@ Loop,Parse,asig,`n`r
 									{
 										continue
 									}
-								ifexist,%raexeloc%\cores\%a_loopField%
+								ifexist,%raexedir%\cores\%a_loopField%
 									{
 										if (!instr(nevfdg,A_LoopField . "|") && !instr(fej,A_LoopField . "|"))
 											{
@@ -30238,7 +30237,7 @@ iniread,nmchkr,Assignments.ini,ASSIGNMENTS,%POPADC%
 			return
 		}
 stringRight,sysnw,POPADC, 25
-iniwrite, "%raexeloc%\%raexefile%",Assignments.ini,ASSIGNMENTS,%POPADC%
+iniwrite, "%raexedir%\%raexefile%",Assignments.ini,ASSIGNMENTS,%POPADC%
 if (sysnw <> "")
 	{
 		iniwrite, "%sysnw%",Assignments.ini,OVERRIDES,%POPADC%
@@ -32042,7 +32041,7 @@ stringreplace,plstrm,plstrm,-,,All
 poplind=
 ifinstring,pop_list,%HOSTINGROMS%|
 	{
-		ifexist, %raexeloc%\cores\%CONNECTINGCORE%
+		ifexist, %raexedir%\cores\%CONNECTINGCORE%
 			{
 				guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
 			}
@@ -32076,7 +32075,7 @@ ifinstring,pop_list,%HOSTINGROMS%|
 poplind=
 ifinstring,plstrm,%HOSTINGROMC%|
 	{
-		ifexist, %raexeloc%\cores\%CONNECTINGCORE%
+		ifexist, %raexedir%\cores\%CONNECTINGCORE%
 			{
 				guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
 			}
@@ -32107,7 +32106,7 @@ ifinstring,plstrm,%HOSTINGROMC%|
 poplind=
 ifinstring,plstrm,%HOSTINGROMX%
 	{
-		ifexist, %raexeloc%\cores\%CONNECTINGCORE%
+		ifexist, %raexedir%\cores\%CONNECTINGCORE%
 			{
 				guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
 			}
@@ -32171,7 +32170,7 @@ guicontrol,enable,ARCPOP
 if (arcpl <> "")
 	{
 		gosub, ArcPopulateList
-		ifexist, %raexeloc%\cores\%CONNECTINGCORE%
+		ifexist, %raexedir%\cores\%CONNECTINGCORE%
 		{
 			guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
 		}
@@ -33008,7 +33007,7 @@ PLISTYP:
 gui, submit, nohide
 guicontrolget,fenam,,PLISTTYP
 INPLAYL=
-if (fenam = "skeletonKeY")
+if (fenam = "skeletonKeY/XMB")
 	{
 		xmbtog= show
 		opltog= hide
@@ -33879,7 +33878,7 @@ if ((stevr <> "")&&(stevr <> "ERROR"))
 			{
 				SplitPath,A_LoopField,,,,matchinfo
 				matchinfo= %matchinfo%.info
-				Loop, Read, %raexeloc%\info\%matchinfo%
+				Loop, Read, %raexedir%\info\%matchinfo%
 					{
 						extoutp1=
 						extoutp2=
@@ -34463,7 +34462,7 @@ SB_SetText("Creating Playlist ... ")
 plsave= %playlistLoc%
 if (plsave = "")
 	{
-		plsave= %raexeloc%\playlists
+		plsave= %raexedir%\playlists
 	}
 coreloc= %libretroDirectory%
 plstdir= %playlistLoc%
@@ -34690,9 +34689,9 @@ if (TmplCfg = "")
 if (PGCONFG = 1)
 	{
 		gosub, getCREN
-		ifnotexist,,%raexeloc%\config\%corcfgnam%
+		ifnotexist,,%raexedir%\config\%corcfgnam%
 			{
-				FileCreateDir,%raexeloc%\config\%corcfgnam%
+				FileCreateDir,%raexedir%\config\%corcfgnam%
 			}
 		Loop,Parse,existlst,|
 			{
@@ -34700,7 +34699,7 @@ if (PGCONFG = 1)
 				taih2=
 				stringsplit,taih,A_LoopField,>
 				splitpath,taih1,romn, ,romext,romname
-				FileCopy,%TemplCfg%,%raexeloc%\config\%corcfgnam%\%romname%.cfg,%PLOVR%
+				FileCopy,%TemplCfg%,%raexedir%\config\%corcfgnam%\%romname%.cfg,%PLOVR%
 			}
 	}
 guicontrol, enable, CLRPP
@@ -34808,7 +34807,7 @@ ARCCORES=
 ifinstring,SysLLst,%EXTRSYS%=
 	{
 		iniread,symfc,sets\emucfgPresets.set,%EXTRSYS%,SUPCORE
-		if (raexefile <> "NOT-FOUND.exe")
+		if (raexefile <> "")
 			{
 				Loop, Parse, symfc,|
 					{
@@ -61536,7 +61535,6 @@ if (sysfnd = "")
 				stringsplit,kvi,A_LoopField,=
 				ifinstring,curtxt,_
 					{
-						msgbox,,,kvi2=%kvi2%`nsnlk=%snlk%
 						stringreplace,snlk,cutxt,_,,All
 						if (kvi2 = snlk)
 							{
@@ -78690,7 +78688,7 @@ ifinstring,SysLLst,%sysrev%=
 					}
 			}
 		iniread,esfc,sets\emuCfgPresets.set,%sysrev%,SUPCORE
-		if ((raexefile <> "NOT-FOUND.exe")&&(raexefile <> ""))
+		if (raexefile <> "")
 			{
 				Loop,parse,esfc,`n`r
 					{
@@ -79454,12 +79452,12 @@ if (RUNPLRAD = 1)
 		stringmid,romhnck,romf,2,1
 		if (romhnck <> ":")
 			{
-				ifexist, %raexeloc%\%romfj1%
+				ifexist, %raexedir%\%romfj1%
 					{
-						romf= %raexeloc%\%romfj1%
+						romf= %raexedir%\%romfj1%
 						if (romfj2 <> "")
 							{
-								romf= %raexeloc%\%romfj1%#%romfj2%
+								romf= %raexedir%\%romfj1%#%romfj2%
 							}
 					}
 			}
@@ -79473,7 +79471,7 @@ ifinstring,coreselv,_libretro.dll
 			{
 				stringreplace,ccv,coreselv,_libretro.dll
 				gosub, getCREN
-				Loop,%raexeloc%\config\%corcfgnam%\%romname%.*
+				Loop,%raexedir%\config\%corcfgnam%\%romname%.*
 					{
 						if (A_Index = 1)
 							{
@@ -79684,8 +79682,7 @@ CreateConfig:
 filedelete, Settings.ini
 FileAppend, [GLOBAL]`n, Settings.ini
 FileAppend, working_config = "%A_WorkingDir%\config.cfg"`n, Settings.ini
-FileAppend, retroarch_location = "%raexeloc%"`n, Settings.ini
-FileAppend, retroarch_executable = "%RaExeFile%"`n, Settings.ini
+FileAppend, retroarch_location = "%raexedir%\%RaExeFile%"`n, Settings.ini
 FileAppend, last_rom = "%romf%"`n, Settings.ini
 FileAppend, last_core = "%LCORE%"`n, Settings.ini
 FileAppend, last_connect = "%IPA%.%IPB%.%IPC%.%IPD%"`n, Settings.ini
@@ -80030,9 +80027,9 @@ if (romf <> romfj1)
 stringmid,romhnck,romfj1,2,1
 if (romhnck <> ":")
 	{
-		ifexist, %raexeloc%\%romfj1%
+		ifexist, %raexedir%\%romfj1%
 			{
-				romf= %raexeloc%\%romfj1%
+				romf= %raexedir%\%romfj1%
 			}
 	}
 splitpath,romf,romtitle,rompth,romext,romname,romdrv
@@ -80591,12 +80588,12 @@ stringsplit, romfj, romf,#
 stringmid,romhnck,romf,2,1
 if (romhnck <> ":")
 	{
-		ifexist, %raexeloc%\%romfj1%
+		ifexist, %raexedir%\%romfj1%
 			{
-				romf= %raexeloc%\%romfj1%
+				romf= %raexedir%\%romfj1%
 				if (romfj2 <> "")
 					{
-						romf= %raexeloc%\%romfj1%#%romfj2%
+						romf= %raexedir%\%romfj1%#%romfj2%
 					}
 			}
 	}
@@ -80615,7 +80612,7 @@ if (PGM = 1)
 	{
 		stringreplace,ccv,lcore,_libretro.dll
 		gosub, getCREN
-		Loop,%raexeloc%\config\%corcfgnam%\%romna%.*
+		Loop,%raexedir%\config\%corcfgnam%\%romna%.*
 			{
 				if (A_Index = 1)
 					{
@@ -80634,8 +80631,8 @@ if (CSTCMD = 1)
 				SB_SetText("")
 			}
 		gosub, PreOpt
-		SB_SetText(" " raexeloc " \ " RaExeFile " " CSTRAOPTF " " RUNROM " -L" LCORE " " CSTRAARGF " |||from " ~emu directory " ")
-		Runwait, "%raexeloc%\%RaExeFile%" %CSTRAOPTF% %RUNROM% %CSTRAARGF%,%raexeloc%,,
+		SB_SetText(" " raexedir " \ " RaExeFile " " CSTRAOPTF " " RUNROM " -L" LCORE " " CSTRAARGF " |||from " ~emu directory " ")
+		Runwait, "%raexedir%\%RaExeFile%" %CSTRAOPTF% %RUNROM% %CSTRAARGF%,%raexedir%,,
 		gosub, PostOpt
 		return
 	}
@@ -80655,8 +80652,8 @@ guicontrol, Disable, LNCHBUT
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 gosub, PreOpt
-SB_SetText(" " raexeloc " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
-Runwait, "%raexeloc%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexeloc%,,
+SB_SetText(" " raexedir " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
+Runwait, "%raexedir%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexedir%,,
 gosub, PostOpt
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
@@ -80764,7 +80761,7 @@ gosub resetSYS
 gosub resetRunList
 gosub,PlaylistInit
 gosub, getinivars
-if (raexefile <> "NOT-FOUND.exe")
+if (raexefile <> "")
 	{
 		gosub resetGL
 		gosub resetSL
@@ -80921,7 +80918,6 @@ if (runltmp = "|")
 	{
 		stringtrimleft,runlist,runlist,1
 	}
-	
 guicontrol,enable,GCUPDT
 guicontrol,, CRNTCORS, |%coreNamz%
 guicontrol,, ARCCORES, |%lastcore%||%runlist%
@@ -81348,7 +81344,7 @@ if (skeldrv <> oldradrv)
 	}
 Gui, Add, Button,x333 y0 w43 h22 vSETPRA gSetPRA, Select
 Gui, Add, Button, x333 y24 w43 h21 vSETPSK gSetPSK, Select
-Gui,Add,Edit, hwndEdtHndl107 x6 y0 w323 h21 vDisplRaTXT gDisplRaTXT, %pradir%
+Gui,Add,Edit, hwndEdtHndl107 x6 y0 w323 h21 vDisplRaTXT gDisplRaTXT, %reconfRA%
 Gui,Add,Edit, hwndEdtHndl108 x6 y24 w323 h21 vDisplSkTXT gDisplSkTXT, %oldskel%
 Gui, Add, Button, x4 y63 w29 h20 vSeekRep gSeekRep, File
 Gui, Add, CheckBox, x37 y66 w118 h14 vTGLREP gTglRep, Replace instances of
@@ -81374,7 +81370,7 @@ if (pradfile = "")
 		goto, QUITOUT
 	}
 SplitPath,pradfile,praxe,prapth,,pradrv
-guicontrol,,DisplRaTXT, %pradir%
+guicontrol,,DisplRaTXT, %pradfile%
 return
 SetPSK:
 gui,submit,nohide
@@ -81423,10 +81419,11 @@ Portablocal:
 gui,submit,nohide
 guicontrolget, Ppltxt,,PplTxt
 return
+
 InjPortable:
 gui,submit,nohide
 guicontrolget,Ppltxt,,PplTxt
-guicontrolget,pradir,,DisplRaTXT
+guicontrolget,DisplRaTXT,,DisplRaTXT
 guicontrolget,skeloc,,DisplSkTXT
 guicontrolget,MKPDTI,,MKPDTI
 if (MKPDTI = 1)
@@ -81434,7 +81431,7 @@ if (MKPDTI = 1)
 	FileDelete,%A_Desktop%\skeletonKey.lnk
 	FileCreateShortcut, %skeloc%\skeletonKey.exe, %A_Desktop%\skeletonKey.lnk, %skeloc%\, , Portable skeletonKey, %skeloc%\site\key.ico
 }
-IniWrite, "%pradir%", Settings.ini,GLOBAL,retroarch_location
+IniWrite, "%DisplRaTXT%", Settings.ini,GLOBAL,retroarch_location
 IniWrite, "%skeloc%\config.cfg", Settings.ini,GLOBAL,working_config
 IniWrite, "%systemp%", config.cfg,OPTIONS,cache_directory
 if (TGLREP = 1)

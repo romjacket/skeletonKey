@@ -23,7 +23,8 @@ Atari800=Atari800/Atari800.7z=Atari800.exe=.atari800.cfg=|=*.state
 Atari800win=Atari800win/Atari800Win.7z=Atari800Win.exe=
 BSL=BSL/BSL.7z=BSL.exe=BSL.ini
 BeebEm=BeebEm/BeebEm.7z=BeebEm.exe=UserData\Preferences.cfg=|=UserData\BeebState\*.*
-bsnes=bsnes/bsnes.7z=bsnes=*.bml=|=
+bsnes=bsnes/bsnes.7z=bsnes.exe=*.bml=|=
+byuu=byuu/byuu.7z=byuu.exe=*settings.bml
 Bizhawk=Bizhawk/Bizhawk.7z=EmuHawk.exe=
 pcae=pcae/pcae.7z=pcaewin.exe=pcaewin.ini=
 rainbow=rainbow/rainbow.7z=rainbow 2.2.exe=rainbow.config=

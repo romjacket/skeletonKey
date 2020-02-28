@@ -1,9 +1,9 @@
 [GLOBAL]
 CLOUDLOC=
-HOSTINGURL=
+HOSTINGURL=https://github.com/romjacket>http://github.com/jomracket
 ALTHOST=
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
-IP_LOOKUP=
+IP_LOOKUP=http://www.netikus.net/show_ip.html
 UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 RASTABLE=1.8.4
 

@@ -1,181 +1,181 @@
 [RJ]
-ESTHEME=/esthemes/raw/master/rj.zip
-PGTHEME=/pgthemes/raw/master/gameOS.zip
-RFTHEME=/rfthemes/releases/download/RJ/RJ.7z
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/rj.zip
+PGTHEME=https://github.com/romjacket>http://github.com/jomracket/pgthemes/raw/master/gameOS.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/releases/download/RJ/RJ.7z
 RFEXPTH=
-Photos=/ORIGINAL/raw/master/Photos.7z
-Photos_Directory=/ORIGINAL/raw/master/Photos
-Backdrop=/ORIGINAL/raw/master/Backdrops.7z
-Backdrop_Directory=/ORIGINAL/raw/master/Backdrops
-Icon=/ORIGINAL/raw/master/Icons.7z
-Icon_Directory=/ORIGINAL/raw/master/Icons
-Logo=/ORIGINAL/raw/master/Logos.7z
-Logo_Directory=/ORIGINAL/raw/master/Logos
-Video=/ORIGINAL/raw/master/Videos
-Video_Directory=/ORIGINAL/raw/master/Videos
-Meta=/ORIGINAL/raw/master/MetaData
-Meta_Directory=/ORIGINAL/raw/master/MetaData
+Photos=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Photos.7z
+Photos_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Photos
+Backdrop=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Backdrops.7z
+Backdrop_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Backdrops
+Icon=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Icons.7z
+Icon_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Icons
+Logo=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Logos.7z
+Logo_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Logos
+Video=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Videos
+Video_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/Videos
+Meta=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/MetaData
+Meta_Directory=https://github.com/romjacket>http://github.com/jomracket/ORIGINAL/raw/master/MetaData
 
 [RAW]
-RFTHEME=/rfthemes/raw/master/raw.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/raw.zip
 RFEXPTH=layouts
 
 [carousel]
-RFTHEME=/rfthemes/raw/master/carousel.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/carousel.zip
 RFEXPTH=layouts
 
 [flatio]
-RFTHEME=/rfthemes/raw/master/flatio.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/flatio.zip
 RFEXPTH=layouts
 
 [pandorasbox]
-RFTHEME=/rfthemes/raw/master/pandorasbox.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/pandorasbox.zip
 RFEXPTH=layouts
 
 [RetroSpin]
-RFTHEME=/rfthemes/raw/master/retrospin.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/retrospin.zip
 RFEXPTH=layouts
 
 [Aura]
-RFTHEME=/rfthemes/raw/master/aura.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/aura.zip
 RFEXPTH=
 
 [Animatic]
-RFTHEME=/rfthemes/raw/master/animatic.zip
+RFTHEME=https://github.com/romjacket>http://github.com/jomracket/rfthemes/raw/master/animatic.zip
 RFEXPTH=
 
 [SpaceOddity]
-ESTHEME=/esthemes/raw/master/SpaceOddity.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/SpaceOddity.zip
 
 [gameOS]
-PGTHEME=/pgthemes/raw/master/gameOS.zip
+PGTHEME=https://github.com/romjacket>http://github.com/jomracket/pgthemes/raw/master/gameOS.zip
 
 [magazinemadness]
-ESTHEME=/esthemes/releases/download/MAGAZINEMADNESS/magazinemadness.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/MAGAZINEMADNESS/magazinemadness.zip
 
 [magazinemadness2]
-ESTHEME=/esthemes/releases/download/MAGAZINEMADNESS2/magazinemadness2.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/MAGAZINEMADNESS2/magazinemadness2.zip
 
 [RVGM]
-ESTHEME=/esthemes/releases/download/RVGM/RVGM.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/RVGM/RVGM.zip
 
 [cygnus]
-ESTHEME=/esthemes/releases/download/CYGNUS/cygnus.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/CYGNUS/cygnus.zip
 
 [Game-Vault]
-ESTHEME=/esthemes/releases/download/Game-Vault/Game-Vault.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/Game-Vault/Game-Vault.zip
 
 [NextFull]
-ESTHEME=/esthemes/releases/download/NextFull/NextFull.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/NextFull/NextFull.zip
 
 [tronkyjared]
-ESTHEME=/esthemes/releases/download/TRONKY/tronkyjared.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/TRONKY/tronkyjared.zip
 
 [tronkyfan]
-ESTHEME=/esthemes/releases/download/TRONKY/tronkyfran.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/TRONKY/tronkyfran.zip
 
 [Uniflyered]
-ESTHEME=/esthemes/releases/download/UNIFLYERED/uniflyered.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/releases/download/UNIFLYERED/uniflyered.zip
 
 [es-theme-soda-master]
 ESTHEME=https://github.com/RetroHursty69/es-theme-soda/archive/master.zip
 
 [BMO]
-ESTHEME=/esthemes/raw/master/BMO.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/BMO.zip
 
 [Rom-core]
-ESTHEME=/esthemes/raw/master/Rom-core.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/Rom-core.zip
 
 [SpaceOddity]
-ESTHEME=/esthemes/raw/master/SpaceOddity.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/SpaceOddity.zip
 
 [SuperRetroboy]
-ESTHEME=/esthemes/raw/master/SuperRetroboy.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/SuperRetroboy.zip
 
 [angular]
-ESTHEME=/esthemes/raw/master/angular.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/angular.zip
 
 [carbon-centered]
-ESTHEME=/esthemes/raw/master/carbon-centered.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/carbon-centered.zip
 
 [carbon-nometa]
-ESTHEME=/esthemes/raw/master/carbon-nometa.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/carbon-nometa.zip
 
 [clarity]
-ESTHEME=/esthemes/raw/master/clarity.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/clarity.zip
 
 [clean-look]
-ESTHEME=/esthemes/raw/master/clean-look.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/clean-look.zip
 
 [fundamental]
-ESTHEME=/esthemes/raw/master/fundamental.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/fundamental.zip
 
 [nbba]
-ESTHEME=/esthemes/raw/master/nbba.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/nbba.zip
 
 [neon-overdrive-blue-blue-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-blue-blue-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-blue-blue-gradient.zip
 
 [neon-overdrive-green-blue-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-green-blue-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-green-blue-gradient.zip
 
 [neon-overdrive-pink-blue-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-pink-blue-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-pink-blue-gradient.zip
 
 [neon-overdrive-pink-green-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-pink-green-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-pink-green-gradient.zip
 
 [neon-overdrive-purple-red-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-purple-red-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-purple-red-gradient.zip
 
 [neon-overdrive-red-green-gradient]
-ESTHEME=/esthemes/raw/master/neon-overdrive-red-green-gradient.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/neon-overdrive-red-green-gradient.zip
 
 [nes-mini]
-ESTHEME=/esthemes/raw/master/nes-mini.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/nes-mini.zip
 
 [nostalgic]
-ESTHEME=/esthemes/raw/master/nostalgic.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/nostalgic.zip
 
 [pixel]
-ESTHEME=/esthemes/raw/master/pixel.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/pixel.zip
 
 [raohmaru-dark]
-ESTHEME=/esthemes/raw/master/raohmaru-dark.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/raohmaru-dark.zip
 
 [retrorama]
-ESTHEME=/esthemes/raw/master/retrorama.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/retrorama.zip
 
 [retrowave]
-ESTHEME=/esthemes/raw/master/retrowave.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/retrowave.zip
 
 [rj]
-ESTHEME=/esthemes/raw/master/rj.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/rj.zip
 
 [simple-dark]
-ESTHEME=/esthemes/raw/master/simple-dark.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/simple-dark.zip
 
 [simple]
-ESTHEME=/esthemes/raw/master/simple.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/simple.zip
 
 [simplified-static-canela]
-ESTHEME=/esthemes/raw/master/simplified-static-canela.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/simplified-static-canela.zip
 
 [snes-mini]
-ESTHEME=/esthemes/raw/master/snes-mini.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/snes-mini.zip
 
 [ssimplebox]
-ESTHEME=/esthemes/raw/master/ssimplebox.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/ssimplebox.zip
 
 [super-arcade1up]
-ESTHEME=/esthemes/raw/master/super-arcade1up.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/super-arcade1up.zip
 
 [switch-dark]
-ESTHEME=/esthemes/raw/master/switch-dark.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/switch-dark.zip
 
 [switch]
-ESTHEME=/esthemes/raw/master/switch.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/switch.zip
 
 [zoid]
-ESTHEME=/esthemes/raw/master/zoid.zip
+ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/zoid.zip
 
