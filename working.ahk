@@ -117,7 +117,7 @@ if (getport = "portable")
 			}
 		SETPORTABLE= 1
 		goto, makePortable
-exitapp
+		exitapp
 	}
 DragonDrop:
 if (romf <> "")
@@ -313,7 +313,7 @@ if (HISAPND = 1)
 	{
 		HISAPNDCHK= Checked
 	}
-IniRead, RaExeFile, Settings.ini,GLOBAL,retroarch_executable
+IniRead, RaExeloc, Settings.ini,GLOBAL,retroarch_location
 IniRead, RAVERS, Settings.ini,GLOBAL,retroarch_Version
 if (RAVERS = "ERROR")
 	{
@@ -506,7 +506,7 @@ if (INITIAL = 1)
 	{
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
-if (raexefile <> "")
+if (raexeloc <> "")
 	{
 		ifNotExist, sl.ini
 			{
@@ -587,7 +587,7 @@ if (INITIAL = 1)
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
 RACORETAB= |Netplay|Cores
-if (raexefile = "")
+if (RaExeloc = "")
 	{
 		LNCHPT= 1
 		RACORETAB=
@@ -14615,7 +14615,6 @@ ifinstring,SLCTCORES,stable|
 			}
 	}
 updprts=
-msgbox,,,raexedir=%raexedir%
 Loop, Parse, SLCTCORES,|
 	{
 		if (A_LoopField = "")
@@ -14954,7 +14953,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;     XTRACT RA   ;;;;;;;;;;;;;;;;;;;;;;;;
 XTRACTRA:
-msgbox,,,save=%save%`nraexeloc=%raexeloc%`nxtractloc=%xtractloc%
 splitpath, save, raname, savepth, ext, ranoxt, radrive
 SB_SetText(" " save " " "extracting")
 guicontrolget,BCKCORE,,BCKCORE
@@ -14971,7 +14969,8 @@ if (BCKCORE = 1)
 			}
 	}
 RunWait, %comspec% cmd /c " "bin\7za.exe" x -y "%save%" -O"%XTRACTLOC%" ",,hide
-splitpath,XTRACTLOC,raexefile,raexedir
+raexedir= %xtractloc%
+raexefile= retroarch.exe
 SB_SetText(" " save " " "was extracted")
 iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 iniread,racht,Apps.ini,EMULATORS,retroarch
@@ -14989,7 +14988,6 @@ if ((racht = "ERROR") or (racht = ""))
 			}
 		iniwrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
 	}
-msgbox,,,	%raexedir%\%raexefile%
 iniread,racht,Assignments.ini,ASSIGNMENTS,retroarch
 raexist= 1
 if ((racht = "ERROR") or (racht = ""))
@@ -24833,7 +24831,7 @@ if (raexedirtmp = "")
 						locfnd= 1
 						raexefile= 
 					}
-				iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
+				iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 				raexepath= %raexedir%\%raexefile%
 				goto, INITIATEGEN
 			}
@@ -24881,8 +24879,8 @@ raexefile=
 ifexist, %raexedir%\retroarch.exe
 	{
 		raexefile= retroarch.exe
+		iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 	}
-iniwrite, "%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 if (raexefile = "")
 	{
 	   RACORETAB=
@@ -24908,6 +24906,7 @@ if (CORECOPY = 1)
 		FileCopy,%raexedir%\retroarch-core-options.cfg,%racoreopt%,1
 	}
 return
+
 ;{;;;;;;;;;;;;  RESET SHADERS  ;;;;;;;;;;;;;
 resetGL:
 Menu,Tray,Tip, Generating GLSL Shader cache
@@ -24929,7 +24928,8 @@ Loop,Read,gl.ini
 	{
 		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 	}
-   return
+return
+
 resetSL:
 Menu,Tray,Tip, Generating Slang Shader cache
 filedelete, sl.ini
@@ -79682,7 +79682,7 @@ CreateConfig:
 filedelete, Settings.ini
 FileAppend, [GLOBAL]`n, Settings.ini
 FileAppend, working_config = "%A_WorkingDir%\config.cfg"`n, Settings.ini
-FileAppend, retroarch_location = "%raexedir%\%RaExeFile%"`n, Settings.ini
+FileAppend, retroarch_location = ""`n, Settings.ini
 FileAppend, last_rom = "%romf%"`n, Settings.ini
 FileAppend, last_core = "%LCORE%"`n, Settings.ini
 FileAppend, last_connect = "%IPA%.%IPB%.%IPC%.%IPD%"`n, Settings.ini
