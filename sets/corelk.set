@@ -75,6 +75,7 @@ flycast WinCE|Sega - Dreamcast|flycast_wince|0
 flycast|Sega - Dreamcast|flycast|0
 Redream|Sega - Dreamcast|redream|0
 ScummVM|ScummVM - ScummVM|scummvm|
+mesen-s|Nintendo - Super Nintendo Entertainment System|mesen-s
 Snes9x 2002|Nintendo - Super Nintendo Entertainment System|snes9x2002
 Snes9x 2005|Nintendo - Super Nintendo Entertainment System|snes9x2005
 Snes9x 2005 plus|Nintendo - Super Nintendo Entertainment System|snes9x2005_plus
@@ -99,6 +100,7 @@ Blue-MSX|Microsoft - MSX|bluemsx|0
 handy|Atari - Lynx|handy|0
 hatari|Atari - ST|hatari|0
 x64|Commodore - 64|x64|0
+x1|Sharp - X1|x1|0
 Vice|Commodore - 64|vice_x64|0
 yabause|Sega - Saturn|yabause|0
 yabasanshiro|Sega - Saturn|yabasanshiro|0

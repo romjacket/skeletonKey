@@ -47,6 +47,9 @@ RFEXPTH=
 [SpaceOddity]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/SpaceOddity.zip
 
+[switchOS]
+PGTHEME=[HOSTINGURL]/pgthemes/raw/master/switchOS.zip
+
 [gameOS]
 PGTHEME=[HOSTINGURL]/pgthemes/raw/master/gameOS.zip
 

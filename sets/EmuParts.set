@@ -272,6 +272,7 @@ macmini=macmini/macmini-[ARCH].zip=macmini.exe=
 mastersystem=mastersystem/mastersystem.7z=mastersystem.exe=mastersystem.ini=
 meka=meka/meka.7z=mekaw.exe=
 melonDS=melonDS/melonDS.7z=melonDS.exe=
+noods=noods/noods.7z=noods.exe=	
 mesadx=mesadx/mesadx.7z=MesaDX.exe=
 mgba=mgba/mgba-[ARCH].7z=mgba.exe=mgba.ini
 micro64=micro64/micro64.7z=micro64.exe=
@@ -342,13 +343,14 @@ rpcemu=rpcemu/rpcemu.7z=RPCEmu-Recompiler.exe=
 gpcs4=gpcs4/gpcs4.7z=GPCS4.exe=|=|=|=|=|=|
 FBNeo=FBNeo/FBNeo-[ARCH].7z=FBNeo.exe=|=|=|=|=|=|
 PS4Delta=PS4Delta/PS4Delta.7z=PS4Delta.exe=|=|=|=|=|
-duckstation=duckstation/duckstation.7z=duckstation-qt-x64-ReleaseLTCG.exe=|=|=|=|=|
+duckstation=duckstation/duckstation.7z=duckstation-qt-x64-ReleaseLTCG.exe=qt.conf=|=|=|=|
 rpcs3=rpcs3/rpcs3.7z=rpcs3.exe=config*.yml=|=|=|=|=|
 sc3000=sc3000/sc3000.7z=sc3000.exe=sc3000.ini=
 scummvm=scummvm/scummvm.7z=scummvm.exe=
 scv=scv/scv.7z=scv.exe=scv.ini=
 sharpchip8=sharpchip8/sharpchip8.7z=SharpChip-8.exe=
 snes9x=snes9x/snes9x-[ARCH].7z=snes9x.exe=snes9x.conf=Saves\*.sram=Saves\*.00*
+snes9k=snes9k/snes9k.7z=snes9k.exe=snes9x.conf=Saves\*.sram=Saves\*.00*
 softvms=softvms/softvms.7z=VMS.exe=
 galaxywin=galaxywin/galaxywin.7z=Galaxy.exe=
 sorcerer=sorcerer/sorcerer.7z=WSorcer.exe=default.ini|WSORCER.ini=

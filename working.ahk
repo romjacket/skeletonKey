@@ -1967,7 +1967,7 @@ Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst, Install
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
 Gui, Add, Text, x288 y58 h13 Center vEINSTTXT, Change Install Location
-Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +ReadOnly vEINSTLOC,
+Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +0x400000 +ReadOnly vEINSTLOC,
 Gui, Add, Button, x382 y207 w75 h23 vROMDLOC gRomDLoc, ADD
 Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
 Gui, Add, Text, x288 y212 h17 vROMDTXT,-=>ROM Directories
@@ -9402,6 +9402,12 @@ guicontrolget,BCKCORE,,BCKCORE
 return
 RaList:
 gui,submit,nohide
+if (raexist = "")
+	{
+		guicontrol,,ExeList,1
+		SB_SetText("retroarch must be installed first")
+		goto, ExeList
+	}
 guicontrol,Show,GCUpdt
 guicontrol,Show,UPDCL
 guicontrol,Show,INSFLTR
@@ -12077,6 +12083,11 @@ gosub, AppParamPop
 if (selfnd <> "Other")
 	{
 		gosub, EAvailSel
+	}
+if (selfnd = "retroarch")
+	{
+		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+		raexist= 1
 	}
 return
 MultiAssign:

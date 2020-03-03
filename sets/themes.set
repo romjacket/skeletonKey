@@ -47,6 +47,9 @@ RFEXPTH=
 [SpaceOddity]
 ESTHEME=https://github.com/romjacket>http://github.com/jomracket/esthemes/raw/master/SpaceOddity.zip
 
+[switchOS]
+PGTHEME=https://github.com/romjacket>http://github.com/jomracket/pgthemes/raw/master/switchOS.zip
+
 [gameOS]
 PGTHEME=https://github.com/romjacket>http://github.com/jomracket/pgthemes/raw/master/gameOS.zip
 
