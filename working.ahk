@@ -2,7 +2,7 @@
 #SingleInstance Force
 setworkingdir= %A_ScriptDir%
 Process, Exist,
-CURPID= %ERRORLEVEL%
+CURPID= %ERRORLEVEL%	
 ;{#	########              FOLD                #############
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -852,7 +852,7 @@ COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDL
 SNES9XGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTJ|emuBUTK|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuCBXE|emuCHKA|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKP|emuCHKQ|emuCHKR|emuCHKG|emuCHKS|emuCHKT|emuDDLA|emuCBXF|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuEDTA|emuEDTC|emuEDTD|emuEDTF|emuEDTG|emuRad1A|emuRad1B|emuRad4A|emuRad4B|emuSLDA|emuCHKU
 SNES9XJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MAMEGUIITEMS=emuBUTJ|emuBUTK|emuBUTA|emuBUTB|emuCHKO|emuCHKD|emuCHKE|emuSLDA|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKP|emuCHKA|emuCHKB|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKC|emuCBXE|emuCBXA|emuCBXC|emuCBXB|emuCBXD|emuDDLE|emuDDLD|emuEDTA|emuDDLA|emuDDLB|emuDDLC|emuDDLG|emuEDTB|emuRad1A|emuRad1B
-MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTO|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B
+MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTO|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B|FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKF|FECHKO|FEDDLG|FECBXB|FERAD5A|FERAD5B|FERAD2A|FERAD2B|FERAD2C|FEBUTM|FELVA|FEDDLG|FEBUTI
 MAMEJOYGUIITEMS=INDWRN|emjDDLD|emjDDLB|emjDDLA|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|JOYCORE
 MEDNAFENGUIITEMS= emuBUTC|emuCHKD|emuCHKB|emuCHKC|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuDDLA|emuDDLB|emuDDLC|emuDDLD|emuDDLE|emuDDLF|emuDDLJ|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTH|emuEDTI|emuCBXA|emuCBXB|emuRAD11A|emuRAD11B|emuRAD8A|emuRAD8B|emuRad5B|emuRad5C|emuRad5A|emuRad9A|emuRad9B|emuRad9C|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuSLDA|emuSLDB|emuSLDE|emuSLDC
 MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCBA|emjBUTA|emjBUTB|emjDDLC|emjRAD3A|emjRAD3B|emjDDLB|JOYCORE|emjDDLC
@@ -5973,6 +5973,7 @@ if (sbrim = 1)
 filecopy,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%,%coverwimg%,1
 SB_SetText(" ..\scrapeArt\ ..." "\" imgdat " to " coverwimg "")
 sbrim= 0
+
 return
 cleanprgb:
 guicontrol,,FEPRGA,0
@@ -8961,15 +8962,15 @@ return
 CheckStatus:
 if (INTERRUPTDWN = 1)
 	{
-		FileGetSize, FSize, %_SaveFileAs%
+		FileGetSize, FSize, %save%
 		If (FSize >= Size)
 			{
 				Critical
 				SetTimer, CheckStatus, off
-				FileRead, FileData, %_SaveFileAs%
+				FileRead, FileData, %save%
 				MsgBox,,Aborted,Download Aborted,5
 				SetTimer, DownloadFileFunction_UpdateProgressBar, off
-				filedelete,%_SaveFileAs%
+				filedelete,%save%
 				SB_SetText("Download interrupted")
 				INTERRUPTDWN=
 			}
@@ -36247,6 +36248,7 @@ if (ENHAK = 0)
 		goto, archivesystems
 	}
 return
+
 CLRNETP:
 ARCRCLK=
 gui,submit,nohide
@@ -65797,7 +65799,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   MEDIA FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;  INITIALIZE  ;;;;;;;;;;;;;;;;;
-
 MediaToggle:
 gosub, FEUNPOP
 fetog= show
@@ -65971,7 +65972,7 @@ guicontrol,move,FEBUTH,x544 y474 w11 h16
 guicontrol,,FEBUTH,>
 guicontrol,hide,FEBUTI
 guicontrol,enable,FEBUTI
-guicontrol,move,FEBUTI,x620 y480 w45 h18
+guicontrol,move,FEBUTI,x458 y420 w83 h33
 guicontrol,,FEBUTI,cancel
 guicontrol,hide,FEBUTM
 guicontrol,enable,FEBUTM
@@ -66286,6 +66287,7 @@ return
 MediaFEBUTN:
 gosub, CLRNETP
 return
+
 MediaFEBUTO:
 efbab=FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN 
 loop,parse,efbab,|
@@ -66306,6 +66308,10 @@ getlogo=
 arpause= disable
 artinterupt= show
 gosub, ARTPAUSE
+guicontrol,show,FEBUTI
+guicontrol,hide,FEBUTA
+guicontrol,show,FEBUTI
+guicontrol,enable,FEBUTI
 artinterupt= hide
 arpause= enable
 guicontrolget,FERAD5A,,FERAD5A
@@ -66397,6 +66403,8 @@ dwnlenb:= (FECHKA + FECHKB + FECHKC + FECHKD + FECHKE + FECHKG + FECHKH + FECHKI
 if (dwnlenb = 0)
 	{
 		SB_SetText("You must select components to download.")
+		gosub, ARTPAUSE
+		guicontrol,show,FEBUTA
 		guicontrol,enable,FEBUTA
 		guicontrol,hide,FEBUTI
 		guicontrol,hide,FEBUTN
@@ -66844,6 +66852,9 @@ if (FERAD2C = 1)
 batchdl= 	
 arpause= enable
 gosub,ARTPAUSE
+guicontrol,hide,FEBUTI
+guicontrol,show,FEBUTA
+guicontrol,enable,FEBUTA
 return
 
 JACKETSCRAPE:
@@ -67505,7 +67516,9 @@ if (FERAD2C = 1)
 			SB_SetText("Scraping Complete")
 			gosub, cleanprgb
 	}
+guicontrol,hide,FEBUTI
 gosub, ARTPAUSE
+guicontrol,show,FEBUTA
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -67674,7 +67687,7 @@ if (FERAD2C = 1)
 								gosub, cleanprgb
 								break
 							}
-					}
+					}	
 				return
 			}
 RRDboxart:
@@ -69138,15 +69151,10 @@ return
 ;};;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;
 ARTPAUSE:
-guicontrol,%artinterupt%,FEBUTN
-guicontrol,%artinterupt%,FEBUTI
-guicontrol,%arpause%,FEBUTA
-guicontrol,%arpause%,FELVA
-guicontrol,%arpause%,FEDDLA
-guicontrol,%arpause%,FERAD2A
-guicontrol,%arpause%,FERAD2B
-guicontrol,%arpause%,FERAD5A
-guicontrol,%arpause%,FERAD5B
+Loop,parse,MEDIAFEITEMS,|
+	{
+		guicontrol,%arpause%,%A_LoopField%
+	}
 return
 ;{;;;;;;;;;  MOVE SCRAPE PRIORITY UP  ;;;;;;;;;
 MediaFEBUTB:
@@ -69799,22 +69807,36 @@ return
 	
 MediaFERAD2A:
 fromcfg=
+Loop,Parse,MEDIAFEITEMS,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+guicontrol,show,FECHKA
+guicontrol,show,FECHKB
+guicontrol,show,FECHKC
+guicontrol,show,FECHKD
+guicontrol,show,FECHKE
+guicontrol,show,FECHKF
+guicontrol,show,FECHKP
+guicontrol,show,FEDDLD
+guicontrol,show,FEBUTA
+guicontrol,show,FELVA
 guicontrol,show,FETXTB
 guicontrol,show,FETXTC
 guicontrol,show,FETXTD
 guicontrol,show,FETXTE
 guicontrol,show,FECHKP
+guicontrol,show,FERAD2A
 guicontrol,show,FERAD5A
 guicontrol,show,FERAD5B
+guicontrol,show,FERAD2C
+guicontrol,show,FETXTA
+guicontrol,show,FEDDLD
+guicontrol,enable,FELVA
+guicontrol,enable,FEDDLD
+guicontrol,enable,FERAD5B
+guicontrol,enable,FECHKD
 guicontrol,move,FECHKF,x591 y323
-guicontrol,hide,FEDDLF
-guicontrol,hide,FEBUTM
-guicontrol,hide,FECBXB
-guicontrol,hide,FECBXA
-guicontrol,hide,FERAD2B
-guicontrol,hide,FETXTN
-guicontrol,hide,FECHKO
-guicontrol,hide,FEDDLG
 guicontrol,,FECHKA,0
 guicontrol,,FECHKB,0
 guicontrol,,FECHKC,0
@@ -69828,18 +69850,8 @@ guicontrol,,FECHKJ,0
 guicontrol,,FECHKK,0
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
-Loop,Parse,MEDIAFEITEMS,|
-	{
-		guicontrol,hide,%A_LoopField%
-	}
 guicontrol,,FECHKG,0
-guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
-guicontrol,enable,FELVA
-guicontrol,enable,FEDDLD
-guicontrol,show,FETXTA
-guicontrol,show,FEDDLD
-guicontrol,enable,FERAD5B
 guicontrol,,FEDDLA,|Systems||
 Gui,ListView,FELVA
 LV_Delete()
@@ -69901,9 +69913,14 @@ loop,Parse,systmfldrs,|
 			}
 		LV_Add("",A_LoopFIeld)
 	}
+Loop,Parse,MEDIAFEITEMS,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 LV_ModifyCol()		
 guicontrol,hide,FERAD5A
 guicontrol,hide,FERAD5B
+guicontrol,hide,FEBUTI
 guicontrol,hide,FETXTB
 guicontrol,hide,FETXTC
 guicontrol,hide,FETXTD
@@ -69928,10 +69945,6 @@ guicontrol,,FECHKJ,0
 guicontrol,,FECHKK,0
 guicontrol,,FECHKL,0
 guicontrol,,FECHKM,0
-Loop,Parse,MEDIAFEITEMS,|
-	{
-		guicontrol,show,%A_LoopField%
-	}
 guicontrol,enable,FECHKD
 guicontrol,,FERAD5A,1
 guicontrol,enable,FELVA
@@ -70103,6 +70116,12 @@ return
 
 MediaFEBUTI:
 CNCLKUP= 1
+arpause= ENABLE
+artinterupt= hide
+gosub, ARTPAUSE
+guicontrol,hide,FEBUTN
+guicontrol,hide,FEBUTI
+guicontrol,show,FEBUTA
 return
 
 FLDRCARRIER:
@@ -72333,7 +72352,7 @@ guicontrolget,CDELLOG,,RJCHKH
 guicontrolget,CDELEMU,,RJCHKI
 if (CDELNCH + CDELCFG + CDELJOY + CDELLOG + CDELEMU= 0)
 	{
-		SB_SetText("You must select components to delete")
+		SB_SetText("You must select components to delete")	
 		return
 	}
 Msgbox,3,Delete Confirmation,Are you sure you wish to delete these components from the selected Folders?
