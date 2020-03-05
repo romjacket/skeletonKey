@@ -761,6 +761,7 @@ FileInstall,sets\rjcmd_postjoy.set,sets\rjcmd_postjoy.set,1
 FileInstall,sets\rjcmd_prejoy.set,sets\rjcmd_prejoy.set,1
 FileInstall,sets\rjcmd_runloop.set,sets\rjcmd_runloop.set,1
 FileInstall,sets\rjcmd_runproc.set,sets\rjcmd_runproc.set,1
+FileInstall,sets\ScrLkUp.set,sets\ScrLkUp.set,1
 FileInstall,sets\skdeploy.set,sets\skdeploy.set,1
 FileInstall,sets\supported.set,sets\supported.set,1
 FileInstall,sets\SystemEmulators.set,sets\SystemEmulators.set,1

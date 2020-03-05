@@ -26,6 +26,10 @@ THE_EYE=THE_EYE
 THE_EYE:SET=https://github.com/romjacket/skeletonKey/releases/download/THE_EYE/THE_EYE.7z
 various=various
 various:SET=https://github.com/romjacket/skeletonKey/releases/download/VARIOUS/various.7z
+various2=various2
+various2:SET=https://github.com/romjacket/skeletonKey/releases/download/VARIOUS2/various2.7z
+various_fullsets=various_fullsets
+various_fullsets:SET=https://github.com/romjacket/skeletonKey/releases/download/VARIOUS_FULLSETS/various_fullsets.7z
 
 [REPOSITORIES]
 buildBotCore=http://buildbot.libretro.com

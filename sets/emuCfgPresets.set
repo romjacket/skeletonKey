@@ -2538,6 +2538,18 @@ EXENAM=zboy.exe
 [byuu]
 URLPTH=byuu/byuu.7z
 EXENAM=byuu.exe
+RJEMUOPTS=<|<--fullscreen<|<
+RJPRECFG=copy /y "settings.bml" "%EMUL%"|copy /y ".mem\*.sav" "%GAMDIR%"
+RJPOSTCFG=copy /y "%EMUL%\settings.bml" "%GAMDIR%"|copy /y "%GAMDIR%\*.sav" ".mem"
+RJRUNDIR=1
+PEREMUCFG=1
+RJLNCHP=0
+CFGPTH=settings.bml
+STATEPTH=sav\*.bkr
+options="[CUSTMOPT]"
+run_location="1"
+BIOS=M
+
 
 [zesarux]
 URLPTH=zesarux/zesarux.7z
