@@ -4849,6 +4849,7 @@ if (runltmp = "|")
 guicontrol,,LCORE,|%runlist%
 guicontrol,,ARCCORES,|%runlist%
 return
+
 SCBUILDEMULST:
 Loop, Parse, SysLLst,`n`r
 	{
@@ -66907,8 +66908,8 @@ if (FERAD2C = 1)
 						break
 					}
 			}
-				SB_SetText("Scraping Complete")
-				gosub, cleanprgb
+		SB_SetText("Scraping Complete")
+		gosub, cleanprgb
 	}
 batchdl= 	
 arpause= enable
@@ -67112,7 +67113,7 @@ if (mameget = 1)
 		sscrpri.= "adb" . "," . "mamedb" . ","
 	}
 stringtrimright,sscrpri,sscrpri,1
-scrapeorder= "%sscrpri%"
+scrapeorder= %sscrpri%
 oppri= Global
 Loop, Parse, metaimages,|
 	{
@@ -67202,7 +67203,7 @@ Loop, Parse, metaimages,|
 				kiv= %sscrpri%
 			}
 		stringtrimright,kiv,kiv,1
-		%vixs%scrapeorder= "%kiv%"
+		%vixs%scrapeorder= %kiv%
 	}
 if (FERAD2B = 1)
 	{
@@ -67756,31 +67757,32 @@ RRDboxart:
 			{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
-					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -skip_check=false -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=true -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
+					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -skip_check=true -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
+					msgbox,,,scrpcpy=%SCRPCPY%`njacketscrape=%jackets_scrape%`n"%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%" => "%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%"
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%Boxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%arox%.%scrsufx%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%Boxartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%thumbnailsDirectory%\%REALSYS%\%jaktit%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%Boxartimagefrmt%,%thumbnailsDirectory%\%REALSYS%\%jaktit%.%Boxartimagefrmt%
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_image.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%Boxartimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_image.%Boxartimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\BoxFront.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\BoxFront.%Boxartimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67802,11 +67804,11 @@ RRDsnapshot:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%Snapshotimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\.snaps\%srox%.%Snapshotimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_screen.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%Snapshotimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_screen.%Snapshotimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -67814,11 +67816,11 @@ RRDsnapshot:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_screen.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%Snapshotimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_screen.%Snapshotimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\screenshot.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Snapshots\%jaktit%.%Snapshotimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\screenshot.%Snapshotimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67845,11 +67847,11 @@ RRDbackdrop:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%Backdropimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%brox%.%Backdropimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_fanart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%Backdropimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_fanart.%Backdropimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -67857,11 +67859,11 @@ RRDbackdrop:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_fanart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%Backdropimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_fanart.%Backdropimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\background.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Backdrops\%jaktit%.%Backdropimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\background.%Backdropimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67888,11 +67890,11 @@ RRDlogo:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%Logoimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%orox%.%Logoimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_logo.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%Logoimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_logo.%Logoimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -67900,11 +67902,11 @@ RRDlogo:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_logo.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%Logoimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_logo.%Logoimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\logo.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Logos\%jaktit%.%Logoimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\logo.%Logoimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67926,11 +67928,11 @@ RRD3dboxart:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%3dboxartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%zrox%.%3dboxartimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_3dbox.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%3dboxartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_3dbox.%3dboxartimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -67938,11 +67940,11 @@ RRD3dboxart:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3dbox.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%3dboxartimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3dbox.%3dboxartimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\box.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3DBoxart\%jaktit%.%3dboxartimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\box.%3dboxartimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -67969,11 +67971,11 @@ RRDcart:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%Cartimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%crox%.%Cartimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%.%Cartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_cart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%Cartimagefrmt%.%Cartimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_cart.%Cartimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -67981,11 +67983,11 @@ RRDcart:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_cart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%Cartimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_cart.%Cartimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\cart.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Carts\%jaktit%.%Cartimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\cart.%Cartimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -68009,11 +68011,11 @@ RRDlabel:
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%Labelimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%lrox%.%Labelimagefrmt%
 										}
 									if (EmulationStation_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_label.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%Labelimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_label.%Labelimagefrmt%
 										}
 									if (retroArch_scrape = 1)
 										{
@@ -68021,11 +68023,11 @@ RRDlabel:
 										}
 									if (retroFE_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_label.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%Labelimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_label.%Labelimagefrmt%
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\boxspine.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Labels\%jaktit%.%Labelimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\boxspine.%Labelimagefrmt%
 										}
 								}
 						}
@@ -68050,11 +68052,11 @@ RRDbanner:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%Marqueeimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%_banner.%Marqueeimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -68062,11 +68064,11 @@ RRDbanner:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_banner.%Marqueeimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\banner.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\banner.%Marqueeimagefrmt%
 								}
 						}
 						}
@@ -68091,11 +68093,11 @@ RRD3mix:
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3Mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\3Mix\%jaktit%.%3miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%3rox%.%3miximagefrmt%
 										}
 									if (EmulationStation_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-3mix.%scrsufx%
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%3miximagefrmt%.%marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-3mix.%3miximagefrmt%
 										}
 									if (retroArch_scrape = 1)
 										{
@@ -68103,11 +68105,11 @@ RRD3mix:
 										}
 									if (retroFE_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3mix.%scrsufx%
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%3miximagefrmt%.%marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_3mix.%3miximagefrmt%
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%scrsufx%.%marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3mix.%scrsufx%
+											FileCopy,%ASSETS%\%REALSYS%\%realname%\Labels\%realname%%3miximagefrmt%.%marqueeimagefrmt%,%RJSSYTEMS%\%REALSYS%\media\%jaktit%_3mix.%3miximagefrmt%
 										}
 								}
 					}
@@ -68132,11 +68134,11 @@ RRD4mix:
 								{
 									if (Jackets_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%4miximagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%4rox%.%4miximagefrmt%
 										}
 									if (EmulationStation_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-4mix.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%4miximagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-4mix.%4miximagefrmt%
 										}
 									if (retroArch_scrape = 1)
 										{
@@ -68144,11 +68146,11 @@ RRD4mix:
 										}
 									if (retroFE_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_4mix.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%4miximagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_4mix.%4miximagefrmt%
 										}
 									if (Pegasus_scrape = 1)
 										{
-											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\flyer.%scrsufx%
+											FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\4mix\%jaktit%.%4miximagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\flyer.%4miximagefrmt%
 										}
 								}
 						}
@@ -68184,11 +68186,11 @@ RRDmarquee:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%mrox%.%Marqueeimagefrmt%
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-marquee.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%eshome%\downloaded_images\%REALSYS%\%jaktit%-marquee.%Marqueeimagefrmt%
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -68196,11 +68198,11 @@ RRDmarquee:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_marquee.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%_marquee.%Marqueeimagefrmt%
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\marquee.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Marquees\%jaktit%.%Marqueeimagefrmt%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\marquee.%Marqueeimagefrmt%
 								}
 						}
 					if (FECHKN = 1)
@@ -68214,7 +68216,7 @@ RRDvid:
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
+					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix=""
 					enfec= -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68222,19 +68224,19 @@ RRDvid:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.%scrsufx%
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.mp4,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%vrox%.mp4
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.mp4,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
 								}
 							if (retroArch_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
+									;;FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\Videos\%jaktit%.mp4,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
 								}
 							if (Pegasus_scrape = 1)
 								{
@@ -68260,11 +68262,11 @@ RRDmetadata:
 						{
 							if (Jackets_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.xml,%RJSYSTEMS%\%FEDDLA%\%jaktit%\%drox%.xml
 								}
 							if (EmulationStation_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%eshome%\gamelists\%REALSYS%\%jaktit%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.xml,%eshome%\gamelists\%REALSYS%\%jaktit%.xml
 								}
 							if (retroArch_scrape = 1)
 								{
@@ -68272,11 +68274,11 @@ RRDmetadata:
 								}
 							if (retroFE_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.xml,%rfhome%\collections\%REALSYS%\medium_artwork\%jaktit%.xml
 								}
 							if (Pegasus_scrape = 1)
 								{
-									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.%scrsufx%,%pghome%\metafiles\%REALSYS%\media\%jaktit%\%jaktit%.xml
+									FileCopy,%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%jaktit%.xml,%pghome%\metafiles\%REALSYS%\media\%jaktit%\%jaktit%.xml
 								}
 						}
 					if (FECHKN = 1)
