@@ -67760,7 +67760,6 @@ RRDboxart:
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=true -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -skip_check=true -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
-					msgbox,,,scrpcpy=%SCRPCPY%`njacketscrape=%jackets_scrape%`n"%ASSETS%\%SYSROMD%\%jaktit%\Boxart\%jaktit%.%scrsufx%" => "%eshome%\downloaded_images\%REALSYS%\%jaktit%_image.%Boxartimagefrmt%"
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
 					if (SCRPCPY = 1)
 						{
