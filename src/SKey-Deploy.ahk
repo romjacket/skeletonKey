@@ -641,7 +641,7 @@ oldsize=
 oldsha= 
 olrlsdt=
 vernum=	
-
+RunWait, %comspec% /c "%gitapp%"
 VERSIONGET:
 sklnum= 
 getversf= %gitroot%\%GITUSER%.github.io\skeletonkey\index.html
@@ -829,7 +829,11 @@ guicontrol,,txtdpl,(not set) Deployment-Directory
 guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
-guicontrol,,irepo, %GITSWEB%/romjacket>%GITWEB%/jomracket
+guicontrol,,irepo, %GITSWEB%/romjacket
+if (optionONE = "DEV")
+	{
+		guicontrol,,ialth, %optionTWO%
+	}
 Loop,16
 	{
 		CONTPARAM%A_Index%= 
@@ -840,6 +844,7 @@ CONTPARAM15= 1
 CONTPARAM16= 1
 filedelete,skopt.cfg
 return
+
 ;};;;;;;;;;;;;;;;;;;;
 
 ;{;;;;;;;;;;;;;; COMPLETE SETUP & INITIALIZE ;;;;;;;;;;;;;
@@ -1153,12 +1158,20 @@ if (GITUSER = "")
 						{
 							gosub, Clonerj
 							gosub, confirmSkelClone
+						}							
+					else {
+					if (GITD = "")
+						{
+							GITD= %GITROOT%\skeletonkey
+							guicontrol,,txtGSD,%GITD%
 						}
-						else {
+					ifnotexist,%GITROOT%\skeletonkey\
+						{
 							guicontrol,,txtGSD,(not set) Github-Skeletonkey-Directory
 							autoinstall=
 							return
-						}
+						}	
+					}
 					if (GITSRC= "")
 						{
 							GITSRC= %GITWEB%/%gituser%/skeletonkey
@@ -1495,15 +1508,17 @@ ifinstring,stlocp,.github.io
 			{
 				SITEDIR= %STLOCT%
 			}
-	}
-ifinstring,stlocn,.github.io
-	{
-		Loop,%STLOC%\*,2
-			{
-				if (A_LoopFilename = "skeletonkey")
-					{
-						SITEDIR= %A_LoopFileFullPath%
-					}
+		else {
+			ifinstring,stloct,.github.io
+				{
+					Loop,files,%STLOCT%\*,2
+						{
+							if (A_LoopFilename = "skeletonkey")
+								{
+									SITEDIR= %A_LoopFileFullPath%
+								}
+						}
+				}
 			}
 	}
 if (SITEDIR = "")
@@ -1535,10 +1550,16 @@ ifnotexist, %GITROOT%\%gituser%.github.io\skeletonkey\
 	}	
 iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
 CONTPARAM11= 1
-RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
-RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
+;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
+;;RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+
+FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"%gituser%.github.io"}",gitinit.cmd
+RunWait,gitinit.cmd,,hide
+FileDelete,gitinit.cmd
+				
+
 guicontrol,,txtGWD,%SITEDIR%
 return
 
@@ -2410,10 +2431,16 @@ ifexist,%GITROOT%\skeletonkey\
 		GITD= %GITROOT%\skeletonkey
 		CONTPARAM10= 1
 		CONTPARAM18= 1
-		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide		
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-		RunWait, "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"skeletonkey\`"}`",,hide					
+		
+		;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" config user.email %GITMAIL%,,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" config user.name %GITUSER%,,hide
+		;;RunWait, "bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"skeletonkey\`"}`",,hide
+		
+		FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"%gituser%.github.io"}",gitinit.cmd
+		RunWait,gitinit.cmd,,hide
+		FileDelete,gitinit.cmd
+				
 		guicontrol,,txtGSD,%GITD%
 		IniWrite,%GitSRC%,skopt.cfg,GLOBAL,git_url
 		iniwrite, %GITD%,skopt.cfg,GLOBAL,Project_Directory
@@ -2493,11 +2520,16 @@ completeSkelIO:
 ifexist,%GITROOT%\%gituser%.github.io\skeletonkey\
 	{
 		SITEDIR= %GITROOT%\%gituser%.github.io\skeletonkey
-		CONTPARAM11= 1
-		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide		
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-		RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+		CONTPARAM11= 1	
+		;;RunWait, %comspec% cmd /c "%gitapp%" config user.email %GITMAIL%,,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" config user.name %GITUSER%,,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide	
+		;;RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+
+		FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"%gituser%.github.io"}",gitinit.cmd
+		RunWait,gitinit.cmd,,hide
+		FileDelete,gitinit.cmd
+		
 		guicontrol,,txtGWD,%SITEDIR%
 		iniwrite, %SITEDIR%,skopt.cfg,GLOBAL,Site_Directory
 		return
@@ -2586,10 +2618,15 @@ Loop, %GITROOT%\skeletonKey\*.*
 					}
 				SETUPTOG= enable
 				gosub, SETUPTOG
-				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide				
-				RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-				RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-				RunWait,"bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"skeletonkey\`"}`",,hide
+				;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\skeletonkey,hide				
+				;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
+				;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
+				;;RunWait,"bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"skeletonkey\`"}`",,hide
+				
+				FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"skeletonkey"}",gitinit.cmd
+				RunWait,gitinit.cmd,,hide
+				FileDelete,gitinit.cmd
+				
 			}
 SB_SetText("Cloning current skeletonkey website")
 SETUPTOG= disable
@@ -2623,10 +2660,17 @@ if ((av = "")or(gwde <> 0))
 			}
 		SETUPTOG= enable
 		gosub, SETUPTOG
-		RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-		RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-		RunWait,"bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide	
+		
+		;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
+		;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
+		;;RunWait,"bin\curl.exe" -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide	
+		
+		FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"%gituser%.github.io"}",gitinit.cmd
+		RunWait,gitinit.cmd,,hide
+		FileDelete,gitinit.cmd
+				
+		
 		FileCreateDir,%GITROOT%\%GITUSER%.github.io,1
 		FileMoveDir, %GITROOT%\romjacket.github.io\skeletonkey,%GITROOT%\%GITUSER%.github.io\skeletonkey,R
 	}
@@ -3736,6 +3780,8 @@ if (GitPush = 1)
 			{
 				FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
 				FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
+				FileAppend,"%GITAPP%" config user.email %GITMAIL%
+				FileAppend,"%GITAPP%" config user.name %GITUSER%
 				FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" push --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master`n,gitcommit.bat
@@ -3950,10 +3996,15 @@ if (SiteUpdate = 1)
 		ifnotexist, %gitroot%\%gituser%.github.io\skeletonkey
 			{
 				FileCreateDir,%gitroot%\%gituser%.github.io\skeletonkey
-				RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide				
-				RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
-				RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
-				RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+				;;RunWait, %comspec% cmd /c "%gitapp%" init,%gitroot%\%GITUSER%.github.io,hide				
+				;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.email "%GITMAIL%",,hide
+				;;RunWait, %comspec% cmd /c "%gitapp%" config --global user.name "%GITUSER%",,hide
+				;;RunWait,"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d `"{\`"name\`":\`"%gituser%.github.io\`"}`",,hide
+				
+				FileAppend, "%GITAPP%" config user.email %GITMAIL%`n%GITAPP% config user.name %GITNAME%`npushd "%gitroot%\%GITUSER%.github.io"`n%GITAPP% init`npopd`n"bin\curl.exe" -k -u %gituser%:%gitpass% https://api.github.com/user/repos -d "{"name":"%gituser%.github.io"}",gitinit.cmd
+				RunWait,gitinit.cmd,,hide
+				FileDelete,gitinit.cmd
+				
 			}
 		FileAppend,%skelhtml%,%gitroot%\%gituser%.github.io\skeletonkey\index.html
 	}
