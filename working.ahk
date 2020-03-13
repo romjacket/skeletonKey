@@ -1,6 +1,6 @@
 #NoEnv
 #SingleInstance Force
-setworkingdir= %A_ScriptDir%
+SetWorkingDir,%A_ScriptDir%
 Process, Exist,
 CURPID= %ERRORLEVEL%	
 ;{#	########              FOLD                #############
@@ -19,6 +19,7 @@ VERSION= [CURV]
 /*  ;;[DEBUGOV]
 #Include src\LV_InCellEdit.ahk
 */  ;;[DEBUGOV]
+
 DetectHiddenWindows, On
 IniRead,iniversion,Settings.ini,GLOBAL,version
 stringreplace,iniversion,iniversion,",,All
@@ -877,12 +878,12 @@ RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
+EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|EMUAUTOA|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
 RAINSTITEMS= AVAIL|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
 SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|EAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
 FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
 UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
-EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
+EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 PSETCFGITEMS= ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
 JSTSET= %JOYSET%
@@ -1413,6 +1414,7 @@ Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
 Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
 Menu, delctxtmenu, Add, Delete Game Settings, DelCfg_Add
 Menu, delctxtmenu, Add, Open Game Settings, CfgBrowse
+Menu, delctxtmenu, Add, << game-override >>, ASEMUOVR
 Menu, RUNMENU, Add, Run Menu, RUNMENU
 Menu, RUNMENU, Add
 Menu, RUNMENU, Add, Run RetroArch, RETALRAXE
@@ -1973,6 +1975,7 @@ Gui, Add, Button, x362 y98 w15 h15 vEMUINSC gCLRNETP,-
 Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst, Install
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
+Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA Right hidden, Append to all supported systems
 Gui, Add, Text, x288 y58 h13 Center vEINSTTXT, Change Install Location
 Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +0x400000 +ReadOnly vEINSTLOC,
 Gui, Add, Button, x382 y207 w75 h23 vROMDLOC gRomDLoc, ADD
@@ -3417,6 +3420,7 @@ CUSTSWITCHS_TT :="Enables custom options/arguments replacing`n ''[CUSTMOPT]'' an
 D3DDRV_TT :="works with the RGUI menu only"
 D3D11_TT :="DirectX 11"
 D3D12_TT :="DirectX 12"
+EMUAUTOA_TT :="Any currently detected systems supported will have this emulator appended"
 MAMESWCHK_TT :="Loads MAME softlist ROMs"
 CUSTMOPT_TT :="Custom options replacing ''[CUSTMOPT]'' specified for applications in the'`ncore-associations section of the install tab"
 CUSTMOPTS_TT :="Custom options replacing ''[CUSTMOPT]'' specified for applications in the'`ncore-associations section of the install tab"
@@ -4156,6 +4160,8 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    RETURN FUNCTIONS/PROCEDURES    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 LVGetCheckedItems(cN,wN) {
 ControlGet, LVItems, List,, % cN, % wN
 Pos:=!Pos,Item:=Object()
@@ -4528,6 +4534,20 @@ If A_GuiControlEvent RightClick
 			ifexist,config.bak
 				{
 					Menu, UndoRARST,Show,%A_guiX% %A_guiy%
+				}
+		}
+	if A_GuiControl = EAVAIL
+		{
+			if (SALIST = "Systems")
+				{
+					;;ADD SYSTEM RIGHTCLICK
+				}
+		}
+	if A_GuiControl = EAVAIL
+		{
+			if (SALIST = "Emulators")
+				{
+					;;ADD EMULATORS RIGHTCLICK
 				}
 		}
 	if A_GuiControl = FEBUTK
@@ -5035,7 +5055,18 @@ if (CHKRMP = "")
 		{
 			CHKRUNE.= "|" CHRFFMP
 		}
+iniread,tdsv,GameOverrides.ini,%RUNSYSDDL%
+if (tdsv <> "ERROR")
+	{
+		Msgbox,8452,Overwrite All?,There are overrides for this system.`nClear Overrides for all titles in "%RUNSYSDDL%?"
+		ifmsgbox,yes
+			{
+				inidelete,GameOverrides.ini,%RUNSYSDDL%
+				SB_SetText("Overrides cleared for " CHKRUNS "")
+			}
+	}
 iniwrite,"%CHKRUNE%",Assignments.ini,OVERRIDES,%CHKRUNS%
+SB_SetText(" " CHKRUNE " assigned to " CHKRUNS "")
 return
 
 PLEDITCORE:
@@ -5088,6 +5119,7 @@ Loop, Parse, runlist,|
 mousegetpos,Ngx,Ngy
 Menu,PLEDTMENU, Show, %Ngx% %Ngy%
 return
+
 PLSWPMENU:
 gui,submit,nohide
 Menu, PLSWPMENU, Add
@@ -5683,6 +5715,7 @@ Loop, Parse, SRCHROMLVI,|
 			}
 	}
 return
+
 Emulator_Add:
 multisel=
 guicontrolget,romf,,SRCHROMLBX
@@ -9985,6 +10018,7 @@ noselb=
 Stringsplit,noselb,noBrws,|
 if (SALIST = "Emulators")
 	{	
+		guicontrol,,EMUAUTOA,0
 		guicontrol,,INSTEMUDDL,|%semu%||Other
 		IniRead, ksvel,apps.ini,EMULATORS,%semu%
 		if ((ksvel = "")or(ksvel = "ERROR"))
@@ -10063,6 +10097,7 @@ ifinstring,noinstallers,%UAVAIL%
 	}
 return
 ;{;;;;;;;;;;;;;;;;;  SYSTEM LIST  ;;;;;;;;;;;;;;;;
+
 EAvailSel:
 gui, submit, nohide
 xtractmu=
@@ -10258,6 +10293,7 @@ if (EINSTLOC = "")
 		iniread,EINSTLOC,apps.ini,EMULATORS,%selfnd%
 		guicontrol,,EINSTLOC,%EINSTLOC%
 	}
+
 guicontrolget,APPOPT,,APPOPT
 guicontrolget,OVRKND,,SYSNICK
 guicontrolget,APPARG,,APPARG
@@ -10311,8 +10347,10 @@ Loop, Parse, semu,|
 		gosub, EAvailSel
 	}
 return
+
 EmuInst:
 gui,submit,nohide
+guicontrolget,INSTLTYP,,SaList
 guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,EINSTLOC,,EINSTLOC
 if (EINSTLOC <> "")
@@ -10337,7 +10375,8 @@ if (selfnd = "Other")
 	
 	}
 EMURJINT:
-Loop, Parse,UrlIndex,`n`r
+emufzd= 
+Loop,Parse,UrlIndex,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -10351,6 +10390,7 @@ Loop, Parse,UrlIndex,`n`r
 		stringsplit,urloc,slfm2,/
 		if (slfm1 = selfnd)
 			{
+				emufzd= 1
 				URLFILE= %repoloc%/%urloc1%/%urloc2%
 				ifinstring,repoloc,github
 					{
@@ -10547,6 +10587,7 @@ Loop, Parse,UrlIndex,`n`r
 							{
 								addemu.= "|" . urloc1
 							}
+						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%runlist%
 					}
 				OVRKND=
@@ -10615,8 +10656,21 @@ Loop, Parse,UrlIndex,`n`r
 								gosub, MAMETOG
 							}
 					}
-				;;return
+				break
 			}
+	}	
+if (emufzd = "")
+	{
+		GuiControl, Enable, EAVAIL
+		GuiControl, Enable, UAVAIL
+		GuiControl, Enable, AVAIL
+		GuiControl, Enable, EMUINST
+		GuiControl, Enable, EMUASIGN
+		GuiControl, Disable, CNCLDWN
+		SB_SetText(" " selfnd " not found")
+		return
+	}
+	else {
 		SB_SetText(" " selfnd " installed")
 	}
 if (selfnd = "retroArch")
@@ -10631,6 +10685,13 @@ if (selfnd = "retroArch")
 				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 				gosub, RAInit
 			}
+	}
+if ((INSTLTYP = "Emulators")&&(EMUAUTOA = 1))
+	{
+	
+		stranb= %selfnd%
+		gosub, EmuIterA
+		SB_SetText("assigned " byuu "to supported systems detected")
 	}
 if (INSTLTYP = "Systems")
 	{
@@ -11668,6 +11729,50 @@ EMPRDDL:
 gui,submit,nohide
 guicontrolget,EMPRDDL,,EMPRDDL
 return
+
+EmuItera:
+SB_SetText("Assigning "  stranb " to supported systems")
+Loop,parse,systmfldrs,|
+	{
+		iniread,supemu,sets\emuCfgPresets.set,%A_LoopField%,SUPEMU
+		if ((supemu = "")or(supemu = "ERROR"))
+			{
+				continue
+			}
+		fndsy= %A_LoopField%	
+		noead= 
+		rewr= 
+		Loop,parse,supemu,|
+			{
+				if (A_LoopField = selfnd)
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						iniread,ceurmu,Assignments.ini,OVERRIDES,%fndsy%
+						Loop,parse,ceurmu,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								if (A_Loopfield = stranb)
+									{
+										noead= 1
+									}
+								rewr.= A_LoopField . "|"
+							}
+						if (noead = "")
+							{
+								rewr.= stranb . "|"
+							}
+						iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%fndsy%
+					}
+			}
+	}
+return	
+
 EMPRLST:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
@@ -12003,6 +12108,11 @@ Loop, Parse, UAVAIL,|
 						runlist:= corelist . "|" . addemu
 						guicontrol,,EMPRDDL,|%runlist%
 						iniwrite, "%EMUINSTLOCT%",Assignments.ini,ASSIGNMENTS,%semu%
+						if (EMUAUTOA = 1)
+							{
+								stranb= %semu%
+								gosub, EmuItera
+							}
 					}
 			}
 		if (systatus = "Utilities")
@@ -29261,6 +29371,12 @@ if (OMITPTH = 1)
 	}
 guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%ROM%xdisp%%qdisp%%aparg%, %runfr%
 return
+
+EMUAUTOA:
+gui,submit,nohide
+return
+
+
 EmuPGC:
 gui,submit,nohide
 guicontrolget,EMUPGC,,EMUPGC	
@@ -29654,6 +29770,7 @@ systmfldrs=
 knownfldrs=
 totsys=
 allsys=
+rjsystmfldrs= 
 Loop, %RJSYSTEMS%\*,2
 	{
 		if A_LoopFileAttrib contains H
@@ -37046,6 +37163,26 @@ if (tmpsr <> "")
 						stringsplit,fir,ksr,|
 						ACSVDEST= %fir1%
 					}
+				ifnotexist,%ACSVDEST%\
+					{
+						apndx= 
+						iniread,supemz,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+						Loop,parse,supemz,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								krvr= %A_LoopField%
+								iniread,supemx,Apps.ini,EMULATORS,%krvr%
+								iniread,supemv,Assignments.ini,OVERRIDES,%EXTRSYS%
+								if ((supemx <> "ERROR")&&(supemx <> "")&&(supemv = ""))
+									{
+										apndx.= supemx . "|"
+									}
+							}
+						iniwrite,"%apndx%",Assignments.ini,OVERRIDES,%EXTRSYS%
+					}
 				guicontrol,,ARCSYS,|%EXTRSYSNH%||Select a System|%sysddllist%
 				gosub, GamFIND
 				gosub, ArcPPND
@@ -37356,8 +37493,25 @@ Loop, parse, romdwnlst,|
 				stringsplit,fir,ksr,|
 				ACSVDEST= %fir1%
 			}
-		ifnotexist, %ACSVDEST%\
+		ifnotexist,%ACSVDEST%\
 			{
+				apndx= 
+				iniread,supemz,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+				Loop,parse,supemz,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						krvr= %A_LoopField%
+						iniread,supemx,Apps.ini,EMULATORS,%krvr%
+						iniread,supemv,Assignments.ini,OVERRIDES,%EXTRSYS%
+						if ((supemx <> "ERROR")&&(supemx <> "")&&(supemv = ""))
+							{
+								apndx.= supemx . "|"
+							}
+					}
+				iniwrite,"%apndx%",Assignments.ini,OVERRIDES,%EXTRSYS%
 				if ((romsys <> "BIOS - BIOS") && (romsys <> "- firmware -"))
 					{
 						FileCreateDir,%ACSVDEST%
@@ -37373,22 +37527,22 @@ Loop, parse, romdwnlst,|
 					{
 						OVDCHK= 1
 						ifinstring,OVDFLDR,:\
-									{
-										ACSVDEST= %OVDFLDR%
-									}
-									else
+							{
+								ACSVDEST= %OVDFLDR%
+							}
+							else
+								{
+									iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDFLDR%
+									if ((ksr = "ERROR")or(ksr = ""))
 										{
-											iniread,ksr,SystemLocations.ini,LOCATIONS,%OVDFLDR%
-											if ((ksr = "ERROR")or(ksr = ""))
-												{
-													ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
-												}
-												else {
-													stringsplit,fir,ksr,|
-													ACSVDEST= %fir1%
-												}
-											;;ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+											ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
 										}
+										else {
+											stringsplit,fir,ksr,|
+											ACSVDEST= %fir1%
+										}
+									;;ACSVDEST= %RJSYSTEMS%\%OVDFLDR%
+								}
 					}
 					else
 						{
@@ -37400,13 +37554,16 @@ Loop, parse, romdwnlst,|
 					{
 						ksr=
 					}
-				if (ksr = "")
+				if ((ksr = "")&&(OVDCHK <> 1))
 					{
 						ACSVDEST= %RJSYSTEMS%\%romsys%
 					}
 					else {
-						stringsplit,fir,ksr,|
-						ACSVDEST= %fir1%
+						if (ksr <> "")
+							{
+								stringsplit,fir,ksr,|
+								ACSVDEST= %fir1%
+							}
 					}
 				;;ACSVDEST= %RJSYSTEMS%\%romsys%
 				JACKETMODE= %aprm2%
@@ -37506,13 +37663,16 @@ Loop, parse, romdwnlst,|
 															{
 																ksr=
 															}
-														if (ksr = "")
+														if ((ksr = "")&&(OVDCHK <> 1))
 															{
 																ACSVDEST= %RJSYSTEMS%\%OVDLDS%
 															}
 															else {
-																stringsplit,fir,ksr,|
-																ACSVDEST= %fir1%
+																if (ksr <> "")
+																	{
+																		stringsplit,fir,ksr,|
+																		ACSVDEST= %fir1%
+																	}
 															}
 														;;ACSVDEST= %RJSYSTEMS%\%OVDLDS%
 													}
@@ -38858,6 +39018,42 @@ ifExist, rj\scrapeArt\%SYSLKUP%\
 		getlogo=
 	}
 return
+ASEMUOVR:
+gui,submit,nohide
+guicontrolget,RUNRTST,,RUNROMCBX
+guicontrolget,RUNSYSTST,,RUNSYSDDL
+guicontrolget,LCORE,,LCORE
+splitpath,RUNRTST,,,,ROMTOVR
+iniread,thebb,Assignments.ini,OVERRIDES,%RUNSYSTST%
+Loop,parse,thebb,|
+	{
+		if ((A_Index = 1)&&(A_LoopField = LCORE))
+			{
+				SB_SetText(" " LCORE " already assigned to " RUNSYSTST "")
+				return
+			}
+		break
+	}
+Menu, MASOCREA, Add, Create, ASOCREA
+Menu, MASOCREA, Add, Delete, ASOCDEL
+mousegetpos,Ngx,Ngy
+Menu,MASOCREA, Show, %Ngx% %Ngy%
+Menu,MASOCREA,DeleteAll
+return
+
+ASOCREA:
+splitpath,RUNRTST,,,,ROMTOVR
+iniwrite,%LCORE%,GameOverrides.ini,%RUNSYSTST%,%ROMTOVR%
+SB_SetText(" " LCORE " set as override for " ROMTOVR "")
+return
+
+ASOCDEL:
+guicontrolget,RUNRTST,,RUNROMCBX
+guicontrolget,RUNSYSTST,,RUNSYSDDL
+inidelete,GameOverrides.ini,%RUNSYSTST%,%ROMTOVR%
+SB_SetText(" " LCORE " override for " ROMTOVR " deleted")
+return
+
 ARCGSNP:
 gui,submit,nohide
 ifinstring,SYSLKUP,:=:
@@ -77468,8 +77664,15 @@ return
 ;{;;;;;;;;;;;;     CORE PARSE   ;;;;;;;;;;;;;;;;;;;;;;;
 OPNCORE:
 gui,submit,nohide
+gui,submit,nohide
 guicontrolget,LCORE,,LCORE
 guicontrolget,romf,,RUNROMCBX
+splitpath,romf,,,,romname
+iniread,romnaov,GameOverrides.ini,%RUNSYSDDL%,%romname%
+if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
+	{
+		LCORE= %romnaov%
+	}	
 if (LCORE = "")
 	{
 		gosub,ShowOnlyEmuGui
@@ -79571,9 +79774,14 @@ ifinstring,coreselv,_libretro.dll
 							}
 						pgmargs.= "%A_LoopField%" . "|"
 					}
-			}
+			}	
 	}
 guicontrolget,coreselv,,LCORE
+iniread,romnaov,GameOverrides.ini,%ROMSYS%,%romname%
+if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
+	{
+		coreselv= %romnaov%
+	}
 if (FILT_UNSUP <> 1)
 	{
 		if (Ident_Sys = "")
@@ -79586,11 +79794,11 @@ ifinstring,corinjs,.dll
 	{
 		corinjs= retroarch
 	}
-ifinstring,supgui,%corinjs%
+if instr(supgui,corinjs)
 	{
 		goto, opncore
 	}
-guicontrol,,LCORE,|%coreselv%||%runlist%
+guicontrol,,LCORE,|%coreselv%||%runlist%	
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gosub, LNCHCHK
 SK_MODE= 1
@@ -81277,6 +81485,7 @@ return
 resetCoreAssets:
 dwnlfldrs=
 systmfldrs=
+rjsystmfldrs=
 Loop, %RJSYSTEMS%\*,2
 	{
 		if A_LoopFileAttrib contains H

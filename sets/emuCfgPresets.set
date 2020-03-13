@@ -927,7 +927,7 @@ RJPRECFG=copy /y "*.bml" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.bml" "%GAMDIR%"
 RJEMUOPTS=<--fullscreen<
 RJLNCHP=0
-URLPTH=bsnes/bsnes-[ARCH].7z
+URLPTH=bsnes/bsnes.7z
 EXENAM=bsnes.exe
 CFGPTH=*.bml
 options=" --fullscreen "
@@ -3804,10 +3804,10 @@ LNCHPRM=$|1|1|0|1|1
 FENAM=xbox360
 
 [Microsoft - XBOX ONE]
-RJEMUPRESET= Xerg
+RJEMUPRESET=Xerg
 RJMULTIDISC=1
 SHORTNM=MSXBONE
-SUPEMU=Xenia
+SUPEMU=Xerg
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=XBONE
@@ -3880,12 +3880,12 @@ RJMAMENM=sgx
 RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr.sgx,.pce,.bin,.zip,.img
 MAME?RJEMUOPTS=<sgx -[RJRTYP]<|<sgx -cdrm<|<sgx -cart<
 SHORTNM=NSGX
-SUPEMU=Mednafen|Ootake|pcengine|turboengine|finalburnalpha|FBNeo|BizHawk|MAME|byuu
+SUPEMU=Mednafen|Ootake|pcengine|turboengine|finalburnalpha|BizHawk|MAME|byuu
 SUPCORE=mednafen_supergrafx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=supergrafx
 
-[NEC - PC Engine - TurboGrafx 16]
+[NEC - PC Engine - TurboGrafx 16]0
 RJEMUPRESET=Mednafen
 RJMEDNM=pce
 RJMAMENM=tg16
@@ -3893,7 +3893,7 @@ MAME?RJEMUOPTS=<tg16 -cart<|<pce -cart<
 RJROMXT=.bin,.pce,.zip
 RJZIPPEEK=0
 SHORTNM=NPCENG
-SUPEMU=Mednafen|hu6280|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|byuu
+SUPEMU=Mednafen|hu6280|Ootake|pcengine|fbneo|turboengine|xe|pcejin|BizHawk|hu6280|magicengine|hugo|MAME|finalburnalpha|byuu
 SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=pcengine

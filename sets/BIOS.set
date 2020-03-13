@@ -84,6 +84,35 @@ retroarch\system=:japan-j3.bin:DFF6D41F>
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin:3363015D
 VisualBoyAdvance=vgba=mednafen=retroarch\system=:gba-jap.bin:15E1F676
 
+byuu=:SCD_U.bin:15E1F676
+byuu=:SCD_U.bin:290F8E33
+byuu=:SCD_U.bin:2E49D72C
+byuu=:SCD_U.bin:9F6F6276
+byuu=:SCD_U.bin:8AF65F58
+byuu=:SCD_U.bin:E7E3AFE2
+byuu=:SCD_U.bin:50CD3D23
+byuu=:SCD_U.bin:3B10CF41
+
+
+byuu=:SCD_J.bin:9D2DA8F2
+byuu=:SCD_J.bin:550F30BB
+byuu=:SCD_J.bin:DD6CC972
+byuu=:SCD_J.bin:DFF6D41F
+
+byuu=:SCD_E.bin:4D5CB8DA
+byuu=:SCD_E.bin:0507B590
+byuu=:SCD_E.bin:9B1FFC6F
+byuu=:SCD_E.bin:4D5CB8DA
+byuu=:SCD_E.bin:529AC15A
+byuu=:SCD_E.bin:D344F125
+
+byuu=:FDS.bin:1C7AE5D5
+byuu=:FDS.bin:4DF24A6C
+byuu=:FDS.bin:5E607DCF
+
+byuu=:NEPKT.bin:6232DF8D
+byuu=:NEOPKTC.bin:6EEB6F40
+
 VisualBoyAdvance-M=VisualBoyAdvance=vgba=mednafen=retroarch\system=bizhawk\firmware=:gba_bios.bin?gbabios.rom:81977335>
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap [fastboot mode][h].bin?gba_bios.bin:3363015D
 VisualBoyAdvance-M=vgba=mednafen=retroarch\system=:gba-jap.bin?gba_bios.bin:15E1F676
@@ -228,8 +257,8 @@ mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:JVC 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:Mega CD Formatted Ram cartridge.rom:9B017B7E
 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?eu_mcd2_9306.bin:0507B590
-mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?eu_mcd2_9306:9B1FFC6F
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?eu_mcd2_9306:4D5CB8DA
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?eu_mcd2_9306:9B1FFC6F
 
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware=:Mega-CD (E) - Model 1 v1.00 (1992).bin?eu_mcd2_9306.bin?eu_mcd1_9210.bin:529AC15A
 mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=:eu_mcd2_9306.bin:D344F125

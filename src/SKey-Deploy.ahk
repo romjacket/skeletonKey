@@ -3780,8 +3780,8 @@ if (GitPush = 1)
 			{
 				FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\gitcommit.bat
 				FileAppend,pushd "%GITD%"`n,%BUILDIR%\gitcommit.bat
-				FileAppend,"%GITAPP%" config user.email %GITMAIL%
-				FileAppend,"%GITAPP%" config user.name %GITUSER%
+				FileAppend,"%GITAPP%" config user.email %GITMAIL%`n,%BUILDIR%\gitcommit.bat
+				FileAppend,"%GITAPP%" config user.name %GITUSER%`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" add .`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" commit -m `%1`%`n,%BUILDIR%\gitcommit.bat
 				FileAppend,"`%gitapp`%" push --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/skeletonkey master`n,gitcommit.bat
@@ -4033,6 +4033,8 @@ if (uptoserv = 1)
 		FileAppend,copy /y "%BUILDIR%\site\ReadMe.md" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,copy /y "%BUILDIR%\site\version.txt" "%gitroot%\%GITUSER%.github.io\skeletonkey"`n,%BUILDIR%\sitecommit.bat
 		FileAppend,for /f "delims=" `%`%a in ("%GITAPP%") do set gitapp=`%`%~a`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" config user.name %GITUSER%`n,%BUILDIR%\sitecommit.bat
+		FileAppend,"`%gitapp`%" config user.email %GITMAIL%`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" add skeletonkey`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" commit -m siteupdate`n,%BUILDIR%\sitecommit.bat
 		FileAppend,"`%gitapp`%" push --set-upstream http://%gituser%:%gitpass%@github.com/%gituser%/%gituser%.github.io master`n,sitecommit.bat

@@ -7,7 +7,7 @@ ActiveGS|ActiveGS/ActiveGS.7z
 AdviEmulator|AdviEmulator/AdviEmulator.7z
 Arnimedes|Arnimedes/Arnimedes.7z
 AdriPSX|AdriPSX/AdriPSX.7z
-aes4all/aes4all/aes4all.7z
+aes4all|aes4all/aes4all/aes4all.7z
 agat|agat/agat.7z
 aipc|aipc/aipc.7z
 aprnes|aprnes/aprnes.7z
@@ -46,6 +46,7 @@ BlueMSX|BlueMSX/BlueMSX.7z
 bmjr|bmjr/bmjr.7z
 boycottadv|boycottadv/boycottadv.7z
 bsnes|bsnes/bsnes.7z
+byuu|byuu/byuu.7z
 bws|bws/bws.7z
 c4pc|c4pc/c4pc.7z
 calcem|calcem/calcem.7z
@@ -209,6 +210,8 @@ m5|m5/m5.7z
 M71|M71/M71.7z
 M88|M88/m88.7z
 Makaron|Makaron/Makaron.7z
+Mame_system|Mame/mame-[ARCH].7z
+Mame_arcade|Mame/mame-[ARCH].7z
 Mame|Mame/mame-[ARCH].7z
 map1010|map1010/map1010.7z
 mastersystem|mastersystem/mastersystem.7z
