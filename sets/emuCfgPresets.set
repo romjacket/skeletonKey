@@ -81,6 +81,7 @@ DSKMNTCHK="0"
 DSKMNTPRG="DaemonTools"
 DSKMNTOVR="0"
 [*************************************************************************]
+
 [MAME]
 RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"
 RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
@@ -604,6 +605,14 @@ CFGPTH=snes9x.conf
 STATEPTH=Saves\*.sram
 MEMPTH=Saves\*.00*
 options="[CUSTMOPT]"
+
+[Dolwin]
+RJRUNDIR=1
+RJLNCHP=0
+RJPRECFG=copy /y "Games.ini" "%EMUL%\Data"
+RJPOSTCFG=copy /y "%EMUL%\Data\Games.ini" "%GAMDIR%"
+URLPTH=dolwin/Dolwin-[ARCH].7z
+EXENAM=Dolwin.exe
 
 [vvctre]
 RJRUNDIR=1
@@ -2523,6 +2532,11 @@ URLPTH=xqemu/xqemu.7z
 EXENAM=xqemuw.exe
 BIOS=R
 
+[xemu]
+URLPTH=xemu/xemu.7z
+EXENAM=xemuw.exe
+BIOS=R
+
 [yape]
 URLPTH=yape/yape.7z
 EXENAM=Yape.exe
@@ -4212,7 +4226,7 @@ RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\
 RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
 RJMAMENM=wii
 SHORTNM=NNWII
-SUPEMU=Dolphin|ishiiruka
+SUPEMU=Dolphin|ishiiruka|Dolwin
 SUPCORE=dolphin_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wii

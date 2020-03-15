@@ -598,9 +598,9 @@ if (RaExeloc = "")
 FileRead, RepoLst,RepoList.ini
 stringreplace, RepoLst,RepoLst,`n,|,All
 FileRead,ArcOrgSet,%ARCORG%
-FileRead,PgLkUp,sets\Pglkup.set
+;;FileRead,PgLkUp,sets\Pglkup.set
 FileRead,feLkUp,sets\felkup.set
-
+PGLkUp= %feLkUp%
 stringreplace,rfLkUp,feLkUp,[ROMPATH],`%ITEM_FILEPATH`%,All
 stringreplace,rfLkUp,rfLkUp,[ROMNAME],`%ITEM_NAME`%,All
 stringreplace,pgLkUp,feLkUp,[ROMPATH],{file.path},All
@@ -2335,8 +2335,8 @@ Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl58 x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui,Add,ComboBox, hwndCbxHndl59 x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
 Gui, Add, CheckBox, x621 y52 h23 vDETECTCORE gDetectCore Checked, Detect
-Gui, Add, Button,x679 y77 w60 h21 vSVPLST gSaveToPl, Create
-Gui, Add, Button, x701 y30 w36 h23 vOPNPLST gOpnPlst, Open
+Gui, Add, Button,x679 y77 w60 h21 vSVPLST gSaveToPl,Create
+Gui, Add, Button, x701 y30 w36 h23 vOPNPLST gOpnPlst,Open
 Gui, Add, CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
 Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
 Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
@@ -39034,8 +39034,8 @@ Loop,parse,thebb,|
 			}
 		break
 	}
-Menu, MASOCREA, Add, Create, ASOCREA
-Menu, MASOCREA, Add, Delete, ASOCDEL
+Menu, MASOCREA, Add,Create Emulator Override, ASOCREA
+Menu, MASOCREA, Add,Delete Emulator Override, ASOCDEL
 mousegetpos,Ngx,Ngy
 Menu,MASOCREA, Show, %Ngx% %Ngy%
 Menu,MASOCREA,DeleteAll
@@ -53725,7 +53725,9 @@ Loop, %RJSYSTEMS%\*,2
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
+guicontrol,,FEDDLA,|Systems||
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53741,6 +53743,7 @@ Loop, %mirsl%\*,2
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
+guicontrol,,FEDDLA,|Systems||
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5C:
@@ -53749,18 +53752,26 @@ Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, PgNpts,|
+Loop, Parse, felkup,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		LV_Add("",A_LoopField)
+		stringsplit,syslk,A_LoopField,=
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk3%
+		if ((sysxst <> "")&&(sysxst <> "ERROR"))
+			{
+				LV_Add("",syslk1)
+			}
 	}
 LV_ModifyCol()
 guicontrol,hide,FEDDLF
+guicontrol,,FEDDLA,|Systems||ALL
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 PegasusFELVA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
@@ -54096,6 +54107,8 @@ return
 PegasusFERAD2B:
 return
 PegasusFEDDLA:
+guicontrolget,FEDDLA,,FEDDLA
+goto,pg%FEDDLA%
 return
 PegasusFECHKA:
 return
@@ -55786,6 +55799,7 @@ guicontrol,,PGNAMEDT,%pgpepnam%
 guicontrol,,CURPLST,|%PGINIPOP%
 gosub, CURPLST
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;  PG_ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
 PGFLDADDBUT:
@@ -60029,9 +60043,39 @@ ifexist,%RJSYSTEMS%\%systid%\
 	}
 guicontrol,,RFPTHEDT,.%rfperpath%
 return
-;};;;;;;;;;;;;
-;};;;
-;};;;
+
+pgSystems:
+gui,ListView,FELVA
+LV_Delete()
+Loop, Parse, felkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,syslk,A_LoopField,=
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk3%
+		if ((sysxst <> "")&&(sysxst <> "ERROR"))
+			{
+				LV_Add("",syslk1)
+			}
+	}
+LV_ModifyCol()
+return
+pgALL:
+gui,ListView,FELVA
+LV_Delete()
+Loop,parse,PgNpts,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,syslk,A_LoopField,=
+		LV_Add("",syslk1)
+	}
+LV_ModifyCol()	
+return
 
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationToggle:
@@ -61482,6 +61526,7 @@ Loop, %RJSYSTEMS%\*,2
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
+GuiControl,,FEDDLA,|Systems||
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFERAD5B:
@@ -61498,6 +61543,7 @@ Loop,%mirsl%\*,2
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
+GuiControl,,FEDDLA,|Systems||
 return
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61508,6 +61554,25 @@ Gui,ListView,FELVA
 LV_Delete()
 Guicontrol,+checked,FELVA
 Guicontrol,+Multi,FELVA
+
+/*
+Loop,parse,felkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,eba,A_LoopField,=
+		iniread,atbe,SystemLocations.ini,LOCATIONS,%eba3%
+		if ((atbe <> "")&&(atbe <> "ERROR"))
+			{
+				ifexist,%RJSYSTEMS\%eba3%\
+					{
+						LV_Add("",eba3)
+					}
+			}
+	}
+*/
 Loop, %RJSYSTEMS%\*,2
 	{
 		if A_LoopFileAttrib contains H
@@ -61517,6 +61582,7 @@ Loop, %RJSYSTEMS%\*,2
 		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
+GuiControl,,FEDDLA,|Systems||ALL
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFELVA:
@@ -62037,7 +62103,36 @@ iniwrite,Fade,EScfg.ini,CONFIG,Transition
 estransition= Fade
 return
 EmulationStationFEDDLA:
+guicontrolget,FEDDLA,,FEDDLA
+goto, es%FEDDLA%
+
+esALL:
+Loop,parse,felkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,eba,A_LoopField,=
+		LV_Add("",eba3)
+}
 return
+
+esSystems:
+Loop,parse,felkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,eba,A_LoopField,=
+		ifexist,%RJSYSTEMS%\%eba3%\
+			{
+				LV_Add("",eba3)
+			}
+	}
+return
+
 EmulationStationFECHKA:
 return
 EmulationStationFECHKC:
@@ -77663,7 +77758,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;     CORE PARSE   ;;;;;;;;;;;;;;;;;;;;;;;
 OPNCORE:
-gui,submit,nohide
 gui,submit,nohide
 guicontrolget,LCORE,,LCORE
 guicontrolget,romf,,RUNROMCBX

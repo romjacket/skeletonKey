@@ -281,7 +281,6 @@
             </div>
          </div>
          <p>The <u><strong>Global-Launch-Menu</strong></u> includes:</p>
-         <br>
          <ul>
             <li>the System List dropdown for directories &amp; toggle for playlists</li>
             <li>the ROM selector button</li>
@@ -341,9 +340,9 @@
                   </p>
                   <p>Right-Clicking on this menu enables assignment and configuration.</p>
                   <p>RetroArch, MAME, Snes9x and Mednafen are currently supported.</p>
-                  <!-- <h3>[X] Clear button</h3>
-                  <p>Clears all current launch options. 
-                  </p> -->
+                  <h3>[C] Configure Button</h3>
+                  <p>Brings forth the options for the currently selected emulator or core.<br>Right-click menu items include per-game overrides. 
+                  </p>
                </div>
             <h3>Emulator Configuration Options</h3>
                <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time
@@ -443,12 +442,13 @@
          unique system-identifier or &quot;nickname&quot;
          can be created to create custom systems and associated emulator-presets.</p>
          <p>Associating an emulator to a system creates a unique set of preferences for the emulator and
-         assigns this set a nickname which can also be assigned to other systems. Right clicking on
-         the System List or emu/core dropdowns will
-         bring up menus to quickly configure or associate systems with emulators and cores.</p>
-         <p>The default association defines how skeletonKey will automatically launch ROMs categorically,
-         however multiple nicknames/emulators can be assigned to a system to populate
-         quick-launch/right-click.</p>
+         assigns this set a nickname which can also be assigned to other systems. A system may have multiple 
+		 emulators associated which populate the quick-launch/right-click buttons in the global-menu. Right clicking on
+         the System and emu/core dropdowns will bring up menus to quickly configure or associate systems 
+		 with emulators and cores.</p>
+         <p>The default association defines which emulator/core will automatically populate options in the main tab, 
+		 and how skeletonKey will automatically launch ROMs (through drag'n drop etc) categorically, 
+         however the right-click menu of the [C] button in the global-menu will allow any individual ROM to override this default.<p>
          <p>
          <a class="lightbox" href="https://www.youtube.com/embed/NRw1f2hzGVY?showinfo=0">
          <img alt="" height="14" src="video.svg" width="14">

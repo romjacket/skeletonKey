@@ -91,6 +91,7 @@ directvms|directvms/directvms.7z
 DisplayChanger|DisplayChanger/dc.7z
 dmgboy|dmgboy/dmgboy.7z
 Dolphin|Dolphin/Dolphin-[ARCH].7z
+Dolwin|dolwin/Dolwin-[ARCH].7z
 DOSBox-X|DOSBox-X/DOSBox-X[ARCH].7z
 DOSBox|DOSBox/DOSBox.7z
 DosPlus|DosPlus/DosPlus.7z
@@ -454,6 +455,7 @@ XM6|XM6/XM6-[ARCH].7z
 xm7|xm7/XM7.7z
 xm8|xm8/xm8-[ARCH].7z
 xqemu|xqemu/xqemu.7z
+xemu|xemu/xemu.7z
 Xroar|Xroar/Xroar-[ARCH].7z
 Yabause|Yabause/Yabause-[ARCH].7z
 kronos|kronos/kronos-[ARCH].7z

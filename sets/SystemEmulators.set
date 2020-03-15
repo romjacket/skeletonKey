@@ -207,7 +207,7 @@ Microsoft - MSX|BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|FBNeo|byuu|vdmgr|nl
 Microsoft - XBOX 360|Xenia
 Microsoft - XBOX ONE|Xerg
 Microsoft - Windows 3x|WinBox
-Microsoft - XBOX|Cxbx|cxbxreloaded|xqemu
+Microsoft - XBOX|Cxbx|cxbxreloaded|xqemu|xemu
 Mikro - Mikro-80|MAME|:mame_libretro.dll
 MikroMikko - MikroMikko 1|MAME|:mame_libretro.dll
 Mikroelektronika - Pyldin-601|MAME|:mame_libretro.dll
@@ -243,7 +243,7 @@ Nintendo - Game Boy Advance (e-Cards)|VisualBoyAdvance-M|byuu|VisualBoyAdvance|x
 Nintendo - Game Boy Advance|VisualBoyAdvance-M|VisualBoyAdvance|byuu|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|:vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy Color|bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|byuu|mednafen|xe|vgb|kigb|BizHawk|sameboy|dsp|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
 Nintendo - Game Boy|bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|byuu|BizHawk|xe|vgb|dsp|tgbdual|gbeplus|gest|sameboy|kigb|MAME|:gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll|mame_libretro.dll
-Nintendo - GameCube|Dolphin|ishiiruka|supergamecube|ideas|:dolphin_libretro.dll
+Nintendo - GameCube|Dolphin|ishiiruka|Dolwin|supergamecube|ideas|:dolphin_libretro.dll
 Nintendo - Nintendo 3DS|Citra|tronds|:citra_libretro.dll|citra_canary_libretro.dll
 Nintendo - Nintendo 64DD|Project64|Project64k|Mupen64Plus|Mupen64PlusPlus|MAME|:parallel_n64_libretro.dll|mupen64_libretro.dll
 Nintendo - Nintendo 64|Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME|:parallel_n64_libretro.dll|mupen64_libretro.dll|mame_libretro.dll
