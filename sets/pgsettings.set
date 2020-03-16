@@ -1,4 +1,4 @@
-general.theme: themes/[THEME]/
+general.theme: [THEME]/
 general.locale: en
 general.fullscreen: [PGFS]
 providers.skraper.enabled: [PGSCR]

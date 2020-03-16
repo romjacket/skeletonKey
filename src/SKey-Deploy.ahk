@@ -4183,28 +4183,28 @@ return
 
 CANCEL:
 gui,submit,nohide
-msgbox,1,Cancel,Are you sure you wish to cancel your deployment?,10
-ifmsgbox,Cancel
+msgbox,8452,Cancel,Are you sure you wish to cancel the deployment?,10
+ifmsgbox,Yes
 	{
+		BCANC= 1
+		guicontrol,enable,PushNotes
+		guicontrol,enable,VerNum
+		guicontrol,enable,GitPush
+		guicontrol,enable,ServerPush
+		guicontrol,enable,SiteUpdate
+		guicontrol,enable,PortVer
+		guicontrol,enable,INITINCL
+		guicontrol,enable,DevlVer
+		guicontrol,enable,RESDD
+		guicontrol,enable,ResB
+		guicontrol,enable,SrcDD
+		guicontrol,enable,SelDir
+		guicontrol,hide,CANCEL
+		guicontrol,show,COMPILE
+		guicontrol,,progb,0
+		SB_SetText(" Operation Cancelled ")
 		return
 	}
-BCANC= 1
-guicontrol,enable,PushNotes
-guicontrol,enable,VerNum
-guicontrol,enable,GitPush
-guicontrol,enable,ServerPush
-guicontrol,enable,SiteUpdate
-guicontrol,enable,PortVer
-guicontrol,enable,INITINCL
-guicontrol,enable,DevlVer
-guicontrol,enable,RESDD
-guicontrol,enable,ResB
-guicontrol,enable,SrcDD
-guicontrol,enable,SelDir
-guicontrol,hide,CANCEL
-guicontrol,show,COMPILE
-guicontrol,,progb,0
-SB_SetText(" Operation Cancelled ")
 return
 
 canclbld:

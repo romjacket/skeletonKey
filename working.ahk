@@ -620,7 +620,7 @@ FileRead,BiosFSet,sets\Bios.set
 FileRead,fuzsys,sets\fuzsyslk.set
 FileRead,SysLLst,sets\lkup.set
 iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
-stringreplace,KMPPartSet,KMPPartSet,[ARCH],%ARCH%,All
+stringreplace,KMPPartSet,kmppartset,[ARCH],%ARCH%,All
 iniRead, UTLPartSet,sets\EmuParts.set,UTILITIES
 stringreplace,UTLPartSet,UTLPartSet,[ARCH],%ARCH%,All
 iniRead, FEPartSet,sets\EmuParts.set,FRONTENDS
@@ -10514,7 +10514,7 @@ Loop,Parse,UrlIndex,`n`r
 						emuxetmp4=
 						emuxetmp5=
 						emuxetmp6=
-						StringSplit,emuxetmp,A_LoopField,=,:
+						StringSplit,emuxetmp,A_LoopField,<,:
 						if (emuxetmp1 = slfm1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
@@ -10523,6 +10523,7 @@ Loop,Parse,UrlIndex,`n`r
 					}
 				guicontrol,,EINSTLOC,%xtractmfp%
 				guicontrolget,INSTLTYP,,SaList
+				msgbox,,,fesup=%fesup%`nslmf1=%slfm1%`nfeavail=%feavail%`nxtractmfp=%xtractmfp%`n
 				if (INSTLTYP = "Frontends")
 					{	
 						if (instr(fesup,slmf1)&& !instr(feavail,slmf1))
@@ -10782,7 +10783,7 @@ if (EINSTLOC <> "")
 				emuprt2=
 				emuprt3=
 				emuprt4=
-				StringSplit,emuprt,A_LoopField,=,:
+				StringSplit,emuprt,A_LoopField,<,:
 				if (emuprt3 = emutfpx)
 					{
 						emuxe= %emuprt3%
@@ -11564,7 +11565,7 @@ Loop, Parse,AllPartSet,`n`r
 		emupts2=
 		emupts3=
 		emupts4=
-		StringSplit,emupts,A_LoopField,=,:
+		StringSplit,emupts,A_LoopField,<,:
 		StringSplit,emupg,emupts2,/
 		if (emupts1 = selfnd)
 			{
@@ -11583,7 +11584,7 @@ loop,parse,AllPartSet,`n`r
 			{
 				continue
 			}
-		stringsplit,aen,A_LoopField,=/
+		stringsplit,aen,A_LoopField,</
 		if (aen1 = selfnd)
 			{
 				pthloc= %aen2%
@@ -11677,7 +11678,7 @@ Loop, Parse, avar,`n`r
 								emuprt1=
 								emuprt2=
 								emuprt3=
-								StringSplit,emuprt,A_LoopField,=
+								StringSplit,emuprt,A_LoopField,<
 								splitpath,emuprt3,nexv
 								if (nexv = nple)
 									{
@@ -29867,7 +29868,7 @@ Loop, Parse, UTLPartSet,`n`r
 		emupx3=
 		emupx4=
 		emupx5=
-		stringsplit,emupx,A_LoopField,=
+		stringsplit,emupx,A_LoopField,<
 		emunmz= %emupx3%
 		utlxelst.= emupx1 . ">" . emunmz . "|"
 		ifexist, %RJEMUD%\%emupx1%\%emunmz%
@@ -29952,7 +29953,7 @@ Loop, Parse, FEPartSet,`n`r
 		emupx3=
 		emupx4=
 		emupx5=
-		stringsplit,emupx,A_LoopField,=
+		stringsplit,emupx,A_LoopField,<
 		emunmz= %emupx3%
 		fexelst.= emupx1 . ">" . emunmz . "|"
 		ifexist, %RJEMUD%\%emupx1%\%emunmz%
@@ -33314,13 +33315,13 @@ if (fenam = "Pegasus")
 			{
 				PGHOME= %RJEMUD%\Pegasus\config
 			}
-		Loop, read, %PGHOME%\metafiles\metadata.pegasus.txt
+		Loop, read, %PGHOME%\metafiles\collections.pegasus.txt
 			{
 				if (A_LoopReadline = "")
 					{
 			 			continue
 					}
-				FileRead,fij,%A_LoopReadLine%\metadata.pegasus.txt
+				FileRead,fij,%A_LoopReadLine%\collections.pegasus.txt
 				stringreplace,fij,fij,/,\,All
 				Loop,Parse,fij,`n`r
 					{
@@ -52124,6 +52125,7 @@ Loop, %pghome%\themes\*,2
 			}
 		pgthemes.= A_LoopFileName . "|"
 	}
+
 if (PgNpts = "")
 	{
 		Loop,Parse,PgLkUp,`n`r
@@ -52296,7 +52298,7 @@ guicontrol,,FEEDTB,
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
-guicontrol,,FEDDLD,|gameOS||%pgthemes%
+guicontrol,,FEDDLD,|%pgtheme%||%pgthemes%
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
@@ -52539,22 +52541,22 @@ Loop, Parse, prsy,|
 						injvar6=
 						injvar7=
 						stringsplit,injvar,sysvlz,|
-						FileDelete,%injvar6%\metadata.pegasus.txt
+						FileDelete,%injvar6%\collections.pegasus.txt
 						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
 						ifinstring,injvar4,:
 							{
 								emushrtn= %injvar4%
 							}
-						FileAppend,collection: %injvar2%`n,%injvar6%\metadata.pegasus.txt
-						FileAppend,shortname: %sysesc%`n,%injvar6%\metadata.pegasus.txt
+						FileAppend,collection: %injvar2%`n,%injvar6%\collections.pegasus.txt
+						FileAppend,shortname: %sysesc%`n,%injvar6%\collections.pegasus.txt
 						stringreplace,extn,injvar3,.,%A_Space%,All
-						FileAppend,extensions: %extn%`n,%injvar6%\metadata.pegasus.txt
+						FileAppend,extensions: %extn%`n,%injvar6%\collections.pegasus.txt
 						stringreplace,emushrtn,emushrtn,",,All
 						;"
-						FileAppend,launch: "%emushrtn%" %injvar5% `n,%injvar6%\metadata.pegasus.txt
+						FileAppend,launch: "%emushrtn%" %injvar5% `n,%injvar6%\collections.pegasus.txt
 						stringreplace,injvnp,injvar6,\,/,All
-						FileAppend,directory: %injvnp%`n,%injvar6%\metadata.pegasus.txt
-						FileAppend,`n,%injvar6%\metadata.pegasus.txt
+						FileAppend,directory: %injvnp%`n,%injvar6%\collections.pegasus.txt
+						FileAppend,`n,%injvar6%\collections.pegasus.txt
 						Loop,files,%injvar6%\*,FD
 							{
 								pgdir= %A_LoopFileName%
@@ -52582,10 +52584,10 @@ Loop, Parse, prsy,|
 												stringreplace,pgad,pgd,\,/,All
 												if ((A_Index = 1) && (pgimp <> 1))
 													{
-														fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%injvar6%\metadata.pegasus.txt
+														fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%injvar6%\collections.pegasus.txt
 														goto, ParsePGIMGS
 													}													
-												fileappend,%pgfullpth%`n,%injvar6%\metadata.pegasus.txt
+												fileappend,%pgfullpth%`n,%injvar6%\collections.pegasus.txt
 												ParsePGIMGS:
 												pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
 												if (extnum = 1)
@@ -52660,11 +52662,11 @@ Loop, Parse, prsy,|
 									}
 								if (pgimgapnd <> "")
 									{
-										fileappend,%pgimgapnd%,%injvar6%\metadata.pegasus.txt
+										fileappend,%pgimgapnd%,%injvar6%\collections.pegasus.txt
 									}
 								if (pgvidapnd <> "")
 									{
-										fileappend,%pgvidapnd%,%injvar6%\metadata.pegasus.txt
+										fileappend,%pgvidapnd%,%injvar6%\collections.pegasus.txt
 									}
 							}
 						fileread,pgsys,%pghome%\game_dirs.txt
@@ -52677,7 +52679,9 @@ Loop, Parse, prsy,|
 			}
 	}
 FileRead,pgcfg,sets\pgsettings.set
-stringreplace,pgcfg,pgcfg,[THEME],%FEDDLD%,All
+pgthemeloc= %PGPROG%\config\themes\%FEDDLD%
+stringreplace,pgthemeloc,pgthemeloc,\,/,All
+stringreplace,pgcfg,pgcfg,[THEME],%pgthemeloc%,All
 stringreplace,pgcfg,pgcfg,[PGSCR],%pgscraper%,All
 stringreplace,pgcfg,pgcfg,[PGFS],%pgfullscreen%,All
 stringreplace,pgcfg,pgcfg,[PGGOG],%pgaltsrcs%,All
@@ -52689,10 +52693,10 @@ stringreplace,pgcfg,pgcfg,[PGHOME],%PGHOMER%,All
 if (FECHKB = 1)
 	{
 		FileMove,%PGHOME%\settings.txt,%PGHOME%\settings.txt.bak,1
-		FileMove,%PGHOME%\metafiles\metadata.pegasus.txt,%PGHOME%\metafiles\metadata.pegasus.txt.bak,1
+		FileMove,%PGHOME%\metafiles\collections.pegasus.txt,%PGHOME%\metafiles\collections.pegasus.txt.bak,1
 	}
-FileDelete,%PGHOME%\metafiles\metadata.pegasus.txt
-filecopy,rj\PG\metadata.pegasus.txt,%PGHOME%\metafiles,%FECHKB%
+FileDelete,%PGHOME%\metafiles\collections.pegasus.txt
+filecopy,rj\PG\collections.pegasus.txt,%PGHOME%\metafiles,%FECHKB%
 FileDelete,%PGHOME%\settings.txt
 FileAppend,%pgcfg%,%PGHOME%\settings.txt
 msgbox,,Complete,PG configuration created,5
@@ -53502,7 +53506,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LOAD PG CONFIG   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTF:
 pgcfgtmp=
-FileSelectFile,pgcfgtmp,3,,Select the metadata.pegasus.txt
+FileSelectFile,pgcfgtmp,3,,Select the collections.pegasus.txt
 if (pgcfgtmp = "")
 	{
 		return
@@ -54535,9 +54539,9 @@ Loop, Parse, existlst,|
 	}
 if (PGBACKUP = 1)
 	{
-		FileCopy,%plstdir%\metadata.pegasus.txt,%plstdir%\%SYSNAME%_metadata.pegasus.txt.bak,1
+		FileCopy,%plstdir%\collections.pegasus.txt,%plstdir%\%SYSNAME%collections.pegasus.txt.bak,1
 	}
-FileCopy,tmp.txt,%plstdir%\metadata.pegasus.txt,1
+FileCopy,tmp.txt,%plstdir%\collections.pegasus.txt,1
 MsgBox,1,GameList Created,Created %plstdir%`nGamelist created.
 SB_SetText(" " plstdir " gamelist created")
 guicontrol, enable, SVAPLST
@@ -55733,8 +55737,8 @@ guicontrol,,PGVIDPTHTXT,
 guicontrol,,PGMARQPTHTXT,
 guicontrol,,PGDDPLNUM,|1||2|3|4|5|6|7|8
 guicontrol,,PGDESCEDT,
-FileMove,%PGHOME%\gamelists\%syssub%\metadata.pegasus.txt,%PGHOME%\gamelists\%syssub%\metadata.pegasus.txt.bak,1
-FileDelete,rj\PG\%syssub%\metadata.pegasus.txt
+FileMove,%PGHOME%\gamelists\%syssub%\collections.pegasus.txt,%PGHOME%\gamelists\%syssub%\collections.pegasus.txt.bak,1
+FileDelete,rj\PG\%syssub%\collections.pegasus.txt
 ControlGet,curpllst, List,,,ahk_id %insel%
 stringreplace,curpllst,curpllst,`n,|,All
 Loop, rj\PG\%syssub%\*.ini
@@ -55744,7 +55748,7 @@ Loop, rj\PG\%syssub%\*.ini
 		FileAppend,%ftap%,rj\PG\%syssub%\gamelist.xml
 	}
 FileAppend,`n,rj\PG\%syssub%\gamelist.xml
-FileMove,rj\PG\%syssub%\metadata.pegasus.txt,%PGHOME%\gamelists\%syssub%\metadata.pegasus.txt,1
+FileMove,rj\PG\%syssub%\collections.pegasus.txt,%PGHOME%\gamelists\%syssub%\collections.pegasus.txt,1
 Msgbox,1,CREATED,%syssub% gamelist created.,5
 gamesel=
 guicontrol,,CURPLST,|
