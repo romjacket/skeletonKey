@@ -53,6 +53,9 @@ PGTHEME=[HOSTINGURL]/pgthemes/raw/master/switchOS.zip
 [gameOS]
 PGTHEME=[HOSTINGURL]/pgthemes/raw/master/gameOS.zip
 
+[arcadeOS]
+PGTHEME=[HOSTINGURL]/pgthemes/raw/master/arcadeOS.zip
+
 [magazinemadness]
 ESTHEME=[HOSTINGURL]/esthemes/releases/download/MAGAZINEMADNESS/magazinemadness.zip
 

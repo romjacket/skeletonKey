@@ -53,6 +53,9 @@ PGTHEME=https://github.com/romjacket/pgthemes/raw/master/switchOS.zip
 [gameOS]
 PGTHEME=https://github.com/romjacket/pgthemes/raw/master/gameOS.zip
 
+[arcadeOS]
+PGTHEME=https://github.com/romjacket/pgthemes/raw/master/arcadeOS.zip
+
 [magazinemadness]
 ESTHEME=https://github.com/romjacket/esthemes/releases/download/MAGAZINEMADNESS/magazinemadness.zip
 
