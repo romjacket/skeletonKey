@@ -533,10 +533,10 @@ if (raexeloc <> "")
 		iniread,fealn,apps.ini,EMULATORS,retroarch
 		if ((fealn <> "")&&(fealn <> "ERROR"))
 			{
-				ifnotinstring,feavail,retroarch
+				ifnotinstring,fSYSINSTLBX,retroarch
 					{
 						Menu, rjscopy, Add, Export to retroarch, Export_retroarch
-						feavail.= "retroarch" . "|"
+						fSYSINSTLBX.= "retroarch" . "|"
 					}
 			}	
 	}
@@ -878,12 +878,12 @@ RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|
 UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
 mednafsc= advance_frame|exit|fast_forward|insert_coin|insert_eject_disk|load_movie|load_state|power|reset|rotate_screen|run_normal|save_movie|save_state|select_disk|slow_forward|state_rewind|state_slot_dec|state_slot_inc|take_scaled_snapshot|take_snapshot|toggle_fps_view|toggle_fs|toggle_grab|toggle_state_rewind|togglecheatactive|togglecheatview|togglenetview
 mamescs= UI_ON_SCREEN_DISPLAY|UI_DEBUG_BREAK|UI_CONFIGURE|UI_PAUSE|UI_PAUSE_SINGLE|UI_SHOW_GFX|UI_FRAMESKIP_DEC|UI_FRAMESKIP_INC|UI_THROTTLE|UI_FAST_FORWARD|UI_REWIND_SINGLE|UI_RESET_MACHINE|TOGGLE_FULLSCREEN|UI_SOFT_RESET|UI_SHOW_FPS|UI_SNAPSHOT|UI_ROTATE|UI_TIMECODE|UI_RECORD_MNG|UI_RECORD_AVI|UI_SHOW_PROFILER|UI_PASTE|UI_TOGGLE_DEBUG|UI_SAVE_STATE|UI_LOAD_STATE|UITAPE_START|UI_TAPE_STOP|RENDER_SNAP|RENDER_AVI|POST_PROCESS
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|UAVAIL|EAVAIL|AVAIL|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|EMUAUTOA|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
-RAINSTITEMS= AVAIL|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
-SYSINSTITEMS= EAVAIL|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|EAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
-FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|UAVAIL
-UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|UAVAIL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
-EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|UAVAIL|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
+EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|PRGINSTLBX|SYSINSTLBX|RAINSTLBX|UPDCL|GCUPDT|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTO|EMEDTO|EMBUTH|RepoSet|SITEDTXT|AddRepo|EMUAUTOA|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKPRFJTXT|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
+RAINSTITEMS= RAINSTLBX|BCKCORE|CRNTCORS|EXELIST|GCUPDT|GRAVER|QRSETUP|RALIST|RAVERTXT|SKCCTXT|SKIMPRATXT|SKRADISP|SKRAEXE|SKRAIMP|SKRAXETXT|SKSAVE|SKSAVTXT|SKSVAS|UPDBTN|UPDCL
+SYSINSTITEMS= SYSINSTLBX|OVEXTL|OVSETRM|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRAD11A|EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTO|EMEDTO|EMBUTH|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|OVSETTXT|DCORE|ARDCORE|DAPP|EXDISPL|SYSINSTLBX|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
+FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPRFJTXT|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|PRGINSTLBX
+UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|PRGINSTLBX|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
+EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|PRGINSTLBX|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 PSETCFGITEMS= ADDCORE|OPNSYS|OVEXTL|ADDNSYS|SAVNSYS|OVSETTXT|OVSETRM|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSIDENT|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
 JSTSET= %JOYSET%
@@ -1154,7 +1154,7 @@ IfExist,apps.ini
 				if ((fealn <> "")&&(fealn <> "ERROR"))
 					{
 						Menu, rjscopy, Add, Export to %A_LOopField%, Export_%A_LoopField%
-						feavail.= A_LoopField . "|"
+						fSYSINSTLBX.= A_LoopField . "|"
 					}
 			}	
 		DAMVAR=
@@ -1297,16 +1297,19 @@ ifnotexist, %BSLPTH%\BSL.exe
 		iniwrite,"%bsltmp%",Assignments.ini,ASSIGNMENTS,BSL
 		splitpath, bsltmp,,BSLPTH
 	}
+FENN= 	
 Loop, Parse, SysLLst,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
+		FENN+=1	
 		stringsplit,syscfgfld,A_LoopField,=
 		allsupsys.= syscfgfld1 . "`n"
 		allsupport.= syscfgfld1 . "|"
 		%syscfgfld2%= %syscfgfld1%
+		syspardinj_%FENN%= %syscfgfld1%
 	}
 if (INITIAL = 1)
 	{
@@ -1360,7 +1363,7 @@ Gui, Font,%fontColor% %fontXmed%,%fontName%
 Menu, ContextMenu, Add, Check port, Check_Port
 Menu, ContextMenu, Add
 Menu, rjscopy, Add, Export to Jacket, Export_image
-Loop,parse,feavail,|
+Loop,parse,fSYSINSTLBX,|
 	{
 		if (A_LoopField = "")
 			{
@@ -1884,9 +1887,9 @@ Gui, Add, Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%, AUTO
 Gui,Add,Edit, hwndEdtHndl26 x5 y2 w210 vINSFLTR gINSFLTR,
 Gui, Add, Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
 Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
-Gui,Add,listbox,x5 y23 w271 h463 HWNDtrxvail vUAVAIL gUAvailSel hidden,
-Gui,Add,listbox, Multi x5 y23 w271 h463 HWNDeavlbx vEAVAIL gEAvailSel, %allsupport%
-Gui,Add,listbox, Multi x5 y23 w237 h433 hwndAVWIND vAVAIL gAvailSel Hidden, %corezips%
+Gui,Add,listbox,x5 y23 w271 h463 HWNDtrxvail vPRGINSTLBX gPRGINSTLBX hidden,
+Gui,Add,listbox, Multi x5 y23 w271 h463 HWNDeavlbx vSYSINSTLBX gSYSINSTLBX, %allsupport%
+Gui,Add,listbox, Multi x5 y23 w237 h433 hwndAVWIND vRAINSTLBX gRAINSTLBX Hidden, %corezips%
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
 Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS, 0
@@ -3380,7 +3383,7 @@ AUTOASPECT_TT :="if this is true and video_aspect_ratio is not set`nthen the asp
 AUTOCORE_TT := "Automatically match the host's selected core`nUnchecking allows users to select a core from your libretro (cores) diretectory"
 AUTOLNCH_TT :="Automatically runs the dropped ROM using the current system/core.`nuncheck to change settings for the dropped ROM before launching"
 AUTSHD_TT :="Automatically does the thing"
-AVAIL_TT :="Latest cores and updates available on the libretro buildbot."
+RAINSTLBX_TT :="Latest cores and updates available on the libretro buildbot."
 BBOT_TT :="Cores available on the Libtretro BuildBot"
 BCKCORE_TT :="Creates a backup of your original and updated cores and retroarch.`n(renamed to retroarch.exe.orig or ''.bak'' / core_libretro.dll.orig or ''.bak'')"
 BFI_TT :="for 120hz monitors.  Inserts a black frame to interpolate 60hz games)"
@@ -3451,7 +3454,7 @@ DUTYCYCLE_TT :="How long the period of a turbo-enabled button should be.`nNumber
 DWNLPOS_TT := "Folders populating your core-assets directory (Downloads)"
 DYNWALL_TT :="Selects wallpaper which matches the current playlist item."
 DirBut_TT :="Select a location"
-EAVAIL_TT :="The system for which you'd like to install an emulator for."
+SYSINSTLBX_TT :="The system for which you'd like to install an emulator for."
 EINSTLOC_TT :="The location of the emulator.`nYou can also drag and drop an executable file"
 EMUASIGN_TT :="Sets the default override assignment to the currently selected emulator.`neg: ROM-Jacket's preferred keymapper"
 ESDWNLPOS_TT :="The current system-list"
@@ -4409,7 +4412,7 @@ ifmsgbox, no
 return
 ifmsgbox,Cancel
 {
-	GuiControl, Enable, AVAIL
+	GuiControl, Enable, RAINSTLBX
 	GuiControl, Enable, UPDBTN
 	GuiControl, Enable, EXELIST
 	GuiControl, Disable, CNCLBTN
@@ -4536,14 +4539,14 @@ If A_GuiControlEvent RightClick
 					Menu, UndoRARST,Show,%A_guiX% %A_guiy%
 				}
 		}
-	if A_GuiControl = EAVAIL
+	if A_GuiControl = SYSINSTLBX
 		{
 			if (SALIST = "Systems")
 				{
 					;;ADD SYSTEM RIGHTCLICK
 				}
 		}
-	if A_GuiControl = EAVAIL
+	if A_GuiControl = SYSINSTLBX
 		{
 			if (SALIST = "Emulators")
 				{
@@ -4715,7 +4718,7 @@ If A_GuiControlEvent RightClick
 					return
 				}
 		}
-	if A_GuiControl = UAVAIL
+	if A_GuiControl = PRGINSTLBX
 		{
 			if (SALIST = "Emulators")
 				{
@@ -4975,8 +4978,8 @@ Loop, Parse, allsupsys,`n`r
 		knum+=1
 		if (A_LoopField = RCLSYSTEM)
 			{
-				guicontrol, choose, EAVAIL,%knum%
-				gosub, EAvailSel
+				guicontrol, choose, SYSINSTLBX,%knum%
+				gosub, SYSINSTLBX
 				break
 			}
 	}
@@ -4985,38 +4988,53 @@ return
 
 ASEMUCFG:
 guicontrolget,SEMURUN,,LCORE
+guicontrolget,SEMUSYS,,RUNSYSDDL
 ifinstring,SEMURUN,_libretro.dll
 	{
 		SB_SetText("the current configuration options are displayed")
 		return
 	}
 guicontrol,choose,TABMENU,3
-guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
-if (ksvel = "")
+guicontrolget,SALIST,,SALIST
+if (SALIST <> "Systems")
 	{
-		iniread,ksvel,Assignments.ini,ASSIGNMENTS,%SEMURUN%
-		if (ksvel <> "ERROR")
-			{
-				guicontrol,,EINSTLOC,%ksvel%
-			}
+		guicontrol,,SALIST,|Systems||Emulators|RetroArch|Utilities|Frontends
+		gosub,SALIST
 	}
-gosub, SALIST
-guicontrol,,ADDCORE,|%SEMURUN%||Select_A_System|%reasign%
-gosub, ADDCORE
-ifnotinstring,semurun,_libretro.dll
+guicontrol, Focus, SYSINSTLBX
+febnbr= 
+KRBP= 
+if (semusys <> "")
 	{
-		guicontrol,,SYSNICK,|%SEMURUN%||%preEmuCfg%
+	Loop,500
+		{
+			KRBP+=1
+			febav= % syspardinj_%KRBP%
+			if (febav = SEMUSYS)
+				{
+					febnbr:= KRBP
+					LBEX_SELECTSTRING(eavlbx,febnbr)
+					LBEX_SetSel(eavlbx,febnbr)
+					LBEX_SetFocus(eavlbx,febnbr)
+					break
+				}
+		}
 	}
-gosub,SYSNICK
-LBEX_SELECTSTRING(trxvail,SEMURUN)
-guicontrol, Focus, UAVAIL
-gosub, UAvailSel
+gosub, SYSINSTLBX
+guicontrol, Focus, EMPRLST
+LBEX_SELECTSTRING(prisl,SEMURUN)
+gosub, EMPRLST
+;;Guicontrol,+Multi,EMPRLST
+/*
 Loop,parse,PSETCFGITEMS,|
 	{
 		guicontrol,hide,%A_LoopField%
 	}
 guicontrol,show,EMUPGC
-	
+*/
+
+return
+
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
 stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
@@ -6316,7 +6334,7 @@ if ( (A_GuiX >= eRegionX) && (A_GuiX <= eRegionX+eRegionW) && (A_GuiY >= eRegion
 						SB_SetText(" This must be an executable ")
 						return
 					}
-				guicontrolget,UAVAIL,,UAVAIL
+				guicontrolget,PRGINSTLBX,,PRGINSTLBX
 				guicontrolget,systatus,,SALIST
 				if (systatus = "Emulators")
 					{
@@ -7516,9 +7534,9 @@ AUTOBIOS:
 filecreatedir,%cacheloc%\firmware
 filecreatedir,%cacheloc%\bios
 gui,submit,nohide
-guicontrol,disable,EAVAIL
-guicontrol,disable,UAVAIL
-guicontrol,disable,AVAIL
+guicontrol,disable,SYSINSTLBX
+guicontrol,disable,PRGINSTLBX
+guicontrol,disable,RAINSTLBX
 iniread,pcsx2_verx,Apps.ini,EMULATORS,PCSX2
 if ((pcsx2_verx <> "ERROR")&&(pcsx2_verx <> ""))
 	{
@@ -7609,9 +7627,9 @@ ifexist,%GAMSRCS%\AutoBios.set
 		
 	}
 gosub, BiosProc
-guicontrol,enable,EAVAIL
-guicontrol,enable,UAVAIL
-guicontrol,enable,AVAIL
+guicontrol,enable,SYSINSTLBX
+guicontrol,enable,PRGINSTLBX
+guicontrol,enable,RAINSTLBX
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    GLOBAL FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -8287,8 +8305,8 @@ if (coreselv = "")
 								knum+=1
 								if (A_LoopField = ink)
 									{
-										guicontrol, choose, UAVAIL,%knum%
-										gosub, UAVAILSEL
+										guicontrol, choose, PRGINSTLBX,%knum%
+										gosub, PRGINSTLBX
 										SB_SetText(" " ink " emulator auto-suggested")
 										break
 									}
@@ -9424,14 +9442,14 @@ pathlocations= content_database_path|cheat_database_path|content_favorites_path|
 ASSETS= %A_Scriptdir%\Assets
 return
 
-AVAILSEL:
+RAINSTLBX:
 gui, submit, nohide
-guicontrolget,availsel,,AVAIL
+guicontrolget,RAINSTLBX,,RAINSTLBX
 guicontrol, enable, UPDBTN
 Loop, Read, coreupdt.ini
 	{
 		stringsplit,avcrc,A_LoopReadLIne, %A_Space%
-		if (avcrc3 = availsel)
+		if (avcrc3 = RAINSTLBX)
 			{
 				stringsplit,ctmtc,avcrc3,.
 				loccrc=
@@ -9463,6 +9481,7 @@ if (KARC = 0)
 		DELARC= 1
 	}
 return
+
 BckCore:
 gui,submit,nohide
 guicontrolget,BCKCORE,,BCKCORE
@@ -9484,7 +9503,7 @@ guicontrol,move, CACGRP, x2 y5 w244 h478
 guicontrol, move, CCGRP, x251 y5 w212 h366
 guicontrol,enable,GCUPDT
 guicontrol,,CACGRP,Available Cores
-guicontrol,,AVAIL,|%AVAILCORES%
+guicontrol,,RAINSTLBX,|%AVAILCORES%
 return
 ExeList:
 gui,submit,nohide
@@ -9493,7 +9512,7 @@ guicontrol,hide,UPDCL
 guicontrol, move, CACGRP, x2 y5 w244 h478
 guicontrol, move, CCGRP,x251 y5 w212 h366
 guicontrol,,CACGRP,RetroArch Components
-guicontrol,,AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%UPDATERAEXE%
+guicontrol,,RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%UPDATERAEXE%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;    EMULATOR FUNCTIONS    ;;;;;;;;;;;;;;;;;;
@@ -9545,11 +9564,11 @@ CLRFLTRSUB:
 gui,submit,nohide
 if (SALIST = "Systems")
 	{
-		guicontrol,,EAVAIL,|%knownfldrs%
+		guicontrol,,SYSINSTLBX,|%knownfldrs%
 	}
 if (SALIST = "Emulators")
 	{
-		guicontrol,,UAVAIL,|%addemu%
+		guicontrol,,PRGINSTLBX,|%addemu%
 	}
 return
 CLRFLTR:
@@ -9569,7 +9588,7 @@ if (SALIST = "Emulators")
 		if (INSFLTR = "")
 			{
 				SB_SetText("")
-				guicontrol,,UAVAIL,|%emuinstpop%
+				guicontrol,,PRGINSTLBX,|%emuinstpop%
 				return
 			}
 		reapp= 	
@@ -9581,7 +9600,7 @@ if (SALIST = "Emulators")
 					}
 			}
 		SB_SetText("")
-		GuiControl,,UAVAIL,|%reapp%	
+		GuiControl,,PRGINSTLBX,|%reapp%	
 		if (INSFLTR = "INSTALLED")
 			{
 				goto, CLRFLTRSUB
@@ -9593,7 +9612,7 @@ if ((SALIST = "RetroArch")&&(RALIST = 1))
 		if (INSFLTR = "")
 			{
 				SB_SetText("")
-				guicontrol,,AVAIL,|%AVAILCORES%
+				guicontrol,,RAINSTLBX,|%AVAILCORES%
 				return
 			}
 		reapp= 	
@@ -9605,7 +9624,7 @@ if ((SALIST = "RetroArch")&&(RALIST = 1))
 					}
 			}
 		SB_SetText("")
-		GuiControl,,AVAIL,|%reapp%	
+		GuiControl,,RAINSTLBX,|%reapp%	
 		return	
 	}
 if (SALIST = "Systems")
@@ -9613,7 +9632,7 @@ if (SALIST = "Systems")
 		if (INSFLTR = "")
 			{
 				SB_SetText("")
-				guicontrol,,EAVAIL,|%allsupport%
+				guicontrol,,SYSINSTLBX,|%allsupport%
 				return
 			}
 		reisys= 	
@@ -9625,7 +9644,7 @@ if (SALIST = "Systems")
 					}
 			}
 		SB_SetText("")
-		GuiControl,,EAVAIL,|%reisys%	
+		GuiControl,,SYSINSTLBX,|%reisys%	
 		if (INSFLTR = "DETECTED")
 			{
 				goto, CLRFLTRSUB
@@ -9672,7 +9691,7 @@ if (SALIST = "Frontends")
 		guicontrol,hide,INSFLTR
 		guicontrol,hide,CLRFLTR
 		guicontrol,hide,INSFLTRX
-		guicontrol,,UAVAIL,|%frntdlst%
+		guicontrol,,PRGINSTLBX,|%frntdlst%
 		guicontrol,move,CACGRP, x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol,,CCGRP,Installer
@@ -9690,7 +9709,7 @@ if (SALIST = "Utilities")
 		guicontrol,hide,INSFLTRX
 		guicontrol,move,CACGRP,x2 y5 w276 h478
 		guicontrol,move,CCGRP,x278 y5 w185 h366
-		guicontrol,,UAVAIL,|Antimicro|DS4Windows|Daemon_Tools|DirectX|Visual_C++_Runtimes|Xinput_Drivers|Xpadder|Display_Changer|VirtualCloneDrive|WinCDEmu|360button|Joy2Key
+		guicontrol,,PRGINSTLBX,|Antimicro|DS4Windows|Daemon_Tools|DirectX|Visual_C++_Runtimes|Xinput_Drivers|Xpadder|Display_Changer|VirtualCloneDrive|WinCDEmu|360button|Joy2Key
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Utilities
 		return
@@ -9728,7 +9747,7 @@ if (SALIST = "Systems")
 	}
 if (SALIST = "Emulators")
 	{
-		guicontrol,,UAVAIL,|%emuinstpop%
+		guicontrol,,PRGINSTLBX,|%emuinstpop%
 		guicontrol,%AUTOBBUT%,AUTOBIOS
 		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
 		gosub, Dapp
@@ -9949,7 +9968,7 @@ Daemon_Tools=%xtractmul%\DTLite.exe
 guicontrol,disable,CNCLDWN
 return
 
-UAvailSel:
+PRGINSTLBX:
 gui, submit, nohide
 xtractmu=
 MULTICHK=
@@ -9966,7 +9985,7 @@ guicontrol,,EMUASIGN,0
 guicontrol,enable,EMUASIGN
 guicontrol,,EMUINST,Install
 guicontrol,,EINSTLOC
-guicontrolget,semu,,UAVAIL
+guicontrolget,semu,,PRGINSTLBX
 guicontrol,hide,MULTLNK
 guicontrol,hide,UNIQLNK
 guicontrol,hide,MULTINST
@@ -10026,9 +10045,9 @@ if (SALIST = "Emulators")
 				guicontrol,disable,EMUASIGN
 				return
 			}
-		EAVAIL= %semu%
+		SYSINSTLBX= %semu%
 		guicontrol,,EINSTLOC,%ksvel%
-		guicontrolget,SYSPOPD,,UAVAIL
+		guicontrolget,SYSPOPD,,PRGINSTLBX
 		guicontrol,,SYSNICK,|%SYSPOPD%||%PreEmuCfg%
 		gosub, DApp
 		guicontrol, hide,ROMDTXT
@@ -10089,7 +10108,7 @@ if (semu = "Antimicro")
 		guicontrol,show,EMUASIGN
 		guicontrol,,EMUASIGN,Default Keymapper
 	}
-ifinstring,noinstallers,%UAVAIL%
+ifinstring,noinstallers,%PRGINSTLBX%
 	{
 		guicontrol,disable,CHEMUINST
 		guicontrol,disable,EMUINST
@@ -10098,12 +10117,12 @@ ifinstring,noinstallers,%UAVAIL%
 return
 ;{;;;;;;;;;;;;;;;;;  SYSTEM LIST  ;;;;;;;;;;;;;;;;
 
-EAvailSel:
+SYSINSTLBX:
 gui, submit, nohide
 xtractmu=
 MULTICHK=
 MULTISYS=
-guicontrolget,semu,,EAVAIL
+guicontrolget,semu,,SYSINSTLBX
 guicontrol,,EMUASIGN,Assign to System
 guicontrol,,EMUINST,Install
 guicontrol,,EINSTLOC
@@ -10194,7 +10213,7 @@ guicontrol,show,EMUINST
 guicontrol,hide,MULTINST
 guicontrol,hide,MROMDLOC
 guicontrol,enable,ROMDLOC
-guicontrol,,ADDCORE,|%EAVAIL%||Select_A_System|%reasign%
+guicontrol,,ADDCORE,|%SYSINSTLBX%||Select_A_System|%reasign%
 guicontrol,,DCORE,0
 guicontrol,,ARDCORE,0
 guicontrol,,DAPP,1
@@ -10223,7 +10242,7 @@ gosub, AppParamPop
 guicontrol,,EMUASIGN,0
 if (SALIST = "Emulators")
 	{
-		GuiControl, choose, UAVAIL,0
+		GuiControl, choose, PRGINSTLBX,0
 	}
 IniRead,sysexlst,sets\emuCfgPresets.set,%semu%,RJROMXT
 if (sysexlst <> "ERROR")
@@ -10287,7 +10306,7 @@ MultInst:
 gui, submit, nohide
 guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,EINSTLOC,,EINSTLOC
-guicontrolget,semu,,EAVAIL
+guicontrolget,semu,,SYSINSTLBX
 if (EINSTLOC = "")
 	{
 		iniread,EINSTLOC,apps.ini,EMULATORS,%selfnd%
@@ -10311,7 +10330,7 @@ if (EINSTX = "exe")
 guicontrol,,EINSTLOC,%EINSTDIR%\%emuxe%
 if (SALIST = "Emulators")
 	{
-		guicontrolget,semu,,UAVAIL
+		guicontrolget,semu,,PRGINSTLBX
 		iniwrite, "%EINSTLOC%",apps.ini,EMULATORS,%selfnd%
 		iniwrite, "%EINSTLOC%",Assignments.ini,ASSIGNMENTS,%semu%
 		iniwrite, "%OVRKND%",Assignments.ini,OVERRIDES,%semu%
@@ -10334,7 +10353,7 @@ if (SALIST = "Emulators")
 		iniwrite, "%EMPRERUN%",AppParams.ini,%OVRKND%,EMPRERUN
 		iniwrite, "%EMPREW%",AppParams.ini,%OVRKND%,EMPREW
 		gosub, ResetEmuList
-		gosub, UAvailSel
+		gosub, PRGINSTLBX
 		SB_SetText(" " semu " assigned ")
 		return
 	}
@@ -10344,7 +10363,7 @@ Loop, Parse, semu,|
 		semu:= A_LoopField
 		gosub, MultiAssign
 		gosub, ResetEmuList
-		gosub, EAvailSel
+		gosub, SYSINSTLBX
 	}
 return
 
@@ -10364,8 +10383,8 @@ if (selfnd = "")
 		return
 	}
 Guicontrol, show, EMUINSC
-GuiControl, Disable, EAVAIL
-GuiControl, Disable, UAVAIL
+GuiControl, Disable, SYSINSTLBX
+GuiControl, Disable, PRGINSTLBX
 GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
@@ -10460,8 +10479,8 @@ Loop,Parse,UrlIndex,`n`r
 								goto,EMUDOWNLOADING
 							}
 						GuiControl, hide, EMUINSC
-						GuiControl, Enable, EAVAIL
-						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, SYSINSTLBX
+						GuiControl, Enable, PRGINSTLBX
 						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUASIGN
 						GuiControl, Enable, EMUINST
@@ -10481,8 +10500,8 @@ Loop,Parse,UrlIndex,`n`r
 						rjintr= x
 						SB_SetText(" " urloc1 " could not be installed.")
 						GuiControl, hide, EMUINSC
-						GuiControl, Enable, EAVAIL
-						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, SYSINSTLBX
+						GuiControl, Enable, PRGINSTLBX
 						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUINST
 						GuiControl, Enable, EMUASIGN
@@ -10493,15 +10512,15 @@ Loop,Parse,UrlIndex,`n`r
 					{
 						rjintr=
 						GuiControl, hide, EMUINSC
-						GuiControl, Enable, EAVAIL
-						GuiControl, Enable, UAVAIL
+						GuiControl, Enable, SYSINSTLBX
+						GuiControl, Enable, PRGINSTLBX
 						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUINST
 						GuiControl, Enable, EMUASIGN
 						GuiControl, Disable, CNCLDWN
 						return
 					}
-				feavail= 
+				fSYSINSTLBX= 
 				Loop, Parse, AllPartSet,`n`r
 					{
 						if (A_LoopField = "")
@@ -10523,13 +10542,12 @@ Loop,Parse,UrlIndex,`n`r
 					}
 				guicontrol,,EINSTLOC,%xtractmfp%
 				guicontrolget,INSTLTYP,,SaList
-				msgbox,,,fesup=%fesup%`nslmf1=%slfm1%`nfeavail=%feavail%`nxtractmfp=%xtractmfp%`n
 				if (INSTLTYP = "Frontends")
 					{	
-						if (instr(fesup,slmf1)&& !instr(feavail,slmf1))
+						if (instr(fesup,slmf1)&& !instr(fSYSINSTLBX,slmf1))
 							{
 								Menu, rjscopy, Add, Export to %slfm1%, Export_%slfm1%
-								feavail.= slfm1 . "|"
+								fSYSINSTLBX.= slfm1 . "|"
 							}
 						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%slfm1%
 					}
@@ -10631,8 +10649,8 @@ Loop,Parse,UrlIndex,`n`r
 				gosub, DApp
 				guicontrol,,DAPP,1
 				Guicontrol, ,DWNPRGRS, 0
-				GuiControl, Enable, EAVAIL
-				GuiControl, Enable, UAVAIL
+				GuiControl, Enable, SYSINSTLBX
+				GuiControl, Enable, PRGINSTLBX
 				GuiControl, Enable, AVAIL
 				GuiControl, Enable, EMUINST
 				GuiControl, Enable, EMUASIGN
@@ -10662,8 +10680,8 @@ Loop,Parse,UrlIndex,`n`r
 	}	
 if (emufzd = "")
 	{
-		GuiControl, Enable, EAVAIL
-		GuiControl, Enable, UAVAIL
+		GuiControl, Enable, SYSINSTLBX
+		GuiControl, Enable, PRGINSTLBX
 		GuiControl, Enable, AVAIL
 		GuiControl, Enable, EMUINST
 		GuiControl, Enable, EMUASIGN
@@ -10724,8 +10742,8 @@ reasign .= semu . "|"
 GuiControl,,ADDCORE,|Select_A_System||%reasign%
 Guicontrol, ,DWNPRGRS, 0
 GuiControl, hide, EMUINSC
-GuiControl, Enable, EAVAIL
-GuiControl, Enable, UAVAIL
+GuiControl, Enable, SYSINSTLBX
+GuiControl, Enable, PRGINSTLBX
 GuiControl, Enable, AVAIL
 GuiControl, Enable, EMUINST
 GuiControl, Enable, EMUASIGN
@@ -10737,7 +10755,7 @@ if (EMUASIGN = 1)
 				goto, MultInst
 			}
 	}	
-gosub, uavailsel
+gosub, PRGINSTLBX
 return
 
 MultiSys:
@@ -10747,18 +10765,18 @@ guicontrolget,EMUASIGN,,EMUASIGN
 guicontrol,hide,MULTINST
 guicontrol,show,EMUINST
 guicontrol,show,LOCEMUIN
-guicontrolget,UAVAIL,,UAVAIL
+guicontrolget,PRGINSTLBX,,PRGINSTLBX
 EINSTLOC=
 OVRKND=
 guicontrolget, EINSTLOC,, EINSTLOC
-if (UAVAIL = "Antimicro")
+if (PRGINSTLBX = "Antimicro")
 {
 		if (EMUASIGN = 1)
 			{
 				iniwrite, "Antimicro",Settings.ini,GLOBAL,Keymapper
 			}
 	}
-if (UAVAIL = "Xpadder")
+if (PRGINSTLBX = "Xpadder")
 	{
 		if (EMUASIGN = 1)
 			{
@@ -11796,13 +11814,13 @@ if (emprcur = "")
 ifinstring,emprcur,_libretro.dll
 	{
 		emprcur=
-	}
+	}	
 guicontrol,,SYSNICK,|%emprcur%||%preEmuCfg%
 gosub, SYSNICK
 return
 EMPRBUTA:
 gui,submit,nohide
-guicontrolget,semu,,EAVAIL
+guicontrolget,semu,,SYSINSTLBX
 if (semu = "")
 	{
 		guicontrolget,semu,,ADDCORE
@@ -11930,17 +11948,17 @@ iniwrite,"%emprcur%",Assignments.ini,ASSIGNMENTS,%semu%
 return
 DELCFGPGC:
 gui,submit,nohide
-guicontrolget,EAVAIL,,EAVAIL
-if (EAVAIL = "")
+guicontrolget,SYSINSTLBX,,SYSINSTLBX
+if (SYSINSTLBX = "")
 	{
 		return
 	}
-Msgbox,3,Clean per-game configs,Would you like to delete all per-game configuration files for %EAVAIL%?
+Msgbox,3,Clean per-game configs,Would you like to delete all per-game configuration files for %SYSINSTLBX%?
 ifmsgbox, Yes
 	{
-		SB_SetText("Deleting " EAVAIL " per-game skeletonkey-configuration files")
-		FileremoveDir,cfg\%EAVAIL%,1
-		FileCreateDir,cfg\%EAVAIL%
+		SB_SetText("Deleting " SYSINSTLBX " per-game skeletonkey-configuration files")
+		FileremoveDir,cfg\%SYSINSTLBX%,1
+		FileCreateDir,cfg\%SYSINSTLBX%
 		SB_SetText("")
 	}
 return
@@ -12056,7 +12074,7 @@ if (DSKMNTOVR = 1)
 return
 LocEmuIn:
 gui,submit,nohide
-guicontrolget,UAVAIL,,UAVAIL
+guicontrolget,PRGINSTLBX,,PRGINSTLBX
 guicontrolget,systatus,,SALIST
 if (systatus = "Systems")
 	{
@@ -12078,7 +12096,7 @@ if (EINSTX = "exe")
 		EINSTPTH:= EINSTDIR
 		emuxe:= EINSTFNM
 	}
-Loop, Parse, UAVAIL,|
+Loop, Parse, PRGINSTLBX,|
 	{
 		if (A_LoopField = "")
 			{
@@ -12142,15 +12160,15 @@ Loop, Parse, UAVAIL,|
 			}
 		if (systatus = "Frontends")
 			{					
-				if (instr(fesup,semu)&& !instr(feavail,semu))
+				if (instr(fesup,semu)&& !instr(fSYSINSTLBX,semu))
 					{
 						Menu, rjscopy, Add, Export to %semu%, Export_%semu%
-						feavail.= semu . "|"
+						fSYSINSTLBX.= semu . "|"
 					}
 				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
 			}
 	}
-if ((UAVAIL = "retroArch") && (raexefile = ""))
+if ((PRGINSTLBX = "retroArch") && (raexefile = ""))
 	{
 		raexefile= %emuxe%
 		iniwrite, "%EINSTPTH%\%emuxe%",Settings.ini,GLOBAL,retroarch_location
@@ -12197,7 +12215,7 @@ if (EMUINSTLOCT= "")
 	}
 SYSTRP:
 SplitPath,EMUINSTLOCT,emuxe,EINSTLOCP,,emunm
-guicontrolget,EAVAIL,,EAVAIL
+guicontrolget,SYSINSTLBX,,SYSINSTLBX
 guicontrolget,OVRKND,,SYSNICK
 guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,APPOPT,,APPOPT
@@ -12216,7 +12234,7 @@ if (EINSTX = "exe")
 		EINSTLOCP:= EINSTDIR
 		emuxe:= EINSTFNM
 	}
-Loop, Parse, EAVAIL,|
+Loop, Parse, SYSINSTLBX,|
 	{
 		OVRKND=
 		semu:= A_LoopField
@@ -12227,7 +12245,7 @@ splitpath,emuxe,,,,oemunn
 gosub, AppParamPop
 if (selfnd <> "Other")
 	{
-		gosub, EAvailSel
+		gosub, SYSINSTLBX
 	}
 if (selfnd = "retroarch")
 	{
@@ -12335,7 +12353,7 @@ ifnotinstring,selfnd,_libretro.dll
 	{
 		guicontrol,,SYSNICK,|%selfnd%||%preEmucfg%
 	}
-if (UAVAIL = "retroArch")
+if (PRGINSTLBX = "retroArch")
 	{
 		if (raexefile = "")
 			{
@@ -12363,8 +12381,8 @@ if (efi = ":\")
 		ROMDFLDR= %efix%
 	}	
 MULTI_LINKLOOP:
-guicontrolget,EAVAIL,,EAVAIL
-Loop, Parse, EAVAIL,|
+guicontrolget,SYSINSTLBX,,SYSINSTLBX
+Loop, Parse, SYSINSTLBX,|
 	{
 		semu:= A_LoopField
 		gosub, RomDLocM
@@ -12470,10 +12488,10 @@ Emu_popasgn:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
 guicontrol,disable,SaList
-guicontrol,disable,AVAIL
-guicontrol,disable,EAVAIL
-guicontrol,disable,UAVAIL
-guicontrolget,emupsgn,,UAVAIL
+guicontrol,disable,RAINSTLBX
+guicontrol,disable,SYSINSTLBX
+guicontrol,disable,PRGINSTLBX
+guicontrolget,emupsgn,,PRGINSTLBX
 bko=
 iniread,aix,Assignments.ini,ASSIGNMENTS,%emupsgn%
 if (aix = "")
@@ -12498,18 +12516,18 @@ Loop,parse,allsupport,|
 	}
 guicontrol,enable,LNCHPT
 guicontrol,enable,SaList
-guicontrol,enable,AVAIL
-guicontrol,enable,EAVAIL
-guicontrol,enable,UAVAIL
+guicontrol,enable,RAINSTLBX
+guicontrol,enable,SYSINSTLBX
+guicontrol,enable,PRGINSTLBX
 return
 
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
 guicontrol,disable,SaList
-guicontrol,disable,AVAIL
-guicontrol,disable,EAVAIL
-guicontrol,disable,UAVAIL
+guicontrol,disable,RAINSTLBX
+guicontrol,disable,SYSINSTLBX
+guicontrol,disable,PRGINSTLBX
 guicontrolget,LNCHPRDDL,,LNCHPRDDL
 guicontrolget,LNCHPT,,LNCHPT
 iniread,smuemu,apps.ini,EMULATORS,
@@ -12596,9 +12614,9 @@ if (LNCHPRDDL = "retroarch")
 					gosub, SaList
 					guicontrol,enable,LNCHPT
 					guicontrol,enable,SaList
-					guicontrol,enable,AVAIL
-					guicontrol,enable,EAVAIL
-					guicontrol,enable,UAVAIL
+					guicontrol,enable,RAINSTLBX
+					guicontrol,enable,SYSINSTLBX
+					guicontrol,enable,PRGINSTLBX
 					guicontrol,,ExeList,1
 					gosub, ExeList
 					return
@@ -12753,12 +12771,12 @@ LNCHPTFIN:
 SB_SetText("Systems now assigned to " LNCHPRDDL " where possible.")
 guicontrol,,SaList,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SaList
-GuiControl, Choose, EAVAIL, 0
+GuiControl, Choose, SYSINSTLBX, 0
 guicontrol,enable,LNCHPT
 guicontrol,enable,SaList
-guicontrol,enable,AVAIL
-guicontrol,enable,EAVAIL
-guicontrol,enable,UAVAIL
+guicontrol,enable,RAINSTLBX
+guicontrol,enable,SYSINSTLBX
+guicontrol,enable,PRGINSTLBX
 fileread,aei,Assignments.ini
 FileDelete,Assignments.ini
 stringreplace,aei,aei,|",",All
@@ -14502,7 +14520,7 @@ GuiControl, Disable, MULTINST
 GuiControl, Disable, INSTEMUDDL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
+GuiControl, Disable, SYSINSTLBX
 GuiControl, Disable, SaList
 EXELIST= 1
 gosub, STABLE
@@ -14527,7 +14545,7 @@ GuiControl, Enable, EMUINST
 GuiControl, Enable, MULTINST
 GuiControl, Enable, INSTEMUDDL
 GuiControl, Enable, UPDBTN
-GuiControl, enable, EAVAIL
+GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 GuiControl, Enable, EXELIST
 gosub, RAInit
@@ -14617,7 +14635,7 @@ ifnotexist,,%libretroDirectory%,
 		filecreatedir, %libretroDirectory%
 	}
 filedelete, corupdlst.ini
-filedelete, coreavail.ini
+filedelete, corSYSINSTLBX.ini
 FileDelete, updlstcrc.ini
 if (UPDTCHKFILE = "")
 	{
@@ -14643,25 +14661,25 @@ ifexist, coreupdt.ini
 		FileRead, cormm, corupdlst.ini
 			{
 				Sort, cormm , Alphabetically
-				fileappend, %cormm%`n, coreavail.ini
+				fileappend, %cormm%`n, corSYSINSTLBX.ini
 			}
 		AVAILCORES=
-		Loop,Read,coreavail.ini
+		Loop,Read,corSYSINSTLBX.ini
 			AVAILCORES .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 		if (RALIST = 1)
 			{
-				guicontrol,, AVAIL, |%AVAILCORES%
+				guicontrol,, RAINSTLBX, |%AVAILCORES%
 			}
 		if (EXELIST = 1)
 			{
-				guicontrol,, AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
+				guicontrol,, RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 			}
 	}
 gui, submit, nohide
 return
 UpdSelct:
 gui, submit, nohide
-guicontrolget, SLCTCORES, ,AVAIL
+guicontrolget, SLCTCORES, ,RAINSTLBX
 GuiControl, show, UPDBTC
 GuiControl, Disable, AVAIL
 GuiControl, Disable, UPDBTN
@@ -14712,11 +14730,11 @@ IF (UPDTCHKFILE = "")
 gui, submit, nohide
 if (RALIST = 1)
 	{
-		guicontrol,, AVAIL, |%AVAILCORES%
+		guicontrol,, RAINSTLBX, |%AVAILCORES%
 	}
 if (EXELIST = 1)
 	{
-		guicontrol,, AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
+		guicontrol,, RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 	}
 gosub, NoSelCores
 return
@@ -14731,11 +14749,11 @@ ifexist, %raexedir%\retroarch.exe
 gui, submit, nohide
 if (RALIST = 1)
 	{
-		guicontrol,, AVAIL, |%AVAILCORES%
+		guicontrol,, RAINSTLBX, |%AVAILCORES%
 	}
 if (EXELIST = 1)
 	{
-		guicontrol,, AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
+		guicontrol,, RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 	}
 return
 ;};;;;;;;;;
@@ -14756,7 +14774,7 @@ GuiControl, Disable, UPDBTN
 guicontrol, disable, UPDCL
 guicontrol, disable, UPDSELCT
 GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
+GuiControl, Disable, SYSINSTLBX
 GuiControl, Disable, SaList
 corexist=
 redistr= redist.7z
@@ -14803,11 +14821,11 @@ Loop, Parse, SLCTCORES,|
 		if (RALIST = 1)
 			{
 				bwSpeed=
-				ifnotexist, coreavail.ini
+				ifnotexist, corSYSINSTLBX.ini
 					{
 						gosub, CoreupdtChk
 					}
-				ifexist, coreavail.ini
+				ifexist, corSYSINSTLBX.ini
 					{
 						bwSpeed= 1
 					}
@@ -14815,7 +14833,7 @@ Loop, Parse, SLCTCORES,|
 					{
 						if (locfnd <> 1)
 							{
-								Loop, Read, coreavail.ini
+								Loop, Read, corSYSINSTLBX.ini
 									{
 										if (A_LoopReadLine = coredll | ".zip")
 											{
@@ -14892,7 +14910,7 @@ GuiControl, Disable, MULTINST
 GuiControl, Disable, INSTEMUDDL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
+GuiControl, Disable, SYSINSTLBX
 GuiControl, Disable, SaList
 updtmsg= RetroArch.7z
 iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
@@ -14931,7 +14949,7 @@ GuiControl, enable, MULTINST
 GuiControl, enable, INSTEMUDDL
 GuiControl, enable, UPDBTN
 GuiControl, enable, EXELIST
-GuiControl, enable, EAVAIL
+GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
 
@@ -14946,7 +14964,7 @@ GuiControl, Disable, MULTINST
 GuiControl, Disable, INSTEMUDDL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
+GuiControl, Disable, SYSINSTLBX
 GuiControl, Disable, SaList
 updtmsg= bundle.zip
 XTRACTLOC= %raexedir%
@@ -14961,7 +14979,7 @@ GuiControl, enable, MULTINST
 GuiControl, enable, INSTEMUDDL
 GuiControl, enable, UPDBTN
 GuiControl, enable, EXELIST
-GuiControl, enable, EAVAIL
+GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
 
@@ -14976,7 +14994,7 @@ GuiControl, Disable, MULTINST
 GuiControl, Disable, INSTEMUDDL
 GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
-GuiControl, Disable, EAVAIL
+GuiControl, Disable, SYSINSTLBX
 GuiControl, Disable, SaList
 updtmsg= redist.7z
 XTRACTLOC= %raexedir%
@@ -14991,7 +15009,7 @@ GuiControl, enable, MULTINST
 GuiControl, enable, INSTEMUDDL
 GuiControl, enable, UPDBTN
 GuiControl, enable, EXELIST
-GuiControl, enable, EAVAIL
+GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
 
@@ -15136,10 +15154,10 @@ if ((racht = "ERROR") or (racht = ""))
 		iniread,fealn,apps.ini,EMULATORS,retroarch
 		if ((fealn <> "")&&(fealn <> "ERROR"))
 			{
-				ifnotinstring,feavail,retroarch
+				ifnotinstring,fSYSINSTLBX,retroarch
 					{
 						Menu, rjscopy, Add, Export to retroarch, Export_retroarch
-						feavail.= "retroarch" . "|"
+						fSYSINSTLBX.= "retroarch" . "|"
 					}
 			}
 		iniwrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
@@ -28525,7 +28543,7 @@ if (ADDCORE = "Select_A_System")
 guicontrol,hide,EXTINP
 if (SALIST = "Emulators")
 	{
-		GuiControl, choose, UAVAIL,0
+		GuiControl, choose, PRGINSTLBX,0
 	}
 OVLIST=
 guicontrol,enable,ARDCORE
@@ -28683,7 +28701,7 @@ return
 ;{;;;;;;;;;;;;;;   System Identifier   ;;;;;;;;;;;;;;;;;;;
 SysNick:
 gui,submit,nohide
-SYSPROX= UAVAIL
+SYSPROX= PRGINSTLBX
 if (SALIST = "Systems")
 	{
 		SYSPROX= ADDCORE
@@ -28699,7 +28717,7 @@ sysni=
 gui,submit,nohide
 guicontrolget,SALIST,,SALIST
 guicontrolget,sysni,,SYSNICK
-SYSPROX= UAVAIL
+SYSPROX= PRGINSTLBX
 if (SALIST = "Systems")
 	{
 		SYSPROX= ADDCORE
@@ -29076,7 +29094,7 @@ if (SALIST = "Emulators")
 	}
 gosub, Dapp
 gosub, AppParamPop
-gosub, EAvailSel
+gosub, SYSINSTLBX
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;   Default Core Radio Button   ;;;;;;;;;;;;;
@@ -29084,7 +29102,7 @@ DCore:
 ctdef=
 SYSPOPD=
 gui,submit,nohide
-SYSPROX= UAVAIL
+SYSPROX= PRGINSTLBX
 if (SALIST = "Systems")
 	{
 		SYSPROX= ADDCORE
@@ -29280,8 +29298,8 @@ if (Salist = "Emulators")
 	{
 		guicontrol,,DApp,1
 		PRECFGLIST=
-		guicontrolget, SYSPOPD,,UAVAIL
-		guicontrolget,PRECFGLIST,,UAVAIL
+		guicontrolget, SYSPOPD,,PRGINSTLBX
+		guicontrolget,PRECFGLIST,,PRGINSTLBX
 		if (PRECFGLIST <> "")
 			{
 				SYSPOPD= %PRECFGLIST%
@@ -29660,7 +29678,7 @@ return
 SelApp:
 gui,submit,nohide
 guicontrolget,sysni,,SYSNICK
-SYSPROX= UAVAIL
+SYSPROX= PRGINSTLBX
 if (SALIST = "Systems")
 	{
 		SYSPROX= ADDCORE
@@ -29763,7 +29781,7 @@ gosub, ResetRunList
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
-gosub, EAvailSel
+gosub, SYSINSTLBX
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RJSYSRESET:
@@ -29974,10 +29992,10 @@ Loop, Parse, FEPartSet,`n`r
 						iniread,fetmp,apps.ini,HTPC_FRONTENDS,%emupx1%
 						if (fetmp = "ERROR")
 							{
-								if (instr(fesup,emupx1)&& !instr(feavail,emupx1))
+								if (instr(fesup,emupx1)&& !instr(fSYSINSTLBX,emupx1))
 									{
 										Menu, rjscopy, Add, Export to %emupx1%, Export_%emupx1%
-										feavail.= emupx1 . "|"
+										fSYSINSTLBX.= emupx1 . "|"
 									}
 								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
 							}
@@ -30142,10 +30160,10 @@ Loop, parse, farvr,`n`r
 										IniWrite, "%emuxefp%",apps.ini,HTPC_FRONTENDS,%splemu1%
 									}
 							}
-						if (instr(fesup,splemu1)&& !instr(feavail,splemu1))
+						if (instr(fesup,splemu1)&& !instr(fSYSINSTLBX,splemu1))
 							{
 								Menu, rjscopy, Add, Export to %splemu1%, Export_%splemu1%
-								feavail.= splemu1 . "|"
+								fSYSINSTLBX.= splemu1 . "|"
 							}	
 					}
 			}
@@ -30204,10 +30222,10 @@ if (fileexist(ratstchk))
 				iniread,fealn,apps.ini,EMULATORS,retroarch
 				if ((fealn <> "")&&(fealn <> "ERROR"))
 					{
-						ifnotinstring,feavail,retroarch
+						ifnotinstring,fSYSINSTLBX,retroarch
 							{
 								Menu, rjscopy, Add, Export to retroarch, Export_retroarch
-								feavail.= "retroarch" . "|"
+								fSYSINSTLBX.= "retroarch" . "|"
 							}
 					}
 				IniWrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
@@ -44596,8 +44614,8 @@ if ((amcloc = "") or (amcloc = "ERROR") or !fileexist(amcloc))
 		SALIST= Utilities
 		guicontrol,enable,SALIST
 		gosub, SALIST
-		Guicontrol,choose,UAVAIL,|1
-		guicontrol, ChooseString, UAVAIL,Antimicro
+		Guicontrol,choose,PRGINSTLBX,|1
+		guicontrol, ChooseString, PRGINSTLBX,Antimicro
 		return
 	}
 rajoytog= Hide
@@ -52067,8 +52085,8 @@ if (Pegasus = "ERROR")
 		SALIST= Frontends
 		guicontrol,enable,SALIST
 		gosub, SALIST
-		Guicontrol,choose,UAVAIL,|5
-		guicontrol, ChooseString, UAVAIL,Pegasus
+		Guicontrol,choose,PRGINSTLBX,|5
+		guicontrol, ChooseString, PRGINSTLBX,Pegasus
 		return
 	}
 filecreateDir,rj\PG
@@ -52680,7 +52698,7 @@ Loop, Parse, prsy,|
 	}
 FileRead,pgcfg,sets\pgsettings.set
 pgthemeloc= %PGPROG%\config\themes\%FEDDLD%
-stringreplace,pgthemeloc,pgthemeloc,\,/,All
+stringreplace,pgthemeloc,pgthemeloc,\r,/,All
 stringreplace,pgcfg,pgcfg,[THEME],%pgthemeloc%,All
 stringreplace,pgcfg,pgcfg,[PGSCR],%pgscraper%,All
 stringreplace,pgcfg,pgcfg,[PGFS],%pgfullscreen%,All
@@ -55996,8 +56014,8 @@ if (RetroFE = "ERROR")
 		guicontrol,enable,SALIST
 		SALIST= Frontends
 		gosub, SALIST
-		Guicontrol,choose,UAVAIL,|5
-		guicontrol, ChooseString, UAVAIL,RetroFE
+		Guicontrol,choose,PRGINSTLBX,|5
+		guicontrol, ChooseString, PRGINSTLBX,RetroFE
 		return
 	}
 filecreateDir,rj\RF
@@ -60094,8 +60112,8 @@ if (EmulationStation = "ERROR")
 		guicontrol,,SALIST,|Frontends||Systems|Emulators|RetroArch|Utilities
 		guicontrol,enable,SALIST
 		gosub, SALIST
-		Guicontrol,choose,UAVAIL,|5
-		guicontrol, ChooseString, UAVAIL,EmulationStation
+		Guicontrol,choose,PRGINSTLBX,|5
+		guicontrol, ChooseString, PRGINSTLBX,EmulationStation
 		return
 	}
 esinit=
@@ -65963,8 +65981,8 @@ Loop, Parse, emuinstpop,|
 		knum+=1
 		if (A_LoopField = selfnd)
 			{
-				guicontrol, choose, UAVAIL,%knum%
-				gosub, UAVAILSEL
+				guicontrol, choose, PRGINSTLBX,%knum%
+				gosub, PRGINSTLBX
 				SB_SetText(" " selfnd " emulator auto-suggested")
 				break
 			}
@@ -66466,7 +66484,7 @@ guicontrol,,FECHKO,Scrape to
 guicontrol,hide,FEDDLG
 guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x340 y460 w130
-guicontrol,,FEDDLG,|Jackets||%feavail%
+guicontrol,,FEDDLG,|Jackets||%fSYSINSTLBX%
 guicontrolget,FEDDLG,,FEDDLG
 guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
@@ -72353,8 +72371,8 @@ if (FETYP = "XMB")
 			SALIST= RetroArch
 			guicontrol,enable,SALIST
 			gosub, SALIST
-			Guicontrol,choose,UAVAIL,|5
-			guicontrol, ChooseString, UAVAIL,retroArch
+			Guicontrol,choose,PRGINSTLBX,|5
+			guicontrol, ChooseString, PRGINSTLBX,retroArch
 			return
 		}
 		xmbtog= Show
@@ -81222,14 +81240,14 @@ ifexist,getcore.ini
 				gcnum+=1
 				getcore.= A_LoopReadLine . "|"
 			}
-		guicontrol,,AVAIL,|%getcore%
+		guicontrol,,RAINSTLBX,|%getcore%
 SB_SetText(" " gcnum " Updates available")
 	}
 IfNotExist,getcore.ini
 	{
 		SB_SetText("No core updates available")
 		guicontrol,disable,GCUPDT
-		guicontrol,,AVAIL
+		guicontrol,,RAINSTLBX
 	}
 guicontrol,enable,UPDCL
 guicontrol,enable,UPDBTN
@@ -81325,7 +81343,7 @@ guicontrol,,COREDDLA,|Select_A_Core||%corelist%
 
 if (RALIST = 1)
 	{
-		guicontrol,, AVAIL, |%AVAILCORES%
+		guicontrol,, RAINSTLBX, |%AVAILCORES%
 		if (AVAILCORES = "")
 			{
 				guicontrol,disable,GCUPDTS
@@ -81333,7 +81351,7 @@ if (RALIST = 1)
 	}
 if (EXELIST = 1)
 	{
-		guicontrol,, AVAIL,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
+		guicontrol,, RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 	}
 return
 
