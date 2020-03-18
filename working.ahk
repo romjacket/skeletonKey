@@ -12593,11 +12593,15 @@ if (LNCHPRDDL = "Emulators")
 									{
 										continue
 									}
-								ifinstring,repw,%A_LoopField%|
+								jijv= %A_LoopField%
+								Loop,parse,repw,|
 									{
-										continue
+										if (A_LoopField = jijv)
+											{
+												continue
+											}										
 									}
-								repw.= A_LoopField . "|"
+							repw.= A_LoopField . "|"
 							}
 					}
 				iniwrite,"%repw%",Assignments.ini,OVERRIDES,%fei1%
@@ -12682,9 +12686,12 @@ if (LNCHPRDDL = "retroarch")
 									{
 										continue
 									}
-								ifinstring,repw,%A_LoopField%|
+								Loop,parse,repw,|
 									{
-										continue
+									if (A_LoopField = nwv)
+										{
+											continue
+										}										
 									}
 								repw.= A_LoopField . "|"
 							}
@@ -12757,9 +12764,13 @@ Loop, Parse, origsys,`n`r
 							{
 								continue
 							}
-						ifinstring,repw,%A_LoopField%
+						jijv= %A_LoopField%
+						Loop,parse,repw,|
 							{
-								continue
+								if (A_LoopField = jijv)
+									{
+										continue
+									}										
 							}
 						repw.= A_LoopField . "|"
 					}
@@ -29143,7 +29154,7 @@ if (ADDCORE <> "Select_A_System")
 					{
 						continue
 					}
-				sysnitmp.= A_LoopField
+				sysnitmp.= A_LoopField . "|"
 			}
 		if (sysnitmp = "")
 			{
