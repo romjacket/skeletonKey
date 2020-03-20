@@ -8567,7 +8567,6 @@ Loop,Parse,kiv,|
 					}
 			}
 		lsrchpok= %lsrchpop%
-		
 		if instr(LOCSRCHFLDR,RJSYSTEMS)
 			{
 				stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All			
@@ -8612,9 +8611,19 @@ Loop, Parse, romOVf,|
 		ainc+=1
 		romf= %A_LoopField%
 		splitpath,romf,romfn,romfpth
-		ifnotinstring,romf,:
+		if !instr(romf,":")
 			{
-				romf= %RJSYSTEMS%\%SRCHLOCDDL%\%romf%
+				romfx= %RJSYSTEMS%\%SRCHLOCDDL%\%romf%
+				if (SRCHLOCDDL = ":=:System List:=:")
+					{
+						romfx= %RJSYSTEMS%\%romf%
+						stringsplit,SRCHLOCDDZ,romf,\
+						SRCHLOCDDL= %SRCHLOCDDZ1%
+						RUNSYSDDL= %SRCHLOCDDL%
+						guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||%systmfldrs%
+						guicontrol,,SRCHLOCDDL,|%SRCHLOCDDL%||%systmfldrs%
+					}
+				romf=%romfx%	
 			}
 		SRCHOVRD= 1
 		if (SRCHFLRAD = 1)
@@ -8635,6 +8644,7 @@ Loop, Parse, romOVf,|
 							}
 						GRPOVRD= 1
 					}
+					;;msgbox,,,coreord=%coreord%`nisofldr1=%isofldr1%`nromf=%romf%`nnocad=%nocad%
 				if (lsrchpop <> "")
 					{
 						if (RUNSYSDDL <> SRCHLOCDDL)
@@ -16672,6 +16682,7 @@ core_pocketcdgDDLA:
 core_tyrquakeDDLA:
 core_pokeminiDDLA:
 core_MesenDDLA:
+core_Mesen-sDDLA:
 core_MesensDDLA:
 core_ume2015DDLA:
 core_redreamDDLA:
@@ -25103,7 +25114,7 @@ filedelete, gl.ini
 glFiles =
 Loop, Files, %videoShaderDir%\shaders_glsl\*.glslp, R
    {
-	   glFiles = %glFiles%%A_LoopFileName%`n
+	   glFiles.= glFiles . A_LoopFileName . "`n"
    }
 Loop, Parse, glFiles,`n
    {
@@ -25121,10 +25132,14 @@ filedelete, sl.ini
 slangFiles =
 Loop, Files, %videoShaderDir%\shaders_slang\*.slangp, R
    {
-	   slangFiles = %slangFiles%%A_LoopFileName%`n
+	   slangFiles.= slangFiles . A_LoopFileName . "`n"
    }
-Loop, Parse, slangFiles,`n
+Loop, Parse, slangFiles,`r`n
    {
+	if (A_LoopField = "")
+		{
+			continue
+		}
 	   FileAppend, %A_LoopField%`n, sl.ini
    }
 Loop,Read,sl.ini
@@ -25138,10 +25153,14 @@ filedelete, cg.ini
 cgFiles =
 Loop, Files, %videoShaderDir%\shaders_cg\*.cgp, R
    {
-	   cgFiles = %cgFiles%%A_LoopFileName%`n
+	   cgFiles.= cgFiles . A_LoopFileName . "`n"
    }
-Loop, Parse, cgFiles,`n
+Loop, Parse, cgFiles,`r`n
    {
+	if (A_LoopField = "")
+		{
+			continue
+		}
 	   FileAppend, %A_LoopField%`n, cg.ini
    }
 Loop,Read,cg.ini
@@ -77799,6 +77818,7 @@ iniread,romnaov,GameOverrides.ini,%RUNSYSDDL%,%romname%
 if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
 	{
 		LCORE= %romnaov%
+		guicontrol,,LCORE,|%LCORE%||%runlist%
 	}	
 if (LCORE = "")
 	{
@@ -79908,6 +79928,7 @@ iniread,romnaov,GameOverrides.ini,%ROMSYS%,%romname%
 if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
 	{
 		coreselv= %romnaov%
+		guicontrol,,LCORE,|%coreselv%||%runlist%	
 	}
 if (FILT_UNSUP <> 1)
 	{
