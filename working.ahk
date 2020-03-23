@@ -2798,7 +2798,7 @@ Gui,Add,DropDownList, hwndDplHndl125 x87 y155 w254 vOVDLDS gOvDlds disabled,|Mat
 Gui,Add,Edit, hwndEdtHndl76 x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
 Gui, Font,Bold
 Gui, Add, Text, cred x93 y495 w531 h15 vARCDET Center,
-Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP,-
+Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP, -
 Gui, Add, Button, x678 y489 w75 h23 vARCNCT gARCNCT disabled, CONNECT
 Gui, Add, Button,x604 y493 w49 h19 vARCHOST gArcHost disabled, HOST
 gui, font,Normal
@@ -3601,7 +3601,7 @@ PGCONFG_TT :="Creates a config file for every ROM in the currently selected play
 PGM_TT :="Use game-specifc overrides"
 PLAPPND_TT :="Appends ROMs in your currently selected playlist to a playlist with the same name."
 PLCORE_TT := "Selects a core to assign to ROMs in the active playlist"
-PLINIT_TT :="Recreates the playlist datbase for netplay."
+	PLINIT_TT :="Recreates the playlist datbase for netplay."
 PLNAMEDT_TT :="Gloabally identified pre-existing names for playlists`n(You can also type your own names)"
 PLOVR_TT :="Overwrites playlists and per-ROM config files with identical names."
 POLLING_TT :="Influence how input polling is done inside retroArch.`nSetting to ''Early'' or ''Late'' can result in less latency`ndepending on  your configuration"
@@ -25114,7 +25114,7 @@ filedelete, gl.ini
 glFiles =
 Loop, Files, %videoShaderDir%\shaders_glsl\*.glslp, R
    {
-	   glFiles.= glFiles . A_LoopFileName . "`n"
+	   glFiles.= A_LoopFileName . "`n"
    }
 Loop, Parse, glFiles,`n
    {
@@ -25132,7 +25132,7 @@ filedelete, sl.ini
 slangFiles =
 Loop, Files, %videoShaderDir%\shaders_slang\*.slangp, R
    {
-	   slangFiles.= slangFiles . A_LoopFileName . "`n"
+	   slangFiles.= A_LoopFileName . "`n"
    }
 Loop, Parse, slangFiles,`r`n
    {
@@ -25153,7 +25153,7 @@ filedelete, cg.ini
 cgFiles =
 Loop, Files, %videoShaderDir%\shaders_cg\*.cgp, R
    {
-	   cgFiles.= cgFiles . A_LoopFileName . "`n"
+	   cgFiles.= A_LoopFileName . "`n"
    }
 Loop, Parse, cgFiles,`r`n
    {
