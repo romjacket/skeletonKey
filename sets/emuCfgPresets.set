@@ -768,6 +768,17 @@ CFGPTH=emu.cfg
 MEMPTH=vmu_save_*.bin
 BIOS=R
 
+[flycast]
+RJPRECFG=copy /y "*.cfg" "%EMUL%"|copy /y ".Mem\vmu_save*.bin" "%EMUL%"
+RJPOSTCFG=copy /y "%EMUL%\*.cfg" "%GAMDIR%"|move /y "%EMUL%\vmu_save*.bin" "%GAMDIR%\.Mem"
+RJRUNDIR=0
+RJLNCHP=0
+URLPTH=reicast/reicast[ARCH].7z
+EXENAM=reicast.exe
+CFGPTH=emu.cfg
+MEMPTH=vmu_save_*.bin
+BIOS=R
+
 
 [Demul]
 RJPRECFG=copy /y "*.ini" "%EMUL%"|copy /y ".sstates\*" "%EMUL%\sstates"|copy /y ".scache\*" "%EMUL%\scache"
@@ -4448,7 +4459,7 @@ RJEXTRARC=0
 RJZIPPEEK=0
 SHORTNM=SATOM
 SUPEMU=Demul|mame_arcade
-SUPCORE=reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=atomiswave
 
@@ -4563,8 +4574,8 @@ RJROMXT=.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.img
 MAME?RJEMUOPTS=<dc -cdrm<|<dcjp -cdrm<|<dceu -cdrm<|<dc -cdrm<
 RJZIPPEEK=0
 SHORTNM=SDREAM
-SUPEMU=Demul|NullDC|chankast|reicast|redream|Makaron
-SUPCORE=reicast_libretro.dll|reicast_wince_libretro.dll|redream_libretro.dll
+SUPEMU=Demul|NullDC|chankast|reicast|flycast|redream|Makaron
+SUPCORE=flycast_libretro.dll|flycast_gles2_libretro.dll|redream_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=dreamcast
 
@@ -4668,8 +4679,8 @@ RJQUOTES=0
 RJEXTRARC=0
 MAME?RJEMUOPTS=<naomi -[RJRTYP]<|<naomi -cdrm<|<naomi2 -cdrm<|<naomigd -gdrm<
 SHORTNM=SNAOMI
-SUPEMU=Demul|reicast|NullDC|mame_arcade|MAME|Makaron
-SUPCORE=reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
+SUPEMU=Demul|reicast|flycast|NullDC|mame_arcade|MAME|Makaron
+SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=naomi
 

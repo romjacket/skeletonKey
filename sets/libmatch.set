@@ -140,10 +140,10 @@ play_libretro.dll|Sony - Playstation 2
 quasi88_libretro.dll|NEC - PC88
 quicknes_libretro.dll|Nintendo - Famicom Disk System
 quicknes_libretro.dll|Nintendo - Nintendo Entertainment System
-reicast_libretro.dll|Sega - Dreamcast
-reicast_libretro.dll|Sega - NAOMI
-reicast_wince_libretro.dll|Sega - Dreamcast
-reicast_wince_libretro.dll|Sega - NAOMI
+flycast_libretro.dll|Sega - Dreamcast
+flycast_libretro.dll|Sega - NAOMI
+flycast_gles2_libretro.dll|Sega - Dreamcast
+flycast_gles2_libretro.dll|Sega - NAOMI
 scummvm_libretro.dll|ScummVM - ScummVM
 snes9x2002_libretro.dll|Nintendo - Super Nintendo Entertainment System
 snes9x2005_libretro.dll|Nintendo - Super Nintendo Entertainment System

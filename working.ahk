@@ -2798,7 +2798,7 @@ Gui,Add,DropDownList, hwndDplHndl125 x87 y155 w254 vOVDLDS gOvDlds disabled,|Mat
 Gui,Add,Edit, hwndEdtHndl76 x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
 Gui, Font,Bold
 Gui, Add, Text, cred x93 y495 w531 h15 vARCDET Center,
-Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP, -
+Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP,-
 Gui, Add, Button, x678 y489 w75 h23 vARCNCT gARCNCT disabled, CONNECT
 Gui, Add, Button,x604 y493 w49 h19 vARCHOST gArcHost disabled, HOST
 gui, font,Normal
@@ -14549,7 +14549,7 @@ gosub, RBundle
 gosub, RRedist
 EXELIST= 0
 RALIST= 1
-SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|flycast_wince_libretro.dll.zip|flycast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
+SLCTCORES= 4do_libretro.dll.zip|bluemsx_libretro.dll.zip|desmume_libretro.dll.zip|dosbox_libretro.dll.zip|fbalpha2012_libretro.dll.zip|freeintv_libretro.dll.zip|gambatte_libretro.dll.zip|genesis_plus_gx_libretro.dll.zip|pcsx_rearmed_libretro.dll.zip|handy_libretro.dll.zip|mame_libretro.dll.zip|mednafen_ngp_libretro.dll.zip|mednafen_pce_fast_libretro.dll.zip|mdednafen_pcfx_libretro.dll.zip|mednafen_psx_libretro.dll.zip|mednafen_supergrafx_libretro.dll.zip|mednafen_vb_libretro.dll.zip|mednafen_wswan_libretro.dll.zip|mgba_libretro.dll.zip|nestopia_libretro.dll.zip|parallel_n64_libretro.dll.zip|picodrive_libretro.dll.zip|prosystem_libretro.dll.zip|snes9x_libretro.dll.zip|stella_libretro.dll.zip|virtualjaguar_libretro.dll.zip|crocods_libretro.dll.zip|px68k_libretro.dll.zip|openlara_libretro.dll.zip|atari800_libretro.dll.zip|np2kai_libretro.dll.zip|vice_x64_libretro.dll.zip|vice_xplus4_libretro.dll.zip|vice_xvic_libretro.dll.zip|pokemini_libretro.dll.zip|flycast_gles2_libretro.dll.zip|flycast_libretro.dll.zip|mednafen_saturn_libretro.dll.zip|mu_libretro.dll.zip|theodore_libretro.dll.zip
 if (ARCH = "64")
 	{
 		SLCTCORES .= "|" . "dolphin_libretro.dll.zip" . "|" . "citra_canary_libretro.dll.zip" . "|" . "kronos_libretro.dll.zip"
@@ -21052,11 +21052,11 @@ gosub, HideCoreUI
 return
 ;};;;;;;;;;;;
 ;{;;;;; flycast CORE  ;;;;;
-core_flycast_winceDDLA:
+core_flycast_gles2DDLA:
 core_flycastDDLA:
-if (ccv = "flycast_WinCE")
+if (ccv = "flycast_GLES2")
 	{
-		airv= flycast_WinCE
+		airv= flycast_gles2
 		ccv= flycast
 	}
 guicontrol,,CORERADA,dynamic-recompiler
@@ -22221,7 +22221,7 @@ return
 ;};;;;;;;;;;;
 ;{;;;;;;;; RESET flycast ;;;;;;;;;;;;
 core_flycastRESET:
-core_flycast_WINCERESET:
+core_flycast_GLES2RESET:
 flycastCpuMode= dynamicRecompiler
 flycastBootToBios= disabled
 flycastInternalResolution= 640x480
@@ -81292,7 +81292,7 @@ emuj=
 corNamz=
 siv=
 gosub, ResetCores
-gosub,CoreUpdtChk
+gosub,CoreUpdtChk`
 Loop,Read,cores.ini
 	{
 		if (A_loopreadLine = "")

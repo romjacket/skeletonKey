@@ -71,7 +71,7 @@ bnes|Nintendo - Nintendo Entertainment System|bnes
 Mesen|Nintendo - Nintendo Entertainment System|mesen
 Nestopia|Nintendo - Nintendo Entertainment System|nestopia
 PPSSPP|Sony - Playstation Portable|ppsspp
-flycast WinCE|Sega - Dreamcast|flycast_wince|0
+flycast WinCE|Sega - Dreamcast|flycast_gles2|0
 flycast|Sega - Dreamcast|flycast|0
 Redream|Sega - Dreamcast|redream|0
 ScummVM|ScummVM - ScummVM|scummvm|

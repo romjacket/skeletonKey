@@ -351,6 +351,7 @@ redream|redream/redream.7z
 redsquirrel|redsquirrel/redsquirrel.7z
 regen|regen/regen.7z
 reicast|reicast/reicast[ARCH].7z
+flycast|flycast/flycast.7z
 retroArch|retroArch/retroArch-[ARCH].7z
 rpcemu|rpcemu/rpcemu.7z
 gpcs4|gpcs4/gpcs4.7z
@@ -459,7 +460,7 @@ xemu|xemu/xemu.7z
 Xroar|Xroar/Xroar-[ARCH].7z
 Yabause|Yabause/Yabause-[ARCH].7z
 kronos|kronos/kronos-[ARCH].7z
-yalky|yalky/yalky.7z
+yalky|yalky/yalky.`7z`
 yape|yape/yape.7z
 ys6464a|ys6464a/ys6464a.7z
 yuzu|yuzu/yuzu.7z

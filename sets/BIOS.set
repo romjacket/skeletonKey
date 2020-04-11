@@ -396,16 +396,16 @@ demul\roms\dc.zip=:1_004_01.bin:545481F
 demul\roms\dc.zip=:1_011_01.bin:2186E0E5
 demul\roms\dc.zip=:1_022_01.bin:786168F9
 
-nullDC\data=reicast\data=retroarch\system\dc=:DC - BIOS (All).bin:61D5613F
-nullDC\data=reicast\data=retroarch\system\dc=:DC - Flash (All).bin:E0D202A2
-nullDC\data=reicast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.cdi>
-nullDC\data=reicast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.nrg>
-nullDC\data=reicast\data=retroarch\system\dc=:DC - VMS BIOS (Full).bin:C7C77B3C>
-nullDC\data=reicast\data=retroarch\system\dc=:DC101d_us.bin:05EFF2BB>
-nullDC\data=reicast\data=retroarch\system\dc=:DC_boot.bin:89F2B1A1>
-nullDC\data=reicast\data=retroarch\system\dc=:DC_flash.bin:C611B498>
-nullDC\data=reicast\data=retroarch\system\dc=:DC_nvmem.bin:05EFF2BB>
-nullDC\data=reicast\data=retroarch\system\dc=:fsca-table.bin:5D905DE4>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - BIOS (All).bin:61D5613F
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Flash (All).bin:E0D202A2
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.cdi>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.nrg>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - VMS BIOS (Full).bin:C7C77B3C>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC101d_us.bin:05EFF2BB>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_boot.bin:89F2B1A1>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_flash.bin:C611B498>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_nvmem.bin:05EFF2BB>
+nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:fsca-table.bin:5D905DE4>
 
 
 retroarch\system\dc\naomi.zip=:naomi_boot.bin:D2A1C6BF

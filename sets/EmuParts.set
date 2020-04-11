@@ -94,6 +94,7 @@ ProSystem<ProSystem/ProSystem.7z<ProSystem.exe<ProSystem.ini
 Project64<Project64/Project64-32.7z<Project64.exe<Plugin\GFX\Rice.cfg|Plugin\GFX\Rice.ini|Plugin\1.6 Plugins\Glide64.ini|Plugin\1.6 Plugins\MyGlide64.ini|Plugin\1.6 Plugins\NRage.ini|Plugin\1.6 Plugins\tr64_ogl.ini|Config\Project64.cfg<Save\*.pj<Save\*.eep|Save\Mempak1.mpk|vMempak2.mpk
 ProjectTempest<ProjectTempest/ProjectTempest.7z<PT.exe<
 reicast<reicast/reicast[ARCH].7z<reicast.exe<emu.cfg<|<vmu_save_*.bin
+flycast<flycast/flycast.7z<flycast.exe<emu.cfg<|<vmu_save_*.bin
 SL9821<SL9821/SL9821.7z<SL9821.exe<
 SNESGT<SNESGT/SNESGT.7z<SNESGT.exe<SNESGT.ini<save\*.sv*<save\*.sram
 SSF<SSF/SSF.7z<SSF.exe<Setting.ini|SSF.ini<SaveStates\*.bin<InternalBackupRam.bin

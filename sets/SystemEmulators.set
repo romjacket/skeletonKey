@@ -311,7 +311,7 @@ SNK - Neo Geo MVS|FinalBurnAlpha|FBNeo|xe|WinKawaks|aes4all|nebula|ngae|mame_arc
 SNK - Neo Geo Pocket Color|Mednafen|koyote|byuu|race|neopopcott|neopop|MAME|:mednafen_ngp_libretro.dll
 SNK - Neo Geo Pocket|Mednafen|neopop|koyote|byuu|neopopcott|xe|vdmgr|MAME|:mednafen_ngp_libretro.dll
 Sage Technology - Sage II|MAME|:mame_libretro.dll
-Sammy - Atomiswave|Demul|mame_arcade|MAME:reicast_wince_libretro.dll|reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+Sammy - Atomiswave|Demul|mame_arcade|MAME:flycast_gles2_libretro.dll|flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 Samsung - SPC-1000|MAME|:mame_libretro.dll
 Samsung - SPC-1500|MAME|:mame_libretro.dll
 San Bergmans - Izabella Malcolm - SITCOM|MAME|:mame_libretro.dll
@@ -322,7 +322,7 @@ ScummVM - ScummVM|ScummVM|:scummvm_libretro.dll
 Sega - 32X - JAP|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X - PAL|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll|mame_libretro.dll
 Sega - 32X|Fusion|gensplus|gens|MAME|:picodrive_libretro.dll
-Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:reicast_libretro.dll|reicast_wince_libretro.dll|redream_libretro.dll
+Sega - Dreamcast|Demul|NullDC|chankast|reicast|redream|Makaron|:flycast_libretro.dll|flycast_gles2_libretro.dll|redream_libretro.dll
 Sega - Game Gear - JAP|Fusion|mednafen|dega|emukon|byuu|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll|mame_libretro.dll
 Sega - Game Gear|Fusion|mednafen|dega|emukon|twombit|byuu|gamegear|mesadx|gensplus|xe|osmose|gearsystem|meka|osmose|cogwheel|regen|emukon|MAME|:genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll
 Sega - Hikaru|Demul|mame_arcade|MAME|:mame_libretro.dll
@@ -336,7 +336,7 @@ Sega - MegaTech|Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisp
 Sega - Model 1|modeller|MAME|:mame_libretro.dll
 Sega - Model 2|m2emulator|MAME|:mame_libretro.dlls
 Sega - Model 3|supermodel
-Sega - NAOMI|Demul|reicast|NullDC|mame_arcade|MAME|Makaron|:reicast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+Sega - NAOMI|Demul|reicast|NullDC|mame_arcade|MAME|Makaron|:flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 Sega - PICO|Fusion|picodrive|MAME|:picodrive_libretro.dll
 Sega - SC-3000|meka|sc3000|regen|vdmgr|MAME|:mame_libretro.dll
 Sega - SF-7000|meka|MAME|:mame_libretro.dll
