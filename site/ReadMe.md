@@ -1,12 +1,12 @@
-skeletonKey 0.99.70.50
+skeletonKey 0.99.70.51
 
- 2020-04-10 11:30 PM
+ 2020-04-30 10:01 AM
  
 by romjacket 
 
 This tool is a unified interface for ROMs, emulators and frontends.
 SkeletonKey can be used as a GUI to download and configure emulators, deploy frontends, 
-launch ROMs, manage assets & artwork by leveraging metadata-databases,
+launch ROMs, and manage assets & artwork by leveraging metadata-databases,
  art/video-scrapers.
 
 Official files are found at GITHUB

@@ -44,6 +44,12 @@ RFEXPTH=
 RFTHEME=[HOSTINGURL]/rfthemes/raw/master/animatic.zip
 RFEXPTH=
 
+[neogeomini]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/neomini.zip
+
+[epicnoir]
+ESTHEME=[HOSTINGURL]/esthemes/raw/master/epicnoir.zip
+
 [SpaceOddity]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/SpaceOddity.zip
 

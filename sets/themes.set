@@ -44,6 +44,12 @@ RFEXPTH=
 RFTHEME=https://github.com/romjacket/rfthemes/raw/master/animatic.zip
 RFEXPTH=
 
+[neogeomini]
+ESTHEME=https://github.com/romjacket/esthemes/raw/master/neomini.zip
+
+[epicnoir]
+ESTHEME=https://github.com/romjacket/esthemes/raw/master/epicnoir.zip
+
 [SpaceOddity]
 ESTHEME=https://github.com/romjacket/esthemes/raw/master/SpaceOddity.zip
 
