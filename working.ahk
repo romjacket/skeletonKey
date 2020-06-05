@@ -3,6 +3,8 @@
 SetWorkingDir,%A_ScriptDir%
 Process, Exist,
 CURPID= %ERRORLEVEL%	
+SetWinDelay,2
+CoordMode,Mouse
 ;{;	;;;;;;;;              FOLD                ;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -639,6 +641,7 @@ if (repoloc = "ERROR")
 	{
 		IniRead,repoloc,%ARCORG%,GLOBAL,HOSTINGURL
 	}
+FilereadLine,supcrz,sets\supported.set,2
 FilereadLine,scrsup,sets\supported.set,1
 Loop, Parse, scrsup,/
 	{
@@ -3265,13 +3268,13 @@ gosub, NetSET
 gosub, HideCoreUI
 gosub, DestroySplashGUI
 TrayTip
-Menu, tray, NoStandard
 Menu,Tray,Add,Activate,AWYONTGL
 Menu,Tray,Add,Mini-Mode,MINIMODE
 Menu,Tray,Tip
 Gui,+LastFound
 GuiID:=WinExist()
 /*  ;;[DEBUGOV]
+Menu, tray, NoStandard
 
 Loop,108
 	{
@@ -3900,6 +3903,11 @@ if (SETPORTABLE = 1)
 	}
 if (locfnd = 1)
 	{
+		if (MINIMODE = 1)
+			{
+				WinSet, Region,,skeletonKey
+				WinSet, Style, +0x800000, skeletonKey
+			}
 		GuiControl, Choose, TABMENU, 3
 	}
 if (RaExeFile <> "")
@@ -4178,6 +4186,10 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    RETURN FUNCTIONS/PROCEDURES    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+SetWinDelay,2
+
+CoordMode,Mouse
+return
 
 LVGetCheckedItems(cN,wN) {
 ControlGet, LVItems, List,, % cN, % wN
@@ -4989,6 +5001,11 @@ if (isrs = "ERROR")
 stringsplit,aij,isrs,|
 isrs= %aij1%
 semu= %aij1%
+if (MINIMODE = 1)
+	{
+		WinSet, Region,,skeletonKey
+		WinSet, Style, +0x800000,skeletonKey
+	}
 guicontrol,choose,TABMENU,3
 guicontrol,,SALIST,|Systems||Emulators|RetroArch|Utilities|Frontends
 gosub, SALIST
@@ -5015,6 +5032,11 @@ ifinstring,SEMURUN,_libretro.dll
 		SB_SetText("the current configuration options are displayed")
 		return
 	}
+if (MINIMODE = 1)
+	{
+		WinSet, Region,,skeletonKey
+		WinSet, Style, +0x800000,skeletonKey
+	}	
 guicontrol,choose,TABMENU,3
 guicontrolget,SALIST,,SALIST
 if (SALIST <> "Systems")
@@ -6455,7 +6477,7 @@ BGR2RGB(Color)
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;    MAINMENUTAB FUNCTIONS     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;    SETTINGS FUNCTIONS     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SYSAZ:
 gui,submit,nohide
 AUTOFUZ= 0
@@ -6563,14 +6585,17 @@ if (MINIMODE <> 1)
 	}
 MINIMODE= 
 WinSet, Region,,skeletonKey
-WinSet, Redraw,,skeletonKey
+WinSet, Style, +0x800000,skeletonKey
 return	
 
 MINIMODE:
 gui,submit,nohide
 MINIMODE= 1
-WinSet, Region,0-0 W800 H73,skeletonKey
-WinSet, Redraw,,skeletonKey
+WinSet, Style, -0x800000, skeletonKey
+WinSet, Region,18-4 W750 H45,skeletonKey
+ToolTip "Hold Alt and Left-Mouse Button to drag mini-skeletonKey."
+Sleep, 2000
+ToolTip
 return
 
 AWYONTGL:
@@ -6585,7 +6610,7 @@ gosub TRANSLID
 Winset,top,,skeletonKey
 Winset,Enable,,skeletonKey
 WinSet, Region,,skeletonKey
-WinSet, Redraw,,skeletonKey
+WinSet, Style, +0x800000,skeletonKey
 return
 
 DYNTRANS:
@@ -8370,6 +8395,11 @@ if (coreselv = "")
 			{
 				if (AUTOPGS = 1)
 					{
+						if (MINIMODE = 1)
+							{
+								WinSet, Region,,skeletonKey
+								WinSet, Style, +0x800000,skeletonKey
+							}
 						guicontrol,choose,TABMENU,3
 						guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
 						gosub, SaList
@@ -16569,7 +16599,14 @@ if (optline <> "[OPTIONS]")
 	{
 		gosub, WriteCORETop
 	}
-gosub, core_%ccv%DDLA
+Loop,parse,supcrz,|
+	{
+		if (A_LoopField = ccv)
+			{
+				goto, core_%ccv%DDLA
+			}
+	}
+goto, Select_a_CoreDDLA
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;  CORE TAB GUI ACTIONS ;;;;;;;;;;;;;;;;;;;;;;
@@ -16721,6 +16758,7 @@ core_2048DDLA:
 core_playDDLA:
 core_3dengineDDLA:
 core_neocdDDLA:
+core_x1DDLA:
 core_craftDDLA:
 core_blastemDDLA:
 core_thepowdertoyDDLA:
@@ -16734,6 +16772,7 @@ core_theodoreDDLA:
 core_squirreljmeDDLA:
 core_nekop2DDLA:
 core_quasi88DDLA:
+core_daphneDDLA:
 core_tryquakeDDLA:
 core_np2kaiDDLA:
 core_chailoveDDLA:
@@ -16742,6 +16781,9 @@ core_dolphinDDLA:
 core_gearboyDDLA:
 core_vice_xvicDDLA:
 core_vice_xplus4DDLA:
+core_vice_x128DDLA:
+core_vice_xpetDDLA:
+core_vice_x64scDDLA:
 core_melondsDDLA:
 core_mrboomDDLA:
 core_dinothawrDDLA:
@@ -82228,6 +82270,53 @@ gui,submit,nohide
 guicontrolget,PRBFND,,PRBFND
 return
 ;};;;;;;;;;;;;;;;;;
+
+!LButton::
+if (MINIMODE = 1)
+	{
+			If DoubleAlt
+				{
+					MouseGetPos,,,KDE_id
+					; This message is mostly equivalent to WinMinimize,
+					; but it avoids a bug with PSPad.
+					PostMessage,0x112,0xf020,,,ahk_id %KDE_id%
+					DoubleAlt := false
+					return
+				}
+			MouseGetPos,KDE_X1,KDE_Y1,KDE_id
+			WinGet,KDE_Win,MinMax,ahk_id %KDE_id%
+			WinGet,KDE_Pid,PID,ahk_id %KDE_id%
+			If KDE_Win
+				return
+			if (KDE_Pid <> CURPID)
+				{
+					return
+				}
+			; Get the initial window position.
+			WinGetPos,KDE_WinX1,KDE_WinY1,,,ahk_id %KDE_id%
+			Loop
+				{
+					GetKeyState,KDE_Button,LButton,P ; Break if button has been released.
+					If KDE_Button = U
+						break
+					MouseGetPos,KDE_X2,KDE_Y2 ; Get the current mouse position.
+					KDE_X2 -= KDE_X1 ; Obtain an offset from the initial mouse position.
+					KDE_Y2 -= KDE_Y1
+					KDE_WinX2 := (KDE_WinX1 + KDE_X2) ; Apply this offset to the window position.
+					KDE_WinY2 := (KDE_WinY1 + KDE_Y2)
+					WinMove,ahk_id %KDE_id%,,%KDE_WinX2%,%KDE_WinY2% ; Move the window to the new position.
+				}
+	}
+
+
+return
+
+~Alt::
+DoubleAlt := A_PriorHotkey = "~Alt" AND A_TimeSincePriorHotkey < 400
+Sleep 0
+KeyWait Alt  ; This prevents the keyboard's auto-repeat feature from interfering.
+return
+
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   EXIT     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive skeletonKey
 esc::
