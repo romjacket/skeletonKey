@@ -3,7 +3,7 @@
 SetWorkingDir,%A_ScriptDir%
 Process, Exist,
 CURPID= %ERRORLEVEL%	
-;{#	########              FOLD                #############
+;{;	;;;;;;;;              FOLD                ;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;    [VERSION]  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -155,7 +155,6 @@ if (romf <> "")
 		CHOSEN=
 		return
 	}
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EnvGet, CHKPYTH,PATH
 Envget,CURSRPTH,USERPROFILE
 Envget,app_data,APPDATA
@@ -172,7 +171,7 @@ ifnotexist, Settings.ini
 	}
 romf= %1%
 ;{;;;;;;;;;;;;;;;;;;;;        ===   INITIALIZE   ====         ;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;      GENERATE SETTINGS    ;;;;;;;;;;;;;;;;;;;;;;;;
 for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture FROM Win32_OperatingSystem")
 artmp :=(obj.OSArchitecture)
 stringsplit, arpt, artmp, -
@@ -183,7 +182,7 @@ OSVRZ3=
 stringsplit, OSVRZ, A_OSVersion,.,
 OSVRZ:= "Win" . OSVRZ1 . "." . OSVRZ2 . "x" . ARCH
 formattime, date, YYYY_MM_DD, yyyy-MM-dd
-RAUPDT= RetroArch_update.zip
+RAUPDT= UPDATE
 ARCHR=
 if (ARCH = 64)
 	{
@@ -309,7 +308,12 @@ If (historyloctmp = "ERROR")
 	{
 		gosub, NoHistoryFile
 	}
-	
+IniRead,DYNTRANS,Settings.ini,GLOBAL,Dynamic_Transparency
+DYNTRANSCHK=
+if (DYNTRANS = 1)
+	{
+		DYNTRANSCHK= Checked
+	}
 IniRead,HISAPND,Settings.ini,GLOBAL,history_append
 if (HISAPND = 1)
 	{
@@ -1395,6 +1399,7 @@ Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
 Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
 Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
 Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
+Menu,MINITOGGLE,Add,Toggle Mini-Mode,MINIMODET
 Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
 Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
 Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
@@ -1469,7 +1474,7 @@ Gui Add, GroupBox, x4 y408 w560 h87 +0x400000
 gui,font, s16 bold
 Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help</a>
 Gui,Font,Bold
-Gui, Font, %fontXmed%
+Gui, Font, %fontXmed%	
 Gui, Add, Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
 Gui ,Add, Picture, x707 y428 w44 h48 ,site\key.png
 Gui, Add, Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
@@ -1481,6 +1486,8 @@ Gui, Add, CheckBox, x150 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupport
 Gui, Add, CheckBox, x399 y90 vRENONDET gRENONDET checked, Rename Detected
 Gui, Add, Button, x579 y460 w55 h18 vUpdateSK gUpdateSK, UPDATE
 Gui, Font, Bold
+Gui, Add, Slider, x579 y323 vTRANSLID gTRANSLID Range10-255,255
+Gui, Add, Checkbox, x579 y360 vDYNTRANS gDYNTRANS %DYNTRANSCHK%, Dynamic Transparency
 Gui, Add, Text, x18 y311, Playlists Dir
 Gui, Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
@@ -1498,6 +1505,7 @@ Gui, Add, Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported a
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,Edit, hwndEdtHndl3 x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
+Gui, Add, Checkbox, x583 y76 vALWOTP gALWOTP, Always On Top
 Gui, Add, CheckBox, x583 y94 vLOGGING gLOGGING %logenable%, Logging
 Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox, x583 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
@@ -1543,13 +1551,13 @@ Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
 Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs, switches
 Gui,Add,ComboBox, hwndCbxHndl2 x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl3 x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
-Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM, ROM
+Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM,ROM
 Gui,Add,DropDownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui,Add,DropDownList, hwndDplHndl5 x540 y2 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
 Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
-Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden, HOST
-Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled, LAUNCH
+Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
+Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled,LAUNCH
 Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 gui,font,normal
 ;;Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
@@ -3251,12 +3259,15 @@ Gui, Add, Text, x365 y423 w102 h23 vCORENAMTXT, CoreOverride Confg
 Gui, Add, Button, x731 y426 w13 h19 vDELCORECFG gDeleteCoreCfg, X
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;        ----    END MENU SYSTEM    ----        ;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;    +++         POST GUI SETUP          +++     ;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;    +++         POST-GUI SETUP          +++     ;;;;;;;;;;;;;;;;
 Gui,Add,Listbox, hwndLbxHndl7 x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidden, Drop ROM here
 gosub, NetSET
 gosub, HideCoreUI
 gosub, DestroySplashGUI
 TrayTip
+Menu, tray, NoStandard
+Menu,Tray,Add,Activate,AWYONTGL
+Menu,Tray,Add,Mini-Mode,MINIMODE
 Menu,Tray,Tip
 Gui,+LastFound
 GuiID:=WinExist()
@@ -3405,6 +3416,7 @@ CLRPL_TT :="Clears Playlist"
 CLRPLYR_TT :="Clears the settings for all controls.`n''nul''"
 CLRPP_TT :="Clears populated ROMs"
 CLRTHM_TT :="Color theme"
+DYNTRANS_TT :="Dynamically enables\disables and sets the transparency of skeletonKey to 20`% when launching emulators."
 CMPAN_TT :="Shows a brief description of menu items in the XMB GUI"
 CNCLDWN_TT :="Cancel the download"
 CNCTBUT_TT :="Connects/Invades using selected settings."
@@ -3763,6 +3775,8 @@ MROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be ma
 ROMDLOC_TT :="Select the location where ROMs exist.`nA junction-link will be made into your retroarch downloads directory"
 ROMDEDT_TT :="Location of the ROM directory`nYou can also Drag and drop a folder to assign"
 ROMFLS_TT :="Playlist ROM files"
+ALWOTP_TT :="Makes skeletonKey always sit on top of other windows."
+TRANSLID_TT :="Adjusts the transparency of the skeletonKey program window."
 RUNROMCBX_TT :="ROM which will be launched"
 ROMPOP_TT :="Select ROMs to add from here"
 ROOMFILTER_TT :="Filter the Lobby using any search term"
@@ -4784,6 +4798,13 @@ If A_GuiControlEvent RightClick
 				}
 			Menu, ARCART, show, %a_guix% %a_guiy%
 			return
+		}
+	if ( (A_GuiX >= 0) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 65) )
+		{
+			if (TABMENU = ":=: MAIN :=:")
+				{
+					Menu, MINITOGGLE, show, %a_guix% %a_guiy%
+				}
 		}
 	Return
 }
@@ -6533,6 +6554,59 @@ if (nnewmsg = "")
 	}
 msgbox,1,ErrorReturn,%nnewmsg%
 return
+
+MINIMODET:
+gui,submit,nohide
+if (MINIMODE <> 1)
+	{
+		Goto, MINIMODE
+	}
+MINIMODE= 
+WinSet, Region,,skeletonKey
+WinSet, Redraw,,skeletonKey
+return	
+
+MINIMODE:
+gui,submit,nohide
+MINIMODE= 1
+WinSet, Region,0-0 W800 H73,skeletonKey
+WinSet, Redraw,,skeletonKey
+return
+
+AWYONTGL:
+gui,submit,nohide
+MINIMODE= 
+ALWOTP:= 0
+guicontrol,,ALWOTP,0
+gosub, ALWOTP
+TRANSLID:= 255
+guicontrol,,TRANSLID,255
+gosub TRANSLID
+Winset,top,,skeletonKey
+Winset,Enable,,skeletonKey
+WinSet, Region,,skeletonKey
+WinSet, Redraw,,skeletonKey
+return
+
+DYNTRANS:
+gui,submit,nohide
+iniwrite,%DYNTRANS%,Settings.ini,GLOBAL,Dynamic_Transparency
+return
+
+ALWOTP:
+gui,submit,nohide
+ALWOTPs= Off
+if (ALWOTP = 1)
+	{
+		ALWOTPs= On
+	}
+Winset,alwaysOntop,%ALWOTPs%,skeletonKey
+return
+TRANSLID:
+gui,submit,nohide
+WinSet,Transparent,%TRANSLID%,skeletonKey
+return
+
 SKTHEMEN:
 gui,submit,nohide
 guicontrolget,skthemen,,SKTHEMEN
@@ -60128,7 +60202,9 @@ Loop,parse,PgNpts,|
 	}
 LV_ModifyCol()	
 return
-
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  EMULATIONSTATION FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationToggle:
 gosub, FEUNPOP
@@ -80663,7 +80739,26 @@ ifinstring,historyloc,%RUNROM%
 	}
 guicontrol,,LCORE,|%coreselv%||%runlist%
 SB_SetText(" ..\" xenm "" RunOptions "" RUNROM "" RunArgs "|||from " runbrv " ")
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}
+	}
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey
+		WinActivate,skeletonKey
+		Winset,Top,,skeletonKey
+	}
 CHOSEN= 0
 GLBLRUN=
 process, close, %overxtpid%
@@ -81079,9 +81174,28 @@ if (CSTCMD = 1)
 				SB_SetText("")
 			}
 		gosub, PreOpt
+		RETRANSLID= 
+		if ((TRANSLID > 65)&&(DYNTRANS = 1))
+			{
+				RETRANSLID= 1
+				WinSet,Transparent,65,skeletonKey
+				guicontrol,,TRANSLID,65
+				if (ALWOTP = 0)
+					{
+						Winset,Disable,,skeletonKey
+					}				
+			}
 		SB_SetText(" " raexedir " \ " RaExeFile " " CSTRAOPTF " " RUNROM " -L" LCORE " " CSTRAARGF " |||from " ~emu directory " ")
 		Runwait, "%raexedir%\%RaExeFile%" %CSTRAOPTF% %RUNROM% %CSTRAARGF%,%raexedir%,,
 		gosub, PostOpt
+		if (RETRANSLID = 1)
+			{
+				Winset,Transparent,%TRANSLID%,skeletonKey
+				guicontrol,,TRANSLID,%TRANSLID%
+				Winset,Enable,,skeletonKey	
+				Winset,Top,,skeletonKey		
+				WinActivate,skeletonKey
+			}
 		return
 	}
 
@@ -81100,9 +81214,28 @@ guicontrol, Disable, LNCHBUT
 guicontrol, Disable, CNCTBUT
 guicontrol, Disable, HostButton
 gosub, PreOpt
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}	
+	}
 SB_SetText(" " raexedir " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
 Runwait, "%raexedir%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexedir%,,
 gosub, PostOpt
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey
+		Winset,Top,,skeletonKey
+		WinActivate,skeletonKey
+	}
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
 	{
@@ -81741,7 +81874,7 @@ filecopy,sets\Assignments.set,Assignments.ini,1
 filecopy,sets\AppParams.set,AppParams.ini,1
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    MAKE PORTABLE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    MAKE PORTABLE  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 makePortable:
 guicontrolget,Ppltxt,,PplTxt
 splitpath,A_ScriptDir,,,,,skeldrv
@@ -82130,4 +82263,4 @@ Gui, Destroy
 Exitapp
 Return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;}####################################################################
+;};

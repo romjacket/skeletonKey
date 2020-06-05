@@ -410,13 +410,6 @@ nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:fsca-table.bin:5D905D
 
 retroarch\system\dc\naomi.zip=:naomi_boot.bin:D2A1C6BF
 retroarch\system\dc=:vmu_save_A1.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_A2.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_B1.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_B2.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_C1.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_C2.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_D1.bin:7EE8CDCD>
-retroarch\system\dc=:vmu_save_D2.bin:7EE8CDCD>
 
 demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23:5D5687C7
 demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23_l:E5693CE3
