@@ -1398,6 +1398,7 @@ Menu, RunWithDD, Add, Open In Explorer !, Open_Add
 Menu, UndoRARST, Add, Undo Reset, RAINITUNDO
 Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
 Menu, RSTAPAR, Add, Reset-Preset, ReSeTAPAR
+Menu, TONTPLCFG, Add, Configure NetPlay,toNetPCfg
 Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
 Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
 Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
@@ -1559,7 +1560,7 @@ Gui,Add,DropDownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui,Add,DropDownList, hwndDplHndl5 x540 y2 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
 Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
-Gui, Add, Button, x661 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
+Gui, Add, Button, x680 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
 Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled,LAUNCH
 Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
 gui,font,normal
@@ -3907,6 +3908,7 @@ if (locfnd = 1)
 			{
 				WinSet, Region,,skeletonKey
 				WinSet, Style, +0x800000, skeletonKey
+				MINIMODE= 
 			}
 		GuiControl, Choose, TABMENU, 3
 	}
@@ -4611,6 +4613,11 @@ If A_GuiControlEvent RightClick
 			Menu, rjscopy, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+	if A_GuiControl = HLNCHBUT
+		{
+			Menu, TONTPLCFG, Show, %A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = LNCHBUT
 		{
 			if (RCLLNCH = 1)
@@ -5005,6 +5012,7 @@ if (MINIMODE = 1)
 	{
 		WinSet, Region,,skeletonKey
 		WinSet, Style, +0x800000,skeletonKey
+		MINIMODE= 
 	}
 guicontrol,choose,TABMENU,3
 guicontrol,,SALIST,|Systems||Emulators|RetroArch|Utilities|Frontends
@@ -5036,6 +5044,7 @@ if (MINIMODE = 1)
 	{
 		WinSet, Region,,skeletonKey
 		WinSet, Style, +0x800000,skeletonKey
+		MINIMODE= 
 	}	
 guicontrol,choose,TABMENU,3
 guicontrolget,SALIST,,SALIST
@@ -5915,6 +5924,36 @@ ifnotexist, %JEXPLD%
 		filecreatedir,%JEXPLD%
 	}
 Run, explorer.exe %JEXPLD%,%JEXPLD%
+return
+
+toNetPCfg:
+gui,submit,nohide
+if (MINIMODE = 1)
+	{
+		WinSet, Region,,skeletonKey
+		WinSet, Style, +0x800000, skeletonKey
+		MINIMODE= 
+	}
+guicontrolget,toromf,,RUNROMCBX
+guicontrolget,toromsys,,RUNSYSDDL
+guicontrolget,tocore,,LCORE
+stringreplace,tocore,tocore,_libretro.dll
+guicontrolget,topltyp,,RUNPLRAD
+afba= 1
+if (topltyp = 1)
+	{
+		afba= 1
+	}
+guicontrol,,HOSTSWITCH,1
+gosub, HostSwitch
+guicontrol,,RUNFLRAD,%afba%
+guicontrol,,NETCOREASSETS,|%toromsys%||%systmfldrs%
+guicontrol,,NETROMLIST,|%toromf%||%lsrchpop%
+guicontrol,choose,TABMENU,10
+guicontrol,,NetCore,|%tocore%||%corelist%
+guicontrol,,COREDDLA,|%tocore%||%corelist%
+gosub, CoreDDLA
+gosub, NetROMList
 return
 
 Open_Add:
@@ -8035,6 +8074,7 @@ if (FILT_UNSUP <> 1)
 guicontrolget,coretmp,,LCORE
 if (coretmp <> LCORE)
 	{
+		guicontrol,,SWHOST,0
 		gosub, ShowOnlyEmuGui
 	}
 guicontrol,,LCORE,||%runlist%
@@ -8399,6 +8439,7 @@ if (coreselv = "")
 							{
 								WinSet, Region,,skeletonKey
 								WinSet, Style, +0x800000,skeletonKey
+								MINIMODE= 
 							}
 						guicontrol,choose,TABMENU,3
 						guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
@@ -14267,10 +14308,11 @@ ifinstring,corinjs,.dll
 	}
 if ((core_gui <> LCORE)&&(LCORE <> ""))
 	{
+		guicontrol,,SWHOST,0
 		gosub, ShowOnlyEmuGui
 		if instr(supgui,rcrinjs) && (rcrinjs <> "")
 			{
-				goto, opncore
+				goto,OPNCOREV
 			}
 		return	
 	}
@@ -36986,7 +37028,7 @@ EXTRSYS= %ARCSYS%
 ROMSYS= %ARCSYS%
 EDTRMFN= %romfname%
 aemcfg= 1
-gosub, OPNCORE
+gosub, OPNCOREV
 return
 ARSRST:
 gui,submit,nohide
@@ -39576,6 +39618,12 @@ Loop,parse,supguiitems,|
 			{
 				svgbrnv=
 				guicontrol,enable,OPNCORE
+				if (MINIMODE = 1)
+					{
+						WinSet, Region,,skeletonKey
+						WinSet, Style, +0x800000,skeletonKey
+						MINIMODE= 
+					}
 				goto, %EMUSN%_GUI
 			}
 	}
@@ -39613,6 +39661,14 @@ if (SK_MODE = 1)
 				ifnotinstring,supgui,%guito%
 					{
 						guito= unimp
+					}
+					else {
+						if ((MINIMODE = 1)&&(guito <> retroarch))
+							{
+								WinSet, Region,,skeletonKey
+								WinSet, Style, +0x800000,skeletonKey
+								MINIMODE= 
+							}
 					}
 				goto, %guito%_GUI
 			}
@@ -77929,6 +77985,8 @@ return
 ;{;;;;;;;;;;;;     CORE PARSE   ;;;;;;;;;;;;;;;;;;;;;;;
 OPNCORE:
 gui,submit,nohide
+BPRSCORCFG= 1
+OPNCOREV:
 guicontrolget,LCORE,,LCORE
 guicontrolget,romf,,RUNROMCBX
 splitpath,romf,,,,romname
@@ -77955,6 +78013,13 @@ ifinstring,LCORE,_libretro
 		SK_MODE=
 		guicontrol,,CoreDDLA, |%LCORE%||Select_A_Core|%corelist%
 		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+		if ((MINIMODE = 1)&&(BPRSCORCFG = 1))
+			{
+				WinSet, Region,,skeletonKey
+				WinSet, Style, +0x800000,skeletonKey
+				MINIMODE= 
+			}
+		BPRSCORCFG= 	
 		gosub, ShowOnlyRAGUI
 		if (AUTOPGS = 1)
 			{
@@ -80062,7 +80127,7 @@ ifinstring,corinjs,.dll
 	}
 if instr(supgui,corinjs)
 	{
-		goto, opncore
+		goto, OPNCOREV
 	}
 guicontrol,,LCORE,|%coreselv%||%runlist%	
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
@@ -80645,7 +80710,7 @@ if (EPGC = 1)
 			{
 				FileCreateDir,cfg\%ROMSYS%\%emucfgn%\%romname%
 				EDTRMFN= %romname%
-				gosub, OPNCORE
+				gosub, OPNCOREV
 			}
 		splitpath,OvrExtAs,,ptsp
 		splitpath,ptsp,emudx
@@ -80865,7 +80930,7 @@ if (EPGC = 1)
 			{
 				FileCopy,%ptsp%\*.ini,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%,1
 			}
-		gosub, opncore
+		gosub, OPNCOREV
 		SB_SetText("settings reloaded")
 	}
 guicontrol, Enable, LNCHBUT
