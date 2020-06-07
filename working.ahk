@@ -101,6 +101,10 @@ ifinstring,getport,-clear
 			}
 		goto, QUITOUT
 	}
+if (getport = "_DEV_")	
+	{
+		VERSION= [CURV]
+	}
 INITRESTART:
 iniread,fiin,Assignments.ini,ASSIGNMENTS,%OVRLKUPNM%
 if (fiin <> "ERROR")
@@ -160,10 +164,6 @@ if (romf <> "")
 EnvGet, CHKPYTH,PATH
 Envget,CURSRPTH,USERPROFILE
 Envget,app_data,APPDATA
-ifInString,CHKPYTH,Python
-	{
-		PYEXIST= 1
-	}
 GenSetQ:
 ifnotexist, Settings.ini
 	{
@@ -845,9 +845,9 @@ JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|
 FELIST=XMB|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IAGL|Steam
 joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_Plus|_R_Y_Minus|_R|_L|_B|_A|_X|_Y|_L2|_R2|_L3|_R3|_Start|_Select|_Up|_Down|_Left|_Right|_Turbo
 stringreplace,joyitervars,joyiterate,_,,All
-
+;; RUNSYSCBX|
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
-RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSBTN|RUNSYSCBX|RUNSYSDDL|RUNPLRAD|RUNFLRAD|RUNROMCBX|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
+RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSBTN|RUNSYSDDL|RUNPLRAD|RUNFLRAD|EDTROMBTN|MINISWITCH|MORROM|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 RJLSTCTRLS=RJSYSDDRJINCEXCLRJSETRANGERJRNGTXTRJLSTYPRJRFRSHLSTRJEDTDRJEDTDNRJTXTHRJEDTBRJEDTBNRJFLTRLSTRJEDTCgRJEDTCRJFNDINLSTRJLSTVRJSALITMSRJTXTNRJCHKLRJCHKMRJCHKPRJCHKHRJCHKIRJDELCOMPRLSTOTRJGRPARJCHKGRJSYSRADARJSYSRADBRJSYSRADCRJSYSLOADRJSYSSAVRJSYSSAVASRJGRPGRJENMAPRJOVKMRJTXTCRJTXTFRJMAPDDRJMAPRETRJMAPRETOPNRJMAP1ROFTYPARJMAP1ROFTYPBRJMAP1ROFTYPCRJTXTDRJMAP1PLRJMAP1PLOPNRJMAP2ROFTYPARJMAP2ROFTYPBRJMAP2ROFTYPCRJTXTERJMAP2PLRJMAP2PLOPNRJGRPIRJENLNCHRRJLNCHOVRRJRad4BRJRad4ARJEXEBRJTXTBPRJEMUPRECFGRJEMUPRMRJCHKQRJBUTMRJCHKKRJGRPERJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
@@ -1547,25 +1547,31 @@ Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
 Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
 Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
-Gui,Add,ComboBox, hwndCbxHndl1 x18 y24 w640 vRUNROMCBX gEDTROM +0x2 +E0x5000 Right,
+Gui,Add,ComboBox, hwndCbxHndl1 x39 y24 w619 vRUNROMCBX gEDTFROM +0x2 +E0x5000 Right hidden,
+Gui Add, Button, x23 y25 w15 h17 vEDTROMBTN gEDTROMBTN,E
+Gui,Add,DropDownList, hwndDplHndl163 x39 y24 w377 vMORROM gEDTROM +0x2 +E0x5000 Right,
+Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
 gui,font,Bold
 Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui,find
 Gui,Font,Normal
-Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
+Gui, Add, Button, x745 y30 w16 h16 vMINISWITCH gMINISWITCH,-
 Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs, switches
-Gui,Add,ComboBox, hwndCbxHndl2 x459 y22 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
-Gui,Add,ComboBox, hwndCbxHndl3 x560 y22 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
+Gui,Add,ComboBox, hwndCbxHndl2 x459 y24 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
+Gui,Add,ComboBox, hwndCbxHndl3 x560 y24 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM,ROM
 Gui,Add,DropDownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui,Add,DropDownList, hwndDplHndl5 x540 y2 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
 Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
-Gui, Add, Button, x680 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
-Gui, Add, Button, x677 y2 w60 h29 vLNCHBUT gLNCH disabled,LAUNCH
-Gui, Add, Button, x737 y2 w25 h29 vRCLLNCH gRCLLNCH,::>
+Gui, Add, Button, x683 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
+Gui, Add, Button, x677 y2 w57 h29 vLNCHBUT gLNCH disabled,LAUNCH
+Gui, Add, Button, x734 y2 w28 h29 vRCLLNCH gRCLLNCH,>>>
 gui,font,normal
 ;;Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
 Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
+Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
+Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
+Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E	
 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;  Speed ;;;;;
@@ -1880,10 +1886,6 @@ Gui, Add, Text, x688 y96 vemuTXTQ %tmpvis%,
 Gui, Add, Text, x505 y400 vemuTXTR %tmpvis%,
 Gui, Add, Text, x504 y416 vemuTXTS %tmpvis%,
 Gui, Add, Text, x504 y432 vemuTXTT %tmpvis%,
-Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
-Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
-
-Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[INSTALL TAB]]     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2757,7 +2759,7 @@ if (VERSION <> "[CURV]")
 		Gui, Tab, 7
 		Gui, Tab, Repository
 		Gui,Font,Bold
-		Gui,Add,Text,x238 y212, SUPPORT YOUR LOCAL ROM-DEALERS.`n`n   Don't be duped by street-ROMs.`n`n     Play safe:  Play smart.
+		Gui,Add,Text,x238 y212,  Don't be duped by street-ROMs:`n`n     SUPPORT YOUR LOCAL ROM-DEALERS.`n`n    Developers of skeletonKey are working ahk hard as they can`nto bring you a quality experience, so join our team to play along!`n`nPlay safe:  Play smart.
 		Gui,Font,Normal
 		goto, GUIJAKLOC
 	}
@@ -3271,6 +3273,7 @@ gosub, DestroySplashGUI
 TrayTip
 Menu,Tray,Add,Activate,AWYONTGL
 Menu,Tray,Add,Mini-Mode,MINIMODE
+Menu,Tray,Add,Exit,QUITOUT
 Menu,Tray,Tip
 Gui,+LastFound
 GuiID:=WinExist()
@@ -3406,6 +3409,7 @@ BOXCVR_TT :="Front of the box"
 BRADD_TT := "Browse for ROMs to add to your current playlist."
 CGSLCT_TT := "Should work with most display modes"
 CGSHDVAR_TT :="CG Shader"
+MINISWITCH_TT :="Hold Alt and Left-Mouse Button to drag mini-skeletonKey."
 VRSTRABUT_TT :="   Global Retroarch Reset`n   right-click to undo reset."
 CHKPORTS_TT :="Checks each host to determine if the hosting port can recieve a connection.`n-- Can slow down lobby population, but reduces trouble-shooting difficulties. --"
 CHECKFRAMES_TT :="Increase this number the further away you are from your partner"
@@ -3781,7 +3785,8 @@ ROMDEDT_TT :="Location of the ROM directory`nYou can also Drag and drop a folder
 ROMFLS_TT :="Playlist ROM files"
 ALWOTP_TT :="Makes skeletonKey always sit on top of other windows."
 TRANSLID_TT :="Adjusts the transparency of the skeletonKey program window."
-RUNROMCBX_TT :="ROM which will be launched"
+RUNROMCBX_TT :="EDITABLE Field for a ROM which will be launched"
+MORROM_TT :="ROM which will be launched"
 ROMPOP_TT :="Select ROMs to add from here"
 ROOMFILTER_TT :="Filter the Lobby using any search term"
 RSTPLYR_TT :="Resets the currently selected player controls to default"
@@ -3906,9 +3911,7 @@ if (locfnd = 1)
 	{
 		if (MINIMODE = 1)
 			{
-				WinSet, Region,,skeletonKey
-				WinSet, Style, +0x800000, skeletonKey
-				MINIMODE= 
+				gosub, MINIMODEOFF
 			}
 		GuiControl, Choose, TABMENU, 3
 	}
@@ -4818,7 +4821,7 @@ If A_GuiControlEvent RightClick
 			Menu, ARCART, show, %a_guix% %a_guiy%
 			return
 		}
-	if ( (A_GuiX >= 0) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 65) )
+	if A_GUICONTROL = MINISWITCH
 		{
 			if (TABMENU = ":=: MAIN :=:")
 				{
@@ -4829,7 +4832,7 @@ If A_GuiControlEvent RightClick
 }
 return
 SQOWTH:
-guicontrolget,romofw,,RUNROMCBX
+guicontrolget,romofw,,MORROM
 romow=
 splitpath,romofw,,romow
 if (romow = "")
@@ -5010,9 +5013,7 @@ isrs= %aij1%
 semu= %aij1%
 if (MINIMODE = 1)
 	{
-		WinSet, Region,,skeletonKey
-		WinSet, Style, +0x800000,skeletonKey
-		MINIMODE= 
+		gosub, MINIMODEOFF 
 	}
 guicontrol,choose,TABMENU,3
 guicontrol,,SALIST,|Systems||Emulators|RetroArch|Utilities|Frontends
@@ -5042,9 +5043,7 @@ ifinstring,SEMURUN,_libretro.dll
 	}
 if (MINIMODE = 1)
 	{
-		WinSet, Region,,skeletonKey
-		WinSet, Style, +0x800000,skeletonKey
-		MINIMODE= 
+		gosub, MINIMODEOFF
 	}	
 guicontrol,choose,TABMENU,3
 guicontrolget,SALIST,,SALIST
@@ -5433,7 +5432,7 @@ ifinstring,RUNSYSDDL,.lpl
 		stringtrimright,RUNSYDDL,RUNSYSDDL,4
 	}
 guicontrolget,LCORE,,LCORE
-guicontrolget,romqtmp,,RUNROMCBX
+guicontrolget,romqtmp,,MORROM
 splitpath,romqtmp,romfxe,romfd,romdxtn,romfn,romGD
 ifexist,cfg\%RUNSYSDDL%\%LCORE%\%romfn%\
 	{
@@ -5442,7 +5441,7 @@ ifexist,cfg\%RUNSYSDDL%\%LCORE%\%romfn%\
 	}
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
-guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
+guicontrol,, MORROM, |%romf%||%HISTORY%
 iniwrite, "%coreselv%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gui, submit, nohide
@@ -5485,7 +5484,7 @@ if (RUNPLRAD = 1)
 		if (RUNSYSDDL = "History")
 			{
 				RUNSYSDDL=
-				guicontrolget,rrn,,RUNROMCBX
+				guicontrolget,rrn,,MORROM
 				Loop,parse,rrn,\
 					{
 						rsts= %A_LoopField%
@@ -5514,7 +5513,7 @@ if (RUNPLRAD = 1)
 	}
 ifinstring,RUNSYSDDL,:=:
 	{
-		guicontrolget,romf,,RUNROMCBX
+		guicontrolget,romf,,MORROM
 		Loop, Parse, SysLLst,`n`r
 			{
 				stringsplit,aie,A_loopField,=,`n`r
@@ -5593,7 +5592,7 @@ return
 CfgBrowse:
 gui,submit,nohide
 guicontrolget,systmp,,RUNSYSDDL
-guicontrolget,gamtmp,,RUNROMCBX
+guicontrolget,gamtmp,,MORROM
 guicontrolget,lcrtmp,,LCORE
 if (gamtmp = "")
 	{
@@ -5617,7 +5616,7 @@ guicontrolget,SRCHROMLVI,,SRCHROMLBX
 if (ClrCfgT = 1)
 	{
 		guicontrolget,SRCHLOCVI,,RUNSYSDDL
-		guicontrolget,SRCHROMLVI,,RUNROMCBX
+		guicontrolget,SRCHROMLVI,,MORROM
 		ifnotexist,%SRCHROMLVI%
 			{
 				SB_SetText(" ROM not found ")
@@ -5930,11 +5929,9 @@ toNetPCfg:
 gui,submit,nohide
 if (MINIMODE = 1)
 	{
-		WinSet, Region,,skeletonKey
-		WinSet, Style, +0x800000, skeletonKey
-		MINIMODE= 
+		gosub, MINIMODEOFF
 	}
-guicontrolget,toromf,,RUNROMCBX
+guicontrolget,toromf,,MORROM
 guicontrolget,toromsys,,RUNSYSDDL
 guicontrolget,tocore,,LCORE
 stringreplace,tocore,tocore,_libretro.dll
@@ -6256,7 +6253,7 @@ If ((A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &&
 				SB_SetText(" Loading " romf " ")
 				guicontrol,,RUNPLRAD,1
 				guicontrol,,RUNSYSDDL,|History||%plistNamz%
-				guicontrol,, RUNROMCBX, |%romf%||%HISTORY%
+				guicontrol,, MORROM, |%romf%||%HISTORY%
 				guicontrolget,AUTOLNCH, ,AUTOLNCH
 				if (AUTOLNCH = "0")
 					{
@@ -6616,25 +6613,27 @@ if (nnewmsg = "")
 msgbox,1,ErrorReturn,%nnewmsg%
 return
 
+
+MINISWITCH:
 MINIMODET:
 gui,submit,nohide
 if (MINIMODE <> 1)
 	{
 		Goto, MINIMODE
 	}
+MINIMODEOFF:
 MINIMODE= 
 WinSet, Region,,skeletonKey
 WinSet, Style, +0x800000,skeletonKey
+guicontrol,,MINISWITCH,-
 return	
 
 MINIMODE:
 gui,submit,nohide
 MINIMODE= 1
+guicontrol,,MINISWITCH,=
 WinSet, Style, -0x800000, skeletonKey
 WinSet, Region,18-4 W750 H45,skeletonKey
-ToolTip "Hold Alt and Left-Mouse Button to drag mini-skeletonKey."
-Sleep, 2000
-ToolTip
 return
 
 AWYONTGL:
@@ -6648,8 +6647,7 @@ guicontrol,,TRANSLID,255
 gosub TRANSLID
 Winset,top,,skeletonKey
 Winset,Enable,,skeletonKey
-WinSet, Region,,skeletonKey
-WinSet, Style, +0x800000,skeletonKey
+goto, MINIMODEOFF
 return
 
 DYNTRANS:
@@ -7781,7 +7779,7 @@ guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 guicontrolget,runcc,,RUNSYSDDL
 guicontrolget,lnchcc,,LCORE
-guicontrolget,lnchrc,,RUNROMCBX
+guicontrolget,lnchrc,,MORROM
 if ((lnchrc = "")or(lnchcc = "")or(runcc = ":=:System List:=:"))
 	{
 		guicontrol,disable,LNCHBUT
@@ -7800,7 +7798,7 @@ return
 RUNFLRAD:
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
-guicontrolget,EDTROM,,RUNROMCBX
+guicontrolget,EDTROM,,MORROM
 splitpath,EDTROM,edtrmf
 Loop,Parse,RUNBOXGUIITEMS,|
 	{
@@ -8084,7 +8082,7 @@ ROMSYS= %OPTYP%
 OPTYP= %OPTYP%
 EXTRSYS= %OPTYP%
 guicontrolget,SRCHTMP,,SRCHLOCDDL
-guicontrol,,RUNROMCBX,|.........indexing............||
+guicontrol,,MORROM,|.........indexing............||
 Loop,Parse,RUNBOXGUIITEMS,|
 	{
 		guicontrol,disable,%A_LoopField%
@@ -8250,7 +8248,7 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
-		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
+		guicontrol,,MORROM,|%romf%||%poptadd%
 		guicontrol,,LCORE,|%coreselv%||%runlist%
 		if (SRCHCOMPL = 1)
 			{
@@ -8262,7 +8260,7 @@ if (RUNPLRAD = 1)
 			else {
 					guicontrol,,SRCHROMLBX,|%poptadd%			
 			}
-		guicontrol,,RUNROMCBX,|%romf%||%poptadd%
+		guicontrol,,MORROM,|%romf%||%poptadd%
 		gosub, EDTROM
 		SB_SetText(" ... Index generated ...")		
 		Loop,Parse,RUNBOXGUIITEMS,|
@@ -8277,7 +8275,7 @@ SB_SetText(" ... Indexing Directory ...")
 guicontrolget,lcrtst,,LCORE
 if (OPTYP = ":=:System List:=:")
 	{
-		guicontrol, ,RUNROMCBX
+		guicontrol, ,MORROM
 		guicontrol, ,LCORE
 		coreselv=
 		romf=
@@ -8353,7 +8351,7 @@ Loop,Parse,kiv,|
 			}
 	}
 SB_SetText("... Directory Indexed ...")
-guicontrol,,RUNROMCBX,|%romf%||%poptadd%
+guicontrol,,MORROM,|%romf%||%poptadd%
 if (SRCHCOMPL = 1)
 	{
 		guicontrol,,SRCHFLRAD,1
@@ -8437,9 +8435,7 @@ if (coreselv = "")
 					{
 						if (MINIMODE = 1)
 							{
-								WinSet, Region,,skeletonKey
-								WinSet, Style, +0x800000,skeletonKey
-								MINIMODE= 
+								gosub, MINIMODEOFF
 							}
 						guicontrol,choose,TABMENU,3
 						guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
@@ -8512,7 +8508,8 @@ if (CUSTSWITCHS = 0)
 		guicontrol, hide, CUSTMARG
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
-		guicontrol, move, RUNROMCBX, x18 y22 w640
+		guicontrol, move, RUNROMCBX, x39 y24 w619
+		guicontrol, move, MORROM, x39 y24 w377
 		guicontrol,,CUSTSWITCH,0
 		CUSTMARG=
 		CUSTMOPT=
@@ -8529,6 +8526,8 @@ iniread,custargon, AppParams.ini,%iscor%,arguments
 if instr(cstopon,"[CUSTMOPT]") or Instr(custargon,"[CUSTMARG]")
 	{
 		guicontrol, show, CUSTMOPT
+		guicontrol, show, CUSTMARG
+		guicontrol, show, CUSTMARGS
 		guicontrol, show, CUSTMOPTS
 	}
 guicontrol,,CUSTSWITCH,1
@@ -8542,7 +8541,8 @@ if ((CUSTMARG = "") && (BCSTA <> ""))
 		guicontrol,,CUSTMARG,|%BCSTA%||%INJARG%
 		guicontrol,,CUSTMARGS,|%BCSTA%||%INJARG%
 	}
-guicontrol, move, RUNROMCBX, x18 y22 w440
+guicontrol, move, RUNROMCBX, x39 y24 w377
+guicontrol, move, MORROM, x39 y24 w377
 return
 SRCHLOCDDL:
 gui,submit,nohide
@@ -8789,13 +8789,12 @@ Loop, Parse, romOVf,|
 							}
 						GRPOVRD= 1
 					}
-					;;msgbox,,,coreord=%coreord%`nisofldr1=%isofldr1%`nromf=%romf%`nnocad=%nocad%
 				if (lsrchpop <> "")
 					{
 						if (RUNSYSDDL <> SRCHLOCDDL)
 							{
 							}
-						guicontrol,,RUNROMCBX,|%romf%||%lsrchpop%
+						guicontrol,,MORROM,|%romf%||%lsrchpop%
 					}
 				if (lsrchpop = "")
 					{
@@ -8844,7 +8843,7 @@ Loop, Parse, romOVf,|
 							}
 						if (ainc = 1)
 							{
-								guicontrol,,RUNROMCBX,|%romf%||%poptadd%
+								guicontrol,,MORROM,|%romf%||%poptadd%
 								gosub, EDTROM
 							}
 						return
@@ -8861,7 +8860,7 @@ Loop, Parse, romOVf,|
 							{
 								guicontrol,,RUNSYSDDL,|%SRCHLOCDDL%||History|%plistfiles%
 							}
-						guicontrol,,RUNROMCBX,|%romfj1%||%lsrchpop%
+						guicontrol,,MORROM,|%romfj1%||%lsrchpop%
 						if (MSRCHSEL <> 1)
 							{
 								guicontrol,,LCORE,|%plselcore%||%runlist%
@@ -8900,7 +8899,7 @@ ifnotinstring,romfj1,:\
 	}
 if (ainc = 1)	
 	{
-		guicontrol,,RUNROMCBX,|%prexv%%romfj1%||%poptadd%
+		guicontrol,,MORROM,|%prexv%%romfj1%||%poptadd%
 		gosub, EDTROM
 	}
 gui,submit,nohide
@@ -14276,13 +14275,55 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;  LAUNCH FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;
 RETAL:
 gui,submit,nohide
+gosub, PreOpt
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}				
+	}
 runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg"",%A_WorkingDir%
+gosub, PostOpt
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey	
+		Winset,Top,,skeletonKey		
+		WinActivate,skeletonKey
+			}
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
 
 RETALRAXE:
+gosub, PreOpt
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}				
+	}
 runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
+gosub, PostOpt
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey	
+		Winset,Top,,skeletonKey		
+		WinActivate,skeletonKey
+	}
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
@@ -14420,10 +14461,29 @@ if (romf <> "")
 	}
 corecnct= "%libretroDirectory%\%coreselv%"
 gosub, PreOpt
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}				
+	}
 guicontrolget,netplayRemotePort,,CPORTNUM
 Runwait, "%raexedir%\%RaExeFile%" -C %IPADR% --port %netplayRemotePort% -L %corecnct% %romcnct% %gameoverdcfg%%pgmargs%,%raexedir%
 SRCHARCORG= 0
 gosub, PostOpt
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey	
+		Winset,Top,,skeletonKey		
+		WinActivate,skeletonKey
+	}
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
 	{
@@ -14607,8 +14667,27 @@ if (PGM = 1)
 				pgmargs.= "%A_LoopField%" . "|"
 			}
 	}
+RETRANSLID= 
+if ((TRANSLID > 65)&&(DYNTRANS = 1))
+	{
+		RETRANSLID= 1
+		WinSet,Transparent,65,skeletonKey
+		guicontrol,,TRANSLID,65
+		if (ALWOTP = 0)
+			{
+				Winset,Disable,,skeletonKey
+			}				
+	}	
 Runwait, "%raexedir%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%%pgmargs%,%raexedir%
 gosub, PostOpt
+if (RETRANSLID = 1)
+	{
+		Winset,Transparent,%TRANSLID%,skeletonKey
+		guicontrol,,TRANSLID,%TRANSLID%
+		Winset,Enable,,skeletonKey	
+		Winset,Top,,skeletonKey		
+		WinActivate,skeletonKey
+	}
 guicontrolget, SAVEXIT
 if (SAVEXIT = 1)
 	{
@@ -35775,9 +35854,33 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 return
 
+EDTROMBTN:
+gui,submit,nohide
+guicontrolget,MORROM,,MORROM
+guicontrolget,EDTROMBTN,,EDTROMBTN
+gosub, REHRPO
+if (EDTROMBTN = "E")
+	{
+		guicontrol,,ARCSYS,| ||Select a System|%syslist%
+		guicontrol,,RUNROMCBX,|%MORROM%||%lsrchpop%
+		guicontrol,hide,MORROM
+		guicontrol,show,RUNROMCBX
+		guicontrol,,EDTROMBTN,>
+		guicontrol,focus,RUNROMCBX
+		Controlfocus,ahk_id %CbxHndl1%
+		return	
+	}
+REHCBX:	
+guicontrol,show,MORROM
+guicontrol,hide,RUNROMCBX
+guicontrol,,EDTROMBTN,E
+return	
+
+
 fltrRpoBtn:
 gui,submit,nohide
 guicontrolget,fltrRpoBtn,,fltrRpoBtn
+gosub, REHCBX
 if (fltrRpoBtn = "E")
 	{
 		guicontrol,,ARCSYS,| ||Select a System|%syslist%
@@ -35788,6 +35891,7 @@ if (fltrRpoBtn = "E")
 		Controlfocus,ahk_id %CbxHndl121%
 		return	
 	}
+REHRPO:
 guicontrol,show,ARCSYS
 guicontrol,hide,ARCCBX
 guicontrol,,fltrRpoBtn,E
@@ -37022,7 +37126,7 @@ ifnotinstring,systmfldrs,%ARCSYS%
 sysmfldrs.= ARCSYS . "|"
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%ARCSYS%||%INITFLDRS%
-guicontrol,,RUNROMCBX,|%afnchk%||%HISTORY%
+guicontrol,,MORROM,|%afnchk%||%HISTORY%
 guicontrol,,LCORE,|%ARCCORES%||%runlist%
 EXTRSYS= %ARCSYS%
 ROMSYS= %ARCSYS%
@@ -38476,7 +38580,7 @@ if (romf = "")
 		lastrom= %save%
 	}
 lastcore= %coreselv%
-guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
+guicontrol,,MORROM, |%romf%||%HISTORY%
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%EXTRSYS%||%INITFLDRS%
 guicontrol,,LCORE, |%lastcore%||%runlist%
@@ -38860,7 +38964,8 @@ if (CUSTSWITCH = 0)
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
 		guicontrol,,CUSTSWITCHS,0
-		guicontrol, move, RUNROMCBX, x18 y22 w640
+		guicontrol, move, RUNROMCBX, x39 y24 w619
+		guicontrol, move, MORROM, x39 y24 w377
 		CUSTMARG=
 		CUSTMOPT=
 		return
@@ -38870,7 +38975,8 @@ guicontrol, show, CUSTMARG
 guicontrol, show, CUSTMOPTS
 guicontrol, show, CUSTMARGS
 guicontrol,,CUSTSWITCHS,1
-guicontrol, move, RUNROMCBX, x18 y22 w440
+guicontrol, move, RUNROMCBX, x39 y24 w377
+guicontrol, move, MORROM, x39 y24 w377
 return
 ArcLogin:
 gui, submit,nohide
@@ -39227,7 +39333,7 @@ ifExist, rj\scrapeArt\%SYSLKUP%\
 return
 ASEMUOVR:
 gui,submit,nohide
-guicontrolget,RUNRTST,,RUNROMCBX
+guicontrolget,RUNRTST,,MORROM
 guicontrolget,RUNSYSTST,,RUNSYSDDL
 guicontrolget,LCORE,,LCORE
 splitpath,RUNRTST,,,,ROMTOVR
@@ -39255,7 +39361,7 @@ SB_SetText(" " LCORE " set as override for " ROMTOVR "")
 return
 
 ASOCDEL:
-guicontrolget,RUNRTST,,RUNROMCBX
+guicontrolget,RUNRTST,,MORROM
 guicontrolget,RUNSYSTST,,RUNSYSDDL
 inidelete,GameOverrides.ini,%RUNSYSTST%,%ROMTOVR%
 SB_SetText(" " LCORE " override for " ROMTOVR " deleted")
@@ -39620,9 +39726,7 @@ Loop,parse,supguiitems,|
 				guicontrol,enable,OPNCORE
 				if (MINIMODE = 1)
 					{
-						WinSet, Region,,skeletonKey
-						WinSet, Style, +0x800000,skeletonKey
-						MINIMODE= 
+						gosub, MINIMODEOFF
 					}
 				goto, %EMUSN%_GUI
 			}
@@ -39665,9 +39769,7 @@ if (SK_MODE = 1)
 					else {
 						if ((MINIMODE = 1)&&(guito <> retroarch))
 							{
-								WinSet, Region,,skeletonKey
-								WinSet, Style, +0x800000,skeletonKey
-								MINIMODE= 
+								gosub, MINIMODEOFF
 							}
 					}
 				goto, %guito%_GUI
@@ -40250,8 +40352,8 @@ EMUCFGOVRTGL= 1
 ;{;;;    EMUCFG COPY  ;;;;
 EMUCFGCOPY:
 EMUDFL=
-guicontrolget,RUNROMCBX,,RUNROMCBX
-splitpath,RUNROMCBX,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
+guicontrolget,MORROM,,MORROM
+splitpath,MORROM,EDTRMF,EDTRMP,EDTRMX,EDTRMFN
 if (SK_MODE = "")
 	{
 		;filedelete,%indvcp%\mednafen.cf*
@@ -40366,7 +40468,7 @@ if (SK_MODE = 2)
 if (EMUSN = "")
 	{
 		;FileCopy, rj\emuCfgs\*.set, %indvcp%
-		guicontrol,enable,RUNROMCBX
+		guicontrol,enable,MORROM
 		return
 	}
 CFGITER:
@@ -40438,7 +40540,7 @@ Loop, rj\emuCfgs\%EMUSN%\*.*
 				continue
 			}
 	}
-guicontrol,enable,RUNROMCBX
+guicontrol,enable,MORROM
 return
 ;};;;;
 PEREMUINJ:
@@ -43495,7 +43597,7 @@ ifinstring,rmst,.lpl
 	}
 if (rmst = "History")
 	{
-		guicontrolget,emst,,RUNROMCBX
+		guicontrolget,emst,,MORROM
 		Loop, parse, emst,\
 			{
 				ifinstring,A_Loopfield,%A_Space%-%A_Space%
@@ -43554,7 +43656,7 @@ if (ROMSYS = "")
 			}
 		if (rmst = "History")
 			{
-				guicontrolget,emst,,RUNROMCBX
+				guicontrolget,emst,,MORROM
 				Loop, parse, emst,\
 					{
 						ifinstring,A_Loopfield,%A_Space%-%A_Space%
@@ -47660,7 +47762,7 @@ if (ROMSYS = "")
 			}
 		if (rmst = "History")
 			{
-				guicontrolget,emst,,RUNROMCBX
+				guicontrolget,emst,,MORROM
 				Loop, parse, emst,\
 					{
 						ifinstring,A_Loopfield,%A_Space%-%A_Space%
@@ -66561,13 +66663,9 @@ guicontrol,hide,FEBUTL
 guicontrol,enable,FEBUTL
 guicontrol,move,FEBUTL,x619 y214 w36 h17
 guicontrol,,FEBUTL,open
-pylinkd= hide
-if (PYEXIST = "")
-	{
-		pylinkd= show
-	}
-guicontrol,%pylinkd%,FELNKB
-guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python not detected.</a>
+guicontrol,hide,FELNKB
+;;guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python not detected.</a>
+guicontrol, ,FELNKB,
 guicontrol,move,FELNKB,x435 y5 w137 h13
 guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
@@ -69626,56 +69724,53 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 			}
 				ifnotinstring,xlmb3,:
 					{
-						if (PYEXIST = 1)
+						ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 							{
-								ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
+								SB_SetText("Downloading " realname " Video")
+								RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i -c --id "%xlmb3%" --no-check-certificate --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
+								FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
+								if (imgsz < 1)
 									{
-										SB_SetText("Downloading " realname " Video")
-										RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i -c --id "%xlmb3%" --no-check-certificate --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
-										FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
-										if (imgsz < 1)
-											{
-												DWNFLD= 1
-												FileDelete,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
-												SB_SetText(" " realname " " jaksbd " was not downloaded")
-												continue
-											}
-										ifNotExist, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
-											{
-												DWNFLD= 1
-												SB_SetText(" " realname " " jaksbd " was not downloaded")
-												continue
-											}
-										ifNotExist, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4
-											{
-												FileMove, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,1
-											}																	
-										if (SCRPCPY = 1)
-											{
-												if (Jackets_scrape = 1)
-													{
-														FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSYSTEMS%\%REALSYS%\%jaktit%\%realname%.mp4
-													}
-												if (EmulationStation_scrape = 1)
-													{
-														FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
-													}
-												if (retroArch_scrape = 1)
-													{
-														FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
-													}
-												if (retroFE_scrape = 1)
-													{
-														FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
-													}
-												if (Pegasus_scrape = 1)
-													{
-														;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
-													}
-											}	
+										DWNFLD= 1
+										FileDelete,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
+										SB_SetText(" " realname " " jaksbd " was not downloaded")
+										continue
 									}
-								continue
+								ifNotExist, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
+									{
+										DWNFLD= 1
+										SB_SetText(" " realname " " jaksbd " was not downloaded")
+										continue
+									}
+								ifNotExist, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4
+									{
+										FileMove, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4, %ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,1
+									}																	
+								if (SCRPCPY = 1)
+									{
+										if (Jackets_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSYSTEMS%\%REALSYS%\%jaktit%\%realname%.mp4
+											}
+										if (EmulationStation_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%eshome%\downloaded_videos\%REALSYS%\%jaktit%-video.mp4
+											}
+										if (retroArch_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%thumbnailsDirectory%\%REALSYS%\video\%jaktit%-video.mp4
+											}
+										if (retroFE_scrape = 1)
+											{
+												FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%rfhome%\collections\%REALSYS%\medium_artwork\video\%jaktit%.mp4
+											}
+										if (Pegasus_scrape = 1)
+											{
+												;;FileCopy,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%realname%.mp4,%RJSSYTEMS%\%REALSYS%\media\%jaktit%\video.mp4
+											}
+									}	
 							}
+						continue
 					}
 			}
 		if (CNCLKUP = 1)
@@ -70474,9 +70569,6 @@ Loop, %RJSYSTEMS%\*,2
 guicontrol,,FEDDLA,|Systems||%scrble%
 Gui,ListView,FELVA
 LV_Delete()
-if (PYEXIST = "")
-	{
-	}
 return
 
 MediaFERAD2C:
@@ -73735,7 +73827,7 @@ ifnotinstring,supguiitems,%guito%
 	else {
 		guicontrol,,LCORE,|%guito%||%runlist%
 		guicontrol,,RUNSYSDDL,|:=:System List:=:||%knownfldrs%
-		guicontrol,,RUNROMCBX,|
+		guicontrol,,MORROM,|
 	}	
 goto, %guito%_GUI
 return
@@ -77988,7 +78080,7 @@ gui,submit,nohide
 BPRSCORCFG= 1
 OPNCOREV:
 guicontrolget,LCORE,,LCORE
-guicontrolget,romf,,RUNROMCBX
+guicontrolget,romf,,MORROM
 splitpath,romf,,,,romname
 iniread,romnaov,GameOverrides.ini,%RUNSYSDDL%,%romname%
 if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
@@ -78015,9 +78107,7 @@ ifinstring,LCORE,_libretro
 		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
 		if ((MINIMODE = 1)&&(BPRSCORCFG = 1))
 			{
-				WinSet, Region,,skeletonKey
-				WinSet, Style, +0x800000,skeletonKey
-				MINIMODE= 
+				gosub, MINIMODEOFF 
 			}
 		BPRSCORCFG= 	
 		gosub, ShowOnlyRAGUI
@@ -78064,8 +78154,8 @@ if (SK_MODE = 1)
 		guicontrol,show,RUNSYSDDL
 		guicontrol,show,RUNPLRAD
 		guicontrol,show,RUNFLRAD
-		guicontrol,show,RUNROMCBX
-		guicontrol,show,RUNROMCBX
+		guicontrol,show,MORROM
+		guicontrol,show,MORROM
 		guicontrol,show,LCORE
 		guicontrol,show,CUSTSWITCHS
 		guicontrol,show,GROM
@@ -79874,6 +79964,11 @@ sysrev=
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;  ROM SELECT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+EDTFROM:
+gui,submit,nohide
+guicontrolget,KITLSN,,RUNROMCBX
+guicontrol,,MORROM,|%KITLSN%||%lsrchpop%
+guicontrol,,hide,RUNROMCBX
 EDTROM:
 RUNSYSCHNG+=1
 aemcfg=
@@ -79883,9 +79978,9 @@ stilltyp:
 Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
 ROMSYS= %OPTYP%
-Guicontrolget,romf,,RUNROMCBX
-splitpath,RUNROMCBX,EDTRMF,EDTRMP,inputext,EDTRMFN
-guicontrol,-Altsubmit,RUNROMCBX
+Guicontrolget,romf,,MORROM
+splitpath,MORROM,EDTRMF,EDTRMP,inputext,EDTRMFN
+guicontrol,-Altsubmit,MORROM
 gui,submit,nohide
 indvcp=
 if (romf = "")
@@ -79912,12 +80007,9 @@ if (RUNPLRAD = 1)
 		selectedplaylist= %playlistLoc%\%OPTYP%
 		if (OPTYP = "History")
 			{
-				if (OPTYP = "History")
-					{
-						selectedplaylist= %historyloc%
-					}
+				selectedplaylist= %historyloc%
 			}
-		ifinstring,OPTYP,.lpl
+		ifinstring,selectedplaylist,.lpl
 			{
 				Loop, Read, %selectedplaylist%
 					{
@@ -79932,14 +80024,17 @@ if (RUNPLRAD = 1)
 							}
 						if (newPlF = 1)
 							{
-								Stringreplace,ttnf,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
+								ifinstring,A_LoopReadLine,"path":
+								;;Stringreplace,ttnf,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
 								if (ERRORLEVEL = 1)
 									{
 										lnumfnd:= A_Index+2
 										finumj:= A_Index+3
-										stringtrimright,ttnf,ttnf,1
-										stringreplace,ttnf,ttnf,\\,\,All
-										stringreplace,ttnf,ttnf,",,All
+										stringsplit,A_LoopReadLine,ttnx,"
+										;"
+										;;stringtrimright,ttnf,ttnf,1
+										stringreplace,ttnf,ttnx3,\\,\,All
+										;;stringreplace,ttnf,ttnf,",,All
 										;"
 										rom_f= %ttnf%
 										ifinstring,ttnf,.zip#
@@ -79955,12 +80050,18 @@ if (RUNPLRAD = 1)
 												continue
 											}
 										filereadline,coreselz,%selectedplaylist%,%lnumfnd%
-										Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
-										stringtrimright,coreselz,coreselz,1
-										stringreplace,coreselz,coreselz,\\,\,All
-										stringreplace,coreselz,coreselz,",,All
+										stringsplit,corselspv,coreselz,"
 										;"
-										splitpath,coreselz,coreselk,corextnt
+										;;Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
+										;;stringtrimright,coreselz,coreselz,1
+										stringreplace,coreselz,corselspv3,\\,\,All
+										;;stringreplace,coreselz,coreselz,",,All
+										;"
+										splitpath,coreselz,coreselk,coreseld,corextnt,corselm
+										ifnotinstring,runlist,%corselm%
+											{
+												coreselk= DETECT
+											}
 										coreselv= %coreselk%
 										if (corextnt = "exe")
 											{
@@ -80015,7 +80116,7 @@ if (RUNPLRAD = 1)
 			}
 		if (coreselv = "DETECT")
 			{
-				inpl= Assignments.ini
+				inpl= sets\Assignments.ini
 				rersini:
 				iniread,fijj,%inpl%,OVERRIDES,%TRPTYP%
 				if (fijj = "ERROR")
@@ -80113,11 +80214,11 @@ if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
 		coreselv= %romnaov%
 		guicontrol,,LCORE,|%coreselv%||%runlist%	
 	}
-if (FILT_UNSUP <> 1)
+if ((FILT_UNSUP <> 1)&&(OPTYP <> "History"))
 	{
-		if (Ident_Sys = "")
+		ifnotinstring,SysLLst,%OPTYP%=
 			{
-				gosub, RecentRead
+				gosub,RecentRead
 			}
 	}
 corinjs= %coreselv%
@@ -80149,10 +80250,10 @@ if (ROMFileSel = "")
 		return
 	}
 romf= %ROMFileSel%
-RUNROMCBX= %romf%
+MORROM= %romf%
 iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
 guicontrol,,RUNSYSDDL,|History||%plistfiles%
-guicontrol,,RUNROMCBX, |%romf%||%HISTORY%
+guicontrol,,MORROM, |%romf%||%HISTORY%
 guicontrol,,LCORE,||%runlist%
 guicontrol,enable,LNCHBUT
 guicontrol,enable,RCLLNCH
@@ -80162,7 +80263,7 @@ RecentRead:
 guicontrolget,coreselv,,LCORE
 guicontrolget,RSYSDL,,RUNSYSDDL
 splitpath,coreselv,,,dlx
-guicontrolget,TOXTN,,RUNROMCBX
+guicontrolget,TOXTN,,MORROM
 ttnf1=
 ttnf2=
 StringSplit,ttnf,TOXTN,#
@@ -81167,7 +81268,7 @@ ifinstring,EXTRSYS,.lpl
 	}
 if (EXTRSYS = "History")
 	{
-		guicontrolget,rrn,,RUNROMCBX
+		guicontrolget,rrn,,MORROM
 		Loop,parse,rrn,\
 			{
 				rsts= %A_LoopField%
@@ -81229,7 +81330,7 @@ ifinstring,runcfginj,|%lcore%|
 	}
 if (romf = "")
 	{
-		guicontrolget,romf,,RUNROMCBX	
+		guicontrolget,romf,,MORROM	
 	}
 splitpath,romf,,,lnmxtn,romna
 romfj1=
