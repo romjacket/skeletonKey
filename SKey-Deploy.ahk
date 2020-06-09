@@ -4120,7 +4120,6 @@ FileAppend, %nsiv%, %BUILDIR%\skdeploy.nsi
 SB_SetText("Building Installer")
 RunWait, %comspec% /c echo.###################  DEPLOYMENT LOG FOR %date%  ####################### >>"%DEPL%\deploy.log", ,%rntp%
 RunWait, %comspec% /c " "%NSIS%" "%BUILDIR%\skdeploy.nsi" >>"%DEPL%\deploy.log" ",,%rntp%
-msgbox,,,k
 RunWait, %comspec% /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%
 CrCFLN= %DEPL%\skeletonkey-installer.exe
 gosub, SHA1GET
