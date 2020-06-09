@@ -145,7 +145,6 @@
          </div>
       </div>
       <br>
-   </div>
    <div id="SectSeparate" align="center">
 	  <span class="dtext">Features</span>
       <br>
@@ -191,6 +190,7 @@
 		<div id="outer">	
 		<div id="inner" align="left">
             <div class="tabItem">
+              <p align="center">SkeletonKey functions both as a ROM launcher and as a configuration tool for HTPC frontends. </p>	
               <h2 class="tabItemHeading" align="center">
 			  <table align="center">
 				<tr><th>
@@ -202,7 +202,6 @@
              	<tr>
              		<th>
              		
-              <p>SkeletonKey functions both as a ROM launcher and as a configuration tool for HTPC frontends. </p>	
              		</th>
              		
              	</tr>
@@ -223,8 +222,6 @@
 	      </div>
          </div>
 		 </div>
-        </div>
-   <div align="left" id="outer"></div>
    <div id="SectSeparate" align="center">		
       <span class="dtext">[Settings]</span>
    </div>
@@ -255,11 +252,19 @@
 			   installed known emulators not currently identified
 			   or manually assigned.
 			</p>
+			<h4>Rename Detected</h4>
+			<p>SkeletonKey can try to rename folders in the Systems Directory to the recognized nomenclature supported by skeletonKey (no-intro)<br>
+			</p>
+			<h4>Filter Supported</h4>
+			<p>Enabling this will allow SkeletonKeY to list only recognized folder-names in the Systems Directory.<br>It is recommended to enable this option.</p>
 			<h4>Temp/Cache Directory</h4>
 			<p>By default, the temp/cache directory is set to windows temp folder "%temp%".</p>
 			<h4>History/Playlists</h4>
 			<p>The history file contains a list of the ROMs launched by skeletonKey.  Additionally the history file and playlists created by skeletonKey store the emulator or core assigned to it.</p>
 			<p>The history file and playlists can be read by retroArch and can share these interchangeably.</p>
+			<h4>Append All</h4>
+			<p>skeletonKeY can use retroArch's history file to record its' own launched ROMs.<br>
+			Users who do not wish to alter retroArch's history file should disable this option.</p>
 	   </div>
 	</div>
 	<br>
@@ -291,8 +296,8 @@
          <h3>Global-Launch-Menu</h3>
 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-2" />
-    <label for="item-2" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-lme" />
+    <label for="item-lme" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	<div class="tabItem">
 	   <div class="tabItemContent" id="detailsdiv">
@@ -300,7 +305,7 @@
                      items are at the top of the window and are necessary to browse directories, navigate
                      playlists and launch a ROM.
                   </p>
-                  <p><img alt="" height="223" src="Global-Launch-Menu.png" width="469"></p>
+                  <p><img alt="" height="auto" src="Global-Launch-Menu.png" width="100%"></p>
                </div>
             </div>
 	<br>
@@ -322,8 +327,8 @@
          </ul>
         		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-3" />
-    <label for="item-3" class="accordion-item-hd">↕ Global Menu Item Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-gmid" />
+    <label for="item-gmid" class="accordion-item-hd">↕ Global Menu Item Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	<div class="tabItem">
 	   <div class="tabItemContent" id="detailsdiv">
@@ -409,6 +414,7 @@
 
       <br>
    </div>
+   </div>
    <a id="INSTALL"></a>
    <div id="SectSeparate" align="center">
       <span class="dtext">[Emu:=:Sys]</span>
@@ -424,8 +430,8 @@
          </p>
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-4" />
-    <label for="item-4" class="accordion-item-hd">↕ RetroArch Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-radets" />
+    <label for="item-radets" class="accordion-item-hd">↕ RetroArch Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	 <div class="tabItem">
                <div class="tabItemContent" id="detailsdiv">
@@ -476,8 +482,8 @@
          </p>
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-5" />
-    <label for="item-5" class="accordion-item-hd">↕ Association Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-asocdet" />
+    <label for="item-asocdet" class="accordion-item-hd">↕ Association Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	      <div class="tabItem">
          <div class="tabItemContent" id="detailsdiv">
@@ -510,11 +516,10 @@
             </p>
 					 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-6" />
-    <label for="item-6" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-optdetails" />
+    <label for="item-optdetails" class="accordion-item-hd">↕ Option Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	   <div class="tabItem">
-                  <h8 class="tabItemHeading">↕ Option Details</h8>
                   <div class="tabItemContent" id="detailsdiv">
                      <p>Spaces are observed for options, arguments and command-lines.</p>
                      <p>The < character must be escaped or it will be converted to a space.</p>
@@ -540,11 +545,10 @@
             </p>
             		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
-    <label for="item-1" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-pgds" />
+    <label for="item-pgds" class="accordion-item-hd">↕ Per-Game Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
                <div class="tabItem">
-                  <h8 class="tabItemHeading">↕ Per-Game Details</h8>
                   <div class="tabItemContent" id="detailsdiv">
                      <p><strong>Operational Details:</strong></p>
                      </p>SkeletonKey copies and moves these configuration files back and forth between the
@@ -554,7 +558,7 @@
                         system can be located in the skeletonKey installation folder under the "cfg" directory.
                         EG:
                      </p>
-                     <p><code>\...\skeletonKey\cfg\System - Name\nickname\ROM Title\config.ini</code></p>
+                     <p><code>\...\skeletonKey\cfg\System - Name\emu_nickname\ROM Title\config.ini</code></p>
                      <p>For retroArch, per-game settings are stored in:</p>
                      <p><code>retroarch-folder\config</code>\core name\ROM Title.cfg
                      </p>
@@ -569,21 +573,17 @@
 	</div>
   </li>
 </ul>
-         </div>
-      </div>
-   
-	<br>
 	</div>
-  </li>
-</ul>
+	</div>
+	</div>
    <div align="left" id="outer">
       <div id="inner">
          <h3>Drivers</h3>
          <p>Windows drivers and software needed by some hardware</p>
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-7" />
-    <label for="item-7" class="accordion-item-hd">↕ Drivers Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-drivdet" />
+    <label for="item-drivdet" class="accordion-item-hd">↕ Drivers Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	     <div class="tabItem">
                <div class="tabItemContent" id="detailsdiv">
@@ -609,18 +609,30 @@
                      configuration of this driver is left to the user.
                   </p>
                   <br>
-                  <h3>Daemon Tools</h3>
+				  <h3>Display Changer</h3>
+				  <p>This is a robust, command-line driven, preset-supporting <strong>display manager</strong><br>
+				  This tool works well with RoM-Jacket launchers.</p>
+				  <h3>WinCDEmu</h3>
+				  <p>This tool emulates a physical disc-drive.<br>
+				  Configuration is left to the user.</p>
+				  <h3>Virtual CloneDrive</h3>
+				  <p>This tool emulates a physical disc-drive.<br>
+				  <p>Configuration is left to the user.</p>
+				  <h3>Joy2Key</h3>
+			<p>Configuration is left to the user.  Not fully integrated.<p>
+				  <h3>Daemon Tools</h3>
+                  <span style="font-size: xx-small">
                   <p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program
                      through the command-line which will NOT install the included toolbar or any additional
                      software. Windows 10 users who need Daemon Tools should
-                     download and install it separately.<br>Consider alternatives.
-                  </p>
+                     download and install it separately.<br></p></span><p>Consider alternatives.
+                  </p><span style="font-size: xx-small">
                   <p>The Daemon Tools program may be needed by the SSF Sega Saturn emulator, the UNZ FM-Towns
                      emulator and any emulator which cannot directly read cd/dvd image files.
                      Mounting disc images with Daemon Tools is desireable
                      for users who wish to switch disks reliably or have disc-images in formats unreadable by an
                      emulator.
-                  </p>
+                  </p><span>
                   <p>!!!!IMPORTANT!!!!</p>
                   <p>Open the Daemon Tools program.</p>
                   <p>If you do not have a SCSI drive in the list, add a SCSI drive.</p>
@@ -634,13 +646,7 @@
 	</div>
   </li>
 </ul>
-         		 <ul class="accordion css-accordion">
-  <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
-    <label for="item-1" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
-    <div class="accordion-item-bd">
          </div>
-      </div>
       <br>
    </div>
    <div align="left" id="outer">
@@ -664,13 +670,13 @@
             <p>Xpadder is a very reliable and enhanced keyboard remapper. Presets are ubiquitous and abundant and
                skeletonKey has hundreds for many emulators ready to go for xinput devices.</p>
             <h4>Antimicro</h4>
-               default.</p>
+               <p>default.</p>
             <p>Antimicro is open source, extremely versitile and the preferred keyboard remapper.
 		 </div>
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-8" />
-    <label for="item-8" class="accordion-item-hd">↕ Keymapper Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-kmd" />
+    <label for="item-kmd" class="accordion-item-hd">↕ Keymapper Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	  <div class="tabItem">
                  <div class="tabItemContent" id="detailsdiv">
@@ -890,8 +896,8 @@
          </p>
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
-    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-12" />
-    <label for="item-12" class="accordion-item-hd">↕ Media Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <input class="accordion-item-input" type="checkbox" name="accordion" id="item-meddet" />
+    <label for="item-meddet" class="accordion-item-hd">↕ Media Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	   <div class="tabItem">
                <div class="tabItemContent" id="detailsdiv">
@@ -914,7 +920,6 @@
 	</div>
   </li>
 </ul>
-		 <br>
       </div>
       <br>
 	        <div id="inner">
@@ -1181,11 +1186,11 @@
 		 		 <ul class="accordion css-accordion">
   <li class="accordion-item">
     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-optdet" />
-    <label for="item-optdet" class="accordion-item-hd">↕ Operational Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+    <label for="item-optdet" class="accordion-item-hd">↕ RoM-Jacket Details<span class="accordion-item-hd-cta">&#9650;</span></label>
     <div class="accordion-item-bd">
 	      <div class="tabItem">
                <div class="tabItemContent" id="detailsdiv">
-                  <p><img alt="" height="216" src="paradigm.png" width="144"></p>
+                  <p><img alt="" height="auto" src="paradigm.png" width="35%"></p>
                   <p>Each jacket's batch-script-launcher copies its emulator-configuration files to the emulator
                      directory prior to launching and any changes made to the emulator during gameplay are copied back to
                      the jacket after exiting the emulator.
@@ -1744,10 +1749,10 @@
    </div>
 </div>
 </div>
-</body>
-  
          </div>
 	 </div>
+</body>
+
   <script>
 !function(e,t){if("function"==typeof define&&define.amd)define(["module","exports"],t);else if("undefined"!=typeof exports)t(module,exports);else{var o={exports:{}};t(o,o.exports),e.smoothie=o.exports}}(this,function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};e=o({},r,e);var t=document.querySelectorAll("[data-smoothie]");Array.from(t).forEach(function(t){var o=t.getAttribute("href");t.addEventListener("click",function(t){t.preventDefault(),history.pushState(null,null,o),document.querySelector(o).scrollIntoView(e)})})};var o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var r in o)Object.prototype.hasOwnProperty.call(o,r)&&(e[r]=o[r])}return e},r={block:"start",behavior:"smooth"};e.exports=t.default});
 </script>
@@ -1826,7 +1831,7 @@ smoothie();
         }
     }
 </script>
-<style>	
+  <style>	
 	@font-face {
 		font-family: 'Opticon';
 		src: url('Opticon.ttf') format('truetype');
@@ -2352,7 +2357,7 @@ border-top: 1px solid white;
 }
 
 .accordion-item-input:checked ~ .accordion-item-bd {
-  max-height: 1000px;
+  max-height: 1500px;
   padding-top: 15px;
   margin-bottom: 15px;
   -webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;

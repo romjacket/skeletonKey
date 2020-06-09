@@ -1,9 +1,14 @@
 ###########################################################
 
-#####   The original binary files can be found here  #####
+#####   The original binary files can be found here  ######
+#####   Extract to the skeletonKey directory.      ########	
+#   https://github.com/romjacket/bin/raw/master/bin.7z    #
 
 ###########################################################
-
+###########################################################
+###########################################################
+#####     The latest versions can be found here   #########
+###########################################################
 any2ico.exe  >  https://www.carifred.com/quick_any2ico/Quick_Any2Ico.exe
 7za.exe  >  https://managedway.dl.sourceforge.net/project/sevenzip/7-Zip/19.00/7z1900-extra.7z
 7zsd.sfx  >  https://www.7-zip.org/a/lzma1900.7z
@@ -16,3 +21,10 @@ vdrive.exe  >  https://www.horstmuc.de/win/vdrive.zip
 wget.exe  >  http://downloads.sourceforge.net/gnuwin32/wget-1.11.4-1-bin.zip
 youtube-dl.exe  >  https://github.com/ytdl-org/youtube-dl/releases/download/2020.06.06/youtube-dl.exe
 Scraper.exe  >  https://github.com/sselph/scraper/releases/download/v1.4.6/scraper_windows_386.zip
+###########################################################
+###########################################################
+##########   ALL BINARY FILES SHOULD BE IN   ##############
+###########################################################
+###               ...\skeletonkey\bin                   ###
+###########################################################
+###########################################################

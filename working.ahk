@@ -2759,7 +2759,7 @@ if (VERSION <> "[CURV]")
 		Gui, Tab, 7
 		Gui, Tab, Repository
 		Gui,Font,Bold
-		Gui,Add,Text,x238 y212,  Don't be duped by street-ROMs:`n`n     SUPPORT YOUR LOCAL ROM-DEALERS.`n`n    Developers of skeletonKey are working ahk hard as they can`nto bring you a quality experience, so join our team to play along!`n`nPlay safe:  Play smart.
+		Gui,Add,Text,x238 y212,  Don't be duped by street-ROMs:`n`n     SUPPORT YOUR LOCAL ROM-DEALERS.`n`n    Developers of skeletonKeY are working ahk hard as they can`nto bring you a quality experience, so throw spaghetti to play along!`n`nPlay safe:  Play smart.
 		Gui,Font,Normal
 		goto, GUIJAKLOC
 	}
