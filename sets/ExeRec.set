@@ -777,6 +777,16 @@ FileInstall,sets\Themes.put,sets\Themes.put,1
 FileInstall,Init.exe,Init.exe,1
 FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,Update.exe,Update.exe,1
+FileInstall,bin\7zip_License.txt,bin\7zip_License.txt,1
+FileInstall,bin\any2ico_license.txt,bin\any2ico_license.txt,1
+FileInstall,bin\chdman_aria2_License.txt,bin\chdman_aria2_License.txt,1
+FileInstall,bin\curl_License.txt,bin\curl_License.txt,1
+FileInstall,bin\rcedit_License.txt,bin\rcedit_License.txt,1
+FileInstall,bin\Scraper_License.txt,bin\Scraper_License.txt,1
+FileInstall,bin\vDrive_License.txt,bin\vDrive_License.txt,1
+FileInstall,bin\wget_License.txt,bin\wget_License.txt,1
+FileInstall,bin\youtube-dl_License.txt,bin\youtube-dl_License.txt,1
+FileInstall,bin\~ dependencies ~.txt,bin\~ dependencies ~.txt,1
 FileInstall,bin\7za.exe,bin\7za.exe,1
 FileInstall,bin\any2ico.exe,bin\any2ico.exe,1
 FileInstall,bin\aria2c.exe,bin\aria2c.exe,1
@@ -1009,17 +1019,11 @@ FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.se
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
 FileInstall,src\AHKSock.ahk,src\AHKSock.ahk,1
-FileInstall,src\BSL.ahk,src\BSL.ahk,1
-FileInstall,src\emuexe.ahk,src\emuexe.ahk,1
 FileInstall,src\HtmlDlg.ahk,src\HtmlDlg.ahk,1
-FileInstall,src\Init.ahk,src\Init.ahk,1
 FileInstall,src\lbex.ahk,src\lbex.ahk,1
 FileInstall,src\LVA.ahk,src\LVA.ahk,1
 FileInstall,src\LV_InCellEdit.ahk,src\LV_InCellEdit.ahk,1
-FileInstall,src\PortableUtil.ahk,src\PortableUtil.ahk,1
-FileInstall,src\SKey-Deploy.ahk,src\SKey-Deploy.ahk,1
 FileInstall,src\tf.ahk,src\tf.ahk,1
-FileInstall,src\Update.ahk,src\Update.ahk,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
 FileInstall,rj\emucfgs\4DO\FourDO.settings.set,rj\emucfgs\4DO\FourDO.settings.set,1
@@ -2312,18 +2316,20 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Player2.xpadderpr
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Wacky Races.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Taito - Taito Type X 2\Wacky Races.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Windows - Games\Player2.xpadderprofile,1
+FileInstall, bin\Portable.bat,bin\Portable.bat
 FileInstall, bin\7zsd32.sfx,bin\7zsd32.sfx
 FileInstall, bin\7zsd64.sfx,bin\7zsd64.sfx
+FileInstall, bin\7zsd.sfx,bin\7zsd64.sfx
 FileInstall, site\index.html,site\index.html,1
 FileInstall, site\version.txt,site\version.txt,1
 FileInstall, working.ahk,working.ahk,1
-FileInstall, src\init.ahk,src\init.ahk,1
-FileInstall, src\PortableUtil.ahk,src\PortableUtil.ahk,1
-FileInstall, src\Update.ahk,src\Update.ahk,1
+FileInstall, init.ahk,init.ahk,1
+FileInstall, Update.ahk,Update.ahk,1
 FileInstall, skeletonKey.ahk,skeletonkey.ahk,1
-FileInstall, src\SKey-Deploy.ahk,src\SKey-Deploy.ahk,1
-FileInstall, src\emuexe.ahk,src\emuexe.ahk,1
-FileInstall, src\BSL.ahk,src\BSL.ahk,1
+FileInstall, SKey-Deploy.ahk,SKey-Deploy.ahk,1
+FileInstall, bin\PortableUtil.ahk,bin\PortableUtil.ahk,1
+FileInstall, bin\emuexe.ahk,bin\emuexe.ahk,1
+FileInstall, bin\BSL.ahk,bin\BSL.ahk,1
 FileInstall, src\LV_InCellEdit.ahk,src\LV_InCellEdit.ahk,1
 FileInstall, src\tf.ahk,src\tf.ahk,1
 FileInstall, src\lbex.ahk,src\lbex.ahk,1

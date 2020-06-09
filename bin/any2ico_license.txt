@@ -1,0 +1,38 @@
+This license agreement lists the rules for usage and redistribution of all our software.
+
+1) Disclamer:
+
+All our programs are provided as they are, without any warranty, explicit or implicit.
+
+Some of our software tools are very powerful, intended to delete computer viruses, and also powerful enough to cause damage to your operating system if used in a wrong way. Read carefully our help pages before using our software.
+
+The publisher SHOULD NOT in any case be responsible for any damage or data loss caused by a wrong usage of our software.
+
+By accepting this license agreement you declare to assume the responsibility of all the actions you perform when using our software.
+
+2) Redistribution:
+
+You can redistribute our software as it is, you CAN NOT repack, disassemble, reassemble or modify in any way any of the files included our software packages or the package itself.
+
+Software download sites are allowed to host and redistribute our products as long as they provide the user with ONLY direct downloads of the original packages. Bundling our software with any other software, especially adware is explicitly disallowed. Also, using our product names to encourage users to install adware is explicitly disallowed.
+
+3) Licensing:
+
+User licenses can only be purchased from our server. If you're interested in purchasing a UVK license, please visit this page. To purchase a Tech Tool Store license, visit this one.
+
+When you purchase a software license, it is issued to you, or your company, and can only be used by yourself, and/or your personal staff.
+
+IT professionals can use their licenses in the client's computers. The number of computers an activated copy of our software is allowed to run is unlimited.
+
+We reserve the right to blacklist purchased licenses in any of the following situations:
+
+    The license key file is made publicly available for download over the internet.
+    The purchase payment was not completed, or it was revoked or refunded.
+    The license was purchased elsewhere out of our server.
+    The owner of the license brakes any of the rules mentioned in this document.
+
+Blacklisted license will no longer work.
+
+4) Third party:
+
+This license agreement applies only to our software. Any third party programs you download through our software are subject to their own licenses, and it is up to you to read them and ensure you are legally entitled to use those programs.

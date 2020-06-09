@@ -845,9 +845,9 @@ JOYSET=0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|h0up|h0down|h0left|h0right|\-1|+1|\-0|
 FELIST=XMB|Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IAGL|Steam
 joyiterate= _L_X_Plus|_L_X_Minus|_R_X_Plus|_R_X_Minus|_L_Y_Plus|_L_Y_Minus|_R_Y_Plus|_R_Y_Minus|_R|_L|_B|_A|_X|_Y|_L2|_R2|_L3|_R3|_Start|_Select|_Up|_Down|_Left|_Right|_Turbo
 stringreplace,joyitervars,joyiterate,_,,All
-;; RUNSYSCBX|
+;; RUNSYSCBX|CUSTSWITCHS|
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
-RUNBOXGUIITEMS=LCORE|CUSTSWITCHS|RUNSYSBTN|RUNSYSDDL|RUNPLRAD|RUNFLRAD|EDTROMBTN|MINISWITCH|MORROM|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
+RUNBOXGUIITEMS=LCORE|RUNSYSBTN|RUNSYSDDL|RUNPLRAD|RUNFLRAD|EDTROMBTN|MINISWITCH|MORROM|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
 RJLSTCTRLS=RJSYSDDRJINCEXCLRJSETRANGERJRNGTXTRJLSTYPRJRFRSHLSTRJEDTDRJEDTDNRJTXTHRJEDTBRJEDTBNRJFLTRLSTRJEDTCgRJEDTCRJFNDINLSTRJLSTVRJSALITMSRJTXTNRJCHKLRJCHKMRJCHKPRJCHKHRJCHKIRJDELCOMPRLSTOTRJGRPARJCHKGRJSYSRADARJSYSRADBRJSYSRADCRJSYSLOADRJSYSSAVRJSYSSAVASRJGRPGRJENMAPRJOVKMRJTXTCRJTXTFRJMAPDDRJMAPRETRJMAPRETOPNRJMAP1ROFTYPARJMAP1ROFTYPBRJMAP1ROFTYPCRJTXTDRJMAP1PLRJMAP1PLOPNRJMAP2ROFTYPARJMAP2ROFTYPBRJMAP2ROFTYPCRJTXTERJMAP2PLRJMAP2PLOPNRJGRPIRJENLNCHRRJLNCHOVRRJRad4BRJRad4ARJEXEBRJTXTBPRJEMUPRECFGRJEMUPRMRJCHKQRJBUTMRJCHKKRJGRPERJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
@@ -1555,7 +1555,7 @@ gui,font,Bold
 Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui,find
 Gui,Font,Normal
 Gui, Add, Button, x745 y30 w16 h16 vMINISWITCH gMINISWITCH,-
-Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs, switches
+Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs hidden, switches
 Gui,Add,ComboBox, hwndCbxHndl2 x459 y24 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl3 x560 y24 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
 Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM,ROM
@@ -3272,7 +3272,7 @@ gosub, HideCoreUI
 gosub, DestroySplashGUI
 TrayTip
 Menu,Tray,Add,Activate,AWYONTGL
-Menu,Tray,Add,Mini-Mode,MINIMODE
+Menu,Tray,Add,Mini-Mode,MINIMODET
 Menu,Tray,Add,Exit,QUITOUT
 Menu,Tray,Tip
 Gui,+LastFound
@@ -8530,6 +8530,16 @@ if instr(cstopon,"[CUSTMOPT]") or Instr(custargon,"[CUSTMARG]")
 		guicontrol, show, CUSTMARGS
 		guicontrol, show, CUSTMOPTS
 	}
+if ((cstopon = "ERROR") or (cstopon = ""))
+		{
+			guicontrol, show, CUSTMopt
+			guicontrol, show, CUSTMoptS
+		}
+if ((custargon = "ERROR") or (custargon = ""))
+		{
+			guicontrol, show, CUSTMARG
+			guicontrol, show, CUSTMARGS
+		}
 guicontrol,,CUSTSWITCH,1
 if ((CUSTMOPT = "") && (BCSTO <> ""))
 	{
@@ -14346,6 +14356,10 @@ corinjs= %LCORE%
 ifinstring,corinjs,.dll
 	{
 		corinjs= retroarch
+		guicontrol,hide,CustSwitchs
+	}
+	else {
+		guicontrol,show,CustSwitchs
 	}
 if ((core_gui <> LCORE)&&(LCORE <> ""))
 	{
@@ -38970,6 +38984,7 @@ if (CUSTSWITCH = 0)
 		CUSTMOPT=
 		return
 	}
+	
 guicontrol, show, CUSTMOPT
 guicontrol, show, CUSTMARG
 guicontrol, show, CUSTMOPTS
@@ -71851,14 +71866,17 @@ ifexist,%outsv%
 	{
 		FileDelete,%outsv%
 	}
-filecopy,bin\7zsd%ARCH%.sfx,%cacheloc%\7zsd%ARCH%.sfx,1
+;;filecopy,bin\7zsd%ARCH%.sfx,%cacheloc%\7zsd%ARCH%.sfx,1
+filecopy,bin\7zsd.sfx,%cacheloc%\7zsd.sfx,1
 ifexist,executable\exe.ico
 	{
 		sleep, 2000
-		RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%cacheloc%\7zsd%ARCH%.sfx" --set-icon executable\exe.ico,,hide
+		;;RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%cacheloc%\7zsd%ARCH%.sfx" --set-icon executable\exe.ico,,hide
+		RunWait, %comspec% /c bin\rcedit.exe "%cacheloc%\7zsd.sfx" --set-icon executable\exe.ico,,hide
 		wicon= with icon
 	}
-RunWait, %comspec% /c copy /b "%cacheloc%\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+;;RunWait, %comspec% /c copy /b "%cacheloc%\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+RunWait, %comspec% /c copy /b "%cacheloc%\7zsd.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
 wicon=
 guicontrol,enable,utlBUTJ
 SB_SetText("Executable " outsv " " wicon " created")
@@ -80225,6 +80243,10 @@ corinjs= %coreselv%
 ifinstring,corinjs,.dll
 	{
 		corinjs= retroarch
+		guicontrol,hide,CustSwitchs
+	}
+	else {
+		guicontrol,show,CustSwitchs
 	}
 if instr(supgui,corinjs)
 	{
@@ -82486,6 +82508,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   EXIT     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive skeletonKey
 esc::
+gosub, MINIMODEOFF
 msgbox, 8452,Exiting, Would you like to close skeletonKey?
 ifmsgbox, yes
 	{
