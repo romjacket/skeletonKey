@@ -1495,27 +1495,27 @@ Gui, Add, Checkbox, x579 y360 vDYNTRANS gDYNTRANS %DYNTRANSCHK%, Dynamic Transpa
 Gui, Add, Text, x18 y311, Playlists Dir
 Gui, Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
 Gui, Font, normal
-Gui,Add,Edit, hwndEdtHndl1 x61 y268 w443 h41 Right vplaylisttxt ReadOnly, %playlistloc%
+Gui,Add,text, hwndEdtHndl1 x61 y288 w490 h20 vplaylisttxt ReadOnly, %playlistloc%
 Gui, Font, Bold
 Gui Add, Text, x18 y390 w56 h13, HIstory File
 Gui Add, Button, x18 y364 w43 h23 vhistset ghistset,SET
 Gui, Font, normal
 Gui, Add, Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
-Gui,Add,Edit, hwndEdtHndl2 x61 y346 w443 h41 vhisttxt Right ReadOnly, %historyloc%
+Gui,Add,text, hwndEdtHndl2 x61 y366 w490 h20 vhisttxt ReadOnly, %historyloc%
 Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
 Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
 Gui, Add, Text, x581 y60 vSKDSETXT, Detected Emulators: %emunumtot%
 Gui, Add, Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported and %allsys% total
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
-Gui,Add,Edit, hwndEdtHndl3 x63 y45 w443 h40 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
+Gui,Add,text, hwndEdtHndl3 x63 y65 w490 h20 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 Gui, Add, Checkbox, x583 y76 vALWOTP gALWOTP, Always On Top
 Gui, Add, CheckBox, x583 y94 vLOGGING gLOGGING %logenable%, Logging
 Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
 Gui, Add, CheckBox, x583 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
 Gui, Add, CheckBox, x583 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
-Gui,Add,Edit, hwndEdtHndl4 x63 y129 w443 h41 Multi ReadOnly vSKEMUDISP, %RJEMUD%
-Gui,Add,Edit, hwndEdtHndl5 x61 y433 w443 h40 vtmpdispl Right Multi ReadOnly, %cacheloc%
+Gui,Add,text, hwndEdtHndl4 x63 y149 w490 h20 Multi ReadOnly vSKEMUDISP, %RJEMUD%
+Gui,Add,text, hwndEdtHndl5 x61 y453 w490 h20 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Font, Bold
 Gui, Add, Text, x18 y476 vTMPDIRTXT, Temp/Cache Dir
 Gui, Add, Button, x18 y450 w43 h23 vSETTMPD gSETTMPD, SET
@@ -80997,6 +80997,7 @@ if (dmchk = 1)
 		Run, %comspec% /c "%dskmntexe%"%dskunmntopt%
 	}
 gosub, SKLPOST
+msgbox,,,k
 POSTEMULAUNCH:
 if (EPGC = 1)
 	{
@@ -81090,6 +81091,7 @@ if (HISAPND = 1)
 				TF_replaceline("!"historyloc,replineb,replineb,hisapl)
 			}
 	}
+	msgbox,,,ko
 if (DDRUN = "")
 	{
 		return
