@@ -720,6 +720,7 @@ FileInstall,site\key.png,site\key.png,1
 FileInstall,site\paradigm.png,site\paradigm.png,1
 FileInstall,site\tip.png,site\tip.png,1
 FileInstall,site\index.html,site\index.html,1
+FileInstall,site\test.html,site\test.html,1
 FileInstall,site\Opticon.ttf,site\Opticon.ttf,1
 FileInstall,site\Hermit-Regular.otf,site\Hermit-Regular.otf,1
 FileInstall,site\TruenoLt.otf,site\TruenoLt.otf,1
