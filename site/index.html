@@ -75,7 +75,7 @@
                         <h4><a href="[PORTABLE]">Portable Binary »</a></h4>
                     </li>
                 </ul>
-                This is the compressed skeletonKey executable.<br> Extract into a skeletonKey directory overwriting any existing files and run the skeletonKey.exe.
+                This is the compressed skeletonKey executable.<br> Extract into a skeletonKey directory overwriting any existing files.
             </div>
             <br>
             <div id="inner">
@@ -102,8 +102,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
                             <label for="item-1" class="accordion-item-hd">↕ How Do I?<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <p></p>
                                         <p> Tutorials coming soon</p>
                                         <img alt="" height="34" src="video.svg" width="34">
@@ -195,7 +195,7 @@
                 </div>
                 <div id="outer">
                     <div id="inner" align="left">
-                        <div class="tabItem">
+                        <div id="detailsdiv">
                             <p align="center">SkeletonKey functions both as a ROM launcher and as a configuration tool for HTPC frontends. </p>
                             <h2 class="tabItemHeading" align="center">
                                 <table align="center">
@@ -247,8 +247,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-settings" />
                             <label for="item-settings" class="accordion-item-hd">↕ Settings Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <h4>Auto-Load Per-Game Settings</h4>
                                         <p>SkeletonKey will automatically load any per-game settings previously created and create settings for the currently selected title upon launch if none are detected.
                                         </p>
@@ -295,7 +295,7 @@
             </div>
             <div align="left" id="outer">
                 <div id="inner">
-                    <p>Options are categorized by type. The main tab is responsive and will populate options for the currently selected supported emulator. Any existing settings for the currently selected ROM are loaded.
+                    <p>The main tab is responsive and will populate options for the currently selected supported emulator. Any existing settings for the currently selected ROM are loaded.
                     </p>
                     <h3>Global-Launch-Menu</h3>
                     <ul class="accordion css-accordion">
@@ -303,8 +303,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-lme" />
                             <label for="item-lme" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <p>The Launch menu items persist across emulator settings populated in the Main tab. These items are at the top of the window and are necessary to browse directories, navigate playlists and launch a ROM.
                                         </p>
                                         <p><img alt="" height="auto" src="Global-Launch-Menu.png" width="100%"></p>
@@ -331,8 +331,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-gmid" />
                             <label for="item-gmid" class="accordion-item-hd">↕ Global Menu Item Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <h3>System List</h3>
                                         <p>The folder/playlist toggle will toggle this dropdown between playlist files and the current system libraries. System Lists contain any folders found in the Systems ROOT directory and any systems which have been
                                             appended by the user .This can be filtered to display only detected and created systems.
@@ -412,8 +412,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-radets" />
                             <label for="item-radets" class="accordion-item-hd">↕ RetroArch Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <h4>Installing RetroArch &amp; cores</h4>
                                         <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable version
                                             are available. A core-upate button will check for cores with updates to upgrade en-masse.
@@ -454,8 +454,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-asocdet" />
                             <label for="item-asocdet" class="accordion-item-hd">↕ Association Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <p>Systems are defined in part by file-extensions exclusive to the system. Because an emulator may have multiple system-assocations, a unique &quot;system identifier&quot; nickname can be created to define exclusive
                                             paramaters.
                                         </p>
@@ -485,8 +485,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-optdetails" />
                                         <label for="item-optdetails" class="accordion-item-hd">↕ Option Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>Spaces are observed for options, arguments and command-lines.</p>
                                                     <p>The
                                                         < character must be escaped or it will be converted to a space.</p>
@@ -511,8 +511,8 @@
                                                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item-pgds" />
                                                 <label for="item-pgds" class="accordion-item-hd">↕ Per-Game Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                                 <div class="accordion-item-bd">
-                                                    <div class="tabItem">
-                                                        <div class="tabItemContent" id="detailsdiv">
+                                                    <div id="detailsdiv">
+                                                        <div>
                                                             <p><strong>Operational Details:</strong></p>
                                                             </p>SkeletonKey copies and moves these configuration files back and forth between the emulator's folder and the per-game configuration folder before and after the emulator runs.
                                                             </p>
@@ -542,8 +542,8 @@
                             <input class="accordion-item-input" type="checkbox" name="accordion" id="item-drivdet" />
                             <label for="item-drivdet" class="accordion-item-hd">↕ Drivers Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                             <div class="accordion-item-bd">
-                                <div class="tabItem">
-                                    <div class="tabItemContent" id="detailsdiv">
+                                <div id="detailsdiv">
+                                    <div>
                                         <h3>Visual C++</h3>
                                         <p>Many emulators require these runtimes</p>
                                         <br>
@@ -629,8 +629,8 @@
                                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-kmd" />
                                                         <label for="item-kmd" class="accordion-item-hd">↕ Keymapper Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                                     <div class="accordion-item-bd">
-                                                        <div class="tabItem">
-                                                            <div class="tabItemContent" id="detailsdiv">
+                                                        <div id="detailsdiv">
+                                                            <div>
                                                                 <h4>Return Profile</h4>
                                                                 <p>Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game.
                                                                 </p>
@@ -670,9 +670,9 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-9" />
                                     <label for="item-9" class="accordion-item-hd">↕ XMB Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
+                                        <div id="detailsdiv">
                                             <h8 class="tabItemHeading">↕ XMB Details</h8>
-                                            <div class="tabItemContent" id="detailsdiv">
+                                            <div>
                                                 <p>Each item added to the playlist contains the name of the ROM, the path of the ROM, the crc hash of the ROM, the core/emulator name, path assignment, &amp; the name of the playlist.
                                                 </p>
                                                 <p>The core/emulator dropdown is assigned to the selected items when they are added to the playlist.
@@ -701,8 +701,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-10" />
                                     <label for="item-10" class="accordion-item-hd">↕ EmulationStation Layout<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>Like emulationStation's es_systems.cfg, emulationStation gamelists are xml files which contain standard metadata tags. Absolute paths to assets such as images and video files are accepted, however relative
                                                     paths are also accepted, making the entire frontend portable across platforms (*nix/apple/windows). Assets can be arranged &amp; named uniquely, however skeletonKey propagates assets to an emulationStation
                                                     deployment which follows a local-layout.
@@ -729,8 +729,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-11" />
                                     <label for="item-11" class="accordion-item-hd">↕ RetroFE Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>
                                                     RetroFE's playlist (collections) are very versitile and can contain many sub-collections.
                                                 </p>
@@ -769,9 +769,9 @@
 				 <input class="accordion-item-input" type="checkbox" name="accordion" id="item-xx" />
 				 <label for="item-xx" class="accordion-item-hd">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
 				 <div class="accordion-item-bd">
-				<div class="tabItem">
+				<div id="detailsdiv">
 				            <h8 class="tabItemHeading">↕ Repository Details</h8>
-				           <div class="tabItemContent" id="detailsdiv">
+				           <div>
 				               <p>You must agree to the repository's EULA before downloading or allowing skeletonkey access to repository
 				                  lists.
 				               </p>
@@ -828,8 +828,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-meddet" />
                                     <label for="item-meddet" class="accordion-item-hd">↕ Media Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <h4><a>Media Options</a></h4>
                                                 <p>Selecting &quot;<strong>Systems</strong>&quot; in the Media interface will enable icons, logos, backdrops, videos and other media to be downloaded for selected systems. Alternatively, sets of these items
                                                     can be downloaded. Themes for these items can be selected using the &quot;Artwork Theme&quot; dropdown.
@@ -858,8 +858,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-13" />
                                     <label for="item-13" class="accordion-item-hd">↕ Mirrored Link Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>Each Mirrored file can be assigned an icon found</p>
                                             </div>
                                         </div>
@@ -879,8 +879,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-14" />
                                     <label for="item-14" class="accordion-item-hd">↕ EmulationStation Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>
                                                     SkeletonKey can load existing configuration files (es_systems.cfg), gamelist files (gamelist.xml) to add, remove, edit and reorder games and systems.
                                                 </p>
@@ -903,8 +903,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-15" />
                                     <label for="item-15" class="accordion-item-hd">↕ Pegasus Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>Pegasus has the unusual ability to import and integrate Steam, GoG and EmulationStation artwork and playlists.
                                                 </p>
                                             </div>
@@ -924,8 +924,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-16" />
                                     <label for="item-16" class="accordion-item-hd">↕ RetroFE Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>A healthy community is actively developing themes available through the interface.
                                                 </p>
                                                 <p>RetroFE automatically adds any ROMs found in a directory to its database.</p>
@@ -947,8 +947,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-17" />
                                     <label for="item-17" class="accordion-item-hd">↕ XMB Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>SkeletonKey can configure the XMB interface for retroArch. Most cosmetic options are exposed and provides an easy way to tailor the available options for your needs.
                                                 </p>
                                                 <p>Many options found for the XMB interface may also affect the RGUI or other available interfaces for retroArch.
@@ -969,9 +969,9 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-indev" />
                                     <label for="item-indev" class="accordion-item-hd">↕ In Development<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
+                                        <div id="detailsdiv">
                                             <h8 class="tabItemHeading">↕ In Development</h8>
-                                            <div class="tabItemContent" id="detailsdiv">
+                                            <div>
                                                 <h3>Simpletouch FE</h3>
                                                 <h3>Hyperspin</h3>
                                                 <h3>KODI/XBMC</h3>
@@ -1003,8 +1003,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
                                     <label for="item-1" class="accordion-item-hd">↕ Core-option Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>Retroarch stores core-options and settings in the <code>retroarch-core-options.cfg</code> file.
                                                 </p>
                                                 <p> While not all core-options can populate in the core tab, any settings stored in the file will be saved to the specified core-override configuration.
@@ -1043,8 +1043,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-netp" />
                                     <label for="item-netp" class="accordion-item-hd">↕ Netplay Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>When connecting to a client, skeletonKey will search for the matching ROM within playlists or directories.
                                                 </p>
                                                 <!--
@@ -1093,8 +1093,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-optdet" />
                                     <label for="item-optdet" class="accordion-item-hd">↕ RoM-Jacket Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p><img alt="" height="auto" src="paradigm.png" width="35%"></p>
                                                 <p>Each jacket's batch-script-launcher copies its emulator-configuration files to the emulator directory prior to launching and any changes made to the emulator during gameplay are copied back to the jacket
                                                     after exiting the emulator.
@@ -1141,19 +1141,19 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-consld" />
                                         <label for="item-consld" class="accordion-item-hd">↕ Consolidation Example<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>eg: region, disk-number, rom-revision, &amp; any other superflous information is pruned to the game title.
                                                     </p>
-                                                    <p><span style="font-size: x-small"><code><font color="red">System - Name</font>/</code></span>
+                                                    <p><span style="font-size: x-small"><code>System - Name/</code></span>
                                                         <br>
-                                                        <code><em>├── </em><strong><font color="lime">Game Title</font>/</strong></code>
+                                                        <code><em>├── </em><strong>Game Title/</strong></code>
                                                         <br>
-                                                        <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title<em>(USA)[version]</em>.rom</font></span><br>
-			<em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(JAPAN)[v-2]</em>.rom</font></span><br>
-			<em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(Disk B)</em>.rom</font></span><br>
-			<em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(1 of 2)]</em>.rom</font></span><br>
-			<em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title <em>(PAL)</em>.rom</font><br></span></code>
+                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title<em>(USA)[version]</em>.rom</span><br>
+			<em>│   └── </em><span style="font-size: x-small">Game Title <em>(JAPAN)[v-2]</em>.rom</span><br>
+			<em>│   └── </em><span style="font-size: x-small">Game Title <em>(Disk B)</em>.rom</span><br>
+			<em>│   └── </em><span style="font-size: x-small">Game Title <em>(1 of 2)]</em>.rom</span><br>
+			<em>│   └── </em><span style="font-size: x-small">Game Title <em>(PAL)</em>.rom<br></span></code>
                                                     </p>
                                                     <p>Effectively, this will help eliminate the need to scroll through many different versions of games in a library and will help wrangle multi-disc games. This is the preferred method of folder-generation
                                                         for users wishing to tame their library and generate friendly-names for their frontend. Launchers created for each consolidated jacket will be named with the base-name and the first alphabetical
@@ -1173,17 +1173,17 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-inviduate" />
                                         <label for="item-inviduate" class="accordion-item-hd">↕ Individuate Example<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
-                                                    <p><span style="font-size: x-small"><code><font color="red">System - Name</font>/</code></span><br>
-                                                        <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1]</font></strong>/</code><br>
-                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title (USA)[v-1].rom</font></span></code><br>
-                                                        <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1.01]</font></strong>/</code><br>
-                                                        <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.01].rom</font></span></code><br>
-                                                        <code><em>├── </em><strong><font color="lime">Game Title (USA)[v-1.11]</font></strong>/</code><br>
-                                                        <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (USA)[v-1.11].rom</font></span></code><br>
-                                                        <code><em>├── </em><strong><font color="lime">Game Title (EUR)[b]</font></strong>/</code><br>
-                                                        <code><em>│   └── </em><span style="font-size: x-small"><font color="white">Game Title (EUR)[b].rom</font></span></code><br>
+                                            <div id="detailsdiv">
+                                                <div>
+                                                    <p><span style="font-size: x-small"><code>System - Name/</code></span><br>
+                                                        <code><em>├── </em><strong>Game Title (USA)[v-1]</strong>/</code><br>
+                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title (USA)[v-1].rom</span></code><br>
+                                                        <code><em>├── </em><strong>Game Title (USA)[v-1.01]</strong>/</code><br>
+                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title (USA)[v-1.01].rom</span></code><br>
+                                                        <code><em>├── </em><strong>Game Title (USA)[v-1.11]</strong>/</code><br>
+                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title (USA)[v-1.11].rom</span></code><br>
+                                                        <code><em>├── </em><strong>Game Title (EUR)[b]</strong>/</code><br>
+                                                        <code><em>│   └── </em><span style="font-size: x-small">Game Title (EUR)[b].rom</span></code><br>
                                                         <p>The abundance of releases a title may have seen throughout the world is multiplied by versions the developer released and again multiplied by ROM-dumps. Subsequently, many ROM-collections and system-libraries
                                                             are simply too large and unwieldy for practical purposes.<br>In the interest of bringing forth functional libraries it may be desireable to consolidate each title without regard for region or
                                                             version.
@@ -1214,8 +1214,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-lnchopt" />
                                         <label for="item-lnchopt" class="accordion-item-hd">↕ Operational Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>Unless explicitly specified at creation-time, the launcher will launch the first alphabetically named ROM in the Jacket.
                                                     </p>
                                                     <p>Drag'n'drop and the command-line may usually be used to specify/override the default ROM
@@ -1240,8 +1240,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-pgd" />
                                         <label for="item-pgd" class="accordion-item-hd">↕ Per-Game Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>Paradigm:</p>
                                                     <p>All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in the ROM-directory.
                                                     </p>
@@ -1267,9 +1267,9 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-gbld" />
                                         <label for="item-gbld" class="accordion-item-hd">↕ Global Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
+                                            <div id="detailsdiv">
                                                 <h8 class="tabItemHeading">↕ Global Details</h8>
-                                                <div class="tabItemContent" id="detailsdiv">
+                                                <div>
                                                     <p>Paradigm:</p>
                                                     <p>All settings, quick-saves, save-files &amp; snapshots for the emulator are saved in locations set by the emulator in its default state and any changes made to a game's settings in the console's set will
                                                         be respected by all games using the global option.
@@ -1292,8 +1292,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-locab" />
                                         <label for="item-locab" class="accordion-item-hd">↕ Local/Absolute Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>Applications can be designated to run both before the emulator is launched and after the emulator exits. An option exists to allow the launcher to wait for the command to complete until proceeding, or
                                                         continue to execute immedietlely after it is launched.
                                                     </p>
@@ -1321,8 +1321,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-ppd" />
                                         <label for="item-ppd" class="accordion-item-hd">↕ Pre/Post Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>Similar to &quot;Pre-Command / Post-Command&quot; these are commands which run before the emulator launches and after the emulator exits, however these commands execute before the &quot;Pre-Commands
                                                         / Post-Commands&quot; respectively. You may enter any windows batch-script commands in these fields and likewise, keywords will be parsed.
                                                     </p>
@@ -1340,8 +1340,8 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-presetdet" />
                                         <label for="item-presetdet" class="accordion-item-hd">↕ Presets Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
-                                                <div class="tabItemContent" id="detailsdiv">
+                                            <div id="detailsdiv">
+                                                <div>
                                                     <p>The Paradigm:</p>
                                                     <p>Launchers are simply batch files that run an emulator with the ROM using the command-line interface.
                                                     </p>
@@ -1369,8 +1369,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-bsl" />
                                     <label for="item-bsl" class="accordion-item-hd">↕ BSL Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>BSL.exe is used as the &quot;emulator&quot; where &quot;.bat&quot; or &quot;.lnk&quot; is the extension for any ROM-Jacket library. </p>
                                             </div>
                                         </div>
@@ -1396,8 +1396,8 @@
                                         <label for="item-exe" class="accordion-item-hd">↕ Executable Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
                                             These executables may be suitable for predefined hardware configurations, netplay clients and other deployments.</p>
-                            <div class="tabItem">
-                                <div class="tabItemContent" id="detailsdiv">
+                            <div id="detailsdiv">
+                                <div>
                                     <p>Selecting an emulator preset will download the emulator and extract it to the
                                         <code>...skeletonKey\executable\emu</code> directory
                                     </p>
@@ -1438,8 +1438,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-port" />
                                     <label for="item-port" class="accordion-item-hd">↕ Portable Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <p>Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skeletonKey's other supported emulators' per-game settings
                                                     are updated to reflect the new portable skeletonKey location.
                                                 </p>
@@ -1472,28 +1472,29 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-cli" />
                                     <label for="item-cli" class="accordion-item-hd">↕ Command Line Details<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
-                                                <p>SkeletonKey launched from the command line <em>without</em> the <code>-run=</code> option functions identically to drag'n drop. </p>
-                                                <p><em>...nkey&gt;</em> <code>skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code><br>
+                                        <div id="detailsdiv">
+                                            <div>
+                                                <p>SkeletonKey launched from the command line <em>without</em> the -run= option functions identically to drag'n drop. </p>
+                                                <p><em>...nkey&gt;</em> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</p>
+                                                <p align="right">
                                                     <span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
                                                 <hr>
                                                 <h3>Options to reset and initialize skeletonKey:</h3>
-                                                <code>-clearrj </code> will reset the ROM-Jacket system-setup preferences and queue<br>
-                                                <code>-clearcfg </code> will reset the per-game settings for all <strong>skeletonkey
+                                                <p>-clearrj  will reset the ROM-Jacket system-setup preferences and queue<br>
+                                                -clearcfg  will reset the per-game settings for all <strong>skeletonkey
 			launcher</strong> presets :: (not ROM-Jackets)<br>
-                                                <code>-clearset </code> will reset the skeletonkey program settings<br>
-                                                <code>-clearra </code> will reset global retroarch settings<br>
-                                                <code>-clearexe </code> will reset emulator executable settings<br>
-                                                <code>-clearscrape </code> will delete scraped art and assets<br> adding a <code>!q </code> to the end of your clear command will override and assume yes on all deletion queries.<br> eg <code>-clearra!q</code><br>
+                                                -clearset  will reset the skeletonkey program settings<br>
+                                                -clearra  will reset global retroarch settings<br>
+                                                -clearexe  will reset emulator executable settings<br>
+                                                -clearscrape  will delete scraped art and assets<br> adding a !q  to the end of your clear command will override and assume yes on all deletion queries.<br> eg -clearra!q</p><br>
                                                 <hr>
                                                 <h3>The Skey-Deploy utility accepts the following:</h3>
-                                                <code>-reset</code> command to reset the while keeping credentials for github.<br>
-                                                <code>-gituser=<strong>USERNAME</strong></code> your git username (must be the first argument).
+                                                <p>-reset command to reset the while keeping credentials for github.<br>
+                                                -gituser=<strong>USERNAME</strong> your git username (must be the first argument).
                                                 <br>
-                                                <code>-gitpass=<strong>PASSWORD</strong></code> your git password (must be the 2nd argument).
+                                                -gitpass=<strong>PASSWORD</strong> your git password (must be the 2nd argument).
                                                 <br>
-                                                <code>-gittoken=<strong>TOKEN-STRING</strong></code> your git authentication token (must be the 3rd argument). </div>
+                                                -gittoken=<strong>TOKEN-STRING</strong> your git authentication token (must be the 3rd argument).</p> </div>
                                         </div>
                                         <br>
                                     </div>
@@ -1508,8 +1509,8 @@
                                     <input class="accordion-item-input" type="checkbox" name="accordion" id="item-indevl" />
                                     <label for="item-indevl" class="accordion-item-hd">↕ In Development<span class="accordion-item-hd-cta">&#9650;</span></label>
                                     <div class="accordion-item-bd">
-                                        <div class="tabItem">
-                                            <div class="tabItemContent" id="detailsdiv">
+                                        <div id="detailsdiv">
+                                            <div>
                                                 <h3>Copy Cfg</h3>
                                                 <p>Similar to the portable utility, this allows you to propagate settings from one file throughout an entire console's library.
                                                 </p>
@@ -1548,9 +1549,9 @@
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-comments" />
                                         <label for="item-comments" class="accordion-item-hd">↕ leave a comment<span class="accordion-item-hd-cta">&#9650;</span></label>
                                         <div class="accordion-item-bd">
-                                            <div class="tabItem">
+                                            <div id="detailsdiv">
                                                 <h8 class="tabItemHeading"></h8>
-                                                <div class="tabItemContent" id="detailsdiv">
+                                                <div>
                                                     <p><img alt="" height="27" src="key.png" width="24"><a href="https://www.paypal.me/romjacket/19.99">Billy Mays Me</a></p>
                                                     <div id="HCB_comment_box">
                                                         <a href="http://www.htmlcommentbox.com"></a>loading comments...</div>
@@ -1755,16 +1756,17 @@
     h1 {
         font-weight: bolder;
         font-size: 37px;
+        color: #f8f8f8;
         text-transform: uppercase;
-        color: rgba(240, 240, 240, 1);
         text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.6), 1px 22px 10px rgba(16, 16, 16, 0.3), 1px 25px 35px rgba(16, 16, 16, 0.3), 1px 30px 60px rgba(16, 16, 16, 0.5);
-        transition: all .3s ease-in-out;
+        transition: text-shadow .3s linear, transform .3s ease-out;
     }
     
     h1:hover {
-        color: #FFFFFF;
-        text-shadow: 0px 1px 1px #818181, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #8f8f8f, 1px 6px 1px #8b8b8b, 1px 7px 1px #8d8d8d, 1px 8px 1px #858585, 1px 9px 1px #838383, 1px 10px 1px #808080, 1px 6px 8px rgba(16, 16, 16, 0.8), 1px 6px 15px rgba(16, 16, 16, 0.5), 1px 6px 15px rgba(16, 16, 16, 0.5), 1px 6px 20px rgba(16, 16, 16, 0.7);
-        transition: all .3s ease-in-out;
+        color: #eeeeee;
+        transform: scale(0.90, 0.95) translate(0px, 10px);
+        text-shadow: 0px 1px 1px #818181, 0px 2px 1px #919191, 0px 3px 1px #919191, 0px 4px 1px #919191, 0px 5px 1px #8f8f8f, 0px 0px 0px #8b8b8b, 0px 0px 0px #8d8d8d, 0px 0px 0px #858585, 0px 0px 0px #838383, 0px 0px 0px #808080, 1px 11px 8px rgba(16, 16, 16, 0.8), 1px 6px 6px rgba(16, 16, 16, 0.5), 1px 6px 15px rgba(16, 16, 16, 0.5), 1px 6px 20px rgba(16, 16, 16, 0.7);
+        transition: text-shadow .3s linear, transform .3s ease-out;
     }
     
     h2 {
@@ -1866,23 +1868,44 @@
     
     #detailsdiv {
         /*background-color: #515151;*/
+        transform-origin: 0%;
+        -webkit-transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+        transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
         background-image: -webkit-linear-gradient(90deg, rgba(15, 15, 15, 1.00) 0%, rgba(27, 27, 27, 1.00) 25.91%, rgba(33, 33, 33, 1.00) 93.26%, rgba(3, 3, 3, 1.00) 100%);
         background-image: -moz-linear-gradient(90deg, rgba(15, 15, 15, 1.00) 0%, rgba(27, 27, 27, 1.00) 25.91%, rgba(33, 33, 33, 1.00) 93.26%, rgba(3, 3, 3, 1.00) 100%);
         background-image: -o-linear-gradient(90deg, rgba(15, 15, 15, 1.00) 0%, rgba(27, 27, 27, 1.00) 25.91%, rgba(33, 33, 33, 1.00) 93.26%, rgba(3, 3, 3, 1.00) 100%);
         background-image: linear-gradient(0deg, rgba(15, 15, 15, 1.00) 0%, rgba(27, 27, 27, 1.00) 25.91%, rgba(33, 33, 33, 1.00) 93.26%, rgba(3, 3, 3, 1.00) 100%);
-        color: white;
         margin-left: 5%;
         margin-right: 5%;
         padding-left: 3%;
         padding-right: 3%;
+        color: rgba(0, 0, 0, 0);
         padding-bottom: 2%;
         padding-top: 2%;
         border-radius: 8px 8px;
+        text-shadow: -1px 1px 6px rgba(0, 0, 0, 0.0);
         -webkit-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
         *-moz-box-shadow: 4px -4px 0px 0px rgba(230, 230, 230, 1);
         * padding-right: 3%;
         box-shadow: 4px -4px 4px 4px rgba(230, 230, 230, 1), -3px 3px 6px 6px rgba(80, 80, 80, .7);
-        text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
+    }
+    
+    .p {
+        text-shadow: -1px 1px 6px rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0);
+        transform: scale(1, 0)
+    }
+    
+    .h3 {
+        text-shadow: -1px 1px 6px rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0);
+        transform: scale(0, 1)
+    }
+    
+    .code {
+        text-shadow: -1px 1px 6px rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0);
+        transform: scale(0, 1)
     }
     
     #SectSeparate {
@@ -1973,45 +1996,7 @@
         z-index: 9;
     }
 </style>
-<style>
-    .tabItem {
-        display: block;
-        width: 100%;
-    }
-    
-    .tabItem.close #detailsdiv p {
-        transition: 0.3s ease-out;
-    }
-    
-    .tabItemHeading {
-        cursor: pointer;
-        color: blue;
-    }
-    
-    .close .tabItemContent {
-        transform-origin: top;
-        height: 0px;
-        -webkit-transform: scaleY(0);
-        -o-transform: scaleY(0);
-        -ms-transform: scaleY(0);
-        transform: scaleY(0);
-        display: block;
-        transition: 0.3s ease-out;
-    }
-    
-    .open .tabItemContent {
-        transform-origin: top;
-        height: 100%;
-        margin-top: 15px;
-        transition: 0.3s ease-in;
-    }
-    
-    .open .tabItemHeading {
-        transform-origin: top;
-        color: blue;
-        transition: 0.3s ease-in;
-    }
-</style>
+
 <style>
     #menuToggle {
         display: block;
@@ -2265,8 +2250,27 @@
         max-height: 1500px;
         padding-top: 15px;
         margin-bottom: 15px;
-        -webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
-        transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
+        -webkit-transition: max-height .3s ease-in, margin .3s ease-in, padding .3s ease-in;
+        transition: max-height .3s ease-in, margin .3s ease-in, padding .3s ease-in;
+    }
+    
+    .accordion-item-input:checked~.accordion-item-bd>#detailsdiv code,
+    .accordion-item-input:checked~.accordion-item-bd>#detailsdiv p {
+        /*background-color: #515151;*/
+        transition-delay: 1.5s;
+        transition: color .8s ease-in-out, text-shadow .8s ease-in-out;
+        -webkit-transition-delay: 1.5s;
+        color: white;
+        text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
+    }
+    
+    .accordion-item-input:checked~.accordion-item-bd>#detailsdiv h4,
+    .accordion-item-input:checked~.accordion-item-bd>#detailsdiv h3 {
+        transition-delay: 1s;
+        transition: text-shadow, .4s ease-in-out, color .4s ease-in-out;
+        -webkit-transition-delay: 1s;
+        color: white;
+        text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.23);
     }
     
     .accordion-item-input:checked~.accordion-item-hd>.accordion-item-hd-cta {
@@ -2293,12 +2297,13 @@
     }
     
     .accordion-item-bd {
+        transform-origin: top;
         border-spacing: 25px;
         max-height: 0;
         margin-bottom: 0px;
         overflow: hidden;
         -webkit-transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
-        transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+        transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out, scale .8s ease-in-out;
     }
     
     .accordion-item-input {

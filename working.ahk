@@ -1403,7 +1403,7 @@ Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
 Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
 Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
 Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
-Menu,MINITOGGLE,Add,Toggle Mini-Mode,MINIMODET
+Menu,MINITOGGLE,Add, Mini-Mode ,MINIMODET
 Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
 Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
 Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
@@ -81931,7 +81931,6 @@ mame_sys=
 fileread,emucfgpr,sets\emucfgPresets.set
 iniread,pnvf,sets\emucfgPresets.set
 systrt=
-
 Loop,parse,pnvf,`n`r
 	{
 		if (A_LoopField = "")
