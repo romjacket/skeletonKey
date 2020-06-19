@@ -1,0 +1,14 @@
+--2020-06-18 13:51:41--  https://api.lyrics.ovh/v1/Pink%20Floyd/Another%20Brick%20in%20the%20Wall,%20Part%202
+Resolving api.lyrics.ovh... 91.121.11.176
+Connecting to api.lyrics.ovh|91.121.11.176|:443... connected.
+WARNING: cannot verify api.lyrics.ovh's certificate, issued by `/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3':
+  Unable to locally verify the issuer's authority.
+WARNING: certificate common name `ntag.fr' doesn't match requested host name `api.lyrics.ovh'.
+HTTP request sent, awaiting response... 200 OK
+Length: 284 [application/json]
+Saving to: `Another Brick in the Wall, Part 2'
+
+     0K                                                       100% 48.4M=0s
+
+2020-06-18 13:51:42 (48.4 MB/s) - `Another Brick in the Wall, Part 2' saved [284/284]
+

@@ -782,6 +782,7 @@ FileInstall,bin\7zip_License.txt,bin\7zip_License.txt,1
 FileInstall,bin\any2ico_license.txt,bin\any2ico_license.txt,1
 FileInstall,bin\chdman_aria2_License.txt,bin\chdman_aria2_License.txt,1
 FileInstall,bin\curl_License.txt,bin\curl_License.txt,1
+FileInstall,bin\file.txt,bin\file.txt,1
 FileInstall,bin\rcedit_License.txt,bin\rcedit_License.txt,1
 FileInstall,bin\Scraper_License.txt,bin\Scraper_License.txt,1
 FileInstall,bin\vDrive_License.txt,bin\vDrive_License.txt,1
