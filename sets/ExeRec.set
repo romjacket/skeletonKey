@@ -721,7 +721,17 @@ FileInstall,site\paradigm.png,site\paradigm.png,1
 FileInstall,site\tip.png,site\tip.png,1
 FileInstall,site\index.html,site\index.html,1
 FileInstall,site\test.html,site\test.html,1
+FileInstall,site\Cubixcode.ttf,site\Cubixcode.ttf,1
+FileInstall,site\dotgrid.ttf,site\dotgrid.ttf,1
+FileInstall,site\FixCystNeon.ttf,site\FixCystNeon.ttf,1
+FileInstall,site\Neon.ttf,site\Neon.ttf,1
+FileInstall,site\neon_pixel-7.ttf,site\neon_pixel-7.ttf,1
 FileInstall,site\Opticon.ttf,site\Opticon.ttf,1
+FileInstall,site\press_any_key_to_continue.ttf,site\press_any_key_to_continue.ttf,1
+FileInstall,site\Retro Mono Wide.ttf,site\Retro Mono Wide.ttf,1
+FileInstall,site\Retro Stereo Wide.ttf,site\Retro Stereo Wide.ttf,1
+FileInstall,site\SEGA.TTF,site\SEGA.TTF,1
+FileInstall,site\triple_dot_digital-7.ttf,site\triple_dot_digital-7.ttf,1
 FileInstall,site\Hermit-Regular.otf,site\Hermit-Regular.otf,1
 FileInstall,site\TruenoLt.otf,site\TruenoLt.otf,1
 FileInstall,sets\AppParams.set,sets\AppParams.set,1

@@ -8082,6 +8082,11 @@ ROMSYS= %OPTYP%
 OPTYP= %OPTYP%
 EXTRSYS= %OPTYP%
 guicontrolget,SRCHTMP,,SRCHLOCDDL
+guicontrolget,EDTROMBTN,,EDTROMBTN
+if (EDTROMBTN = ">")
+	{
+		gosub, REHCBX
+	}
 guicontrol,,MORROM,|.........indexing............||
 Loop,Parse,RUNBOXGUIITEMS,|
 	{
