@@ -81002,7 +81002,6 @@ if (dmchk = 1)
 		Run, %comspec% /c "%dskmntexe%"%dskunmntopt%
 	}
 gosub, SKLPOST
-msgbox,,,k
 POSTEMULAUNCH:
 if (EPGC = 1)
 	{
@@ -81096,7 +81095,6 @@ if (HISAPND = 1)
 				TF_replaceline("!"historyloc,replineb,replineb,hisapl)
 			}
 	}
-	msgbox,,,ko
 if (DDRUN = "")
 	{
 		return
