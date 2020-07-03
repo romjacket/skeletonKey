@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>SKELETONKEY</title>
+    <title>
+        SKELETONKEY</title>
 </head>
 
 <body>
@@ -47,7 +48,20 @@
     </div>
     <div id="superflex" align="center">
         <br>
-        <span class="tfnt">skeletonKeY</span>
+        <!-- <span class="tfnt">skeletonKeY</span>-->
+        <div id="msriv">
+            <h1>s</h1>
+            <h1>k</h1>
+            <h1>e</h1>
+            <h1>l</h1>
+            <h1>e</h1>
+            <h1>t</h1>
+            <h1>o</h1>
+            <h1>n</h1>
+            <h1>K</h1>
+            <h1>e</h1>
+            <h1>Y</h1>
+        </div>
         <a id="DOWNLOAD"></a>
         <p>A unified interface for ROMs, emulators and frontends.</p>
         <div align="left" id="outer">
@@ -60,7 +74,7 @@
                 <br>
                 <ul>
                     <li>
-                        <h4><a href="[REVISION]">Installer »</a></h4>
+                        <h2><a href="[REVISION]">Installer »</a></h2>
                     </li>
                 </ul>
                 Installer<br> (recommended)<br>
@@ -72,10 +86,10 @@
                 <hr>
                 <ul>
                     <li>
-                        <h4><a href="[PORTABLE]">Portable Binary »</a></h4>
+                        <h3><a href="[PORTABLE]">Portable Binary »</a></h3>
                     </li>
                 </ul>
-                This is the compressed skeletonKey executable.<br> Extract into a skeletonKey directory overwriting any existing files.
+                This is the compressed skeletonKey executable.<br> Extract into a skeletonKey directory.
             </div>
             <br>
             <div id="inner">
@@ -324,7 +338,7 @@
                         </li>
                         <li>the "Mini-Mode" toggle</li>
                         <li>the "C" configure button</li>
-                        <li>A split <strong><code>LAUNCH ::&gt;</code></strong> button</li>
+                        <li>A split <strong><code>LAUNCH &gt;&gt;&gt;</code></strong> button</li>
                     </ul>
                     <ul class="accordion css-accordion" align="right">
                         <li class="accordion-item">
@@ -1116,7 +1130,7 @@
                                     <div class="accordion-item-bd">
                                         <div id="detailsdiv" align="left">
                                             <div>
-                                                <p><img alt="" height="auto" src="paradigm.png" width="35%"></p>
+                                                <img alt="" height="auto" src="paradigm.png" width="35%" align="left">
                                                 <p>Each jacket's batch-script-launcher copies its emulator-configuration files to the emulator directory prior to launching and any changes made to the emulator during gameplay are copied back to the jacket
                                                     after exiting the emulator.
                                                 </p>
@@ -1490,7 +1504,7 @@
                         <div id="inner">
                             <h3>Command-Line</h3>
                             <p>An emulator-preset can be specified to override any default association from the command-line.</p>
-                            <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the rom. Any options specified by the preset are respected.<br>
+                            <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the ROM. Any options specified by the preset are respected.<br>
                             </p>
                             <ul class="accordion css-accordion" align="right">
                                 <li class="accordion-item">
@@ -1555,9 +1569,8 @@
                     </div>
                     <div align="left" id="outer">
                         <div id="inner">
-                            <p><strong>Question: </strong> Does this work in linux?</p>
-                            <p><strong>Answer: </strong> Everything seemed to be fine in a WINEbox I tested this in, even netplay. I'm very interested in extending functionality through programmable shell-script launchers, and at some point I may rebase/refactor
-                                to allow for unix-paths, but I have no intention of porting skeletonKey to other platforms.
+                            <p><strong>Question: </strong></p>
+                            <p><strong>Answer: </strong> It works under wine, but <span style="font-size: xx-small">No. I have no intention of porting skeletonKey to other platforms.</span>
                             </p>
                             <p><strong>Question: </strong> How do I get games?
                             </p>
@@ -1580,6 +1593,20 @@
                                                     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
                                                 </div>
                             </p>
+                            <footer>
+                                <h5>
+                                    <a href="http://github.com/romjacket" target="_blank"><img src="../thumbs/github.png"></a>
+                                    <a href="http://reddit.com/u/romjacket" target="_blank"><img src="../thumbs/reddit.png"></a>
+                                    <a href="https://www.youtube.com/channel/UC-7Z3ORO-pejhzfYSklZgOg?" target="_blank"><img src="../thumbs/youtube.png"></a>
+                                    <a href="http://facebook.com/romjacket" target="_blank"><img src="../thumbs/facebook.png"></a>
+                                    <a href="http://paypal.me/romjacket/8.88" target="_blank"><img src="../thumbs/paypal.png"></a>
+                                    <a href="http://instagram.com/rom_jacket" target="_blank"><img src="../thumbs/instagram.png"></a>
+                                    <a href="https://twitter.com/RomJacket" target="_blank"><img src="../thumbs/twitter.png"></a>
+                                    <a href="https://discord.gg/HyebHhk" target="_blank"><img src="../thumbs/discord.png" height="32px"></a>
+                                    <a href="mailto:romjacket@protonmail.com" target="_blank"><img src="../thumbs/email.png"></a>
+                                </h5>
+                            </footer>
+
                             </div>
                             <br>
                             </div>
@@ -1588,19 +1615,6 @@
                             <a id="RESOURCES"></a>
                             <div>
                                 <div id="SectSeparate" align="center">
-                                    <footer>
-                                        <h5>
-                                            <a href="http://github.com/romjacket" target="_blank"><img src="../thumbs/github.png"></a>
-                                            <a href="http://reddit.com/u/romjacket" target="_blank"><img src="../thumbs/reddit.png"></a>
-                                            <a href="https://www.youtube.com/channel/UC-7Z3ORO-pejhzfYSklZgOg?" target="_blank"><img src="../thumbs/youtube.png"></a>
-                                            <a href="http://facebook.com/romjacket" target="_blank"><img src="../thumbs/facebook.png"></a>
-                                            <a href="http://paypal.me/romjacket/8.88" target="_blank"><img src="../thumbs/paypal.png"></a>
-                                            <a href="http://instagram.com/rom_jacket" target="_blank"><img src="../thumbs/instagram.png"></a>
-                                            <a href="https://twitter.com/RomJacket" target="_blank"><img src="../thumbs/twitter.png"></a>
-                                            <a href="https://discord.gg/HyebHhk" target="_blank"><img src="../thumbs/discord.png" height="32px"></a>
-                                            <a href="mailto:romjacket@protonmail.com" target="_blank"><img src="../thumbs/email.png"></a>
-                                        </h5>
-                                    </footer>
                                 </div>
                             </div>
                         </div>
@@ -1732,8 +1746,8 @@
         }
     }
 </script>
-<style>
-    @font-face {
+<style>    
+    <style>@font-face {
         font-family: 'Opticon';
         src: url('Opticon.ttf') format('truetype');
     }
@@ -1787,7 +1801,7 @@
         font-weight: bolder;
         font-size: 37px;
         color: #f8f8f8;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.6), 1px 22px 10px rgba(16, 16, 16, 0.3), 1px 25px 35px rgba(16, 16, 16, 0.3), 1px 30px 60px rgba(16, 16, 16, 0.5);
         transition: text-shadow .3s linear, transform .3s ease-out;
     }
@@ -1807,6 +1821,15 @@
     h3 {
         font-weight: bold;
         font-size: 18px;
+    }
+    
+    a {
+        text-shadow: 0px -1px 1px rgba(1, 69, 216, 0.0), 0px 1px -1px rgba(255, 255, 255, 0.0);
+    }
+    
+    a:hover {
+        text-shadow: 0px 1px 2px rgba(1, 69, 216, 0.842), 0px -1px 1px rgba(255, 255, 255, 0.9);
+        transition: text-shadow .5s ease-in-out;
     }
     
     h4 {
@@ -1873,7 +1896,6 @@
     }
     
     #inner {
-        transition: all .4s ease-in-out;
         background-image: -webkit-linear-gradient(90deg, rgba(207, 207, 207, 1.00) 0%, rgba(232, 232, 232, 1.00) 100%);
         background-image: -moz-linear-gradient(90deg, rgba(207, 207, 207, 1.00) 0%, rgba(232, 232, 232, 1.00) 100%);
         background-image: -o-linear-gradient(90deg, rgba(207, 207, 207, 1.00) 0%, rgba(232, 232, 232, 1.00) 100%);
@@ -1894,7 +1916,7 @@
     }
     
     #inner:hover {
-        transition: all .4s ease-in-out;
+        transition: box-shadow .4s ease-in-out;
         background-image: linear-gradient(0deg, rgb(209, 210, 211) 0%, rgb(227, 229, 231) 100%);
         box-shadow: 2px -2px 2px 2px rgba(208, 222, 226, 0.8), 2px -2px 3px 4px rgba(188, 192, 204, 0.6), 3px -3px 6px 6px rgba(204, 217, 230, 0.3), -2px 2px 2px 3px rgba(176, 183, 185, 0.8), -2px 2px 3px 3px rgba(76, 77, 80, 0.6), -4px 4px 8px 8px rgba(215, 232, 252, 0.3);
     }
@@ -1962,10 +1984,11 @@
     .pk:hover {
         color: rgb(222, 222, 255);
         text-shadow: 0px 0px 4px rgba(110, 110, 255, 0.83);
+        transition: color .2s ease-in-out, text-shadow .5s ease-in-out;
     }
     
     .tfnt {
-        font-family: 'Opticon';
+        font-family: 'Puzzle';
         position: relative;
         font-size: 7em;
         font-weight: 700;
@@ -2268,6 +2291,10 @@
             width: 98px;
         }
     }
+    
+    inlimg {
+        display: inline;
+    }
 </style>
 <style>
     .accordion {
@@ -2292,12 +2319,11 @@
         color: rgb(94, 94, 94);
         cursor: pointer;
         font-weight: bold;
-        transition: all .4s ease-in-out;
         box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0), 2px -2px 2px 2px rgba(230, 230, 230, .8), 4px -4px 4px 6px rgba(184, 184, 184, .6);
     }
     
     .accordion-item-hd:hover {
-        transition: all .4s ease-in-out;
+        transition: text-shadow .4s ease-in-out, box-shadow .4s ease-in-out;
         color: rgb(60, 145, 255);
         text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.53), 0px 0px 4px rgba(110, 110, 255, 0.83);
         box-shadow: 0px 0px 15px 15px rgba(42, 177, 255, 0.1), 1px -1px 1px 2px rgba(227, 231, 233, 0.5), 3px -3px 3px 4px rgba(179, 184, 185, 0.7);
@@ -2371,6 +2397,10 @@
         overflow: hidden;
         position: absolute;
         left: -9999px;
+    }
+    
+    #msriv {
+        display: inline-flex;
     }
 </style>
 

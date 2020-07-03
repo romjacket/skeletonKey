@@ -1547,7 +1547,7 @@ Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
 Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
 Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
-Gui,Add,ComboBox, hwndCbxHndl1 x39 y24 w619 vRUNROMCBX gEDTFROM +0x2 +E0x5000 Right hidden,
+Gui,Add,ComboBox, hwndCbxHndl1 x39 y24 w604 vRUNROMCBX gEDTFROM +0x2 +E0x5000 Right hidden,
 Gui Add, Button, x23 y25 w15 h17 vEDTROMBTN gEDTROMBTN,E
 Gui,Add,DropDownList, hwndDplHndl163 x39 y24 w377 vMORROM gEDTROM +0x2 +E0x5000 Right,
 Gui, Add, CheckBox, x662 y32 h14 vSWHOST gSwHost hidden, Host
@@ -1555,17 +1555,19 @@ gui,font,Bold
 Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui,find
 Gui,Font,Normal
 Gui, Add, Button, x745 y30 w16 h16 vMINISWITCH gMINISWITCH,-
-Gui, Add, CheckBox, x461 y4 h15 vCustSwitchs gCustSwitchs hidden, switches
+Gui, Add, CheckBox, x435 y4 w55 h15 vCustSwitchs gCustSwitchs hidden, switch
 Gui,Add,ComboBox, hwndCbxHndl2 x459 y24 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
-Gui,Add,ComboBox, hwndCbxHndl3 x560 y24 w100 vCUSTMARGS gCustmArgs hidden, |%INJARG%
-Gui, Add, Button, x418 y2 w41 h21 vGROM gGetROM,ROM
-Gui,Add,DropDownList, x525 y2 w135 hwndRUNCORE vLCORE gLnchCore,
+Gui,Add,ComboBox, hwndCbxHndl3 x560 y24 w85 vCUSTMARGS gCustmArgs hidden, |%INJARG%
+Gui, Add, Button, x418 y2 w15 h21 vGROM gGetROM,...
+Gui, Add, Button, x493 y2 w15 h17 vESWPLCRE gESWPLCRE,E
+Gui,Add,ComboBox, x510 y2 w135 hwndRUNCORECBX vLCORECBX gLCoreCBX hidden,
+Gui,Add,DropDownList, x510 y2 w135 hwndRUNCORE vLCORE gLnchCore,
 Gui,Add,DropDownList, hwndDplHndl5 x540 y2 w135 vJCORE gRJCORE hidden,
 Gui, Font, Bold
-Gui, Add, Button, x661 y3 w16 h17 vOPNCORE gOpnCore,C
+Gui, Add, Button, x649 y2 w28 h28 vOPNCORE gOpnCore,C
 Gui, Add, Button, x683 y2 w78 h29 vHLNCHBUT gRUNTABHOSTING hidden,HOST
-Gui, Add, Button, x677 y2 w57 h29 vLNCHBUT gLNCH disabled,LAUNCH
-Gui, Add, Button, x734 y2 w28 h29 vRCLLNCH gRCLLNCH,>>>
+Gui, Add, Button, x681 y2 w64 h29 vLNCHBUT gLNCH disabled,LAUNCH
+Gui, Add, Button, x745 y2 w16 h29 vRCLLNCH gRCLLNCH,>
 gui,font,normal
 ;;Gui, Add, Button, x744 y34 w15 h15 vCLRCUROM gCLREDT,X
 Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
@@ -7954,7 +7956,10 @@ if (FILT_UNSUP = 1)
 		guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 		guicontrol,,ESDWNLPOS,|%systmfldrs%
+		iniwrite, "%FILT_UNSUP%",Settings.ini,GLOBAL,global_filter
+		return
 	}
+Loop,%RJSYSTEMS%	
 iniwrite, "%FILT_UNSUP%",Settings.ini,GLOBAL,global_filter
 return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MAIN MENU DROPDOWN ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -8513,7 +8518,7 @@ if (CUSTSWITCHS = 0)
 		guicontrol, hide, CUSTMARG
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
-		guicontrol, move, RUNROMCBX, x39 y24 w619
+		guicontrol, move, RUNROMCBX, x39 y24 w604
 		guicontrol, move, MORROM, x39 y24 w377
 		guicontrol,,CUSTSWITCH,0
 		CUSTMARG=
@@ -14341,6 +14346,92 @@ if (RETRANSLID = 1)
 	}
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
+return
+
+
+ESWPLCRE:
+gui,submit,nohide
+guicontrolget,ESWPLCRE,,ESWPLCRE
+if (ESWPLCRE = "E")
+	{
+		guicontrol,,LCORECBX,| ||%runlist%
+		guicontrol,hide,LCORE
+		guicontrol,show,LCORECBX
+		guicontrol,,ESWPLCRE,>
+		guicontrol,focus,LCORECBX
+		Controlfocus,ahk_id %RUNCORECBX%
+		return	
+	}
+guicontrol,show,LCORE
+guicontrol,hide,LCORECBX
+guicontrol,,ESWPLCRE,E
+return	
+
+
+LCORECBX:
+guicontrolget,LCGRBX,,LCORECBX
+Sleep, 1100
+gui,submit,nohide
+guicontrolget,COREGRBX,,LCORECBX
+if (COREGRBX <> LCGRBX)
+	{
+		goto,LCORECBX
+	}
+if (COREGRBX = "")
+	{
+		ROMSYS=  
+	}
+stringreplace,corenvbx,coregrbx,%A_SPACE%,,All	
+if ((COREGRBX = "")or(CORENVBX = ""))
+	{
+		guicontrol,,LCORE,|%LCore%||%runlist%
+		guicontrol,show,LCORE
+		guicontrol,hide,LCORECBX
+		guicontrol,,ESWPLCRE,E
+		return
+	}
+	
+main_search= 
+Loop,parse,runlist,|
+	{
+		if (A_LoopField = COREGRBX)
+			{
+				LCORECBX= %A_LoopField%
+				main_search= %A_LoopField%||%runlist%
+				guicontrol,show,LCORE
+				guicontrol,hide,LCORECBX
+				guicontrol,,LCORECBX,|%main_search%
+				guicontrol,,LCORE,|%main_search%
+				guicontrol,,ESWPLCRE,E
+				goto, LnchCore
+			}
+	}
+Loop,Parse,runlist,|
+	{
+		if Instr(A_LoopField, COREGRBX)
+			{
+				main_search.=  A_LoopField . "|"
+			}
+	}
+if (main_search = "")
+		{
+			main_search= %swpparv%
+		}
+guicontrol,,LCORECBX,|%COREGRBX%||%main_search%
+Control, ShowDropDown, , ,ahk_id %RUNCORECBX%
+return
+
+
+LnchCoreCBXr:
+gui,submit,nohide
+guicontrolget,LCORECBX,,LCORECBX
+if (LCORE = LCORECBX)
+	{
+		return
+	}
+guicontrol,,LCORE,|%LCORECBX%||%runlist%
+guicontrol,hide,LCORECBX
+guicontrol,show,LCORE
 return
 
 LnchCore:
@@ -38755,7 +38846,7 @@ Loop, files, %ACSVDEST%\*.rar
 				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romsys%\%romname%,1
 			}
 	}
-Loop, Files, %xtrdir%\*.*,1
+Loop, Files, %xtrdir%\*.*,R
 	{
 		gosub, GetXtr
 	}
@@ -38983,7 +39074,7 @@ if (CUSTSWITCH = 0)
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
 		guicontrol,,CUSTSWITCHS,0
-		guicontrol, move, RUNROMCBX, x39 y24 w619
+		guicontrol, move, RUNROMCBX, x39 y24 w604
 		guicontrol, move, MORROM, x39 y24 w377
 		CUSTMARG=
 		CUSTMOPT=
@@ -48777,7 +48868,12 @@ ifnotexist,%mamejsysloc%
 				filecopy,rj\emuCfgs\mame\sysj\generic.get,%mamejsysloc%,1
 			}
 	}
-gosub, MAME%RJMAMENM%JOY
+rjtmpnm= %RJMAMENM%
+ifnotinstring,supmamejoys,"%rjtmpnm%|"
+	{
+		rjtmpnm= _
+	}
+gosub, MAME%rjtmpnm%JOY
 SB_SetText(" mame " RJMAMENM " joystick loading complete ")
 emjtog= enable
 gosub, EMJTOG
@@ -50276,343 +50372,7 @@ MameSwapCGRP=
 MameSwapDGRP= Right Analog Stick
 gosub, MameSwap
 return
-MAMEapple2JOY:
-MAMEapple2gsJOY:
-MAMEpc8201JOY:
-MAMEpc8801JOY:
-MAMEpc88vaJOY:
-MAMEpc98JOY:
-MAMEpc9821xsJOY:
-MAMEstJOY:
-MAMEvectrexJOY:
-MAMEx68kJOY:
-MAMEx68ksuprJOY:
-MAMEneocdJOY:
-MAMEneogeoJOY:
-MAMEn64JOY:
-MAMEn64ddmsx1JOY:
-MAMEmsx2JOY:
-MAMEmsx2pJOY:
-MAMEmsxrJOY:
-MAMEa1000nJOY:
-MAMEa1200nJOY:
-MAMEa2000nJOY:
-MAMEa3000JOY:
-MAMEa3000nJOY:
-MAMEa500nJOY:
-MAMEa800JOY:
-MAMEa800palJOY:
-MAMEarcadiaJOY:
-MAMEarchimedesJOY:
-MAMEbbcaJOY:
-MAMEbbcbJOY:
-MAMEbbcbcJOY:
-MAMEbbcmJOY:
-MAMEbbcmcJOY:
-MAMEamigaJOY:
-MAMEc128JOY:
-MAMEx1JOY:
-MAMEfm7JOY:
-MAMEfm77avJOY:
-MAMEfmtownsJOY:
-MAMEelectronJOY:
-MAMEc64JOY:
-MAMEc65JOY:
-MAMEcanonv30fJOY:
-MAMEcanonv8JOY:
-MAMEcolecoJOY:
-MAMEcolecopJOY:
-MAMEcpcJOY:
-MAMEcpc6128pJOY:
-MAMEcdtvJOY:
-MAMEzx80JOY:
-MAMEzx81JOY:
-MAMEsg1000JOY:
-MAMEsamcoupeJOY:
-MAMEiq151intvJOY:
-MAMEintvecsJOY:
-MAMEjaguarJOY:
-MAMEa310JOY:
-MAMEabc1600JOY:
-MAMEabc80JOY:
-MAMEadamJOY:
-MAMEadvantageJOY:
-MAMEadvisionJOY:
-MAMEaim65JOY:
-MAMEalesteJOY:
-MAMEalice32JOY:
-MAMEalice90JOY:
-MAMEalphatroJOY:
-MAMEaltos5JOY:
-MAMEamproJOY:
-MAMEapcJOY:
-MAMEapfimagJOY:
-MAMEapfm1000JOY:
-MAMEapogeeJOY:
-MAMEapolloJOY:
-MAMEapple1JOY:
-MAMEapple3JOY:
-MAMEapricotJOY:
-MAMEaquariusJOY:
-MAMEastrocdeJOY:
-MAMEatomJOY:
-MAMEattacheJOY:
-MAMEb2mJOY:
-MAMEbk0010JOY:
-MAMEbw12JOY:
-MAMEbw14JOY:
-MAMEbw2JOY:
-MAMEbx256hpJOY:
-MAMEcasloopyJOY:
-MAMEcbm2JOY:
-MAMEcbm8096JOY:
-MAMEcbm8296JOY:
-MAMEcc40JOY:
-MAMEcgenieJOY:
-MAMEchannelfJOY:
-MAMEchessmstdmJOY:
-MAMEcocoJOY:
-MAMEcompclr2JOY:
-MAMEcompisJOY:
-MAMEcomx35JOY:
-MAMEcoperaJOY:
-MAMEcrvisionJOY:
-MAMEcx3000tcJOY:
-MAMEdaiJOY:
-MAMEdatabaseJOY:
-MAMEdgnalphaJOY:
-MAMEdgnbetaJOY:
-MAMEdim68kJOY:
-MAMEdmvJOY:
-MAMEdps1JOY:
-MAMEdragonJOY:
-MAMEe01JOY:
-MAMEec1841JOY:
-MAMEeinsteinJOY:
-MAMEep64JOY:
-MAMEepsonJOY:
-MAMEexl100JOY:
-MAMEfidelJOY:
-MAMEfsa1stJOY:
-MAMEg7400JOY:
-MAMEgalaxyJOY:
-MAMEgamateJOY:
-MAMEgamecomJOY:
-MAMEgamekingJOY:
-MAMEgameking3JOY:
-MAMEgamepockJOY:
-MAMEgeniusJOY:
-MAMEgenius6JOY:
-MAMEgimixJOY:
-MAMEgjmovieJOY:
-MAMEgl2000JOY:
-MAMEgl6000slJOY:
-MAMEglcolorJOY:
-MAMEgmasterJOY:
-MAMEgp32JOY:
-MAMEguabJOY:
-MAMEgx4000JOY:
-MAMEh21JOY:
-MAMEhbf9spJOY:
-MAMEhorizonJOY:
-MAMEhpJOY:
-MAMEhp85JOY:
-MAMEhp9835aJOY:
-MAMEhp9845aJOY:
-MAMEhp9845bJOY:
-MAMEht68kJOY:
-MAMEhx20JOY:
-MAMEi7000JOY:
-MAMEibm5140JOY:
-MAMEibm5150JOY:
-MAMEibm5170JOY:
-MAMEibm6580JOY:
-MAMEibmpcjrJOY:
-MAMEinteractJOY:
-MAMEjuiceboxJOY:
-MAMEjupaceJOY:
-MAMEk28m2JOY:
-MAMEkayproiiJOY:
-MAMEkcJOY:
-MAMEkim1JOY:
-MAMEkonamiJOY:
-MAMEkorvetJOY:
-MAMElantutorJOY:
-MAMElaser2001JOY:
-MAMEleapsterJOY:
-MAMElisaJOY:
-MAMElisa2JOY:
-MAMElvivJOY:
-MAMEm20JOY:
-MAMEm5JOY:
-MAMEmacJOY:
-MAMEmbc200JOY:
-MAMEmbc55xJOY:
-MAMEmc10JOY:
-MAMEmc1502JOY:
-MAMEmd2JOY:
-MAMEmegaduckJOY:
-MAMEmegapcJOY:
-MAMEmegatechJOY:
-MAMEmicrovisionJOY:
-MAMEmikro80JOY:
-MAMEmikroshaJOY:
-MAMEmisterxJOY:
-MAMEmm1JOY:
-MAMEmo5JOY:
-MAMEmo6JOY:
-MAMEmpu1000JOY:
-MAMEmpz80JOY:
-MAMEmtxJOY:
-MAMEmtx512JOY:
-MAMEmyvisionJOY:
-MAMEmz2000JOY:
-MAMEmz2500JOY:
-MAMEmz700JOY:
-MAMEmz800JOY:
-MAMEnascomJOY:
-MAMEnextJOY:
-MAMEnimbusJOY:
-MAMEoctopusJOY:
-MAMEodyssey2JOY:
-MAMEondraJOY:
-MAMEoraoJOY:
-MAMEorionideJOY:
-MAMEorionproJOY:
-MAMEosborne1JOY:
-MAMEosborne2JOY:
-MAMEp500JOY:
-MAMEpartnerJOY:
-MAMEpasogoJOY:
-MAMEpb2000cJOY:
-MAMEpc1000JOY:
-MAMEpc1512JOY:
-MAMEpc1640JOY:
-MAMEpcwJOY:
-MAMEpcw16JOY:
-MAMEpecomJOY:
-MAMEpecom32JOY:
-MAMEpegasusJOY:
-MAMEpencil2JOY:
-MAMEpentagonJOY:
-MAMEpet64JOY:
-MAMEphc25JOY:
-MAMEpicnoJOY:
-MAMEpicoJOY:
-MAMEpicouJOY:
-MAMEpippinJOY:
-MAMEplus4JOY:
-MAMEpmd853JOY:
-MAMEpockchalv2JOY:
-MAMEpockchalwJOY:
-MAMEpofoJOY:
-MAMEpoisk1JOY:
-MAMEpokeminiJOY:
-MAMEprincJOY:
-MAMEpro128JOY:
-MAMEpro128sJOY:
-MAMEprof180JOY:
-MAMEprof80JOY:
-MAMEpsi98JOY:
-MAMEpsion1JOY:
-MAMEpsion2JOY:
-MAMEpt68k2JOY:
-MAMEpv1000JOY:
-MAMEpv2000JOY:
-MAMEpx4JOY:
-MAMEpx8JOY:
-MAMEpyl601JOY:
-MAMEqlJOY:
-MAMEqx10JOY:
-MAMEr9751JOY:
-MAMEradio86JOY:
-MAMErainbowJOY:
-MAMErwtrntcsJOY:
-MAMErx78JOY:
-MAMEsage2JOY:
-MAMEsawatteJOY:
-MAMEsc3000JOY:
-MAMEscvJOY:
-MAMEsf7000JOY:
-MAMEsitcomJOY:
-MAMEsmc777JOY:
-MAMEsmondial2JOY:
-MAMEsnotecJOY:
-MAMEsnreadJOY:
-MAMEsnspellJOY:
-MAMEsocratesJOY:
-MAMEsoftboxJOY:
-MAMEsol20JOY:
-MAMEsorcererJOY:
-MAMEspc1000JOY:
-MAMEspc1500JOY:
-MAMEspec128JOY:
-MAMEspecialJOY:
-MAMEspecpls3JOY:
-MAMEspectrumJOY:
-MAMEstudio2JOY:
-MAMEstvJOY:
-MAMEsuper6JOY:
-MAMEsuper80JOY:
-MAMEsuperpetJOY:
-MAMEsupracanJOY:
-MAMEsv8000JOY:
-MAMEsvi318JOY:
-MAMEsvisionJOY:
-MAMEsvmuJOY:
-MAMEt1000JOY:
-MAMEtandy200JOY:
-MAMEtandy2kJOY:
-MAMEtandy6kJOY:
-MAMEtdv2324JOY:
-MAMEtek4052JOY:
-MAMEti74JOY:
-MAMEti95JOY:
-MAMEti99JOY:
-MAMEtiki100JOY:
-MAMEtimexJOY:
-MAMEtntellJOY:
-MAMEto7JOY:
-MAMEto770JOY:
-MAMEto770aJOY:
-MAMEto8JOY:
-MAMEtrs80m2JOY:
-MAMEtrsm100JOY:
-MAMEtutorJOY:
-MAMEtvcJOY:
-MAMEunichampJOY:
-MAMEut88JOY:
-MAMEuzeboxJOY:
-MAMEv1050JOY:
-MAMEvc4000JOY:
-MAMEvector06JOY:
-MAMEvg5kJOY:
-MAMEvic10JOY:
-MAMEvic1001JOY:
-MAMEvictor9kJOY:
-MAMEvidbrainJOY:
-MAMEviiJOY:
-MAMEvipJOY:
-MAMEvisicomJOY:
-MAMEvixenJOY:
-MAMEvsmileJOY:
-MAMEvsmilebJOY:
-MAMEvsmilefJOY:
-MAMEvsmilegJOY:
-MAMEvzJOY:
-MAMEwangpcJOY:
-MAMEwavetermJOY:
-MAMEwicatJOY:
-MAMEwmbulletJOY:
-MAMEx68000JOY:
-MAMEx680000JOY:
-MAMEx07JOY:
-MAMEx820iiJOY:
-MAMExegsJOY:
-MAMExerox820JOY:
-MAMEz80neJOY:
-MAMEz88JOY:
-MAMEzorbaJOY:
+MAME_JOY:
 if (curmameINPT = "")
 	{
 		guicontrol,,emjDDLF,|gamepad||keyboard
@@ -52301,6 +52061,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;; MAME DATABASE ;;;;;;;;;;;;;;;;;;;
 MAMETOG:
+filereadline,supmamejoys,sets\supported.set,3
 SB_SetText(" Creating MAME database ")
 ;guicontrol, %fndtog%, emuBUTJ
 ;guicontrol, %fndtog%, emuPRGA
@@ -80276,14 +80037,14 @@ if (ROMFileSel = "")
 		romf=
 		return
 	}
+guicontrol,,EDTROMBTN,>
+guicontrol,show,RUNROMCBX
+guicontrol,hide,MORROM
 romf= %ROMFileSel%
-MORROM= %romf%
-iniwrite, "%romf%", Settings.ini,GLOBAL,last_rom
-guicontrol,,RUNSYSDDL,|History||%plistfiles%
-guicontrol,,MORROM, |%romf%||%HISTORY%
+guicontrol,,RUNROMCBX, |%romf%||
 guicontrol,,LCORE,||%runlist%
 guicontrol,enable,LNCHBUT
-guicontrol,enable,RCLLNCH
+guicontrol,enable,RCLCNCH
 Gui, submit, nohide
 return
 RecentRead:

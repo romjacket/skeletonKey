@@ -6146,7 +6146,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[LeapFrog - Leapster]
+[LeapFrog - LeapPad]
 RJEMUPRESET=MAME
 RJMAMENM=leapster
 MAME?RJEMUOPTS=<leapster -cart<
