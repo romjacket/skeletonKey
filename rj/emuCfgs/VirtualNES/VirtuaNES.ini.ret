@@ -29,8 +29,8 @@ StatePath=[ROMPATH]\[SSTATE]\
 SnapshotPath=[ROMPATH]\[SNAPS]\
 MoviePath=[ROMPATH]\[SNAPS]\
 WavePath=[ROMPATH]\[SNAPS]\
-CheatPath=[ROMPATH]\cheats\
-IpsPath=[ROMPATH]\.patches\
+CheatPath=[EMUPATH]\cheats\
+IpsPath=[EMUPATH]\patches\
 [Emulation]
 IllegalOp=1
 AutoFrameSkip=1

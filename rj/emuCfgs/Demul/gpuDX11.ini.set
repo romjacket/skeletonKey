@@ -1,24 +1,26 @@
 ﻿[main]
-Vsync = [VSYNC]
-AutoSort = [ASORT]
-OModifier = [OMOD]
-TModifier = [TMOD]
-UseFullscreen = 1
-aspect = [ASPC]
-scaling = [SCALE]
-NotAutoRotate = [AUTOROTATE]
-NetworkSort = [NETSORT]
-rotate = [ROT]
-MaxLayers = [MAXL]
+Vsync = 0
+AutoSort = 0
+NetworkSort = 0
+OModifier = 0
+TModifier = 0
+UseFullscreen = 0
+rotate = 0
+aspect = 1
+scaling = 1
+MaxLayers = 32
+NotAutoRotate = 0
+slowpoke = true
+blitperf = 70000000
 
 
 [resolution]
-Width = [REZX]
-Height = [REZY]
+Width = 640
+Height = 480
 
 
 [shaders]
-usePass1 = [PASS]
-usePass2 = [PASS2]
-shaderPass1 = [SHADR]
-shaderPass2 = [SHADV]
+usePass1 = 0
+usePass2 = 0
+shaderPass1 = 
+shaderPass2 = 

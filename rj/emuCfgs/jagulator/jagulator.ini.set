@@ -1,6 +1,6 @@
 [default]
 bootPath=\jagulator\boot\
-romPath=\jagulator\roms\
+romPath=[ROMPATH]\
 fullBoot=0
 ntscEnabled=1
 

@@ -6,43 +6,44 @@
 ;ROMS subdirectory in the same folder than the exe is always scanned when searching for roms
 ;(remove the ; form Dir1)
 [RomDirs]
-Dir1=[SOURCE]
-Dir2=[ROMPATH]
+Dir1=[ROMPATH]
+Dir1=[EMUPATH]
+
 
 [Renderer]
-SoftwareVertexProcessing=[VTX]	
+SoftwareVertexProcessing=0	
 
 Wireframe=0			;Disables polygon filling (for debug purposes, don't change)
-FakeGouraud=[GOUR]			;Tries to guess Per-vertex colour (gouraud) from the Model2 per-poly information (flat)
-Bilinear=[BI]			;Enables bilinear filtering of textures
-Trilinear=[TRI]			;Enables mipmap usage and trilinear filtering (doesn't work with some games, DoA for example)
-FilterTilemaps=[TILE]		;Enables bilinear filtering on tilemaps (looks good, but can cause some stretch artifacts)
-ForceManaged=[MAN]			;Forces the DX driver to use Managed textures instead of Dynamic. Use it if the emulator
+FakeGouraud=0			;Tries to guess Per-vertex colour (gouraud) from the Model2 per-poly information (flat)
+Bilinear=1			;Enables bilinear filtering of textures
+Trilinear=0			;Enables mipmap usage and trilinear filtering (doesn't work with some games, DoA for example)
+FilterTilemaps=0		;Enables bilinear filtering on tilemaps (looks good, but can cause some stretch artifacts)
+ForceManaged=0			;Forces the DX driver to use Managed textures instead of Dynamic. Use it if the emulator
 				;crashes after loading or doesn't show anything
-ForceSync=[VSYNC]
-FullScreenWidth=[REZX]
-FullScreenHeight=[REZY]
+ForceSync=0
+FullScreenWidth=640
+FullScreenHeight=480
 
-AutoMip=[MIP]			;Enables Direct3D Automipmap generation
-MeshTransparency=[TRANS]		;Enabled meshed polygons for translucency. Requires PS3.0
+AutoMip=0			;Enables Direct3D Automipmap generation
+MeshTransparency=0		;Enabled meshed polygons for translucency. Requires PS3.0
 DrawCross=1			;Show Crosshair in gun games
 GammaR=1.0			;Per Component Gamma correction (1.0 = no correction). Red
 GammaG=1.0			;Green
 GammaB=1.0			;Blue
 
-WideScreenWindow=[WIDE]		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+WideScreenWindow=0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
 
 
 
 ;These options are configured from menus so don't touch
-FullMode=1	
+FullMode=0	
 Sound=1
 Frameskip=-1
-autofull=1
+
 
 
 [Input]
-XInput=[JOY]			;Enable support for Xbox360 compatible devices
+XInput=0			;Enable support for Xbox360 compatible devices
 EnableFF=0			;Enable Force Feedback Effects
 HoldGears=0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
 UseRawInput=0			;Read mouse through Rawinput, allowing 2 mice

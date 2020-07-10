@@ -5666,16 +5666,16 @@ if (ccoreLBX = "")
 srchplinj:
 iniread,givn,Assignments.ini,ASSIGNMENTS,%ccoreLBX%
 if (givn <> "ERROR")
-		{
-			givxe=
-			givxn=
-			splitpath,givn,givxe,givxd,givxtn,givxn
-			splitpath,givxd,,,,givxdn
-			if (ccorelbx = givxn)
-				{
-					SB_SetText(" " givxn " Preset found ")
-				}
-		}
+	{
+		givxe=
+		givxn=
+		splitpath,givn,givxe,givxd,givxtn,givxn
+		splitpath,givxd,,,,givxdn
+		if (ccorelbx = givxn)
+			{
+				SB_SetText(" " givxn " Preset found ")
+			}
+	}
 cfgwstr=
 ifnotinstring,emupartset,%givxe%<
 	{
@@ -5744,7 +5744,7 @@ Loop, Parse, SRCHROMLVI,|
 					{
 						continue
 					}
-				stringsplit,fein,A_LoopField,=
+				stringsplit,fein,A_LoopField,<
 				if (cfgwstr = 1)
 					{
 						fein4= *.ini|*.cfg|*.xml|*.conf|*.config
@@ -77862,6 +77862,7 @@ return
 OPNCORE:
 gui,submit,nohide
 BPRSCORCFG= 1
+
 OPNCOREV:
 guicontrolget,LCORE,,LCORE
 guicontrolget,romf,,MORROM
@@ -77871,7 +77872,7 @@ if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
 	{
 		LCORE= %romnaov%
 		guicontrol,,LCORE,|%LCORE%||%runlist%
-	}	
+	}
 if (LCORE = "")
 	{
 		gosub,ShowOnlyEmuGui
@@ -80603,7 +80604,11 @@ if (EPGC = 1)
 			}
 		splitpath,OvrExtAs,,ptsp
 		splitpath,ptsp,emudx
-		emupts=
+		emupts=	
+		stringreplace,emupthd,emupth,\,\\,All
+		stringreplace,rompthd,rompth,\,\\,All
+		stringreplace,emupthr,emupth,\,/,All
+		stringreplace,rompthr,rompth,\,/,All
 		Loop, Parse, EmuPartSet,`n`r
 			{
 				if (A_LoopField = "")
@@ -80633,7 +80638,25 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%,1
+													FileRead,bncfg,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%
+													filedelete,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%
+													if (ERRORLEVEL = 0)
+														{
+															stringreplace,bncfg,bncfg,[EMUPATH],%emupth%,All
+															stringreplace,bncfg,bncfg,[EMUPATHD],%emupthd%,All
+															stringreplace,bncfg,bncfg,[EMUPATHR],%emupthr%,All
+															stringreplace,bncfg,bncfg,[ROMPATH],%rompth%,All
+															stringreplace,bncfg,bncfg,[ROMPATHD],%rompthd%,All
+															stringreplace,bncfg,bncfg,[ROMPATHR],%rompthr%,All
+															stringreplace,bncfg,bncfg,[ROMF],%romtitle%,All
+															stringreplace,bncfg,bncfg,\[SNAPS],,All
+															stringreplace,bncfg,bncfg,\[SSTATE],,All
+															stringreplace,bncfg,bncfg,\[MEM],,All
+															FileAppend,%bncfg%,%ptsp%\%cplp%
+														}
+														else, {
+															FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%
+														}
 												}
 										}
 								}
@@ -80646,7 +80669,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.sstates\%A_LoopFilename%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -80659,7 +80683,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -80672,7 +80697,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romname%\%pgptf%
 												{
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romname%\%A_LoopFilename%,%ptsp%\%cplp%,1
 												}
 										}
 								}

@@ -148,14 +148,14 @@ bEnableSound = TRUE
 bEnableSoundSync = FALSE
 nPlaybackFreq = 44100
 nSdlAudioBufferSize = 0
-szYMCaptureFileName = [ROMPATH]\[SNAPS]\hatari.wav
+szYMCaptureFileName = [ROMPATH]\hatari.wav
 YmVolumeMixing = 2
 
 [Memory]
 nMemorySize = 14
 bAutoSave = TRUE
-szMemoryCaptureFileName = [ROMPATH]\[MEM]\
-szAutoSaveFileName = [ROMPATH]\[SSTATE]\auto.sav
+szMemoryCaptureFileName = [ROMPATH]
+szAutoSaveFileName = [ROMPATH]\auto.sav
 
 [Floppy]
 bAutoInsertDiskB = TRUE
@@ -195,8 +195,8 @@ szPrintToFileName = [EMUPATH]\hatari.prn
 
 [Midi]
 bEnableMidi = FALSE
-sMidiInFileName = [EMUPATH]\/dev/snd/midiC1D0
-sMidiOutFileName = [EMUPATH]\/dev/snd/midiC1D0
+sMidiInFileName = ./dev/snd/midiC1D0
+sMidiOutFileName = ./dev/snd/midiC1D0
 
 [System]
 nCpuLevel = 0
@@ -213,5 +213,5 @@ bFastForward = FALSE
 [Video]
 AviRecordVcodec = 2
 AviRecordFps = 0
-AviRecordFile = [ROMPATH]\[SNAPS]\hatari.avi
+AviRecordFile = [ROMPATH]\hatari.avi
 

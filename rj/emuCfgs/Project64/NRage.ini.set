@@ -7,7 +7,7 @@ ShowMessages=1
 [Folders]
 Mempak=[ROMDIR]\[MEM]
 GBxRom=[ROMDIR]
-GBxSave=[ROMDIR]\.sstate
+GBxSave=[ROMDIR]\[SSTATE]
 
 [lastBrowserDir]
 Mempak=[ROMDIR]\[MEM]

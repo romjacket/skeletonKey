@@ -37,8 +37,8 @@ fast_limit2=1
 [save]
 restore_sram=1
 [renderer]
-full_screen_width=[REZX]
-full_screen_height=[REZY]
+full_screen_width=720
+full_screen_height=480
 full_screen_bpp=32
 full_screen_refresh_rate=60
 fix_aspect=1

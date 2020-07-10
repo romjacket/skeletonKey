@@ -20,7 +20,7 @@
   <AutoOpenGameFile>True</AutoOpenGameFile>
   <SaveStateSlot>0</SaveStateSlot>
   <WindowFullScreenDevice>0</WindowFullScreenDevice>
-  <BiosRomFile>[EMUPATH]\[BIOS3DO]</BiosRomFile>
+  <BiosRomFile>[EMUPATH]\</BiosRomFile>
   <AutoLoadLastSave>True</AutoLoadLastSave>
   <WindowAutoCrop>False</WindowAutoCrop>
   <RenderHighResolution>False</RenderHighResolution>

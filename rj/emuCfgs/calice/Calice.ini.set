@@ -2,10 +2,10 @@
 # Calice32 configuration file #
 #                             #
 
-Romdir       	" .\roms\"
-AlternateRomdir1       	" D:\"
-AlternateRomdir2       	" C:\"
-AlternateRomdir3       	" E:\"
+Romdir       	" [ROMPATH]\"
+AlternateRomdir1       	" .\roms\"
+AlternateRomdir2       	" "
+AlternateRomdir3       	" "
 Logdir       	" .\log\"
 Drvdir       	" .\drv\"
 Epmdir       	" .\epm\"

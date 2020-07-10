@@ -852,9 +852,9 @@ speedupfilesflag=1
 [FILES]
 quicktype=[EMUPATH]\testsplit.txt
 nscreenshot=6
-cassette=D:\jemustuff\jemu\emunew\JVZ200\cassette\Demo\L_SONG_2_BAS.cvz
-vzload=D:\jemustuff\jemu\emunew\JVZ200\vz_files\games_run\trek.vz
-cassettewr=D:\jemustuff\jemu\emunew\JVZ200\cassette\other\QTTEST_BAS.cvz
+cassette=.\JVZ200\cassette\Demo\L_SONG_2_BAS.cvz
+vzload=.\vz_files\games_run\trek.vz
+cassettewr=.\cassette\other\QTTEST_BAS.cvz
 
 [LOADBINARY]
 execaddrishex=1

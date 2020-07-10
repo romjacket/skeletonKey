@@ -5,7 +5,7 @@ Width=652
 Height=450
 Maximized=0
 AOT=0
-LastSnapShot=[ROMPATH]\[SSTATE]
+LastSnapShot=[ROMPATH]
 SnapShotHistory0=
 SnapShotHistory1=
 SnapShotHistory2=
@@ -718,7 +718,7 @@ InMaxSysEx=65536
 OutMaxSysEx=65536
 
 [Machine]
-ROM_File=[EMUPATH]\[STBIOS]
+ROM_File=[EMUPATH]
 ROM_Add_Dir=[EMUPATH]
 Cart_File=
 LastCartFile=[ROMPATH]

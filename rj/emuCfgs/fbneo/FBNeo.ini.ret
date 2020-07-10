@@ -1,50 +1,58 @@
-// FB Alpha v0.2.97.39 --- Main Config File
+// FinalBurn Neo v0.2.97.44 --- Main Config File
 
 // Don't edit this file manually unless you know what you're doing
-// FB Alpha will restore default settings when this file is deleted
+// FinalBurn Neo will restore default settings when this file is deleted
 
 // The application version this file was saved from
-nIniVersion 0x029739
+nIniVersion 0x029744
 
 
 // --- Video ------------------------------------------------------------------
 
 // (Horizontal Oriented) The display mode to use for fullscreen
-nVidHorWidth 640
+nVidHorWidth 720
 nVidHorHeight 480
+
+// The aspect ratio of the (Horizontal Oriented) monitor
+nVidScrnAspectX 16
+nVidScrnAspectY 9
 
 // (Horizontal Oriented) If non-zero, use the same fullscreen resolution as the original arcade game
 bVidArcaderesHor 0
 
 // (Horizontal Oriented) The preset resolutions appearing in the menu
-VidPreset[0].nWidth 400
-VidPreset[0].nHeight 300
-VidPreset[1].nWidth 640
-VidPreset[1].nHeight 480
-VidPreset[2].nWidth 1024
-VidPreset[2].nHeight 768
-VidPreset[3].nWidth 1280
-VidPreset[3].nHeight 960
+VidPreset[0].nWidth 640
+VidPreset[0].nHeight 480
+VidPreset[1].nWidth 1024
+VidPreset[1].nHeight 768
+VidPreset[2].nWidth 1280
+VidPreset[2].nHeight 960
+VidPreset[3].nWidth 720
+VidPreset[3].nHeight 480
 
 // (Horizontal Oriented) Full-screen size (0 = use display mode variables)
 nScreenSizeHor 0
 
 // (Vertical Oriented) The display mode to use for fullscreen
-nVidVerWidth 640
+nVidVerWidth 720
 nVidVerHeight 480
+
+// The aspect ratio of the (Vertical Oriented) monitor
+nVidVerScrnAspectX 16
+nVidVerScrnAspectY 9
 
 // (Vertical Oriented) If non-zero, use the same fullscreen resolution as the original arcade game
 bVidArcaderesVer 0
 
 // (Vertical Oriented) The preset resolutions appearing in the menu
-VidPresetVer[0].nWidth 400
-VidPresetVer[0].nHeight 300
-VidPresetVer[1].nWidth 640
-VidPresetVer[1].nHeight 480
-VidPresetVer[2].nWidth 1024
-VidPresetVer[2].nHeight 768
-VidPresetVer[3].nWidth 1280
-VidPresetVer[3].nHeight 960
+VidPresetVer[0].nWidth 640
+VidPresetVer[0].nHeight 480
+VidPresetVer[1].nWidth 1024
+VidPresetVer[1].nHeight 768
+VidPresetVer[2].nWidth 1280
+VidPresetVer[2].nHeight 960
+VidPresetVer[3].nWidth 720
+VidPresetVer[3].nHeight 480
 
 // (Vertical Oriented) Full-screen size (0 = use display mode variables)
 nScreenSizeVer 0
@@ -62,8 +70,8 @@ nVidRotationAdjust 0
 nWindowSize 0
 
 // Window position
-nWindowPosX -2
-nWindowPosY 6
+nWindowPosX -1
+nWindowPosY -1
 
 // If non-zero, perform gamma correction
 bDoGamma 0
@@ -78,7 +86,13 @@ bHardwareGammaOnly 1
 nGamma 1.250000
 
 // If non-zero, auto-switch to fullscreen after loading game
-bVidAutoSwitchFull 1
+bVidAutoSwitchFull 0
+
+// Monitor for Horizontal Games (GDI Identifier)
+HorScreen 
+
+// Monitor for Vertical Games (GDI Identifier)
+VerScreen 
 
 // If non-zero, allow stretching of the image to any size
 bVidFullStretch 0
@@ -92,8 +106,8 @@ bVidTripleBuffer 0
 // If non-zero, try to synchronise blits with the display
 bVidVSync 0
 
-// If non-zero, try to enable custom DWM parameters on Windows 7, this fixes frame stuttering problems.
-bVidDWMCore 1
+// If non-zero, try to synchronise to DWM on Windows 7+, this fixes frame stuttering problems.
+bVidDWMSync 1
 
 // Transfer method:  0 = blit from system memory / use driver/DirectX texture management;
 //                   1 = copy to a video memory surface, then use bltfast();
@@ -119,17 +133,13 @@ nVidBlitterOpt[2] 0
 nVidBlitterOpt[3] 0
 nVidBlitterOpt[4] 0
 
-// If non-zero, attempt to auto-detect the monitor aspect ratio
+// If non-zero, attempt to auto-detect the monitor resolution and aspect ratio
 bMonitorAutoCheck 1
-
-// The aspect ratio of the monitor
-nVidScrnAspectX 16
-nVidScrnAspectY 9
 
 // If non-zero, force all games to use a 60Hz refresh rate
 bForce60Hz 0
 
-// If non-zero, skip frames when needed to keep the emulation running at full speed
+// If zero, skip frames when needed to keep the emulation running at full speed
 bAlwaysDrawFrames 0
 
 // --- DirectDraw blitter module settings -------------------------------------
@@ -138,7 +148,7 @@ bAlwaysDrawFrames 0
 bVidScanHalf 1
 
 // If non-zero, force flipping for games that need it
-bVidForceFlip 0
+bVidForceFlip 1
 
 // --- Direct3D 7 blitter module settings -------------------------------------
 
@@ -164,7 +174,7 @@ fVidScreenAngle 0.174533
 fVidScreenCurvature 0.698132
 
 // If non-zero, force 16 bit emulation even in 32-bit screenmodes
-bVidForce16bit 1
+bVidForce16bit 0
 
 // --- DirectX Graphics 9 blitter module settings -----------------------------
 
@@ -182,6 +192,9 @@ bVidHardwareVertex 0
 
 // If non-zero, use motion blur to display the image
 bVidMotionBlur 0
+
+// If non-zero, force 16 bit emulation even in 32-bit screenmodes
+bVidForce16bitDx9Alt 0
 
 
 
@@ -218,6 +231,9 @@ nAudDSPModule[1] 0
 
 
 // --- UI ---------------------------------------------------------------------
+
+// The filename of the placeholder image to use (empty filename = use built-in)
+szPlaceHolder 
 
 // Filename of the active UI translation template
 szLocalisationTemplate 
@@ -279,12 +295,16 @@ nSelDlgHeight 588
 // Load game dialog options
 nLoadMenuShowX 0
 nLoadMenuShowY 0
+nLoadMenuExpand 17
 
 // Load game dialog board type filter options
 nLoadMenuBoardTypeFilter 0
 
 // Load game dialog genre filter options
 nLoadMenuGenreFilter 0
+
+// Load game dialog favorites filter options
+nLoadMenuFavoritesFilter 0
 
 // Load game dialog family filter options
 nLoadMenuFamilyFilter 0
@@ -296,19 +316,19 @@ szAppRomPaths[2]
 szAppRomPaths[3] 
 szAppRomPaths[4] 
 szAppRomPaths[5] 
-szAppRomPaths[6] 
-szAppRomPaths[7] 
-szAppRomPaths[8] 
-szAppRomPaths[9] 
-szAppRomPaths[10] 
-szAppRomPaths[11] sms/
-szAppRomPaths[12] gamegear/
-szAppRomPaths[13] sg1000/
-szAppRomPaths[14] coleco/
-szAppRomPaths[15] tg16/
-szAppRomPaths[16] sgx/
-szAppRomPaths[17] pce/
-szAppRomPaths[18] megadriv/
+szAppRomPaths[6] roms/nes/
+szAppRomPaths[7] roms/nes_fds/
+szAppRomPaths[8] roms/nes_hb/
+szAppRomPaths[9] roms/spectrum/
+szAppRomPaths[10] roms/msx/
+szAppRomPaths[11] roms/sms/
+szAppRomPaths[12] roms/gamegear/
+szAppRomPaths[13] roms/sg1000/
+szAppRomPaths[14] roms/coleco/
+szAppRomPaths[15] roms/tg16/
+szAppRomPaths[16] roms/sgx/
+szAppRomPaths[17] roms/pce/
+szAppRomPaths[18] roms/megadrive/
 szAppRomPaths[19] roms/
 
 // The path to search for Neo Geo CDZ isos
@@ -320,6 +340,7 @@ szAppTitlesPath support/titles/
 szAppCheatsPath support/cheats/
 szAppHiscorePath support/hiscores/
 szAppSamplesPath support/samples/
+szAppHDDPath support/hdd/
 szAppIpsPath support/ips/
 szAppIconsPath support/icons/
 szNeoCDCoverDir support/neocdz/
@@ -335,6 +356,7 @@ szAppControlsPath support/cpanel/
 szAppCabinetsPath support/cabinets/
 szAppPCBsPath support/pcbs/
 szAppHistoryPath support/history/
+szAppEEPROMPath config/games/
 
 // The cartridges to use for emulation of an MVS system
 nBurnDrvSelect[0] (null)
@@ -352,11 +374,17 @@ bNeoCDListScanOnlyISO 0
 
 // --- miscellaneous ---------------------------------------------------------
 
+// If non-zero, enable the high resolution system timer.
+bEnableHighResTimer 1
+
 // If non-zero, don't change the status of the Num Lock key.
 bNoChangeNumLock 1
 
 // If non-zero, create support folders at program start.
 bAlwaysCreateSupportFolders 1
+
+// If non-zero, load game selection dialog at program start.
+bAutoLoadGameList 0
 
 // Auto-Fire Rate, non-linear - use the GUI to change this setting!
 nAutoFireRate 12
@@ -367,14 +395,20 @@ EnableHiscores 0
 // If non-zero, enable alpha blending support.
 bBurnUseBlend 1
 
-// If non-zero, enable 1x - 3x pixel output for the AVI writer.
-nAvi3x 1
+// If non-zero, enable gear shifter display support.
+BurnShiftEnabled 1
+
+// If non-zero, DISABLE start-up rom scan (if needed).
+bSkipStartupCheck 0
 
 // The language index to use for the IPS Patch Manager dialog.
 nIpsSelectedLanguage 0
 
 // If non-zero, display drivers icons.
 bEnableIcons 0
+
+// If non-zero, display drivers icons for parents only (use if all icons causes UI issues).
+bIconsOnlyParents 1
 
 // Specify icons display size, 0 = 16x16 , 1 = 24x24, 2 = 32x32.
 nIconsSize 0
@@ -400,3 +434,6 @@ nPlayerDefaultControls[2] 2
 szPlayerDefaultIni[2] 
 nPlayerDefaultControls[3] 3
 szPlayerDefaultIni[3] 
+
+
+

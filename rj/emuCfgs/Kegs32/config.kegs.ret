@@ -4,8 +4,8 @@
 s5d1 = 
 s5d2 = 
 
-s6d1 = [ROMPATH]\[DISK1]
-s6d2 = [ROMPATH2]\[DISK2]
+s6d1 = [ROMPATH]\[ROMF]
+s6d2 = 
 
 s7d1 = 
 

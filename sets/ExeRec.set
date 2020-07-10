@@ -68,7 +68,6 @@ FileCreateDir,rj\emuCfgs\Demul
 FileCreateDir,rj\emuCfgs\DesMuMe
 FileCreateDir,rj\emuCfgs\dgen
 FileCreateDir,rj\emuCfgs\Dolphin
-FileCreateDir,rj\emuCfgs\Dos-Plus
 FileCreateDir,rj\emuCfgs\DosPlus
 FileCreateDir,rj\emuCfgs\dsp
 FileCreateDir,rj\emuCfgs\EightyOne
@@ -82,6 +81,7 @@ FileCreateDir,rj\emuCfgs\epsxe
 FileCreateDir,rj\emuCfgs\euphoric
 FileCreateDir,rj\emuCfgs\ex80
 FileCreateDir,rj\emuCfgs\familybasic
+FileCreateDir,rj\emuCfgs\fbneo
 FileCreateDir,rj\emuCfgs\fceux
 FileCreateDir,rj\emuCfgs\finalBurnAlpha
 FileCreateDir,rj\emuCfgs\fishnchips
@@ -841,6 +841,7 @@ FileInstall,img\Nintendo - Super Nintendo Entertainment System.png,img\Nintendo 
 FileInstall,img\Nintendo - VIrtual Boy.png,img\Nintendo - VIrtual Boy.png,1
 FileInstall,img\Nintendo - Wii.png,img\Nintendo - Wii.png,1
 FileInstall,img\opt.png,img\opt.png,1
+FileInstall,img\paradigm.png,img\paradigm.png,1
 FileInstall,img\Retropad_360pad.png,img\Retropad_360pad.png,1
 FileInstall,img\Sega - 32X.png,img\Sega - 32X.png,1
 FileInstall,img\Sega - Dreamcast.png,img\Sega - Dreamcast.png,1
@@ -858,6 +859,7 @@ FileInstall,img\Sony - Playstation Portable.png,img\Sony - Playstation Portable.
 FileInstall,img\Sony - Playstation.png,img\Sony - Playstation.png,1
 FileInstall,img\splash.png,img\splash.png,1
 FileInstall,img\The 3DO Company - 3DO.png,img\The 3DO Company - 3DO.png,1
+FileInstall,img\tip.png,img\tip.png,1
 FileInstall,img\xbox360joystick.png,img\xbox360joystick.png,1
 FileInstall,img\Acorn - Archimedes.ico,img\Acorn - Archimedes.ico,1
 FileInstall,img\Acorn - Atom.ico,img\Acorn - Atom.ico,1
@@ -1110,7 +1112,6 @@ FileInstall,rj\emucfgs\Dolphin\Hotkeys.ini.set,rj\emucfgs\Dolphin\Hotkeys.ini.se
 FileInstall,rj\emucfgs\Dolphin\shad.ini.set,rj\emucfgs\Dolphin\shad.ini.set,1
 FileInstall,rj\emucfgs\Dolphin\SRAM.raw.set,rj\emucfgs\Dolphin\SRAM.raw.set,1
 FileInstall,rj\emucfgs\Dolphin\WiimoteNew.ini.set,rj\emucfgs\Dolphin\WiimoteNew.ini.set,1
-FileInstall,rj\emucfgs\Dos-Plus\config.txt.set,rj\emucfgs\Dos-Plus\config.txt.set,1
 FileInstall,rj\emucfgs\DosPlus\4DOS.INI.set,rj\emucfgs\DosPlus\4DOS.INI.set,1
 FileInstall,rj\emucfgs\DosPlus\config.txt.set,rj\emucfgs\DosPlus\config.txt.set,1
 FileInstall,rj\emucfgs\dsp\dsp.ini.set,rj\emucfgs\dsp\dsp.ini.set,1
@@ -1181,6 +1182,7 @@ FileInstall,rj\emucfgs\epsxe\PRE.cmd.set,rj\emucfgs\epsxe\PRE.cmd.set,1
 FileInstall,rj\emucfgs\euphoric\EUPHORIC.INI.set,rj\emucfgs\euphoric\EUPHORIC.INI.set,1
 FileInstall,rj\emucfgs\ex80\ex80.ini.set,rj\emucfgs\ex80\ex80.ini.set,1
 FileInstall,rj\emucfgs\familybasic\familybasic.ini.set,rj\emucfgs\familybasic\familybasic.ini.set,1
+FileInstall,rj\emucfgs\fbneo\FBNeo.ini.ret,rj\emucfgs\fbneo\FBNeo.ini.ret,1
 FileInstall,rj\emucfgs\fceux\fceux.cfg.set,rj\emucfgs\fceux\fceux.cfg.set,1
 FileInstall,rj\emucfgs\finalBurnAlpha\fba.ini.ret,rj\emucfgs\finalBurnAlpha\fba.ini.ret,1
 FileInstall,rj\emucfgs\finalBurnAlpha\game.ini.set,rj\emucfgs\finalBurnAlpha\game.ini.set,1

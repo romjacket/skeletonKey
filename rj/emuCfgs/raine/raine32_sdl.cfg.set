@@ -37,13 +37,13 @@ double_buffer = 1
 keep_ratio = 1
 
 [Directories]
-ScreenShots = C:\Emulators\raine\screens\
-emudx = C:\Emulators\raine\emudx\
-artwork = C:\Emulators\raine\artwork\
-rom_dir_0 = C:\Emulators\raine\roms\
+ScreenShots = [EMUPATH]\screens\
+emudx = [EMUPATH]\emudx\
+artwork = [EMUPATH]\artwork\
+rom_dir_0 = [EMUPATH]\roms\
 
 [neocd]
-neocd_dir = C:\Emulators\raine\
+neocd_dir = [EMUPATH]\
 neocd_bios = 
 music_volume = 60
 sfx_volume = 60
