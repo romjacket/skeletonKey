@@ -720,7 +720,6 @@ FileInstall,site\key.png,site\key.png,1
 FileInstall,site\paradigm.png,site\paradigm.png,1
 FileInstall,site\tip.png,site\tip.png,1
 FileInstall,site\index.html,site\index.html,1
-FileInstall,site\test.html,site\test.html,1
 FileInstall,site\Opticon.ttf,site\Opticon.ttf,1
 FileInstall,site\Puzzle.ttf,site\Puzzle.ttf,1
 FileInstall,site\Hermit-Regular.otf,site\Hermit-Regular.otf,1
@@ -781,9 +780,9 @@ FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,Update.exe,Update.exe,1
 FileInstall,bin\7zip_License.txt,bin\7zip_License.txt,1
 FileInstall,bin\any2ico_license.txt,bin\any2ico_license.txt,1
-FileInstall,bin\chdman_aria2_License.txt,bin\chdman_aria2_License.txt,1
+FileInstall,bin\aria2c_license.txt,bin\aria2c_license.txt,1
+FileInstall,bin\chdman_License.txt,bin\chdman_License.txt,1
 FileInstall,bin\curl_License.txt,bin\curl_License.txt,1
-FileInstall,bin\file.txt,bin\file.txt,1
 FileInstall,bin\rcedit_License.txt,bin\rcedit_License.txt,1
 FileInstall,bin\Scraper_License.txt,bin\Scraper_License.txt,1
 FileInstall,bin\vDrive_License.txt,bin\vDrive_License.txt,1
