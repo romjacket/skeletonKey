@@ -178,6 +178,16 @@ for obj in ComObjGet("winmgmts:\\.\root\cimv2").ExecQuery("SELECT OSArchitecture
 artmp :=(obj.OSArchitecture)
 stringsplit, arpt, artmp, -
 ARCH= %arpt1%
+if (ARCH <> 64)
+	{
+		if (A_Is64bitOS	= 0)
+			{
+				ARCH= 32
+			}
+			else {
+				ARCH= 64
+			}
+		}
 OSVRZ1=
 OSVRZ2=
 OSVRZ3=
@@ -1427,6 +1437,7 @@ Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
 Menu, delctxtmenu, Add, Delete Game Settings, DelCfg_Add
 Menu, delctxtmenu, Add, Open Game Settings, CfgBrowse
 Menu, delctxtmenu, Add, << game-override >>, ASEMUOVR
+Menu, MORROMDDLM, Add, Open Game Directory, MORROMDDLMENU
 Menu, RUNMENU, Add, Run Menu, RUNMENU
 Menu, RUNMENU, Add
 Menu, RUNMENU, Add, Run RetroArch, RETALRAXE
@@ -4613,6 +4624,11 @@ If A_GuiControlEvent RightClick
 						}
 				}
 		}
+	if A_GuiControl = MORROM
+		{
+			Menu, MORROMDDLM, Show, %A_GuiX% %A_GUIY%
+			return
+		}
 	if A_GuiControl = FELBXB
 		{
 			Menu, rjscopy, Show, %A_GuiX% %A_GuiY%
@@ -4895,11 +4911,7 @@ Loop,Parse,emuj,`n`r
 			{
 				emutsta=
 				IniRead,emutsta,Assignments.ini,ASSIGNMENTS,%emup1%
-				if (emutsta = "")
-					{
-						continue
-					}
-				if (emutsta = "ERROR")
+				if ((emutsta = "")or(emutsta = "ERROR"))
 					{
 						continue
 					}
@@ -6655,6 +6667,11 @@ return
 DYNTRANS:
 gui,submit,nohide
 iniwrite,%DYNTRANS%,Settings.ini,GLOBAL,Dynamic_Transparency
+if (DYNTRANS = 0)
+	{
+		guicontrol,,TRANSLID,255
+		gosub, TRANSLID
+	}
 return
 
 ALWOTP:
@@ -7772,6 +7789,16 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    GLOBAL FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RUNMENU:
+return
+MORROMDDLMENU:
+gui,submit, nohide
+guicontrolget,MORROMDIR,,MORROM
+if (MORROMDIR = "")
+	{
+		return
+	}
+splitpath,MORROMDIR,,MORROMGD
+Run, explorer.exe %MORROMGD%,%MORROMGD%
 return
 LNCHCHK:
 lnchcc=
@@ -9678,7 +9705,9 @@ guicontrol, move, CCGRP, x251 y5 w212 h366
 guicontrol,enable,GCUPDT
 guicontrol,,CACGRP,Available Cores
 guicontrol,,RAINSTLBX,|%AVAILCORES%
+gosub, GetCoreList
 return
+
 ExeList:
 gui,submit,nohide
 guicontrol,hide,GCUpdt
@@ -10779,6 +10808,7 @@ Loop,Parse,UrlIndex,`n`r
 						ifnotinstring,addemu,|%slfm1%
 							{
 								addemu.= "|" . urloc1
+								msgbox,,10792`n%addemu%
 							}
 						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%runlist%
@@ -29231,11 +29261,7 @@ Loop, Parse, semu,|
 						ifnotinstring,addemu,|%sysni%
 							{
 								iniread,admutst,Assignments.ini,ASSIGNMENTS,%sysni%
-								if (admutst = "")
-									{
-										continue
-									}
-								if (admutst = "ERROR")
+								if ((admutst = "")or(admutst = "ERROR"))
 									{
 										continue
 									}
@@ -80204,6 +80230,7 @@ filedelete, Settings.ini
 FileAppend, [GLOBAL]`n, Settings.ini
 FileAppend, working_config = "%A_WorkingDir%\config.cfg"`n, Settings.ini
 FileAppend, retroarch_location = ""`n, Settings.ini
+FileAppend, ARCH = "%ARCH%"`n, Settings.ini
 FileAppend, last_rom = "%romf%"`n, Settings.ini
 FileAppend, last_core = "%LCORE%"`n, Settings.ini
 FileAppend, last_connect = "%IPA%.%IPB%.%IPC%.%IPD%"`n, Settings.ini

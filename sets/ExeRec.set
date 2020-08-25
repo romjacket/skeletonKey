@@ -785,6 +785,7 @@ FileInstall,bin\chdman_License.txt,bin\chdman_License.txt,1
 FileInstall,bin\curl_License.txt,bin\curl_License.txt,1
 FileInstall,bin\rcedit_License.txt,bin\rcedit_License.txt,1
 FileInstall,bin\Scraper_License.txt,bin\Scraper_License.txt,1
+FileInstall,bin\unrar_License.txt,bin\unrar_License.txt,1
 FileInstall,bin\vDrive_License.txt,bin\vDrive_License.txt,1
 FileInstall,bin\wget_License.txt,bin\wget_License.txt,1
 FileInstall,bin\youtube-dl_License.txt,bin\youtube-dl_License.txt,1
