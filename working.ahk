@@ -10808,7 +10808,6 @@ Loop,Parse,UrlIndex,`n`r
 						ifnotinstring,addemu,|%slfm1%
 							{
 								addemu.= "|" . urloc1
-								msgbox,,10792`n%addemu%
 							}
 						gosub, RBLDRUNLST	
 						guicontrol,,EMPRDDL,|%runlist%
