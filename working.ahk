@@ -14937,6 +14937,7 @@ gosub, RAInit
 return
 ;{;;;;;;;;;;;;;;;;;;;;    RA UPDATE   ;;;;;;;;;;;;;;;;;;;;;
 RetroarchUpdate:
+RUpdate:
 RRetroarchUpdate:
 if (DWNCNCL= 1)
 	{
@@ -25270,6 +25271,7 @@ if (raexedirtmp <> "")
 				RaExe= %RaExeFile%
 				iniwrite, "%RaExePath%", Settings.ini,GLOBAL,retroarch_location
 				iniwrite, "%RaExePath%", Apps.ini,EMULATORS,retroarch
+				iniwrite, "%RaExePath%", Assignments.ini,ASSIGNMENTS,retroarch
 				guicontrol,,SKRADISP,%raexedir%
 				SB_SetText("Initializing retroarch interface")
 				gosub, RAInit
