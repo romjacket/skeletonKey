@@ -642,7 +642,7 @@ FileRead,FELst,sets\Frontends.set
 FileRead,PrgLst,sets\Programs.set
 FileRead,BiosFSet,sets\Bios.set
 FileRead,fuzsys,sets\fuzsyslk.set
-FileRead,SysLLst,sets\lkup.set
+FileRead,SysLLst,lkup.ini
 iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
 stringreplace,KMPPartSet,kmppartset,[ARCH],%ARCH%,All
 iniRead, UTLPartSet,sets\EmuParts.set,UTILITIES
@@ -914,7 +914,7 @@ ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEB
 JSTSET= %JOYSET%
 RJSYSDN= Systems
 AXISET= nul|nul
-sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.SmileTurboGrafx 16
+sysposb= |Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.Smile|TurboGrafx 16
 SUBDLST= .Mem||.snaps|.sstates|.Man|.patches|.cheats
 SUBDLSTR:= SUBDLST
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
@@ -1081,7 +1081,7 @@ if (raexist = 1)
 		if (INITIAL > 1)
 			{
 				TrayTip
-				iniwrite, "%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
+				iniwrite,"%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
 				coreasssetsdirectory= %RJSYSTEMS%
 			}
 		IniRead, HOVPREV, Settings.ini,GLOBAL,hover_preview
@@ -1439,6 +1439,8 @@ Menu, FEDELMENU, Add, Remove Selection, REMFESEL
 Menu, FEDELMENU, Add, Delete Scraped Artwork, FEDELSEL
 Menu, CLRROMLST, Add, Clear Assignments, CLRSYSLOC
 Menu, RMVSYSLST, Add, Remove Path, RMVFSYS
+Menu, RNMSYSA, Add, Rename System, RenameSystem
+Menu, RNMSYSA, Add, Restore System Name, RestoreSystemN
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
 Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
 Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
@@ -1975,11 +1977,14 @@ Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,Norm
 Gui,Add,DropDownList, hwndDplHndl39 x588 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
 Gui, Add, Button, x688 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
-Gui,Add,DropDownList, hwndDplHndl40 x470 y26 w251 vADDCORE gAddCore, Select_A_System||%reasign%
+Gui,Add,DropDownList, hwndDplHndl40 x470 y26 w251 vADDCORE gAddCore, Select_A_System||%allsupport%
 Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS,+
+Gui, Add, Button, x723 y25 w12 vCnclOsys gCnclOsys hidden,-
 Gui,Add,DropDownList, hwndDplHndl41 x503 y73 w52 vOVEXTL gOVEXTL,All||
 Gui,Add,ComboBox, hwndCbxHndl24 x471 y54 w264 vADDNSYS gAddNSys Hidden, %allsupport%
+Gui,Add, Edit, hwndEdtHnd200 x471 y54 w264 vRenOSys gRenOSys Hidden, 
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
+Gui, Add, Button, x694 y79 w42 h19 vSAVOSYS gSavOSys Hidden, save
 Gui, Add, Text, x577 y75 h23 vOVSETTXT, Extension-Override
 Gui, Add, Button, x557 y75 w15 h15 vOVSETRM gOVSETRM hidden,X
 Gui, Add, Radio, x501 y122 h19 vDCORE gDCore Checked, Default Core
@@ -3391,7 +3396,7 @@ ToolTip
 return
 }
 ;{;;;;;;;;;;;;;;;;;;;;;;;;       -o-o-o-o-o-o-o       TOOLTIPS      o-o-o-o-o-o-o-       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-ADDNSYS_TT :="Name of the new system"
+ADDNSYS_TT :="Name of the new system`nRight-Click for more options"
 ADJS_TT :="Automatically assigns joysticks."
 ALTURL_TT :="Enables login-restricted titles"
 ALSLV_TT :="Allows connections in slave mode.  Requires less processing power for client and host,`nbut suffers from network latency."
@@ -4662,6 +4667,11 @@ If A_GuiControlEvent RightClick
 			Menu, RSTAPAR, Show, %A_GuiX% %A_GuiY%
 			return
 		}
+	if A_Guicontrol = ADDCORE
+		{
+			Menu, RNMSYSA, Show, %A_GuiX% %A_GuiY%
+			return
+		}
 	if A_GuiControl = ARCLNCH
 		{
 			Menu, ARCSHORT, Show, %A_GuiX% %A_GuiY%
@@ -5053,6 +5063,272 @@ Loop, Parse, allsupsys,`n`r
 			}
 	}
 gosub, ADDCORE
+return
+RestoreSystemN:
+gui,submit,nohide
+guicontrol,hide,RenOSys
+guicontrol,hide,SavOSys
+guicontrol,hide,CnclOSys
+guicontrol,,OpnSys,+
+guicontrolget,ADDCORE,,ADDCORE
+Loop,parse,sysllst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,hiu,A_LoopField,=
+		if (hiu1 = ADDCORE)
+			{
+				fnkdsh= %hiu2%
+				fileread,hih,sets\lkup.set
+				Loop,parse,hih,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,nnh,A_LoopField,=
+						if (nnh2 = fnkdsh)
+							{
+								OldSysN= %nnh1%
+								fileread,emcfgrpl,emucfgpresets.ini
+								filedelete,emucfgpresets.ini
+								stringreplace,emcfgrpl,emcfgrpl,[%ADDCORE%],[%OldSysN%],All
+								fileappend,%emcfgrpl%,emuCfgPresets.ini
+								iniread,tmpll,Assignments.ini,OVERRIDES,%ADDCORE%
+								if (tmpll = "")
+									{
+										tmpll=""
+									}
+								iniwrite,%tmpll%,Assignments.ini,OVERRIDES,%OldSysN%
+								iniread,tmpll,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+								if (tmpll = "")
+									{
+										tmpll=""
+									}
+								iniwrite,%tmpll%,Assignments.ini,ASSIGNMENTS,%OldSysN%
+								iniread,tmpll,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+								if (tmpll = "")
+									{
+										tmpll=""
+									}
+									iniwrite,%tmpll%,LaunchParams.ini,LAUNCHPARAMS,%OldSysN%
+								iniread,tmpll,SystemLocations.ini,LOCATIONS,%ADDCORE%
+								if (tmpll = "")
+									{
+										tmpll=""
+									}
+								iniwrite,%tmpll%,SystemLocations.ini,LOCATIONS,%OldSysN%
+								inidelete,Assignments.ini,OVERRIDES,%ADDCORE%
+								inidelete,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+								inidelete,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+								inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
+								stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%OldSysN%|
+								stringreplace,initfldrs,initfldrs,%ADDCORE%|,%OldSysN%|
+								stringreplace,allsupport,allsupport,%ADDCORE%|,%OldSysN%|
+								stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%OldSysN%`n
+								filedelete,lkup.ini
+								stringreplace,sysllst,sysllst,%ADDCORE%=,%OldSysN%=
+								fileappend,%sysllst%,lkup.ini
+								ifexist,%RJSYSTEMS%\%ADDCORE%\
+									{
+										ifnotexist,%RJSYSTEMS%\%OldSysN%\
+											{
+												Msgbox,4,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
+												ifmsgbox,yes
+													{
+														fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%OldSysN%,R
+													}
+											}
+									}
+								SB_SetText(" " OldSysN " restored")																
+								gosub,resetCoreAssets	
+								guicontrol,,SYSINSTLBX,|%allsupport%	
+								guicontrol,,ADDCORE,|Select_A_System||%allsupport%	
+								return
+							}
+					}
+			}
+	}
+SB_SetText(" could not restore system name")
+guicontrol,hide,RenOSys
+guicontrol,hide,SavOSys
+guicontrol,hide,CnclOSys
+guicontrol,show,OpnSys
+return
+RenameSystem:
+gui,submit,nohide
+guicontrol,show,RenOSys
+guicontrol,show,SavOSys
+guicontrol,show,CnclOSys
+guicontrol,hide,OpnSys
+guicontrolget,ADDCORE,,ADDCORE
+guicontrol,,RenOSys,%ADDCORE%
+return
+
+RenOsys:
+gui,submit,nohide
+guicontrolget,RenOsys,,RenOsys
+ifinstring,RenOsys,`%
+	{
+		SB_SetText("`% character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,*
+	{
+		SB_SetText("* character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,`"
+;"
+	{
+		SB_SetText("`'' character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,`\
+	{
+		SB_SetText("`\ character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,=
+	{
+		SB_SetText("= character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,`/
+	{
+		SB_SetText("`/ character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,|
+	{
+		SB_SetText("| character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,:
+	{
+		SB_SetText(": character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,>
+	{
+		SB_SetText("> character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,?
+	{
+		SB_SetText("? character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+ifinstring,RenOsys,<
+	{
+		SB_SetText("< character not permitted")
+		guicontrol,,RenOsys,
+		return
+	}
+return
+SavOsys:
+gui,submit,nohide
+guicontrolget,RenOSys,,RenOSys
+Loop,parse,SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,hiu,A_LoopField,=
+		if (hiu1 = RenOsys)
+			{
+				SB_SetText(" system already exists ")
+				return
+			}
+	}
+guicontrolget,RenOSys,,RenOSys
+guicontrolget,ADDCORE,,ADDCORE
+stringreplace,RenOSys,RenOSys,:,-,All
+stringreplace,RenOSys,RenOSys,>,-,All
+stringreplace,RenOSys,RenOSys,<,-,All
+stringreplace,RenOSys,RenOSys,?,-,All
+stringreplace,RenOSys,RenOSys,*,-,All
+stringreplace,RenOSys,RenOSys,\,-,All
+stringreplace,RenOSys,RenOSys,/,-,All
+stringreplace,RenOSys,RenOSys,|,-,All
+stringreplace,RenOSys,RenOSys,=,-,All
+guicontrol,hide,CnclOsys
+guicontrol,hide,SavOsys
+guicontrol,hide,RenOsys
+fileread,emcfgrpl,emucfgpresets.ini
+filedelete,emucfgpresets.ini
+stringreplace,emcfgrpl,emcfgrpl,[%ADDCORE%],[%RenOSys%],All
+fileappend,%emcfgrpl%,emuCfgPresets.ini
+iniread,tmpll,Assignments.ini,OVERRIDES,%ADDCORE%
+if (tmpll = "")
+	{
+		tmpll=""
+	}
+iniwrite,%tmpll%,Assignments.ini,OVERRIDES,%RENOSYS%
+iniread,tmpll,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+if (tmpll = "")
+	{
+		tmpll=""
+	}
+iniwrite,%tmpll%,Assignments.ini,ASSIGNMENTS,%RENOSYS%
+iniread,tmpll,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+if (tmpll = "")
+	{
+		tmpll=""
+	}
+iniwrite,%tmpll%,LaunchParams.ini,LAUNCHPARAMS,%RENOSYS%
+iniread,tmpll,SystemLocations.ini,LOCATIONS,%ADDCORE%
+if (tmpll = "")
+	{
+		tmpll=""
+	}
+iniwrite,%tmpll%,SystemLocations.ini,LOCATIONS,%RENOSYS%
+inidelete,Assignments.ini,OVERRIDES,%ADDCORE%
+inidelete,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+inidelete,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
+stringreplace,sysllst,sysllst,%ADDCORE%|,%RenOSys%|
+stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%RenOSys%|
+stringreplace,initfldrs,initfldrs,%ADDCORE%|,%RenOSys%|
+stringreplace,allsupport,allsupport,%ADDCORE%|,%RenOSys%|
+stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%RenOSys%`n
+filedelete,lkup.ini
+stringreplace,sysllst,sysllst,%ADDCORE%=,%RENOSYS%=
+fileappend,%sysllst%,lkup.ini
+ifexist,%RJSYSTEMS%\%ADDCORE%\
+	{
+		ifnotexist,%RJSYSTEMS%\%RENOSYS%\
+			{
+				Msgbox,4,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
+				ifmsgbox,yes
+					{
+						fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%RENOSYS%,R
+					}
+			}
+	}
+gosub,resetCoreAssets	
+guicontrol,,SYSINSTLBX,|%allsupport%
+guicontrol,,ADDCORE,|Select_A_System||%allsupport%
+return
+CnclOsys:
+gui,submit,nohide
+guicontrol,hide,CnclOsys
+guicontrol,hide,SavOsys
+guicontrol,hide,RenOsys
+guicontrol,hide,OpnSys
 return
 
 ASEMUCFG:
@@ -9866,10 +10142,14 @@ return
 
 SaList:
 gui,submit,nohide
+guicontrol,disable,salist
 guicontrolget,SALIST,,SALIST
 guicontrol,show,CLRFLTR
 guicontrol,show,INSFLTRX
 guicontrol,show,INSFLTR
+guicontrol,hide,SAVOSYS
+guicontrol,hide,RENOSYS
+guicontrol,hide,CNCLOSYS
 guicontrol,,INSFLTR,
 guicontrol,move,EMUPGC,x595 y122
 guicontrol,move,GBLPgs,x501 y122
@@ -9907,6 +10187,7 @@ if (SALIST = "Frontends")
 		guicontrol,move,CCGRP,x278 y5 w185 h366
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Frontends
+		guicontrol,enable,salist
 		return
 	}
 if (SALIST = "Utilities")
@@ -9923,6 +10204,7 @@ if (SALIST = "Utilities")
 		guicontrol,,PRGINSTLBX,|Antimicro|DS4Windows|Daemon_Tools|DirectX|Visual_C++_Runtimes|Xinput_Drivers|Xpadder|Display_Changer|VirtualCloneDrive|WinCDEmu|360button|Joy2Key
 		guicontrol,,CCGRP,Installer
 		guicontrol,,CACGRP,Utilities
+		guicontrol,enable,salist
 		return
 	}
 if (SALIST = "RetroArch")
@@ -9942,9 +10224,11 @@ if (SALIST = "RetroArch")
 				guicontrol,,EXELIST,1
 				raexedir= %RJEMUD%\retroarch
 				guicontrol,,SKRADISP,%raexedir%
+				guicontrol,enable,salist
 				goto, ExeList
 			}
 		guicontrol,,RALIST,1
+		guicontrol,enable,salist
 		goto, RALIST
 	}
 multiemu=
@@ -10002,6 +10286,7 @@ Loop, Parse, EmuPartSet,`n`r
 		stringsplit, multabc, A_LoopField,<,:
 		multiemu .= multabc1 . "|"
 	}
+guicontrol,enable,salist
 return
 ChEmuInst:
 xtractmu=
@@ -30823,68 +31108,68 @@ noaddv=
 ifinstring,newaddedsys,`%
 	{
 		SB_SetText("`% character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,*
 	{
 		SB_SetText("* character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,`"
 ;"
 	{
 		SB_SetText("`'' character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,`\
 	{
 		SB_SetText("`\ character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,=
 	{
 		SB_SetText("= character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,`/
 	{
 		SB_SetText("`/ character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,|
 	{
 		SB_SetText("| character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,:
 	{
 		SB_SetText(": character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,>
 	{
 		SB_SetText("> character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,?
 	{
 		SB_SetText("? character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 ifinstring,newaddedsys,<
 	{
 		SB_SetText("< character not permitted")
-		guicontrol,,AddNSys,
+		guicontrol,,AddNsys,|
 		return
 	}
 return
@@ -81343,6 +81628,7 @@ if (APLN = 1)
 		goto, SKLNCH
 	}
 pgmargs=
+msgbox,,,k
 if (PGM = 1)
 	{
 		stringreplace,ccv,lcore,_libretro.dll
@@ -81417,6 +81703,9 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}	
 	}
+msgbox,,,"%pgmargs%"
+msgbox,,,"%LNCHCFG%"
+
 SB_SetText(" " raexedir " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
 Runwait, "%raexedir%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexedir%,,
 gosub, PostOpt
