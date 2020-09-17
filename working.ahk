@@ -8722,18 +8722,21 @@ if (coreselv = "")
 		kva=
 		ifinstring,SysLLst,%OPTYP%=
 		iniread,afkk,emuCfgPresets.ini,%OPTYP%,SUPEMU
-		StringSplit,sysplit,afkk,|
+		;;StringSplit,sysplit,afkk,|
 		kr=
 		ink=
 		kva=
-		Loop, %sysplit0%
+		Loop, parse, afkk,|
 			{
 				if (A_LoopField = "")
 					{
 						continue
 					}
-				kr= % sysplit%A_index%
-				ink= %sysplit2%
+				if (A_Index = 1)
+					{
+						ink= %A_LoopField%
+					}
+				kr= %A_LoopField%
 				Loop, parse, emulist,|
 					{
 						kva=
@@ -8758,8 +8761,8 @@ if (coreselv = "")
 							{
 								gosub, MINIMODEOFF
 							}
-						guicontrol,choose,TABMENU,3
 						guicontrol,,SALIST,|Systems|Emulators||RetroArch|Utilities|Frontends
+						guicontrol,choose,TABMENU,3
 						gosub, SaList
 						knum=
 						Loop, Parse, emuinstpop,|
