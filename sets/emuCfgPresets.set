@@ -2117,6 +2117,12 @@ EXENAM=neocd.exe
 URLPTH=neopop/neopop.7z
 EXENAM=NeoPop-Win32.exe
 
+[rocknes]
+URLPTH=rocknes/rocknes.7z
+EXENAM=rocknes.exe
+CFGPTH=rocknes.ini
+STATEPTH=*.rs0
+
 [nestopia]
 URLPTH=nestopia/nestopia.7z
 EXENAM=nestopia.exe
@@ -4094,7 +4100,7 @@ RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
 MAME?RJEMUOPTS=<nes -cart<|<nespal -cart<|<nes -cart<
 RJZIPPEEK=0
 SHORTNM=NNES
-SUPEMU=nestopia|virtuanes|virtuanesplus|Mesen|Mednafen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|MAME|byuu
+SUPEMU=nestopia|virtuanes|rocknes|virtuanesplus|Mesen|Mednafen|dsp|xe|aprnes|BizHawk|kindred|no$nes|fceux|vdmgr|MAME|byuu
 SUPCORE=nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nes
@@ -7803,6 +7809,9 @@ EXENAM=VBCRedist_AIO_x86_x64.exe
 URLPTH=DS4Windows/DS4Windows[ARCH].7z
 EXENAM=DS4Windows.exe
 [DirectX]
+[JSM]
+URLPATH=jsm/jsm-[ARCH].7z
+EXENAM=JoyShockMapper.exe
 URLPTH=DirectX/dxwebsetup.7z
 EXENAM=dxwebsetup.exe
 [Display_Changer]

@@ -254,6 +254,7 @@ FileCreateDir,rj\emuCfgs\redsquirrel
 FileCreateDir,rj\emuCfgs\regen
 FileCreateDir,rj\emuCfgs\reicast
 FileCreateDir,rj\emuCfgs\retroArch
+FileCreateDir,rj\emuCfgs\rocknes
 FileCreateDir,rj\emuCfgs\rpcemu
 FileCreateDir,rj\emuCfgs\rpcs3
 FileCreateDir,rj\emuCfgs\rx78
@@ -1451,6 +1452,7 @@ FileInstall,rj\emucfgs\retroArch\p2.cfg.set,rj\emucfgs\retroArch\p2.cfg.set,1
 FileInstall,rj\emucfgs\retroArch\pX.cfg.set,rj\emucfgs\retroArch\pX.cfg.set,1
 FileInstall,rj\emucfgs\retroArch\retroarch-core-options.cfg.set,rj\emucfgs\retroArch\retroarch-core-options.cfg.set,1
 FileInstall,rj\emucfgs\retroArch\retroarch.cfg.ret,rj\emucfgs\retroArch\retroarch.cfg.ret,1
+FileInstall,rj\emucfgs\rocknes\RockNES.ini.set,rj\emucfgs\rocknes\RockNES.ini.set,1
 FileInstall,rj\emucfgs\rpcemu\rpc.cfg.set,rj\emucfgs\rpcemu\rpc.cfg.set,1
 FileInstall,rj\emucfgs\rpcs3\config.yml.ret,rj\emucfgs\rpcs3\config.yml.ret,1
 FileInstall,rj\emucfgs\rpcs3\config_input.yml.ret,rj\emucfgs\rpcs3\config_input.yml.ret,1

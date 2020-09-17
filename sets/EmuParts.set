@@ -292,6 +292,7 @@ nebula<nebula/nebula.7z<nebula.exe<nebula.ini<
 neocd<neocd/neocd.7z<neocd.exe<
 neopop<neopop/neopop.7z<NeoPop-Win32.exe<
 nestopia<nestopia/nestopia.7z<nestopia.exe<nestopia.xml<states\*.nst<save\*.sav
+rocknes<rocknes/rocknes.7z<rocknes.exe<rocknes.ini<*.rs0
 next<next/next.7z<next.exe<
 no$2k6<no$2k6/no$2k6.7z<NO$2K6.EXE<
 no$c64<no$c64/no$c64.7z<NO$C64.EXE<
@@ -429,3 +430,4 @@ Antimicro<Antimicro/antimicro-64.7z<antimicro.exe<
 Xpadder<Xpadder/Xpadder.7z<XPadder.exe<|
 ViGEmBus<vigembus/vigembus.7z<ViGEmBusUpdater.exe<|
 Joy2Key<Joy2Key/Joy2Key.7z<Joy2Key.exe<
+jsm<jsm/jsm-x[ARCH].7z<JoyShockMapper.exe

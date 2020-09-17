@@ -47,6 +47,9 @@ RFEXPTH=
 [neogeomini]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/neomini.zip
 
+[vectorpie]
+ESTHEME=https://archive.org/download/esthemes_202009/VectorPie.7z
+
 [epicnoir]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/epicnoir.zip
 

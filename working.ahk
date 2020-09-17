@@ -232,6 +232,14 @@ IfNotExist, AppParams.ini
 	{
 		FileCopy,sets\AppParams.set,AppParams.ini
 	}
+ifnotexist,lkup.ini
+	{
+		Filecopy,sets\LkUp.set,lkup.ini
+	}	
+IfNotExist, emuCfgPresets.ini
+	{
+		FileCopy,sets\emuCfgPresets.set,emuCfgPresets.ini
+	}
 IfNotExist, launchparams.ini
 	{
 		FileCopy,sets\launchparams.set,launchparams.ini
@@ -260,7 +268,7 @@ ifnotexist,SystemLocations.ini
 	{
 		filecopy,sets\SystemLocations.set,SystemLocations.ini,1
 		JUNCTOPT= 2
-		FileRead,SysLLst,sets\lkup.set
+		FileRead,SysLLst,lkup.ini
 		gosub, SYSDETECT
 	}
 IniRead,RJEMUD,Settings.ini,GLOBAL,emulators_directory
@@ -748,8 +756,8 @@ Loop,Parse,asig,`n
 	}
 MsysRst:
 mame_sys=
-fileread,emucfgpr,sets\emucfgPresets.set
-iniread,pnvf,sets\emucfgPresets.set
+fileread,emucfgpr,emuCfgPresets.ini
+iniread,pnvf,emuCfgPresets.ini
 systrt=
 Loop,parse,pnvf,`n`r
 	{
@@ -767,7 +775,7 @@ Loop,parse,pnvf,`n`r
 			}
 		nwsys= %A_LoopField%
 		ecfsysn= %A_LoopField%
-		iniread,bbvr,sets\emucfgPresets.set,%nwsys%,RJMAMENM
+		iniread,bbvr,emuCfgPresets.ini,%nwsys%,RJMAMENM
 		mamad= 
 		sysfnd= 
 		Loop, Parse, msyslist,|
@@ -1921,7 +1929,7 @@ Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
 Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS, 0
 Gui,Add,listbox, x282 y433 w175 h69 HWNDprisl vEMPRLST gEMPRLST,
-Gui, Add, Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA, +
+Gui, Add, Button, x422 y413 w16 h17 v gEMPRBUTA, +
 Gui,Add,DropDownList, hwndDplHndl34 x283 y411 w125 vEMPRDDL gEMPRDDL, Emulators|%runlist%
 Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
@@ -4949,19 +4957,19 @@ Loop, Parse, SysLLst,`n`r
 					}
 				%snklu2%SCL.= jei . "|"
 			}
-		iniread,xvn,sets\emuCfgPresets.set,%snklu1%,RJEMUOPTS
+		iniread,xvn,emuCfgPresets.ini,%snklu1%,RJEMUOPTS
 		if (xvn <> "ERROR")
 			{
 				stringreplace,xvn,xvn,<,%A_Space%,All
 				%snklu2%CLO.= xvn . "|"
 			}
-		iniread,xvn,sets\emuCfgPresets.set,%snklu1%,RJEMUARGS
+		iniread,xvn,emuCfgPresets.ini,%snklu1%,RJEMUARGS
 		if (xvn <> "ERROR")
 			{
 				stringreplace,xvn,xvn,<,%A_Space%,All
 				%snklu2%CLA.= xvn . "|"
 			}
-		iniread,aif,sets\emuCfgPresets.set,%snklu1%,SUPEMU
+		iniread,aif,emuCfgPresets.ini,%snklu1%,SUPEMU
 		Loop, parse, aif,|
 			{
 				if (A_LoopField = "")
@@ -4978,20 +4986,20 @@ Loop, Parse, SysLLst,`n`r
 							}
 						%snklu2%SCL.= A_LoopField . "|"
 					}
-				iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUOPTS
+				iniread,xvn,emuCfgPresets.ini,%A_LoopField%,RJEMUOPTS
 				if (xvn <> "ERROR")
 					{
 						stringreplace,xvn,xvn,<,%A_Space%,All
 						%snklu2%CLO.= xvn . "|"
 					}
-				iniread,xvn,sets\emuCfgPresets.set,%A_LoopField%,RJEMUARGS
+				iniread,xvn,emuCfgPresets.ini,%A_LoopField%,RJEMUARGS
 				if (xvn <> "ERROR")
 					{
 						stringreplace,xvn,xvn,<,%A_Space%,All
 						%snklu2%CLA.= xvn . "|"
 					}
 			}
-		iniread,aig,sets\emuCfgPresets.set,%snklu1%,SUPCORE
+		iniread,aig,emuCfgPresets.ini,%snklu1%,SUPCORE
 		Loop, parse, aig,|
 			{
 				if (A_LoopField = "")
@@ -5259,13 +5267,13 @@ ifinstring,coreselv,mame
 				goto, Arclaunch
 			}
 		coremsvc=
-		iniread,RJMAMENM,sets\emuCfgPresets.set,%EXTRSYS%,RJMAMENM
+		iniread,RJMAMENM,emuCfgPresets.ini,%EXTRSYS%,RJMAMENM
 		iniread,CUSTMOPT,AppParams.ini,%coreselv%,options
 		stringreplace,CUSTMOPT,CUSTMOPT,",,All
 		;"
 		if (CUSTMOPT = "[CUSTMOPT]")
 			{
-				iniread,CUSTMOPTLST,sets\emuCfgPresets.set,%ARCSYS%,MAME?RJEMUOPTS
+				iniread,CUSTMOPTLST,emuCfgPresets.ini,%ARCSYS%,MAME?RJEMUOPTS
 				if (CUSTMOPTLST <> "ERROR")
 					{
 						Loop,Parse,CUSTMOPTLST,|
@@ -5307,7 +5315,7 @@ ifinstring,coreselv,_libretro
 	}
 coremsvc=
 RCLSUP:
-iniread,RJMAMENM,sets\emuCfgPresets.set,%RUNSYSDDL%,RJMAMENM
+iniread,RJMAMENM,emuCfgPresets.ini,%RUNSYSDDL%,RJMAMENM
 iniread,CUSTMOPT,AppParams.ini,%coreselv%,options
 stringreplace,CUSTMOPT,CUSTMOPT,",,All
 ;"
@@ -5329,7 +5337,7 @@ if (CUSTMOPT = "[CUSTMOPT]")
 								coreselv= %finfa1%
 							}
 					}
-				iniread,ALTOPTLST,sets\emuCfgPresets.set,%RUNSYSDDL%,%coreselv%?RJEMUOPTS
+				iniread,ALTOPTLST,emuCfgPresets.ini,%RUNSYSDDL%,%coreselv%?RJEMUOPTS
 				if (ALTOPTLST <> "ERROR")
 					{
 						Loop,Parse,ALTOPTLST,|
@@ -5356,7 +5364,7 @@ if (CUSTMOPT = "[CUSTMOPT]")
 			}
 		ifinstring,coreselv,mame
 			{
-				iniread,CUSTMOPTLST,sets\emuCfgPresets.set,%RUNSYSDDL%,MAME?RJEMUOPTS
+				iniread,CUSTMOPTLST,emuCfgPresets.ini,%RUNSYSDDL%,MAME?RJEMUOPTS
 				if (CUSTMOPTLST <> "ERROR")
 					{
 						Loop,Parse,CUSTMOPTLST,|
@@ -5395,7 +5403,7 @@ else
 	}
 adfn=
 Menu, AQRUN, Add
-iniread,aimn,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+iniread,aimn,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
 Loop,parse,aim,|
 	{
 		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
@@ -5407,7 +5415,7 @@ Loop,parse,aim,|
 	}
 if (raexefile <> "")
 	{
-		iniread,aimc,sets\emuCfgPresets.set,%EXTRSYS%,SUPCORE
+		iniread,aimc,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
 		Loop, Parse,aimc,|
 			{
 				if (A_LoopField = "")
@@ -5559,7 +5567,7 @@ else
 	}
 adfn=
 Menu, SQRUN, Add
-iniread,aimn,sets\emuCfgPresets.set,%RUNSYSDDL%,SUPEMU
+iniread,aimn,emuCfgPresets.ini,%RUNSYSDDL%,SUPEMU
 Loop,parse,aim,|
 	{
 		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
@@ -5571,7 +5579,7 @@ Loop,parse,aim,|
 	}
 if (raexefile <> "")
 	{
-		iniread,aimc,sets\emuCfgPresets.set,%RUNSYSDDL%,SUPCORE
+		iniread,aimc,emuCfgPresets.ini,%RUNSYSDDL%,SUPCORE
 		Loop, Parse,aimc,|
 			{
 				if (A_LoopField = "")
@@ -5813,7 +5821,7 @@ Loop, Parse, romf,`n|
 sivi=
 if (multisel = 2)
 	{
-		iniread,fei,sets\emuCfgPresets.set,%SRCHLOCDDL%,RJMULTIDISC
+		iniread,fei,emuCfgPresets.ini,%SRCHLOCDDL%,RJMULTIDISC
 		if (fei <> "ERROR")
 			{
 				multisel= 1
@@ -5887,7 +5895,7 @@ if (sivi = 1)
 				srpopt=
 				ifinstring,coreselv,mame
 					{
-						iniread,srpopt,sets\emuCfgPresets.set,MAME?RJEMUOPTS
+						iniread,srpopt,emuCfgPresets.ini,MAME?RJEMUOPTS
 						if (srpopt <> "ERROR")
 							{
 								stringsplit,ars,srpopt,|
@@ -8245,7 +8253,7 @@ if (RUNPLRAD = 1)
 					}
 				if (raexefile = "")
 					{
-						iniread,aixm,sets\emuCfgPresets.set,%DDLUX%,SUPEMU
+						iniread,aixm,emuCfgPresets.ini,%DDLUX%,SUPEMU
 						Loop,Parse,aixm,|
 							{
 								iniread,aib,Assignments.ini,ASSIGNMENTS,%A_LoopField%
@@ -8334,7 +8342,7 @@ if (FILT_UNSUP <> 1)
 REVSPL= 1
 omitxtn=
 omitxtz=
-iniread,omitxtz,sets\emuCfgPresets.set,%OPTYP%,RJROMXT
+iniread,omitxtz,emuCfgPresets.ini,%OPTYP%,RJROMXT
 if (omitxtz <> "ERROR")
 	{
 		stringreplace,omitxtz,omitxtz,.,,All
@@ -8437,7 +8445,7 @@ if (coreselv = "")
 	{
 		kva=
 		ifinstring,SysLLst,%OPTYP%=
-		iniread,afkk,sets\emuCfgPresets.set,%OPTYP%,SUPEMU
+		iniread,afkk,emuCfgPresets.ini,%OPTYP%,SUPEMU
 		StringSplit,sysplit,afkk,|
 		kr=
 		ink=
@@ -10447,7 +10455,7 @@ if (SALIST = "Emulators")
 	{
 		GuiControl, choose, PRGINSTLBX,0
 	}
-IniRead,sysexlst,sets\emuCfgPresets.set,%semu%,RJROMXT
+IniRead,sysexlst,emuCfgPresets.ini,%semu%,RJROMXT
 if (sysexlst <> "ERROR")
 	{
 		stringreplace,sysxl,sysexlst,`,,|,All
@@ -10474,7 +10482,7 @@ stemu3=
 stemu4=
 stemu5=
 emuplst=
-iniread,asiu,sets\emuCfgPresets.set,%semu%,SUPEMU
+iniread,asiu,emuCfgPresets.ini,%semu%,SUPEMU
 Loop,parse,asiu,|
 	{
 		stemu%A_index%= %A_LoopField%
@@ -11956,7 +11964,7 @@ EmuItera:
 SB_SetText("Assigning "  stranb " to supported systems")
 Loop,parse,systmfldrs,|
 	{
-		iniread,supemu,sets\emuCfgPresets.set,%A_LoopField%,SUPEMU
+		iniread,supemu,emuCfgPresets.ini,%A_LoopField%,SUPEMU
 		if ((supemu = "")or(supemu = "ERROR"))
 			{
 				continue
@@ -12706,7 +12714,7 @@ if (aix = "")
 Loop,parse,allsupport,|
 	{
 		psys= %A_LoopField%
-		iniread,avd,sets\emuCfgPresets.set,%A_LoopField%,SUPEMU
+		iniread,avd,emuCfgPresets.ini,%A_LoopField%,SUPEMU
 		ifinstring,avd,%emupsgn%
 			{
 				iniread,aii,Assignments.ini,OVERRIDES,%psys%
@@ -12755,8 +12763,8 @@ if (LNCHPRDDL = "Emulators")
 				stringsplit,fei,A_LoopField,=,"
 				;"
 				iniread,aik,Assignments.ini,OVERRIDES,%fei1%
-				iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
-				iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+				iniread,aij,emuCfgPresets.ini,%fei1%,SUPEMU
+				iniread,aic,emuCfgPresets.ini,%fei1%,SUPCORE
 				if (aij = "ERROR")
 					{
 						continue
@@ -12841,8 +12849,8 @@ if (LNCHPRDDL = "retroarch")
 				stringsplit,fei,A_LoopField,=,"
 				;"
 				iniread,aik,Assignments.ini,OVERRIDES,%fei1%
-				iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
-				iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+				iniread,aij,emuCfgPresets.ini,%fei1%,SUPEMU
+				iniread,aic,emuCfgPresets.ini,%fei1%,SUPCORE
 				if (aic = "ERROR")
 					{
 						continue
@@ -12925,8 +12933,8 @@ Loop, Parse, origsys,`n`r
 		stringsplit,fei,A_LoopField,=,"
 		;"
 		iniread,aik,Assignments.ini,OVERRIDES,%fei1%
-		iniread,aij,sets\EmuCfgPresets.set,%fei1%,SUPEMU
-		iniread,aic,sets\EmuCfgPresets.set,%fei1%,SUPCORE
+		iniread,aij,emuCfgPresets.ini,%fei1%,SUPEMU
+		iniread,aic,emuCfgPresets.ini,%fei1%,SUPCORE
 		ifnotinstring,aic,%LNCHPRDDL%
 			{
 				continue
@@ -29889,7 +29897,7 @@ if (emupgc <> "ERROR")
 	}
 apopt= %A_Space%
 iniread, apopt, AppParams.ini, %sysni%,options
-iniread, apoptx, sets\EmuCfgPresets.set, %sysni%,RJEMUOPTS
+iniread, apoptx, emuCfgPresets.ini, %sysni%,RJEMUOPTS
 if (apopt = "ERROR")
 	{
 		apopt= %A_Space%
@@ -29915,7 +29923,7 @@ else {
 guicontrol,,APPOPT,|%apoptv%%INJOPT%
 aparg=
 iniread,aparg,AppParams.ini,%sysni%,arguments
-iniread,apargx,sets\EmuCfgPresets.set, %sysni%,RJEMUARGS
+iniread,apargx,emuCfgPresets.ini, %sysni%,RJEMUARGS
 if (aparg = "ERROR")
 	{
 		aparg= %A_Space%
@@ -30204,7 +30212,7 @@ Loop, %RJSYSTEMS%\*,2
 		systmfldrs.= A_LoopFileName . "|"
 		avnu1=
 		allsys+=1
-		iniread,efxe,sets\emuCfgPresets.set,%sysnam%,SUPEMU
+		iniread,efxe,emuCfgPresets.ini,%sysnam%,SUPEMU
 		if ((efxe <> "ERROR")&&(efxe <> ""))
 			{
 				totsys+=1
@@ -30695,7 +30703,7 @@ Loop,Parse,asig,`n`r
 			{
 				reasign.= rasig1 . "|"
 			}
-		iniread,stw,sets\EmuCfgPresets.set,%rasig1%,SUPEMU
+		iniread,stw,emuCfgPresets.ini,%rasig1%,SUPEMU
 		Loop,Parse,stw,|
 			{
 				iniread,fej,Assignments.ini,OVERRIDES,%rasig1%
@@ -30716,7 +30724,7 @@ Loop,Parse,asig,`n`r
 							}
 					}
 			}
-		iniread,stfe,sets\EmuCfgPresets.set,%rasig1%,SUPCORE
+		iniread,stfe,emuCfgPresets.ini,%rasig1%,SUPCORE
 		nevfdg= 
 		if (INITIAL = 1)
 			{
@@ -30765,6 +30773,23 @@ return
 ;{;;;;;;;;;;;;;;;;;;     New Systems    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 OpnSyS:
 gui,submit,nohide
+guicontrolget,tev,,OpnSyS
+guicontrol,,OpnSyS,-
+guicontrol,hide,OVEXTL
+if (tev = "-")
+	{
+		guicontrol,show,OVEXTL
+		guicontrol,hide,SAVNSYS
+		guicontrol,hide,ADDNSYS
+		guicontrol,show,OVLIST
+		guicontrol,show,OVSETTXT
+		guicontrol,show,EXDISPL
+		guicontrol,show,DCORE
+		guicontrol,show,ARDCORE
+		guicontrol,show,DAPP
+		guicontrol,,OpnSyS,+
+		return
+	}
 guicontrol,show,SAVNSYS
 guicontrol,show,ADDNSYS
 guicontrol,hide,OVLIST
@@ -30789,9 +30814,79 @@ guicontrol,hide,EXTARUN
 guicontrol,hide,SELAPP
 guicontrol,hide,OPTTXT
 guicontrol,hide,ARGTXT
+guicontrol,,ADDNSYS,|
 return
 AddNSys:
 gui,submit,nohide
+guicontrolget,newaddedsys,,AddNSys
+noaddv= 
+ifinstring,newaddedsys,`%
+	{
+		SB_SetText("`% character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,*
+	{
+		SB_SetText("* character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,`"
+;"
+	{
+		SB_SetText("`'' character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,`\
+	{
+		SB_SetText("`\ character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,=
+	{
+		SB_SetText("= character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,`/
+	{
+		SB_SetText("`/ character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,|
+	{
+		SB_SetText("| character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,:
+	{
+		SB_SetText(": character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,>
+	{
+		SB_SetText("> character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,?
+	{
+		SB_SetText("? character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
+ifinstring,newaddedsys,<
+	{
+		SB_SetText("< character not permitted")
+		guicontrol,,AddNSys,
+		return
+	}
 return
 SavNSys:
 sysnw=
@@ -30805,7 +30900,54 @@ guicontrol,show,EXDISPL
 guicontrol,show,DCORE
 guicontrol,show,ARDCORE
 guicontrol,show,DAPP
+guicontrol,,OpnSyS,+
 guicontrolget,POPADC,,ADDNSYS
+guicontrolget,newaddedsys,,AddNSys
+stringreplace,newaddedsys,newaddedsys,:,-,All
+stringreplace,newaddedsys,newaddedsys,>,-,All
+stringreplace,newaddedsys,newaddedsys,<,-,All
+stringreplace,newaddedsys,newaddedsys,?,-,All
+stringreplace,newaddedsys,newaddedsys,*,-,All
+stringreplace,newaddedsys,newaddedsys,\,-,All
+stringreplace,newaddedsys,newaddedsys,/,-,All
+stringreplace,newaddedsys,newaddedsys,|,-,All
+stringreplace,newaddedsys,newaddedsys,=,-,All
+csts_= 1
+Loop,parse,SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		hui1=
+		hui2=
+		stringsplit,hui,A_LoopField,=
+		if (newaddedsys = hui1)
+			{
+				SB_SetText("System Name already exists")
+				return
+			}
+		if instr(hui2,"_CUSTM")
+			{
+				csts_+=1 
+			}
+	}	
+SysLLst.=  newaddedsys . "=" . "_CUSTM" . csts_ . "`n"
+_CUSTM%csts_%= %newaddedsys%
+fileappend,%newaddedsys%=_CUSTM%csts_%`n,lkup.ini
+iniwrite,"",Assignments.ini,OVERRIDES,%newaddedsys%
+iniwrite,"",Assignments.ini,ASSIGNMENTS,%newaddedsys%
+iniwrite,$|1|1|0|1|0,LaunchParams.ini,LAUNCHPARAMS,%newaddedsys%
+iniwrite,"",SystemLocations.ini,LOCATIONS,%newaddedsys%
+iniwrite,%A_Space%,emuCfgPresets.ini,%newaddedsys%,RJEMUPRESET
+iniwrite,0,emuCfgPresets.ini,%newaddedsys%,RJZIPPEEK
+iniwrite,_CUSTM%csts_%,emuCfgPresets.ini,%newaddedsys%,SHORTNM
+iniwrite,%A_Space%,emuCfgPresets.ini,%newaddedsys%,SUPEMU
+iniwrite,%A_Space%,emuCfgPresets.ini,%newaddedsys%,SUPCORE
+iniwrite,$|1|1|0|1|0`n,emuCfgPresets.ini,%newaddedsys%,LNCHPRM
+SB_SetText(" " newaddedsys " added")
+return
+
 if (POPADC = "")
 	{
 		SB_SetText(" You must assign a name to the new system ")
@@ -34420,7 +34562,7 @@ if (DWNLPOS = ":=:System List:=:")
 		guicontrol, ,EXTPARSED, |%omitxtv%
 		return
 	}
-IniRead,stevr,sets\EmuCfgPresets.set,%DWNLPOS%,SUPCORE
+IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
 		Loop, Parse, stevr,|
@@ -34456,7 +34598,7 @@ omitxtr=
 allxtn= 
 guicontrolget,PLCORE,,PLCORE
 
-IniRead,stevr,sets\EmuCfgPresets.set,%DWNLPOS%,SUPCORE
+IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
 		Loop, Parse, stevr,|
@@ -34485,7 +34627,7 @@ if ((stevr <> "")&&(stevr <> "ERROR"))
 					}
 			}
 	}
-iniread,fein,sets\emuCfgPresets.set,%DWNLPOS%,RJROMXT
+iniread,fein,emuCfgPresets.ini,%DWNLPOS%,RJROMXT
 
 if ((fein <> "ERROR")&&(fein <> ""))
 	{
@@ -35360,7 +35502,7 @@ if ((oil = "ERROR")or(EXTRSYS = ""))
 	}
 if (oil = "")
 	{
-		iniread,vchk,sets\EmuCfgPresets.set,%EXTRSYS%,SUPEMU
+		iniread,vchk,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
 		if ((vchk <> "ERROR")&&(vchk <> ""))
 			{
 				Loop,parse,vchk,|
@@ -35391,7 +35533,7 @@ recore=
 ARCCORES=
 ifinstring,SysLLst,%EXTRSYS%=
 	{
-		iniread,symfc,sets\emucfgPresets.set,%EXTRSYS%,SUPCORE
+		iniread,symfc,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
 		if (raexefile <> "")
 			{
 				Loop, Parse, symfc,|
@@ -35409,7 +35551,7 @@ ifinstring,SysLLst,%EXTRSYS%=
 					}
 				if (librk <> 1)
 					{
-						iniread,symfe,sets\emucfgPresets.set,%EXTRSYS%,SUPEMU
+						iniread,symfe,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
 						Loop, Parse, symfe,|
 							{
 								if (A_LoopField = "")
@@ -35452,7 +35594,7 @@ return
 MatchSyst:
 coretograb=
 selctdcore= 
-IniRead,stevr,sets\EmuCfgPresets.set,%EXTRSYS%,SUPCORE
+IniRead,stevr,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
 		Loop, Parse, stevr,|
@@ -36225,7 +36367,7 @@ SRCHMET= %GAMSRCS%
 if (MAMESWCHK = 1)
 	{
 		SRCHMET= %GAMSRCS%\MAME - Systems
-		iniread,ARCTRA,sets\emuCfgPresets.set,%SRCHSYS%,RJMAMENM
+		iniread,ARCTRA,emuCfgPresets.ini,%SRCHSYS%,RJMAMENM
 		if (ARCTRA <> "ERROR")
 			{
 				SRCHSYS= %ARCTRA%
@@ -36680,7 +36822,7 @@ ifnotinstring,romsys,%A_Space%-%A_Space%
 			}
 	}
 krbrk=
-iniread,cmdfun,sets\EmucfgPresets.set,%SRCHGAM%,cmdfun
+iniread,cmdfun,emuCfgPresets.ini,%SRCHGAM%,cmdfun
 srchgamf= %SRCHMET%\%HACKAPN%%SRCHGAM%.gam
 if (opndgam = 1)
 	{
@@ -36986,7 +37128,7 @@ if (MAMESWCHK = 1)
 	{
 		ifinstring,afep,|%ARCSYS%|
 			{
-				iniread,ARCTRA,sets\emuCfgPresets.set,%ARCSYS%,RJMAMENM
+				iniread,ARCTRA,emuCfgPresets.ini,%ARCSYS%,RJMAMENM
 				loop, Read, %GAMSRCS%\MAME - Systems\%ARCTRA%.gam
 					{
 						if (A_LoopReadLine = "")
@@ -37614,7 +37756,7 @@ if (tmpsr <> "")
 				ifnotexist,%ACSVDEST%\
 					{
 						apndx= 
-						iniread,supemz,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+						iniread,supemz,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
 						Loop,parse,supemz,|
 							{
 								if (A_LoopField = "")
@@ -37944,7 +38086,7 @@ Loop, parse, romdwnlst,|
 		ifnotexist,%ACSVDEST%\
 			{
 				apndx= 
-				iniread,supemz,sets\emuCfgPresets.set,%EXTRSYS%,SUPEMU
+				iniread,supemz,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
 				Loop,parse,supemz,|
 					{
 						if (A_LoopField = "")
@@ -38512,7 +38654,7 @@ ifnotexist, %save%
 				fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
 				if (MAMESWCHK = 1)
 					{
-						iniread,carnsys,sets\emuCfgPresets.set,%romsys%,RJMAMENM
+						iniread,carnsys,emuCfgPresets.ini,%romsys%,RJMAMENM
 						if ((carnsys = "")or(crnsys = "ERROR"))
 							{
 								carnsys= %romsys%
@@ -38950,7 +39092,7 @@ return
 
 LkExtrExt:
 klp=
-iniread,lookf,sets\emucfgPresets.set,%romsys%,RJROMXT
+iniread,lookf,emuCfgPresets.ini,%romsys%,RJROMXT
 if (lookf = "ERROR")
 	{
 		klp= 1
@@ -39035,7 +39177,7 @@ if (coreslc2 = "dll")
 			return
 	}
 LkXtrRom:
-iniread,lookf,sets\emucfgPresets.set,%romsys%,RJROMXT
+iniread,lookf,emuCfgPresets.ini,%romsys%,RJROMXT
 if (lookf = "ERROR")
 	{
 		return
@@ -43835,7 +43977,7 @@ if (SK_MODE = "")
 		filedelete,%emucfgloc%
 		curjf= %ROMSYS%
 	}
-IniRead,RJMEDNM,sets\emuCfgPresets.set,%ROMSYS%,RJMEDNM
+IniRead,RJMEDNM,emuCfgPresets.ini,%ROMSYS%,RJMEDNM
 if (RJMEDNM = "ERROR")
 	{
 		RJMEDNM= nes
@@ -44067,7 +44209,7 @@ ifnotexist, %emucfgloc%
 MednafenPOP:
 MednafenRESETPOP:
 curmedINPT=
-IniRead, RJMEDNM,sets\emuCfgPresets.set,%EXTRSYS%,RJMEDNM
+IniRead, RJMEDNM,emuCfgPresets.ini,%EXTRSYS%,RJMEDNM
 if (RJMEDNM = "ERROR")
 	{
 		RJMEDNM= %emuDDLJ%
@@ -47827,7 +47969,7 @@ Loop,parse,RUNBOXGUIITEMS,|
 	}	
 mamecfg= mame.ini
 mamejcfg= default.cfg
-IniRead, RJMAMENM,sets\emuCfgPresets.set,%EXTRSYS%,RJMAMENM
+IniRead, RJMAMENM,emuCfgPresets.ini,%EXTRSYS%,RJMAMENM
 if (RJMAMENM = "ERROR")
 	{
 		RJMAMENM= psx
@@ -55093,7 +55235,7 @@ if (PGRPOPDL = 1)
 if (PGRPOPROM = 1)
 	{
 		guicontrol,,PGPLXMP,|%PGDWNLPOS%||%PGPLPLST%%pgcommon%%systmfldrs%
-		IniRead,sysexlst,sets\emuCfgPresets.set,%PGDWNLPOS%,RJROMXT
+		IniRead,sysexlst,emuCfgPresets.ini,%PGDWNLPOS%,RJROMXT
 		if (sysexlst = "ERROR")
 			{
 				sysexlst= .*
@@ -59070,7 +59212,7 @@ if (RFRPOPDL = 1)
 if (RFRPOPROM = 1)
 	{
 		guicontrol,,RFPLXMP,|%RFDWNLPOS%||%RFPLPLST%%rfcommon%%systmfldrs%
-		IniRead,sysexlst,sets\emuCfgPresets.set,%RFDWNLPOS%,RJROMXT
+		IniRead,sysexlst,emuCfgPresets.ini,%RFDWNLPOS%,RJROMXT
 		if (sysexlst = "ERROR")
 			{
 				sysexlst= .*
@@ -67870,7 +68012,7 @@ Loop, %omitxtn0%
 	}	
 if (FERAD2C = 1)
 	{
-		iniread,bbnbz,sets\EmuCfgPresets.set,%rmfnpth%,RJROMXT
+		iniread,bbnbz,emuCfgPresets.ini,%rmfnpth%,RJROMXT
 		if (bbnbz = "ERROR")
 			{
 				krmswp= 1
@@ -72883,7 +73025,7 @@ Msgbox,3,Delete Confirmation,Are you sure you wish to delete these components fr
 				{
 					fin= 
 					guicontrolget,curslmu,,RJEMUPRECFG
-					iniread,fin,sets\emucfgPresets.set,%RJSYSDD%,SUPEMU
+					iniread,fin,emuCfgPresets.ini,%RJSYSDD%,SUPEMU
 					if ((fin <> "")&&(fin <> "ERROR"))
 					   {
 							fin.= "|ERROR|"
@@ -73874,9 +74016,9 @@ Loop, rj\*.jak
 		IniRead,RJPROPXE,rj\%curjf%.ini,%curjf%,RJPROPXE
 		stringreplace,RJEMUARGS,RJEMUARGS,<,%A_Space%,All
 		IniRead,RJEMUOPTS,rj\%curjf%.ini,%curjf%,RJEMUOPTS
-		iniread,statetrn,sets\emucfgPresets.set,%emuname%,STATEPTH
+		iniread,statetrn,emuCfgPresets.ini,%emuname%,STATEPTH
 		splitpath,stattrn,,CURSTATE
-		iniread,memtrn,sets\emucfgPresets.set,,%emuname%,MEMPTH
+		iniread,memtrn,emuCfgPresets.ini,,%emuname%,MEMPTH
 		
 		splitpath,memtrn,,CURMEM
 
@@ -73918,7 +74060,7 @@ Loop, rj\*.jak
 		if (emulocn = "retroarch")
 			{
 				rjcorea= mame_libretro.dll
-				iniread,rjcoreas,sets\emuCfgPresets.set,%curjf%,SUPCORE
+				iniread,rjcoreas,emuCfgPresets.ini,%curjf%,SUPCORE
 				Loop,Parse,rjcoreas,|
 					{
 						ifexist,%libretrodirectory%\%A_LoopField%
@@ -76375,7 +76517,7 @@ ifexist, rj\%RJSYSDD%.ini
 		PXSTCFG= 1
 	}
 FLTHRU:
-Iniread,defprefs,sets\emuCfgPresets.set,ROMJACKETS
+Iniread,defprefs,emuCfgPresets.ini,ROMJACKETS
 guicontrolget,RJEMUPRECFG,,RJEMUPRECFG
 Loop, parse, defprefs,`n`r
 	{
@@ -76410,12 +76552,12 @@ Loop, parse, defprefs,`n`r
 	}
 READEMUINTORJ:
 guicontrolget,RJEMUPRECFG,,RJEMUPRECFG
-IniRead,RJEMURMPG,sets\emuCfgPresets.set,%RJSYSDD%,RJEMUPRESET
+IniRead,RJEMURMPG,emuCfgPresets.ini,%RJSYSDD%,RJEMUPRESET
 if (SWITCHINEMU <> "")
 	{
 		RJEMURMPG= %RJEMUPRECFG%
 	}
-Iniread,syspref,sets\emuCfgPresets.set,%RJSYSDD%
+Iniread,syspref,emuCfgPresets.ini,%RJSYSDD%
 if (syspref <> "")
 	{
 		loop, parse, syspref,`n`r
@@ -76521,7 +76663,7 @@ if (SWTCHINEMU <> "")
 	{
 		RJEMUPRESET= %RJEMUPRECFG%
 	}
-Iniread,emupref,sets\emuCfgPresets.set,%RJEMUPRESET%
+Iniread,emupref,emuCfgPresets.ini,%RJEMUPRESET%
 if (emupref <> "")
 	{
 		loop, parse, emupref,`n`r
@@ -76833,7 +76975,7 @@ lkupc=
 lkupd=
 lkupe=
 lkupf=
-iniread,lkupa,sets\emuCfgPresets.set,%RJEMUTG%,RJEMUOPTS
+iniread,lkupa,emuCfgPresets.ini,%RJEMUTG%,RJEMUOPTS
 ejespl1=
 if (lkupa <> "ERROR")
 	{
@@ -76849,7 +76991,7 @@ if (lkupa = "ERROR")
 		inidelete,RJEMUOPTS,rj\cur.ini,%RJSYSDD%
 	}
 ejespl1=
-iniread, lkupax,sets\emuCfgPresets.set, %RJSYSDD%,%RJEMUTG%?RJEMUOPTS
+iniread, lkupax,emuCfgPresets.ini, %RJSYSDD%,%RJEMUTG%?RJEMUOPTS
 if (lkupax <> "ERROR")
 	{
 		if (lkupa <> "")
@@ -76861,7 +77003,7 @@ if (lkupax <> "ERROR")
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
 		iniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
-iniread, lkupb,sets\emuCfgPresets.set, %RJEMUTG%, RJEMUARGS
+iniread, lkupb,emuCfgPresets.ini, %RJEMUTG%, RJEMUARGS
 ejespl1=
 if (lkupb <> "ERROR")
 	{
@@ -76876,7 +77018,7 @@ if (lkupb = "ERROR")
 		guicontrol,,RRJEARGSCBX,||%INJARG%
 		inidelete,RJEMUARGS,rj\cur.ini,%RJSYSDD%
 	}
-iniread, lkupbx,sets\emuCfgPresets.set, %RJSYSDD%, %RJEMUTG%?RJEMUARGS
+iniread, lkupbx,emuCfgPresets.ini, %RJSYSDD%, %RJEMUTG%?RJEMUARGS
 ejespl1=
 if (lkupbx <> "ERROR")
 	{
@@ -76889,7 +77031,7 @@ if (lkupbx <> "ERROR")
 		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
 		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,%RJEMUTG%?RJEMUARGS
 	}
-iniread, lkupc,sets\emuCfgPresets.set, %RJEMUTG%, RJPRECFG
+iniread, lkupc,emuCfgPresets.ini, %RJEMUTG%, RJPRECFG
 if (lkupc = "ERROR")
 	{
 		guicontrol,,RJPRECFGCBX,|
@@ -76899,7 +77041,7 @@ if (lkupc <> "ERROR")
 		guicontrol,,RJPRECFGCBX,|%lkupc%||%RJPRECFGR%
 		iniWrite, %lkupc%,rj\cur.ini,%RJSYSDD%,RJPRECFG
 	}
-iniread, lkupd,sets\emuCfgPresets.set, %RJEMUTG%, RJPOSTCFG
+iniread, lkupd,emuCfgPresets.ini, %RJEMUTG%, RJPOSTCFG
 if (lkupd = "ERROR")
 	{
 		guicontrol,,RJPOSTCFGCBX,|
@@ -76909,7 +77051,7 @@ if (lkupd <> "ERROR")
 		guicontrol,,RJPOSTCFGCBX,|%lkupd%||%RJPOSTCFG%
 		iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJPOSTCFG
 	}
-iniread, lkupd,sets\emuCfgPresets.set, %RJEMUTG%, RJEXTRARC
+iniread, lkupd,emuCfgPresets.ini, %RJEMUTG%, RJEXTRARC
 if (lkupd <> "ERROR")
 	{
 		guicontrol,,RJENXTRARC,0
@@ -76919,7 +77061,7 @@ if (lkupd <> "ERROR")
 			}
 	}
 iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJEXTRARC
-iniread, lkupe,sets\emuCfgPresets.set, %RJEMUTG%, RJRUNDIR
+iniread, lkupe,emuCfgPresets.ini, %RJEMUTG%, RJRUNDIR
 if (lkupe <> "ERROR")
 	{
 		if (lkupe = 1)
@@ -76932,7 +77074,7 @@ if (lkupe <> "ERROR")
 			}
 	}
 iniWrite, %lkupe%,rj\cur.ini,%RJSYSDD%,RJRUNDIR
-iniread, lkupf,sets\emuCfgPresets.set, %RJEMUTG%, RJROMXT
+iniread, lkupf,emuCfgPresets.ini, %RJEMUTG%, RJROMXT
 if (lkupf <> "ERROR")
 	{
 		guicontrol,,RJEMUXTCBX,|%lkupf%||%RJEMUXTCBX%
@@ -77149,7 +77291,7 @@ gosub, RJUPDATEDISP
 return
 RJSYSRADB:
 gui,submit,nohide
-Iniread,syspref,sets\emuCfgPresets.set,%RJSYSDD%
+Iniread,syspref,emuCfgPresets.ini,%RJSYSDD%
 if (syspref <> "ERROR")
 	{
 		loop, parse, syspref,`n`r
@@ -79009,14 +79151,14 @@ if (coe <> "dll")
 		iniread,RunOptions,AppParams.ini,%coreselv%,options
 		ifinstring,coreselv,mame
 			{
-				iniread,RJMAMENM,sets\emuCfgPresets.set,%romsys%,RJMAMENM
+				iniread,RJMAMENM,emuCfgPresets.ini,%romsys%,RJMAMENM
 				if ((mlmame = "")&&(if fileexist("lm.ini")))
 					{
 						gosub, MAMELMREAD
 					}
 				if (RJMAMENM <> "ERROR")
 					{
-						iniread,CUSTMOPTLST,sets\emuCfgPresets.set,%romsys%,MAME?RJEMUOPTS
+						iniread,CUSTMOPTLST,emuCfgPresets.ini,%romsys%,MAME?RJEMUOPTS
 						if (CUSTMOPTLST <> "ERROR")
 							{
 								Loop,Parse,CUSTMOPTLST,|
@@ -79199,7 +79341,7 @@ if (ari <> "")
 	}
 ifinstring,SysLLst,%sysrev%=
 	{
-		iniread,esfe,sets\emuCfgPresets.set,%sysrev%,SUPEMU
+		iniread,esfe,emuCfgPresets.ini,%sysrev%,SUPEMU
 		Loop,%esfe%
 			{
 				if (A_LoopField = "")
@@ -79214,7 +79356,7 @@ ifinstring,SysLLst,%sysrev%=
 						return
 					}
 			}
-		iniread,esfc,sets\emuCfgPresets.set,%sysrev%,SUPCORE
+		iniread,esfc,emuCfgPresets.ini,%sysrev%,SUPCORE
 		if (raexefile <> "")
 			{
 				Loop,parse,esfc,`n`r
@@ -80270,7 +80412,7 @@ extractrun:
 efek= |=""
 fein= %omitxt%
 kro= 1
-iniread,extpl,sets\EmuCfgPresets.set,%EXTRSYS%,RJROMXT
+iniread,extpl,emuCfgPresets.ini,%EXTRSYS%,RJROMXT
 if (extpl <> "ERROR")
 	{
 		efek= `,
@@ -80427,8 +80569,8 @@ if (coremsvc = "")
 			{
 				ifinstring,coreselv,mame
 					{
-						iniread,RJMAMENM,sets\emuCfgPresets.set,%EXTRSYS%,RJMAMENM
-						iniread,CUSTMOPTLST,sets\emuCfgPresets.set,%EXTRSYS%,MAME?RJEMUOPTS
+						iniread,RJMAMENM,emuCfgPresets.ini,%EXTRSYS%,RJMAMENM
+						iniread,CUSTMOPTLST,emuCfgPresets.ini,%EXTRSYS%,MAME?RJEMUOPTS
 						if (CUSTMOPTLST <> "ERROR")
 							{
 								Loop,Parse,CUSTMOPTLST,|
@@ -81746,8 +81888,8 @@ fileappend,%syslist%,sys.ini
 fileappend,%msyslist%,msys.ini
 guicontrol,,ARCSYS,|Select A System||%syslist%
 mame_sys=
-fileread,emucfgpr,sets\emucfgPresets.set
-iniread,pnvf,sets\emucfgPresets.set
+fileread,emucfgpr,emuCfgPresets.ini
+iniread,pnvf,emuCfgPresets.ini
 systrt=
 Loop,parse,pnvf,`n`r
 	{
@@ -81765,7 +81907,7 @@ Loop,parse,pnvf,`n`r
 			}
 		nwsys= %A_LoopField%
 		ecfsysn= %A_LoopField%
-		iniread,bbvr,sets\emucfgPresets.set,%nwsys%,RJMAMENM
+		iniread,bbvr,emuCfgPresets.ini,%nwsys%,RJMAMENM
 		mamad= 
 		sysfnd= 
 		Loop, Parse, msyslist,|
