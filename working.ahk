@@ -248,6 +248,7 @@ IfNotExist,mediafe.ini
 	{
 		FileCopy,sets\mediafe.set,mediafe.ini
 	}
+fileread,oldlkup,sets\lkup.set	
 Iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
 splitpath,raexeloc,RaExeFile,raexedir
 RJQNUM:= 0
@@ -4746,6 +4747,8 @@ If A_GuiControlEvent RightClick
 				{
 					return
 				}
+			keyin=%ARCSYS%
+			gosub,TransformSys	
 			Menu, ARSOCCFG, Show, %A_GuiX% %A_GuiY%
 			return
 		}
@@ -4880,6 +4883,36 @@ SB_SetText("...ROM location is opening...")
 Run, explorer.exe %romrow%,%romrow%
 SB_SetText("")
 return
+
+TransformSys:
+keyout=
+Loop,parse,oldlkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,ebi,A_LoopField,=
+		if (ebi1 = keyin)
+			{
+				Loop,parse,sysllst,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,ebv,A_LOopField,=
+						if (ebi2 = ebv2)
+							{
+								keyout= %ebv1%
+								break
+							}
+					}
+				break	
+			}
+	}
+return
+
 RBLDRUNLST:
 addemu=
 glbsysa=
@@ -5081,8 +5114,7 @@ Loop,parse,sysllst,`n`r
 		if (hiu1 = ADDCORE)
 			{
 				fnkdsh= %hiu2%
-				fileread,hih,sets\lkup.set
-				Loop,parse,hih,`n`r
+				Loop,parse,oldlkup,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -5127,6 +5159,7 @@ Loop,parse,sysllst,`n`r
 								stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%OldSysN%|
 								stringreplace,initfldrs,initfldrs,%ADDCORE%|,%OldSysN%|
 								stringreplace,allsupport,allsupport,%ADDCORE%|,%OldSysN%|
+								stringreplace,knownfldrs,knownfldrs,%ADDCORE%|,%OldSysN%|
 								stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%OldSysN%`n
 								filedelete,lkup.ini
 								stringreplace,sysllst,sysllst,%ADDCORE%=,%OldSysN%=
@@ -5139,6 +5172,9 @@ Loop,parse,sysllst,`n`r
 												ifmsgbox,yes
 													{
 														fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%OldSysN%,R
+														iniread,beb,SystemLocations.ini,LOCATIONS,%OldSysN%
+														stringreplace,beb,beb,%RJSYSTEMS%\%ADDCORE%|,%RJSYSTEMS%\%OldSysN%|
+														iniwrite,"%beb%",SystemLocations.ini,LOCATIONS,%OldSysN%
 													}
 											}
 									}
@@ -5304,6 +5340,7 @@ stringreplace,sysllst,sysllst,%ADDCORE%|,%RenOSys%|
 stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%RenOSys%|
 stringreplace,initfldrs,initfldrs,%ADDCORE%|,%RenOSys%|
 stringreplace,allsupport,allsupport,%ADDCORE%|,%RenOSys%|
+stringreplace,knownfldrs,knownfldrs,%ADDCORE%|,%RenOSys%|
 stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%RenOSys%`n
 filedelete,lkup.ini
 stringreplace,sysllst,sysllst,%ADDCORE%=,%RENOSYS%=
@@ -5316,6 +5353,10 @@ ifexist,%RJSYSTEMS%\%ADDCORE%\
 				ifmsgbox,yes
 					{
 						fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%RENOSYS%,R
+						iniread,beb,SystemLocations.ini,LOCATIONS,%RENOSYS%
+						stringreplace,beb,beb,%RJSYSTEMS%\%ADDCORE%|,%RJSYSTEMS%\%RENOSYS%|
+						msgbox,,,beb=%beb%
+						iniwrite,"%beb%",SystemLocations.ini,LOCATIONS,%RENOSYS%
 					}
 			}
 	}
@@ -5668,7 +5709,7 @@ if (plenb = 0)
 		return
 	}
 poprc=
-IniRead,poprc,Assignments.ini,OVERRIDES,%EXTRSYS%
+IniRead,poprc,Assignments.ini,OVERRIDES,%keyout%
 if (poprc <> "")
 	{
 		poprc= |%poprc%|
@@ -5679,7 +5720,7 @@ else
 	}
 adfn=
 Menu, AQRUN, Add
-iniread,aimn,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
+iniread,aimn,emuCfgPresets.ini,%keyout%,SUPEMU
 Loop,parse,aim,|
 	{
 		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
@@ -5691,7 +5732,7 @@ Loop,parse,aim,|
 	}
 if (raexefile <> "")
 	{
-		iniread,aimc,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
+		iniread,aimc,emuCfgPresets.ini,%keyout%,SUPCORE
 		Loop, Parse,aimc,|
 			{
 				if (A_LoopField = "")
@@ -35781,8 +35822,8 @@ if (LNCHPT = 0)
 		goto, MatchSyst
 	}
 oil=
-iniread,oil,Assignments.ini,OVERRIDES,%EXTRSYS%
-if ((oil = "ERROR")or(EXTRSYS = ""))
+iniread,oil,Assignments.ini,OVERRIDES,%keyout%
+if ((oil = "ERROR")or(keyout = ""))
 	{
 		ARCCORES=
 		topcore= ||%runlist%
@@ -35790,7 +35831,7 @@ if ((oil = "ERROR")or(EXTRSYS = ""))
 	}
 if (oil = "")
 	{
-		iniread,vchk,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
+		iniread,vchk,emuCfgPresets.ini,%keyout%,SUPEMU
 		if ((vchk <> "ERROR")&&(vchk <> ""))
 			{
 				Loop,parse,vchk,|
@@ -35819,9 +35860,9 @@ goto,INSCOR
 
 recore=
 ARCCORES=
-ifinstring,SysLLst,%EXTRSYS%=
+ifinstring,SysLLst,%keyout%=
 	{
-		iniread,symfc,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
+		iniread,symfc,emuCfgPresets.ini,%keyout%,SUPCORE
 		if (raexefile <> "")
 			{
 				Loop, Parse, symfc,|
@@ -35839,7 +35880,7 @@ ifinstring,SysLLst,%EXTRSYS%=
 					}
 				if (librk <> 1)
 					{
-						iniread,symfe,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
+						iniread,symfe,emuCfgPresets.ini,%keyout%,SUPEMU
 						Loop, Parse, symfe,|
 							{
 								if (A_LoopField = "")
@@ -35882,7 +35923,7 @@ return
 MatchSyst:
 coretograb=
 selctdcore= 
-IniRead,stevr,emuCfgPresets.ini,%EXTRSYS%,SUPCORE
+IniRead,stevr,emuCfgPresets.ini,%keyout%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
 		Loop, Parse, stevr,|
@@ -36042,6 +36083,8 @@ ArCnct:
 norun= 1
 guicontrolget,coreselv,,ARCCORES
 guicontrolget,romsys,,ARCSYS
+keyin=%romsys%
+gosub,TransformSys
 guicontrol,,RETROM,0
 RETROM= 0
 arctvl= 1
@@ -36251,6 +36294,8 @@ BRKO= 1
 guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 guicontrolget,ARCSYS,,ARCSYS
+keyin=%ARCSYS%
+gosub,TransformSys
 guicontrol,,SRCHDDL,|%ARCSYS%||
 pop_list=
 loop, Read, %addrplst%
@@ -36733,6 +36778,8 @@ genlst=
 gui,submit,nohide
 guicontrol,enable,RNMJACK
 guicontrolget,EXTRSYS,,ARCSYS
+keyin=%EXTRSYS%
+gosub,TransformSys
 guicontrolget,DOWNONLY,,DOWNONLY
 guicontrolget,tmprm,,ARCPOP
 guicontrol,hide,sortoverride
@@ -37065,6 +37112,8 @@ Loop, Parse, tmpsr,|
 			}
 		guicontrol,,ARCSYS,|%romsys%||Select a System|%sysddllist%
 		guicontrolget,EXTRSYS,,ARCSYS
+		keyin=%EXTRSYS%
+		gosub,TransformSys
 		srchpopcul= %A_LoopField%
 		guicontrol,enable,RNMJACK
 		if ((arccct <> "")&&(arccct <> "Emu_Preset")&&(arccct <> "ERROR"))
@@ -37398,6 +37447,8 @@ guicontrol,,SRCHRSLT,|
 guicontrol,,ARCPOP,|
 gui, submit, nohide
 guicontrolget,ARCSYS,,ARCSYS
+keyin=%ARCSYS%
+gosub,TransformSys
 if (ARCSYS = "")
 	{
 		return
@@ -37512,7 +37563,7 @@ if (ARCSEL = 2)
 jacktshw= hide
 guicontrol,,ARCPOP,|%pop_list%
 OVDCHKB= $	
-iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 if (lnchparam = "ERROR")
 	{
 		guicontrol,,JACKETMODE,1
@@ -37689,28 +37740,30 @@ if (tmprm = "")
 	{
 		return
 	}
-ifnotinstring,systmfldrs,%ARCSYS%
-sysmfldrs.= ARCSYS . "|"
+ifnotinstring,systmfldrs,%keyout%
+systmfldrs.= keyout . "|"
 guicontrol,,RUNFLRAD,1
-guicontrol,,RUNSYSDDL,|%ARCSYS%||%INITFLDRS%
+guicontrol,,RUNSYSDDL,|%keyout%||%INITFLDRS%
 guicontrol,,MORROM,|%afnchk%||%HISTORY%
 guicontrol,,LCORE,|%ARCCORES%||%runlist%
-EXTRSYS= %ARCSYS%
-ROMSYS= %ARCSYS%
+EXTRSYS= %keyout%
+ROMSYS= %keyout%
 EDTRMFN= %romfname%
 aemcfg= 1
 gosub, OPNCOREV
 return
 ARSRST:
 gui,submit,nohide
-iniread,tofv,sets\launchparams.set,LAUNCHPARAMS,%ARCSYS%
-iniwrite,%tofv%,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
-SB_SetText(" " ARCSYS " sytem paramaters reset")
+iniread,tofv,sets\launchparams.set,LAUNCHPARAMS,%keyout%
+iniwrite,%tofv%,launchparams.ini,LAUNCHPARAMS,%keyout%
+SB_SetText(" " keyout " sytem paramaters reset")
 gosub, ArchiveSystems
 return
 ARSCFG:
 gui,submit,nohide
 guicontrolget,RCLSYSTEM,,ARCSYS
+keyin=%RCLSYSTEM%
+gosub,TransformSys
 goto, ARCFGCONT
 MULTIDISCETECT:
 return
@@ -37885,7 +37938,7 @@ ExtractURL:
 gui,submit,nohide
 guicontrol,,sortoverride,0
 guicontrolget,EXTRURL,,EXTRURL
-iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%keyout%
 stringsplit,tmpsx,tmpsw,|
 if (EXTRURL = 0)
 	{
@@ -38330,6 +38383,8 @@ romtch=
 srcharcs=
 romdwnlst=
 guicontrolget,EXTRSYS,,ARCSYS
+keyin=%EXTRSYS%
+gosub,TransformSys
 if (ENHAK = 1)
 	{
 		HACKAPN= #HACKS#
@@ -38346,6 +38401,7 @@ if (romdwnlst = "")
 	}
 sysddlist= %syslist%
 stringreplace,EXTRSYSNH,EXTRSYS,#HACKS#,,All
+stringreplace,keyout,keyout,#HACKS#,,All
 romsys= %EXTRSYSNH%
 Loop, parse, romdwnlst,|
 	{
@@ -38358,14 +38414,14 @@ Loop, parse, romdwnlst,|
 		gosub, ArcPPND
 		guicontrolget,OVDLDS,,OVDLDS
 		guicontrolget,OVDFLDR,,OVDTXT
-		iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+		iniread,ksr,SystemLocations.ini,LOCATIONS,%keyout%
 		if (ksr = "ERROR")
 			{
 				ksr=
 			}
 		if (ksr = "")
 			{
-				ACSVDEST= %RJSYSTEMS%\%romsys%
+				ACSVDEST= %RJSYSTEMS%\%keyout%
 			}
 			else {
 				stringsplit,fir,ksr,|
@@ -38374,7 +38430,7 @@ Loop, parse, romdwnlst,|
 		ifnotexist,%ACSVDEST%\
 			{
 				apndx= 
-				iniread,supemz,emuCfgPresets.ini,%EXTRSYS%,SUPEMU
+				iniread,supemz,emuCfgPresets.ini,%keyout%,SUPEMU
 				Loop,parse,supemz,|
 					{
 						if (A_LoopField = "")
@@ -38383,13 +38439,13 @@ Loop, parse, romdwnlst,|
 							}
 						krvr= %A_LoopField%
 						iniread,supemx,Apps.ini,EMULATORS,%krvr%
-						iniread,supemv,Assignments.ini,OVERRIDES,%EXTRSYS%
+						iniread,supemv,Assignments.ini,OVERRIDES,%keyout%
 						if ((supemx <> "ERROR")&&(supemx <> "")&&(supemv = ""))
 							{
 								apndx.= supemx . "|"
 							}
 					}
-				iniwrite,"%apndx%",Assignments.ini,OVERRIDES,%EXTRSYS%
+				iniwrite,"%apndx%",Assignments.ini,OVERRIDES,%keyout%
 				if ((romsys <> "BIOS - BIOS") && (romsys <> "- firmware -"))
 					{
 						FileCreateDir,%ACSVDEST%
@@ -38398,7 +38454,7 @@ Loop, parse, romdwnlst,|
 			}
 		if (sortoverride = 0)
 			{
-				iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%romsys%
+				iniread,jkspl,Launchparams.ini,LAUNCHPARAMS,%keyout%
 				stringsplit,aprm,jkspl,|
 				OVDFLDR= %aprm1%
 				if (OVDFLDR <> "$")
@@ -38427,14 +38483,14 @@ Loop, parse, romdwnlst,|
 							OVDCHK= 0
 							OVDFLDR=
 						}
-				iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+				iniread,ksr,SystemLocations.ini,LOCATIONS,%keyout%
 				if (ksr = "ERROR")
 					{
 						ksr=
 					}
 				if ((ksr = "")&&(OVDCHK <> 1))
 					{
-						ACSVDEST= %RJSYSTEMS%\%romsys%
+						ACSVDEST= %RJSYSTEMS%\%keyout%
 					}
 					else {
 						if (ksr <> "")
@@ -38443,7 +38499,7 @@ Loop, parse, romdwnlst,|
 								ACSVDEST= %fir1%
 							}
 					}
-				;;ACSVDEST= %RJSYSTEMS%\%romsys%
+				;;ACSVDEST= %RJSYSTEMS%\%keyout%
 				JACKETMODE= %aprm2%
 				EXTRURL= %aprm3%
 				EXTEXPLD= %aprm4%
@@ -38471,20 +38527,20 @@ Loop, parse, romdwnlst,|
 					{
 						if (OVDCHK = 0)
 							{
-								iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+								iniread,ksr,SystemLocations.ini,LOCATIONS,%keyout%
 								if (ksr = "ERROR")
 									{
 										ksr=
 									}
 								if (ksr = "")
 									{
-										ACSVDEST= %RJSYSTEMS%\%romsys%
+										ACSVDEST= %RJSYSTEMS%\%keyout%
 									}
 									else {
 										stringsplit,fir,ksr,|
 										ACSVDEST= %fir1%
 									}
-								;;ACSVDEST= %RJSYSTEMS%\%romsys%
+								;;ACSVDEST= %RJSYSTEMS%\%keyout%
 								if (EXTRSYS = "- firmware -")
 									{
 										iniread,mame_verx,Apps.ini,EMULATORS,MAME
@@ -38513,20 +38569,23 @@ Loop, parse, romdwnlst,|
 								if (OVDLDS = "Matching")
 									{
 										OVDCHK= 0
-										iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+										iniread,ksr,SystemLocations.ini,LOCATIONS,%keyout%
 										if (ksr = "ERROR")
 											{
 												ksr=
 											}
 										if (ksr = "")
 											{
-												ACSVDEST= %RJSYSTEMS%\%romsys%
+												ACSVDEST= %RJSYSTEMS%\%keyout%
 											}
 											else {
 												stringsplit,fir,ksr,|
 												ACSVDEST= %fir1%
 											}
-										;;ACSVDEST= %RJSYSTEMS%\%romsys%
+										;;ACSVDEST= %RJSYSTEMS%\%keyout%
+										;;ACSVDEST= %RJSYSTEMS%\%keyout%
+										;;ACSVDEST= %RJSYSTEMS%\%keyout%
+										;;ACSVDEST= %RJSYSTEMS%\%keyout%
 									}
 									else
 										{
@@ -38644,7 +38703,7 @@ if (arcpnum > 1)
 		SB_SetText("select a single item")
 		return
 	}
-srchgmf= %SRCHMET%\%HACKAPN%%ARCSYS%.gam	
+srchgmf= %SRCHMET%\%HACKAPN%%keyout%.gam	
 if (opndgam = 1)
 	{
 		srchgmf= %addrplst%
@@ -38660,7 +38719,7 @@ if (tmprm <> "")
 								continue
 							}
 						stringsplit,ji,A_LoopField,|
-						if (ARCSYS = ji2)
+						if (keyout = ji2)
 							{
 								srchgmf= %SRCHMET%\%ji1%.gam
 								Loop, read, %SRCHMET%\%ji1%.gam
@@ -38701,7 +38760,7 @@ if (tmprm <> "")
 												if (instr(ave3,"<") && instr(ave3,">"))
 													{
 														stringsplit,axrm,ave3,|:,<>
-														iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+														iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 														guicontrol,,DOWNONLY,1
 														gosub, DownOnly
 														guicontrol,,JACKETMODE,%axrm2%
@@ -38750,7 +38809,7 @@ if (tmprm <> "")
 						if (instr(ave3,">")&& instr(ave3,"<"))
 							{
 								stringsplit,axrm,ave3,:|,<>
-								iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+								iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 								guicontrol,,DOWNONLY,1
 								gosub,DownOnly
 								guicontrol,,JACKETMODE,%axrm2%
@@ -38850,7 +38909,11 @@ if (tmpsr <> "")
 								if (instr(ave3,">")&& instr(ave3,"<"))
 									{
 										stringsplit,avtst,ave3,:,<>
-										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 										guicontrol,,DOWNONLY,1
 										gosub,DownOnly
 										guicontrol,,JACKETMODE,%axrm2%
@@ -38931,7 +38994,7 @@ ifnotexist, %save%
 				goto, DWNLOADTST
 			}
 		klp=
-		iniread,ksr,SystemLocations.ini,LOCATIONS,%romsys%
+		iniread,ksr,SystemLocations.ini,LOCATIONS,%keyout%
 		fndpath= %ksr%\%rjinsfldr%%romname%
 		if (ksr = "ERROR")
 			{
@@ -38939,7 +39002,7 @@ ifnotexist, %save%
 			}
 		if (ksr = "")
 			{
-				fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+				fndpath= %RJSYSTEMS%\%keyout%\%rjinsfldr%%romname%
 				if (MAMESWCHK = 1)
 					{
 						iniread,carnsys,emuCfgPresets.ini,%romsys%,RJMAMENM
@@ -38950,7 +39013,7 @@ ifnotexist, %save%
 						fndpath= %RJSYSTEMS%\%MESSYS%\%carnsys%
 					}
 			}
-		;;fndpath= %RJSYSTEMS%\%romsys%\%rjinsfldr%%romname%
+		;;fndpath= %RJSYSTEMS%\%keyout%\%rjinsfldr%%romname%
 		gosub, LkExtrExt
 		if (romshere = "X")
 			{
@@ -39149,7 +39212,7 @@ if (romf = "")
 lastcore= %coreselv%
 guicontrol,,MORROM, |%romf%||%HISTORY%
 guicontrol,,RUNFLRAD,1
-guicontrol,,RUNSYSDDL,|%EXTRSYS%||%INITFLDRS%
+guicontrol,,RUNSYSDDL,|%keyout%||%INITFLDRS%
 guicontrol,,LCORE, |%lastcore%||%runlist%
 ifnotexist, %save%
 	{
@@ -39299,8 +39362,8 @@ Loop, files, %ACSVDEST%\*.rar
 		FileMove, %A_LoopFileFullPath%,%A_LoopFileFullPath%.bak
 		if (ArcMove = 1)
 			{
-				FileCreatedir,%cacheloc%\%romsys%\%romname%
-				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%romsys%\%romname%,1
+				FileCreatedir,%cacheloc%\%keyout%\%romname%
+				fileMove,%A_LoopFileFullPath%.bak,%cacheloc%\%keyout%\%romname%,1
 			}
 	}
 Loop, Files, %xtrdir%\*.*,R
@@ -39310,8 +39373,8 @@ Loop, Files, %xtrdir%\*.*,R
 FileMove,%ACSVDEST%\%romname%.bak, %ACSVDEST%\%romname%.rar, 1
 if (ArcMove = 1)
 	{
-		FileCreatedir,%cacheloc%\%romsys%\%romname%
-		fileMove, %ACSVDEST%\%romname%.rar,%cacheloc%\%romsys%\%romname%,1
+		FileCreatedir,%cacheloc%\%keyout%\%romname%
+		fileMove, %ACSVDEST%\%romname%.rar,%cacheloc%\%keyout%\%romname%,1
 	}
 return
 7zXtr:
@@ -39370,17 +39433,17 @@ if (klp = "")
 ArcMtst:
 if (ArcMove = 1)
 	{
-		FileCreateDir,%cacheloc%\%romsys%\%romname%
+		FileCreateDir,%cacheloc%\%keyout%\%romname%
 		if ((save <> romf)or(srvn = 0))
 			{
-				FileMove,%save%,%cacheloc%\%romsys%\%romname%,1
+				FileMove,%save%,%cacheloc%\%keyout%\%romname%,1
 			}
 	}
 return
 
 LkExtrExt:
 klp=
-iniread,lookf,emuCfgPresets.ini,%romsys%,RJROMXT
+iniread,lookf,emuCfgPresets.ini,%keyout%,RJROMXT
 if (lookf = "ERROR")
 	{
 		klp= 1
@@ -39465,7 +39528,7 @@ if (coreslc2 = "dll")
 			return
 	}
 LkXtrRom:
-iniread,lookf,emuCfgPresets.ini,%romsys%,RJROMXT
+iniread,lookf,emuCfgPresets.ini,%keyout%,RJROMXT
 if (lookf = "ERROR")
 	{
 		return
@@ -44248,6 +44311,8 @@ if (ROMSYS = "")
 		if (rmst = "")
 			{
 				guicontrolget,rmst,,ARCSYS
+				keyin=%rmst%
+			gosub,TransformSys
 				if (rmst = "Select a System")
 					{
 						ROMSYS= Sony - Playstation
@@ -48354,6 +48419,8 @@ if (ROMSYS = "")
 		if (rmst = "")
 			{
 				guicontrolget,rmst,,ARCSYS
+				keyin=%rmst%
+				gosub,TransformSys
 				if (rmst = "Select a System")
 					{
 						ROMSYS= Sony - Playstation
