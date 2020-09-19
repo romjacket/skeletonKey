@@ -79920,7 +79920,7 @@ if (tstxtn = ".sgx")
 	}
 if ((tstxtn = ".smd")or(tstxtn = ".gen")or(tstxtn = ".md"))
 	{
-		sysrev=% %SEGAG%
+		sysrev=% %SMEGAD%
 		gosub,OpnAssign
 		Return
 	}
