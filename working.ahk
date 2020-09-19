@@ -79820,25 +79820,25 @@ Loop,parse,unknszstr,|
 	}
 if (tstxtn = ".gdi")
 	{
-		sysrev=% %SEGDC%
+		sysrev=%SEGDC%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".cso")or(tstxtn = ".ciso")or(tstxtn = ".jso")or(tstxtn = ".psp")or(tstxtn = ".prx")or(tstxtn = ".pbp"))
 	{		
-		sysrev=% %SPLAYP%
+		sysrev=%SPLAYP%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".3ds")
 	{		
-		sysrev=% %NN3DS%
+		sysrev=%NN3DS%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".wbfs")
 	{		
-		sysrev=% %NWII%
+		sysrev=%NWII%
 		gosub,OpnAssign
 		Return
 	}
@@ -79849,7 +79849,7 @@ if (romsz < 10000)
 	}
 if ((tstxtn = ".ds")or(tstxtn = ".srl")or(tstxtn = ".nds")or(tstxtn = ".nd5"))
 	{		
-		sysrev=% %NNDS%
+		sysrev=%NNDS%
 		gosub,OpnAssign
 		Return
 	}
@@ -79865,80 +79865,80 @@ Loop,parse,unkszstr,|
 	}
 if ((tstxtn = ".dup")or(tstxtn = ".dim"))
 	{
-		sysrev=% %SHARP68K%
+		sysrev=%SHARP68K%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".nhd")or(tstxtn = ".thd")or(tstxtn = ".vhd"))
 	{		
-		sysrev=% %NPC98%
+		sysrev=%NPC98%
 		gosub, OpnAssign
 		Return
 	}
 MDSZ:
 if ((tstxtn = ".pal")or(tstxtn = ".usa")or(tstxtn = ".u64")or(tstxtn = ".v64")or(tstxtn = ".z64"))
 	{
-		sysrev=% %NN64%
+		sysrev=%NN64%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".j64")or(tstxtn = ".jag"))
 	{
-		sysrev=% %ATJAG%
+		sysrev=%ATJAG%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".adf")or(tstxtn = ".amiga"))
 	{
-		sysrev=% %AMIG%
+		sysrev=%AMIG%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".32x")
 	{
-		sysrev=% %SG32X%
+		sysrev=%SG32X%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gba")
 	{
-		sysrev=% %NNGBA%
+		sysrev=%NNGBA%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sgb")
 	{
-		sysrev=% %NSGB%
+		sysrev=%NSGB%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sgx")
 	{		
-		sysrev=% %NSGX%
+		sysrev=%NSGX%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".smd")or(tstxtn = ".gen")or(tstxtn = ".md"))
 	{
-		sysrev=% %SMEGAD%
+		sysrev=%SMEGAD%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".pco")
 	{
-		sysrev=% %SPICO%
+		sysrev=%SPICO%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sfc")
 	{
-		sysrev=% %NSFAM%
+		sysrev=%NSFAM%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".smc")
 	{
-		sysrev=% %NSNES%
+		sysrev=%NSNES%
 		gosub,OpnAssign
 		Return
 	}
@@ -79950,153 +79950,153 @@ if (tstxtn = ".bml")
 	}
 if (tstxtn = ".pce")
 	{
-		sysrev=% %NPCENG%
+		sysrev=%NPCENG%
 		gosub,OpnAssign
 		Return
 	}
 SMSZ:
 if (tstxtn = ".ngc")
 	{
-		sysrev=% %SNEOPKTC%
+		sysrev=%SNEOPKTC%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".ngp")or(tstxtn = ".npk"))
 	{
-		sysrev=% %SNEOPKT%
+		sysrev=%SNEOPKT%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gg")
 	{
-		sysrev=% %SGG%
+		sysrev=%SGG%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".int")or(tstxtn = ".intv"))
 	{
-		sysrev=% %MINTEL%
+		sysrev=%MINTEL%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gb")
 	{		
-		sysrev=% %NNGB%
+		sysrev=%NNGB%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".ws")
 	{
-		sysrev=% %BWSWAN%
+		sysrev=%BWSWAN%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".msa")or(tstxtn = ".st")or(tstxtn = ".stx"))
 	{
-		sysrev=% %ATST%
+		sysrev=%ATST%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".lnx")
 	{
-		sysrev=% %ATLNX%
+		sysrev=%ATLNX%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sg")
 	{
-		sysrev=% %SSG1K%
+		sysrev=%SSG1K%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sms")
 	{
-		sysrev=% %SEGMS%
+		sysrev=%SEGMS%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".wsc")
 	{
-		sysrev=% %BWSWANC%
+		sysrev=%BWSWANC%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".vec")
 	{
-		sysrev=% %VECX%
+		sysrev=%VECX%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".fds")or(tstxtn = ".fam"))
 	{		
-		sysrev=% %NNFAM%
+		sysrev=%NNFAM%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gcm")
 	{		
-		sysrev=% %NNGC%
+		sysrev=%NNGC%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".vb")or(tstxtn = ".vboy"))
 	{		
-		sysrev=% %NNVB%
+		sysrev=%NNVB%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".obx")or(tstxtn = ".dcm")or(tstxtn = ".xex")or(tstxtn = ".pro")or(tstxtn = ".atz")or(tstxtn = ".xfd")or(tstxtn = ".atx")or(tstxtn = ".atr"))
 	{
-		sysrev=% %AT8H%
+		sysrev=%AT8H%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".unf")or(tstxtn = ".nez")or(tstxtn = ".nsf")or(tstxtn = ".nes"))
 	{		
-		sysrev=% %NNES%
+		sysrev=%NNES%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".di1")or(tstxtn = ".di2")or(tstxtn = ".360")or(tstxtn = ".720")or(tstxtn = ".ri")or(tstxtn = ".sc")or(tstxtn = ".sf7")or(tstxtn = ".mx1")or(tstxtn = ".mx2"))
 	{
-		sysrev=% %MSX%
+		sysrev=%MSX%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gbc")
 	{
-		sysrev=% %NNGBC%
+		sysrev=%NNGBC%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".a78")
 	{		
-		sysrev=% %AT78%
+		sysrev=%AT78%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".a52")
 	{		
-		sysrev=% %AT52%
+		sysrev=%AT52%
 		gosub,OpnAssign
 		Return
 	}
 if ((tstxtn = ".z26")or(tstxtn = ".a26"))
 	{
-		sysrev=% %AT26%
+		sysrev=%AT26%
 		gosub,OpnAssign
 		Return
 	}
 TNSZ:
 if (tstxtn = ".scummvm")
 	{		
-		sysrev=% %SCUMV%
+		sysrev=%SCUMV%
 		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".conf")
 	{
-		sysrev=% %MSDOS%
+		sysrev=%MSDOS%
 		gosub,OpnAssign
 		Return
 	}
@@ -81534,7 +81534,6 @@ if (APLN = 1)
 		goto, SKLNCH
 	}
 pgmargs=
-msgbox,,,k
 if (PGM = 1)
 	{
 		stringreplace,ccv,lcore,_libretro.dll
@@ -81609,8 +81608,6 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}	
 	}
-msgbox,,,"%pgmargs%"
-msgbox,,,"%LNCHCFG%"
 
 SB_SetText(" " raexedir " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
 Runwait, "%raexedir%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexedir%,,
