@@ -83,6 +83,9 @@ ESTHEME=[HOSTINGURL]/esthemes/releases/download/Game-Vault/Game-Vault.zip
 [NextFull]
 ESTHEME=[HOSTINGURL]/esthemes/releases/download/NextFull/NextFull.zip
 
+[art-book]
+ESTHEME=[HOSTINGURL]/esthemes/releases/download/NextFull/art-book.7z
+
 [tronkyjared]
 ESTHEME=[HOSTINGURL]/esthemes/releases/download/TRONKY/tronkyjared.zip
 
@@ -169,6 +172,9 @@ ESTHEME=[HOSTINGURL]/esthemes/raw/master/rj.zip
 
 [simple-dark]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple-dark.zip
+
+[nostalgia-pure]
+ESTHEME=ESTHEME=https://archive.org/download/esthemes_202009/nostalgia-pure.zip
 
 [simple]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple.zip

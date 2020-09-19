@@ -4884,6 +4884,36 @@ Run, explorer.exe %romrow%,%romrow%
 SB_SetText("")
 return
 
+RevTransformSys:
+keyout=
+Loop,parse,sysllst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,ebi,A_LoopField,=
+		if (ebi1 = keyin)
+			{
+				Loop,parse,oldlkup,`n`r
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,ebv,A_LOopField,=
+						if (ebi2 = ebv2)
+							{
+								keyout= %ebv1%
+								break
+							}
+					}
+				break	
+			}
+			keyout= %keyin%
+	}
+return
+
 TransformSys:
 keyout=
 Loop,parse,oldlkup,`n`r
@@ -4910,6 +4940,7 @@ Loop,parse,oldlkup,`n`r
 					}
 				break	
 			}
+			keyout= %keyin%
 	}
 return
 
@@ -5168,7 +5199,7 @@ Loop,parse,sysllst,`n`r
 									{
 										ifnotexist,%RJSYSTEMS%\%OldSysN%\
 											{
-												Msgbox,4,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
+												Msgbox,8196,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
 												ifmsgbox,yes
 													{
 														fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%OldSysN%,R
@@ -5349,13 +5380,12 @@ ifexist,%RJSYSTEMS%\%ADDCORE%\
 	{
 		ifnotexist,%RJSYSTEMS%\%RENOSYS%\
 			{
-				Msgbox,4,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
+				Msgbox,8196,RenameSystem,Rename the`n%ADDCORE%`ndirectory in your systems folder?
 				ifmsgbox,yes
 					{
 						fileMoveDir,%RJSYSTEMS%\%ADDCORE%,%RJSYSTEMS%\%RENOSYS%,R
 						iniread,beb,SystemLocations.ini,LOCATIONS,%RENOSYS%
 						stringreplace,beb,beb,%RJSYSTEMS%\%ADDCORE%|,%RJSYSTEMS%\%RENOSYS%|
-						msgbox,,,beb=%beb%
 						iniwrite,"%beb%",SystemLocations.ini,LOCATIONS,%RENOSYS%
 					}
 			}
@@ -7534,7 +7564,7 @@ FileReadLine,DATECHK,site\version.txt,1
 stringsplit,VERCHKC,DATECHK,=
 if ((VERCHKC3 <> RELEASE)or(DATECHK = "404: Not Found")or(DATECHK = "[CURV]"))
 	{
-		msgbox,4,Update, Update available`n%VERCHKC1%`nWould you like to update skeletonKey?`n(program will close)
+		msgbox,8196,Update, Update available`n%VERCHKC1%`nWould you like to update skeletonKey?`n(program will close)
 		IfMsgBox, yes
 			{
 				gosub, getupdate
@@ -13400,7 +13430,7 @@ if (NwCfgF = "retroarch.cfg")
 			gosub, ApndOpt
 			return
 		}
-msgbox,4,Warning, This is not a skeletonKey configuration`nWould you like to use this file anyway?
+msgbox,8452,Warning, This is not a skeletonKey configuration`nWould you like to use this file anyway?
 ifmsgbox, yes
 	{
 		gosub ApndOpt
@@ -17133,7 +17163,7 @@ corverlk4=
 stringsplit,corverlk,corever,%A_Space%,()
 if (syslk = "bSNES")
 	{
-		ASPOP= Nintendo - Super Nintendo Entertainment System
+		ASPOP= %NSNES%
 		ifInString,corever,Balanced
 			{
 				corelk= bsnes_balanced
@@ -31906,6 +31936,7 @@ return
 NetROM:
 NetHROM:
 gui, submit, nohide
+guicontrolget,NETLPARSE,,NETROMLIST
 BRKO= 1
 romf=
 FileSelectFile,romf,3,%RJSYSTEMS%\%NETLPARSE%
@@ -32198,10 +32229,10 @@ if (NETPLIST = 1)
 				}
 			if (LTA = "")
 				{
-					guicontrol,,ARCSYS,|%NETRPARSE%||%syslist%
+					guicontrol,,ARCSYS,|%keyout%||%syslist%
 					if (MAMESWCHK = 1)
 						{
-							guicontrol,,ARCSYS,|%NETRPARSE%||%mame_sys%
+							guicontrol,,ARCSYS,|%keyout%||%mame_sys%
 						}
 					NPLC= 1
 					guicontrol,,ARCCORES,|%coreselv%||%runlist%
@@ -32231,6 +32262,8 @@ if (NETPLIST = 1)
 matchlist= %dwnlistadd%
 guicontrolget, FORCEROM,,FORCEROM
 guicontrolget, NETLPARSE,,NETCOREASSETS
+keyin=%NETLPARSE%
+gosub,RevTransformSys
 if (NETLPARSE = "")
 	{
 		guicontrol,,NETCOREASSETS,|:=:System List:=:||%systmfldrs%
@@ -32256,22 +32289,23 @@ if (RETROM = 1)
 	}
 Loop, Parse, syslist,|
 	{
-if (NETLPARSE = A_LoopField)
-	{
-		guicontrol,,ARCSYS,|%A_LoopField%||%syslist%
-		if (MAMESWCHK = 1)
+		if (NETLPARSE = A_LoopField)
 			{
-				guicontrol,,ARCSYS,|%A_LoopField%||%mame_sys%
+				guicontrol,,ARCSYS,|%A_LoopField%||%syslist%
+				if (MAMESWCHK = 1)
+					{
+						guicontrol,,ARCSYS,|%A_LoopField%||%mame_sys%
+					}
+				NPLC= 1
+				gosub, ArchiveSystems
+				coreselv= %CONNECTINGCORE%
+				guicontrol,,ARCCORES,|%coreselv%||%runlist%
+				NPLC=
+				break
 			}
-		NPLC= 1
-		gosub, ArchiveSystems
-		coreselv= %CONNECTINGCORE%
-		guicontrol,,ARCCORES,|%coreselv%||%runlist%
-		NPLC=
-		break
 	}
-	}
-iniwrite, "%RJSYSTEMS%\%NETLPARSE%",Settings.ini,GLOBAL,netplay_core_assets_directory
+iniread,ncad,SystemLocations.ini,LOCATIONS,%NETLPARSE%
+;;iniwrite, "%RJSYSTEMS%\%keyout%",Settings.ini,GLOBAL,netplay_core_assets_directory
 actit=
 stringsplit,omitxtn,omitxt,= | ""
 ar := Object()
@@ -32289,29 +32323,37 @@ if (HOSTFND <> 2)
 		NINLPRSE= *
 	}
 ;;;;;;   PROCEDURE  ;;;;;;;
-Loop, %RJSYSTEMS%\%NETLPARSE%\%NINLPRSE%.*,0,%SUPRSRCH%
+
+Loop, parse, ncad,|
 	{
-		if A_LoopFilAttrib contains H
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		ext= %A_LoopFileExt%
-		noapl=
-		for k, v in ar
+		Loop, %RJSYSTEMS%\%A_LoopField%\%NINLPRSE%.*,0,%SUPRSRCH%
 			{
-				extm:= v
-				if (ext = extm)
+				if A_LoopFilAttrib contains H
 					{
-						noapl= 1
+						continue
 					}
+				ext= %A_LoopFileExt%
+				noapl=
+				for k, v in ar
+					{
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
+					}
+				actit=
+				if (noapl = "")
+					{
+						StringLeft,curhostrom,A_LoopFileName,12
+						dwnlistadd.= A_LoopFileFullPath . "|"
+					}
+					stringreplace,dwnlistadd,dwnlistadd,%RJSYSTEMS%\%A_LoopField%\,,All
 			}
-		actit=
-		if (noapl = "")
-			{
-				StringLeft,curhostrom,A_LoopFileName,12
-				dwnlistadd.= A_LoopFileFullPath . "|"
-			}
-			stringreplace,dwnlistadd,dwnlistadd,%RJSYSTEMS%\%NETLPARSE%\,,All
 	}
 matchlist= %dwnlistadd%
 plistplus:= matchlist
@@ -32388,6 +32430,8 @@ nplistnum=
 nplistrp=
 romf=
 gui,submit,nohide
+guicontrolget,NETLPARSE,,NETCOREASSETS
+iniread,ncad,SystemLocations.ini,LOCATIONS,%NETLPARSE%
 gosub, ReadyHost
 gosub,CCNCTCHK
 BRKO= 1
@@ -32428,7 +32472,17 @@ if (NETPLIST = 1)
 	}
 if (NETDWNL = 1)
 	{
-		romf= %RJSYSTEMS%\%NETLPARSE%\%NAMEDROM%
+		Loop,parse,ncad,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				Loop, %A_LoopField%\%NAMEDROM%
+					{
+						romf= %A_LoopFileFullpath%
+					}
+			}
 	}
 gosub,CCNCTCHK
 return
@@ -32486,12 +32540,12 @@ if (AUTSYS = 1)
 			}
 		Loop, Parse, syslist,|
 			{
-				if (A_loopField = NETRPARSE)
+				if (A_loopField = keyout)
 					{
-						guicontrol,,ARCSYS,|%NETRPARSE%||%syslist%
+						guicontrol,,ARCSYS,|%keyout%||%syslist%
 						if (MAMESWCHK = 1)
 							{
-								guicontrol,,ARCSYS,|%NETRPARSE%||%mame_sys%
+								guicontrol,,ARCSYS,|%keyout%||%mame_sys%
 							}
 						break
 					}
@@ -32609,60 +32663,14 @@ if (NETDWNL = 1)
 				}
 		}
 		SB_SetText("...Searching...")
-		Loop, %RJSYSTEMS%\%NETLPARSE%\%HOSTINGROMS%.*,0,%SUPRSRCH%
+		Loop, parse, ncad,|
 			{
-				if A_LoopFileAttrib contains H
+				if (A_LoopField = "")
 					{
 						continue
 					}
-				ext= %A_LoopFileExt%
-				noapl=
-				for k, v in ar
-					{
-						extm:= v
-						if (ext = extm)
-							{
-								noapl= 1
-							}
-					}
-				actit=
-				if (noapl = "")
-					{
-						SB_SetText(" NAME-MATCH " A_LoopFileName " found!!! ")
-						HOSTFND= 1
-						romf:= A_LoopFileFullPath
-						lmxt:= A_LoopFileExt
-						actit.= A_LoopFileFullPath . "|"
-					}
-				Loop, Read,adpl.ini
-					{
-						HASHSPLIT1=
-						HASHSPLIT2=
-						stringsplit, HASHSPLIT,A_LoopReadLine,=
-						if (HASHSPLIT2 = HOSTINGCRCS)
-							{
-								dwncrcm= 1
-								romf= %romf%#%HASHSPLIT1%
-								break
-							}
-					}
-						if (dwncrcm = 1)
-							{
-								SB_SetText(" CRC-MATCH " romf " found! ! ! ")
-								HOSTFND= 1
-								guicontrol,,RETROM,0
-								guicontrol,,NETROMLIST,|%romf%||%matchlist%
-								return
-							}
-				if (dwncrcm = 1)
-					{
-						HOSTFND=
-						break
-					}
-			}
-		if (HOSTFND <> "")
-			{
-				Loop, %RJSYSTEMS%\%NETLPARSE%\%HOSTINGROMS%*,0,%SUPRSRCH%
+				stemi= %A_LoopField%
+				Loop, %RJSYSTEMS%\%stemi%\%HOSTINGROMS%.*,0,%SUPRSRCH%
 					{
 						if A_LoopFileAttrib contains H
 							{
@@ -32682,7 +32690,7 @@ if (NETDWNL = 1)
 						if (noapl = "")
 							{
 								SB_SetText(" NAME-MATCH " A_LoopFileName " found!!! ")
-								HOSTFND=
+								HOSTFND= 1
 								romf:= A_LoopFileFullPath
 								lmxt:= A_LoopFileExt
 								actit.= A_LoopFileFullPath . "|"
@@ -32696,27 +32704,81 @@ if (NETDWNL = 1)
 									{
 										dwncrcm= 1
 										romf= %romf%#%HASHSPLIT1%
+										break
 									}
+							}
 								if (dwncrcm = 1)
 									{
-										HOSTFND=
 										SB_SetText(" CRC-MATCH " romf " found! ! ! ")
+										HOSTFND= 1
 										guicontrol,,RETROM,0
 										guicontrol,,NETROMLIST,|%romf%||%matchlist%
 										return
 									}
-							}
 						if (dwncrcm = 1)
 							{
 								HOSTFND=
 								break
 							}
 					}
-			}
-		guicontrol,,NETROMLIST,|%actit%||%plistplus%
-		if (actit <> "")
-			{
-				return
+				if (HOSTFND <> "")
+					{
+						Loop, %RJSYSTEMS%\%stemi%\%HOSTINGROMS%*,0,%SUPRSRCH%
+							{
+								if A_LoopFileAttrib contains H
+									{
+										continue
+									}
+								ext= %A_LoopFileExt%
+								noapl=
+								for k, v in ar
+									{
+										extm:= v
+										if (ext = extm)
+											{
+												noapl= 1
+											}
+									}
+								actit=
+								if (noapl = "")
+									{
+										SB_SetText(" NAME-MATCH " A_LoopFileName " found!!! ")
+										HOSTFND=
+										romf:= A_LoopFileFullPath
+										lmxt:= A_LoopFileExt
+										actit.= A_LoopFileFullPath . "|"
+									}
+								Loop, Read,adpl.ini
+									{
+										HASHSPLIT1=
+										HASHSPLIT2=
+										stringsplit, HASHSPLIT,A_LoopReadLine,=
+										if (HASHSPLIT2 = HOSTINGCRCS)
+											{
+												dwncrcm= 1
+												romf= %romf%#%HASHSPLIT1%
+											}
+										if (dwncrcm = 1)
+											{
+												HOSTFND=
+												SB_SetText(" CRC-MATCH " romf " found! ! ! ")
+												guicontrol,,RETROM,0
+												guicontrol,,NETROMLIST,|%romf%||%matchlist%
+												return
+											}
+									}
+								if (dwncrcm = 1)
+									{
+										HOSTFND=
+										break
+									}
+							}
+					}
+				guicontrol,,NETROMLIST,|%actit%||%plistplus%
+				if (actit <> "")
+					{
+						return
+					}
 			}
 	}
 vzip= %szip%
@@ -33234,6 +33296,7 @@ if (arcpl <> "")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;  FOLDER/PLAYLIST RADIOS  ;;;;;;;;;;;;;;;;;;;;;;;
+
 NetDwnl:
 gui, submit, NoHide
 BRKO= 1
@@ -33254,6 +33317,7 @@ ifexist, %RJSYSTEMS%\%NETLPARSE%
 guicontrol,,NETCOREASSETS,|%initdwn%||%dwnlfldrs%
 iniwrite, "1",Settings.ini,GLOBAL,netplay_rom_location
 return
+
 NetPlist:
 gui,submit,nohide
 guicontrol,disable,NETCONNECT
@@ -33278,7 +33342,7 @@ return
 AutoCore:
 gui,submit,nohide
 guicontrol,disable,NETCORE
-if (AUTOCORE = 0)
+if (AUTOCORE = 0)	
 	{
 		guicontrol,enable,NETCORE
 		guicontrol,,NETCORE,|%corelist%
@@ -79674,6 +79738,10 @@ FINR= 1
 return
 
 OpnAssign:
+if (sysrev = "")
+	{
+		return
+	}
 EXTID=
 ROMSYS= %sysrev%
 iniread,ari,Assignments.ini,OVERRIDES,%sysrev%
@@ -79687,7 +79755,7 @@ if (ari <> "")
 			{
 				if ((A_Loopfield = "") or (A_LoopField = A_Space) or (A_LoopField = A_Tab) or (A_LoopField = "`n"))
 					{
-						continue
+						continue 
 					}
 				cvrv= %A_LoopField%
 				EXTID= 1
@@ -79697,7 +79765,7 @@ if (ari <> "")
 ifinstring,SysLLst,%sysrev%=
 	{
 		iniread,esfe,emuCfgPresets.ini,%sysrev%,SUPEMU
-		Loop,%esfe%
+		Loop,parse,esfe,|
 			{
 				if (A_LoopField = "")
 					{
@@ -79714,7 +79782,7 @@ ifinstring,SysLLst,%sysrev%=
 		iniread,esfc,emuCfgPresets.ini,%sysrev%,SUPCORE
 		if (raexefile <> "")
 			{
-				Loop,parse,esfc,`n`r
+				Loop,parse,esfc,|
 					{
 						if (A_LoopField = "")
 							{
@@ -79735,541 +79803,309 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
-opncor=
 sysrev=
 if (romsz < 100000)
 {
 	goto, ToSZ
 }
 unknszstr= .nrg|.mdf|.ccd|.toc|.iso|.cdi|.cdz|.img|.cue
-ifinstring,unknszstr,%tstxtn%
+Loop,parse,unknszstr,|
 	{
-		gosub, UNKNOpen
+		if (tstxtr = A_LoopField)		
+			{
+				sysrev=
+				gosub,OpnAssign
+				return
+			}
 	}
 if (tstxtn = ".gdi")
 	{
-		gosub, SEGDCOpen
+		sysrev=% %SEGDC%
+		gosub,OpnAssign
 		Return
 	}
-pspopen= .cso|.ciso|.jso|.psp|.prx|.pbp|
-ifinstring,pspopen,%tstxtn%
-	{
-		gosub, PSPOpen
-		Return
-	}
-if (tstxtn = ".cia")
-	{
-		gosub, N3DSOpen
+if ((tstxtn = ".cso")or(tstxtn = ".ciso")or(tstxtn = ".jso")or(tstxtn = ".psp")or(tstxtn = ".prx")or(tstxtn = ".pbp"))
+	{		
+		sysrev=% %SPLAYP%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".3ds")
-	{
-		gosub, N3DSOpen
+	{		
+		sysrev=% %NN3DS%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".wbfs")
-	{
-		gosub, NGCOpen
+	{		
+		sysrev=% %NWII%
+		gosub,OpnAssign
 		Return
 	}
 ToSZ:
 if (romsz < 10000)
-{
-	goto, UNKSZ
-}
-dsopen= .ds|.srl|.nds|.nd5
-ifinstring,dsopen,%tstxtn%
 	{
-		gosub, NDSOpen
+		goto, UNKSZ
+	}
+if ((tstxtn = ".ds")or(tstxtn = ".srl")or(tstxtn = ".nds")or(tstxtn = ".nd5"))
+	{		
+		sysrev=% %NNDS%
+		gosub,OpnAssign
 		Return
 	}
 UNKSZ:
 unkszstr= .bin|.hdf|.rom|.adf|.do|.po|.2mg|.cas|.xdf|.ipf|.dsk|.tap|.88d|.d88|.2dd|.2hd|.ssd|.dsd|.fdi|
-ifinstring,unkszstr,%tstxtn%
+Loop,parse,unkszstr,|
 	{
-		gosub, UNKOpen
-		return
+		if (tstxtn = A_LoopField)		
+				{
+					sysrev=
+					return
+				}
 	}
-if (tstxtn = ".dup")
+if ((tstxtn = ".dup")or(tstxtn = ".dim"))
 	{
-		gosub, SHRPX68KOpen
+		sysrev=% %SHARP68K%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".dim")
-{
-	gosub, SHRPX68KOpen
-	return
-}
-if (tstxtn = ".nhd")
-	{
-		gosub, NPC98Open
-		Return
-	}
-if (tstxtn = ".thd")
-	{
-		gosub, NPC98Open
-		Return
-	}
-if (tstxtn = ".vhd")
-	{
-		gosub, NPC98Open
+if ((tstxtn = ".nhd")or(tstxtn = ".thd")or(tstxtn = ".vhd"))
+	{		
+		sysrev=% %NPC98%
+		gosub, OpnAssign
 		Return
 	}
 MDSZ:
-n64open= .pal|.usa|.u64|.v64|.z64
-ifinstring, n64open,%tstxtn%
+if ((tstxtn = ".pal")or(tstxtn = ".usa")or(tstxtn = ".u64")or(tstxtn = ".v64")or(tstxtn = ".z64"))
 	{
-		gosub, N64Open
+		sysrev=% %NN64%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".j64")
+if ((tstxtn = ".j64")or(tstxtn = ".jag"))
 	{
-		gosub, JAGOpen
+		sysrev=% %ATJAG%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".jag")
+if ((tstxtn = ".adf")or(tstxtn = ".amiga"))
 	{
-		gosub, JAGOpen
-		Return
-	}
-if (tstxtn = ".adf")
-	{
-		gosub, CAMIGOpen
+		sysrev=% %AMIG%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".32x")
 	{
-		gosub, SG32XOpen
+		sysrev=% %SG32X%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gba")
 	{
-		gosub, NGBAOpen
+		sysrev=% %NNGBA%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sgb")
 	{
-		gosub, NGBAOpen
+		sysrev=% %NSGB%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sgx")
-	{
-		gosub, SGFXOpen
+	{		
+		sysrev=% %NSGX%
+		gosub,OpnAssign
 		Return
 	}
-segagopen= .smd|.gen|.pco|.md
-ifinstring,segagopen,%tstxtn%
-{
-gosub, SEGAGOpen
-Return
-}
+if ((tstxtn = ".smd")or(tstxtn = ".gen")or(tstxtn = ".md"))
+	{
+		sysrev=% %SEGAG%
+		gosub,OpnAssign
+		Return
+	}
+if (tstxtn = ".pco")
+	{
+		sysrev=% %SPICO%
+		gosub,OpnAssign
+		Return
+	}
 if (tstxtn = ".sfc")
 	{
-		gosub, SFAMOpen
+		sysrev=% %NSFAM%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".smc")
 	{
-		gosub, SNESOpen
+		sysrev=% %NSNES%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".bml")
 	{
-		gosub, BSNSOpen
+		sysrev= % %NSNES%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".pce")
 	{
-		gosub, NECXOpen
+		sysrev=% %NPCENG%
+		gosub,OpnAssign
 		Return
 	}
 SMSZ:
-if (tstxtn = ".ngp")
-	{
-		gosub,NEOPKTOpen
-		Return
-	}
 if (tstxtn = ".ngc")
 	{
-		gosub,NEOPKTOpen
+		sysrev=% %SNEOPKTC%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".npk")
+if ((tstxtn = ".ngp")or(tstxtn = ".npk"))
 	{
-		gosub,NEOPKTOpen
+		sysrev=% %SNEOPKT%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gg")
 	{
-		gosub,SEGGOpen
+		sysrev=% %SGG%
+		gosub,OpnAssign
+		Return
+	}
+if ((tstxtn = ".int")or(tstxtn = ".intv"))
+	{
+		sysrev=% %MINTEL%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gb")
-	{
-		gosub,NGBOpen
+	{		
+		sysrev=% %NNGB%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".ws")
 	{
-		gosub,BWSOpen
+		sysrev=% %BWSWAN%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".msa")
+if ((tstxtn = ".msa")or(tstxtn = ".st")or(tstxtn = ".stx"))
 	{
-		gosub,ATSTOpen
-		Return
-	}
-if (tstxtn = ".st")
-	{
-		gosub,ATSTOpen
-		Return
-	}
-if (tstxtn = ".stx")
-	{
-		gosub,ATSTOpen
+		sysrev=% %ATST%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".lnx")
 	{
-		gosub,LYNXOpen
+		sysrev=% %ATLNX%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sg")
 	{
-		gosub,SEG1KOpen
+		sysrev=% %SSG1K%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".sms")
 	{
-		gosub,SEGMSOpen
-		Return
-	}
-if (tstxtn = ".amiga")
-	{
-		gosub,CAMIGOpen
+		sysrev=% %SEGMS%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".wsc")
 	{
-		gosub,BWSCOpen
+		sysrev=% %BWSWANC%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".vec")
 	{
-		gosub,VECTXOpen
+		sysrev=% %VECX%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".fds")
-	{
-		gosub,NFAMOpen
-		Return
-	}
-if (tstxtn = ".fam")
-	{
-		gosub,NFAMOpen
+if ((tstxtn = ".fds")or(tstxtn = ".fam"))
+	{		
+		sysrev=% %NNFAM%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gcm")
-	{
-		gosub,NGCOpen
+	{		
+		sysrev=% %NNGC%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".vb")
-	{
-		gosub,NVBOpen
+if ((tstxtn = ".vb")or(tstxtn = ".vboy"))
+	{		
+		sysrev=% %NNVB%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".vboy")
+if ((tstxtn = ".obx")or(tstxtn = ".dcm")or(tstxtn = ".xex")or(tstxtn = ".pro")or(tstxtn = ".atz")or(tstxtn = ".xfd")or(tstxtn = ".atx")or(tstxtn = ".atr"))
 	{
-		gosub,NVBOpen
+		sysrev=% %AT8H%
+		gosub,OpnAssign
 		Return
 	}
-at8hopen= .obx|.xex|.dcm|.pro|.atz|.xfd|.atx|.atr
-ifinstring,at8hopen,%tstxtn%
-	{
-		gosub,AT8HOpen
+if ((tstxtn = ".unf")or(tstxtn = ".nez")or(tstxtn = ".nsf")or(tstxtn = ".nes"))
+	{		
+		sysrev=% %NNES%
+		gosub,OpnAssign
 		Return
 	}
-nesopen= .unf|.nez|.nsf|.nes
-ifinstring,nesopen,%tstxtn%
+if ((tstxtn = ".di1")or(tstxtn = ".di2")or(tstxtn = ".360")or(tstxtn = ".720")or(tstxtn = ".ri")or(tstxtn = ".sc")or(tstxtn = ".sf7")or(tstxtn = ".mx1")or(tstxtn = ".mx2"))
 	{
-		gosub,NESOpen
-		Return
-	}
-msxopen= .di1|.di2|.360|.720|.ri|.sc|.sf7|.mx1|.mx2
-ifinstring,msxopen,%tstxtn%
-	{
-		gosub,MSXOpen
+		sysrev=% %MSX%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".gbc")
 	{
-		gosub,NGBCOpen
+		sysrev=% %NNGBC%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".a78")
-	{
-		gosub,AT78Open
+	{		
+		sysrev=% %AT78%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".a52")
-	{
-		gosub,AT52Open
+	{		
+		sysrev=% %AT52%
+		gosub,OpnAssign
 		Return
 	}
-if (tstxtn = ".z26")
+if ((tstxtn = ".z26")or(tstxtn = ".a26"))
 	{
-		gosub,AT26Open
+		sysrev=% %AT26%
+		gosub,OpnAssign
 		Return
 	}
 TNSZ:
 if (tstxtn = ".scummvm")
-	{
-		gosub,SCVMOpen
+	{		
+		sysrev=% %SCUMV%
+		gosub,OpnAssign
 		Return
 	}
 if (tstxtn = ".conf")
 	{
-		gosub,DOSOpen
+		sysrev=% %MSDOS%
+		gosub,OpnAssign
 		Return
 	}
 imgszset= .png|.bmp|.tif|.svg|.jpg|.gif|.psd
 ifinstring,imgszset,%tstxtn%
 	{
-		gosub, IMGOpen
+		sysrev=
+		gosub,OpnAssign
 	}
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     OPEN TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-AT26Open:
-opncor= stella
-sysrev= Atari - 2600
-gosub,OpnAssign
-Return
-AT52Open:
-opncor= atari800
-sysrev= Atari - 5200
-gosub,OpnAssign
-Return
-AT78Open:
-opncor= prosystem
-sysrev= Atari - 7800
-gosub,OpnAssign
-Return
-AT8HOpen:
-opncor= atari800
-sysrev= Atari - 800
-gosub,OpnAssign
-Return
-ATSTOpen:
-opncor= hatari
-sysrev= Atari - ST
-gosub,OpnAssign
-Return
-BSNSOpen:
-opncor= bsnes_performance
-sysrev= Nintendo - Super Nintendo Entertainment System
-gosub,OpnAssign
-Return
-BWSCOpen:
-opncor= mednafen_wswan
-sysrev= Bandai - WonderSwan Color
-gosub,OpnAssign
-Return
-BWSOpen:
-opncor= mednafen_wswan
-sysrev= Bandai - WonderSwan
-gosub,OpnAssign
-Return
-CAMIGOpen:
-opncor= puae
-sysrev= Commodore - Amiga
-gosub,OpnAssign
-Return
-DOSOpen:
-opncor= dosbox
-sysrev= Microsoft - DOS
-gosub,OpnAssign
-Return
-IMGOpen:
-opncor= imageviewer
-sysrev=
-gosub,OpnAssign
-Return
-JAGOpen:
-opncor= virtualjaguar
-sysrev= Atari - Jaguar
-gosub,OpnAssign
-Return
-LYNXOpen:
-opncor= handy
-sysrev= Atari - Lynx
-gosub,OpnAssign
-Return
-MINTELOpen:
-opncor= freeintv
-sysrev= Mattel - Intellivision
-gosub,OpnAssign
-Return
-MSXOpen:
-opncor= bluemsx
-sysrev= Microsoft - MSX
-gosub,OpnAssign
-Return
-N64Open:
-opncor= ParaLLEl N64
-sysrev= Nintendo - Nintendo 64
-gosub,OpnAssign
-Return
-NDSOpen:
-opncor= desmume
-sysrev= Nintendo - Nintendo DS
-gosub,OpnAssign
-Return
-N3DSOpen:
-opncor= citra
-sysrev= Nintendo - Nintendo 3DS
-gosub,OpnAssign
-Return
-NDSDOpen:
-opncor= desmume
-sysrev= Nintendo - Nintendo DS Decrypted
-gosub,OpnAssign
-Return
-NECXOpen:
-opncor= mednafen_pce_fast
-sysrev= NEC - PC Engine CD - TurboGrafx CD
-gosub,OpnAssign
-Return
-NPC98Open:
-opncor= np2kai
-sysrev= NEC - PC98
-gosub, OpnAssign
-return
-NEOPKTOpen:
-opncor= mednafen_ngp
-sysrev= SNK - Neo Geo Pocket
-gosub,OpnAssign
-Return
-NESOpen:
-opncor= nestopia
-sysrev= Nintendo - Nintendo Entertainment System
-gosub,OpnAssign
-Return
-NFAMOpen:
-opncor= nestopia
-sysrev= Nintendo - Famicom Disk System
-gosub,OpnAssign
-Return
-NGBAOpen:
-opncor= mgba
-sysrev= Nintendo - Game Boy Advance
-gosub,OpnAssign
-Return
-NGBCOpen:
-opncor= gambatte
-sysrev= Nintendo - Game Boy Color
-gosub,OpnAssign
-Return
-NGBOpen:
-opncor= gambatte
-sysrev= Nintendo - Game Boy
-gosub,OpnAssign
-Return
-NGCOpen:
-opncor= dolphin_launcher
-sysrev= Nintendo - GameCube
-gosub,OpnAssign
-Return
-NVBOpen:
-opncor= mednafen_vb
-sysrev= Nintendo - Virtual Boy
-gosub,OpnAssign
-Return
-PSPOpen:
-opncor= ppsspp
-sysrev= Sony - Playstation Portable
-gosub,OpnAssign
-Return
-SCVMOpen:
-opncor= scummvm
-sysrev= ScummVM
-gosub,OpnAssign
-Return
-SEG1KOpen:
-opncor= genesis_plus_gx
-sysrev= Sega - SG-1000
-gosub,OpnAssign
-Return
-SEGAGOpen:
-opncor= genesis_plus_gx
-sysrev= Sega - Mega Drive - Genesis
-gosub,OpnAssign
-Return
-SEGAPOpen:
-opncor= picodrive
-sysrev= Sega - PICO
-gosub,OpnAssign
-Return
-SEGDCOpen:
-opncor= flycast
-sysrev= Sega - Dreamcast
-gosub,OpnAssign
-Return
-SEGCDOpen:
-opncor= genesis_plus_gx
-sysrev= Sega - Mega-CD - Sega CD
-gosub,OpnAssign
-Return
-SEGGOpen:
-opncor= genesis_plus_gx
-sysrev= Sega - Game Gear=
-gosub,OpnAssign
-Return
-SEGMSOpen:
-opncor= genesis_plus_gx
-sysrev= Sega - Master System - Mark III
-gosub,OpnAssign
-Return
-SFAMOpen:
-opncor= snes9x
-sysrev= Nintendo - Super Nintendo Entertainment System
-gosub,OpnAssign
-Return
-SG32XOpen:
-opncor= picodrive
-sysrev= Sega - 32X
-gosub,OpnAssign
-Return
-SGFXOpen:
-opncor= mednafen_supergrafx
-sysrev= NEC - PC Engine SuperGrafx
-gosub,OpnAssign
-Return
-SHRPX68KOpen:
-opncor= px68k
-sysrev= Sharp - X68000
-gosub,OpnAssign
-return
-SNESOpen:
-opncor= snes9x
-sysrev= Nintendo - Super Nintendo Entertainment System
-gosub,OpnAssign
-Return
-VECTXOpen:
-opncor= vecx
-sysrev= GCE - Vectrex
-gosub,OpnAssign
-Return
-VIDOpen:
-opncor=
-sysrev=
-gosub,OpnAssign
-Return
-UNKNOpen:
-UNKOpen:
-opncor=
-sysrev=
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;  ROM SELECT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -81855,7 +81691,7 @@ guicontrolget,SKRESDDL,,SKRESDDL
 return
 
 RESET:
-msgbox,4,Are you sure?, Delete All skeletonKey configuration files?
+msgbox,8452,Are you sure?, Delete All skeletonKey configuration files?
 ifmsgbox, yes
 	{
 		goto RESET_ALL_QUIT
@@ -82695,7 +82531,7 @@ if (lplsrch = "")
 								stringleft,newrepp,A_LoopReadLine,%vokk%
 								if (newrepp <> fndrep)
 									{
-									msgbox,4, Search string found,`n"%newrepp%" was detected.`nWould you like to migrate this to your current portable setup?
+									msgbox,8196, Search string found,`n"%newrepp%" was detected.`nWould you like to migrate this to your current portable setup?
 									IfMsgBox,Yes
 										{
 											repPl= 1
@@ -82724,7 +82560,7 @@ if (lplsrch = "")
 								stringleft,newrepp,A_LoopReadLine,%vokk%
 								if (newrepp <> fndrep)
 									{
-									msgbox,4, Retroarch Downloads Found,`n"%newrepp%" was detected.`nWould you like to migrate this to your current portable setup?
+									msgbox,8196, Retroarch Downloads Found,`n"%newrepp%" was detected.`nWould you like to migrate this to your current portable setup?
 									IfMsgBox,Yes
 										{
 											repPl= 1
