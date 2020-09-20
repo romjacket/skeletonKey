@@ -17183,7 +17183,6 @@ if (syslk = "bSNES")
 			{
 				corelk= bsnes_accuracy
 			}
-	    return
 	}
 else {
 		Loop,Parse,corslk,`n`r
@@ -17199,12 +17198,14 @@ else {
 				stringsplit,vnr,A_LoopField,|
 				if (syslk = vnr1)
 					{
-						ASPOP= %vnr2%
+						ASPOP= % %vnr2%
 						corelk= %vnr3%
 						szip= %vnr4%
 					}
 			}
 }
+keyin= %ASPOP%
+gosub, RevTransformSys
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 CoreDDLA:
@@ -33146,7 +33147,7 @@ return
 FindInArc:
 guicontrol,,MAMESWCHK,0
 guicontrol,,DOWNONLY,0
-guicontrol,,ARCSYS,|%ASPOP%||%syslist%
+guicontrol,,ARCSYS,|%keyout%||%syslist%
 gosub, ArchiveSystems
 gui, submit, nohide
 SB_SetText(" Matching " HOSTINGROMS " in cloud")
@@ -78740,10 +78741,10 @@ if (RMPLOAD = 1)
 				rajoycore=
 			}
 		joyimg=joyimg\joy.png
-		ifexist,joyimg\%ASPOP%.png
+		ifexist,joyimg\%keyout%.png
 			{
 				iremp=
-				joyimg= joyimg\%ASPOP%.png
+				joyimg= joyimg\%keyout%.png
 			}
 		guicontrol,move,JOYPIC,x260 y253 w252 h126
 	}

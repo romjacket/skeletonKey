@@ -1,107 +1,172 @@
-bsnes-mercury|Nintendo - Super Nintendo Entertainment System
-mednafenbSNES|Nintendo - Super Nintendo Entertainment System|mednafen_snes
-bZSNES|Nintendo - Super Nintendo Entertainment System|bzsnes
-CATSFC(SNES9x)|Nintendo - Super Nintendo Entertainment System|catsfc
-emux-chip8|corelk= emux_chip8
-emux-gb|Nintendo - Game Boy|emux_gb
-freechaf|Fairchild - Channel F
-crocods|Amstrad - CPC|crocods
-emux-nes|Nintendo - Nintendo Entertainment System|emux_nes
-FreeIntv|Mattel - Intellivision|freeintv
-Dolphin|Nintendo - Gamecube|dolphin
-emux-sms|Sega - Master System - Mark III|emux_sms
-ProSystem|Atari - 7800|prosystem
-FB Alpha 2012 CPS-1|Capcom Play System - CPS|fbalpha2012_cps1|1
-FB Alpha 2012 CPS1|Capcom Play System - CPS|fbalpha2012_cps1|1
-FB Alpha 2012 CPS-2|Capcom Play System - CPS II|fbalpha2012_cps2|1
-FB Alpha 2012 CPS2|Capcom Play System - CPS II|fbalpha2012_cps2|1
-FB Alpha Neo|MAME - Arcade|fbaneo|1
-FinalBurn Neo|MAME - Arcade|fbaneo|1
-FB Alpha 2012|MAME - Arcade|fbalpha2012|1
-FB Alpha 2012 Neo Geo|SNK - Neo Geo MVS|fbalpha2012_neogeo|1
-FB Alpha|MAME - Arcade|fbalpha|1
-final burn alpha|MAME - Arcade|fba|1
-Mednafen GBA|Nintendo - Game Boy Color|mednafen_gba
-Gambatte-GBC|Nintendo - Game Boy Color|gambatte_gbc
-SameBoy|Nintendo - Game Boy|gambatte
-Gambatte|Nintendo - Game Boy|gambatte
-DesMuME|Nintendo - Nintendo DS|desmume
-Citra|Nintendo - Nintendo 3DS|citra
-Genesis Plus GX - Game Gear|Sega - Game Gear|genesis_plus_gx_gg
-Genesis Plus GX|Sega - Mega Drive - Genesis|genesis_plus_gx
-Genesis Plus GX - Sega CD|Sega - Mega-CD - Sega CD|genesis_plus_gx_segacd|0
-Genesis Plus GX - SMS|Sega - Master System - Mark III|genesis_plus_gx_sms
-Genesis Plus GX - GG|Sega - Game Gear|genesis_plus_gx_gg
-GlupeN64 OpenGL|Nintendo - Nintendo 64|glupen64
-Mupen64Plus OpenGL|Nintendo - Nintendo 64|mupen64plus
-ParaLLEl N64|Nintendo - Nintendo 64|parallel_n64
-GlupeN64 Vulkan|Nintendo - Nintendo 64|glupen64
-MAME 2000|MAME - Arcade|mame2000|1
-MAME 2003|MAME - Arcade|mame2003|1
-MAME 2010|MAME - Arcade|mame 2010|1
-MAME 2014|MAME - Arcade|mame2014|1
-MAME 2016|MAME - Arcade|mame2016|1
-MAME|MAME - Arcade|mame|1
-Mr.Boom|Mr. Boom|mrboom|1
-Mednafen GBA|Nintendo - Game Boy Advance|mednafen_gba
-gpSP|Nintendo - Game Boy Advance|gpSP
-Mednafen Lynx|Atari - Lynx|mednafen_lynx
-Mednafen NeoPop|SNK - Neo Geo Pocket|mednafen_ngp
-Mednafen PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
-Beetle PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
-Mednafen/Beetle PCE Fast|NEC - PC Engine - TurboGrafx 16|mednafen_pce_fast
-Mednafen PC-FX|NEC - PC-FX|mednafen_pcfx
-Mednafen PSX HW|Sony - Playstation|mednafen_psx_hw|0
-Beetle PSX HW|Sony - Playstation|mednafen_psx_hw|0
-Mednafen PSX|Sony - Playstation|mednafen_psx|0
-Beetle PSX|Sony - Playstation|mednafen_psx|0
-PCSX-ReARMed|Sony - Playstation|pcsx_rearmed|0
-Mednafen Saturn|Sega - Saturn|mednafen_saturn|0
-Mednafen Snes|Nintendo - Super Nintendo Entertainment System|mednafen_snes
-PicoDrive|Sega - Mega Drive - Genesis|picodrive
-Mednafen SuperGrafx|NEC - PC Engine SuperGrafx|mednafen_supergrafx
-Mednafen VB|Nintendo - Virtual Boy|mednafen_vb
-Mednafen WonderSwan|Bandai - WonderSwan|mednafen_wswan
-MESS 2015|mess2015|1
+2048|2048|2048
+4do|T3DO|4do|0
+Arcade (FinalBurn Neo)|MAMARC|fbneo
+Arcade (HBMAME)|MAMARC|hbmame
+Arcade (MAME 2003-Plus)|MAMARC|mame2003_plus
+Arcade (MAME 2010)|MAMARC|mame2010
+Arcade (MAME 2015)|MAMARC|mame2015
+Atari - 2600 (Stella 2014)|ATST|stella2014
+Atari - 5200 (Atari800)|AT52|atari800
+Beetle PCE Fast|NPCENG|mednafen_pce_fast
+Beetle PSX HW|SPLAY|mednafen_psx_hw|0
+Beetle PSX|SPLAY|mednafen_psx|0
+Blue MSX|MSX|bluemsx|0
+Blue-MSX|MSX|bluemsx|0
+CATSFC(SNES9x)|NSNES|catsfc
+Cave Story (NXEngine)|CAVSTR|nxengine
+ChaiLove|CHAIL|chailove
+Citra|NN3DS|citra
+Commodore - C128 (VICE x128)|COM128|vice_x128
+Commodore - C64 (Frodo)|COM64|frodo
+Commodore - C64 (VICE x64sc, accurate)|COM64|vice_x64sc
+Commodore - C64 SuperCPU (VICE xscpu64)|COM64|vice_xscpu64
+Commodore - CBM-5x0 (VICE xcbm5x0)|COMCBMII|vice_xcbm5x0
+Commodore - CBM-II (VICE xcbm2)|COMCBMII|vice_xcbm2
+Commodore - PET (VICE xpet)|COMPET|vice_xpet
+Commodore - PLUS/4 (VICE xplus4)|COMPLUS|vice_xplus4
+Commodore - VIC-20 (VICE xvic)|COMVIC|vice_xvic
+DOS (DOSBox-SVN)|MSDOS|dosbox_svn
+DOS (DOSBox-core)|MSDOS|dosbox_core
+DesMuME|NNDS|desmume
+Dinothawr|DINOTH|dinothawr
+Dolphin|NNGC|dolphin
+Doom (PrBoom)|PRBOOM|prboom
+Elektronika - BK-0010/BK-0011(M)|ELKBK|bk
+FB Alpha 2012 CPS-1|CPS|fbalpha2012_cps1|1
+FB Alpha 2012 CPS-2|CPSII|fbalpha2012_cps2|1
+FB Alpha 2012 CPS1|CPS|fbalpha2012_cps1|1
+FB Alpha 2012 CPS2|CPSII|fbalpha2012_cps2|1
+FB Alpha 2012 Neo Geo|SNEOMVS|fbalpha2012_neogeo|1
+FB Alpha 2012|MAMARC|fbalpha2012|1
+FB Alpha Neo|MAMARC|fbaneo|1
+FB Alpha|MAMARC|fbalpha|1
+FCEUmm|NNES|fceumm|0
+FFmpeg|MLTMED|ffmpeg
+FinalBurn Neo|MAMARC|fbaneo|1
+Flashback (REminiscence)|FLSHBK|reminiscence
+FreeIntv|MINTEL|freeintv
+Gambatte-GBC|NNGBC|gambatte_gbc
+Gambatte|NNGB|gambatte
+Game Music Emu|CHPTUN|gme
+Genesis Plus GX - GG|SEGG|genesis_plus_gx_gg
+Genesis Plus GX - Game Gear|SEGG|genesis_plus_gx_gg
+Genesis Plus GX - SMS|SEGMS|genesis_plus_gx_sms
+Genesis Plus GX - Sega CD|SSMEGCD|genesis_plus_gx_segacd|0
+Genesis Plus GX|SMEGAD|genesis_plus_gx
+GlupeN64 OpenGL|NN64|glupen64
+GlupeN64 Vulkan|NN64|glupen64
+Java ME (SquirrelJME)|JAVAME|squirreljme
+Lua Engine (Lutro)|LUTRO|lutro
+MAME 2000|MAMARC|mame2000|1
+MAME 2003|MAMARC|mame2003|1
+MAME 2010|MAMARC|mame 2010|1
+MAME 2014|MAMARC|mame2014|1
+MAME 2016|MAMARC|mame2016|1
+MAME|MAMARC|mame|1
 MESS 2014|mess2014|1
-PUAE|Commodore - Amiga|puae|0
-PX68K|Sharp - X68000|px68k|0
-QuickNES|Nintendo - Nintendo Entertainment System|quicknes
-bnes|Nintendo - Nintendo Entertainment System|bnes
-Mesen|Nintendo - Nintendo Entertainment System|mesen
-Nestopia|Nintendo - Nintendo Entertainment System|nestopia
-PPSSPP|Sony - Playstation Portable|ppsspp
-flycast WinCE|Sega - Dreamcast|flycast_gles2|0
-flycast|Sega - Dreamcast|flycast|0
-Redream|Sega - Dreamcast|redream|0
-ScummVM|ScummVM - ScummVM|scummvm|
-mesen-s|Nintendo - Super Nintendo Entertainment System|mesen-s
-Snes9x 2002|Nintendo - Super Nintendo Entertainment System|snes9x2002
-Snes9x 2005|Nintendo - Super Nintendo Entertainment System|snes9x2005
-Snes9x 2005 plus|Nintendo - Super Nintendo Entertainment System|snes9x2005_plus
-Snes9x 2010|Nintendo - Super Nintendo Entertainment System|snes9x2010
-Snes9x|Nintendo - Super Nintendo Entertainment System|snes9x
-Snes9x Next|Nintendo - Super Nintendo Entertainment System|snes9x_next
-Stella|Atari - 2600|stella
-Sinclair ZX 81|Sinclair - ZX 81|81
-Sinclair ZX Spectrum|Sinclair - ZX Spectrum|fuse
-TGB Dual|Nintendo - Game Boy|tgbdual
-UME 2014|MAME - Arcade|ume2014|0
-VBA-M|Nintendo - Game Boy Advance|vbam
-mGBA|Nintendo - Game Boy Advance|mgba
-VBA Next|Nintendo - Game Boy Advance|vba_next
-VecX|GCE - Vectrex|vecx
-Virtual Jaguar|Atari - Jaguar|virtualjaguar|2
-4do|The 3DO Company - 3DO|4do|0
-Blue MSX|Microsoft - MSX|bluemsx|0
-FCEUmm|Nintendo - Nintendo Entertainment System|fceumm|0
-fmsx|Microsoft - MSX|fmsx|0
-Blue-MSX|Microsoft - MSX|bluemsx|0
-handy|Atari - Lynx|handy|0
-hatari|Atari - ST|hatari|0
-x64|Commodore - 64|x64|0
-x1|Sharp - X1|x1|0
-Vice|Commodore - 64|vice_x64|0
-yabause|Sega - Saturn|yabause|0
-yabasanshiro|Sega - Saturn|yabasanshiro|0
-kronos|Sega - Saturn|kronos|0
+MESS 2015|mess2015|1
+Magnavox - Odyssey2 / Phillips Videopac+ (O2EM)|MODYS2|o2em
+Mednafen GBA|NNGBA|mednafen_gba
+Mednafen GBA|NNGBC|mednafen_gba
+Mednafen Lynx|ATLNX|mednafen_lynx
+Mednafen NeoPop|SNEOPKT|mednafen_ngp
+Mednafen PC-FX|NPCFX|mednafen_pcfx
+Mednafen PCE Fast|NPCENG|mednafen_pce_fast
+Mednafen PSX HW|SPLAY|mednafen_psx_hw|0
+Mednafen PSX|SPLAY|mednafen_psx|0
+Mednafen Saturn|SSAT|mednafen_saturn|0
+Mednafen Snes|NSNES|mednafen_snes
+Mednafen SuperGrafx|NSGX|mednafen_supergrafx
+Mednafen VB|NNVB|mednafen_vb
+Mednafen WonderSwan|BWSWAN|mednafen_wswan
+Mednafen/Beetle PCE Fast|NPCENG|mednafen_pce_fast
+Mesen|NNES|mesen
+Minecraft (Craft)|MINECR|craft
+Mr.Boom|MRBOOM|mrboom|1
+Multi (MESS 2015)|MESSYS|mess2015
+Multi (UME 2015)|MESSYS|ume2015
+Mupen64Plus OpenGL|NN64|mupen64plus
+NEC - PC Engine / SuperGrafx / CD (Beetle PCE)|NSGX|mednafen_pce
+NEC - PC-8000 / PC-8800 series (QUASI88)|NPC88|quasi88
+NEC - PC-98 (Neko Project II Kai)|NPC98|np2kai
+NEC - PC-98 (Neko Project II)|NPC98|nekop2
+Nestopia|NNES|nestopia
+Nintendo - DS (melonDS)|NNDS|melonds
+Nintendo - Game Boy / Color (Gearboy)|NNGB|gearboy
+Nintendo - Game Boy / Color (SameBoy)|NNGBC|sameboy
+Nintendo - Nintendo 64 (Mupen64Plus-Next)|NN64|mupen64plus_next
+Nintendo - Pokemon Mini (PokeMini)|NPOK|pokemini
+Nintendo - SNES / SFC (Beetle Supafaust)|NSNES|mednafen_supafaust
+PCSX-ReARMed|SPLAY|pcsx_rearmed|0
+PPSSPP|SPLAYP|ppsspp
+PUAE|AMIG|puae|0
+PX68K|SHRPX68K|px68k|0
+Palm OS (Mu)|PALM|mu
+ParaLLEl N64|NN64|parallel_n64
+PicoDrive|SMEGAD|picodrive
+PocketCDG|POKCDG|pocketcdg
+ProSystem|AT78|prosystem
+Quake (TyrQuake)|QUAKE|tyrquake
+Quake 2 (vitaQuake 2)|VITAQ|vitaquake2
+Quake III: Arena (vitaQuake 3)|VITAQ|vitaquake3
+QuickNES|NNES|quicknes
+Redream|SEGDC|redream|0
+Rick Dangerous (XRick)|XRICK|xrick
+SNK - Neo Geo CD (NeoCD)|SNEOCD|neocd
+SNK - Neo Geo Pocket / Color (RACE)|NEPKTC|race
+SameBoy|NNGB|gambatte
+ScummVM|SCUMV|scummvm|
+Sega - MS/GG (SMS Plus GX)|SEGMS|smsplus
+Sega - MS/GG/SG-1000 (Gearsystem)|SEG1K|gearsystem
+Sega - Mega Drive - Genesis (BlastEm)|SMEGAD|blastem
+Sinclair ZX 81|SINZX81|81
+Sinclair ZX Spectrum|SINZXS|fuse
+Snes9x 2002|NSNES|snes9x2002
+Snes9x 2005 plus|NSNES|snes9x2005_plus
+Snes9x 2005|NSNES|snes9x2005
+Snes9x 2010|NSNES|snes9x2010
+Snes9x Next|NSNES|snes9x_next
+Snes9x|NSNES|snes9x
+Sony - PlayStation (DuckStation)|SPLAY|duckstation
+Sony - PlayStation 2 (Play!)|SPS2|play
+Stella|AT26|stella
+TGB Dual|NNGB|tgbdual
+TIC-80|TIC80|tic80
+Test|_TEST_|test
+The 3DO Company - 3DO (Opera)|T3DO|opera
+The Powder Toy|TPOWDT|thepowdertoy
+Thomson - MO/TO (Theodore)|TMO8|theodore
+Tomb Raider (OpenLara)|OPNLARA|openlara
+UME 2014|MAMARC|ume2014|0
+Uzebox (Uzem)|UZEM|uzem
+VBA Next|NNGBA|vba_next
+VBA-M|NNGBA|vbam
+VeMUlator|VEMUL|vemulator
+VecX|GVEXTR|vecx
+Vice|COM64|vice_x64|0
+Virtual Jaguar|ATJAG|virtualjaguar|2
+Wolfenstein 3D (ECWolf)|ECWLF|ecwolf
+bZSNES|NSNES|bzsnes
+bnes|NNES|bnes
+bsnes-mercury|NSNES|bsnes
+crocods|AMSCPC|crocods
+emux-chip8|RCACHP8|emux_chip8
+emux-gb|NNGB|emux_gb
+emux-nes|NNES|emux_nes
+emux-sms|SEGMS|emux_sms
+final burn alpha|MAMARC|fba|1
+flycast WinCE|SEGDC|flycast_gles2|0
+flycast|SEGDC|flycast|0
+fmsx|MSX|fmsx|0
+freechaf|FCHANF|freechaf
+gpSP|NNGBA|gpSP
+handy|ATLNX|handy|0
+hatari|ATST|hatari|0
+kronos|SSAT|kronos|0
+mGBA|NNGBA|mgba
+mednafenbSNES|NSNES|mednafen_snes
+mesen-s|NSNES|mesen-s
+x1|SHARPX1|x1|0
+x64|COM64|x64|0
+yabasanshiro|SSAT|yabasanshiro|0
+yabause|SSAT|yabause|0
