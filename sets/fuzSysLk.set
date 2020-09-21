@@ -87,9 +87,9 @@ gx4000|*amstrad*gx*4*>AMGX4K
 apple2e|*apple*2e*|*apple*IIe*|*apple II e*|apple2>APL2E
 apple2gs|*apple*2*gs*|*apple*II*gs*>APL2GS
 mac128k|*Macintosh*>APLMAC
-a2600|*2600*|*atari*26*|*a*26*>AT26
-a5200|*5200*|*atari*52*|*a*52*>AT52
-a7800|*atari*78*|*a*78*>AT78
+2600|a2600|*2600*|*atari*26*|*a*26*>AT26
+5200|a5200|*5200*|*atari*52*|*a*52*>AT52
+7800|a7800|*atari*78*|*a*78*>AT78
 a800|a800xe|a800xl|a800xlp|*Atari*800*>AT8H
 jaguarcd|*jag*cd*>ATJAGCD
 xegs|*atari*xe*>ATXE

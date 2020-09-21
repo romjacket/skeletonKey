@@ -179,6 +179,9 @@ ESTHEME=ESTHEME=https://archive.org/download/esthemes_202009/nostalgia-pure.zip
 [simple]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/simple.zip
 
+[OmegaDrive]
+ESTHEME=ESTHEME=https://archive.org/download/esthemes_202009/OmegaDrive.zip
+
 [simplified-static-canela]
 ESTHEME=[HOSTINGURL]/esthemes/raw/master/simplified-static-canela.zip
 

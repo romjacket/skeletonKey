@@ -5102,6 +5102,73 @@ iniread,isrs,Assignments.ini,OVERRIDES,%RCLSYSTEM%
 if (isrs = "ERROR")
 	{
 		SB_SetText("This is not a recognized system.  Associate an emulator or core to initialize.")
+		MsgBox,8196,Undetected,Would you like to detect and rename this system?
+		ifmsgbox,yes
+			{
+				Loop, parse, fuzsys,`n`r
+					{
+						 if (A_LoopField = "")
+							{
+								continue
+							}
+						fuzn1=
+						fuzn2=
+						flsn=
+						fsys=
+						stringsplit,fuztst,A_LoopField,>
+						flsn= %fuztst2%
+						fsys= % %fuztst2%
+						Loop, Parse, fuztst1,|
+							{
+								Loop, %RJSYSTEMS%\%A_LoopField%,2
+									{
+										splitpath,A_LoopFileFUllPath,fsnma
+										if (fsnma = RCLSYSTEM)
+											{
+												FileMoveDir,%A_LoopfileFullPath%,%RJSYSTEMS%\%fsys%,R
+												if (ERRORLEVEL = 0)
+													{
+														SB_SetText(" " RCLSYSTEM " renamed to " fsys "")
+														systmfldrs.= fsys . "|"
+														knownfldrs.= fsys . "|"
+														initfldrs.= fsys . "|"
+														fsystw= 
+														iniread,fsysl,SystemLocations.ini,LOCATIONS,%fsys%
+														if (fsys1 = "")
+															{
+																iniwrite,"%RJSYSTEMS%\%fsys%|",SystemLocations.ini,LOCATIONS,%fsys%
+																continue
+															}
+														ifinstring,fsysl,%RJSYSTEMS%\%fsys%|
+															{
+																continue
+															}
+														Loop,parse,fsys1,|
+															{
+																if (A_LoopField = "")
+																	{
+																		continue
+																	}
+																if (A_Index = 1)
+																	{
+																		fsystw= %RJSYSTEMS%\%fsys%|
+																		continue
+																	}
+																fsystw.= A_LoopField . "|"
+															}
+														iniwrite,"%fsystw%",SystemLocations.ini,LOCATIONS,%fsys%
+															
+														gosub, resetCoreAssets
+														return
+													}
+												SB_SetText("renamed failed")
+												return
+											}
+										continue	
+									}
+							}
+					}
+			}
 		return
 	}
 stringsplit,aij,isrs,|
@@ -5237,6 +5304,12 @@ return
 RenOsys:
 gui,submit,nohide
 guicontrolget,RenOsys,,RenOsys
+if (RenOsys = Addcore)
+	{
+		guicontrol,,RenOSys,
+		return
+	}
+	
 ifinstring,RenOsys,`%
 	{
 		SB_SetText("`% character not permitted")
@@ -5308,20 +5381,6 @@ return
 SavOsys:
 gui,submit,nohide
 guicontrolget,RenOSys,,RenOSys
-Loop,parse,SysLLst,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,hiu,A_LoopField,=
-		if (hiu1 = RenOsys)
-			{
-				SB_SetText(" system already exists ")
-				return
-			}
-	}
-guicontrolget,RenOSys,,RenOSys
 guicontrolget,ADDCORE,,ADDCORE
 stringreplace,RenOSys,RenOSys,:,-,All
 stringreplace,RenOSys,RenOSys,>,-,All
@@ -5332,6 +5391,135 @@ stringreplace,RenOSys,RenOSys,\,-,All
 stringreplace,RenOSys,RenOSys,/,-,All
 stringreplace,RenOSys,RenOSys,|,-,All
 stringreplace,RenOSys,RenOSys,=,-,All
+ldfsy= 
+Loop,parse,SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,hiu,A_LoopField,=
+		Loop,parse,oldlkup,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (hui1 = RenOSys)
+					{
+						ldfsy= 1
+						break
+					}
+			}
+		if (hiu1 = RenOsys)
+			{
+				SB_SetText(" " RenOsys " is an identified system ")
+				iniread,pthnw,SystemLocations.ini,LOCATIONS,%ADDCORE%
+				iniread,pthnx,SystemLocations.ini,LOCATIONS,%RENOSYS%
+				if (pthnx <> "")
+					{
+						Loop,parse,pthnw,|
+							{
+								if ((A_LoopField = "")or(pthnw = "")or instr(pthnx,A_LoopField "|"))
+									{
+										continue
+									}
+								if (A_Index = 1)
+									{
+										jusn= 
+										jusp= 
+										trnm= 
+										splitpath,A_LoopField,jusn,jusp
+										if (jusn = ADDCORE)
+											{
+												Msgbox,8196,Set System,Rename`n%Addcore%`nto`n%RenOsys%?
+												ifmsgbox,yes
+													{
+														FileMoveDir,%A_LoopField%,%JUSP%\%RENOSYS%,R
+													}
+											}
+										ptwr.= pthnw . "|"
+									}
+								ptwr.= A_LoopField . "|"
+							}
+						ptwr= %pthnx%%ptwr%
+						stringreplace,ptwr,ptwr,||,|,All
+						iniwrite,"%ptwr%",SystemLocations.ini,Locations,%RENOSYS%
+						iniwrite,"",SystemLocations.ini,Locations,%ADDCORE%
+					}
+				else {
+					iniwrite,"%pthnw%",SystemLocations.ini,Locations,%RENOSYS%
+				}
+				iniread,tmpll,Assignments.ini,OVERRIDES,%ADDCORE%
+				if (tmpll = "")
+					{
+						tmpll=""
+					}
+				iniwrite,%tmpll%,Assignments.ini,OVERRIDES,%RENOSYS%
+				iniread,tmpll,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+				if (tmpll = "")
+					{
+						tmpll=""
+					}
+				iniwrite,%tmpll%,Assignments.ini,ASSIGNMENTS,%RENOSYS%
+				iniread,tmpll,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+				if (tmpll = "")
+					{
+						tmpll=""
+					}
+				iniwrite,%tmpll%,LaunchParams.ini,LAUNCHPARAMS,%RENOSYS%
+				iniread,aeb,emuCfgPresets.ini,%ADDCORE%
+				loop,parse,aeb,`n
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						stringsplit,ebo,A_loopField,=
+						iniwrite,%ebo2%,emuCfgPresets.ini,%RenOsys%,%ebo1%
+					}
+				if (ldfsy <> 1)
+					{
+						inidelete,Assignments.ini,OVERRIDES,%ADDCORE%
+						inidelete,Assignments.ini,ASSIGNMENTS,%ADDCORE%
+						inidelete,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+						inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
+						fileread,emcfgrpl,emucfgpresets.ini
+						filedelete,emucfgpresets.ini
+						stringreplace,emcfgrpl,emcfgrpl,[%ADDCORE%],[%RenOSys%],All
+						fileappend,%emcfgrpl%,emuCfgPresets.ini
+					}
+					else {
+							iniread,aea,sets\emuCfgPresets.set,%ADDCORE%
+							loop,parse,aea,`n
+								{
+									if (A_LoopField = "")
+										{
+											continue
+										}
+									stringsplit,ebo,A_loopField,=
+									iniwrite,%ebo2%,emuCfgPresets.ini,%ADDCORE%,%ebo1%
+									if (ebo1 = "LNCHPRM")
+										{
+											iniwrite,"%ebo2%",LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
+										}
+								}
+					}
+				stringreplace,sysllst,sysllst,%ADDCORE%|,%RenOSys%|
+				stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%RenOSys%|
+				stringreplace,initfldrs,initfldrs,%ADDCORE%|,%RenOSys%|
+				stringreplace,allsupport,allsupport,%ADDCORE%|,%RenOSys%|
+				stringreplace,knownfldrs,knownfldrs,%ADDCORE%|,%RenOSys%|
+				stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%RenOSys%`n
+				filedelete,lkup.ini
+				stringreplace,sysllst,sysllst,%ADDCORE%=,%RENOSYS%=
+				fileappend,%sysllst%,lkup.ini
+				guicontrol,hide,CnclOsys
+				guicontrol,hide,SavOsys
+				guicontrol,hide,RenOsys
+				return
+			}
+	}
 guicontrol,hide,CnclOsys
 guicontrol,hide,SavOsys
 guicontrol,hide,RenOsys
@@ -5366,7 +5554,6 @@ iniwrite,%tmpll%,SystemLocations.ini,LOCATIONS,%RENOSYS%
 inidelete,Assignments.ini,OVERRIDES,%ADDCORE%
 inidelete,Assignments.ini,ASSIGNMENTS,%ADDCORE%
 inidelete,LaunchParams.ini,LAUNCHPARAMS,%ADDCORE%
-inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
 stringreplace,sysllst,sysllst,%ADDCORE%|,%RenOSys%|
 stringreplace,systmfldrs,systmfldrs,%ADDCORE%|,%RenOSys%|
 stringreplace,initfldrs,initfldrs,%ADDCORE%|,%RenOSys%|
@@ -5376,6 +5563,36 @@ stringreplace,allsupsys,allsupsys,%ADDCORE%`n,%RenOSys%`n
 filedelete,lkup.ini
 stringreplace,sysllst,sysllst,%ADDCORE%=,%RENOSYS%=
 fileappend,%sysllst%,lkup.ini
+iniread,pthnx,SystemLocations.ini,LOCATIONS,%RENOSYS%
+iniread,pthnw,SystemLocations.ini,LOCATIONS,%ADDCORE%
+Loop,parse,pthnw,|
+	{
+		if ((A_LoopField = "")or(pthnw = "")or instr(pthnx,A_LoopField))
+			{
+				continue
+			}
+		if (A_Index = 1)
+			{
+				jusn= 
+				trnm= 
+				splitpath,A_LoopField,jusn
+				if (jusn = ADDCORE)
+					{
+						Msgbox,8196,Set System,Rename`n%Addcore%`nto`n%RenOsys%?
+						ifmsgbox,yes
+							{
+								FileMoveDir,%A_LoopField%,%RENOSYS%,R
+							}
+					}
+				ptwr.= pthnw . "|"
+			}
+		ptwr.= A_LoopField . "|"
+	}
+	ptwr= %pthnx%%ptwr%
+iniwrite,"%ptwr%",SystemLocations.ini,Locations,%RENOSYS%
+inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
+
+//*
 ifexist,%RJSYSTEMS%\%ADDCORE%\
 	{
 		ifnotexist,%RJSYSTEMS%\%RENOSYS%\
@@ -5390,6 +5607,7 @@ ifexist,%RJSYSTEMS%\%ADDCORE%\
 					}
 			}
 	}
+*/
 gosub,resetCoreAssets	
 guicontrol,,SYSINSTLBX,|%allsupport%
 guicontrol,,ADDCORE,|Select_A_System||%allsupport%
@@ -31284,7 +31502,7 @@ Loop,parse,SysLLst,`n`r
 		stringsplit,hui,A_LoopField,=
 		if (newaddedsys = hui1)
 			{
-				SB_SetText("System Name already exists")
+				SB_SetText("System Name already exists") 
 				return
 			}
 		if instr(hui2,"_CUSTM")
