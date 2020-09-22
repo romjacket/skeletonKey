@@ -11010,6 +11010,10 @@ guicontrol,,ARDCORE,0
 guicontrol,,DAPP,1
 gosub, AppSetReset
 IniRead,ksiv,Assignments.ini,OVERRIDES,%semu%
+if (ksiv = "ERROR")
+	{
+		ksiv= 
+	}
 stringreplace,ksix,ksiv,|,,All
 stringleft,ksichk,ksiv,1
 if (ksichk = "|")
@@ -11090,6 +11094,10 @@ guicontrol,enable,EMBUTH
 guicontrol,enable,DSKMNTCHK
 gosub, EMRAD11B
 iniread,kfr,SystemLocations.ini,LOCATIONS,%semu%
+if (kfr = "ERROR")
+	{
+		kfr= 
+	}
 guicontrol,,ROMDEDT,|%kfr%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
@@ -12619,6 +12627,10 @@ if (semu = "")
 EMPRBUTASPLIT:
 guicontrolget,EMPRDDL,,EMPRDDL
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+if (ksiv = "ERROR")
+	{
+		ksiv= 
+	}
 stringleft,ksichk,ksiv,1
 if (ksichk = "|")
 	{
@@ -12705,6 +12717,10 @@ EMPRBUTU:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+if (ksiv = "ERROR")
+	{
+		ksiv= 
+	}
 stringleft,ksichk,ksiv,1
 if (ksichk = "|")
 	{
@@ -12759,6 +12775,10 @@ EMPRBUTX:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+if (ksiv = "ERROR")
+	{
+		ksiv= 
+	}
 stringleft,ksichk,ksiv,1
 if (ksichk = "|")
 	{
@@ -13091,6 +13111,10 @@ if (selfnd = "Other")
 		selfnd= %OVRKND%
 	}
 iniread,ovrktm,Assignments.ini,OVERRIDES,%semu%
+if (ovrktm = "ERROR")
+	{
+		ovrktm= 
+	}
 EMPRLT= %selfnd%|
 Loop, parse, ovrktm,|
 	{
@@ -13207,6 +13231,10 @@ ifnotinstring,initfldrs,%semu%|
 	}
 guicontrol,,RUNSYSDDL,|%initfldrs%
 iniWrite,"%ROMDFLDR%|%kiv%",SystemLocations.ini,LOCATIONS,%semu%
+if (kiv = "ERROR")
+	{
+		kiv= 
+	}
 guicontrol,,ROMDEDT,|%ROMDFLDR%|%kiv%
 gosub, resetCoreAssets
 return
@@ -29547,6 +29575,10 @@ guicontrol,enable,ARDCORE
 guicontrol,enable,DAPP
 guicontrol,,OVLIST,|1|2|3|4
 iniread,sysni,Assignments.ini,OVERRIDES,%ADDCORE%
+if (sysni = "ERROR")
+	{
+		sysni= 
+	}
 if (sysni <> "ERROR")
 	{
 		;;if sysni is not digit
@@ -29812,6 +29844,10 @@ Loop, Parse, semu,|
 		sysnitmp=
 		sysninj= %sysni%|
 		iniread,sysnitmp,Assignments.ini,OVERRIDES,%ADDCORE%
+		if (sysnitmp = "ERROR")
+			{
+				sysnitmp= 
+			}
 		;;if sysnitmp is not digit
 		;;	{
 				nwadmm=
@@ -75898,6 +75934,10 @@ if (sijn = "")
 				return
 			}
 	}
+if (sijn = "ERROR")
+	{
+		sijn= 
+	}
 iniwrite,"%sijn%",SystemLocations.ini,LOCATIONS,%semu%
 guicontrol,,ROMDEDT,|%sijn%
 return
@@ -80094,7 +80134,7 @@ if ((tstxtn = ".nhd")or(tstxtn = ".thd")or(tstxtn = ".vhd"))
 		Return
 	}
 MDSZ:
-if ((tstxtn = ".pal")or(tstxtn = ".usa")or(tstxtn = ".u64")or(tstxtn = ".v64")or(tstxtn = ".z64"))
+if ((tstxtn = ".pal")or(tstxtn = ".usa")or(tstxtn = ".u64")or(tstxtn = ".v64")or(tstxtn = ".n64")or(tstxtn = ".z64"))
 	{
 		sysrev=%NN64%
 		gosub,OpnAssign
