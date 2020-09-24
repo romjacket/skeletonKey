@@ -1485,6 +1485,10 @@ URLPTH=blastem/blastem.7z
 EXENAM=blastem.exe
 BIOS=M
 
+[EdsacSim]
+URLPTH=EdsacSim/EdsacSim.7z
+EXENAM=EdsacPC.exe
+
 [boycottadv]
 URLPTH=boycottadv/boycottadv.7z
 EXENAM=BoycottAdvance.exe
@@ -3583,7 +3587,7 @@ SUPEMU=fm7|fm77|XM7
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Funtech - Super A'can]
+[Funtech - Super Acan]
 RJEMUPRESET=MAME
 RJMAMENM=supracan
 RJROMXT=.bin,.zip
@@ -3680,11 +3684,55 @@ NICEFLDR=1
 RJEXTRARC=0
 RJZIPPEEK=0
 
+[Konami - System 573]
+RJEMUPRESET=MAME - Arcade
+SHORTNM=KS573
+SETLST=
+NICEFLDR=1
+RJEXTRARC=1
+RJZIPPEEK=1
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Konami - System 573 Satelite Terminal]
+RJEMUPRESET=MAME - Arcade
+SHORTNM=KS573S
+SETLST=
+NICEFLDR=1
+RJEXTRARC=1
+RJZIPPEEK=1
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Konami - Bemani System 573 Analog]
+RJEMUPRESET=MAME - Arcade
+SHORTNM=KS573A
+SETLST=
+NICEFLDR=1
+RJEXTRARC=1
+RJZIPPEEK=1
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Konami - Bemani System 573 Digital]
+RJEMUPRESET=MAME - Arcade
+SHORTNM=KS573D
+SETLST=
+NICEFLDR=1
+RJEXTRARC=1
+RJZIPPEEK=1
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
 [Leapfrog - Leapster Learning Game System]
 RJEMUPRESET=MAME
 RJZIPPEEK=0
-SHORTNM=LEAPLGS
 SUPEMU=MAME
+SHORTNM=LEAPLGS
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
@@ -3895,6 +3943,14 @@ SUPEMU=Cxbx|cxbxreloaded|xqemu
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
 
+[Sega - Chihiro]
+RJEMUPRESET=Cxbx
+RJMULTIDISC=1
+SHORTNM=SEGCHI
+SUPEMU=Cxbx|cxbxreloaded|xqemu
+SUPCORE=
+LNCHPRM=$|1|1|1|1|0
+
 [Fujitsu - FM Towns]
 RJEMUPRESET=UNZ
 RJMAMENM=fmtowns
@@ -4065,6 +4121,18 @@ SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=n64
 
+[iQue - iQue]
+RJEMUPRESET=Project64
+RJMAMENM=n64
+RJROMXT=.n64,.d64,.z64,.zip,.usa,.rom,.pal,.chd,.hd
+MAME?RJEMUOPTS=<n64 -cart<
+RJZIPPEEK=0
+SHORTNM=IQUE
+SUPEMU=Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME
+SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=ique
+
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra
 RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
@@ -4074,6 +4142,15 @@ SUPEMU=Citra|vvctre|tronds
 SUPCORE=citra_libretro.dll|citra_canary_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3ds
+
+[Nintendo - Nintendo DSi]
+RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
+RJEMUPRESET=Melonds
+SHORTNM=NNDSI
+SUPEMU=Melonds|Desmume|ideas|No$GBA|medusa|noods
+SUPCORE=desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=ndsi
 
 [Nintendo - Nintendo DS]
 RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
@@ -4119,7 +4196,20 @@ SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_lib
 LNCHPRM=$|1|1|1|1|0
 FENAM=fds
 
-[Nintendo - Famicom Disk System]
+[Fukutake Publishing - StudyBox]
+RJEMUPRESET=nestopia
+RJMEDNM=nes
+RJMAMENM=famitwin
+RJMULTIDISC=1
+RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
+MAME?RJEMUOPTS=<famitwin -[RJRTYP]<|<fds -flop<|<fds -flop<|<famitwin -cart<
+SHORTNM=FPSBX
+SUPEMU=nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|Mednafen|MAME|byuu
+SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=fpsbx
+
+[Nintendo - Family Computer Disk System]
 RJEMUPRESET=nestopia
 RJMEDNM=nes
 RJMAMENM=famitwin
@@ -4132,7 +4222,7 @@ SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_lib
 LNCHPRM=$|1|1|1|1|0
 FENAM=nfds
 
-[Nintendo - Game Boy Advance (e-Cards)]
+[Nintendo - e-Reader]
 RJEMUPRESET=VisualBoyAdvance-M
 RJMEDNM=gba
 RJMAMENM=gba
@@ -4343,7 +4433,7 @@ SUPEMU=dcvg5k|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Philips - Videopac]
+[Philips - Videopac+]
 RJEMUPRESET=MAME
 RJMAMENM=videopac
 RJMULTIDISC=1
@@ -4399,6 +4489,20 @@ SUPEMU=NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME
 SUPCORE=neocd_libretro.dll|fbneo_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
+[SNK - Hyper Neo-Geo 64]
+RJEMUPRESET=MAME
+RJMAMENM=hng64
+RJROMXT=.zip,.chd
+SETLST=
+NICEFLDR=1
+RJEXTRARC=0
+RJZIPPEEK=0
+SHORTNM=HYPNEO
+SUPEMU=mame_arcade|MAME
+SUPCORE=mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll
+LNCHPRM=$|0|0|0|0|0
+FENAM=hyperneo
+
 [SNK - Neo Geo AES]
 RJEMUPRESET=FinalBurnAlpha
 RJMAMENM=neogeo
@@ -4453,6 +4557,10 @@ SUPEMU=Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|byuu
 SUPCORE=mednafen_ngp_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=ngp
+
+[ZAPiT Games - Game Wave Family Entertainment System]
+LNCHPRM=$|1|1|0|1|0
+SHORTNM=ZPGAMW
 
 [Sammy - Atomiswave]
 RJEMUPRESET=Demul
@@ -4693,6 +4801,19 @@ SUPEMU=Demul|reicast|flycast|NullDC|mame_arcade|MAME|Makaron
 SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=naomi
+
+[Sega - Beena]
+RJEMUPRESET=MAME
+RJMAMENM=beena
+Fusion?RJEMUOPTS=<-FullScreen -gen<|<-gen<
+RJROMXT=.pco,.pic,.zip,.bin,.md
+MAME?RJEMUOPTS=<beena -cart<
+RJZIPPEEK=0
+SHORTNM=SBEENA
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=segabeena
 
 [Sega - PICO]
 RJEMUPRESET=fusion
@@ -5004,15 +5125,36 @@ SUPEMU=gamecomemu|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 
-[Tomy - Tutor]
+[Tomy - KISS-Site]
 RJEMUPRESET=MAME
-RJMAMENM=tutor
-RJROMXT=.wav,.bin,.zip
-MAME?RJEMUOPTS=<tutor -[RJRTYP]<|<tutor -cass<|<tutor -cart<
-SHORTNM=TOMYT
-SUPEMU=MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
+RJROMXT=.wav,.iso,.bin,.cue
+SHORTNM=TOMKIS
+SUPEMU=
+SUPCORE=
+LNCHPRM=$|1|1|0|1|
+
+[University of Cambridge - EDSAC]
+SHORTNM=EDSAC
+RJROMXT=.txt
+SUPEMU=EdsacSim
+SUPCORE=
+LNCHPRM=$|1|1|0|1|
+
+[Mattel - Hyperscan]
+SHORTNM=MHYPSCN
+RJROMXT=.bin,.cue,.iso
+SUPEMU=
+RJMAMENM=hs
+SUPCORE=
+LNCHPRM=$|1|1|0|1|
+
+[VM Labs - Nuon]
+SHORTNM=VMNUON
+RJROMXT=.dvd,.iso
+SUPEMU=
+RJMAMENM=
+SUPCORE=
+LNCHPRM=$|1|1|0|1|
 
 [NEC - PC98 - Touhou]
 RJEMUPRESET=Anex86
@@ -5547,6 +5689,16 @@ RJMAMENM=chessmstdm
 MAME?RJEMUOPTS=<chessmstdm -flop<
 RJZIPPEEK=0
 SHORTNM=CHEDMOD
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Memorex - Video Information System]
+RJEMUPRESET=MAME
+RJMAMENM=vis
+MAME?RJEMUOPTS=<vis -cdrm<
+RJZIPPEEK=0
+SHORTNM=MXVIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
@@ -6595,7 +6747,7 @@ SUPEMU=WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Ei Nis - PeCom 32]
+[Elektronska Industrija Nis - PeCom 32]
 RJEMUPRESET=MAME
 RJMAMENM=pecom32
 MAME?RJEMUOPTS=<pecom32 -cass<
@@ -6605,7 +6757,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Ei Nis - PeCom 64]
+[Elektronska Industrija Nis - PeCom 64]
 RJEMUPRESET=MAME
 RJMAMENM=pecom64
 MAME?RJEMUOPTS=<pecom64 -cass<
@@ -6701,7 +6853,7 @@ SUPEMU=pmd85|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Benesse Corporation - Pocket Challenge V2]
+[Benesse - Pocket Challenge V2]
 RJEMUPRESET=MAME
 RJMAMENM=pockchalv2
 MAME?RJEMUOPTS=<pockchalv2 -cart<
@@ -6711,7 +6863,7 @@ SUPEMU=MAME|byuu
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Benesse Corporation - Pocket Challenge W]
+[Benesse - Pocket Challenge W]
 RJEMUPRESET=MAME
 RJMAMENM=pockchalw
 MAME?RJEMUOPTS=<pockchalw -cart<
@@ -7218,12 +7370,72 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
+[Texas Instruments - TI-73]
+RJEMUPRESET=MAME
+RJMAMENM=ti73
+MAME?RJEMUOPTS=<ti73 -cart<
+RJZIPPEEK=0
+SHORTNM=TI73
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
 [Texas Instruments - TI-74]
 RJEMUPRESET=MAME
 RJMAMENM=ti74
 MAME?RJEMUOPTS=<ti74 -cart<
 RJZIPPEEK=0
 SHORTNM=TI74
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Texas Instruments - TI-80]
+RJEMUPRESET=MAME
+RJMAMENM=ti80
+MAME?RJEMUOPTS=<ti80 -cart<
+RJZIPPEEK=0
+SHORTNM=TI80
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Texas Instruments - TI-81]
+RJEMUPRESET=MAME
+RJMAMENM=ti81
+MAME?RJEMUOPTS=<ti81 -cart<
+RJZIPPEEK=0
+SHORTNM=TI81
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Texas Instruments - TI-82]
+RJEMUPRESET=MAME
+RJMAMENM=ti82
+MAME?RJEMUOPTS=<ti82 -cart<
+RJZIPPEEK=0
+SHORTNM=TI82
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Texas Instruments - TI-83]
+RJEMUPRESET=MAME
+RJMAMENM=ti83
+MAME?RJEMUOPTS=<ti83 -cart<
+RJZIPPEEK=0
+SHORTNM=TI83
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Texas Instruments - TI-92]
+RJEMUPRESET=MAME
+RJMAMENM=ti92
+MAME?RJEMUOPTS=<ti92 -cart<
+RJZIPPEEK=0
+SHORTNM=TI92
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
@@ -7459,6 +7671,17 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
+[Toshiba - Pasopia]
+RJEMUPRESET=MAME
+RJMAMENM=pasopia7
+MAME?RJEMUOPTS=<pasopia7 -flop1<pasopia7 -flop2<pasopia7lcd -flop1<pasopia7lcd -flop2<
+RJZIPPEEK=0
+SHORTNM=PASOPIA
+RJROMXT=.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.bin,.zip
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
 [Toshiba - Visicom]
 RJEMUPRESET=MAME
 RJMAMENM=visicom
@@ -7639,10 +7862,24 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
+[ALG - American Laser Games]
+SUPEMU=daphne
+SUPCORE=mame_libretro.dll
+SHORTNM=ALAZG
+LNCHPRM=$|1|1|0|1|0
+
+[Incredible Technologies - Eagle]
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+MAME?RJEMUOPTS=iteagle
+SHORTNM=ITEAGLE
+LNCHPRM=$|1|1|0|1|0
+
 [MCA - Laserdisc Arcade]
 SUPEMU=daphne
 SUPCORE=mame_libretro.dll
 SHORTNM=MCALD
+LNCHPRM=$|1|1|0|1|0
 
 [Microkey - Primo]
 SHORTNM=MICPRI
@@ -7669,8 +7906,12 @@ SHORTNM=NSWTCH
 SUPEMU=yuzu|ryujinx
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
-[Othello - Multivision]
+
+[Tsukuda - Othello Multivision]
 SHORTNM=OTHLM
+RJMAMENM=omv2000
+RJ?MAMEOPS=<omv2000 -cart<
+RJROMXT=.bin,.sg
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
@@ -7711,7 +7952,7 @@ SUPEMU=winarcadia|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Tiger Telematics - Gizmondo]
+[Tiger - Gizmondo]
 SHORTNM=TIGTEL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
@@ -7737,6 +7978,14 @@ LNCHPRM=$|1|1|0|1|0
 
 [Commodore - C128]
 LNCHPRM=$|1|1|0|1|0
+
+[Zeebo - Zeebo]
+SHORTNM=ZEBO
+SUPEMU=
+SUPCORE=
+LNCHPRM=$|1|1|0|1|0
+
+
 
 [*************************************************************************]
 [Advanced_Emulator_Launcher]

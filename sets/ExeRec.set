@@ -379,6 +379,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC88
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\NEC - PC98
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom
+FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Family Computer Disk System
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Advance
 FileCreateDir,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Color
@@ -471,6 +472,7 @@ FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC88
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom
+FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Family Computer Disk System
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Advance
 FileCreateDir,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Color
@@ -567,6 +569,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC88
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\NEC - PC98
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Famicom
+FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Family Computer Disk System
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Advance
 FileCreateDir,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Color
@@ -656,6 +659,7 @@ FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC-FX
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC88
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\NEC - PC98
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Famicom
+FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Family Computer Disk System
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Advance
 FileCreateDir,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Color
@@ -766,7 +770,6 @@ FileInstall,sets\rjcmd_runproc.set,sets\rjcmd_runproc.set,1
 FileInstall,sets\ScrLkUp.set,sets\ScrLkUp.set,1
 FileInstall,sets\skdeploy.set,sets\skdeploy.set,1
 FileInstall,sets\supported.set,sets\supported.set,1
-FileInstall,sets\SystemEmulators.set,sets\SystemEmulators.set,1
 FileInstall,sets\SystemLocations.set,sets\SystemLocations.set,1
 FileInstall,sets\themes.set,sets\themes.set,1
 FileInstall,sets\the_eye_eula.set,sets\the_eye_eula.set,1
@@ -912,7 +915,7 @@ FileInstall,img\Fairchild - Channel F.ico,img\Fairchild - Channel F.ico,1
 FileInstall,img\Fightcade - Fightcade.ico,img\Fightcade - Fightcade.ico,1
 FileInstall,img\Fujitsu - FM Towns.ico,img\Fujitsu - FM Towns.ico,1
 FileInstall,img\Fujitsu - FM-7.ico,img\Fujitsu - FM-7.ico,1
-FileInstall,img\Funtech - Super A'can.ico,img\Funtech - Super A'can.ico,1
+FileInstall,img\Funtech - Super Acan.ico,img\Funtech - Super Acan.ico,1
 FileInstall,img\Game - & - Watch.ico,img\Game - & - Watch.ico,1
 FileInstall,img\Game Wave - Family Entertainment System.ico,img\Game Wave - Family Entertainment System.ico,1
 FileInstall,img\Gamepark - GP32.ico,img\Gamepark - GP32.ico,1
@@ -942,8 +945,8 @@ FileInstall,img\NEC - PC-FX.ico,img\NEC - PC-FX.ico,1
 FileInstall,img\NEC - PC98 - Touhou.ico,img\NEC - PC98 - Touhou.ico,1
 FileInstall,img\NEC - PC98.ico,img\NEC - PC98.ico,1
 FileInstall,img\Nintendo - Color TV Game.ico,img\Nintendo - Color TV Game.ico,1
-FileInstall,img\Nintendo - Famicom Disk System.ico,img\Nintendo - Famicom Disk System.ico,1
 FileInstall,img\Nintendo - Famicom.ico,img\Nintendo - Famicom.ico,1
+FileInstall,img\Nintendo - Family Computer Disk System.ico,img\Nintendo - Family Computer Disk System.ico,1
 FileInstall,img\Nintendo - Game Boy Advance.ico,img\Nintendo - Game Boy Advance.ico,1
 FileInstall,img\Nintendo - Game Boy Color.ico,img\Nintendo - Game Boy Color.ico,1
 FileInstall,img\Nintendo - Game Boy.ico,img\Nintendo - Game Boy.ico,1
@@ -1666,6 +1669,8 @@ FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player1.amgp,rj\joyCfgs\Ant
 FileInstall,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\NEC - PC98\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Famicom\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Family Computer Disk System\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Family Computer Disk System\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Family Computer Disk System\Player2.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Family Computer Disk System\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Advance\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Advance\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Color\Player1.amgp,rj\joyCfgs\Antimicro\Joystick\Nintendo - Game Boy Color\Player1.amgp,1
@@ -1854,6 +1859,8 @@ FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player1.amgp,rj\joyCfgs\Ant
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\NEC - PC98\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Famicom\Player2.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Family Computer Disk System\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Family Computer Disk System\Player1.amgp,1
+FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Family Computer Disk System\Player2.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Family Computer Disk System\Player2.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Advance\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Advance\Player1.amgp,1
 FileInstall,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Color\Player1.amgp,rj\joyCfgs\Antimicro\Keyboard\Nintendo - Game Boy Color\Player1.amgp,1
@@ -2051,6 +2058,8 @@ FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC98\Player1.xpadderprofile,rj\joy
 FileInstall,rj\joyCfgs\Xpadder\Joystick\NEC - PC98\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\NEC - PC98\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Famicom\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Famicom\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Famicom\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Famicom\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Family Computer Disk System\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Family Computer Disk System\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Family Computer Disk System\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Family Computer Disk System\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Advance\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Advance\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Color\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Joystick\Nintendo - Game Boy Color\Player1.xpadderprofile,1
@@ -2235,6 +2244,8 @@ FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC98\Player1.xpadderprofile,rj\joy
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\NEC - PC98\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\NEC - PC98\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Famicom\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Famicom\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Famicom\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Famicom\Player2.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Family Computer Disk System\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Family Computer Disk System\Player1.xpadderprofile,1
+FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Family Computer Disk System\Player2.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Family Computer Disk System\Player2.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Advance\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Advance\Player1.xpadderprofile,1
 FileInstall,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Color\Player1.xpadderprofile,rj\joyCfgs\Xpadder\Keyboard\Nintendo - Game Boy Color\Player1.xpadderprofile,1

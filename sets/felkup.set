@@ -1,5 +1,5 @@
 3do=T3DO=The 3DO Company - 3DO=.iso,.img,.bin,.ccd=4DO="[ROMPATH]"
-acan=ACAN=Funtech - Super A'can=.bin,.zip=MAME - System="[ROMPATH]"
+acan=ACAN=Funtech - Super Acan=.bin,.zip=MAME - System="[ROMPATH]"
 amiga=AMIG=Commodore - Amiga=.fsuae=FS-UAE="[ROMPATH]"
 amigacd32=AMIG=Commodore - Amiga CD32=.fsuae=FS-UAE="[ROMPATH]"
 amigacdtv=AMIG=Commodore - Amiga CDTV=.fsuae=FS-UAE="[ROMPATH]"
@@ -63,7 +63,7 @@ naomi=NAOMI=Sega - NAOMI=.zip,.gdi=Demul=[ROMNAME]
 nds=NNDS=Nintendo - Nintendo DS=.nds,.zip,.nd5=Desmume="[ROMPATH]"
 neogeo=NEOMVS=SNK - Neo Geo MVS=.zip,.chd=FinalBurnAlpha=[ROMNAME]
 nfam=NNFAM=Nintendo - Famicom=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip=nestopia="[ROMPATH]"
-nfds=NNFDS=Nintendo - Famicom Disk System=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip=nestopia="[ROMPATH]"
+nfds=NNFDS=Nintendo - Family Computer Disk System=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip=nestopia="[ROMPATH]"
 nes=NNES=Nintendo - Nintendo Entertainment System=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip=nestopia="[ROMPATH]"
 ngp=SNEOPKT=SNK - Neo Geo Pocket=.ngp,.ngpc,.zip=Mednafen="[ROMPATH]"
 ngpc=SNEOPKTC=SNK - Neo Geo Pocket Color=.ngp,.ngpc,.zip=Mednafen="[ROMPATH]"

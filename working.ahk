@@ -926,6 +926,9 @@ CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|Ra
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
+SHOWARCTAB=ARCGSYS|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCDPRGRS|ARCDPRGRS|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
+HIDEARCTAB=strmvid|ARCLNCH|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
+SORTROMTAB=DETSORT|SELSORT|DRPSEL|MOVDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT
 
 FAN1ART= Backdrops
 FAN2ART= Backdrops
@@ -1487,7 +1490,7 @@ Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
 Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;   ~~~~~ [[GLOBAL SKELEOTNKEY]] ~~~~~   ;;;;;;;;;;;
+;{;;;;;;;   ~~~~~ [[SETTINGS TAB]] ~~~~~   ;;;;;;;;;;;
 Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
@@ -2782,19 +2785,38 @@ if (raexist = "")
 	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-if (VERSION <> "[CURV]")
-	{
-		Gui, Tab, 7
-		Gui, Tab, Repository
-		Gui,Font,Bold
-		Gui,Add,Text,x238 y212,  Don't be duped by street-ROMs:`n`n     SUPPORT YOUR LOCAL ROM-DEALERS.`n`n    Developers of skeletonKeY are working ahk hard as they can`nto bring you a quality experience, so throw spaghetti to play along!`n`nPlay safe:  Play smart.
-		Gui,Font,Normal
-		goto, GUIJAKLOC
-	}
+
 Gui, Tab, 7
 Gui, Tab, Repository
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
+Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
+Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
+gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP hidden, Move Dropped
+gui, Add, Checkbox, x9 y84 vEXTDRP gEXTDRP hidden, Extract Dropped
+Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
+Gui, Add, Radio, x165 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
+gui, Add, Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
+Gui, Add, Radio, x119 y98 vJAKBF gJAKBF hidden Checked disabled, Before
+Gui, Add, Radio, x171 y98 vJAKAFT gJAKAFT hidden disabled, After Extraction
+Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT,
+Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT,X
+Gui, Add, ListView,x350 y24 w388 h470 hwndLvwHnd4 vDRPLV gDRPLV hidden,|
+if (VERSION <> "[CURV]")
+	{
+		Loop,parse,SORTROMTAB,|
+			{
+				guicontrol,show,%A_LoopField%
+			}
+		goto, GUIJAKLOC
+	}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center,
 Gui,Font,Bold
-Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center, SYSTEMS
+Gui, Add, Radio, x130 y4 vSortROMS gSortROMS,Sort
+Gui, Add, Radio, x180 y4 vARCTAB gArcTab Checked,Repo
+
 Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
@@ -31260,10 +31282,11 @@ if (fileexist(ratstchk))
 				IniWrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
 				IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
 				IniWrite, "%raexedir%\%raexefile%",Assignments.ini,Assignments,retroarch
+				Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 			}
 	}
 IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_location
-if (ratstchk = "")
+if ((ratstchk = "ERROR")or(ratstchk = ""))
 	{
 		iniread,raexetmp,Apps.ini,EMULATORS,retroarch
 		if ((raexetmp <> "ERROR") && (raexetmp <> ""))
@@ -31272,6 +31295,7 @@ if (ratstchk = "")
 					{
 						splitpath,raexetmp,raexefile,raexedir
 						iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
+						Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
 					}
 			}
 	}
@@ -37686,6 +37710,105 @@ guicontrol,disable,ENHAK
 guicontrol,enable,ARCSYS
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
+return
+
+ArcTab:
+gui,submit,nohide
+Loop,parse,SHOWARCTAB,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
+Loop,parse,HIDEARCTAB,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+Loop,parse,SORTROMTAB,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+
+return
+
+SortRoms:
+gui,submit,nohide
+Loop,parse,SHOWARCTAB,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+Loop,parse,HIDEARCTAB,|
+	{
+		guicontrol,hide,%A_LoopField%
+	}
+Loop,parse,SORTROMTAB,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
+return
+
+SRTFLT:
+gui,submit,nohide
+return
+
+SRTCLRFLT:
+gui,submit,nohide
+return
+
+DETSORT:
+gui,submit,nohide
+guicontrol,disable,DRPSEL
+return
+SELSORT:
+gui,submit,nohide
+guicontrol,enable,DRPSEL
+return
+DRPSEL:
+gui,submit,nohide
+return
+KEEPSORT:
+gui,submit,nohide
+return
+JAKBF:
+gui,submit,nohide
+return
+JAKAFT:
+gui,submit,nohide
+return
+ARCSORT:
+gui,submit,nohide
+return
+MOVDRP:
+gui,submit,nohide
+return
+EXTDRP:
+gui,submit,nohide
+if (EXTDRP = 1)
+	{
+		guicontrol,enable,ARCSORT
+		guicontrol,enable,KEEPSORT
+		if (JAKDRP = 1)
+			{
+				guicontrol,enable,JAKBF
+				guicontrol,enable,JAKAFT
+			}
+	}
+	else {
+		guicontrol,disable,ARCSORT
+		guicontrol,disable,KEEPSORT
+		guicontrol,disable,JAKBF
+		guicontrol,disable,JAKAFT
+	}
+return
+JAKDRP:
+gui,submit,nohide
+if (EXTDRP = 1)
+	{
+		guicontrol,enable,JAKBF
+		guicontrol,enable,JAKAFT
+	}
+return
+
+DRPLV:
+gui,submit,nohide
 return
 
 ArchiveSystems:

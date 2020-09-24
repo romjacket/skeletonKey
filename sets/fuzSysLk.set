@@ -28,12 +28,14 @@ cdi|*Philips*cd*i*>CDI
 OBOR|*Beats*of*Rage*|*Open*BOR*>OBOR
 microtan|*microtan*>TMIC65
 ep64}*Enterprise*64*>ENTP
+ique|*ique*>IQUE
 DOS|*microsoft*dos*|*ms*dos*|*d.o.s*|*dosbox*>MSDOS
 jaguar|*jaguar|jag>ATJAG
 sgx|*super*grafx*>NSGX
 lynx|*atari*lynx*>ATLYNX
 n64|*nintendo*64|*n64*|*nintendo64>NN64
-NDS|DS|*Nintendo DS*|*NDS*|*NintendoDS*>NNDS
+NDSi|DSi|*Nintendo DSi|*NintendoDSi*>NNDSI
+NDS|DS|*Nintendo DS|*NintendoDS*>NNDS
 N3DS|3DS|*Nintendo*3*DS*|*3DS*>NN3DS
 wiiu|*Wii*U*>NNWIIU
 Wii|*Wii>NNWII
@@ -63,6 +65,7 @@ XBONE|*xbox*one*>MSXBONE
 *sinclair*ql*>SINQL
 oric|*oric*atmos*>ORIC
 smd|*mega*drive*|*genesis*>SMEGAD
+beena|sega*beena|*adv*beena*>SBEENA
 sms|*master*system*|*mark*III*|*mark*3*>SEGMS
 dc|segadc|*dream*cast*>SDREAM
 gamegear|*game*gear*>SGG
@@ -112,6 +115,7 @@ ep64|*enerprise*64*>ENT64
 advision|*Adve*Vis*>EADVV
 scv|*cassette*vision*>ESCVIS
 fm7|*Fujitsu*Micro*|FM*7*>FFM7
+studybox|Fukutake*|>FPSBX
 gmaster|*game*master*>HGAMMAS
 vc4000|*VC*4000*>IVC4K
 jupace|*jupiter*ace*>JACE
@@ -160,7 +164,7 @@ spec128|*zx*spec*|sinclair*spect*>SINZXS
 zx81|*zx*81*>SINZX81
 psu|ps1|*psx*|*ps1*|*playstation 1*|*ps 1*|*playstation>SPLAY
 gamecom|Tiger*game*|*game.com*>TIGAME
-tutor|tomy*tutor*>TOMYT
+pyuuta|tutor|tomy*tutor*|*pyuuta|>TOMYPU
 pc9821xs|*Touhou*>TOUHOU
 vsmile|*v*smile*>VVSMILE
 vidbrain|*videobrain*>VIFAMC
@@ -172,11 +176,27 @@ atom|Acorn*atom*>ACATOM
 advision|*Adve*Vis*>EADVV
 apfimag|*APF*Imag*|*imagination*ma*>APFIMG
 bbca|bbcmicro|*bbc*micro>BBCMA
+*Chihiro>SEGCHI
+hng64|*hyper*neo*|*neogeo*64|hyperneo*64>HYPNEO
+nuon|vm labs*|*nuon>VMNUON
+edsac|*cambridge*>EDSAC
+pasopia|pasopia7|pasopia7lcd|*toshiba*pasopia*>PASOPIA
 m5|*sord*m*5>SORDM5
 pippin|*playdia*BPLAD>BPIPN
 plus4|*Com*Plus*>COMPLUS
 nespal|*NES*PAL*|*Nintendo Entertainment System*PAL*>NESPAL
+*zeebo*>ZEBO
+*zapit*|*gamewave*|*game wave*>ZPGAMW
+*kiss-site*|*tomy*kiss*>TOMKIS
+*hyperscan*|mattel*hyper*>MHYPSCN
+ALG|*Laser Games*|*American*Laser*>ALAZG
 mac128k|*Macintosh*>APLMAC
+iteagle|Incredible*Eagle*>ITEAGLE
+system 573|*system 573|*konami*573>KS753
+*satelite terminal*|*system 573*sat*>KS753S
+Bemani*Analog*|*573 Analog*|*system 573*a*>KS753A
+Bemani*Digital*|*573 Digital*|*system 573*d*>KS753D
+vis|memorex*vis*|tandy*vis*|*Video Information System>MXVIS
 coco|*tandy*color*>TANCOCO
 pockstat|*pocket*station*>SPKSTAT
 ibmpcjr|*pc*jr*>IPCJR
@@ -393,6 +413,12 @@ tandy6k>TAN6K
 tdv2324>TANTDV
 tek4052>TEKTRON
 ti74>TI74
+ti73>TI73
+ti80>TI80
+ti81>TI81
+ti82>TI82
+ti83>TI83
+ti92>TI92
 ti95>TI95
 ti99_4a>TI994A
 ti99>TI99
@@ -403,7 +429,6 @@ to770>TTO7
 to770a>TTO7A
 trs80m2>TTRSMII
 trsm100>TTRS1H
-tutor>TOMYPU
 tvc>VIDTVC64
 unichamp>UNICHAM
 ut88>SOVUT88

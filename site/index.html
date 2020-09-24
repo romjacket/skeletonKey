@@ -236,8 +236,9 @@
                             <li>Drag &amp; drop a ROM file to the desktop icon,</li>
                             <li>Drag &amp; drop a ROM into the main tab</li>
                             <li>Categorically filtered from playlists, ROM directories or search functions.</li>
+                            <li>Via ROM-Jacket Launchers</li>
                             <!--<li>From an internet ROM-repository</li>-->
-                            <li>From the command line</li>
+                            <li>From the <a href="#CLI" class="pk" data-smoothie>command line</a></li>
                         </ul>
                         <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to automate hundreds of emulators</p>
                         <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.
@@ -1493,10 +1494,30 @@
                         <div id="inner">
                             <h3>Forking</h3>
                             <p>A GUI deployment tool is available for users who wish to publish a skeletonKey. SKey-Deploy.exe can be used to build, maintain and deploy a github source-code versioning project, website and binaries from almost any windows
-                                computer with internet access. You must have a <a href="http://github.com/join">github account</a> and <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token">create a token</a>.
+                                computer with internet access. You must have a <a href="http://github.com/join" target="blank">github account</a> and <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line#creating-a-token" target="_blank">create a token</a>.
                             </p>
+                            <ul class="accordion css-accordion" align="right">
+                                <li class="accordion-item">
+                                    <input class="accordion-item-input" type="checkbox" name="accordion" id="forking" />
+                                    <label for="forking" class="accordion-item-hd" align="right">↕ Forking Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+                                    <div class="accordion-item-bd">
+                                        <div id="detailsdiv" align="left">
+                                            <div>
+                                                <p class="hasShadow">Forking skeletonkey is made simple using the Skey-Deploy executable.<br>All the required tools such as <a href="http://github.com/" target="blank">Git</a>&amp; <a href="https://nsis.sourceforge.io/" target="new">NSIS</a> can be quickly
+                                                 downloaded and setup automatically to create a devlopment environment.
+                                                </p>
+                                                <p class="hasShadow">All the tools used to develop skeletonKey are open-source and developers interested in forking the project should read the guidelines and restrictions outlined in the Readme.md file included
+                                                with the project.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <br>
+                        <a id="CLI"></a>
                         <div id="inner">
                             <h3>Command-Line</h3>
                             <p>An emulator-preset can be specified to override any default association from the command-line.</p>
