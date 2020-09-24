@@ -42,6 +42,7 @@ ifnotexist,%ARCORG%
 		fileCopy,sets\arcorg.set,arcorg.ini
 	}
 IniRead,HOSTINGURL,%ARCORG%,GLOBAL,HOSTINGURL
+IniRead,DATHUB,%ARCORG%,GLOBAL,DATHUB
 ;;FileReadLine,HOSTINGURL,arcorg.set,2
 ;{;;;;;;;;;;;;;;;;;;;        DRAG & DROP        ;;;;;;;;;;;;;;;;;;;
 tmpcvpth:
@@ -248,6 +249,28 @@ IfNotExist,mediafe.ini
 	{
 		FileCopy,sets\mediafe.set,mediafe.ini
 	}
+ifnotexist,datlist.ini
+	{
+		gosub,getDATLIST
+	}
+	else {
+		alldats= 
+		Fileread,datfile,datlist.ini
+		Loop,parse,datfile,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ebi2= 	
+				stringsplit,ebi,A_LoopField,=,"
+				;"
+				if (ebi2 <> "")
+					{
+						alldats.= ebi2 . "|"
+					}
+			}
+	}	
 fileread,oldlkup,sets\lkup.set	
 Iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
 splitpath,raexeloc,RaExeFile,raexedir
@@ -926,9 +949,9 @@ CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|Ra
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
-SHOWARCTAB=ARCGSYS|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCDPRGRS|ARCDPRGRS|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
+SHOWARCTAB=ARCGSYS|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
 HIDEARCTAB=strmvid|ARCLNCH|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
-SORTROMTAB=DETSORT|SELSORT|DRPSEL|MOVDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT
+SORTROMTAB=DETSORT|SELSORT|DRPSEL|MOVDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO
 
 FAN1ART= Backdrops
 FAN2ART= Backdrops
@@ -2796,13 +2819,23 @@ Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabl
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP hidden, Move Dropped
 gui, Add, Checkbox, x9 y84 vEXTDRP gEXTDRP hidden, Extract Dropped
 Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
-Gui, Add, Radio, x165 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
+Gui, Add, Radio, x170 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
 gui, Add, Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
-Gui, Add, Radio, x119 y98 vJAKBF gJAKBF hidden Checked disabled, Before
-Gui, Add, Radio, x171 y98 vJAKAFT gJAKAFT hidden disabled, After Extraction
-Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT,
-Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT,X
-Gui, Add, ListView,x350 y24 w388 h470 hwndLvwHnd4 vDRPLV gDRPLV hidden,|
+Gui, Add, Radio, x121 y98 vJAKBF gJAKBF hidden Checked disabled, Before
+Gui, Add, Radio, x178 y98 vJAKAFT gJAKAFT hidden disabled, After Extraction
+Gui, Add, ListBox, x9 y120 w329 h200 hwndDATLBX vDATLBX gDATLBX hidden,|
+Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT hidden,
+Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT hidden,X
+Gui, Add, ListView,x350 y24 w388 h470 hwndLvwHnd4 vDRPLV gDRPLV hidden,
+Gui Add, DropDownList, x8 y324 w283 hwndDplHndl173 vDATDRPD gDATDRPD hidden,%datlist%
+Gui Add, Button, x8 y348 w51 h19 vBRWSDAT gBRWSDAT hidden, Browse
+Gui Add, Button, x295 y325 w43 h19 vADDATS gADDATS hidden, Add
+Gui Add, Button, x695 y3 w43 h19 vADDSRTFILE gADDSRTFILE hidden, File
+Gui Add, Button, x645 y3 w51 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
+Gui, Add, Button, x740 y3 w15 h15 vHLTDATP gHLTDATP hidden,-
+Gui Add, DropDownList, x6 y481 w120 hwndDplHndl174 vDATREPO gDATREPO hidden,TOSEC||NO-INTRO|HYPERXML|MAME
+Gui Add, Button, x135 y483 w73 h17 vGETDATREP gGETDATREP hidden, Download
+Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
 if (VERSION <> "[CURV]")
 	{
 		Loop,parse,SORTROMTAB,|
@@ -2845,7 +2878,6 @@ gui, add, Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
 Gui,Add,DropDownList, hwndDplHndl124 x124 y324 w199 vSRCHDDL gSRCHDDL, All||%syslist%
 Gui, Add, Button, x329 y326 w15 h15 vExpndASrch gExpndASrch hidden,+
 Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
-Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
@@ -37729,6 +37761,10 @@ Loop,parse,SORTROMTAB,|
 
 return
 
+DATLBX:
+gui,submit,nohide
+return
+
 SortRoms:
 gui,submit,nohide
 Loop,parse,SHOWARCTAB,|
@@ -37743,6 +37779,30 @@ Loop,parse,SORTROMTAB,|
 	{
 		guicontrol,show,%A_LoopField%
 	}
+return
+
+HLTDATP:
+gui,submit,nohide
+return
+
+DATDRPD:
+gui,submit,nohide
+return
+
+BRWSDAT:
+gui,submit,nohide
+return
+
+ADDATS:
+gui,submit,nohide
+return
+
+ADDSRTFILE:
+gui,submit,nohide
+return
+
+ADDSRTDIR:
+gui,submit,nohide
 return
 
 SRTFLT:
@@ -37798,6 +37858,18 @@ if (EXTDRP = 1)
 		guicontrol,disable,JAKAFT
 	}
 return
+
+GETDATREP:
+gui,submit,nohide
+guicontrolget,hubtget,,DATREPO
+datrepourl= %DATHUB%/%hubtget%.7z
+return
+
+DATREPO:
+gui,submit,nohide
+return
+
+
 JAKDRP:
 gui,submit,nohide
 if (EXTDRP = 1)
@@ -37805,10 +37877,56 @@ if (EXTDRP = 1)
 		guicontrol,enable,JAKBF
 		guicontrol,enable,JAKAFT
 	}
+if (JAKDRP = 0)
+	{
+		guicontrol,disable,JAKBF
+		guicontrol,disable,JAKAFT
+	}
 return
 
 DRPLV:
 gui,submit,nohide
+return
+
+getDATLIST:
+filedelete,datlist.ini
+alldats=
+tosecdatset=
+nointrodatset=
+hyperspindatset=
+mamedatset=
+fileappend,[DATLIST]`n,datlist.ini
+Loop,dats\*.*,2
+	{
+		ifinstring,A_LoopFileDir,TOSEC
+			{
+				alldats.= A_LoopFileFullPath . "|"
+				tosecdatset.= A_LoopFileFullPath . "|"
+				iniwrite,"%A_LoopFileFullPath%",datlist.ini,TOSEC,%A_LoopFileName%
+				continue
+			}
+		ifinstring,A_LoopFileDir,No-Intro
+			{
+				alldats.= A_LoopFileFullPath . "|"
+				nointrodatset.= A_LoopFileFullPath . "|"
+				iniwrite,"%A_LoopFileFullPath%",datlist.ini,NOINTRO,%A_LoopFileName%
+				continue
+			}	
+		ifinstring,A_LoopFileDir,Hyperxml
+			{
+				alldats.= A_LoopFileFullPath . "|"
+				hyperspindatset.= A_LoopFileFullPath . "|"
+				iniwrite,"%A_LoopFileFullPath%",datlist.ini,HYPERXML,%A_LoopFileName%
+				continue
+			}	
+		ifinstring,A_LoopFileDir,MAME
+			{
+				alldats.= A_LoopFileFullPath . "|"
+				mamedatset.= A_LoopFileFullPath . "|"
+				iniwrite,"%A_LoopFileFullPath%",datlist.ini,MAME,%A_LoopFileName%
+				continue
+			}
+	}
 return
 
 ArchiveSystems:

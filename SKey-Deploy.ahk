@@ -3331,6 +3331,8 @@ StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 GRARBV= %GITSWEB%/%gituser%/skeletonKey/releases/download
+GRARDT= %GITSWEB%/%gituser%/dat_hub/releases/download
+StringReplace,arcorgv,arcorgv,[DATHUB],%GRARDT%,All
 StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
 StringReplace,arcorgv,arcorgv,[CURV],%vernum%,All
