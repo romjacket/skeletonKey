@@ -1,7 +1,7 @@
 [GLOBAL]
 CLOUDLOC=
 HOSTINGURL=https://github.com/romjacket
-DATHUB=https://github.com/romjacket
+DATHUB=https://github.com/romjacket/dat_hub/releases/download
 ALTHOST=http://github.com/jomricket
 SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 IP_LOOKUP=http://www.netikus.net/show_ip.html
