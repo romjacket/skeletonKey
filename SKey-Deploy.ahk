@@ -470,8 +470,8 @@ Loop, Read, skopt.cfg
 					_RREPO= skeletonKey
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
-							REPOURL= %curvl2%
-							_REPOURL= %curvl2%
+							RREPO= %curvl2%
+							_RREPO= %curvl2%
 							CONTPARAM22= 1
 						}
 				}
