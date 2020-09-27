@@ -2791,20 +2791,20 @@ Gui, Tab, Repository
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
 Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
-Gui, Add, Checkbox, x130 y28 vDETECTXTN gDETECTXTN hidden, Detect Extension
-gui, Add, Checkbox, x200 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Extension
+Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN checked hidden, Detect Extension
+gui, Add, Checkbox, x220 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Extension
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
-gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP hidden, Move Dropped
-gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP hidden, Rename ROM
-gui, Add, Checkbox, x200 y70 vOVRWDRP gOVRWDRP hidden, Overwrite
+gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
+gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
+gui, Add, Checkbox, x200 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
 
-gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP hidden, Search Compressed
-gui, Add, Checkbox, x9 y84 vEXTDRP gEXTDRP hidden, Extract Dropped
-Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
-Gui, Add, Radio, x170 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
+gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP checked hidden, Search Compressed
+;;gui, Add, Checkbox, x270 y98 vEXTDRP gEXTDRP hidden, Extract Dropped
+;;Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
+;;Gui, Add, Radio, x170 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
 gui, Add, Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
-Gui, Add, Radio, x121 y98 vJAKBF gJAKBF hidden Checked disabled, Before
-Gui, Add, Radio, x178 y98 vJAKAFT gJAKAFT hidden disabled, After Extraction
+Gui, Add, Radio, x121 y98 vJAKBF gJAKBF hidden Checked disabled, Individuate
+Gui, Add, Radio, x208 y98 vJAKAFT gJAKAFT hidden disabled, Consolidate
 Gui, Add, ListBox, x9 y120 w329 h200 hwndDATLBX multi vDATLBX gDATLBX hidden,|
 Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT hidden,
 Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT hidden,X
@@ -3961,8 +3961,8 @@ EXTDRP_TT :="Extracts files found in compressed archives"
 ARCSORT_TT :="Archives compressed files to skeletonkey's cache directory."
 KEEPSORT_TT :="Keeps compresed archives alongside the extracted ROM"
 JAKDRP_TT :="Copies or moves the ROM to a folder of its name."
-JAKAFT_TT :="Archives are moved into a folder of the ROM name."
-JAKBF_TT :="Archives are extracted after being placed inside a folder of its name.
+JAKAFT_TT :="Jacketizes based on the base-name`nie: strips the region and other information in parenthesis and brackets."
+JAKBF_TT :="Jacketizes based on the complete name"
 VIDASPECT_TT :="Aspect Ratio Mode"
 DATLBX_TT :="List of DAT files to check for known files"
 SRTFLT_TT :="Search for files in the selected list"
@@ -37601,6 +37601,7 @@ HASHALLROMS:
 gui,submit,nohide
 guicontrolget,DETECTXTN,,DETECTXTN
 guicontrolget,MOVDRP,,MOVDRP
+guicontrolget,SRCHDRP,,SRCHDRP
 guicontrolget,EXTDRP,,EXTDRP
 guicontrolget,OVRWDRP,,OVRWDRP
 guicontrolget,ARCSORT,,ARCSORT
@@ -37615,15 +37616,36 @@ Loop,parse,SORTROMTAB,|
 ;;msgbox,,,DATLBX=%DATLBX%`nHSH_TBD=%HSH_TBD%
 Loop,parse,HSH_TBD,|
 	{
+		ZIPSEEK= 
 		ApndCRC=
 		if InStr(FileExist("A_LoopField"), "D")
-			{
+			{	
 				Loop,Files,%A_LoopField%\*.*
 					{
+						ZIPSEEK= 
+						ApndCRC=
 						CrCFLN= %A_LoopFileFullPath%
 						splitpath,A_LoopFileFUllPath,romyu,rompd,romxt,romjn
-						gosub, CRC32GET
-						msgbox,,,CrCFLN= %A_LoopFileFUllPath%`napndcrc=%Apndcrc%
+						if ((romxt = ".zip")or(romxt = ".7z")or(romxt = ".rar")&&(SRCHDRP = 1))
+							{
+								ZIPSEEK= 1
+								if instr(incldats,"ARCADE\")
+									{
+										ZIPSEEK= 0
+									}
+							}
+						if (ZIPSEEK = 1)
+							{
+								concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+								StdOut := StdoutToVar_CreateProcess(concatcmd)
+								partition=
+								gosub, zpcrcproc
+								ApndCRC= %CRCZ%
+							}
+						else {
+								gosub, CRC32GET
+						}
+						;;msgbox,,,CrCFLN= %A_LoopFileFUllPath%`napndcrc=%Apndcrc%
 						if (ApndCRC = "-1")
 							{
 								continue
@@ -37632,8 +37654,32 @@ Loop,parse,HSH_TBD,|
 					}
 			}
 		CrCFLN= %A_LoopField%
+		if ((romxt = ".zip")or(romxt = ".7z")or(romxt = ".rar")&&(SRCHDRP = 1))
+			{
+				ZIPSEEK= 1
+				if instr(incldats,"ARCADE\")
+					{
+						ZIPSEEK= 0
+					}
+			}
+		if (ZIPSEEK = 1)
+			{
+				concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+				StdOut := StdoutToVar_CreateProcess(concatcmd)
+				partition=
+				gosub, zpcrcproc
+				ApndCRC= %CRCZ%
+				if (ApndCRC = 0000000)
+					{
+						continue
+					}
+			}
+		else {
+				gosub, CRC32GET
+		}
 		splitpath,A_LoopField,romyu,rompd,romxt,romjn
 		gosub, crc32get
+		;;msgbox,,,%apndcrc%
 		if (ApndCRC = "-1")
 			{
 				continue
@@ -37641,13 +37687,21 @@ Loop,parse,HSH_TBD,|
 		gosub, hashproc
 	}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SB_SetText("sorting complete")
+Gui,Listview,DRPLV
+LV_Delete()
+Loop,parse,HSH_TBD,|
+	{
+		LV_Add("+Check",A_LoopField)
+	}
+LV_ModifyCol()
 Loop,parse,SORTROMTAB,|
 	{
 		guicontrol,enable,%A_LoopField%
 	}
 return
 HASHPROC:
-MSGBOX,,,INCLDATS=%INCLDATS%
+;;MSGBOX,,,INCLDATS=%INCLDATS%
 Loop,parse,incldats,|
 	{
 		stringsplit,datcl,A_LoopField,\([
@@ -37668,7 +37722,7 @@ Loop,parse,incldats,|
 						SYS_K= %HASH_SYS%
 					}
 			}
-		msgbox,,,%sys_k%
+		;;msgbox,,,%sys_k%
 		Fileread,hi,%dat_in%
 		Loop,parse,hi,`n`r
 			{
@@ -37677,7 +37731,8 @@ Loop,parse,incldats,|
 					{
 						stringsplit,ggnm,aeb2,=>,"
 						;"
-					G_N=%ggnm2%																		stringreplace,G_N,G_N,:,-,All
+					G_N=%ggnm2%
+					stringreplace,G_N,G_N,:,-,All
 					stringreplace,G_N,G_N,>,-,All
 					stringreplace,G_N,G_N,<,-,All
 					stringreplace,G_N,G_N,?,-,All
@@ -37703,30 +37758,92 @@ Loop,parse,incldats,|
 										hsh_%newnv%= % rgnm%kprt%
 									}
 							}
-						MSGBOX,,,file=%CrcFLN%`nHSH_CRC=%hsh_CRC%`nAPNDCRC=%ApndCRC%	
 						if (hsh_crc = ApndCRC)
 							{
+								;;MSGBOX,,,file=%CrcFLN%`nHSH_CRC=%hsh_CRC%`nAPNDCRC=%ApndCRC%	
 								fldrnm= 
-								if (JADRP = 1)
+								if (JAKDRP = 1)
 									{
-										fldrnm= %romjn%\
+										fldrnm= %G_N%\
+										if (JAKDRP = 1)
+											{
+												if (JAKAFT = 1)
+														{
+															stringleft,tmb,G_N,1
+															if ((tmb <> "(")&&(tmb <> "["))
+																{
+																	stringsplit,nma,G_N,([
+																	NG_N= %nma1%
+																	fldrnm= %NG_N%\
+																}
+														}
+											}
 									}
 								if (RENMDRP = 1)
 									{
 										romyu= %rgnm3%
-										if (JAKDRP = 1)
+									}
+								hsh_dest= %fldrnm%%romyu%
+								if (ZIPSEEK = 1)
+									{
+										if (CRCZ <> "")
 											{
-												fldrnm= %G_N%\
+												aknum=
+												afnum=
+												Loop, Parse, ROMZ,|
+													{
+														if (A_LoopField = "")
+															{
+																continue
+															}
+														aknum+=1
+														Loop, Parse, CRCZI,|
+															{
+																if (A_LoopField = "")
+																	{
+																		continue
+																	}
+																afnum+=1
+																if (afnum = aknum)
+																	{
+																		CRCZ= %A_LoopField%
+																		break
+																	}
+															}
+														SplitPath,A_LoopField,zipt,zipp,zipxt,ziprn
+														stringleft,ziptst,zipt,1
+														if (ziptst = A_Space)
+															{
+																stringtrimleft,zipt,zipt,1
+																stringtrimleft,ziprn,ziprn,1
+															}
+														Runwait,"bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+													}
 											}
 									}
-								hsh_dest= 	%fldrnm%%romyu%
-								if (hsh_mv = 1)
+								if (ZIPSEEK <> 1)
 									{
-										FileMove,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+										;;msgbox,,,"%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%"
+										if (MOVDRP = 1)
+											{
+												if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
+													{
+														filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
+													}
+												FileMove,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+												if (ERRORLEVEL = 0)
+													{
+														stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+													}
+												break
+											}
+										if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
+												{
+													filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
+												}
+										FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
 										break
 									}
-								FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
-								break
 							}
 					}
 			}
@@ -37893,22 +38010,6 @@ gui,submit,nohide
 return
 EXTDRP:
 gui,submit,nohide
-if (EXTDRP = 1)
-	{
-		guicontrol,enable,ARCSORT
-		guicontrol,enable,KEEPSORT
-		if (JAKDRP = 1)
-			{
-				guicontrol,enable,JAKBF
-				guicontrol,enable,JAKAFT
-			}
-	}
-	else {
-		guicontrol,disable,ARCSORT
-		guicontrol,disable,KEEPSORT
-		guicontrol,disable,JAKBF
-		guicontrol,disable,JAKAFT
-	}
 return
 GETDATREP:
 gui,submit,nohide
@@ -37937,11 +38038,8 @@ gui,submit,nohide
 return
 JAKDRP:
 gui,submit,nohide
-if (EXTDRP = 1)
-	{
-		guicontrol,enable,JAKBF
-		guicontrol,enable,JAKAFT
-	}
+guicontrol,enable,JAKBF
+guicontrol,enable,JAKAFT
 if (JAKDRP = 0)
 	{
 		guicontrol,disable,JAKBF
