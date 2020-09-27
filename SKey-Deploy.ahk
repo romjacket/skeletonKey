@@ -146,12 +146,13 @@ IfNotExist, skopt.cfg
 		_GITUSER= 
 		_GITPASS=
 		_GITPAT=
+		_ROMREPO=skeletonKey
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		_UPDTFILE= %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= %GITWEB%/romjacket/skeletonkey
 		_REPOURL= %GITWEB%/romjacket
-		_ALTHOST= %GITWEB%/jomracket
+		_ALTHOST= %GITWEB%/romjacket
 
 		gitrttmp=
 		_GITROOT= (not set) Github-Projects-Directory
@@ -457,11 +458,21 @@ Loop, Read, skopt.cfg
 				}
 		if (curvl1 = "alt_host")
 				{
-					_REPOURL= %GITWEB%/jomracket
+					_REPOURL= %GITWEB%/romjacket
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							ALTHOST= %curvl2%
 							_ALTHOST= %curvl2%
+						}
+				}
+		if (curvl1 = "rom_repo")
+				{
+					_RREPO= skeletonKey
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							REPOURL= %curvl2%
+							_REPOURL= %curvl2%
+							CONTPARAM22= 1
 						}
 				}
 		if (curvl1 = "repository_url")
@@ -504,6 +515,7 @@ Loop, Read, skopt.cfg
 DwnGit_TT :="Download Git executables"
 SelGit_TT :="Select the Git.exe"
 ILogin_TT :="github username"
+RREPO_TT :="GitHub ROM repository project"
 IPass_TT :="github password"
 IToken_TT :="Personal Access Token"
 DwnRls_TT :="Download Github-release.exe"
@@ -511,7 +523,7 @@ SelRls_TT :="Select the github-release.exe"
 DwnNSIS_TT :="Download the NSIS executable"
 SelNSIS_TT :="Select makensis.exe"
 DwnAHK_TT :="Download AutoHotkey"
-IALTH_TT :="Alternate repositories`ndelimited by a ''>''"
+IALTH_TT :="Alternate user repositories`ndelimited by a ''>''"
 SelAHK_TT :="Select the Ahk2Exe compiler executable"
 SelBLD_TT :="Select the build directory.`nusually the same as your source directory"
 SelGPD_TT :="Select the GitHub Projects directory`nusually ..\..\Documents\GitHub"
@@ -624,7 +636,8 @@ if (initchk = 1)
 		Gui Add, Edit, x30 y310 w326 h21 vUVER gUVER, %_UPDTURL%
 		Gui Add, Edit, x30 y333 w326 h21 vUFLU gUFLU, %_UPDTFILE%
 		Gui Add, Edit, x30 y357 w326 h21 vIURL gIURL, %_GETIPADR%
-		Gui Add, Edit, x30 y380 w326 h21 vIREPO gIREPO, %_REPOURL%
+		Gui Add, Edit, x216 y380 w140 h21 vRREPO gRREPO, %_ROMREPO%
+		Gui Add, Edit, x30 y380 w166 h21 vIREPO gIREPO, %_REPOURL%
 		Gui Add, Edit, x30 y403 w326 h21 vIALTH gIALTH, %_ALTHOST%
 		Gui Add, Button, x10 y432 w51 h19 vIReset gIReset, reset_all
 		Gui Add, Button, x331 y432 w51 h19 vSelDXB gSelDXB, quick
@@ -755,7 +768,7 @@ if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 ;;Gui, Tab, 1
 ;;Gui, Tab, Setup
 ;;Gui, Add, Text,x164 y5, Location
-;;Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|SciTE4AutoHotkey
+;;Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|SciTE4AutoHotkey|rom_repo
 ;;Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 ;;Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
 ;;Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Update-URL|Update-File|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
@@ -830,6 +843,8 @@ guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 guicontrol,,irepo, %GITSWEB%/romjacket
+guicontrol,,rrepo, skeletonkey
+guicontrol,,ialth, %GITSWEB%/romjacket
 if (optionONE = "DEV")
 	{
 		guicontrol,,ialth, %optionTWO%
@@ -880,7 +895,13 @@ if (CONTPARAM15 = "")
 		guicontrolget,IURL,,IURL
 		iniwrite,%IURL%,skopt.cfg,GLOBAL,net_ip
 		CONTPARAM15= 1
-	}
+	}	
+if (CONTPARAM22 = "")
+	{
+		guicontrolget,RREPO,,RREPO
+		iniwrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+		CONTPARAM22= 1
+	}	
 if (CONTPARAM16 = "")
 	{
 		guicontrolget,IREPO,,IREPO
@@ -897,11 +918,11 @@ if (CONTPARAM16 = "")
 			}
 		if (ALTHOST = "")
 			{
-				ALTHOST= %GITWEB%/jomracket
+				ALTHOST= %GITWEB%/romjacket
 			}
 		CONTPARAM16= 1
 	}
-Loop,20
+Loop,22
 	{
 		stv= % CONTPARAM%A_Index%
 		if (stv = "")
@@ -984,6 +1005,16 @@ if (nocont = 1)
 	if (CONTPARAM20 = "")
 			{
 				SB_SetText("github email not defined")
+				return
+			}
+	if (CONTPARAM21 = "")
+			{
+				SB_SetText("Alternate gituser not defined")
+				return
+			}
+	if (CONTPARAM22 = "")
+			{
+				SB_SetText("rom_repo is not defined")
 				return
 			}
 	}
@@ -1301,11 +1332,24 @@ if (IALTH = "")
 	}
 if (IALTH = "")
 	{
-		IALTH= %GITWEB%/jomracket
+		IALTH= %GITWEB%/romjacket
 	}
 IniWrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
 guicontrol,,IALTH,%IALTH%
 CONTPARAM21= 1
+return
+
+RREPO:
+gui,submit,nohide
+guicontrolget,RREPO,,RREPO
+IniWrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+if (RREPO = "")
+	{
+		RREPO= skeletonkey
+		IniWrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+		CONTPARAM22= 1
+	}
+CONTPARAM22= 1
 return
 
 IREPO:
@@ -2822,6 +2866,11 @@ if (SRCDD = "Git.exe")
 		SB_SetText(" " GITAPP " ")
 	}
 	
+if (SRCDD = "rom_repo")
+	{
+		SB_SetText(" " ROMREPO " ")
+	}
+	
 return
 
 ResDD:
@@ -2885,6 +2934,11 @@ if (RESDD = "Repo-URL")
 	{
 		REPORURLT= %GITUSER%.github.io
 		SB_SetText(" " REPOURL " ")
+	}
+if (RESDD = "rom_repo")
+	{
+		ROMREPO= skeletonkey
+		SB_SetText(" " ROMREPO " ")
 	}
 return
 
@@ -3330,7 +3384,7 @@ StringReplace,arcorgv,arcorgv,[ALTHOST],%ALTHOST%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
-GRARBV= %GITSWEB%/%gituser%/skeletonKey/releases/download
+GRARBV= %GITSWEB%/%gituser%/%romrepo%/releases/download
 GRARDT= %GITSWEB%/%gituser%/dat_hub/releases/download
 StringReplace,arcorgv,arcorgv,[DATHUB],%GRARDT%,All
 StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
@@ -3880,9 +3934,9 @@ if (ServerPush = 1)
 							{
 								rpofn:= % repoln%A_Index%
 								stringupper,rpoln,rpofn
-								FileAppend, "%GITRLS%" delete -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
-								FileAppend, "%GITRLS%" release -r skeletonkey -t %rpoln%`n,%DEPL%\gpush.cmd
-								FileAppend, "%GITRLS%" upload -R -r skeletonkey -t %rpoln% -l "%rpoln%" -n %rpofn%.7z -f "%DEPL%\%rpofn%.7z"`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" delete -r %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" release -r %RREPO% -t %rpoln%`njn,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" upload -R -r %RREPO% -t %rpoln% -l "%rpoln%" -n %rpofn%.7z -f "%DEPL%\%rpofn%.7z"`n,%DEPL%\gpush.cmd
 							}
 					}
 			}
