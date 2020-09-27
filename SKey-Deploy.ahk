@@ -146,7 +146,7 @@ IfNotExist, skopt.cfg
 		_GITUSER= 
 		_GITPASS=
 		_GITPAT=
-		_ROMREPO=skeletonKey
+		_RREPO=skeletonKey
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		_UPDTFILE= %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
@@ -636,7 +636,7 @@ if (initchk = 1)
 		Gui Add, Edit, x30 y310 w326 h21 vUVER gUVER, %_UPDTURL%
 		Gui Add, Edit, x30 y333 w326 h21 vUFLU gUFLU, %_UPDTFILE%
 		Gui Add, Edit, x30 y357 w326 h21 vIURL gIURL, %_GETIPADR%
-		Gui Add, Edit, x216 y380 w140 h21 vRREPO gRREPO, %_ROMREPO%
+		Gui Add, Edit, x216 y380 w140 h21 vRREPO gRREPO, %RREPO%
 		Gui Add, Edit, x30 y380 w166 h21 vIREPO gIREPO, %_REPOURL%
 		Gui Add, Edit, x30 y403 w326 h21 vIALTH gIALTH, %_ALTHOST%
 		Gui Add, Button, x10 y432 w51 h19 vIReset gIReset, reset_all
@@ -843,7 +843,7 @@ guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 guicontrol,,irepo, %GITSWEB%/romjacket
-guicontrol,,rrepo, skeletonkey
+guicontrol,,rrepo,skeletonkey
 guicontrol,,ialth, %GITSWEB%/romjacket
 if (optionONE = "DEV")
 	{
@@ -2868,7 +2868,7 @@ if (SRCDD = "Git.exe")
 	
 if (SRCDD = "rom_repo")
 	{
-		SB_SetText(" " ROMREPO " ")
+		SB_SetText(" " RREPO " ")
 	}
 	
 return
@@ -2937,8 +2937,8 @@ if (RESDD = "Repo-URL")
 	}
 if (RESDD = "rom_repo")
 	{
-		ROMREPO= skeletonkey
-		SB_SetText(" " ROMREPO " ")
+		RREPO= skeletonkey
+		SB_SetText(" " RREPO " ")
 	}
 return
 
@@ -3384,7 +3384,7 @@ StringReplace,arcorgv,arcorgv,[ALTHOST],%ALTHOST%,All
 StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
-GRARBV= %GITSWEB%/%gituser%/%romrepo%/releases/download
+GRARBV= %GITSWEB%/%gituser%/%RREPO%/releases/download
 GRARDT= %GITSWEB%/%gituser%/dat_hub/releases/download
 StringReplace,arcorgv,arcorgv,[DATHUB],%GRARDT%,All
 StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
