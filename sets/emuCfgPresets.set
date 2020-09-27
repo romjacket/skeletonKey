@@ -2009,6 +2009,12 @@ EXENAM=dsp.exe
 CFGPTH=dsp.ini
 STATEPTH=nvram\*
 
+[Frotz]
+URLPATH=Frotz/Frotz.7z
+EXENAM=Frotz.exe
+CFGPTH=*.dat
+RJROMXT=.dat,.zip,.z1,.z2,.z3,.z4,.z5,.z6,.z7,.z8
+
 [kat5200]
 URLPTH=kat5200/kat5200.7z
 EXENAM=kat5200.exe
@@ -3301,6 +3307,19 @@ SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=loopy
 
+[Casio - PB-1000]
+RJEMUPRESET=MAME
+RJMAMENM=pb1000
+RJMULTIDISC=1
+RJROMXT=.*
+MAME?RJEMUOPTS=<pb1000<
+RJZIPPEEK=0
+SHORTNM=CASPB1K
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+FENAM=pb1000
+
 [Casio - PV-1000]
 RJEMUPRESET=MAME
 RJMAMENM=pv1000
@@ -4133,6 +4152,16 @@ SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=ique
 
+[Nintendo - New Nintendo 3DS]
+RJEMUPRESET=Citra
+RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
+RJMAMENM=3ds
+SHORTNM=NB3DS
+SUPEMU=Citra|vvctre|tronds
+SUPCORE=citra_libretro.dll|citra_canary_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=3ds
+
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra
 RJROMXT= .3ds,.3dsx,.elf,.axf,.cci,.cxi,.app
@@ -4329,6 +4358,18 @@ SUPEMU=Dolphin|ishiiruka
 SUPCORE=dolphin_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wiiw
+
+[[Nintendo - Kiosk Compact Flash]
+RJEMUPRESET=Dolphin
+RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
+RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
+RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
+RJMAMENM=wii
+SHORTNM=NKCFL
+SUPEMU=Dolphin|ishiiruka|Dolwin
+SUPCORE=dolphin_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+FENAM=kiosk
 
 [Nintendo - Wii]
 RJEMUPRESET=Dolphin
@@ -4626,6 +4667,14 @@ SUPCORE=genesis_plus_gx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=sg-1000
 
+[Ouya - Ouya]
+RJEMUPRESET=Nox
+RJROMXT=.apk
+SHORTNM=ANDRD
+SUPEMU=Nox|Bluestacks
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|1|1|0
+
 [Android - Android]
 RJEMUPRESET=Nox
 RJROMXT=.apk
@@ -4897,7 +4946,7 @@ SUPEMU=ql2k|MAME
 SUPCORE=fuse_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Sinclair - ZX Spectrum]
+[Sinclair - ZX Spectrum +3]
 RJEMUPRESET=ZXSpin
 RJMAMENM=spec128
 RJMULTIDISC=1
@@ -4966,17 +5015,26 @@ FENAM=ps3
 
 [Sony - Playstation Portable]
 RJEMUPRESET=PPSSPP
-RJROMXT=.iso,.cso,.jso,.pbp,.img
+RJROMXT=.iso,.cso,.jso,.pbp,.img,.pkg
 SHORTNM=SPLAYP
 SUPEMU=PPSSPP|jpcsp|cpspemu
 SUPCORE=ppsspp_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psp
 
+[Sony - Playstation Mobile]
+RJEMUPRESET=PPSSPP
+SHORTNM=SPLAYM
+SUPEMU=PPSSPP|vita3k
+SUPCORE=.pkg
+LNCHPRM=$|1|1|1|1|0
+FENAM=psmobile
+
 [Sony - Playstation Vita]
-RJEMUPRESET=BSL
+RJEMUPRESET=vita3k
 SHORTNM=SPLAYV
 SUPEMU=BSL
+RJROMXT=.psv,.pkg,.vpk
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
 FENAM=psvita
@@ -5198,6 +5256,9 @@ SHORTNM=VLAS310
 SUPEMU=Winvz300|jvz200|tunix|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+
+[VTech - Mobigo]
+SHORTNM=MOBIGO
 
 [VTech - V.Smile]
 RJEMUPRESET=MAME
@@ -6308,6 +6369,16 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
+[LeapFrog - My First LeapPad]
+RJEMUPRESET=MAME
+RJMAMENM=leapster
+MAME?RJEMUOPTS=<leapster -cart<
+RJZIPPEEK=0
+SHORTNM=LEAPFST
+SUPEMU=MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
 [LeapFrog - LeapPad]
 RJEMUPRESET=MAME
 RJMAMENM=leapster
@@ -6799,12 +6870,31 @@ LNCHPRM=$|1|1|0|1|0
 
 [Konami - Picno]
 RJEMUPRESET=MAME
+RJROMXT=.bin,.zip
 RJMAMENM=picno
 MAME?RJEMUOPTS=<picno -cart<
 RJZIPPEEK=0
 SHORTNM=KONPIC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Mobile - Symbian]
+RJEMUPRESET=BSL
+SHORTNM=SYMBN
+SUPEMU=BSL
+LNCHPRM=$|1|1|0|1|0
+
+[Mobile - Palm OS]
+RJEMUPRESET=BSL
+SHORTNM=PALMOS
+SUPEMU=BSL
+LNCHPRM=$|1|1|0|1|0
+
+[Mobile - J2ME]
+RJEMUPRESET=BSL
+SHORTNM=M2JME
+SUPEMU=BSL
 LNCHPRM=$|1|1|0|1|0
 
 [Commodore - PET]
@@ -7557,15 +7647,6 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Videoton - TVC 64]
-RJEMUPRESET=MAME
-RJMAMENM=tvc
-MAME?RJEMUOPTS=<tvc -[RJRTYP]<|<tvc -cass1<|<tvc -flop1<|<tvc<
-SHORTNM=VIDTVC64
-SUPEMU=MAME
-SUPCORE=mame_libretro.dll
-LNCHPRM=$|1|1|0|1|0
-
 [Unisonic - Champion 2711]
 RJEMUPRESET=MAME
 RJMAMENM=unichamp
@@ -7825,8 +7906,19 @@ LNCHPRM=$|1|1|0|1|0
 
 [Cybiko - Cybiko]
 SHORTNM=CYBKO
+RJMAMENM=cybikov2
+MAME?RJEMUOPTS=<cybikov2 -quik<
+RJROMXT=.bin,.nv
 SUPEMU=c4pc|MAME
 SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+
+[Cybiko - Xtreme]
+SHORTNM=CYBKX
+SUPEMU=c4pc|MAME
+SUPCORE=mame_libretro.dll
+MAME?RJEMUOPTS=<cybikov2 -quik<
+RJROMXT=.bin,.nv
 LNCHPRM=$|1|1|0|1|0
 
 [DEC - PDP-1]
@@ -7846,9 +7938,11 @@ SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
 [Infocom - Z-Machine]
-SUPEMU=MAME
+SUPEMU=Frotz|MAME
 SUPCORE=mame_libretro.dll
 SHORTNM=INFZM
+RJROMXT=.dat,.zip,.z1,.z2,.z3,.z4,.z5,.z6,.z7,.z8
+LNCHPRM=$|1|1|0|1|0
 
 [Luxor - Video Entertainment System]
 SHORTNM=LUXVES
@@ -7856,7 +7950,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[MITS - Altair8800]
+[MITS - Altair 8800]
 SHORTNM=MITSALT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
@@ -7961,6 +8055,8 @@ LNCHPRM=$|1|1|1|1|0
 [Videoton - TV-Computer]
 SHORTNM=VIDTVC
 SUPEMU=winTVC|MAME
+RJMAMENM=tvc
+MAME?RJEMUOPTS=<tvc -[RJRTYP]<|<tvc -cass1<|<tvc -flop1<|<tvc<
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 

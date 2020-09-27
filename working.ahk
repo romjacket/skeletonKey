@@ -21,7 +21,6 @@ VERSION= [CURV]
 /*  ;;[DEBUGOV]
 #Include src\LV_InCellEdit.ahk
 */  ;;[DEBUGOV]
-
 DetectHiddenWindows, On
 IniRead,iniversion,Settings.ini,GLOBAL,version
 stringreplace,iniversion,iniversion,",,All
@@ -254,7 +253,7 @@ ifnotexist,datlist.ini
 		gosub,getDATLIST
 	}
 	else {
-		alldats= 
+		alldats= ALL TOSEC|ALL NO-INTRO|ALL MAME|
 		Fileread,datfile,datlist.ini
 		Loop,parse,datfile,`n`r
 			{
@@ -270,7 +269,7 @@ ifnotexist,datlist.ini
 						alldats.= ebi2 . "|"
 					}
 			}
-		stringreplace,dats,alldats,dats\,,all	
+		stringreplace,alldats,alldats,dats\,,all	
 	}	
 fileread,oldlkup,sets\lkup.set	
 Iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
@@ -321,16 +320,13 @@ If (playlistloctmp <> "ERROR")
 					}
 			}
 	}
-
 supguiitems= mednafen|mame|retroarch|snes9x
-
 iniread,supgui,Settings.ini,GLOBAL,supported_guis
 if (supgui = "ERROR")
 	{
 		supgui= %supguiitems%
 	}
 supjguiitems:= supgui . "|Antimicro"
-	
 AUTOGUIc=	
 ifinstring,supgui,retroarch
 	{
@@ -453,7 +449,6 @@ if ((ARCSRC = "ERROR")or(ARCSRC = ""))
 		iniwrite, "", Settings.ini,GLOBAL,RemoteRepository
 		ArcSiteN= ""
 	}
-
 IniRead,ArcPRep,%ARCORG%,REPOSITORIES,
 Loop,Parse,ArcPRep,`n`r
 	{
@@ -821,7 +816,6 @@ Loop,parse,pnvf,`n`r
 					}
 			}
 	}
-
 afep= |
 Loop, Parse, mamesplit,`n`r
 	{
@@ -843,10 +837,8 @@ Loop, Parse, mamesplit,`n`r
 	}
 mame_sys.= mame_sysk
 sort,mame_sys, Alphabetically D|
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;      ITERATE VALUES           ;;;;;;;;;;;;;;;;;;;;;;;
-
 omitxi= jpg|ini|cfg|png|html|dll|nfo|srm|exe|sav|bak|conf|shader|inp|zst|cg|settings|gif|bat|cmd|pdf|ips|xdelta|7z|rar|001|mp3|mp4|shortcuts|config|tmp|readme|txt|rtf|htm|js|xml|bmp|gif|css|amgp|xpadderprofile|input|lnk|state|dat|ogg|log|flv|doc|php|text|tiff|brm|ps2|sys
 omitxt:= omitxi
 noBrws= Xinput_Drivers|DirectX|Visual_C++_Runtimes|Winows_Icons|IAGL|AdvancedLauncher|ICE|ROM_Collection_Browser
@@ -860,22 +852,17 @@ medswaps= medswapB|medswapA|medswapX|medswapY|medswapStart|medswapSelect|medswap
 mameswaps= mameswapB|mameswapA|mameswapX|mameswapY|mameswapStart|mameswapSelect|mameswapDown|mameswapUp|mameswapLeft|mameswapRight|mameswapL|mameswapR|mameswapL2|mameswapR2|mameswapR3|mameswapL3|mameswapLXMinus|mameswapRXMinus|mameswapRXPlus|mameswapLXPlus|mameswapLYPlus|mameswapLYMinus|mameswapRYPlus|mameswapRYMinus|mameswapHome|mameSwapATXT|mameSwapBTXT|mameSwapCTXT|mameSwapDTXT|mameSwapETXT|mameSwapFTXT|mameSwapGTXT|mameSwapHTXT|mameSwapITXT|mameSwapJTXT|mameSwapLTXT|mameSwapMTXT|mameSwapCGRP|mameSwapDGRP|mameSwapEGRP
 snes9xswaps= snes9xswapB|snes9xswapA|snes9xswapX|snes9xswapY|snes9xswapStart|snes9xswapSelect|snes9xswapDown|snes9xswapUp|snes9xswapLeft|snes9xswapRight|snes9xswapL|snes9xswapR|snes9xswapL2|snes9xswapR2|snes9xswapR3|snes9xswapL3|snes9xswapLXMinus|snes9xswapRXMinus|snes9xswapRXPlus|snes9xswapLXPlus|snes9xswapLYPlus|snes9xswapLYMinus|snes9xswapRYPlus|snes9xswapRYMinus|snes9xswapHome|snes9xSwapATXT|snes9xSwapBTXT|snes9xSwapCTXT|snes9xSwapDTXT|snes9xSwapETXT|snes9xSwapFTXT|snes9xSwapGTXT|snes9xSwapHTXT|snes9xSwapITXT|snes9xSwapJTXT|snes9xSwapLTXT|snes9xSwapMTXT|snes9xSwapCGRP|snes9xSwapDGRP|snes9xSwapEGRP
 metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
-
-
 ssenms= BoxArt|3DBoxart|Label|4Mix|cart|Logo|Marquee|Label|Logo|3DBoxart|3DBoxart|Snapshot|Logo|Label|3Mix|Backdrop|Snapshot
 altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
-
 viditerate= video_driver|video_black_frame_insertion|video_disable_composition|video_swap_interval|video_threaded|video_allow_rotate|video_aspect_ratio_auto|video_aspect_ratio|video_force_aspect|video_frame_delay|video_crop_overscan|video_fullscreen_x|video_fullscreen_y|video_fullscreen|current_resolution_id|custom_viewport_height|custom_viewport_width|custom_viewport_x|custom_viewport_y|video_monitor_index|video_rotation|video_scale_integer|video_scale|video_windowed_fullscreen|video_vsync|video_hard_sync_frames|video_hard_sync|video_max_swapchain_images|video_shader_enable|video_shared_context|video_smooth|video_max_swapchain_images|video_refresh_rate|fastforward_ratio
 optiterate= all_users_control_menu|aspect_ratio_index|audio_driver|audio_enable|audio_latency|audio_mute_enable|audio_rate_control_delta|audio_rate_control|audio_sync|auto_shaders_enable|flicker_filter_enable|flicker_filter_index|auto_overrides_enable|autosave_interval|block_sram_overwrite|config_save_on_exit|input_driver|input_joypad_driver|input_remap_binds_enable|keyboard_gamepad_enable|input_autodetect_enable|input_menu_toggle_gamepad_combo|menu_driver|pause_nonactive|rewind_enable|rewind_granularity|savestate_auto_index|savestate_auto_load|savestate_auto_save|sort_savefiles_enable|sort_savestates_enable|savefiles_in_content_dir|savestates_in_content_dir|video_gpu_record|video_gpu_screenshot|auto_remaps_enable|screenshots_in_content_dir|run_ahead_enabled|run_ahead_frames|run_ahead_secondary_instance|enable_device_vibration|input_desktop_menu_toggle|input_cheat_index_plus|enable_device_vibration|input_desktop_menu_toggle_btn|playlist_fuzzy_archive_match|playlist_show_inline_core_name|playlist_show_sublabels|playlist_sort_alphabetical|playlist_sublabel_runtime_type
 menuiterate= dpi_override_enable|dpi_override_value|fps_show|input_overlay_enable_autopreferred|input_overlay_enable|input_overlay_hide_in_menu|input_overlay_opacity|input_overlay_show_physical_inputs|input_overlay_show_physical_inputs_port|input_overlay_scale|menu_dynamic_wallpaper_enable|menu_entry_hover_color|menu_entry_normal_color|menu_battery_level_enable|menu_footer_opacity|menu_header_opacity|menu_linear_filter|menu_mouse_enable|menu_navigation_browser_filter_supported_extensions_enable|menu_navigation_wraparound_enable|quit_press_twice|menu_pause_libretro|menu_shader_pipeline|menu_show_advanced_settings|menu_throttle_framerate|menu_thumbnails|menu_timedate_enable|menu_title_color|menu_wallpaper_opacity|ui_companion_enable|video_font_enable|video_font_size|video_message_color|video_message_pos_x|video_message_pos_y|xmb_alpha_factor|xmb_font|xmb_menu_color_theme|xmb_scale_factor|xmb_shadows_enable|xmb_show_history|xmb_show_images|xmb_show_music|xmb_show_settings|xmb_show_video|xmb_theme|xmb_show_add|input_axis_threshold|savestate_Thumbnail_Enable|menu_swap_ok_cancel_buttons|menu_show_configurations|menu_show_core_updater|menu_show_help|menu_show_information|menu_show_load_content|menu_show_load_core|menu_show_online_updater|menu_show_quit_retroarch|menu_show_reboot|menu_swap_ok_cancel_buttons|video_msg_bgcolor_blue|video_msg_bgcolor_enable|video_msg_bgcolor_green|video_msg_bgcolor_opacity|video_msg_bgcolor_red|menu_enable_widgets|video_stream_port|video_stream_quality|video_stream_url|video_stream_scale_factor|youtube_stream_key|video_stream_config|menu_left_thumbnails|menu_thumbnails|apply_cheats_after_toggle|apply_cheats_after_load|apply_cheats_after_load|rgui_background_filler_thickness_enable|streaming_mode
 INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen | --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s
 INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
-
 Loop, rj\emuCfgs\*,2
 	{
 		SUPEMUOPT.= A_LoopFileName . "|"
 	}
-
 mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 fesup= retroArch|EmulationStation|RetroFE|Pegasus
 noinstallers= |Media|Mirrored_Links|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
@@ -945,15 +932,13 @@ SUBDLST= .Mem||.snaps|.sstates|.Man|.patches|.cheats
 SUBDLSTR:= SUBDLST
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
 qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bits 60hz|800x480 32bits 60hz|848x480 32bits 60hz|1024x600 32bits 60hz|800x600 32bits 60hz|1024x768 32bits 60hz|1152x864 32bits 60hz|1280x1024 32bits 60hz|1280x720 32bits 60hz|1280x800 32bits 60hz|1280x900 32bits 60hz|1280x960 32bits 60hz|1366x768 32bits 60hz|1360x1024 32bits 60hz|1440x900 32bits 60hz|1400x1050 32bits 60hz|1600x1024 32bits 60hz|1920x1080 32bits 60hz|1600x1024 32bits 60hz|1680x1050 32bits 60hz|1920x1200 32bits 60hz|2560x1440 32bits 60hz|3840x2160 32bits 60hz|5120x2880 32bits 60hz|7680x4320 32bits 60hz
-
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
-SHOWARCTAB=ARCGSYS|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
-HIDEARCTAB=strmvid|ARCLNCH|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
-SORTROMTAB=DETSORT|SELSORT|DRPSEL|MOVDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO|TOSECDATYP|MAMEDATYP|NOINTDATYP
-
+SHOWARCTAB=ARCGSYS|ARCLNCH|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
+HIDEARCTAB=strmvid|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
+SORTROMTAB=SRCHDRP|KNOWNDRP|DETSORT|SELSORT|DRPSEL|MOVDRP|OVRWDRP|RENMDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|HASHALLROMS|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO|TOSECDATYP|MAMEDATYP|NOINTDATYP|DETECTXTN
 FAN1ART= Backdrops
 FAN2ART= Backdrops
 FAN3ART= Backdrops
@@ -1007,12 +992,10 @@ RDXgrid= %RegionX%
 RDYgrid= %RegionY%
 RDWgrid= %RegionW%
 RDHgrid= %RegionH%
-
 if (raexefile <> "")
 	{
 		gosub, retroarch_init
 	}
-
 if (INITIAL = 1)
 	{
 		gosub, DestroySplashGUI
@@ -1066,10 +1049,8 @@ if ((fontXsm = "")or(fontXsm = "ERROR"))
 		fontXsm= s7
 		iniwrite,%fontXsm%,Settings.ini,THEME,font_small
 	}
-
 if (INITIAL = "")
 	{
-	
 		gosub, DestroySplashGUI
 		SplashImage = img\splash.png
 		SplashImageGUI(SplashImage, "Center", "Center", true)
@@ -1133,7 +1114,6 @@ if (raexist = 1)
 			{
 				guicontrol,disable,COREDDLA
 			}
-		
 			joycfg= %curcfg%
 			Loop, %playlistLoc%\*.lpl,
 				{
@@ -1153,20 +1133,17 @@ if (raexist = 1)
 					StringTrimLeft,jstpth,A_LoopReadLine,ovrplngthpls
 					ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
 				}
-	
 	}	
 ifNotExist, hashdb.ini
 	{
 		gosub, PlaylistInit
 	}
-
 iniread,LOGGING,Settings.ini,GLOBAL,Logging
 logenable= checked
 if ((LOGGING = "")or(LOGGING = "ERROR"))
 	{
 		logenable=
 	}
-	
 iniread,cacheloc,Settings.ini,GLOBAL,temp_location
 if (cacheloc = "ERROR")
 		{
@@ -1179,7 +1156,6 @@ ifnotexist,%cacheloc%
 		cacheloc= %A_Temp%
 		iniWrite, "%cacheloc%",Settings.ini,GLOBAL,temp_location
 	}
-
 fesup= retroArch|EmulationStation|RetroFE|Pegasus
 IfExist,apps.ini
 	{
@@ -1473,6 +1449,8 @@ Menu, RNMSYSA, Add, Restore System Name, RestoreSystemN
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
 Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
 Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
+Menu, REMDATSEL, Add, Remove Selection, REMDAT
+Menu, REMDATSEL, Add, Clear All, REMADAT
 Menu, REMHSHSEL, Add, Remove Selection, REMHSH
 Menu, REMHSHSEL, Add, Clear All, REMAHSH
 Menu, delctxtmenu, Add, Delete Game Settings, DelCfg_Add
@@ -1583,7 +1561,6 @@ Gui,Add,DropDownList, hwndDplHndl3 x609 y227 w120 vEMUGUIDDL gEmuGuiDDL, retroar
 Gui, Add, CheckBox, x583 y257 vAUTOGUI gAUTOGUI %autoguic%, Enabled
 ;};;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[MAIN TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 if (INITIAL = 1)
 	{
 		WinSet, TransColor, White,skelprg
@@ -1626,7 +1603,6 @@ Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
 Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
 Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
 Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E	
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;  Speed ;;;;;
 Gui,Add,Edit, hwndEdtHndl6 x362 y247 w92 h21 vRaSpdEdt gRaSpdEdt hidden,
@@ -2808,18 +2784,21 @@ if (raexist = "")
 		gosub, feDDLJ
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 Gui, Tab, 7
 Gui, Tab, Repository
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
 Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
+Gui, Add, Checkbox, x130 y28 vDETECTXTN gDETECTXTN hidden, Detect Extension
+gui, Add, Checkbox, x200 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Extension
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP hidden, Move Dropped
+gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP hidden, Rename ROM
+gui, Add, Checkbox, x200 y70 vOVRWDRP gOVRWDRP hidden, Overwrite
+
+gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP hidden, Search Compressed
 gui, Add, Checkbox, x9 y84 vEXTDRP gEXTDRP hidden, Extract Dropped
 Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
 Gui, Add, Radio, x170 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
@@ -2835,7 +2814,10 @@ Gui Add, Button, x92 y348 w51 h19 vBRWSDAT gBRWSDAT hidden, Browse
 Gui,Add,Radio, x8 y352 vTOSECDATYP gTOSECDATYP checked hidden, TOSEC
 Gui,Add,Radio, x8 y374 vMAMEDATYP gMAMEDATYP hidden, MAME
 Gui,Add,Radio, x8 y396 vNOINTDATYP gNOINTDATYP hidden, NO-INTRO
-Gui Add, Button, x295 y325 w43 h19 vADDATS gADDATS hidden, Add
+Gui Add, Button, x295 y324 w43 h19 vADDATS gADDATS hidden, Add
+Gui, Font, Bold
+Gui, Add, Button,x290 y465 w53 h29 vHASHALLROMS gHASHALLROMS hidden, SORT
+Gui, Font, Normal
 Gui Add, Button, x695 y3 w43 h19 vADDSRTFILE gADDSRTFILE hidden, File
 Gui Add, Button, x645 y3 w51 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
 Gui, Add, Button, x740 y3 w15 h15 vHLTDATP gHLTDATP hidden,-
@@ -2855,7 +2837,6 @@ Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center,
 Gui,Font,Bold
 Gui, Add, Radio, x130 y4 vSortROMS gSortROMS,Sort
 Gui, Add, Radio, x180 y4 vARCTAB gArcTab Checked,Repo
-
 Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
@@ -3367,7 +3348,6 @@ Gui,+LastFound
 GuiID:=WinExist()
 /*  ;;[DEBUGOV]
 Menu, tray, NoStandard
-
 Loop,108
 	{
 		CtlColors.Attach(EdtHndl%a_Index%, bgcolor, foreColor)
@@ -3970,7 +3950,37 @@ UNIQLNK_TT :="Creates and assigns a unique system nickname identifier for each s
 UPDBTN_TT :="Download selected components"
 UPDCL_TT :="Refresh cores in your installation"
 VFNTEN_TT :="Enables custom font display"
+DETSORT_TT :="Automatically sorts ROMs with system-exclusive extensions."
+KNOWNDRP_TT :="Limits the files checked by excluding many extensions."
+DRPSEL_TT :=""
+MOVDRP_TT :="Moves dropped files to the associated system folder.`nLeaving this unchecked will only copy the file"
+RENDRP_TT :="Renames the ROM to that found in the dat file."
+OVRWDRP_TT :="Overwrites any existing ROM with the same name"
+SRCHDRP_TT :="Searches inside .rar/.7z/.zip files for ROMs."
+EXTDRP_TT :="Extracts files found in compressed archives"
+ARCSORT_TT :="Archives compressed files to skeletonkey's cache directory."
+KEEPSORT_TT :="Keeps compresed archives alongside the extracted ROM"
+JAKDRP_TT :="Copies or moves the ROM to a folder of its name."
+JAKAFT_TT :="Archives are moved into a folder of the ROM name."
+JAKBF_TT :="Archives are extracted after being placed inside a folder of its name.
 VIDASPECT_TT :="Aspect Ratio Mode"
+DATLBX_TT :="List of DAT files to check for known files"
+SRTFLT_TT :="Search for files in the selected list"
+SRTCLRFLT_TT :="clears the filtered list"
+DRPLV_TT :="List of files to check for known ROMs."
+DATDRPD_TT :="List of dats."
+BRWSDAT_TT :="Dat file to append to your datlist."
+TOSECDATYP_TT :="Copies the selected dat to your TOSEC dat folder."
+NOINTRODATYP_TT :="Copies the selected dat to your No-intro dat folder."
+MAMEDATYP_TT :="Copies the selected dat to your MAME dat folder."
+ADDATS_TT :="Add selected dat to the datlist."
+HASHALLROMS_TT :="Begins the sorting."
+ADDSRTDIR :="Adds a folder to search"
+ADDSRTFILE :="Adds a file to search"
+HLTDATP_TT :="Cancels the sorting process."
+DATREPO_TT :="Dat repository to download."
+GETDATREP_TT :="Downloads selected dat repository."
+ADDSRTDIR :="Adds a folder to search"
 VIDSCL_TT :="Multiplier for the window size"
 AVIDSYNC_TT :="Adaptive Video V-Sync"
 VIDSYNC_TT :="Video V-Sync"
@@ -4055,7 +4065,6 @@ ifexist, lm.ini
 INITIAL=
 guicontrol,enable,RJSYSDD
 /*  ;;[DEBUGOV]
-
 Class CtlColors {
    Static Attached := {}
    Static HandledMessages := {Edit: 0, ListBox: 0, Static: 0}
@@ -4280,12 +4289,9 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    RETURN FUNCTIONS/PROCEDURES    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 SetWinDelay,2
-
 CoordMode,Mouse
 return
-
 LVGetCheckedItems(cN,wN) {
 ControlGet, LVItems, List,, % cN, % wN
 Pos:=!Pos,Item:=Object()
@@ -4377,7 +4383,6 @@ if (StdOut <> "")
 			}
 	}
 return
-
 zpkproc:
 ZPSZ=
 if (StdOut <> "")
@@ -4690,6 +4695,10 @@ If A_GuiControlEvent RightClick
 					return
 				}
 		}
+	if A_GuiControl = DATLBX
+		{
+			Menu,REMDATSEL,show,%A_GuiX% %A_GuiY%
+		}
 	if A_GuiControl = DRPLV
 		{
 			Menu,REMHSHSEL,show,%A_GuiX% %A_GuiY%
@@ -4950,7 +4959,6 @@ SB_SetText("...ROM location is opening...")
 Run, explorer.exe %romrow%,%romrow%
 SB_SetText("")
 return
-
 RevTransformSys:
 keyout=
 Loop,parse,sysllst,`n`r
@@ -4980,7 +4988,6 @@ Loop,parse,sysllst,`n`r
 			keyout= %keyin%
 	}
 return
-
 TransformSys:
 keyout=
 Loop,parse,oldlkup,`n`r
@@ -5010,7 +5017,6 @@ Loop,parse,oldlkup,`n`r
 			keyout= %keyin%
 	}
 return
-
 RBLDRUNLST:
 addemu=
 glbsysa=
@@ -5078,7 +5084,6 @@ if (runltmp = "|")
 guicontrol,,LCORE,|%runlist%
 guicontrol,,ARCCORES,|%runlist%
 return
-
 SCBUILDEMULST:
 Loop, Parse, SysLLst,`n`r
 	{
@@ -5160,7 +5165,6 @@ Loop, Parse, SysLLst,`n`r
 			}
 	}
 return
-
 ASCFG:
 gui,submit,nohide
 guicontrolget,RCLSYSTEM,,RUNSYSDDL
@@ -5224,7 +5228,6 @@ if (isrs = "ERROR")
 																fsystw.= A_LoopField . "|"
 															}
 														iniwrite,"%fsystw%",SystemLocations.ini,LOCATIONS,%fsys%
-															
 														gosub, resetCoreAssets
 														return
 													}
@@ -5367,7 +5370,6 @@ guicontrol,hide,OpnSys
 guicontrolget,ADDCORE,,ADDCORE
 guicontrol,,RenOSys,%ADDCORE%
 return
-
 RenOsys:
 gui,submit,nohide
 guicontrolget,RenOsys,,RenOsys
@@ -5376,7 +5378,6 @@ if (RenOsys = Addcore)
 		guicontrol,,RenOSys,
 		return
 	}
-	
 ifinstring,RenOsys,`%
 	{
 		SB_SetText("`% character not permitted")
@@ -5658,7 +5659,6 @@ Loop,parse,pthnw,|
 	ptwr= %pthnx%%ptwr%
 iniwrite,"%ptwr%",SystemLocations.ini,Locations,%RENOSYS%
 inidelete,SystemLocations.ini,LOCATIONS,%ADDCORE%
-
 //*
 ifexist,%RJSYSTEMS%\%ADDCORE%\
 	{
@@ -5686,7 +5686,6 @@ guicontrol,hide,SavOsys
 guicontrol,hide,RenOsys
 guicontrol,hide,OpnSys
 return
-
 ASEMUCFG:
 guicontrolget,SEMURUN,,LCORE
 guicontrolget,SEMUSYS,,RUNSYSDDL
@@ -5737,9 +5736,7 @@ Loop,parse,PSETCFGITEMS,|
 	}
 guicontrol,show,EMUPGC
 */
-
 return
-
 ASRUN:
 guicontrolget,CHKRUNS,,RUNSYSDDL
 stringreplace,CHKRUNS,CHKRUNS,.lpl,,All
@@ -5791,7 +5788,6 @@ if (tdsv <> "ERROR")
 iniwrite,"%CHKRUNE%",Assignments.ini,OVERRIDES,%CHKRUNS%
 SB_SetText(" " CHKRUNE " assigned to " CHKRUNS "")
 return
-
 PLEDITCORE:
 gui,submit,nohide
 guicontrolget,PLISTTYP,,PLISTTYP
@@ -5842,7 +5838,6 @@ Loop, Parse, runlist,|
 mousegetpos,Ngx,Ngy
 Menu,PLEDTMENU, Show, %Ngx% %Ngy%
 return
-
 PLSWPMENU:
 gui,submit,nohide
 Menu, PLSWPMENU, Add
@@ -6060,7 +6055,6 @@ if (raexefile <> "")
 					}
 			}
 	}
-
 Loop,Parse,poprc,|
 	{
 		if (A_LoopField = "")
@@ -6242,7 +6236,6 @@ Menu,SQRUN, Show, %Ngx% %Ngy%
 Menu,SQRUN,DeleteAll
 RCLCNCH=
 return
-
 CfgBrowse:
 gui,submit,nohide
 guicontrolget,systmp,,RUNSYSDDL
@@ -6260,7 +6253,6 @@ ifexist,cfg\%systmp%\%lcrtmp%\%gamtnm%\
 	}
 SB_SetText(" CONFIG not found ")
 return
-
 DelCfg_Add:
 gui,submit,nohide
 itmlst=
@@ -6438,7 +6430,6 @@ Loop, Parse, SRCHROMLVI,|
 			}
 	}
 return
-
 Emulator_Add:
 multisel=
 guicontrolget,romf,,SRCHROMLBX
@@ -6578,7 +6569,6 @@ ifnotexist, %JEXPLD%
 	}
 Run, explorer.exe %JEXPLD%,%JEXPLD%
 return
-
 toNetPCfg:
 gui,submit,nohide
 if (MINIMODE = 1)
@@ -6606,7 +6596,6 @@ guicontrol,,COREDDLA,|%tocore%||%corelist%
 gosub, CoreDDLA
 gosub, NetROMList
 return
-
 Open_Add:
 gui,submit,nohide
 multisel=
@@ -6790,7 +6779,6 @@ if (sbrim = 1)
 filecopy,%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\%imgdat%,%coverwimg%,1
 SB_SetText(" ..\scrapeArt\ ..." "\" imgdat " to " coverwimg "")
 sbrim= 0
-
 return
 cleanprgb:
 guicontrol,,FEPRGA,0
@@ -6798,8 +6786,6 @@ guicontrol,,fePRGB,0
 guicontrol,,pgrTransfer,0
 guicontrol,,ARCDPRGRS,0
 return
-
-
 SHRTNMLkUp:
 SHRTNM=
 Loop, Parse, SysLLst,`n`r
@@ -6879,7 +6865,6 @@ return
 IsFolder( path ) {
 	return !!InStr( FileExist(path), "D")  ; double NOT returns 0/1
 }
-
 GuiDropFiles:
 guicontrolget,TABMENU,,TABMENU
 ROMDRP= 1
@@ -6923,7 +6908,6 @@ If ((A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &&
 						ControlFocus, %LCORE%, skeletonKey
 						return
 					}
-
 				if (AUTOLNCH = 1)
 					{
 						CHOSEN=
@@ -6944,7 +6928,6 @@ if ( (A_GuiX >= 0) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 700) )
 				if (TABMENU = "Repository")
 					{
 						SB_SetText("Loading items to be checked against DATs")
-						;;msgbox,,,%A_GuiEvent%
 						gui,ListView,DRPLV
 						LVACHK= +Check
 						Loop, Parse, A_GuiEvent,`n`r
@@ -7287,8 +7270,6 @@ if (nnewmsg = "")
 	}
 msgbox,1,ErrorReturn,%nnewmsg%
 return
-
-
 MINISWITCH:
 MINIMODET:
 gui,submit,nohide
@@ -7302,7 +7283,6 @@ WinSet, Region,,skeletonKey
 WinSet, Style, +0x800000,skeletonKey
 guicontrol,,MINISWITCH,-
 return	
-
 MINIMODE:
 gui,submit,nohide
 MINIMODE= 1
@@ -7310,7 +7290,6 @@ guicontrol,,MINISWITCH,=
 WinSet, Style, -0x800000, skeletonKey
 WinSet, Region,18-4 W750 H45,skeletonKey
 return
-
 AWYONTGL:
 gui,submit,nohide
 MINIMODE= 
@@ -7324,7 +7303,6 @@ Winset,top,,skeletonKey
 Winset,Enable,,skeletonKey
 goto, MINIMODEOFF
 return
-
 DYNTRANS:
 gui,submit,nohide
 iniwrite,%DYNTRANS%,Settings.ini,GLOBAL,Dynamic_Transparency
@@ -7334,7 +7312,6 @@ if (DYNTRANS = 0)
 		gosub, TRANSLID
 	}
 return
-
 ALWOTP:
 gui,submit,nohide
 ALWOTPs= Off
@@ -7348,7 +7325,6 @@ TRANSLID:
 gui,submit,nohide
 WinSet,Transparent,%TRANSLID%,skeletonKey
 return
-
 SKTHEMEN:
 gui,submit,nohide
 guicontrolget,skthemen,,SKTHEMEN
@@ -7586,7 +7562,6 @@ if (ERRORLEVEL <> 0)
 			}
 		goto, SETJKR
 	}
-	
 filedelete,%RJSYSTEMF%\sk
 SJMPOT:
 AUTOFUZ= 0
@@ -7958,7 +7933,6 @@ ifnotexist,%historyloctmp%
 iniwrite, "%historyLoc%",Settings.ini,GLOBAL,history_location
 guicontrol,,histtxt,%historyloc%
 return
-
 playlset:
 pltmp= %playlistDirectory%
 gui,submit,nohide
@@ -8083,12 +8057,10 @@ if (AUTOGUI = 0)
 	}
 iniwrite,%supgui%,Settings.ini,GLOBAL,supported_guis
 return
-
 LOGGING:
 gui,submit,nohide
 iniwrite,%LOGGING%,Settings.ini,GLOBAL,Logging
 return
-
 AUTOPGS:
 gui,submit,nohide
 if (AUTOPGS = 1)
@@ -8440,7 +8412,6 @@ ifexist,%GAMSRCS%\AutoBios.set
 						SB_SetText(" " save " could not be extracted")
 					}
 			}
-		
 	}
 gosub, BiosProc
 guicontrol,enable,SYSINSTLBX
@@ -8525,7 +8496,6 @@ ifinstring,tmpcrs,_libretro.dll
 		raoptgl= hide
 	}
 guicontrolget,FNDGUI,,FNDGUI
-
 if (uuniv = "X")
 	{
 		uuniv= find
@@ -8627,12 +8597,9 @@ playlistloc= %A_WorkingDir%\cfg
 guicontrol,,playlisttxt,%A_WorkingDir%\cfg
 iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
 return
-
 RENONDET:
 gui,submit,nohide
-
 return
-
 FILT_UNSUP:
 gui,submit,nohide
 gosub, RJSYSRESET
@@ -8651,11 +8618,9 @@ Loop,%RJSYSTEMS%
 iniwrite, "%FILT_UNSUP%",Settings.ini,GLOBAL,global_filter
 return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MAIN MENU DROPDOWN ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 RUNSYSBTN:
 gui,submit,nohide
 guicontrolget,RUNSYSBTN,,RUNSYSBTN
-
 swpparv= %systmfldrs%
 if (RUNPLRAD = 1)
 	{
@@ -8675,7 +8640,6 @@ guicontrol,show,RUNSYSDDL
 guicontrol,hide,RUNSYSCBX
 guicontrol,,RUNSYSBTN,E
 return	
-
 RUNSYSCBX:
 guicontrolget,OPSYSX,,RUNSYSCBX
 if (OPTYP = "")
@@ -8708,10 +8672,8 @@ if ((OPSYS = "")or(OPSYS = ":=:System List:=:"))
 		guicontrol,,RUNSYSBTN,E
 		return
 	}
-
 OPTYP= 
 main_search= 
-
 Loop,parse,swpparv,|
 	{
 		if (A_LoopField = OPSYS)
@@ -8741,8 +8703,6 @@ if (main_search = "")
 guicontrol,,RUNSYSCBX,|%OPSYS%||%main_search%
 Control, ShowDropDown, , ,ahk_id %CbxHndl109%
 return
-
-
 RUNSYSDDL:
 guicontrol,,RUNSYSCBX,| |
 gui,submit,nohide
@@ -9437,7 +9397,6 @@ SRCHROMEDT:
 gui,submit,nohide
 guicontrolget, SRCHROMEDT,,SRCHROMEDT
 return
-
 SRCHROMLBX:
 gui,submit,nohide
 guicontrolget, SRCHLOCDDL,,SRCHLOCDDL
@@ -9837,7 +9796,6 @@ exen_get($ARIA = "", $URL = "", $TARGET = "", $FNM = "", $SAG = "", $CACHESTAT =
 			}
 	}
 return
-
 DownloadFile(UrlToFile, _SaveFileAs, Overwrite := True, UseProgressBar := True)
 	{
 		FinalSize=
@@ -9907,7 +9865,6 @@ Guicontrol, ,ARCDPRGRS, 0
 Guicontrol, ,DWNPRGRS, 0
 Guicontrol, ,FEPRGA, 0
 return
-
 CheckStatus:
 if (INTERRUPTDWN = 1)
 	{
@@ -10306,7 +10263,6 @@ netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port
 pathlocations= content_database_path|cheat_database_path|content_favorites_path|content_history_path|content_image_history_path|content_music_history_path|content_video_history_path|bundle_assets_dst_path|bundle_assets_src_path|core_options_path|menu_wallpaper|video_filter|video_font_path|core_updater_buildbot_assets_url|core_updater_buildbot_url|video_shader|input_overlay
 ASSETS= %A_Scriptdir%\Assets
 return
-
 RAINSTLBX:
 gui, submit, nohide
 guicontrolget,RAINSTLBX,,RAINSTLBX
@@ -10346,7 +10302,6 @@ if (KARC = 0)
 		DELARC= 1
 	}
 return
-
 BckCore:
 gui,submit,nohide
 guicontrolget,BCKCORE,,BCKCORE
@@ -10371,7 +10326,6 @@ guicontrol,,CACGRP,Available Cores
 guicontrol,,RAINSTLBX,|%AVAILCORES%
 gosub, GetCoreList
 return
-
 ExeList:
 gui,submit,nohide
 guicontrol,hide,GCUpdt
@@ -10519,7 +10473,6 @@ if (SALIST = "Systems")
 		return	
 	}
 return
-
 SaList:
 gui,submit,nohide
 guicontrol,disable,salist
@@ -10626,7 +10579,6 @@ if (SALIST = "Emulators")
 		guicontrol,%AUTOBBUT%,AUTOBIOS
 		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
 		gosub, Dapp
-		
 		Loop,Parse,PSETCFGITEMS,|
 			{
 				guicontrol,hide,%A_LoopField%
@@ -10707,7 +10659,6 @@ for k, v in ar
 			}
 	}
 return
-
 SanUrl:
 stringreplace,sanfile,sanfile,`%26,&,All
 stringreplace,sanfile,sanfile,`%2B,+,All
@@ -10729,7 +10680,6 @@ stringreplace,sanfile,sanfile,`%7D,},All
 stringreplace,sanfile,sanfile,`%7E,~,All
 stringreplace,sanfile,sanfile,`%25,`%,All
 return
-
 INST_Kodi_XBMC:
 guicontrol,enable,CNCLDWN
 kodiinst=
@@ -10843,7 +10793,6 @@ RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\Optio
 Daemon_Tools=%xtractmul%\DTLite.exe
 guicontrol,disable,CNCLDWN
 return
-
 PRGINSTLBX:
 gui, submit, nohide
 xtractmu=
@@ -10992,7 +10941,6 @@ ifinstring,noinstallers,%PRGINSTLBX%
 	}
 return
 ;{;;;;;;;;;;;;;;;;;  SYSTEM LIST  ;;;;;;;;;;;;;;;;
-
 SYSINSTLBX:
 gui, submit, nohide
 xtractmu=
@@ -11196,7 +11144,6 @@ if (EINSTLOC = "")
 		iniread,EINSTLOC,apps.ini,EMULATORS,%selfnd%
 		guicontrol,,EINSTLOC,%EINSTLOC%
 	}
-
 guicontrolget,APPOPT,,APPOPT
 guicontrolget,OVRKND,,SYSNICK
 guicontrolget,APPARG,,APPARG
@@ -11250,7 +11197,6 @@ Loop, Parse, semu,|
 		gosub, SYSINSTLBX
 	}
 return
-
 EmuInst:
 gui,submit,nohide
 guicontrolget,INSTLTYP,,SaList
@@ -11275,7 +11221,6 @@ GuiControl, Disable, EMUINST
 GuiControl, Enable, CNCLDWN
 if (selfnd = "Other")
 	{
-	
 	}
 EMURJINT:
 emufzd= 
@@ -11591,7 +11536,6 @@ if (selfnd = "retroArch")
 	}
 if ((INSTLTYP = "Emulators")&&(EMUAUTOA = 1))
 	{
-	
 		stranb= %selfnd%
 		gosub, EmuIterA
 		SB_SetText("assigned " byuu "to supported systems detected")
@@ -11641,7 +11585,6 @@ if (EMUASIGN = 1)
 	}	
 gosub, PRGINSTLBX
 return
-
 MultiSys:
 EmuAsign:
 gui, submit, nohide
@@ -12414,7 +12357,6 @@ IniWrite, %ADDFK%,AppParams.ini,%sysni%,%CMDRT%
 IniWrite, %ADDFO%,AppParams.ini,%sysni%,%CMDRO%
 IniWrite, %ADDFW%,AppParams.ini,%sysni%,%CMDRS%
 return
-
 InstEmuDDL:
 gui,submit,nohide
 EINSTLOC=
@@ -12453,7 +12395,6 @@ if (selfnd = "Other")
 			}
 	}
 return
-
 EmuLkup:
 emuxe= 
 emumatch= 
@@ -12478,7 +12419,6 @@ Loop, Parse,AllPartSet,`n`r
 			}
 	} 
 return
-
 ChkMu:
 loop,parse,AllPartSet,`n`r
 	{
@@ -12632,7 +12572,6 @@ EMPRDDL:
 gui,submit,nohide
 guicontrolget,EMPRDDL,,EMPRDDL
 return
-
 EmuItera:
 SB_SetText("Assigning "  stranb " to supported systems")
 Loop,parse,systmfldrs,|
@@ -12675,7 +12614,6 @@ Loop,parse,systmfldrs,|
 			}
 	}
 return	
-
 EMPRLST:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
@@ -12834,7 +12772,6 @@ Loop, parse, ksiv,|
 		EMPRLT.= A_LoopField . "|"
 	}
 guicontrol,,EMPRLST,|%EMPRLT%
-
 iniwrite,"%EMPRLT%",Assignments.ini,OVERRIDES,%semu%
 iniwrite,"%emprcur%",Assignments.ini,ASSIGNMENTS,%semu%
 return
@@ -13288,7 +13225,6 @@ Loop, Parse, SYSINSTLBX,|
 		gosub, RomDLocM
 	}
 return
-
 RomDLoc:
 ROMDFLDR=
 FileSelectFolder,ROMDFLDR,,3,Locate the %semu% folder
@@ -13323,7 +13259,6 @@ if (kiv = "ERROR")
 guicontrol,,ROMDEDT,|%ROMDFLDR%|%kiv%
 gosub, resetCoreAssets
 return
-
 LnkGet:
 JNKLNK=
 junct=
@@ -13387,7 +13322,6 @@ if ((ovrob <> "ERROR") and (ovrob <> ""))
 	}
 gosub, SysNick
 return
-
 Emu_popasgn:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
@@ -13424,7 +13358,6 @@ guicontrol,enable,RAINSTLBX
 guicontrol,enable,SYSINSTLBX
 guicontrol,enable,PRGINSTLBX
 return
-
 LNCHPT:
 gui,submit,nohide
 guicontrol,disable,LNCHPT
@@ -13805,7 +13738,6 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;; RA GUI BUTTON ACTIONS ;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;  RA GLOBAL FUNCTIONS  ;;;;;;;;;;;;;;;
-
 LocPath:
 gui, submit, nohide
 tmpth=
@@ -13814,7 +13746,6 @@ gosub, RACHKOPTLINE
 iniread, tmpth, %curcfg%,OPTIONS,%LOCPTH%
 	SB_SetText("" LOCPTH " is " . tmpth . "")
 return
-
 LocationPath:
 guicontrolget,LOCPTH,,LOCPTH
 PthSel=
@@ -13829,7 +13760,6 @@ if (INITIAL = 1)
 	{
 	}
 return
-
 LocFolder:
 tmpdir=
 gui, submit, nohide
@@ -13838,14 +13768,12 @@ gosub, RACHKOPTLINE
 iniread, tmpdir, %curcfg%,OPTIONS,%LOCDIR%
 SB_SetText("" LOCDIR " is " . tmpdir . "")
 return
-
 LocationFolder:
 FileSelectFolder, FldrSel, ,3 ,Select %LOCDIR%
 if FldrSel=
 	{
 		return
 	}
-	
 stringright,efi,FldrSel,2
 stringLeft,efix,FldrSel,2
 if (efi = ":\")
@@ -13870,7 +13798,6 @@ if (LOCDIR = "core_assets_directory")
 	}
 IniWrite, "%FldrSel%",%curcfg%,OPTIONS,%LOCDIR%
 return
-
 Rewind:
 gui, submit, nohide
 rewindEnable= false
@@ -13887,7 +13814,6 @@ else if (REWEN = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%rewindEnable%", %curcfg%,OPTIONS,rewind_enable
 return
-
 EnableCR:
 gui, submit, nohide
 if (CSTCRE = 1)
@@ -13901,7 +13827,6 @@ if (CSTCRE = 0)
 		guicontrol,Disable,CSTRAARGF
 	}
 return
-
 EnableCC:
 gui, submit, nohide
 if (CSTCMD = 1)
@@ -13915,7 +13840,6 @@ if (CSTCMD = 0)
 		guicontrol,disable,CSTRAOPTF
 	}
 return
-
 SwHost:
 gui,submit,nohide
 guicontrolget,SWHOST,,SWHOST
@@ -13932,12 +13856,10 @@ if (SWHOST = 0)
 		guicontrol,show,RCLLNCH
 	}
 return
-
 CORECommand:
 gui, submit, nohide
 guicontrolget,CSTRAARGF,,CSTRAARGF
 return
-
 SaveSort:
 gui, submit, nohide
 sortSavefilesEnable= false
@@ -13948,12 +13870,10 @@ if (SAVSRT = 1)
 gosub, RACHKOPTLINE
 iniwrite, "%sortSavefilesEnable%",%curcfg%,OPTIONS,sort_savefiles_enable
 return
-
 ROMOverride:
 gui, submit, nohide
 guicontrolget,CSTRAOPTF,,CSTRAOPTF
 return
-
 Granularity:
 gui, submit, nohide
 rewindGranularity= %REWGRAN%
@@ -13961,14 +13881,12 @@ guicontrolget, REWGRAN
 gosub, RACHKOPTLINE
 IniWrite, "%rewindGranularity%", %curcfg%,OPTIONS,rewind_granularity
 return
-
 autoSave:
 gui, submit, nohide
 autoSaveInterval= %SVINT%
 gosub, RACHKOPTLINE
 IniWrite, "%autoSaveInterval%", %curcfg%,OPTIONS,auto_savestate_interval
 return
-
 StateAutoIndex:
 savestateAutoIndex= false
 gui, submit, nohide
@@ -13979,7 +13897,6 @@ if (STAI = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoIndex%", %curcfg%,OPTIONS,savestate_auto_index
 return
-
 StateAutoSave:
 gui, submit, nohide
 savestateAutoSave= false
@@ -13991,7 +13908,6 @@ if (STAS = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%savestateAutoSave%", %curcfg%,OPTIONS,savestate_auto_save
 return
-
 StateAutoLoad:
 gui, submit, nohide
 savestateAutoLoad= false
@@ -14131,7 +14047,6 @@ IniWrite, "%menuDriver%", %curcfg%,OPTIONS,menu_driver
 return
 ;};;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;    AUDIO FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 AudioToggle:
 gui, submit, nohide
 if (GLBLAUDIO = 0)
@@ -14472,7 +14387,6 @@ videoFrameDelay= %FRMDL%
 gosub, RACHKOPTLINE
 IniWrite, "%videoFrameDelay%", %curcfg%,OPTIONS,video_frame_delay
 return
-
 DISPLDRV:
 gui,submit,nohide
 guicontrolget,DISPLDRV,,DISPLDRV
@@ -14852,7 +14766,6 @@ if (GCOR = 1)
 gosub, RACHKOPTLINE
 IniWrite, "%gammaCorrection%", %curcfg%,OPTIONS,gamma_correction
 return
-
 Aspect:
 gui, submit, nohide
 ARIAPND=
@@ -14881,7 +14794,6 @@ VIDTMP .= "|"ARIENUM "||" ARIAPND
 gosub, RACHKOPTLINE
 IniWrite, "%aspectRatioIndex%", %curcfg%,OPTIONS,aspect_ratio_index
 return
-
 GLShdGet:
 Gui, Submit, NoHide
 shdvar= %GLSHDVAR%
@@ -14920,7 +14832,6 @@ SB_SetText(" " ShaderName " ")
 gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
-
 SLShdGet:
 Gui, Submit, NoHide
 shdvar= %SLSHDVAR%
@@ -14952,15 +14863,12 @@ if (ShaderName <> "")
 		refshdr= #reference "..\shaders_slang\%shadv%"
 		fileappend,%refshdr%,%raexedir%\shaders\presets\global.slangp
 	}
-
-
 if ShaderName = nul
 	videoShader=
 SB_SetText(" " ShaderName " ")
 gosub, RACHKOPTLINE
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
-
 CGShdGet:
 Gui, Submit, NoHide
 shdvar= %CGSHDVAR%
@@ -14993,7 +14901,6 @@ if (ShaderName <> "")
 SB_SetText(" " ShaderName " ")
 IniWrite, "%videoShader%", %curcfg%,OPTIONS,video_shader
 return
-
 FltShdGet:
 Gui, Submit, NoHide
 vfilt= %FLTFILE%
@@ -15050,7 +14957,6 @@ if (RETRANSLID = 1)
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
-
 RETALRAXE:
 gosub, PreOpt
 RETRANSLID= 
@@ -15077,8 +14983,6 @@ if (RETRANSLID = 1)
 guicontrol,hide,RETAL
 guicontrol,move,CLRCUROM,x744 y34
 return
-
-
 ESWPLCRE:
 gui,submit,nohide
 guicontrolget,ESWPLCRE,,ESWPLCRE
@@ -15096,8 +15000,6 @@ guicontrol,show,LCORE
 guicontrol,hide,LCORECBX
 guicontrol,,ESWPLCRE,E
 return	
-
-
 LCORECBX:
 guicontrolget,LCGRBX,,LCORECBX
 Sleep, 1100
@@ -15120,7 +15022,6 @@ if ((COREGRBX = "")or(CORENVBX = ""))
 		guicontrol,,ESWPLCRE,E
 		return
 	}
-	
 main_search= 
 Loop,parse,runlist,|
 	{
@@ -15150,8 +15051,6 @@ if (main_search = "")
 guicontrol,,LCORECBX,|%COREGRBX%||%main_search%
 Control, ShowDropDown, , ,ahk_id %RUNCORECBX%
 return
-
-
 LnchCoreCBXr:
 gui,submit,nohide
 guicontrolget,LCORECBX,,LCORECBX
@@ -15163,7 +15062,6 @@ guicontrol,,LCORE,|%LCORECBX%||%runlist%
 guicontrol,hide,LCORECBX
 guicontrol,show,LCORE
 return
-
 LnchCore:
 gui,submit,nohide
 guicontrol,enable,LCORE
@@ -15197,7 +15095,6 @@ if ((core_gui <> LCORE)&&(LCORE <> ""))
 			}
 		return	
 	}
-	
 CoreAuto:
 Gui, Submit, NoHide
 guicontrolget,LCORE,,LCORE
@@ -15209,7 +15106,6 @@ if (LCORE = "")
 		return
 	}
 return
-
 ConnectRA:
 if (IPA = "")
 	{
@@ -15702,7 +15598,6 @@ guicontrol, enable, UPDCL
 guicontrol, enable, GCUPDT
 gosub, XTRACTRA
 return
-
 ;{;;;;;;;;;; RA GET UPDATES ;;;;;;;;;
 getBBCORES:
 filedelete, coreupdt.ini
@@ -15713,7 +15608,6 @@ SB_SetText(" Downloading core-list ")
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 SB_SetText("file saved as " save " from " URLFILE "")
 return
-
 CoreUpdtChk:
 rewrlibv=
 rewrlibd=
@@ -15773,7 +15667,6 @@ GuiControl, Disable, UPDBTN
 GuiControl, Disable, EXELIST
 gosub, UpdateCores
 return
-
 crcChk:
 rewrlibv=
 rewrlibd=
@@ -15849,7 +15742,6 @@ UpdateCores:
 guicontrol, enable, UPDBTC
 guicontrol, show, UPDBTC
 GuiControl, Enable, CNCLDWN
-
 GuiControl, Disable, AVAIL
 GuiControl, Disable, QRSETUP
 GuiControl, Disable, LOCEMUIN
@@ -16039,7 +15931,6 @@ GuiControl, enable, EXELIST
 GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
-
 RBundle:
 SB_SetText("Downloading Bundle")
 GuiControl, Enable, CNCLDWN
@@ -16069,7 +15960,6 @@ GuiControl, enable, EXELIST
 GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
-
 RRedist:
 SB_SetText("Downloading Redistributable")
 GuiControl, Enable, CNCLDWN
@@ -16099,7 +15989,6 @@ GuiControl, enable, EXELIST
 GuiControl, enable, SYSINSTLBX
 GuiControl, enable, SaList
 return
-
 RAssets:
 SB_SetText("Downloading Assets")
 updtmsg= assets.zip
@@ -16107,7 +15996,6 @@ XTRACTLOC= %raexedir%\assets
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
-
 Rinfo:
 SB_SetText("Downloading Info")
 updtmsg= info.zip
@@ -16115,7 +16003,6 @@ XTRACTLOC= %raexedir%\info
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub, GettingRA
 return
-
 Rdatabaserdb:
 SB_SetText("Downloading Databases")
 Rdatabasecursors:
@@ -16124,7 +16011,6 @@ XTRACTLOC= %raexedir%\database\%crdll1%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
-
 RCheats:
 SB_SetText("Downloading Cheats")
 updtmsg= cheats.zip
@@ -16139,7 +16025,6 @@ XTRACTLOC= %raexedir%\overlays
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
-
 RShadersslang:
 SB_SetText("Downloading Shaders")
 RShaderscg:
@@ -16152,7 +16037,6 @@ XTRACTLOC= %raexedir%\shaders\shaders_%shdtg2%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
-
 RAutoconfig:
 SB_SetText("Downloading Autoconfigs")
 updtmsg= autoconfig.zip
@@ -16160,7 +16044,6 @@ XTRACTLOC= %raexedir%\autoconfig
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
 return
-
 RStable:
 SB_SetText("Downloading Stable")
 updtmsg= RetroArch.7z
@@ -16185,7 +16068,6 @@ if (ntna2 = RASTABLE)
 	}
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
 return
-
 GettingRA:
 guicontrol,enable,UPDBTC
 if (DWNCNCL= 1)
@@ -17093,7 +16975,6 @@ if (raBFTH = 1)
 	}
 iniwrite,"%rguiborderfillerthicknessenable%",%curcfg%,OPTIONS,rgui_border_filler_thickness_enable
 return
-
 raACAL:
 gui,submit,nohide
 applycheatsafterload= false
@@ -17103,7 +16984,6 @@ if (raACAL = 1)
 	}
 iniwrite,"%applycheatsafterload%",%curcfg%,OPTIONS,apply_cheats_after_load
 return
-
 raACAT:
 gui,submit,nohide
 applycheatsaftertoggle= false
@@ -17113,7 +16993,6 @@ if (raACAT = 1)
 	}
 iniwrite,"%applycheatsaftertoggle%",%curcfg%,OPTIONS,apply_cheats_after_toggle
 return
-
 raPLFAM:
 gui,submit,nohide
 playlistfuzzyarchivematch= false
@@ -17123,7 +17002,6 @@ if (raPLFAM = 1)
 	}
 iniwrite,"%playlistfuzzyarchivematch%",%curcfg%,OPTIONS,playlist_fuzzy_archive_match
 return
-
 raPLSICN:
 gui,submit,nohide
 playlistshowinlinecorename= false
@@ -17133,7 +17011,6 @@ if (raPLSICN = 1)
 	}
 iniwrite,"%playlistshowinlinecorename%",%curcfg%,OPTIONS,playlist_show_inline_core_name
 return
-
 raPLSLB:
 gui,submit,nohide
 playlistshowsublabels= false
@@ -17152,7 +17029,6 @@ if (raPLSAL = 1)
 	}
 iniwrite,"%playlistsortalphabetical%",%curcfg%,OPTIONS,playlist_sort_alphabetical
 return
-
 raTHMBDDL:
 gui,submit,nohide
 guicontrolget,raTHMBDDL,,raTHMBDDL
@@ -17174,7 +17050,6 @@ if (raTHMBDDL = "title")
 	}
 iniwrite, "%rathmtyp%",%curcfg%,OPTIONS,menu_thumbnails
 return
-
 raTHMBDDL2:
 gui,submit,nohide
 guicontrolget,raTHMBDDL2,,raTHMBDDL2
@@ -17196,7 +17071,6 @@ if (raTHMBDDL2 = "title")
 	}
 iniwrite, "%rathmtyp%",%curcfg%,OPTIONS,menu_left_thumbnails
 return
-
 raENBLWID:
 gui,submit,nohide
 guicontrolget,raENBLWID,,raENBLWID
@@ -17207,7 +17081,6 @@ if (raENBLWID = 1)
 	}
 iniwrite, "%menuenablewidgets%",%curcfg%,OPTIONS,menu_enable_widgets
 return
-
 raSELSCON:
 gui,submit,nohide
 FileSelectFile,raselsconf,3,%raexedir%,stream config,*.*
@@ -25949,7 +25822,6 @@ if (FileExist(RJEMUDtst))
 		iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
 	}
 return
-
 RAEXEP:
 if (INITIAL > 1)
 	{
@@ -26124,7 +25996,6 @@ if (efi = ":\")
 	}		
 locfnd= 1
 ranmt=
-
 REINPUTRA:
 raexedir=
 InputBox,ranmt,Directory Name,Name of the retroarch folder
@@ -26148,7 +26019,6 @@ if (raexedir = "")
 		{
 			goto, REINPUTRA
 		}
-
 INITIATEGEN:
 RACORETAB= |Netplay|Cores
 raexefile= 
@@ -26182,7 +26052,6 @@ if (CORECOPY = 1)
 		FileCopy,%raexedir%\retroarch-core-options.cfg,%racoreopt%,1
 	}
 return
-
 ;{;;;;;;;;;;;;  RESET SHADERS  ;;;;;;;;;;;;;
 resetGL:
 Menu,Tray,Tip, Generating GLSL Shader cache
@@ -26205,7 +26074,6 @@ Loop,Read,gl.ini
 		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 	}
 return
-
 resetSL:
 Menu,Tray,Tip, Generating Slang Shader cache
 filedelete, sl.ini
@@ -26266,7 +26134,6 @@ Loop,Read,fltlist.ini
 	flt_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 RAInitQ:
 gui,submit,nohide
 msgbox,3,Reset Retroarch?,Reset Retroarch?
@@ -26275,12 +26142,10 @@ ifmsgbox, yes
 		gosub,RAINIT
 	}
 return	
-
 RAINITUNDO:
 filemove,config.bak,config.cfg,1
 gosub,RAinitProc
 return
-
 RAInit:
 filecopy, config.cfg,config.bak,1
 filecopy,sets\config.set,config.cfg,1
@@ -26296,7 +26161,6 @@ gosub, resetCORES
 coreassetsdirectory= %RJSYSTEMS%
 iniwrite, "%RJSYSTEMS%",%cursys%,OPTIONS,core_assets_directory
 return
-
 resetOVR:
 rewrovlv=
 rewrovld=
@@ -26351,9 +26215,7 @@ guicontrol,,CGSHDVAR,|nul||%cg_list%
 guicontrol,,SLSHDVAR,|nul||%sl_list%
 guicontrol,,FLTFILE,|nul||%flt_list%
 return
-
 xmbinit:
-
 DLLCRCreset:
 FileDelete,corecrc.ini
 Loop, Read, cores.ini
@@ -26793,7 +26655,6 @@ if (inival2 = "hid")
 		guicontrol, ,JHIDDRV, 1
 	}
 return
-
 audioenable:
 gui,submit,nohide
 audioenable= %inival2%
@@ -26807,8 +26668,6 @@ if (inival2 = "false")
 	}
 gosub, AudioToggle 
 return
-
-
 menuDriver:
 gui, submit, nohide
 menuDriver= %inival2%
@@ -28832,7 +28691,6 @@ if (inival2 = "true")
 	}
 gui, submit, nohide
 return
-
 videoShader:
 gui, submit, nohide
 videoShader= %inival2%
@@ -28857,7 +28715,6 @@ guicontrol,, CGSHDVAR, |nul|%toShdList%||%cg_list%
 guicontrol,, SLSHDVAR, |nul|%toShdList%|%sl_list%
 guicontrol,, GLSHDVAR, |nul|%toShdList%||%gl_list%
 return
-
 videoSharedContext:
 gui, submit, nohide
 GuiControl,, SHAREDV, 0
@@ -28984,7 +28841,6 @@ if (inival2 = "openal")
 		return
 	}
 return
-
 audioLatency:
 gui, submit, nohide
 if (inival2 <> "")
@@ -30504,17 +30360,13 @@ if (OMITPTH = 1)
 	}
 guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%ROM%xdisp%%qdisp%%aparg%, %runfr%
 return
-
 EMUAUTOA:
 gui,submit,nohide
 return
-
-
 EmuPGC:
 gui,submit,nohide
 guicontrolget,EMUPGC,,EMUPGC	
 return
-
 GBLpgs:
 gui,submit,nohide
 seirb= enabling
@@ -30535,7 +30387,6 @@ loop,parse,preEmuCfg,|
 	}	
 SB_SetText("completed " seirb "  per game settings for all systems.")
 return	
-
 ERun:
 gui,submit,nohide
 guicontrolget,ERUN,,ERUN
@@ -30648,7 +30499,6 @@ if (apargx <> "ERROR")
 else {
 	apargv.= "|"
  }	
-
 guicontrol,,APPARG,|%apargv%%INJARG%
 apext=
 iniread, apext, AppParams.ini,%sysni%,extension
@@ -31648,7 +31498,6 @@ iniwrite,%A_Space%,emuCfgPresets.ini,%newaddedsys%,SUPCORE
 iniwrite,$|1|1|0|1|0`n,emuCfgPresets.ini,%newaddedsys%,LNCHPRM
 SB_SetText(" " newaddedsys " added")
 return
-
 if (POPADC = "")
 	{
 		SB_SetText(" You must assign a name to the new system ")
@@ -31977,7 +31826,6 @@ guicontrol,, IPB, %IPB%
 guicontrol,, IPC, %IPC%
 guicontrol,, IPD, %IPD%
 return
-
 LAN_Get:
 ipsplit1=
 ipsplit2=
@@ -32075,7 +31923,6 @@ Loop,parse,curlobby,|
 			MsgBox,16,NETHOST,NETHOSTs-List could not be retrieved., 3
 		  }
 	}
-
 ;{;;;;;;;;;;;;   REFRESH HOSTINGS  ;;;;;;;;;;;;;;;;;;
 LPNUM=
 Loop, 50
@@ -32665,7 +32512,6 @@ if (HOSTFND <> 2)
 		NINLPRSE= *
 	}
 ;;;;;;   PROCEDURE  ;;;;;;;
-
 Loop, parse, ncad,|
 	{
 		if (A_LoopField = "")
@@ -33457,7 +33303,6 @@ HOSTINGROMX= %fvff1%
 if (jumptab = 1)
 GuiControl, Choose, TABMENU, 7
 jumptab=
-
 gosub, FindInArc
 if (HOSTFND = 2)
 	{
@@ -33638,7 +33483,6 @@ if (arcpl <> "")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;  FOLDER/PLAYLIST RADIOS  ;;;;;;;;;;;;;;;;;;;;;;;
-
 NetDwnl:
 gui, submit, NoHide
 BRKO= 1
@@ -33659,7 +33503,6 @@ ifexist, %RJSYSTEMS%\%NETLPARSE%
 guicontrol,,NETCOREASSETS,|%initdwn%||%dwnlfldrs%
 iniwrite, "1",Settings.ini,GLOBAL,netplay_rom_location
 return
-
 NetPlist:
 gui,submit,nohide
 guicontrol,disable,NETCONNECT
@@ -34800,8 +34643,6 @@ if (fenam = "RetroFE")
 		return
 	}
 return
-
-
 HideOtherFEPL:
 guicontrol,,ESPLXMP,|%ESPLPLST%%escommon%%systmfldrs%
 Loop,Parse,ESPLITEMS,|
@@ -34819,7 +34660,6 @@ Loop,Parse,RFPLITEMS,|
 		guicontrol,%opltog%,%A_LoopField%
 	}
 return
-
 CURPLST:
 gui,submit,nohide
 guicontrolget,CURPLST,,CURPLST
@@ -34870,7 +34710,6 @@ if (RPDND = 1)
 		Guicontrol,,ESCPYSCR,1
 	}
 return
-
 PLALSYSBUT:
 guicontrol,,Fltxt
 Loop, Files, %RJSYSTEMS%\*,DR
@@ -34880,7 +34719,6 @@ Loop, Files, %RJSYSTEMS%\*,DR
 			}
 	}
 return
-
 Recurse:
 gui,submit,nohide
 guicontrol, hide, EXTPARSED
@@ -34908,7 +34746,6 @@ if (RECURSE = 1)
 	}
 gosub, PopDownloads
 return
-
 RPopPl:
 gui,submit,nohide
 guicontrol, hide, RECURSE
@@ -34979,7 +34816,6 @@ guicontrol,,CURPLST,|
 existingpop=
 POPLDWN=
 return
-
 ClearROMPop:
 popPlist=
 poptl=
@@ -35009,7 +34845,6 @@ POPLDWN=
 noadpl=
 gui, submit, nohide
 return
-
 CorePLInfo:
 gui, submit, nohide
 guicontrolget,plcortmp,,PLCORE
@@ -35038,10 +34873,8 @@ if (szip = 1)
 		guicontrol,,ZIPSEEK,0
 	}
 return
-
 PlaylistAppend:
 return
-
 SvAsPlst:
 SB_SetText("Saving Playlist ... ")
 gui,submit,nohide
@@ -35058,7 +34891,6 @@ SB_SetText(" " svplst " saved")
 gosub, ClearROMPop
 gosub, ClearCurList
 return
-
 OpnPlst:
 plopen=
 popAlist=
@@ -35106,12 +34938,10 @@ existlst= %poptl%
 popPlist= %poptl%
 newplst= %poptl%
 return
-
 ExtParsed:
 gui, submit, nohide
 guicontrolget,omitxtv,,EXTPARSED
 return
-
 INCLBool:
 gui, submit, nohide
 guicontrolget, filtxtnl, ,EXTPARSED
@@ -35131,7 +34961,6 @@ if (EXCLBOOL = 1)
 	}
 gosub, FltXt
 return
-
 FltXt:
 gui,submit,nohide
 guicontrol,disable,FLTXT
@@ -35176,7 +35005,6 @@ guicontrol,enable,EXTPARSED
 guicontrol,enable,RECURSE
 guicontrol,enable,FLTXT
 return
-
 PopFolders:
 Iniread, RJSYSTEMS, Settings.ini,GLOBAL,systems_directory
 if (RJSYSTEMS = "ERROR")
@@ -35239,7 +35067,6 @@ guicontrol,,DWNLPOS,|:=:System List:=:||%systmfldrs%
 guicontrol,,SKSYSDISP,%RJSYSTEMS%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
-
 PopDownloads:
 gui, submit, nohide
 guicontrol,enable,RPopDl
@@ -35317,9 +35144,7 @@ if (EXCLBOOL = 1)
 		goto, EXFilter
 	}
 goto, ExtParBegin
-
 ExtParBegin:
-
 ExtParsing:
 omitxtv=
 listswp=
@@ -35332,7 +35157,6 @@ omitxtv=
 omitxtr= 
 allxtn= 
 guicontrolget,PLCORE,,PLCORE
-
 IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
 if ((stevr <> "")&&(stevr <> "ERROR"))
 	{
@@ -35363,7 +35187,6 @@ if ((stevr <> "")&&(stevr <> "ERROR"))
 			}
 	}
 iniread,fein,emuCfgPresets.ini,%DWNLPOS%,RJROMXT
-
 if ((fein <> "ERROR")&&(fein <> ""))
 	{
 		stringreplace,fein,fein,.,,All
@@ -35404,7 +35227,6 @@ if ((fein <> "ERROR")&&(fein <> ""))
 		omitxtv:= omitxtc . "," . omitxtv
 		stringreplace,omitxtv,omitxtv,.,,All
 	}
-
 if (extoutp2 = "")
 	{
 		if (EXCLBOOL = 1)
@@ -35433,13 +35255,11 @@ stringreplace, pipxtr, omitxtf1,`,,|, All
 stringreplace,pipxtr,pipxtr,||,|,All
 stringsplit,omitxtn,pipxtr,|
 goto, faromitgn
-
 FilterTargetButton:
 if (omitxtn0 = "")
 	{
 		gosub, PopDownloads
 	}
-
 faromitgn:
 ar := Object()
 Loop, %omitxtn0%
@@ -35479,7 +35299,6 @@ stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 SB_SetText("")
 return
-
 PopPLpl:
 gui,submit,nohide
 guicontrol, hide, RECURTX
@@ -35553,7 +35372,6 @@ stringreplace,poptadd,poptadd,%RJSYSTEMS%\%DWNLPOZ%\,,All
 guicontrol,,ROMPOP,|%poptadd%
 gosub, EDTROM
 return
-
 EXFilter:
 listswp=
 matchinfo=
@@ -35565,7 +35383,6 @@ guicontrolget,omitxtt,,EXTPARSED
 stringsplit,omitxtp,omitxtt,|
 stringreplace,omitxty,omitxp1,`,,|,All
 stringsplit,omitxtn,omitxty,|
-
 OutList:
 POPLDWN=
 ar := Object()
@@ -35597,7 +35414,6 @@ Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
 stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 return
-
 MVPLOU:
 ;{;;;;;;;;;   MOVE ORDER UP  ;;;;;;;;;;;;;;;;;
 SB_SetText("")
@@ -35768,11 +35584,9 @@ gui, submit, nohide
 guicontrolget,PLCOREG,,PLCORE
 if (PLCOREG = "")
 	{
-		
 	}
 gosub, CorePLInfo
 return
-
 RemFromPL:
 ifexist,rj\ES\%syssub%\%gamesel%.ini
 	{
@@ -36220,7 +36034,6 @@ PlaylistEdit:
 SYSNAME= %PLNAMEDT%
 gui, submit, nohide
 return
-
 MatchEmu:
 recore=
 if (LNCHPT = 0)
@@ -36263,7 +36076,6 @@ oil= %aix1%
 coreselv= %oil%
 topcore:= oil . "||" runlist
 goto,INSCOR
-
 recore=
 ARCCORES=
 ifinstring,SysLLst,%keyout%=
@@ -36312,7 +36124,6 @@ ifinstring,SysLLst,%keyout%=
 			}
 	}
 topcore:= ARCCORES . recore . runlist
-
 INSCOR:
 guicontrol,,LCORE,|%topcore%
 guicontrol,,ARCCORES,|%topcore%
@@ -36325,7 +36136,6 @@ if (core_gui <> ARCCORES)
 		gosub, ShowOnlyEmuGui
 	}
 return
-
 MatchSyst:
 coretograb=
 selctdcore= 
@@ -36533,7 +36343,6 @@ if (DOWNONLY = 1)
 		ARCSEL= 1
 		return
 	}
-	
 PostMessage, 0x185, 1, -1, SRCHSLT  ; Select all items. 0x185 is LB_SETSEL.
 PostMessage, 0x185, 0, -1, SRCHSLT  ; Deselect all items.
 GuiControl, Choose, SRCHSLT,0
@@ -36550,7 +36359,6 @@ if ((ARCCORES = "")&&(ARCCORES <> "Emu_Preset")&&(ARCCORES <> "ERROR"))
 	}
 norun=
 return
-
 STRMVID:
 gui,submit,nohide
 guicontrolget,STRMVID,,STRMVID
@@ -36562,9 +36370,6 @@ if (STRMVID = 0)
 	}
 gosub,DownOnly
 return
-
-
-
 REPOUrlEdt:
 gui,submit,nohide
 guicontrol,,MAMESWCHK,0
@@ -36611,7 +36416,6 @@ if ((urlTxt <> olarcnm)or(olarna <> 1))
 		return
 	}
 return
-
 EnableAltURL:
 gui, submit, nohide
 guicontrolget,ALTURL,,ALTURL
@@ -36630,7 +36434,6 @@ if (ALTURL = 0)
 		guicontrol,disable,SAVPASS
 	}
 return
-
 ADDRPOL:
 gui,submit,nohide
 opndgam= 1
@@ -36732,9 +36535,6 @@ Sort,pop_list,D|
 jacktshw= hide
 guicontrol,,ARCPOP,|%pop_list%
 return
-
-
-
 AltURLGet:
 gui,submit,nohide
 guicontrolget,UrlTxt,,UrlTxt
@@ -36817,7 +36617,6 @@ guicontrol,enable,ARCSYS
 guicontrol,enable,ALTURLGET
 guicontrol,enable,ADDRPOL
 return
-
 sitensan:
 SB_SetText("do not include spaces or any other symbols:  Use letters,numbers and the ''-'' dash character only.")	
 AltURLSet:
@@ -36838,7 +36637,6 @@ ifinstring,SOURCES,%ArcSiteN%
 		SB_SetText("Repository is Added")
 		return
 	}
-	
 inputbox,ArcSitex,Repository Archive URL,,,400,100,,,,,
 SB_SetText("Enter the URL to the archive containing repository lists.")
 stringsplit,arcvv,arcsitex,/
@@ -36850,7 +36648,6 @@ if (ArcSitex = "")
 		return
 	}
 SB_SetText("")
-	
 ifnotinstring,ARCSRCS,%ArcSiteN%|
 	{
 		ArcSRCS.= ArcSiteN . "|"
@@ -36864,14 +36661,12 @@ ifnotexist, gam\%ARCSRC%\
 		gosub, AltURLGet
 	}
 return
-
 SearchInp:
 gui, submit, nohide
 guicontrol,show,SRCHRSLT
 guicontrol,enable,ARCSYS
 guicontrol,enable,MAMESWCHK
 return
-
 EDTROMBTN:
 gui,submit,nohide
 guicontrolget,MORROM,,MORROM
@@ -36893,8 +36688,6 @@ guicontrol,show,MORROM
 guicontrol,hide,RUNROMCBX
 guicontrol,,EDTROMBTN,E
 return	
-
-
 fltrRpoBtn:
 gui,submit,nohide
 guicontrolget,fltrRpoBtn,,fltrRpoBtn
@@ -36914,13 +36707,11 @@ guicontrol,show,ARCSYS
 guicontrol,hide,ARCCBX
 guicontrol,,fltrRpoBtn,E
 return	
-
 ARCLRFLT:
 gui,submit,nohide
 guicontrol,,ARCMFLT,
 guicontrol,,ARCPOP,|%pop_list%
 return
-
 ARCMFLT:
 Sleep, 1100
 gui,submit,nohide
@@ -36943,8 +36734,6 @@ Loop,Parse,pop_list,|
 	}
 guicontrol,,ARCPOP,|%npop_list%	
 return
-
-
 ArchiveCBX:
 guicontrolget,RPSYSX,,ARCCBX
 if (RPTYP = "")
@@ -36972,10 +36761,8 @@ if ((RPSYS = "")or(RPSYS = "Select a System"))
 		guicontrol,,fltrRpoBtn,E
 		return
 	}
-
 RPTYP= 
 main_search= 
-
 Loop,parse,syslist,|
 	{
 		if (A_LoopField = RPSYS)
@@ -37005,7 +36792,6 @@ if (main_search = "")
 guicontrol,,ARCCBX,|%RPSYS%||%main_search%
 Control, ShowDropDown, , ,ahk_id %CbxHndl121%
 return
-
 ExpndASrch:
 gui,submit,nohide
 ExpndTog= show
@@ -37066,11 +36852,9 @@ return
 AincTog:
 gui,submit,nohide
 return
-
 AexcTog:
 gui,submit,nohide
 return
-
 SearchArc:
 gui,submit,nohide
 guicontrolget,SRCHEDT,,SRCHEDT
@@ -37112,7 +36896,6 @@ if (MAMESWCHK = 1)
 				SRCHSYS= %ARCTRA%
 			}
 	}
-
 Loop, files,%SRCHMET%\%SRCHCRI%.gam, %SRCHREC%
 	{
 		sys=
@@ -37158,7 +36941,6 @@ guicontrol,enable,ExpndASrch
 guicontrol,enable,SRCHEDT
 guicontrol,enable,SRCHDDL
 return
-
 SortOverride:
 gui,submit,nohide
 guicontrolget,OVDCHK,,OVDCHK
@@ -37174,7 +36956,6 @@ guicontrolget,ARCMOVE,,ARCMOVE
 guicontrolget,ARCCULL,,ARCCULL
 guicontrol,enable,RNMJACK
 return
-
 ArcPopulateList:
 ;{;;;;;;;;;;;;;;;;;;;   MAIN ARCHIVE LIST   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 tmprm=
@@ -37202,7 +36983,6 @@ Loop, parse, tmprm,|
 				continue
 			}
 		arcpnum+=1
-						  
 		if (arcpnum > 1)
 			{
 				norun= 1
@@ -37539,7 +37319,6 @@ if (DownOnly = 0)
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 GamFIND:
 cmdfun=
 mlturl= 
@@ -37576,13 +37355,10 @@ ifnotinstring,srchgamf,:\
 		srchgamf= %A_ScriptDir%\%srchgamf%
 	}
 splitpath,srchgamf,fnew,nesn,aien,krvm	
-
 Loop, %srchgamf%
 	{
-  
 		Loop, Read, %A_LoopFileFullPath%
 			{
-				
 				if (A_LoopReadLine = "")
 					{
 						continue
@@ -37680,7 +37456,6 @@ Loop, %srchgamf%
 			}
 	}
 return
-
 ArcPPND:
 stringreplace,EXTRSYSK,EXTRSYS,#HACKS#,,All
 ARCSUBS= %EXTRSYSK%
@@ -37689,7 +37464,6 @@ ifnotinstring,EXTRSYSK,%A_Space%-%A_Space%
 		ARCSUBS= MAME - Systems
 	}
 return
-
 RomSavePPND:
 romf:= save
 URLFILE= %ArcSite%/%sysurl%%urlpth%
@@ -37704,11 +37478,9 @@ ifinstring,urlpth,://
 splitpath,urlfile,,,inxck
 if (inxck = "inx")
 	{
-		
 	}
 SB_SetText(" " urlfile " ")
 return
-
 ENHAK:
 gui,submit,nohide
 guicontrolget,ENHAK,,ENHAK
@@ -37731,7 +37503,6 @@ if (ENHAK = 0)
 		goto, archivesystems
 	}
 return
-
 CLRNETP:
 ARCRCLK=
 gui,submit,nohide
@@ -37741,7 +37512,6 @@ guicontrol,enable,MAMESWCHK
 INTERRUPTDWN= 1
 Process,close,%$exeg_pid%
 return
-
 MAMESWCHK:
 gui,submit,nohide
 guicontrolget,MAMESWCHK,,MAMESWCHK
@@ -37765,7 +37535,6 @@ guicontrol,,ARCSYS,|Select a System||%syslist%
 guicontrol,,SRCHDDL,|All||%syslist%
 gosub, ArchiveSystems
 return
-
 SRCHDDL:
 gui,submit,nohide
 guicontrolget,SRCHDDL,,SRCHDDL
@@ -37774,7 +37543,6 @@ guicontrol,enable,ARCSYS
 guicontrol,hide,sortoverride
 guicontrol,,sortoverride,0
 return
-
 ArcTab:
 gui,submit,nohide
 Loop,parse,SHOWARCTAB,|
@@ -37789,13 +37557,10 @@ Loop,parse,SORTROMTAB,|
 	{
 		guicontrol,hide,%A_LoopField%
 	}
-
 return
-
 DATLBX:
 gui,submit,nohide
 return
-
 SortRoms:
 gui,submit,nohide
 Loop,parse,SHOWARCTAB,|
@@ -37811,35 +37576,189 @@ Loop,parse,SORTROMTAB,|
 		guicontrol,show,%A_LoopField%
 	}
 return
-
 MAMEDATYP:
 guicontrol,move,BRWSDAT,y370
 return
-
 NOINTDATYP:
 guicontrol,move,BRWSDAT,y392
 return
-
 TOSECDATYP:
 guicontrol,move,BRWSDAT,y348
 return
-
 HLTDATP:
 gui,submit,nohide
 return
-
 DATDRPD:
 gui,submit,nohide
 return
-
 BRWSDAT:
 gui,submit,nohide
 return
-
-ADDATS:
+DETECTXTN:
 gui,submit,nohide
 return
-
+HASHALLROMS:
+gui,submit,nohide
+guicontrolget,DETECTXTN,,DETECTXTN
+guicontrolget,MOVDRP,,MOVDRP
+guicontrolget,EXTDRP,,EXTDRP
+guicontrolget,OVRWDRP,,OVRWDRP
+guicontrolget,ARCSORT,,ARCSORT
+guicontrolget,JAKDRP,,JAKDRP
+guicontrolget,JAKAFT,,JAKAFT
+guicontrolget,RENMDRP,,RENMDRP
+Loop,parse,SORTROMTAB,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;msgbox,,,DATLBX=%DATLBX%`nHSH_TBD=%HSH_TBD%
+Loop,parse,HSH_TBD,|
+	{
+		ApndCRC=
+		if InStr(FileExist("A_LoopField"), "D")
+			{
+				Loop,Files,%A_LoopField%\*.*
+					{
+						CrCFLN= %A_LoopFileFullPath%
+						splitpath,A_LoopFileFUllPath,romyu,rompd,romxt,romjn
+						gosub, CRC32GET
+						msgbox,,,CrCFLN= %A_LoopFileFUllPath%`napndcrc=%Apndcrc%
+						if (ApndCRC = "-1")
+							{
+								continue
+							}
+						gosub, hashproc
+					}
+			}
+		CrCFLN= %A_LoopField%
+		splitpath,A_LoopField,romyu,rompd,romxt,romjn
+		gosub, crc32get
+		if (ApndCRC = "-1")
+			{
+				continue
+			}
+		gosub, hashproc
+	}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Loop,parse,SORTROMTAB,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
+return
+HASHPROC:
+MSGBOX,,,INCLDATS=%INCLDATS%
+Loop,parse,incldats,|
+	{
+		stringsplit,datcl,A_LoopField,\([
+		SYS_K= %datcl2%
+		dat_in= dats\%A_LoopField%
+		Loop,parse,fuzsys,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,eig,A_loopfield,>
+				HASH_SYS= %eig2%
+				stringsplit,aig,eig1,|
+				tosys:= RegExMatch(dat_in,A_LoopField,sni)
+				if (sni = 0)
+					{
+						SYS_K= %HASH_SYS%
+					}
+			}
+		msgbox,,,%sys_k%
+		Fileread,hi,%dat_in%
+		Loop,parse,hi,`n`r
+			{
+				stringsplit,aeb,A_LoopField,<
+				ifinstring,aeb2,game name=
+					{
+						stringsplit,ggnm,aeb2,=>,"
+						;"
+					G_N=%ggnm2%																		stringreplace,G_N,G_N,:,-,All
+					stringreplace,G_N,G_N,>,-,All
+					stringreplace,G_N,G_N,<,-,All
+					stringreplace,G_N,G_N,?,-,All
+					stringreplace,G_N,G_N,*,-,All
+					stringreplace,G_N,G_N,\,-,All
+					stringreplace,G_N,G_N,/,-,All
+					stringreplace,G_N,G_N,|,-,All
+					stringreplace,G_N,G_N,=,-,All
+						continue
+					}
+				ifinstring,aeb2,rom name=
+					{
+						stringsplit,rgnm,aeb2,=>"
+						;"	
+						rgnum= 1	
+						Loop,%rgnm0%
+							{
+								nvnm= % rgnm%A_Index%
+								newnv= %nvnm%
+								if ((newnv = "size")or(newnv = "crc")or(newnv = "md5")or(newnv = "sha1"))
+									{
+										kprt:= A_index + 2
+										hsh_%newnv%= % rgnm%kprt%
+									}
+							}
+						MSGBOX,,,file=%CrcFLN%`nHSH_CRC=%hsh_CRC%`nAPNDCRC=%ApndCRC%	
+						if (hsh_crc = ApndCRC)
+							{
+								fldrnm= 
+								if (JADRP = 1)
+									{
+										fldrnm= %romjn%\
+									}
+								if (RENMDRP = 1)
+									{
+										romyu= %rgnm3%
+										if (JAKDRP = 1)
+											{
+												fldrnm= %G_N%\
+											}
+									}
+								hsh_dest= 	%fldrnm%%romyu%
+								if (hsh_mv = 1)
+									{
+										FileMove,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+										break
+									}
+								FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+								break
+							}
+					}
+			}
+	}
+return			
+ADDATS:
+gui,submit,nohide
+guicontrolget,DATDRPD,,DATDRPD
+stringleft,datdrc,DATDRPD,3
+if (datdrc = "ALL")
+	{
+		stringsplit,datinc,datdrpd,%A_Space%
+		iniread,ebs,datlist.ini,%datinc2%
+		Loop,parse,ebs,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,feba,A_LOopField,=,"
+				;"
+				ifnotinstring,incldats,feba2
+					{
+						incldats.= feba2 . "|"
+					}
+			}
+		guicontrol,,DATLBX,|%incldats%
+		return
+	}
+incldats.= DATDRPD . "|"
+guicontrol,,DATLBX,|%incldats%
+return
 ADDSRTFILE:
 gui,submit,nohide
 FileSelectFile,AddToDRP,M3,,Add ROMs,
@@ -37857,6 +37776,23 @@ Loop, Parse,AddToPl,`n`r
 			}
 		LV_Add(LVACHK,HASHDIR)
 	}
+return
+REMADAT:
+guicontrol,,DATLBX,|
+incldats=
+return
+REMDAT:
+gui,submit,nohide
+guicontrolget,datlbxlist,,DATLBX
+Loop,parse,datlbxlist,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,incldats,incldats,%A_LoopField%|,,All	
+	}
+guicontrol,,DATLBX,|%incldats%
 return
 REMAHSH:
 gui,submit,nohide
@@ -37898,7 +37834,6 @@ Loop,parse,HSH_TBD,|
 	}
 LV_ModifyCol()	
 return
-
 ADDSRTDIR:
 gui,submit,nohide
 FileSelectFolder,HASHDIR,,3,Select a Folder
@@ -37906,22 +37841,18 @@ if (HASHDIR = "")
 	{
 		return
 	}
-HASHDIR.= "\"
 Gui,ListView,DRPLV
 LVACHK= +Check
 LV_Add(LVACHK,HASHDIR)
 LV_ModifyCol()
 HSH_TBD.= HASHDIR . "|"
 return
-
 SRTFLT:
 gui,submit,nohide
 return
-
 SRTCLRFLT:
 gui,submit,nohide
 return
-
 DETSORT:
 gui,submit,nohide
 guicontrol,disable,DRPSEL
@@ -37948,6 +37879,18 @@ return
 MOVDRP:
 gui,submit,nohide
 return
+OVRWDRP:
+gui,submit,nohide
+return
+KNOWNDRP:
+gui,submit,nohide
+return
+SRCHDRP:
+gui,submit,nohide
+return
+RENMDRP:
+gui,submit,nohide
+return
 EXTDRP:
 gui,submit,nohide
 if (EXTDRP = 1)
@@ -37967,7 +37910,6 @@ if (EXTDRP = 1)
 		guicontrol,disable,JAKAFT
 	}
 return
-
 GETDATREP:
 gui,submit,nohide
 guicontrolget,hubtget,,DATREPO
@@ -37990,12 +37932,9 @@ Runwait, %comspec% cmd /c  "bin\7za.exe e -y "%save%" -O"dats\%hubtget%" ",,hide
 SB_SetText(" " hubtget " extracted")
 gosub, getdatlist
 return
-
 DATREPO:
 gui,submit,nohide
 return
-
-
 JAKDRP:
 gui,submit,nohide
 if (EXTDRP = 1)
@@ -38009,14 +37948,12 @@ if (JAKDRP = 0)
 		guicontrol,disable,JAKAFT
 	}
 return
-
 DRPLV:
 gui,submit,nohide
 return
-
 getDATLIST:
 filedelete,datlist.ini
-alldats=
+alldats=ALL TOSEC|ALL NO-INTRO|ALL MAME|
 tosecdatset=
 nointrodatset=
 hyperspindatset=
@@ -38037,7 +37974,7 @@ Loop,Files,dats\*.*,R
 			{
 				alldats.= A_LoopFileFullPath . "|"
 				nointrodatset.= A_LoopFileFullPath . "|"
-				iniwrite,"%ccnpth%",datlist.ini,NOINTRO,%DatFN%
+				iniwrite,"%ccnpth%",datlist.ini,NO-INTRO,%DatFN%
 				continue
 			}	
 		ifinstring,A_LoopFileDir,MAME
@@ -38051,7 +37988,6 @@ Loop,Files,dats\*.*,R
 stringreplace,alldats,alldats,dats\,,All	
 guicontrol,,DATDRPD,|%alldats%	
 return
-
 ArchiveSystems:
 opndgam= 
 gui, submit, nohide
@@ -38330,7 +38266,6 @@ if (EXTRSYS = "- firmware -")
 		gosub, MAMEBIOSFIRM
 	}
 return
-
 ArcCores:
 loadedjoy=
 APLA=
@@ -38378,7 +38313,6 @@ if (core_gui <> ARCCORES)
 		gosub, ShowOnlyEmuGui
 	}
 return
-
 ARCEDURA:
 gui,submit,nohide
 IniDelete,%ARCORG%,SOURCES
@@ -38473,7 +38407,6 @@ guicontrol,,OVDLDS,|Other||%systmfldrs%
 guicontrol,,OVDTXT,%OVDFLDR%
 iniwrite,%OVDFLDR%|%tmpsx2%|%tmpsx3%|%tmpsx4%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
-
 DWNINJACK:
 gui,submit,nohide
 guicontrol,enable,RNMJACK
@@ -38654,7 +38587,6 @@ iniread,tmpsw,launchparams.ini,LAUNCHPARAMS,%ARCSYS%
 stringsplit,tmpsx,tmpsw,|
 iniwrite,%tmpsx1%|%tmpsx2%|%tmpsx3%|%EXTEXPLD%|%tmpsx5%|%tmpsx6%,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 return
-
 ArcCull:
 gui,submit,nohide
 guicontrolget,ArcCull,,ArcCull
@@ -38674,7 +38606,6 @@ ifinstring,aftpth2,%RNMJACK%
 		guicontrol,,RNMJACK,%aftpth2%
 	}
 return
-
 ArcMove:
 gui,submit,nohide
 guicontrol,,sortoverride,0
@@ -38702,10 +38633,8 @@ gosub, GetArcURL
 Clipboard= %URLFILE%
 GETURL=
 return
-
 ArcGet:
 HOSTING= 1
-
 ArcLaunch:
 ;{;;;;;;;;;;;;;;;;;;;;;  Archive Launch Button ;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
@@ -39076,7 +39005,6 @@ guicontrolget,ArcMove,,ArcMove
 guicontrolget,ArcCull,,ArcCull
 guicontrolget,OVDLDS,,OVDLDS
 guicontrolget,romdwnlst,,ARCPOP
-
 if (romdwnlst = "")
 	{
 		srcharcs= 1
@@ -39332,7 +39260,6 @@ Loop, parse, romdwnlst,|
 			}
 		save= %ACSVDEST%\%savefile%
 		splitpath,save,svaf,svap,svax,svaj
-		
 		gosub, RomSavePPND
 		gosub, GetArcURL
 		stringsplit,axrm,lnchparam,|,<>
@@ -39643,8 +39570,6 @@ if (tmpsr <> "")
 	}
 SB_SetText(" " URLFILE " in clipboard ")
 return
-
-
 RomDownload:
 rtryn:= 1
 RETRYTHR= 10
@@ -39885,7 +39810,6 @@ if (klp <> 1)
 				goto, RunArc
 			}
 	}
-
 RunArc:
 if (romf = "")
 	{
@@ -39959,8 +39883,6 @@ if (cmdfun = 1)
 				romf= %ACSVDEST%\%romname%.scummvm
 			}
 	}
-
-
 if (HOSTING = 1)
 	{
 		return
@@ -39981,7 +39903,6 @@ if (APLA = 1)
 				gosub, SKLNCH
 			}
 	}
-
 if (APLA <> 1)
 	{
 		if (norun = "")
@@ -39994,7 +39915,6 @@ if (APLA <> 1)
 				gosub, SUBLNCH
 			}
 	}
-
 guicontrol,enable,ARCSYS
 guicontrol,enable,ARCPOP
 guicontrol,enable,SRCHRSLT
@@ -40098,7 +40018,6 @@ if (RUNXTRACT = 1)
 	}
 goto, ArcMtst	
 return
-
 ArcExtract:
 fndpath= %xtrdir%
 gosub, LkExtrExt
@@ -40123,7 +40042,6 @@ if (ArcMove = 1)
 			}
 	}
 return
-
 LkExtrExt:
 klp=
 iniread,lookf,emuCfgPresets.ini,%keyout%,RJROMXT
@@ -40168,7 +40086,6 @@ Loop, Parse, lookf,`,
 			}
 	}
 return
-
 GetXtr:
 ;{;;;;;;;;;;;;;  GET XT-RATED ROM  ;;;;;;;;;;;;;;;
 stringsplit,coreslc,coreslv,.
@@ -40283,7 +40200,6 @@ if (CUSTSWITCH = 0)
 		CUSTMOPT=
 		return
 	}
-	
 guicontrol, show, CUSTMOPT
 guicontrol, show, CUSTMARG
 guicontrol, show, CUSTMOPTS
@@ -40667,20 +40583,17 @@ mousegetpos,Ngx,Ngy
 Menu,MASOCREA, Show, %Ngx% %Ngy%
 Menu,MASOCREA,DeleteAll
 return
-
 ASOCREA:
 splitpath,RUNRTST,,,,ROMTOVR
 iniwrite,%LCORE%,GameOverrides.ini,%RUNSYSTST%,%ROMTOVR%
 SB_SetText(" " LCORE " set as override for " ROMTOVR "")
 return
-
 ASOCDEL:
 guicontrolget,RUNRTST,,MORROM
 guicontrolget,RUNSYSTST,,RUNSYSDDL
 inidelete,GameOverrides.ini,%RUNSYSTST%,%ROMTOVR%
 SB_SetText(" " LCORE " override for " ROMTOVR " deleted")
 return
-
 ARCGSNP:
 gui,submit,nohide
 ifinstring,SYSLKUP,:=:
@@ -45559,7 +45472,6 @@ UndoMednafenReset:
 filecopy,%emucfgloc%.bak,%emucfgloc%,1
 gosub, medguicreated
 return
-
 GetMedJoys:
 SetTitleMatchMode,1
 iniread,medapx,Assignments.ini,ASSIGNMENTS,mednafen
@@ -45612,7 +45524,6 @@ Loop, 16
 		medjindex= % medjid%A_index%
 	}
 return
-
 mednafenBUTC:
 gui,submit,nohide
 filemove,%emucfgloc%,%emucfgloc%.bak,1
@@ -45714,7 +45625,6 @@ Loop, parse, MEDNAFENGUIITEMS,|
 		guicontrol,%emutog%,%A_LoopField%
 	}
 return
-
 MednafenInit:
 IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
 stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
@@ -46245,7 +46155,6 @@ guicontrol,show,emjBUTA
 guicontrol,enable,emjBUTA
 guicontrol,,emjBUTA,Open
 return	
-
 JAntimicroBUTA:
 Process, Exist, %$amc_mcr%
 if (ERRORLEVEL <> 1)
@@ -53357,7 +53266,6 @@ loop,parse,mamelistedmedia,`n`r
 SB_SetText(" Mame listed media indexing complete ")
 mlmame= 1
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53434,7 +53342,6 @@ Loop, %pghome%\themes\*,2
 			}
 		pgthemes.= A_LoopFileName . "|"
 	}
-
 if (PgNpts = "")
 	{
 		Loop,Parse,PgLkUp,`n`r
@@ -53516,7 +53423,6 @@ if (pgscraper = "ERROR")
 		pgscr= 0
 		pgscraper= false
 	}
-
 altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
 Loop,parse,altnms,|
 	{
@@ -53570,7 +53476,6 @@ guicontrol,move,FEBUTK,x419 y4 w18 h18
 gui, font, %fontXlg% bold
 guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
-
 gui, font, %fontXmed% normal
 guicontrol,%fetog%,FECHKB
 guicontrol,enable,FECHKB
@@ -53784,7 +53689,6 @@ guicontrol,enable,FEBUTA
 SB_SetText("Current theme is " PGTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTB:
 guicontrolget,FEDDLF,,FEDDLF
@@ -54010,7 +53914,6 @@ FileDelete,%PGHOME%\settings.txt
 FileAppend,%pgcfg%,%PGHOME%\settings.txt
 msgbox,,Complete,PG configuration created,5
 return
-
 PegasusFEBUTC:
 if (sysfnd = "")
 	{
@@ -54045,7 +53948,6 @@ iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order
 PGCURPL= %TCURPL%
 guicontrol,,FELBXA,|%PGCURPL%
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54106,7 +54008,6 @@ Loop, Parse, pgtv,|
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 return
-
 PegasusFEBUTE:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SNFEITMS=
@@ -54466,7 +54367,6 @@ Loop, Parse, pgtv,|
 	}
 iniwrite,%kkv%,PGcfg.ini,GLOBAL,%FECBXD%
 return
-
 PegasusFECBXD:
 guicontrolget,SYSREORDER,,FELBXA
 guicontrolget,SYSNAMEREP,,FECBXD
@@ -54498,7 +54398,6 @@ Loop, Parse, PGQLIST,|
 guicontrolget,FECBXD,,FECBXD
 guicontrol,,FELBXA,|%PGRELST%
 return
-
 PegasusFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,pgtheme,,FEDDLD
@@ -54822,7 +54721,6 @@ if (pgcfgtmp = "")
 	}
 gosub, loadpgcfg
 return
-
 loadpgcfg:
 PGLDPL=
 LOADEDCFG=
@@ -55040,7 +54938,6 @@ Loop, %RJSYSTEMS%\*,2
 LV_ModifyCol()
 guicontrol,,FEDDLA,|Systems||
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55082,9 +54979,7 @@ LV_ModifyCol()
 guicontrol,hide,FEDDLF
 guicontrol,,FEDDLA,|Systems||ALL
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 PegasusFELVA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
@@ -55385,10 +55280,8 @@ return
 PegasusFERAD2A:
 gui,submit,nohide
 return
-
 PegasusFECHKB:
 return
-
 PegasusFECHKE:
 gui,submit,nohide
 pgscraper= false
@@ -55398,7 +55291,6 @@ if (FECHKE = 1)
 	}
 iniwrite,%pgscraper%,PGcfg.ini,CONFIG,scraper
 return
-
 PegasusFECHKD:
 gui,submit,nohide
 pgfullscreen= false
@@ -55891,7 +55783,6 @@ ifnotexist,rj\PG\%syspfl%
 		FileCreateDir,rj\PG\%syspfl%
 	}
 splitpath,PGGSAMLOD,PgGamLstF,
-
 ifinstring,SysLLst,%syspfl%=
 	{
 		syssub= %gaminsl1%
@@ -57112,7 +57003,6 @@ guicontrol,,PGNAMEDT,%pgpepnam%
 guicontrol,,CURPLST,|%PGINIPOP%
 gosub, CURPLST
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;  PG_ADD NEW FOLDER BUTTON  ;;;;;;;;;;;;;;;
 PGFLDADDBUT:
@@ -57748,7 +57638,6 @@ SB_SetText("Current theme is " RFTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 RetroFEFEBUTB:
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
@@ -57758,7 +57647,6 @@ TCURPL=
 IniRead,prsy,RFcfg.ini,ORDER,system_order
 FileDelete,rj\RF\cursys.cfg
 FileDelete,rj\RF\*.conf
-
 ifnotexist,%rfhome%\layouts\%FEDDLD%\
 	{
 		SB_SetText("The current theme is not installed/downloaded.")
@@ -58277,7 +58165,6 @@ TF_replaceline("!"rfsetcfg,rf_XRNUM,rf_XRNUM,"horizontal = " rfXREZ "")
 iniwrite,%rfYREZ%,rfcfg.ini,CONFIG,rfYREZ
 iniwrite,%rfXREZ%,rfcfg.ini,CONFIG,rfXREZ
 return
-
 RetroFEFECBXC:
 if (sysfnd = "")
 	{
@@ -59426,7 +59313,6 @@ filecreatedir,rj\RF\%SYSNAME%
 FileDelete,rj\RF\%SYSNAME%\*.txt
 FileDelete,rj\RF\%SYSNAME%\*.cfg
 FileDelete,rj\RF\%SYSNAME%\include.txt
-
 Loop, Parse, existlst,|
 	{
 		TOTPTH= %RFROOTFLD%\%A_LoopField%
@@ -59441,7 +59327,6 @@ Loop, Parse, existlst,|
 		imgetb= %imgetn%
 		RFBOXPATH= %ASSETS%\%SYSNAME%\%romname%\BoxArt
 		imgetb= %imgetn%
-
 		if (RFBOXPATH = "")
 			{
 				RFBOX= 1
@@ -59502,7 +59387,6 @@ Loop, Parse, existlst,|
 		imgetm= %imgetn%
 		RFMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
 		imgetb= %imgetn%
-		
 		if (RFMARQUEEPATH = "")
 			{
 				RFMARQ= 1
@@ -59558,7 +59442,6 @@ Loop, Parse, existlst,|
 			}	
 		RFTHU=
 		imgett= %imgetn%
-		
 		RFTHUMBNAILPATH= %ASSETS%\%SYSNAME%\%romname%\Snapshots
 		imgetb= %imgetn%
 		if (RFTHUMBNAILPATH = "")
@@ -59618,7 +59501,6 @@ Loop, Parse, existlst,|
 		imgetv= %imgetn%
 		RFVIDEOPATH= %ASSETS%\%SYSNAME%\%romname%\Videos
 		imgetb= %imgetn%
-		
 		if (RFVIDEOPATH = "")
 			{
 				RFVID= 1
@@ -59770,7 +59652,6 @@ Loop, Parse, existlst,|
 						}
 					break
 				}
-	
 		pthrom= %A_LoopField%
 		if (RFVID = 1)
 			{
@@ -59816,7 +59697,6 @@ Loop, Parse, existlst,|
 		FileAppend,%pulmeta%`n,rj\RF\%SYSNAME%\%romname%_story.cfg
 	}
 	}
-
 if (RFBACKUP = 1)
 	{
 		FileCopy,%RFHOME%\collections\%SYSNAME%\include.txt,%RFHOME%\collections\%SYSNAME%\include.txt.bak,1
@@ -59868,7 +59748,6 @@ ifnotexist,rj\RF\%syspfl%
 		FileCreateDir,rj\RF\%syspfl%
 	}
 splitpath,RFGSAMLOD,RfGamLstF,
-
 ifinstring,SysLLst,%syspfl%=
 	{
 		syssub= %syspfl%
@@ -61356,7 +61235,6 @@ ifexist,%RJSYSTEMS%\%systid%\
 	}
 guicontrol,,RFPTHEDT,.%rfperpath%
 return
-
 pgSystems:
 gui,ListView,FELVA
 LV_Delete()
@@ -61582,7 +61460,6 @@ if (estransition = "slide")
 		estrans:= 1
 		estrans2:= 0
 	}
-
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    ES CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,%fetog%,FEBUTA
@@ -61745,7 +61622,6 @@ guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x265 y101 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
-
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x661 y241 w44 h13
@@ -61756,7 +61632,6 @@ guicontrol,enable,FERAD2B
 guicontrol,move,FERAD2B,x710 y242 w50 h13
 guicontrol,,FERAD2B, Fade
 guicontrol,,FERAD2B,%estrans2%
-	
 guicontrol,%fetog%,FESLDA
 guicontrol,+Range100-1000,FESLDA
 guicontrol,enable,FESLDA
@@ -61848,7 +61723,6 @@ seyvn= " />
 ;"
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
-
 EmulationStationFEBUTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,FEDDLD,,FEDDLD
@@ -62345,7 +62219,6 @@ Loop,Parse,ESFEGUIITEMS,|
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 EmulationStationFECBXA:
 ;{;;;;;;;;;;;;;;;  STSTEM THEME DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;
 if (sysfnd = "")
@@ -62372,7 +62245,6 @@ guicontrolget,FECBXC,,FECBXC
 guicontrolget,FECBXD,,FECBXD
 iniwrite,%FECBXC%,EScfg.ini,%FECBXD%,abbreviation
 return
-
 EmulationStationFECBXD:
 guicontrolget,SYSREORDER,,FELBXA
 guicontrolget,SYSNAMEREP,,FECBXD
@@ -62409,7 +62281,6 @@ Loop, Parse, ESQLIST,|
 		ESRELST.= A_LoopField . "|"
 	}
 guicontrol,,FELBXA,|%ESRELST%
-
 return
 EmulationStationFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62498,7 +62369,6 @@ if (esemt = "ERROR")
 		iniwrite, "%esemu%",apps.ini,EMULATORS,%FEDDLG%
 		guicontrol,enable,FEBUTE
 	}
-	
 emuwr= %FEDDLG%
 if (pto = 1)
 	{
@@ -62801,7 +62671,6 @@ ESCURPL= %ESTOPOP%
 fileCopy,EScfg.ini,EScfg.ini.bak,1
 fileMove,rj\es\loadsys.ini,EScfg.ini,1
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEEDTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  ES EDIT FIELDS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62814,7 +62683,6 @@ guicontrolget,FEEDTA,,FEEDTA
 extpop= %curtxt%
 iniwrite,"%FEEDTA%",EScfg.ini,%curtxt%,arg_es
 return
-
 EmulationStationFEEDTB:
 if (sysfnd = "")
 	{
@@ -62860,7 +62728,6 @@ Loop,%mirsl%\*,2
 LV_ModifyCol()
 GuiControl,,FEDDLA,|Systems||
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62869,7 +62736,6 @@ Gui,ListView,FELVA
 LV_Delete()
 Guicontrol,+checked,FELVA
 Guicontrol,+Multi,FELVA
-
 /*
 Loop,parse,felkup,`n`r
 	{
@@ -63035,7 +62901,6 @@ Loop,Parse,ESFEGUIITEMS,|
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 EmulationStationFELBXA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
@@ -63047,13 +62912,11 @@ Loop,Parse,ESFEGUIITEMS,|
 		guicontrol,disable,%A_loopField%
 	}
 gosub, popesv
-
 Loop,Parse,ESFEGUIITEMS,|
 	{
 		guicontrol,enable,%A_loopField%
 	}
 return
-
 popesv:
 if (FERAD5A = 1)
 	{
@@ -63185,7 +63048,6 @@ if (sysfnd = "")
 			}
 	}
 return
-
 nweslk:
 emke= %kvi5%
 SLCTDSN= %kvi2%
@@ -63238,7 +63100,6 @@ ifnotexist, %selctsys%
 	}
 guicontrol,,FEEDTA,%emkr%
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTG:
 MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
@@ -63259,41 +63120,31 @@ ifmsgbox, Yes
 			}
 	}
 return
-
 EmulationstationFERAD10A:
 gui,submit,nohide
 return
-
 EmulationstationFERAD10B:
 gui,submit,nohide
 return
-
-
 EmulationstationFERAD8A:
 gui,submit,nohide
 return
-
 EmulationstationFERAD8B:
 gui,submit,nohide
 return
-
 EmulationstationFERAD7A:
 gui,submit,nohide
 return
-
 EmulationstationFERAD7B:
 gui,submit,nohide
 return
-
 EmulationstationFERAD4A:
 gui,submit,nohide
 return
-
 EmulationstationFERAD4B:
 gui,submit,nohide
 guicontrol,,ESROMONLY,1
 return
-
 EmulationStationFERAD2A:
 iniwrite,slide,EScfg.ini,CONFIG,Transition
 estransition= slide
@@ -63306,7 +63157,6 @@ if (esvideosnd = 1)
 	{
 		videosnd= true
 	}
-
 fileread,feij,%curjmn%
 kivr= 
 loop,parse,feij,`n`r
@@ -63334,7 +63184,6 @@ if (FECHKE = 1)
 	{
 		esquicksystemselect= true
 	}
-
 fileread,feij,%curjmn%
 kivr= 
 loop,parse,feij,`n`r
@@ -63408,11 +63257,9 @@ loop,parse,feij,`n`r
 			}
 	}	
 return
-
 EmulationStationFECHKG:
 gui,submit,nohide
 return
-
 EmulationStationFERAD2B:
 iniwrite,Fade,EScfg.ini,CONFIG,Transition
 estransition= Fade
@@ -63420,7 +63267,6 @@ return
 EmulationStationFEDDLA:
 guicontrolget,FEDDLA,,FEDDLA
 goto, es%FEDDLA%
-
 esALL:
 Loop,parse,felkup,`n`r
 	{
@@ -63432,7 +63278,6 @@ Loop,parse,felkup,`n`r
 		LV_Add("",eba3)
 }
 return
-
 esSystems:
 Loop,parse,felkup,`n`r
 	{
@@ -63447,7 +63292,6 @@ Loop,parse,felkup,`n`r
 			}
 	}
 return
-
 EmulationStationFECHKA:
 return
 EmulationStationFECHKC:
@@ -63521,20 +63365,15 @@ Loop, %ESROOTFLD%\*.*
 	}
 guicontrol,,ROMPOP,|%ESROMLST%
 return
-
 ESFLDRCR:
 gui,submit,nohide
 return
-
 ESPOPCORE:
 gui,submit,nohide
-
 return
-
 ESBackupPl:
 gui,submit,nohide
 return
-
 ESSavePl:
 gui,submit,nohide
 FECREATE= 
@@ -63548,7 +63387,6 @@ if (SYSNAME = "")
 		return
 	}
 ;{;;;;;fold
-
 plsavelp:	
 plsave=
 if (plsave = "")
@@ -63592,7 +63430,6 @@ plsep=
 plsep1=
 plsep2=
 coretitle=
-
 ESPlaylistSaving:
 guicontrol, disable, SVAPLST
 guicontrol, disable, SVPLST
@@ -63612,7 +63449,6 @@ guicontrol,disable,ESOPENPL
 guicontrol,disable,ESTHUMBSRCHBUT
 guicontrol,disable,ESMARQSRCHBUT
 guicontrol,disable,ESVIDSRCHBUT
-
 ARCDTYP=
 guicontrolget, ESPLCORE, ,ESPLCORE
 ARCDTYPS= MAME|MAME - Arcade|arcade|model2|model3|cps|cps2|cps3|neocd|naomi|atomiswave|fba|cave
@@ -63779,7 +63615,6 @@ Loop, Parse, existlst,|
 							}
 					}
 			}
-
 		ESMARQ=
 		imgetm= %imgetn%
 		ESMARQUEEPATH= %ASSETS%\%SYSNAME%\%romname%\Marquees
@@ -64134,7 +63969,6 @@ Loop, Parse, existlst,|
 					}
 		break
 			}
-			
 		pthrom= %TOTPTH%
 		if (ESVID = 1)
 			{
@@ -64261,7 +64095,6 @@ return
 EsPlaylistNames:
 gui,submit,nohide
 return
-
 EsOpenPl:
 gui,submit,nohide
 ESGAMLOTMP=
@@ -64279,7 +64112,6 @@ ifnotexist,rj\es\%syspfl%
 		FileCreateDir,rj\es\%syspfl%
 	}
 splitpath,ESGSAMLOD,EsGamLstF,
-
 ifinstring,SysLLst,%syspfl%=
 	{
 		syssub= %syspfl%
@@ -64594,7 +64426,6 @@ ESTHUMBNAILPATH= %ESTHUMBNAILPATHTMP%
 SB_SetText("Thumbnails path set to " ESTHUMBNAILPATH " ")
 guicontrol,,ESTHMBCHK,1
 return
-
 ESBOXSRCHBUT:
 gui,submit,nohide
 ESBOXPATHTMP=
@@ -64613,7 +64444,6 @@ if (ESBOXPATHTMP = "")
 			}
 		return
 	}
-
 stringright,efi,ESBOXPATHTMP,2
 stringLeft,efix,ESBOXPATHTMP,2
 if (efi = ":\")
@@ -64642,7 +64472,6 @@ if (ESRPOPPL = 1)
 		guicontrol,,ROMPOP,|%LNKLSTP%
 		return
 	}
-	
 if (ESRPOPDL = 1)
 	{
 		LNKLSTP= 
@@ -64656,7 +64485,6 @@ if (ESRPOPDL = 1)
 		guicontrol,,ROMPOP,|%LNKLSTP%
 		return
 	}
-
 if (ESRPOPROM = 1)
 	{
 		ESFND=
@@ -64726,7 +64554,6 @@ if (ESRPOPROM = 1)
 			}
 	}
 return
-
 ESRPopJ:
 gui,submit,nohide
 RPDND=
@@ -66701,7 +66528,6 @@ Loop,parse,felbxa,|
 	{
 		FEItems.=
 	}
-
 /*
 Gui,ListView,FELVA
 FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
@@ -67305,7 +67131,6 @@ ifMsgBox,Yes
 		SB_SetText("Emulator Deleted")
 	}
 return
-
 EMUREMFESEL:
 gui,submit,nohide
 guicontrolget,selfnd,,INSTEMUDDL
@@ -67343,7 +67168,6 @@ Loop
 			}
 	}
 return
-
 FEDELSEL:
 gui,submit,nohide
 RowNumber = 0
@@ -67947,11 +67771,9 @@ Loop, Parse, systmfldrs,|
 	}
 LV_ModifyCol()
 return
-
 MediaFEBUTN:
 gosub, CLRNETP
 return
-
 MediaFEBUTO:
 efbab=FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN 
 loop,parse,efbab,|
@@ -67959,7 +67781,6 @@ loop,parse,efbab,|
 		guicontrol,,%a_lOOPfIELD%,1
 	}
 return
-
 MediaFEBUTA:
 CNCLKUP=
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     DOWNLOADING ARTWORK   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -68163,7 +67984,6 @@ if (FERAD2A = 1)
 									gosub, cleanprgb
 									break
 								}
-								
 						if (FECHKB = 1)
 							{
 								URLFILE= %icnld%/%A_LoopField%.png
@@ -68520,7 +68340,6 @@ guicontrol,hide,FEBUTI
 guicontrol,show,FEBUTA
 guicontrol,enable,FEBUTA
 return
-
 JACKETSCRAPE:
 ;{;;;;;;;;;;;;;;;;   ROM SCRAPING   ;;;;;;;;;;;;;;;;;;
 SYSLKUP= %FEDDLA%
@@ -69185,7 +69004,6 @@ gosub, ARTPAUSE
 guicontrol,show,FEBUTA
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
-
 SCRAPEJAK:
 ;{;;;;;;;;;;;;;;;;;;;;;;   SCRAPE ART  ;;;;;;;;;;;;;;;;;;;;;
 SCRSCRAPE:
@@ -69291,7 +69109,6 @@ if (Jackets_scrape = 1)
 	{
 		Filecreatedir,%RJSYSTEMS%\%REALSYS%\%jaktit%\.snaps
 	}
-
 if (FERAD2C = 1)
 	{
 		scrsufx=
@@ -69395,7 +69212,6 @@ RRDsnapshot:
 		if (getsnapshot = 1)
 			{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69438,7 +69254,6 @@ RRDbackdrop:
 							artx=fly
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69481,7 +69296,6 @@ RRDlogo:
 							artx=t
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69519,7 +69333,6 @@ RRD3dboxart:
 		if (get3dboxart = 1)
 			{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69562,7 +69375,6 @@ RRDcart:
 							artx=c
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69602,7 +69414,6 @@ RRDlabel:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml" 
@@ -69643,7 +69454,6 @@ RRDbanner:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69684,7 +69494,6 @@ RRD3mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69725,7 +69534,6 @@ RRD4mix:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69766,7 +69574,6 @@ RRDmarquee:
 					if (mameget = "")
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69776,7 +69583,6 @@ RRDmarquee:
 					if (mameget = 1)
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69853,7 +69659,6 @@ RRDmetadata:
 		if (getmetadata = 1)
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false
 					enfec= -use_filename=true -output_file="%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%SYSROMD%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
@@ -69955,7 +69760,6 @@ if (FERAD2B = 1)
 JRDboxart:
 		if (getboxart = 1)
 				{
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70003,7 +69807,6 @@ JRDboxart:
 JRDsnapshot:
 		if (getsnapshot = 1)
 				{
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70056,7 +69859,6 @@ JRDbackdrop:
 						{
 							artx=fly
 						}
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70109,7 +69911,6 @@ JRDlogo:
 						{
 							artx=t
 						}
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70157,7 +69958,6 @@ JRDlogo:
 JRD3dboxart:
 		if (get3dboxart = 1)
 				{
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70210,7 +70010,6 @@ JRDcart:
 						{
 							artx=c
 						}
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70260,7 +70059,6 @@ JRDlabel:
 				{
 					if (mameget = "")
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70311,7 +70109,6 @@ JRDbanner:
 				{
 					if (mameget = "")
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70362,7 +70159,6 @@ JRD3mix:
 				{
 					if (mameget = "")
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70413,7 +70209,6 @@ JRD4mix:
 				{
 					if (mameget = "")
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70464,7 +70259,6 @@ JRDmarquee:
 				{
 					if (mameget = "")
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70484,7 +70278,6 @@ JRDmarquee:
 						}
 					if (mameget = 1)
 						{
-							
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70533,7 +70326,6 @@ JRDmarquee:
 JRDvideo:
 		if (getvideo = 1)
 				{
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
 					enfec= -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70581,8 +70373,6 @@ JRDvideo:
 JRDmetadata:
 		if (getmetadata = 1)
 				{
-					
-					
 					filedelete,%cacheloc%\scrape.cmd
 					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder% -append=true -retries=5 -download_images=false
 					enfec= -use_filename=true -output_file="%ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
@@ -70808,7 +70598,6 @@ if (getmetadata = 1)
 		filecopy, rj\scrapeArt\%SYSLKUP%\%xmlf%, %ASSETS%\%REALSYS%\%realname%\metadata,1
 	}
 return
-
 ;};;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;
 ARTPAUSE:
@@ -70928,7 +70717,6 @@ guicontrol,,FELBXA,|%mediaorder%
 iniwrite,%TMORD%,mediafe.ini,ORDER,%FEDDLC%
 return
 ;};;;;;;;;;;;;;;;
-
 MediaFEBUTD:
 guicontrolget,FEDDLC,,FEDDLC
 stringreplace,FEDDLC,FEDDLC,%A_Space%,,ALL
@@ -70962,7 +70750,6 @@ guicontrol,,FEEDTC, 800
 guicontrol,,FELBXA,|theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
 iniwrite,%mediaorder%,mediafe.ini,ORDER,%FEDDLC%
 return
-
 MediaFEBUTE:
 guicontrolget,FEDDLC,,FEDDLC
 curmedord= %mediaorder%
@@ -71199,7 +70986,6 @@ SCRIMGHEIGHT:
 iniwrite,%FEEDTD%,mediafe.ini,CONFIG,%GRANDORDER%_image_height
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
-
 MediaFEDDLA:
 mfedlachn= %FEDDLA%
 guicontrolget,FEDDLA,,FEDDLA
@@ -71244,7 +71030,6 @@ if (FERAD2A = 1)
 if (FERAD2C = 1)
 	{
 		guicontrolget,FECBXB,,FECBXB
-		
 		stringsplit,omitxtn,omitxt,= | ""
 		menr= 
 		Loop, %FECBXB%\*,2
@@ -71296,13 +71081,11 @@ if (FERAD2C = 1)
 						{
 							stringreplace,lving,A_LoopFileFullPath,%RJSYSTEMS%\%curtxt%\,,All
 							nrnr.= A_LoopFileName . "|"
-							
 						}
 			}
 			guicontrol,,FELBXB,|%nrnr%
 	}
 return
-
 MediaFEDDLE:
 Gui,ListView,FELVA
 guicontrolget,FEDDLE,,FEDDLE
@@ -71340,7 +71123,6 @@ Loop
 			guicontrol,,FELBXB,|%AvINNG%
 	}
 return
-
 MEDIMGPOP:
 ARINNG=
 guicontrolget,FEDDLA,,FEDDLA
@@ -71359,7 +71141,6 @@ if (FERAD2B = 1)
 		GuiControl,,FELBXB,|%SUBFFILES%
 	}
 return
-
 MediaFEDDLC:
 guicontrolget,FEDDLC,,FEDDLC
 stringreplace,FEDDLC,FEDDLC,%A_Space%,,All
@@ -71401,7 +71182,6 @@ if (mediaorder = "ERROR")
 	}
 guicontrol,,FELBXA,|%mediaorder%
 return
-
 MediaFEDDLG:
 gui,submit,nohide
 guicontrol,,FECHKO,0
@@ -71417,11 +71197,9 @@ guicontrol,%scrpt%,FEDDLF
 guicontrol,%scrpt%,FECBXA
 guicontrol,%scrpt%,FETXTN
 return
-
 MediaFEDDLD:
 guicontrolget,FEDDLD,,FEDDLD
 return
-
 MediaFEDDLF:
 gui,submit,nohide
 guicontrolget,FEDDLF,,FEDDLF
@@ -71437,7 +71215,6 @@ if ((fei = "ERROR") or (fei = ""))
 stringreplace,fed,fed,||,|,All	
 guicontrol,,FECBXA,|%fei%||%fed%
 return
-
 MediaFECBXA:
 gui,submit,nohide
 guicontrolget,FECBXA,,FECBXA
@@ -71449,7 +71226,6 @@ if ((FECBXA = "") or (FEDDLF = "Image Type"))
 	}	
 iniwrite,%FECBXA%,MediaFE.ini,%FEDDLG%,%FEDDLF%
 return
-
 MediaFECBXB:
 gui,submit,nohide
 guicontrolget,FECBXB,,FECBXB
@@ -71465,7 +71241,6 @@ Loop,%FECBXB%\*,2
 guicontrol,,FEDDLE,|%efxi%||%efx%
 gosub,FEDDLE
 return
-	
 MediaFERAD2A:
 fromcfg=
 Loop,Parse,MEDIAFEITEMS,|
@@ -71529,7 +71304,6 @@ Loop, %RJSYSTEMS%\*,2
 	}
 LV_ModifyCol()
 return
-
 MediaFERAD2B:
 gui,submit,nohide
 guicontrol,enable,FECHKD
@@ -71557,7 +71331,6 @@ guicontrol,,FEDDLA,|Systems||%scrble%
 Gui,ListView,FELVA
 LV_Delete()
 return
-
 MediaFERAD2C:
 fromcfg=
 guicontrol,,FEDDLA,|
@@ -71682,7 +71455,6 @@ return
 MediaFERAD5A:
 guicontrol,enable,FELVA
 return
-
 MediaFERAD7B:
 scrlrset=
 guicontrol,enable,FELVA
@@ -71749,11 +71521,9 @@ Loop, %ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%\*.*
 	}
 guicontrol,,FELBXB,|%submeds%
 return
-
 MediaFEPICA:
 gosub, MEDIATOOLTIP
 return
-
 MediaFEBUTH:
 if (FEUPDCn < 1)
 {
@@ -71762,7 +71532,6 @@ if (FEUPDCn < 1)
 FEUPDCn-=1
 gosub, FLDRCARRIER
 return
-
 MediaFEBUTG:
 if (FEUPDCn > 9)
 {
@@ -71771,7 +71540,6 @@ if (FEUPDCn > 9)
 FEUPDCn+=1
 gosub, FLDRCARRIER
 return
-
 MediaFEBUTI:
 CNCLKUP= 1
 arpause= ENABLE
@@ -71781,7 +71549,6 @@ guicontrol,hide,FEBUTN
 guicontrol,hide,FEBUTI
 guicontrol,show,FEBUTA
 return
-
 FLDRCARRIER:
 curtxt=
 goto, medpoppic
@@ -71790,7 +71557,6 @@ if ("" = "")
 		SB_SetText("foldername")
 	}
 return
-
 medpoppic:
 tmpic=
 fuzn=
@@ -71862,7 +71628,6 @@ if (afuzn > fuzn)
 guicontrol,show,FEBUTG
 guicontrol,show,FEBUTH
 return
-
 MediaFERAD7A:
 MEDFLDDDWN:
 medlpn=
@@ -71876,7 +71641,6 @@ return
 MediaFERAD5B:
 guicontrol,disable,FELVA
 return
-
 MediaFELVA:
 gui,submit,nohide
 curtxt=
@@ -73640,7 +73404,6 @@ if (feddlj <> "")
 	else {
 		vndlj= Media
 	}
-	
 gui,submit,nohide
 fetog= Hide
 fromcfg=
@@ -74740,7 +74503,6 @@ gui,submit,nohide
 FileCopy, rj\cur.ini,rj\%RJSYSDD%.ini,1
 guicontrol,,RJSYSRADC,1
 return
-
 RJRFRSHLST:
 gui,submit,nohide
 FileDelete,rj\%RJSYSDD%*.tdb
@@ -74760,7 +74522,6 @@ guicontrol,,RJFNDINLST,Find
 guicontrol,,RJINCEXCL,|All||A-Z|#
 gosub,RJSYSDD
 return
-
 RJMAP1ROFTYP:
 if (rjaval2 = 0)
 	{
@@ -74790,7 +74551,6 @@ if (rjaval2 = 2)
 	}
 return
 ;{;;;;;;  Configure Emulator  ;;;;;;;;;
-
 RJEMUPRM:
 gui,submit,nohide
 guicontrol,,CFGSWITCH,|||RJ|||
@@ -74821,7 +74581,6 @@ ifnotinstring,supguiitems,%guito%
 	}	
 goto, %guito%_GUI
 return
-
 EMUNAMEPOP:
 GuiControl, Choose, TABMENU, 2
 guicontrol,,LCORE,|%RJEMUTG%||%runlist%
@@ -74831,7 +74590,6 @@ svgbrnv=
 guicontrol,,JOYCORE,|%decore%||Antimicro|Xpadder|%supguiitems%|%corelist%
 return
 ;};;;;;;;;;;;;;;;;;
-
 RJBUTH:
 ADDFW=
 ADDFK=
@@ -75056,9 +74814,7 @@ Loop, rj\*.jak
 		iniread,statetrn,emuCfgPresets.ini,%emuname%,STATEPTH
 		splitpath,stattrn,,CURSTATE
 		iniread,memtrn,emuCfgPresets.ini,,%emuname%,MEMPTH
-		
 		splitpath,memtrn,,CURMEM
-
 		Loop,parse,rjemuopts,|
 			{
 				if (A_Loopfield = "")
@@ -77248,8 +77004,6 @@ gui,submit,nohide
 guicontrolget, RJMAP2PL,,RJMAP2PL
 IniWrite, %RJMAP2PL%,rj\cur.ini,%RJSYSDD%,RJPLYR2
 return
-
-
 RJLNCHTYP:
 gui,submit,nohide
 RJLNCHP= 0
@@ -77269,7 +77023,6 @@ if (RJLNCHTYP = 0)
 	}
 IniWrite, %RJLNCHP%,rj\cur.ini,%RJSYSDD%,RJLNCHP
 return
-
 RJEOPTSCBX:
 gui,submit,nohide
 guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
@@ -78818,7 +78571,6 @@ if (rjaval2 = 1)
 		guicontrol,,RJEXEB,1
 	}
 return
-
 RJLNCHP:
 gui, submit,nohide
 guicontrol,,RJLNCHTYP, 1
@@ -78829,7 +78581,6 @@ if (rjaval2 = "X")
 		guicontrol,,RJLNCHTYP, 0
 	}
 return
-
 RJMULTIDISC:
 gui,submit,nohide
 guicontrol,,RJCHKR,%rjaval2%
@@ -78838,7 +78589,6 @@ if (rjaval2 = 1)
 		guicontrol,enable,RJCBXJ
 	}
 return
-
 RJDISCIDENT:
 gui,submit,nohide
 guicontrol,,RJCBXJ,|%rjaval2%||
@@ -79072,7 +78822,6 @@ return
 OPNCORE:
 gui,submit,nohide
 BPRSCORCFG= 1
-
 OPNCOREV:
 guicontrolget,LCORE,,LCORE
 guicontrolget,romf,,MORROM
@@ -79267,7 +79016,6 @@ if (rajoycore = "retroArch")
 if (JOYCORE = "Antimicro")
 	{
 		gosub,HIDEJOYCTRLS
-		
 	}
 if (emujchk2 <> "dll")
 	{
@@ -79674,7 +79422,6 @@ emjtog= Hide
 goto, EMJTOG
 FusionCTRLS:
 ejcex= 1
-
 EMJTOG:
 Loop,Parse,EMUINPUTNULLITEMS,|
 	{
@@ -79684,7 +79431,6 @@ Loop,Parse,EMUINPUTGUIITEMS,|
 	{
 		guicontrol,%emjtog%,%A_Loopfield%
 	}
-
 EMJBTOG:
 Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
@@ -79694,7 +79440,6 @@ Loop,Parse,EMUJOYCBXGUIITEMS,|
 	{
 		guicontrol,%emjtog%,%A_LoopField%
 	}
-
 return
 EmuJoy:
 rajoytog= Hide
@@ -80181,8 +79926,6 @@ if (coreselv = "Run with...")
 	{
 		goto,DDLS
 	}
-
-
 OVRAP:
 SplitPath,coreselv,cfn,cod,coe,con,cod
 if (coe <> "dll")
@@ -80294,7 +80037,6 @@ if (coe <> "dll")
 													}
 											}
 									}
-								
 							}
 						if (CSTINJOPT <> "")
 							{
@@ -80341,7 +80083,6 @@ if (coe <> "dll")
 	}
 guicontrol,,LCORE,|%coreselv%||%runlist%
 return
-
 ZipOpen:
 FINR=
 ziptmp= %tstxtn%
@@ -80358,7 +80099,6 @@ splitpath,ROMZ,,,tstxtn,romname
 tstxtn= .%tstxtn%
 FINR= 1
 return
-
 OpnAssign:
 if (sysrev = "")
 	{
@@ -80421,7 +80161,6 @@ ifinstring,SysLLst,%sysrev%=
 			}
 	}
 return
-
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     EXTENSION TABLES     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ExtTables:
@@ -81007,7 +80746,6 @@ gosub, LNCHCHK
 SK_MODE= 1
 RUNSYSCHNG=
 return
-
 NEWROM:
 if romf=
 gosub, GetROM
@@ -81696,7 +81434,6 @@ if (STRMVID = 1)
 	{
 		RUNROM= "%URLFILE%"
 	}
-	
 splitpath,OvrExtAs,xenm,xenmp
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH
@@ -81977,7 +81714,6 @@ Loop, Parse, EMPOSTW,|
 				STRTYP%A_Index%= Run
 			}
 	}
-	
 if (EMPOSTRUN <> "")
 	{
 		prrunitms=
@@ -82027,7 +81763,6 @@ if (EMPOSTRUN <> "")
 					}
 			}
 	}
-
 Loop, Parse, postruni,|
 	{
 		arin= % STRTYP%A_Index%
@@ -82041,7 +81776,6 @@ Loop, Parse, postruni,|
 			}
 	}
 return
-
 LNCH:
 gui,submit,nohide
 guicontrolget,EXTRSYS,,RUNSYSDDL
@@ -82203,7 +81937,6 @@ if (CSTCMD = 1)
 			}
 		return
 	}
-
 LaunchRA:
 LNCHCORE= -L "%libretroDirectory%\%coreselv%"
 LNCHROM= "%romf%"
@@ -82230,7 +81963,6 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}	
 	}
-
 SB_SetText(" " raexedir " \ " RaExeFile " "LNCHCORE " " BSV " "LNCHROM " " LNCHCFG " " pgmargs " |||from ~emu directory ")
 Runwait, "%raexedir%\%RaExeFile%" %LNCHCORE% %BSV% %LNCHROM% %LNCHCFG%%pgmargs%,%raexedir%,,
 gosub, PostOpt
@@ -82303,12 +82035,10 @@ if (SKRESDDL = "Playlist-DB")
 		gosub, PlaylistInit
 	}
 return
-
 SKRESDDL:
 gui,submit,nohide
 guicontrolget,SKRESDDL,,SKRESDDL
 return
-
 RESET:
 msgbox,8452,Are you sure?, Delete All skeletonKey configuration files?
 ifmsgbox, yes
@@ -82446,7 +82176,6 @@ Loop,Read,cores.ini
 IniRead,emuj,Assignments.ini,OVERRIDES
 runlist=
 siv=
-
 Loop,Parse,emuj,`n`r
 	{
 		if (A_LoopField = "")
@@ -82511,7 +82240,6 @@ guicontrol,, ARCCORES, |%lastcore%||%runlist%
 guicontrol,, LCORE, |%lastcore%||%runlist%
 Guicontrol,,LNCHPRDDL,|Emulators|%addemu%|retroarch
 guicontrol,,COREDDLA,|Select_A_Core||%corelist%
-
 if (RALIST = 1)
 	{
 		guicontrol,, RAINSTLBX, |%AVAILCORES%
@@ -82525,7 +82253,6 @@ if (EXELIST = 1)
 		guicontrol,, RAINSTLBX,|stable|redist.7z|bundle.zip|assets.zip|info.zip|database-rdb.zip|cheats.zip|database-cursors.zip|overlays.zip|shaders_glsl.zip|shaders_cg.zip|shaders_slang.zip|autoconfig.zip|%RAUPDF%
 	}
 return
-
 initall:
 FileDelete,*.ini
 FileDelete,*.cfg
@@ -82657,7 +82384,6 @@ guicontrol,,PLCORE,|%lastcore%||%runlist%
 guicontrol,,ASCORE,|%corelist%
 guicontrol,,JOYCORE,|Antimicro||Xpadder|%supguiitems%|%corelist%
 return
-
 resetSYS:
 FileDelete, msys.ini
 FileDelete, sys.ini
@@ -82767,7 +82493,6 @@ if (msyslist <> "")
 		sort,mame_sys, Alphabetically D|		
 	}
 return
-
 resetCoreAssets:
 dwnlfldrs=
 systmfldrs=
@@ -82809,7 +82534,6 @@ if (NETDWNL = 1)
 		guicontrol,,SRCHLOCDDL,|:=:System List:=:||%systmfldrs%
 	}
 return
-
 PlaylistInit:
 Menu,Tray,Tip, Generating Playlist Database cache
 guicontrol,disable,SVPLST
@@ -82861,7 +82585,6 @@ Loop, %playlistLoc%\*.lpl
 SB_SetText("Playlist Database created")
 guicontrol,enable,SVPLST
 return
-
 resetPlaylists:
 plistfiles=
 plistNamz=
@@ -83006,7 +82729,6 @@ Portablocal:
 gui,submit,nohide
 guicontrolget, Ppltxt,,PplTxt
 return
-
 InjPortable:
 gui,submit,nohide
 guicontrolget,Ppltxt,,PplTxt
@@ -83233,7 +82955,6 @@ gui,submit,nohide
 guicontrolget,PRBFND,,PRBFND
 return
 ;};;;;;;;;;;;;;;;;;
-
 !LButton::
 if (MINIMODE = 1)
 	{
@@ -83270,16 +82991,12 @@ if (MINIMODE = 1)
 					WinMove,ahk_id %KDE_id%,,%KDE_WinX2%,%KDE_WinY2% ; Move the window to the new position.
 				}
 	}
-
-
 return
-
 ~Alt::
 DoubleAlt := A_PriorHotkey = "~Alt" AND A_TimeSincePriorHotkey < 400
 Sleep 0
 KeyWait Alt  ; This prevents the keyboard's auto-repeat feature from interfering.
 return
-
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   EXIT     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #IfWinActive skeletonKey
 esc::

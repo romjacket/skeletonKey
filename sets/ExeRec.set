@@ -854,7 +854,7 @@ FileInstall,img\Sega - Mega Drive - Genesis.png,img\Sega - Mega Drive - Genesis.
 FileInstall,img\Sega - Mega-CD - Sega CD.png,img\Sega - Mega-CD - Sega CD.png,1
 FileInstall,img\Sega - Saturn.png,img\Sega - Saturn.png,1
 FileInstall,img\Sinclair - ZX 81.png,img\Sinclair - ZX 81.png,1
-FileInstall,img\Sinclair - ZX Spectrum.png,img\Sinclair - ZX Spectrum.png,1
+FileInstall,img\Sinclair - ZX Spectrum +3.png,img\Sinclair - ZX Spectrum +3.png,1
 FileInstall,img\SNK - Neo Geo MVS.png,img\SNK - Neo Geo MVS.png,1
 FileInstall,img\SNK - Neo Geo Pocket Color.png,img\SNK - Neo Geo Pocket Color.png,1
 FileInstall,img\SNK - Neo Geo Pocket.png,img\SNK - Neo Geo Pocket.png,1
@@ -983,7 +983,7 @@ FileInstall,img\Sega - SG-1000.ico,img\Sega - SG-1000.ico,1
 FileInstall,img\Sega - ST-V.ico,img\Sega - ST-V.ico,1
 FileInstall,img\Sharp - X1.ico,img\Sharp - X1.ico,1
 FileInstall,img\Sharp - X68000.ico,img\Sharp - X68000.ico,1
-FileInstall,img\Sinclair - ZX Spectrum.ico,img\Sinclair - ZX Spectrum.ico,1
+FileInstall,img\Sinclair - ZX Spectrum +3.ico,img\Sinclair - ZX Spectrum +3.ico,1
 FileInstall,img\Sinclair - ZX-81.ico,img\Sinclair - ZX-81.ico,1
 FileInstall,img\SNK - Neo Geo CD.ico,img\SNK - Neo Geo CD.ico,1
 FileInstall,img\SNK - Neo Geo MVS.ico,img\SNK - Neo Geo MVS.ico,1
