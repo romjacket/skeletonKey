@@ -841,6 +841,8 @@ sort,mame_sys, Alphabetically D|
 ;{;;;;;;;;;;;;;;;;;;;      ITERATE VALUES           ;;;;;;;;;;;;;;;;;;;;;;;
 omitxi= jpg|ini|cfg|png|html|dll|nfo|srm|exe|sav|bak|conf|shader|inp|zst|cg|settings|gif|bat|cmd|pdf|ips|xdelta|7z|rar|001|mp3|mp4|shortcuts|config|tmp|readme|txt|rtf|htm|js|xml|bmp|gif|css|amgp|xpadderprofile|input|lnk|state|dat|ogg|log|flv|doc|php|text|tiff|brm|ps2|sys
 omitxt:= omitxi
+stringreplace,parxti,omitxi,rar|,,All
+stringreplace,parxti,parxti,7z|,,All
 noBrws= Xinput_Drivers|DirectX|Visual_C++_Runtimes|Winows_Icons|IAGL|AdvancedLauncher|ICE|ROM_Collection_Browser
 rjdexcl= .Mem|.Man|backdrops|.sstates|.snaps|.patches|.cheats|
 rjfexcl= Folder.png|Folder.jpg|Backdrop.jpg|Backdrop.png|Banner.png|Banner.jpg|Logo.png|Logo.jpg|marquee.png|marquee.jpg|back.jpg|back.png|title.png|title.jpg|Cover.png|Cover.jpg|BoxFront.jpg|BoxFront.png|BoxBack.png|BoxBack.jpg|Spine.jpg|Spine.png|Disc.png|Disc.jpg
@@ -1492,7 +1494,7 @@ Menu, ARCART, Add, Download Assets >>, ARCGSNP
 Menu, ARCART, Add, Open Download Folder, EXPLJK
 Gui, Add, StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
-Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;   ~~~~~ [[SETTINGS TAB]] ~~~~~   ;;;;;;;;;;;
 Gui, Tab, 1
@@ -2787,11 +2789,11 @@ if (raexist = "")
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;        [[ARCHIVE TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 7
-Gui, Tab, Repository
+Gui, Tab, DAT:=:Repo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
 Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
-Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN checked hidden, Detect Extension
+Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Extension
 gui, Add, Checkbox, x220 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Extension
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
@@ -3374,7 +3376,7 @@ Loop,Parse,lbxhwnds,|
 Gui, Show, Autosize,skeletonKey
 SplashTextOff
 ;;Progress, off
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;    TOOLTIP FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 /*  ;;[DEBUGOV]
 OnMessage(0x200, "WM_MOUSEMOVE")
@@ -6925,7 +6927,7 @@ If ((A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &&
 	}
 if ( (A_GuiX >= 0) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 700) )
 	{
-				if (TABMENU = "Repository")
+				if (TABMENU = "DAT:=:Repo")
 					{
 						SB_SetText("Loading items to be checked against DATs")
 						gui,ListView,DRPLV
@@ -11530,7 +11532,7 @@ if (selfnd = "retroArch")
 				raexefile= %emuxetmp3%
 				raexist= 1
 				gosub, GRAVER
-				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 				gosub, RAInit
 			}
 	}
@@ -13008,7 +13010,7 @@ if ((PRGINSTLBX = "retroArch") && (raexefile = ""))
 		raexedir= %EINSTPTH%
 		raexist= 
 		gosub, GRAVER
-		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 		gosub, RAInit
 	}
 stringreplace,runlist,runlist,||,|,All
@@ -13082,7 +13084,7 @@ if (selfnd <> "Other")
 	}
 if (selfnd = "retroarch")
 	{
-		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 		raexist= 1
 	}
 return
@@ -13199,7 +13201,7 @@ if (PRGINSTLBX = "retroArch")
 				raexedir= %EINSTDIR%
 				raexist= 
 				gosub, GRAVER
-				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 				gosub, RAInit
 			}
 	}
@@ -15518,7 +15520,7 @@ if (ARCH = "64")
 gosub, UpdateCores
 SB_SetText(" complete ")
 gosub, GRAVER
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 GuiControl, Disable, CNCLDWN
 GuiControl, Enable, AVAIL
 GuiControl, Enable, LOCEMUIN
@@ -16088,7 +16090,7 @@ ifnotexist, %cacheloc%\%updtmsg%
 		guicontrol, hide, UPDBTC
 		return
 	}
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
 gosub, XTRACTRA
@@ -25856,7 +25858,7 @@ if (raexedirtmp <> "")
 				gosub, ShaderDBInit
 				gosub, CoreOptInit
 				RACORETAB= |Netplay|Cores
-				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+				Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 				return
 			}
 	}
@@ -25924,7 +25926,7 @@ gosub, PlaylistInit
 gosub, resetPlaylists
 gosub, ShaderDBInit
 gosub, CoreOptInit
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 return
 PREFERON:
 guicontrol,enable,LNCHPT
@@ -31195,7 +31197,7 @@ if (fileexist(ratstchk))
 				IniWrite, "%raexedir%\%raexefile%",Apps.ini,EMULATORS,retroarch
 				IniWrite, "retroarch",Assignments.ini,OVERRIDES,retroarch
 				IniWrite, "%raexedir%\%raexefile%",Assignments.ini,Assignments,retroarch
-				Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+				Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 			}
 	}
 IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_location
@@ -31208,7 +31210,7 @@ if ((ratstchk = "ERROR")or(ratstchk = ""))
 					{
 						splitpath,raexetmp,raexefile,raexedir
 						iniwrite,"%raexedir%\%raexefile%",Settings.ini,GLOBAL,retroarch_location
-						Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util|Netplay|Cores
+						Guicontrol,,TABMENU,|Settings||:=: MAIN :=:|Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 					}
 			}
 	}
@@ -36444,7 +36446,7 @@ if (addrplst = "")
 		return
 	}
 syslist= 
-guicontrol,,URLTxt,|Add Repository||%ARCSRCS%
+guicontrol,,URLTxt,|Add DAT:=:Repo||%ARCSRCS%
 splitpath,addrplst,,,,addrplstn	
 ARCSYS= 
 guicontrol,,ARCSYS,|Select a System||
@@ -37577,29 +37579,65 @@ Loop,parse,SORTROMTAB,|
 	}
 return
 MAMEDATYP:
+gui,submit,nohide
+N_DatTYP=MAME
 guicontrol,move,BRWSDAT,y370
 return
 NOINTDATYP:
+N_DatTYP=NO-INTRO
+gui,submit,nohide
 guicontrol,move,BRWSDAT,y392
 return
 TOSECDATYP:
+N_DatTYP=TOSEC
+gui,submit,nohide
 guicontrol,move,BRWSDAT,y348
 return
 HLTDATP:
 gui,submit,nohide
+guicontrolget,HLTDATP,,HLTDATP
 return
 DATDRPD:
 gui,submit,nohide
 return
 BRWSDAT:
 gui,submit,nohide
+if (N_DatTYP = "")
+	{
+		N_DatTYP= TOSEC
+	}
+FileSelectFile,AddToDatSet,M3,,Add Dats,*.dat
+if (AddToDatSet = "")
+	{
+		return
+	}
+splitpath,Addtodatset,dat_f,,,dat_n
+filecopy,%Addtodatset%,dats\%N_DatTYP%\%dat_f%
+if ((ERRORLEVEL = 0)&& !instr(alldats,dat_f))
+	{
+		alldats.= N_DatTYP . "\" . dat_f
+		guicontrol,,DATDRPD,|%alldats%
+		iniwrite,%N_DatTYP%\%dat_n%,datlist.ini,%N_DatTYP%,%dat_n%
+	}
 return
 DETECTXTN:
 gui,submit,nohide
 return
 HASHALLROMS:
 gui,submit,nohide
+HLTDATP= 
+if (HSH_DISP <> "")
+	{
+		Gui,ListView,DRPLV
+		LV_Delete()	
+		Loop,parse,HSH_TBD,|
+			{
+				LV_Add("+Check",A_LoopField)
+			}
+		LV_ModifyCol()
+	}
 guicontrolget,DETECTXTN,,DETECTXTN
+guicontrolget,KNOWNDRP,,KNOWNDRP
 guicontrolget,MOVDRP,,MOVDRP
 guicontrolget,SRCHDRP,,SRCHDRP
 guicontrolget,EXTDRP,,EXTDRP
@@ -37612,21 +37650,56 @@ Loop,parse,SORTROMTAB,|
 	{
 		guicontrol,disable,%A_LoopField%
 	}
+guicontrol,enable,HLTDATP	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;msgbox,,,DATLBX=%DATLBX%`nHSH_TBD=%HSH_TBD%
 Loop,parse,HSH_TBD,|
 	{
 		ZIPSEEK= 
 		ApndCRC=
+		if (HLTDATP = 1)
+			{
+				HLTDATP= 
+				break
+			}
 		if InStr(FileExist("A_LoopField"), "D")
 			{	
-				Loop,Files,%A_LoopField%\*.*
+				Loop,Files,%A_LoopField%\*.*,R
 					{
 						ZIPSEEK= 
 						ApndCRC=
 						CrCFLN= %A_LoopFileFullPath%
 						splitpath,A_LoopFileFUllPath,romyu,rompd,romxt,romjn
-						if ((romxt = ".zip")or(romxt = ".7z")or(romxt = ".rar")&&(SRCHDRP = 1))
+						if (KNOWNDRP = 1)
+							{
+								Loop,parse,parxti,|
+									{
+										if (romxt = A_LoopField)
+											{
+												stringreplace,HSH_TBD,HSH_TBD,%CRCFLN%|,,All
+												continue
+											}
+									}
+							}
+							if (DETECTXTN = 1)
+								{
+									detxtu= 
+									fileread,nvxti,emucfgpresets.ini,%DRPSEL%,RJROMXT
+									stringreplace,nvxti,nvxti,.,,All
+									stringreplace,nvxti,nvxti,`,,|,All
+									Loop,parse,nvxti,|
+										{
+											if (A_LoopField = romxt)
+												{
+													detxtu= 1
+													break
+												}
+										}
+									if (detxtu = "")
+										{
+											continue
+										}
+								}
+						if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
 							{
 								ZIPSEEK= 1
 								if instr(incldats,"ARCADE\")
@@ -37641,20 +37714,27 @@ Loop,parse,HSH_TBD,|
 								partition=
 								gosub, zpcrcproc
 								ApndCRC= %CRCZ%
+								if (ApndCRC = 0000000)
+									{
+										continue
+									}
+								gosub, hashproc
+								continue	
 							}
 						else {
 								gosub, CRC32GET
 						}
-						;;msgbox,,,CrCFLN= %A_LoopFileFUllPath%`napndcrc=%Apndcrc%
 						if (ApndCRC = "-1")
 							{
 								continue
 							}
 						gosub, hashproc
+						continue
 					}
 			}
 		CrCFLN= %A_LoopField%
-		if ((romxt = ".zip")or(romxt = ".7z")or(romxt = ".rar")&&(SRCHDRP = 1))
+		splitpath,CrCFLN,romyu,rompd,romxt,romjn
+		if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
 			{
 				ZIPSEEK= 1
 				if instr(incldats,"ARCADE\")
@@ -37669,17 +37749,55 @@ Loop,parse,HSH_TBD,|
 				partition=
 				gosub, zpcrcproc
 				ApndCRC= %CRCZ%
+				msgbox,,,crc=%ApndCRC%`nROMZ=%ROMZ%
 				if (ApndCRC = 0000000)
 					{
 						continue
 					}
+				gosub, hashproc
+				continue
 			}
 		else {
 				gosub, CRC32GET
+				if (ApndCRC = "-1")
+					{
+						continue
+					}
+				gosub, hashproc
+				continue
 		}
 		splitpath,A_LoopField,romyu,rompd,romxt,romjn
+		if (KNOWNDRP = 1)
+			{
+				Loop,parse,parxti,|
+					{
+						if (romxt = A_LoopField)
+							{
+								stringreplace,HSH_TBD,HSH_TBD,%CRCFLN%|,,All
+								continue
+							}
+					}
+			}
+		if (DETECTXTN = 1)
+			{
+				detxtu= 
+				fileread,nvxti,emucfgpresets.ini,%DRPSEL%,RJROMXT
+				stringreplace,nvxti,nvxti,.,,All
+				stringreplace,nvxti,nvxti,`,,|,All
+				Loop,parse,nvxti,|
+					{
+						if (A_LoopField = romxt)
+							{
+								detxtu= 1
+								break
+							}
+					}
+				if (detxtu = "")
+					{
+						continue
+					}
+			}	
 		gosub, crc32get
-		;;msgbox,,,%apndcrc%
 		if (ApndCRC = "-1")
 			{
 				continue
@@ -37701,7 +37819,6 @@ Loop,parse,SORTROMTAB,|
 	}
 return
 HASHPROC:
-;;MSGBOX,,,INCLDATS=%INCLDATS%
 Loop,parse,incldats,|
 	{
 		stringsplit,datcl,A_LoopField,\([
@@ -37722,7 +37839,6 @@ Loop,parse,incldats,|
 						SYS_K= %HASH_SYS%
 					}
 			}
-		;;msgbox,,,%sys_k%
 		Fileread,hi,%dat_in%
 		Loop,parse,hi,`n`r
 			{
@@ -37760,7 +37876,6 @@ Loop,parse,incldats,|
 							}
 						if (hsh_crc = ApndCRC)
 							{
-								;;MSGBOX,,,file=%CrcFLN%`nHSH_CRC=%hsh_CRC%`nAPNDCRC=%ApndCRC%	
 								fldrnm= 
 								if (JAKDRP = 1)
 									{
@@ -37786,7 +37901,7 @@ Loop,parse,incldats,|
 								hsh_dest= %fldrnm%%romyu%
 								if (ZIPSEEK = 1)
 									{
-										if (CRCZ <> "")
+										if ((ApndCRC <> "-1")&&(ApndCRC <> 0000000))
 											{
 												aknum=
 												afnum=
@@ -37817,13 +37932,16 @@ Loop,parse,incldats,|
 																stringtrimleft,zipt,zipt,1
 																stringtrimleft,ziprn,ziprn,1
 															}
-														Runwait,"bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+														Runwait,"%A_ScriptDir%\bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+														if (ERRORLEVEL = 0)
+															{
+																stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+															}
 													}
 											}
 									}
 								if (ZIPSEEK <> 1)
 									{
-										;;msgbox,,,"%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%"
 										if (MOVDRP = 1)
 											{
 												if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
@@ -37842,6 +37960,10 @@ Loop,parse,incldats,|
 													filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
 												}
 										FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+										if (ERRORLEVEL = 0)
+											{
+												stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+											}
 										break
 									}
 							}
@@ -37881,9 +38003,9 @@ gui,submit,nohide
 FileSelectFile,AddToDRP,M3,,Add ROMs,
 if (AddToDRP = "")
 	{
-Gui,ListView,DRPLV
 		return
 	}
+Gui,ListView,DRPLV
 LVACHK= +Check
 Loop, Parse,AddToPl,`n`r
 	{
@@ -37966,13 +38088,62 @@ HSH_TBD.= HASHDIR . "|"
 return
 SRTFLT:
 gui,submit,nohide
+HSH_DISP=
+guicontrolget,SRTFLTa,,SRTFLT
+sleep,1500
+guicontrolget,SRTFLT,,SRTFLT
+blockinput,on
+if (SRTFLT = "")
+	{		
+		Gui,ListView,DRPLV
+		LV_Delete()	
+		Loop,parse,HSH_TBD,|
+			{
+				LV_Add("+Check",A_LoopField)
+			}
+		LV_ModifyCol()	
+		blockinput,off
+		return
+	}
+if (SRTFLTa <> SRTFLT)
+	{
+		goto,SRTFLT
+	}	
+Loop,parse,HSH_TBD,|
+	{
+		if instr(A_LoopField,SRTFLT)
+			{
+				HSH_DISP.= A_LoopField . "|"
+			}
+	}
+Gui,ListView,DRPLV
+LV_Delete()	
+Loop,parse,HSH_DISP,|
+	{
+		LV_Add("+Check",A_LoopField)
+	}
+LV_ModifyCol()	
+blockinput,off
 return
 SRTCLRFLT:
+HSH_DISP=
 gui,submit,nohide
+guicontrol,,SRTFLT,
+Gui,ListView,DRPLV
+LV_Delete()	
+Loop,parse,HSH_TBD,|
+	{
+		LV_Add("+Check",A_LoopField)
+	}
+LV_ModifyCol()
 return
+
 DETSORT:
 gui,submit,nohide
+guicontrol,,DRPSEL,|Select a System||%allsupport%
 guicontrol,disable,DRPSEL
+guicontrol,disable,DETECTXTN
+guicontrol,,DETECTXTN,0
 return
 SELSORT:
 gui,submit,nohide
@@ -37980,6 +38151,17 @@ guicontrol,enable,DRPSEL
 return
 DRPSEL:
 gui,submit,nohide
+guicontrolget,DRPSEL,,DRPSEL
+if (DRPSEL = "Select a System")
+	{
+		guicontrol,,DETECTXTN,0
+		guicontrol,,DETSORT,1
+		guicontrol,disable,DRPSEL
+		guicontrol,disable,DETECTXTN
+	}
+	else {
+		guicontrol,enable,DETECTXTN
+	}
 return
 KEEPSORT:
 gui,submit,nohide
@@ -40981,7 +41163,7 @@ return
 EMUOPTPOP:
 guicontrol,,CFGSWITCH,
 gui,submit,nohide
-Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 EMUOPTINIT:
 guicontrol,hide,SWHOST
 guicontrol,disable,OPNCORE
@@ -78946,7 +79128,7 @@ ifinstring,LCORE,_libretro
 	{
 		SK_MODE=
 		guicontrol,,CoreDDLA, |%LCORE%||Select_A_Core|%corelist%
-		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|Repository|Jackets|Util%RACORETAB%
+		Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 		if ((MINIMODE = 1)&&(BPRSCORCFG = 1))
 			{
 				gosub, MINIMODEOFF 

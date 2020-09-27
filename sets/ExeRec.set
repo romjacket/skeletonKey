@@ -779,7 +779,6 @@ FileInstall,sets\various_eula.set,sets\various_eula.set,1
 FileInstall,sets\arcorg.put,sets\arcorg.put,1
 FileInstall,sets\Themes.put,sets\Themes.put,1
 FileInstall,Init.exe,Init.exe,1
-FileInstall,Skey-Deploy.exe,Skey-Deploy.exe,1
 FileInstall,Update.exe,Update.exe,1
 FileInstall,bin\7zip_License.txt,bin\7zip_License.txt,1
 FileInstall,bin\any2ico_license.txt,bin\any2ico_license.txt,1
