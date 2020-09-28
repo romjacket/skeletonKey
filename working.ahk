@@ -1455,6 +1455,7 @@ Menu, REMDATSEL, Add, Remove Selection, REMDAT
 Menu, REMDATSEL, Add, Clear All, REMADAT
 Menu, REMHSHSEL, Add, Remove Selection, REMHSH
 Menu, REMHSHSEL, Add, Clear All, REMAHSH
+Menu, REMHSHSEL, Add, Move to >, MOVEHSH
 Menu, delctxtmenu, Add, Delete Game Settings, DelCfg_Add
 Menu, delctxtmenu, Add, Open Game Settings, CfgBrowse
 Menu, delctxtmenu, Add, << game-override >>, ASEMUOVR
@@ -6068,7 +6069,6 @@ Loop,Parse,poprc,|
 mousegetpos,Ngx,Ngy
 Menu,AQRUN, Show, %Ngx% %Ngy%
 Menu,AQRUN,DeleteAll
-RCLCNCH=
 return
 CLREDT:
 gui, submit, nohide
@@ -6925,10 +6925,14 @@ If ((A_GuiX >= RDXgrid) && (A_GuiX <= RDXgrid+RDWgrid) && (A_GuiY >= RDYgrid) &&
 					}
 			}
 	}
-if ( (A_GuiX >= 0) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 700) )
+if ( (A_GuiX >= 320) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 700) )
 	{
 				if (TABMENU = "DAT:=:Repo")
 					{
+						if (SortROMS <> 1)
+							{
+								return
+							}
 						SB_SetText("Loading items to be checked against DATs")
 						gui,ListView,DRPLV
 						LVACHK= +Check
@@ -37637,12 +37641,12 @@ if (HSH_DISP <> "")
 guicontrolget,DETECTXTN,,DETECTXTN
 guicontrolget,KNOWNDRP,,KNOWNDRP
 guicontrolget,MOVDRP,,MOVDRP
+guicontrolget,JAKDRP,,JAKDRP
+guicontrolget,JAKAFT,,JAKAFT
 guicontrolget,SRCHDRP,,SRCHDRP
 guicontrolget,EXTDRP,,EXTDRP
 guicontrolget,OVRWDRP,,OVRWDRP
 guicontrolget,ARCSORT,,ARCSORT
-guicontrolget,JAKDRP,,JAKDRP
-guicontrolget,JAKAFT,,JAKAFT
 guicontrolget,RENMDRP,,RENMDRP
 Loop,parse,SORTROMTAB,|
 	{
@@ -38018,6 +38022,72 @@ REMADAT:
 guicontrol,,DATLBX,|
 incldats=
 return
+MOVEHSH:
+gui,submit,nohide
+guicontrolget,MOVDRP,,MOVDRP
+guicontrolget,JAKDRP,,JAKDRP
+guicontrolget,OVRWDRP,,OVRWDRP
+guicontrolget,JAKAFT,,JAKAFT
+Menu, MOVE_HSH, Add
+Loop,Parse,sysllst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,abe,A_LoopField,=
+		Menu, MOVE_HSH, Add, %abe1%, MOVE_TOSYS
+	}
+mousegetpos,Ngx,Ngy	
+Menu,MOVE_HSH, Show, %ngX% %ngY%
+Menu,MOVE_HSH,DeleteAll
+return
+MOVE_TOSYS:
+gui,submit,nohide
+RowNumber = 0
+Loop
+	{
+		RowNumber := LV_GetNext(RowNumber)
+		if not RowNumber
+			{
+				break
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curhash, RowNumber)
+	}
+splitpath,curhash,curfn,curpth,curxt,curjn	
+fldrnm= 
+if (JAKDRP = 1)
+	{
+		fldrnm= %curjn%\
+		if (JAKAFT = 1)
+			{
+				stringleft,tmb,curjn,1
+				if ((tmb <> "(")&&(tmb <> "["))
+					{
+						stringsplit,nma,curjn,([
+						NG_N= %nma1%
+						fldrnm= %NG_N%\
+					}
+			}
+	}
+ifnotexist,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%
+	{
+		filecreatedir,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%
+	}	
+if (MOVDRP = 1)
+	{
+		FileMove,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+		if (ERRORLEVEL = 0)
+			{
+				stringreplace,HSH_TBD,HSH_TBD,%curhash%|,,All
+				gosub, INITHSHLV
+			}
+	}
+	else {
+		FileCopy,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+	}
+return
 REMDAT:
 gui,submit,nohide
 guicontrolget,datlbxlist,,DATLBX
@@ -38058,6 +38128,7 @@ Loop
 			{
 			}
 	}
+INITHSHLV:	
 Gui,ListView,DRPLV
 LVACHK= +Check
 LV_Delete()
