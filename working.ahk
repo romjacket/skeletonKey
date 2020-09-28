@@ -31317,11 +31317,9 @@ if (runltmp = "|")
 	{
 		stringtrimleft,runlist,runlist,1
 	}
-guicontrol,,JCORE,|%runlist%
-guicontrol,,LCORE,|%runlist%
-guicontrol,,AddCore,|Select_A_System||%reasign%
 guicontrol,,SKDSETXT,%emunumtot% emulators detected
 gosub, resetEmuList
+gosub, resetRunList
 guicontrol,enable,LNCHPT
 guicontrol,enable,EMUDETECT
 return
