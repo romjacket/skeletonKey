@@ -146,14 +146,16 @@ IfNotExist, skopt.cfg
 		_GITUSER= 
 		_GITPASS=
 		_GITPAT=
-		_RREPO=skeletonKey
+		_RREPO=repo_hub
+		_DREPO=dat_hub
 		_UPDTURL= http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
 		_UPDTFILE= %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 		_GETIPADR= http://www.netikus.net/show_ip.html				
 		_GITSRC= %GITWEB%/romjacket/skeletonkey
 		_REPOURL= %GITWEB%/romjacket
 		_ALTHOST= %GITWEB%/romjacket
-
+		iniwrite,%_DREPO%,skopt.cfg,GLOBAL,dat_hub
+		iniwrite,%_RREPO%,skopt.cfg,GLOBAL,repo_hub
 		gitrttmp=
 		_GITROOT= (not set) Github-Projects-Directory
 		_GITD= (not set) Github-Skeletonkey-Directory
@@ -465,14 +467,24 @@ Loop, Read, skopt.cfg
 							_ALTHOST= %curvl2%
 						}
 				}
-		if (curvl1 = "rom_repo")
+		if (curvl1 = "repo_hub")
 				{
-					_RREPO= skeletonKey
+					_DREPO= repo_hub
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
 						{
 							RREPO= %curvl2%
 							_RREPO= %curvl2%
 							CONTPARAM22= 1
+						}
+				}
+		if (curvl1 = "dat_hub")
+				{
+					_DREPO= dat_hub
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							DREPO= %curvl2%
+							_DREPO= %curvl2%
+							CONTPARAM23= 1
 						}
 				}
 		if (curvl1 = "repository_url")
@@ -516,6 +528,7 @@ DwnGit_TT :="Download Git executables"
 SelGit_TT :="Select the Git.exe"
 ILogin_TT :="github username"
 RREPO_TT :="GitHub ROM repository project"
+DREPO_TT :="GitHub DAT repository project"
 IPass_TT :="github password"
 IToken_TT :="Personal Access Token"
 DwnRls_TT :="Download Github-release.exe"
@@ -536,7 +549,7 @@ SelSRC_TT :="The source Directory`nusually this current directory"
 UVER_TT :="the 'version.txt' file containing update information."
 UFLU_TT :="the update file (also the portable executable)"
 IURL_TT :="The Website url which reports the internet ip address"
-IREPO_TT :="The location for all emulators and assets"
+IREPO_TT :="The URL for all emulators and assets"
 SelDXB_TT :="Detect your environment and download needed programs"
 IContinue_TT :="Sets the current environment."
 SelDIR_TT :="Selects the location of the currently selected item"
@@ -573,7 +586,7 @@ Loop,18
 	}
 if (initchk = 1)
 	{
-		setupguiitems= ILogin|IEmail|IPass|IToken|DwnGit|SelGit|DwnRls|SelRls|DwnNSIS|SelNSIS|DwnAHK|SelAHK|SelBLD|SelGPD|DwnPULL|SelGSD|DwnIO|SelGWD|SelDPL|SelSRC|UVER|UFLU|IURL|IREPO|IReset|SelDXB|ICONTINUE
+		setupguiitems= ILogin|IEmail|IPass|IToken|DwnGit|SelGit|DwnRls|SelRls|DwnNSIS|SelNSIS|DwnAHK|SelAHK|SelBLD|SelGPD|DwnPULL|SelGSD|DwnIO|SelGWD|SelDPL|SelSRC|UVER|UFLU|IURL|IREPO|RREPO|DREPO|IReset|SelDXB|ICONTINUE
 		Gui,Font,Bold
 		Gui Add, GroupBox, x11 y1 w370 h429, Deployment Tool Setup
 		Gui,Font,normal
@@ -636,8 +649,9 @@ if (initchk = 1)
 		Gui Add, Edit, x30 y310 w326 h21 vUVER gUVER, %_UPDTURL%
 		Gui Add, Edit, x30 y333 w326 h21 vUFLU gUFLU, %_UPDTFILE%
 		Gui Add, Edit, x30 y357 w326 h21 vIURL gIURL, %_GETIPADR%
-		Gui Add, Edit, x216 y380 w140 h21 vRREPO gRREPO, %RREPO%
-		Gui Add, Edit, x30 y380 w166 h21 vIREPO gIREPO, %_REPOURL%
+		Gui Add, Edit, x30 y380 w156 h21 vIREPO gIREPO, %_REPOURL%
+		Gui Add, Edit, x190 y380 w70 h21 vRREPO gRREPO, %RREPO%
+		Gui Add, Edit, x264 y380 w70 h21 vDREPO gDREPO, %DREPO%
 		Gui Add, Edit, x30 y403 w326 h21 vIALTH gIALTH, %_ALTHOST%
 		Gui Add, Button, x10 y432 w51 h19 vIReset gIReset, reset_all
 		Gui Add, Button, x331 y432 w51 h19 vSelDXB gSelDXB, quick
@@ -768,7 +782,7 @@ if (GITPAT = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 ;;Gui, Tab, 1
 ;;Gui, Tab, Setup
 ;;Gui, Add, Text,x164 y5, Location
-;;Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|SciTE4AutoHotkey|rom_repo
+;;Gui, Add, DropDownList, x8 y2 w100 vSRCDD gSrcDD, Project||Git.exe|github-release|Source|Compiler|Site|Deployment|Build|NSIS|SciTE4AutoHotkey|repo_hub|dat_hub
 ;;Gui, Add, Button, x109 y2 w52 h21 vSELDIR gSelDir, Select
 ;;Gui, Add, Button, x109 y26 w52 h21 vRESGET gRESGET, Clone
 ;;Gui Add, DropDownList,x331 y2 w92 vResDD gResDD, All||Dev-Build|Portable-Build|Stable-Build|Deployer|Update-URL|Update-File|Repo-URL|Internet-IP-URL|Git-User|Git-Password|Git-Token|Git-URL
@@ -843,7 +857,8 @@ guicontrol,,uver, http://raw.githubusercontent.com/romjacket/skeletonkey/master/
 guicontrol,,iurl,http://www.netikus.net/show_ip.html
 guicontrol,,uflu, %GITSWEB%/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
 guicontrol,,irepo, %GITSWEB%/romjacket
-guicontrol,,rrepo,skeletonkey
+guicontrol,,rrepo,repo_hub
+guicontrol,,drepo,dat_hub
 guicontrol,,ialth, %GITSWEB%/romjacket
 if (optionONE = "DEV")
 	{
@@ -899,8 +914,14 @@ if (CONTPARAM15 = "")
 if (CONTPARAM22 = "")
 	{
 		guicontrolget,RREPO,,RREPO
-		iniwrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+		iniwrite,%RREPO%,skopt.cfg,GLOBAL,repo_hub
 		CONTPARAM22= 1
+	}	
+if (CONTPARAM23 = "")
+	{
+		guicontrolget,DREPO,,DREPO
+		iniwrite,%DREPO%,skopt.cfg,GLOBAL,dat_hub
+		CONTPARAM23= 1
 	}	
 if (CONTPARAM16 = "")
 	{
@@ -1014,7 +1035,12 @@ if (nocont = 1)
 			}
 	if (CONTPARAM22 = "")
 			{
-				SB_SetText("rom_repo is not defined")
+				SB_SetText("repo_hub is not defined")
+				return
+			}
+	if (CONTPARAM23 = "")
+			{
+				SB_SetText("dat_hub is not defined")
 				return
 			}
 	}
@@ -1194,6 +1220,7 @@ if (GITUSER = "")
 					if (GITD = "")
 						{
 							GITD= %GITROOT%\skeletonkey
+							CONTPARAM10= 1
 							guicontrol,,txtGSD,%GITD%
 						}
 					ifnotexist,%GITROOT%\skeletonkey\
@@ -1339,14 +1366,27 @@ guicontrol,,IALTH,%IALTH%
 CONTPARAM21= 1
 return
 
+DREPO:
+gui,submit,nohide
+guicontrolget,DREPO,,DREPO
+IniWrite,%DREPO%,skopt.cfg,GLOBAL,dat_hub
+if (DREPO = "")
+	{
+		RREPO= skeletonkey
+		IniWrite,%DREPO%,skopt.cfg,GLOBAL,dat_hub
+		CONTPARAM23= 1
+	}
+CONTPARAM23= 1
+return
+
 RREPO:
 gui,submit,nohide
 guicontrolget,RREPO,,RREPO
-IniWrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+IniWrite,%RREPO%,skopt.cfg,GLOBAL,repo_hub
 if (RREPO = "")
 	{
-		RREPO= skeletonkey
-		IniWrite,%RREPO%,skopt.cfg,GLOBAL,rom_repo
+		RREPO= repo_hub
+		IniWrite,%RREPO%,skopt.cfg,GLOBAL,repo_hub
 		CONTPARAM22= 1
 	}
 CONTPARAM22= 1
@@ -2866,9 +2906,14 @@ if (SRCDD = "Git.exe")
 		SB_SetText(" " GITAPP " ")
 	}
 	
-if (SRCDD = "rom_repo")
+if (SRCDD = "repo_hub")
 	{
 		SB_SetText(" " RREPO " ")
+	}
+	
+if (SRCDD = "dat_hub")
+	{
+		SB_SetText(" " DREPO " ")
 	}
 	
 return
@@ -2935,10 +2980,15 @@ if (RESDD = "Repo-URL")
 		REPORURLT= %GITUSER%.github.io
 		SB_SetText(" " REPOURL " ")
 	}
-if (RESDD = "rom_repo")
+if (RESDD = "repo_hub")
 	{
-		RREPO= skeletonkey
+		RREPO= repo_hub
 		SB_SetText(" " RREPO " ")
+	}
+if (RESDD = "dat_hub")
+	{
+		DREPO= dat_hub
+		SB_SetText(" " DREPO " ")
 	}
 return
 
@@ -3339,13 +3389,20 @@ filedelete,%DEPL%\deploy.log
 BCANC= 
 gui,submit,nohide
 compiling= 1
+guicontrol,hide,COMPILE
+guicontrol,show,CANCEL
+guicontrolget,REPODATS,,REPODATS
+guicontrolget,DATBLD,,DATBLD
+guicontrolget,GITPUSH,,GITPUSH
+guicontrolget,SERVERPUSH,,SERVERPUSH
+guicontrolget,SITEUPDATE,,SITEUPDATE
+guicontrolget,INITINCL,,INITINCL
+guicontrolget,PORTVER,,PORTVER
 guicontrol,disable,RESDD
 guicontrol,disable,OvrStable
 guicontrol,disable,ResB
 guicontrol,disable,SrcDD
 guicontrol,disable,SelDir
-guicontrol,hide,COMPILE
-guicontrol,show,CANCEL
 guicontrol,disable,PushNotes
 guicontrol,disable,VerNum
 guicontrol,disable,GitPush
@@ -3356,13 +3413,6 @@ guicontrol,disable,REPODATS
 guicontrol,disable,PortVer
 guicontrol,disable,INITINCL
 guicontrol,disable,DevlVer
-guicontrolget,REPODATS,,REPODATS
-guicontrolget,DATBLD,,DATBLD
-guicontrolget,GITPUSH,,GITPUSH
-guicontrolget,SERVERPUSH,,SERVERPUSH
-guicontrolget,SITEUPDATE,,SITEUPDATE
-guicontrolget,INITINCL,,INITINCL
-guicontrolget,PORTVER,,PORTVER
 
 
 readme= 
@@ -3385,7 +3435,7 @@ StringReplace,arcorgv,arcorgv,[HOSTINGURL],%REPOURL%,All
 StringReplace,arcorgv,arcorgv,[SHADERHOST],%SHDRPURL%,All
 StringReplace,arcorgv,arcorgv,[SOURCEHOST],%UPDTURL%,All
 GRARBV= %GITSWEB%/%gituser%/%RREPO%/releases/download
-GRARDT= %GITSWEB%/%gituser%/dat_hub/releases/download
+GRARDT= %GITSWEB%/%gituser%/%DREPO%/releases/download
 StringReplace,arcorgv,arcorgv,[DATHUB],%GRARDT%,All
 StringReplace,arcorgv,arcorgv,[REPOSRC],%GRARBV%,All
 StringReplace,arcorgv,arcorgv,[IPLK],%GETIPADR%,All
@@ -3647,11 +3697,11 @@ guicontrol,,progb,20
 if (DATBLD = 1)
 	{		
 		SB_SetText(" Recompiling Databases ")
-		FileDelete, %DEPL%\DATFILES.7z
+		FileDelete, %DEPL%\ART_ASSETS.7z
 		Loop, %GITD%\rj\scrapeArt\*.7z
 			{
 				RunWait, %comspec% cmd /c echo.##################  CREATE METADATA  ######################## >>"%DEPL%\deploy.log", ,%rntp%	
-				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "DATFILES.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
+				runwait, %comspec% cmd /c " "%BUILDIR%\bin\7za.exe" a -t7z "ART_ASSETS.7z" "%A_LoopFileFullPath%" >>"%DEPL%\deploy.log"",%DEPL%,%rntp%
 				RunWait, %comspec% cmd /c echo.########################################## >>"%DEPL%\deploy.log", ,%rntp%	
 			}
 	}
@@ -3670,7 +3720,7 @@ if (REPODATS = 1)
 
 	}
 
-FileGetSize,dbsize,%DEPL%\DATFILES.7z,K
+FileGetSize,dbsize,%DEPL%\ART_ASSETS.7z,K
 DATSZ:= dbsize / 1000
 	
 if (PortVer = 1)
@@ -3921,9 +3971,9 @@ if (ServerPush = 1)
 			{
 				if (ServerPush = 1)
 					{					
-						FileAppend, "%GITRLS%" delete -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -r skeletonkey -t DATFILES`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" upload -R -r skeletonkey -t DATFILES -l "DATFILES" -n DATFILES.7z -f "%DEPL%\DATFILES.7z"`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" delete -r %DREPO% -t ART_ASSETS`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -r %DREPO% -t ART_ASSETS`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" upload -R -r %DREPO% -t ART_ASSETS -l "ART_ASSETS" -n ART_ASSETS.7z -f "%DEPL%\ART_ASSETS.7z"`n,%DEPL%\gpush.cmd
 					}
 			}
 		if (REPODATS = 1)
@@ -4052,7 +4102,7 @@ if (SiteUpdate = 1)
 		
 		StringReplace,skelhtml,skelhtml,[GITUSER],%gituser%,All
 		StringReplace,skelhtml,skelhtml,[RELEASEPG],%GITSWEB%/%gituser%/skeletonKey/releases,All
-		StringReplace,skelhtml,skelhtml,[DATFILES],%GITSWEB%/%gituser%/skeletonKey/releases/download/DATFILES/DATFILES.7z,All
+		StringReplace,skelhtml,skelhtml,[ART_ASSETS],%GITSWEB%/%gituser%/skeletonKey/releases/download/ART_ASSETS/ART_ASSETS.7z,All
 		
 		StringReplace,skelhtml,skelhtml,[RDATE],%RDATE%,All
 		StringReplace,skelhtml,skelhtml,[RSIZE],%dvms%,All
