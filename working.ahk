@@ -657,6 +657,7 @@ iniread,origasi,sets\Assignments.set,ASSIGNMENTS,
 iniread,origsys,sets\Assignments.set,OVERRIDES,
 FileRead,UTILst,sets\Utilities.set
 FileRead,KMPLst,sets\Keymappers.set
+FileRead,syssize,sets\size.set
 FileRead,corslk,sets\corelk.set
 FileRead,FELst,sets\Frontends.set
 FileRead,PrgLst,sets\Programs.set
@@ -940,7 +941,7 @@ RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTI
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
 SHOWARCTAB=ARCGSYS|ARCLNCH|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
 HIDEARCTAB=strmvid|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
-SORTROMTAB=SRCHDRP|KNOWNDRP|DETSORT|SELSORT|DRPSEL|MOVDRP|OVRWDRP|RENMDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|HASHALLROMS|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO|TOSECDATYP|MAMEDATYP|NOINTDATYP|DETECTXTN
+SORTROMTAB=SRCHDRP|KNOWNDRP|DETSORT|SELSORT|DRPSEL|MOVDRP|OVRWDRP|RENMDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|HASHALLROMS|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO|TOSECDATYP|MAMEDATYP|NOINTDATYP|DETECTXTN|DETHSHSZ
 FAN1ART= Backdrops
 FAN2ART= Backdrops
 FAN3ART= Backdrops
@@ -2794,8 +2795,9 @@ Gui, Tab, DAT:=:Repo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
 Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
-Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Extension
-gui, Add, Checkbox, x220 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Extension
+Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Ext
+Gui, Add, Checkbox, x280 y28 vDETHSHSZ gDETHSHSZ hidden, Limit Size
+gui, Add, Checkbox, x210 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
 gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
@@ -3955,6 +3957,8 @@ UPDCL_TT :="Refresh cores in your installation"
 VFNTEN_TT :="Enables custom font display"
 DETSORT_TT :="Automatically sorts ROMs with system-exclusive extensions."
 KNOWNDRP_TT :="Limits the files checked by excluding many extensions."
+DETHSHSZ_TT :="Limits the DATs parsed by size."
+DETECTXTN_TT :="Detects the extension of the selected system."
 DRPSEL_TT :=""
 MOVDRP_TT :="Moves dropped files to the associated system folder.`nLeaving this unchecked will only copy the file"
 RENDRP_TT :="Renames the ROM to that found in the dat file."
@@ -37625,6 +37629,9 @@ return
 DETECTXTN:
 gui,submit,nohide
 return
+DETHSHSZ:
+gui,submit,nohide
+return
 HASHALLROMS:
 gui,submit,nohide
 HLTDATP= 
@@ -37671,6 +37678,7 @@ Loop,parse,HSH_TBD,|
 						ApndCRC=
 						CrCFLN= %A_LoopFileFullPath%
 						splitpath,A_LoopFileFUllPath,romyu,rompd,romxt,romjn
+						filegetsize,hshfz,%A_LoopFileFUllPath%
 						if (KNOWNDRP = 1)
 							{
 								Loop,parse,parxti,|
@@ -37715,6 +37723,7 @@ Loop,parse,HSH_TBD,|
 								StdOut := StdoutToVar_CreateProcess(concatcmd)
 								partition=
 								gosub, zpcrcproc
+								hshfz=%ZPSZ%
 								ApndCRC= %CRCZ%
 								if (ApndCRC = 0000000)
 									{
@@ -37736,6 +37745,7 @@ Loop,parse,HSH_TBD,|
 			}
 		CrCFLN= %A_LoopField%
 		splitpath,CrCFLN,romyu,rompd,romxt,romjn
+		filegetsize,hshfz,%A_LoopFileFUllPath%
 		if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
 			{
 				ZIPSEEK= 1
@@ -37751,7 +37761,7 @@ Loop,parse,HSH_TBD,|
 				partition=
 				gosub, zpcrcproc
 				ApndCRC= %CRCZ%
-				msgbox,,,crc=%ApndCRC%`nROMZ=%ROMZ%
+				hshfz=%ZPSZ%
 				if (ApndCRC = 0000000)
 					{
 						continue
@@ -37821,9 +37831,10 @@ Loop,parse,SORTROMTAB,|
 	}
 return
 HASHPROC:
+pszy= 
 Loop,parse,incldats,|
 	{
-		stringsplit,datcl,A_LoopField,\([
+		stringsplit,datcl,A_LoopField,\([_
 		SYS_K= %datcl2%
 		dat_in= dats\%A_LoopField%
 		Loop,parse,fuzsys,`n`r
@@ -37845,6 +37856,30 @@ Loop,parse,incldats,|
 								break
 							}
 						
+					}
+			}
+		if (DETHSHSZ = 1)
+			{
+				Loop,parse,syssize,`n`r
+					{
+						stringsplit,niz,A_LoopField,>|
+						chkszy= % %niz1%
+						if (chkszy = "")
+							{
+								chkszy= %niz1%
+							}
+						if (chkszy = SYS_K)
+							{
+								if ((hshfz > niz3)or(hshfz < niz2))
+									{
+										pszy= 1
+										break
+									}
+							}
+					}
+				if (pszy = 1)
+					{
+						continue
 					}
 			}
 		Fileread,hi,%dat_in%
@@ -37889,7 +37924,7 @@ Loop,parse,incldats,|
 										kprt:= A_index + 2
 										hsh_%newnv%= % rgnm%kprt%
 									}
-							}
+							}	
 						if (hsh_crc = ApndCRC)
 							{
 								fldrnm= 

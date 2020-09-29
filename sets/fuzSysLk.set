@@ -79,7 +79,7 @@ XBONE|*xbox*one*>MSXBONE
 *sinclair*ql*>SINQL
 microbee|*microbee*>MICRBE
 oric|*oric*atmos*>ORIC
-smd|*mega*drive*|*genesis*>SMEGAD
+smd|megadriv|megatech|*mega*drive*|*genesis*>SMEGAD
 beena|sega*beena|*adv*beena*>SBEENA
 sms|*master*system*|*mark*III*|*mark*3*>SEGMS
 dc|segadc|*dream*cast*>SDREAM
@@ -101,12 +101,12 @@ mame|arcade*>MAMARC
 odyssey|*odyssey>MODYS
 apfimag|*APF*Imag*|*imagination*ma*>APFIMG
 a310|*Archimedes*>ACARC
-bbca|*Acorn*BBC*>ACBBC
+bbc|bbca|*Acorn*BBC*>ACBBC
 cpc6128p|*amstrad*cpc*|*amstrad*>AMSCPC
 gx4000|*amstrad*gx*4*>AMGX4K
 apple2e|*apple*2e*|*apple*IIe*|*apple II e*|apple2|Apple II*>APL2E
 apple2gs|*apple*2*gs*|*apple*II*gs*>APL2GS
-mac128k|*Macintosh*>APLMAC
+mac|mac128k|*Macintosh*>APLMAC
 2600|a2600|*2600*|*atari*26*|*a*26*>AT26
 5200|a5200|*5200*|*atari*52*|*a*52*>AT52
 7800|a7800|*atari*78*|*a*78*>AT78
@@ -139,10 +139,10 @@ odyssey2|*odyss*2>MODYS2
 odyssey3|*odyss*3>MODYS3
 aquarius|*aquarius*>MAQUAR
 intv|*mattel*intellivision*|*intellivision*>MINTEL
-fsa1st|*mega*duck*cougar*boy*|MEGADUCK>LLGSYS
-canonv30f|*msx*2*>MSX2
-hbf9sp|*MSX*Plus*|*MSX*+*>MMSXP
-canonv10|*MSX|*m-s-x*|*m s x*|*m.s.x*>MSX
+fsa1st|megaduck|*mega*duck*cougar*boy*|MEGADUCK>LLGSYS
+msx2|canonv30f|*msx*2*>MSX2
+msxp|hbf9sp|*MSX*Plus*|*MSX*+*>MMSXP
+msx|canonv10|*MSX|*m-s-x*|*m s x*|*m.s.x*>MSX
 fmtowns|*fm*towns*>FFMTOWN
 tg16|*turbo*grafx*16*|*tg*16*|>NPCENG
 tg16cd|pcecd|*turbo*grafx*CD|*pc*engine*CD*|*pce*cd*>NPCECD
@@ -173,7 +173,7 @@ sc3000|*sc*3000*|*sc*3k*>SSC3K
 sf7000|*super*control*>SSF7K
 sg1000|*SG*1*|*Sega*Game*1000*>SSG1K
 saturnu|sat|saturn|*saturn*|*satourne*>SEGSAT
-segacd|*sega*cd*|mega*cd*>SMEGCD
+segacd|megacdj|megacd|*sega*cd*|mega*cd*>SMEGCD
 supmodel|*model 3*|*model3>SMOD3
 picou|pico|*pico*>SPICO
 spec128|*zx*spec*|sinclair*spect*>SINZXS
@@ -224,7 +224,7 @@ videopac|*Videopac+*>PVIDPAC
 pb1000|*pb-1000*>CASPB1K
 pv1000|*pv-1000*>CASPV1K
 pv2000|*PV-2000*>CASPV2K
-mtx512|*memotech*>MMTX
+mtx|mtx512|*memotech*>MMTX
 wii>NNWIIW
 mz700|*mz-700*>SMZ7H
 mz800|*mz-800*>SMZ8H
@@ -331,7 +331,7 @@ korvet>KORVPK
 lantutor>TILTUT
 laser2001|*laser*2001*>VTECL2K1
 laser200|*laser*200*>VLAS2H
-leapster>LEAPST
+leapster|*leappad*>LEAPST
 lisa>APLISAII
 lisa2>APLISA
 lviv>VILENPK
@@ -341,7 +341,6 @@ mbc55x|*sanyo*mbc*55*>SMBC55
 mc10>TANMC
 mc1502>NPOELMS
 md2>MDMD2
-megadriv>SMDP
 megapc>AMSTRMPC
 megatech>SEGMT
 microvision>MBMVIS
