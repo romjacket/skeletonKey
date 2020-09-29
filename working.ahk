@@ -37663,7 +37663,7 @@ Loop,parse,HSH_TBD,|
 				HLTDATP= 
 				break
 			}
-		if InStr(FileExist("A_LoopField"), "D")
+		if InStr(FileExist(A_LoopField), "D")
 			{	
 				Loop,Files,%A_LoopField%\*.*,R
 					{
@@ -37833,23 +37833,37 @@ Loop,parse,incldats,|
 						continue
 					}
 				stringsplit,eig,A_loopfield,>
-				HASH_SYS= %eig2%
+				HASH_SYS= % %eig2%
 				stringsplit,aig,eig1,|
-				tosys:= RegExMatch(dat_in,A_LoopField,sni)
-				if (sni = 0)
+				Loop,%aig0%
 					{
-						SYS_K= %HASH_SYS%
+						prt= % aig%A_index%
+						tosys:= RegExMatch(dat_in,prt,sni)
+						if (sni <> "")
+							{
+								SYS_K= %HASH_SYS%
+								break
+							}
+						
 					}
 			}
 		Fileread,hi,%dat_in%
 		Loop,parse,hi,`n`r
 			{
 				stringsplit,aeb,A_LoopField,<
-				ifinstring,aeb2,game name=
+				ifinstring,dat_in,MAME\
 					{
-						stringsplit,ggnm,aeb2,=>,"
-						;"
-					G_N=%ggnm2%
+					  ifinstring,aeb,<description>
+					  stringsplit,ggnm,A_LoopField,<>
+					  G_N=%ggnm3%
+					}
+					else {
+						ifinstring,aeb2,game name=
+							{
+								stringsplit,ggnm,aeb2,=>,"
+								;"
+								G_N=%ggnm2%
+					}
 					stringreplace,G_N,G_N,:,-,All
 					stringreplace,G_N,G_N,>,-,All
 					stringreplace,G_N,G_N,<,-,All
@@ -38055,9 +38069,14 @@ Loop
 		LV_GetNext(RowNumber, Focused)
 		LV_GetText(curhash, RowNumber)
 	}
-splitpath,curhash,curfn,curpth,curxt,curjn	
+splitpath,curhash,curfn,curpth,curxt,curjn
+ISFLDR=
+ifexist,%curhash%\
+	{
+		ISFLDR= 1
+	}
 fldrnm= 
-if (JAKDRP = 1)
+if ((JAKDRP = 1)&&(ISFLDR = ""))
 	{
 		fldrnm= %curjn%\
 		if (JAKAFT = 1)
@@ -38077,7 +38096,13 @@ ifnotexist,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%
 	}	
 if (MOVDRP = 1)
 	{
-		FileMove,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+		if (ISFLDR = 1)
+			{
+				FileMoveDir,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+			}
+			else {
+				FileMove,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+			}
 		if (ERRORLEVEL = 0)
 			{
 				stringreplace,HSH_TBD,HSH_TBD,%curhash%|,,All
@@ -38085,7 +38110,13 @@ if (MOVDRP = 1)
 			}
 	}
 	else {
-		FileCopy,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+			if (ISFLDR = 1)
+				{
+					FileCopyDir,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+				}
+			else {
+				FileCopy,%curhash%,%RJSYSTEMS%\%A_ThisMenuItem%\%fldrnm%%curfn%,%OVRWDRP%
+			}
 	}
 return
 REMDAT:
