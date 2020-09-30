@@ -69,7 +69,6 @@ pcfx|pcfxga|*pc-fx*|*pcfx*>NPCFX
 XBONE|*xbox*one*>MSXBONE
 *flash*|*adobe*>AFLASH
 *model 2*|*model2>SMOD2
-*pc*engine*>PCENJ
 *Apollo*>APOLLO
 *galeco*>GALEC
 *Hikaru*>HIKAR
@@ -145,6 +144,7 @@ msxp|hbf9sp|*MSX*Plus*|*MSX*+*>MMSXP
 msx|canonv10|*MSX|*m-s-x*|*m s x*|*m.s.x*>MSX
 fmtowns|*fm*towns*>FFMTOWN
 tg16|*turbo*grafx*16*|*tg*16*|>NPCENG
+*pc*engine*>PCENJ
 tg16cd|pcecd|*turbo*grafx*CD|*pc*engine*CD*|*pce*cd*>NPCECD
 pc6001|*pc*6001*>NPC6K1
 pc8801|*pc*8801*>PC8801

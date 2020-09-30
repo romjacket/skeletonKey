@@ -37826,6 +37826,16 @@ Loop,parse,incldats,|
 				Loop,%aig0%
 					{
 						prt= % aig%A_index%
+						stringleft,prto,prt,1
+						if (prto <> ".*")
+							{
+								prt:= "^" . prt
+							}
+						stringright,prte,prt,1
+						if (prte <> ".*")
+							{
+								prt.= "$"
+							}
 						tosys:= RegExMatch(SYS_K,"i)"prt,sni)
 						if (sni <> "")
 							{
@@ -37982,6 +37992,10 @@ if (ZIPSEEK = 1)
 						Runwait,"%A_ScriptDir%\bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
 						if (ERRORLEVEL = 0)
 							{
+								if (RENMDRP = 1)
+									{
+										FileMove,%RJSYSTEMS%\%SYS_K%\%fldrnm%%zipt%,%RJSYSTEMS%\%SYS_K%\%fldrnm%%R_N%,R
+									}
 								stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
 							}
 					}
