@@ -1,3 +1,4 @@
+#MaxMem 4095
 #NoEnv
 #SingleInstance Force
 SetWorkingDir,%A_ScriptDir%
@@ -37825,7 +37826,7 @@ Loop,parse,incldats,|
 				Loop,%aig0%
 					{
 						prt= % aig%A_index%
-						tosys:= RegExMatch(datcl1,"i)"prt,sni)
+						tosys:= RegExMatch(SYS_K,"i)"prt,sni)
 						if (sni <> "")
 							{
 								SYS_K= %HASH_SYS%
