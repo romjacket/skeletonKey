@@ -253,7 +253,7 @@ ifnotexist,datlist.ini
 		gosub,getDATLIST
 	}
 	else {
-		alldats= ALL TOSEC|ALL NO-INTRO|ALL MAME|
+		alldats= ALL TOSEC|ALL NO-INTRO||ALL MAME|
 		Fileread,datfile,datlist.ini
 		Loop,parse,datfile,`n`r
 			{
@@ -6946,10 +6946,19 @@ if ( (A_GuiX >= 320) && (A_GuiX <= 800) && (A_GuiY >= 0) && (A_GuiY <= 700) )
 									{
 										continue
 									}
-								LV_Add(LVACHK,A_LoopField)
-								HSH_TBD.= A_LoopField . "|"
+								drp_in= %A_LoopField%	
+								ifexist,%A_LoopField%\
+									{
+										Loop,files,%A_LoopField%\*.*,R
+											{
+												drp_in= %A_LoopFileFullPath%
+												gosub, DRP_PARSE
+											}		
+										continue	
+									}
+								gosub, DRP_PARSE	
 							}
-						LV_ModifyCol()
+						LV_ModifyCol()	
 						return						
 					}
 	}
@@ -37601,7 +37610,7 @@ guicontrol,move,BRWSDAT,y348
 return
 HLTDATP:
 gui,submit,nohide
-guicontrolget,HLTDATP,,HLTDATP
+HLTDATP= 1
 return
 DATDRPD:
 gui,submit,nohide
@@ -37634,6 +37643,10 @@ gui,submit,nohide
 return
 HASHALLROMS:
 gui,submit,nohide
+ifexist,all_hash.ini
+	{
+		fileread,all_hash,all_hash.ini
+	}
 HLTDATP= 
 if (HSH_DISP <> "")
 	{
@@ -37661,160 +37674,30 @@ Loop,parse,SORTROMTAB,|
 	}
 guicontrol,enable,HLTDATP	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+skphash=
 Loop,parse,HSH_TBD,|
 	{
-		ZIPSEEK= 
-		ApndCRC=
 		if (HLTDATP = 1)
 			{
-				HLTDATP= 
 				break
 			}
-		if InStr(FileExist(A_LoopField), "D")
-			{	
-				Loop,Files,%A_LoopField%\*.*,R
-					{
-						ZIPSEEK= 
-						ApndCRC=
-						CrCFLN= %A_LoopFileFullPath%
-						splitpath,A_LoopFileFUllPath,romyu,rompd,romxt,romjn
-						filegetsize,hshfz,%A_LoopFileFUllPath%
-						if (KNOWNDRP = 1)
-							{
-								Loop,parse,parxti,|
-									{
-										if (romxt = A_LoopField)
-											{
-												stringreplace,HSH_TBD,HSH_TBD,%CRCFLN%|,,All
-												continue
-											}
-									}
-							}
-							if (DETECTXTN = 1)
-								{
-									detxtu= 
-									fileread,nvxti,emucfgpresets.ini,%DRPSEL%,RJROMXT
-									stringreplace,nvxti,nvxti,.,,All
-									stringreplace,nvxti,nvxti,`,,|,All
-									Loop,parse,nvxti,|
-										{
-											if (A_LoopField = romxt)
-												{
-													detxtu= 1
-													break
-												}
-										}
-									if (detxtu = "")
-										{
-											continue
-										}
-								}
-						if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
-							{
-								ZIPSEEK= 1
-								if instr(incldats,"ARCADE\")
-									{
-										ZIPSEEK= 0
-									}
-							}
-						if (ZIPSEEK = 1)
-							{
-								concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
-								StdOut := StdoutToVar_CreateProcess(concatcmd)
-								partition=
-								gosub, zpcrcproc
-								hshfz=%ZPSZ%
-								ApndCRC= %CRCZ%
-								if (ApndCRC = 0000000)
-									{
-										continue
-									}
-								gosub, hashproc
-								continue	
-							}
-						else {
-								gosub, CRC32GET
-						}
-						if (ApndCRC = "-1")
-							{
-								continue
-							}
-						gosub, hashproc
-						continue
-					}
-			}
+		ZIPSEEK= 
+		ApndCRC=
 		CrCFLN= %A_LoopField%
 		splitpath,CrCFLN,romyu,rompd,romxt,romjn
 		filegetsize,hshfz,%A_LoopFileFUllPath%
-		if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
-			{
-				ZIPSEEK= 1
-				if instr(incldats,"ARCADE\")
-					{
-						ZIPSEEK= 0
-					}
-			}
-		if (ZIPSEEK = 1)
-			{
-				concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
-				StdOut := StdoutToVar_CreateProcess(concatcmd)
-				partition=
-				gosub, zpcrcproc
-				ApndCRC= %CRCZ%
-				hshfz=%ZPSZ%
-				if (ApndCRC = 0000000)
-					{
+		if InStr(FileExist(A_LoopField), "D")
+			{	
+				Loop,Files,%A_LoopField%\*.*,R
+					{						
+						CrCFLN= %A_LoopFileFullPath%
+						splitpath,CrCFLN,romyu,rompd,romxt,romjn
+						filegetsize,hshfz,%A_LoopFileFUllPath%
+						gosub, HSH_FILE
 						continue
 					}
-				gosub, hashproc
-				continue
 			}
-		else {
-				gosub, CRC32GET
-				if (ApndCRC = "-1")
-					{
-						continue
-					}
-				gosub, hashproc
-				continue
-		}
-		splitpath,A_LoopField,romyu,rompd,romxt,romjn
-		if (KNOWNDRP = 1)
-			{
-				Loop,parse,parxti,|
-					{
-						if (romxt = A_LoopField)
-							{
-								stringreplace,HSH_TBD,HSH_TBD,%CRCFLN%|,,All
-								continue
-							}
-					}
-			}
-		if (DETECTXTN = 1)
-			{
-				detxtu= 
-				fileread,nvxti,emucfgpresets.ini,%DRPSEL%,RJROMXT
-				stringreplace,nvxti,nvxti,.,,All
-				stringreplace,nvxti,nvxti,`,,|,All
-				Loop,parse,nvxti,|
-					{
-						if (A_LoopField = romxt)
-							{
-								detxtu= 1
-								break
-							}
-					}
-				if (detxtu = "")
-					{
-						continue
-					}
-			}	
-		gosub, crc32get
-		if (ApndCRC = "-1")
-			{
-				continue
-			}
-		gosub, hashproc
+		gosub, HSH_FILE
 	}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SB_SetText("sorting complete")
@@ -37830,34 +37713,132 @@ Loop,parse,SORTROMTAB,|
 		guicontrol,enable,%A_LoopField%
 	}
 return
+DRP_PARSE:
+splitpath,drp_in,drpmyu,drppd,drpxt,drpjn
+skpdrp=
+if (KNOWNDRP = 1)
+	{
+		Loop,parse,parxti,|
+			{
+				if (drpxt = A_LoopField)
+					{
+						skpdrp=1
+						break
+					}
+			}
+	}
+if (skpdrp = "")
+	{
+		LV_Add(LVACHK,drp_in)
+		HSH_TBD.= drp_in . "|"												
+	}
+return
+HSH_FILE:
+if (HLTDATP = 1)
+		{
+			return
+		}
+	ZIPSEEK= 
+	ApndCRC=
+	if (DETECTXTN = 1)
+		{
+			detxtu= 
+			fileread,nvxti,emucfgpresets.ini,%DRPSEL%,RJROMXT
+			stringreplace,nvxti,nvxti,.,,All
+			stringreplace,nvxti,nvxti,`,,|,All
+			Loop,parse,nvxti,|
+				{
+					if (A_LoopField = romxt)
+						{
+							detxtu= 1
+							break
+						}
+				}
+			if (detxtu = "")
+				{
+					return
+				}
+		}
+	if ((romxt = "zip")or(romxt = "7z")or(romxt = "rar")&&(SRCHDRP = 1))
+		{
+			ZIPSEEK= 1
+			if instr(incldats,"ARCADE\")
+				{
+					ZIPSEEK= 0
+				}
+		}
+	if (ZIPSEEK = 1)
+		{
+			concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+			StdOut := StdoutToVar_CreateProcess(concatcmd)
+			partition=
+			gosub, zpcrcproc
+			ApndCRC= %CRCZ%
+			hshfz=%ZPSZ%
+			if (ApndCRC = 0000000)
+				{
+					return
+				}
+			gosub, hashproc
+			return
+		}
+	else {
+			gosub, CRC32GET
+			if (ApndCRC = "-1")
+				{
+					return
+				}
+			gosub, hashproc
+			return
+	}
+return
 HASHPROC:
 pszy= 
+dat_inc= 	
 Loop,parse,incldats,|
 	{
-		stringsplit,datcl,A_LoopField,\([_
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		dat_inc+=1	
+		dat_nm= % incl%dat_inc%	
+		stringsplit,datcl,A_LoopField,\([
 		SYS_K= %datcl2%
+		SB_SetText("Parsing " SYS_K " datfile")
 		dat_in= dats\%A_LoopField%
+		ifinstring,sysllst,=%SYS_K%`n
+			{
+				goto, SYS_FND
+			}
 		Loop,parse,fuzsys,`n`r
 			{
+				ssysin= 
 				if (A_LoopField = "")
 					{
 						continue
 					}
 				stringsplit,eig,A_loopfield,>
 				HASH_SYS= % %eig2%
-				stringsplit,aig,eig1,|
+				stringreplace,repn,eig1,*,.*,All
+				stringsplit,aig,repn,|
 				Loop,%aig0%
 					{
 						prt= % aig%A_index%
-						tosys:= RegExMatch(dat_in,prt,sni)
+						tosys:= RegExMatch(datcl1,"i)"prt,sni)
 						if (sni <> "")
 							{
 								SYS_K= %HASH_SYS%
+								ssysin= 1
 								break
 							}
-						
+					}
+				if (ssysin = 1)
+					{
+						break
 					}
 			}
+		SYS_FND:	
 		if (DETHSHSZ = 1)
 			{
 				Loop,parse,syssize,`n`r
@@ -37870,7 +37851,7 @@ Loop,parse,incldats,|
 							}
 						if (chkszy = SYS_K)
 							{
-								if ((hshfz > niz3)or(hshfz < niz2))
+								if ((hshfz > niz3)or(hshfz < niz2)&&(romxt <> "zip")&&(romxt <> "7z")&&(romxt <> "rar"))
 									{
 										pszy= 1
 										break
@@ -37882,146 +37863,157 @@ Loop,parse,incldats,|
 						continue
 					}
 			}
-		Fileread,hi,%dat_in%
-		Loop,parse,hi,`n`r
+		if (HLTDATP = 1)
 			{
-				stringsplit,aeb,A_LoopField,<
-				ifinstring,dat_in,MAME\
+				break
+			}
+		if (dat_nm = "")
+			{
+				Fileread,incl%dat_inc%,%dat_in%
+				dat_nm= % incl%dat_inc%
+			}
+		DAT_TST:	
+		ifinstring,dat_nm,crc="%ApndCRC%"		
+			{
+				Loop,parse,dat_nm,`n`r
 					{
-					  ifinstring,aeb,<description>
-					  stringsplit,ggnm,A_LoopField,<>
-					  G_N=%ggnm3%
-					}
-					else {
-						ifinstring,aeb2,game name=
+						stringsplit,aeb,A_LoopField,<
+						ifinstring,A_LoopField,<description>
 							{
-								stringsplit,ggnm,aeb2,=>,"
-								;"
-								G_N=%ggnm2%
-					}
-					stringreplace,G_N,G_N,:,-,All
-					stringreplace,G_N,G_N,>,-,All
-					stringreplace,G_N,G_N,<,-,All
-					stringreplace,G_N,G_N,?,-,All
-					stringreplace,G_N,G_N,*,-,All
-					stringreplace,G_N,G_N,\,-,All
-					stringreplace,G_N,G_N,/,-,All
-					stringreplace,G_N,G_N,|,-,All
-					stringreplace,G_N,G_N,=,-,All
-						continue
-					}
-				ifinstring,aeb2,rom name=
-					{
-						stringsplit,rgnm,aeb2,=>"
-						;"	
-						rgnum= 1	
-						Loop,%rgnm0%
+								stringsplit,ggnm,A_LoopField,<>
+								G_N=%ggnm3%
+								stringreplace,G_N,G_N,&amp;,&,All
+								stringreplace,G_N,G_N,:,-,All
+								stringreplace,G_N,G_N,>,-,All
+								stringreplace,G_N,G_N,<,-,All
+								stringreplace,G_N,G_N,?,-,All
+								stringreplace,G_N,G_N,*,-,All
+								stringreplace,G_N,G_N,\,-,All
+								stringreplace,G_N,G_N,/,-,All
+								stringreplace,G_N,G_N,|,-,All
+								stringreplace,G_N,G_N,=,-,All
+								continue
+							}
+						ifinstring,aeb2,rom name=
 							{
-								nvnm= % rgnm%A_Index%
-								newnv= %nvnm%
-								if ((newnv = "size")or(newnv = "crc")or(newnv = "md5")or(newnv = "sha1"))
+								stringsplit,rgnm,aeb2,=>"
+								;"	
+								rgnum= 1	
+								R_N= %rgnm3%
+								Loop,%rgnm0%
 									{
-										kprt:= A_index + 2
-										hsh_%newnv%= % rgnm%kprt%
-									}
-							}	
-						if (hsh_crc = ApndCRC)
-							{
-								fldrnm= 
-								if (JAKDRP = 1)
-									{
-										fldrnm= %G_N%\
-										if (JAKDRP = 1)
+										nvnm= % rgnm%A_Index%
+										newnv= %nvnm%
+										;;if ((newnv = "size")or(newnv = "crc")or(newnv = "md5")or(newnv = "sha1"))
+										if (newnv = "crc")
 											{
-												if (JAKAFT = 1)
-														{
-															stringleft,tmb,G_N,1
-															if ((tmb <> "(")&&(tmb <> "["))
-																{
-																	stringsplit,nma,G_N,([
-																	NG_N= %nma1%
-																	fldrnm= %NG_N%\
-																}
-														}
+												kprt:= A_index + 2
+												hsh_%newnv%= % rgnm%kprt%
 											}
 									}
-								if (RENMDRP = 1)
+								if (hsh_crc = ApndCRC)
 									{
-										romyu= %rgnm3%
-									}
-								hsh_dest= %fldrnm%%romyu%
-								if (ZIPSEEK = 1)
-									{
-										if ((ApndCRC <> "-1")&&(ApndCRC <> 0000000))
-											{
-												aknum=
-												afnum=
-												Loop, Parse, ROMZ,|
-													{
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														aknum+=1
-														Loop, Parse, CRCZI,|
-															{
-																if (A_LoopField = "")
-																	{
-																		continue
-																	}
-																afnum+=1
-																if (afnum = aknum)
-																	{
-																		CRCZ= %A_LoopField%
-																		break
-																	}
-															}
-														SplitPath,A_LoopField,zipt,zipp,zipxt,ziprn
-														stringleft,ziptst,zipt,1
-														if (ziptst = A_Space)
-															{
-																stringtrimleft,zipt,zipt,1
-																stringtrimleft,ziprn,ziprn,1
-															}
-														Runwait,"%A_ScriptDir%\bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
-														if (ERRORLEVEL = 0)
-															{
-																stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
-															}
-													}
-											}
-									}
-								if (ZIPSEEK <> 1)
-									{
-										if (MOVDRP = 1)
-											{
-												if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
-													{
-														filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
-													}
-												FileMove,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
-												if (ERRORLEVEL = 0)
-													{
-														stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
-													}
-												break
-											}
-										if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
-												{
-													filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
-												}
-										FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
-										if (ERRORLEVEL = 0)
-											{
-												stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
-											}
+										gosub, PROCHASH
 										break
 									}
 							}
 					}
 			}
 	}
-return			
+return
+PROCHASH:
+fldrnm= 
+if (JAKDRP = 1)
+	{
+		fldrnm= %G_N%\
+		if (JAKDRP = 1)
+			{
+				if (JAKAFT = 1)
+						{
+							stringleft,tmb,G_N,1
+							if ((tmb <> "(")&&(tmb <> "["))
+								{
+									stringsplit,nma,G_N,([
+									NG_N= %nma1%
+									fldrnm= %NG_N%\
+								}
+						}
+			}
+	}
+if (RENMDRP = 1)
+	{
+		romyu= %R_N%
+	}
+hsh_dest= %fldrnm%%romyu%
+if (ZIPSEEK = 1)
+	{
+		if ((ApndCRC <> "-1")&&(ApndCRC <> 0000000))
+			{
+				aknum=
+				afnum=
+				Loop, Parse, ROMZ,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						aknum+=1
+						Loop, Parse, CRCZI,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								afnum+=1
+								if (afnum = aknum)
+									{
+										CRCZ= %A_LoopField%
+										break
+									}
+							}
+						SplitPath,A_LoopField,zipt,zipp,zipxt,ziprn
+						stringleft,ziptst,zipt,1
+						if (ziptst = A_Space)
+							{
+								stringtrimleft,zipt,zipt,1
+								stringtrimleft,ziprn,ziprn,1
+							}
+						Runwait,"%A_ScriptDir%\bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+						if (ERRORLEVEL = 0)
+							{
+								stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+							}
+					}
+			}
+	}
+if (ZIPSEEK <> 1)
+	{
+		if (MOVDRP = 1)
+			{
+				if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
+					{
+						filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
+					}
+				FileMove,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+				if (ERRORLEVEL = 0)
+					{
+						stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+					}
+				return
+			}
+		if !FileExist(RJSYSTEMS . "\" SYS_K . "\" fldrnm)
+				{
+					filecreatedir,%RJSYSTEMS%\%SYS_K%\%fldrnm%
+				}
+		FileCopy,%CrCFLN%,%RJSYSTEMS%\%SYS_K%\%hsh_dest%,%ovrwdrp%
+		if (ERRORLEVEL = 0)
+			{
+				stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
+			}
+		return
+	}
+return
+			
 ADDATS:
 gui,submit,nohide
 guicontrolget,DATDRPD,,DATDRPD
