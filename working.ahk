@@ -37669,6 +37669,11 @@ guicontrolget,EXTDRP,,EXTDRP
 guicontrolget,OVRWDRP,,OVRWDRP
 guicontrolget,ARCSORT,,ARCSORT
 guicontrolget,RENMDRP,,RENMDRP
+zipovrw=
+if (OVRWDRP = 1)
+	{
+		zipovrw= -y
+	}
 Loop,parse,SORTROMTAB,|
 	{
 		guicontrol,disable,%A_LoopField%
@@ -37989,12 +37994,12 @@ if (ZIPSEEK = 1)
 								stringtrimleft,zipt,zipt,1
 								stringtrimleft,ziprn,ziprn,1
 							}
-						Runwait,"%A_ScriptDir%\bin\7za.exe" x -y "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+						Runwait,"%A_ScriptDir%\bin\7za.exe" x %zipovrw% "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
 						if (ERRORLEVEL = 0)
 							{
 								if (RENMDRP = 1)
 									{
-										FileMove,%RJSYSTEMS%\%SYS_K%\%fldrnm%%zipt%,%RJSYSTEMS%\%SYS_K%\%fldrnm%%R_N%,R
+										FileMove,%RJSYSTEMS%\%SYS_K%\%fldrnm%%zipt%,%RJSYSTEMS%\%SYS_K%\%fldrnm%%hsh_dest%,R
 									}
 								stringreplace,HSH_TBD,HSH_TBD,%CrcFLN%|,,All
 							}
