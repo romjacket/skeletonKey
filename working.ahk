@@ -37809,8 +37809,9 @@ Loop,parse,incldats,|
 			}
 		dat_inc+=1	
 		dat_nm= % incl%dat_inc%	
-		stringsplit,datcl,A_LoopField,\([
-		SYS_K= %datcl2%
+		splitpath,A_LoopField,datfn,datpth,datxtn,datjn
+		stringsplit,datcl,datjn,([
+		SYS_K= %datcl1%
 		SB_SetText("Parsing " SYS_K " datfile")
 		dat_in= dats\%A_LoopField%
 		ifinstring,sysllst,=%SYS_K%`n
