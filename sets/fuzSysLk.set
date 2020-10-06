@@ -143,7 +143,7 @@ msx2|canonv30f|*msx*2*>MSX2
 msxp|hbf9sp|*MSX*Plus*|*MSX*+*>MMSXP
 msx|canonv10|*MSX|*m-s-x*|*m s x*|*m.s.x*>MSX
 fmtowns|*fm*towns*>FFMTOWN
-tg16|*turbo*grafx*16*|*tg*16*|>NPCENG
+pce|tg16|*turbo*grafx*16*|*tg*16*|>NPCENG
 *pc*engine*>PCENJ
 tg16cd|pcecd|*turbo*grafx*CD|*pc*engine*CD*|*pce*cd*>NPCECD
 pc6001|*pc*6001*>NPC6K1

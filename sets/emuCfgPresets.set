@@ -5136,7 +5136,7 @@ MAME?RJEMUOPTS=<3do_m2 -cdrm<|<3do_pal -cdrm<|<3do -cdrm<
 RJZIPPEEK=0
 SHORTNM=T3DO
 SUPEMU=4DO|3doPlay|freedo|phoenix|MAME
-SUPCORE=4do_libretro.dll
+SUPCORE=opera_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3do
 
@@ -7228,6 +7228,7 @@ RJMAMENM=snespal
 MAME?RJEMUOPTS=<snespal -cart<
 RJZIPPEEK=0
 SHORTNM=SNESPAL
+RJROMXT=.smc,.sfc,.swc,.fig,.bs,.st,.zip
 SUPEMU=snes9x|mesen-s|snes9k|Mednafen|no$sns|MAME|zsnes|xe|BizHawk|zmz|snesgt|byuu
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
 LNCHPRM=$|1|1|1|1|0
@@ -7540,7 +7541,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 
-[Texas Instruments - TI 99-4A]
+[Texas Instruments - TI-99-4A]
 RJMAMENM=ti99
 MAME?RJEMUOPTS=<ti99 -cart<
 SHORTNM=TI994A

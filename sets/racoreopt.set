@@ -276,6 +276,7 @@ beetle_psx_renderer_software_fb = "enabled"
 beetle_psx_scale_dither = "enabled"
 beetle_psx_wireframe = "disabled"
 
+opera_high_resolution = "disabled"
 4do_high_resolution = "disabled"
 
 ngp_language = "english"
