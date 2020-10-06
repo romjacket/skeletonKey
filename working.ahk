@@ -32465,7 +32465,7 @@ Loop,parse,ncad,|
 			{
 				continue
 			}
-		Loop, %A_LoopField%\%NAMEDROM%
+		Loop, Files, %A_LoopField%\%NAMEDROM%,R
 			{
 				romf= %A_LoopFileFullpath%
 			}
@@ -32525,7 +32525,7 @@ Loop, parse, ncad,|
 				continue
 			}
 		stemi= %A_LoopField%
-		Loop, %stemi%\%HOSTINGROMS%.*,0,%SUPRSRCH%
+		Loop, Files, %stemi%\%HOSTINGROMS%.*,R
 			{
 				if A_LoopFileAttrib contains H
 					{
@@ -32538,7 +32538,7 @@ Loop, parse, ncad,|
 				guicontrol,,RETROM,0
 				break
 			}
-		Loop, %stemi%\*.*,0,%SUPRSRCH%
+		Loop, Files, %stemi%\*.*,R
 			{
 				if A_LoopFileAttrib contains H
 					{
