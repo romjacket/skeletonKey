@@ -32532,7 +32532,7 @@ Loop, parse, ncad,|
 						continue
 					}
 				SB_SetText(" NAME-MATCH " A_LoopFileName " found!!! ")
-				pmatch= A_LoopFileFullPath . "||"
+				pmatch= "|" . A_LoopFileFullPath . "||"
 				HOSTFND= 
 				guicontrol,,SRCHARCORG,0
 				guicontrol,,RETROM,0
@@ -32557,6 +32557,12 @@ Loop, parse, ncad,|
 					{
 						stringtrimright,CULLDSR,cldh1,4
 					}
+				stringreplace,MINSR,CULLDSR,%A_Space%,,All
+				stringreplace,MINSR,MINSR,`,,,All
+				stringreplace,MINSR,MINSR,.,,All
+				stringreplace,MINSR,MINSR,',,All
+				stringreplace,MINSR,MINSR,-,,All
+				stringreplace,MINSR,MINSR,_,,All	
 				if (cldh2 <> "")
 					{
 						stringleft,regsm,cldh2,1	
@@ -32573,7 +32579,7 @@ Loop, parse, ncad,|
 								srchregion= EUR
 							}	
 					}
-				if (CULLDSR = CULLHDR)
+				if (CULLDSR = CULLDHR)
 					{
 						HOSTFND= 
 						guicontrol,,SRCHARCORG,0
@@ -32586,25 +32592,34 @@ Loop, parse, ncad,|
 						romf:= A_LoopFileFullPath
 						ext= %A_LoopFileExt%
 						SB_SetText(" NAME-MATCH " A_LoopFileName " found!!! ")
+						if ((pmatch = "")&&(actit = ""))
+							{
+								actit.= "|" . A_LoopFileFullPath . "|"
+								continue
+							}
 						actit.= A_LoopFileFullPath . "|"
 						continue
 					}
-				stringreplace,MINSR,CULLDSR,%A_Space%,,All
 				if (MINSR = MINHR)
 					{
 						HOSTFND= 
 						guicontrol,,SRCHARCORG,0
+						if ((pmatch = "")&&(actit = ""))
+							{
+								actit.= "|" . A_LoopFileFullPath . "|"
+								continue
+							}
 						actit.= A_LoopFileFullPath . "|"
 						continue
 					}
 				matchlist.= A_LoopFileFullPath . "|"	
 			}
 	}
-if (pmatch = "")
+if ((pmatch = "")&&(actit <> ""))
 	{
 		actit.= "|"
 	}
-guicontrol,,NETROMLIST,|%pmatch%%actit%|%matchlist%
+guicontrol,,NETROMLIST,%pmatch%%actit%|%matchlist%
 return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  CRC CHECK PROC  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ChkNetCRC:
@@ -32679,17 +32694,22 @@ if A_GuiEvent = Normal
 		hostregion=
 		stringsplit,cldh,HOSTINGROMS,()
 		CULLDHR= %cldh1%
-		stringleft,cluchk,cldh1,4
+		stringleft,cluchk,CULLDHR,4
 		if (cluchk = "The%A_Space%")
 			{
-				stringtrimleft,CULLDHR,cldh1,4
+				stringtrimleft,CULLDHR,CULLDHR,4
 			}
-		stringright,dluchk,cldh1,4
+		stringright,dluchk,CULLDHR,4
 		if (dluchk = ",The")
 			{
-				stringtrimright,CULLDHR,cldh1,4
+				stringtrimright,CULLDHR,CULLDHR,4
 			}
-		stringreplace,MINHR,CULLDHR,%A_Space%,,All
+		stringreplace,MINHR,CULLDHR,`,,,All
+		stringreplace,MINHR,MINHR,.,,All
+		stringreplace,MINHR,MINHR,',,All
+		stringreplace,MINHR,MINHR,-,,All
+		stringreplace,MINHR,MINHR,_,,All	
+		stringreplace,MINHR,MINHR,%A_Space%,,All
 		stringleft,regrm,cldh2,1
 		if ((regrm = "j")or(cldh2 = "NTSCJ"))
 			{
@@ -32750,6 +32770,7 @@ if A_GuiEvent = Normal
 				NINLPRSE= %NINLPRSE%*
 				gosub, NetCoreAssets
 			}
+		guicontrolget,SRCHARCORG,,SRCHARCORG	
 		IniWrite, "%IPADR%",Settings.ini,GLOBAL,last_connect
 		IniWrite, "%netplayRemotePort%",Settings.ini,GLOBAL,last_port
 		guicontrol,,NETHINFO,%HOSTINGUSER% | %HOSTINGROMS% | %HOSTINGCRCS% | %corelk% |  %IPADR%:%netplayRemotePort%
@@ -32807,28 +32828,22 @@ gui, submit, nohide
 SB_SetText(" Matching " HOSTINGROMS " in cloud")
 guicontrol,disable,ARCPOP
 stringreplace,plstrm,pop_list,%A_Space%,,All
+stringreplace,plptrm,pop_list,|The%A_Space%,|,All
+stringreplace,plptrm,plptrm,`,The|,|,All
 stringreplace,plstrm,plstrm,`,,,All
 stringreplace,plstrm,plstrm,.,,All
 stringreplace,plstrm,plstrm,',,All
 stringreplace,plstrm,plstrm,-,,All
 poplind=
+ifexist, %libretrodir%\%CONNECTINGCORE%
+	{
+		guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
+	}
 ifinstring,pop_list,%HOSTINGROMS%|
 	{
-		ifexist, %libretrodir%\%CONNECTINGCORE%
-			{
-				guicontrol,,ARCCORES,|%CONNECTINGCORE%||%runlist%
-			}
 		Loop, Parse, pop_list,|
 			{
 				poplind+=1
-				stringreplace,FNDROMS,A_LoopField,%A_Space%,,All
-				stringreplace,FNDROMS,FNDROMS,`,,,All
-				stringreplace,FNDROMS,FNDROMS,.,,All
-				stringreplace,FNDROMS,FNDROMS,',,All
-				stringreplace,FNDROMS,FNDROMS,-,,All
-				stringsplit,finv,FNDROMS,(
-				stringtrimright,FNDROMJ,finv1,5
-				FNDROMX= %finv1%
 				if (A_Loopfield = HOSTINGROMS)
 					{
 						guicontrol,enable,ARCPOP
@@ -32843,24 +32858,29 @@ ifinstring,pop_list,%HOSTINGROMS%|
 						jumptab= 
 						return
 					}
-				continue
 			}
 	}
 poplind=
 posib= 
-ifinstring,plstrm,%HOSTINGROMC%|
+ifinstring,plptrm,%CULLDHR%|
 	{
 		guicontrol,enable,ARCPOP
 		Loop, Parse, pop_list,|
 			{
 				poplind+=1
-				stringreplace,FNDROMS,A_LoopField,%A_Space%,,All
-				stringreplace,FNDROMS,FNDROMS,`,,,All
-				stringreplace,FNDROMS,FNDROMS,.,,All
-				stringreplace,FNDROMS,FNDROMS,',,All
-				stringreplace,FNDROMS,FNDROMS,-,,All
-				stringsplit,finv,FNDROMS,(
-				stringleft,fngrm,finv2,1
+				stringsplit,ebed,A_LoopField,()
+				CULLNHR= %ebed1%
+				stringleft,cluchk,CULLNHR,4
+				if (cluchk = "The%A_Space%")
+					{
+						stringtrimleft,CULLNHR,CULLNHR,4
+					}
+				stringright,dluchk,CULLNHR,4
+				if (dluchk = ",The")
+					{
+						stringtrimright,CULLNHR,CULLNHR,4
+					}
+				stringleft,fngrm,CULLNHR,1
 				fndregion= 
 				if ((fngrm = "j")or(finv2 = "NTSCJ"))
 					{
@@ -32874,9 +32894,7 @@ ifinstring,plstrm,%HOSTINGROMC%|
 					{
 						fndregion= EUR
 					}
-				stringtrimright,FNDROMJ,finv1,5
-				FNDROMX= %finv1%
-				if ((FNDROMS = HOSTINGROMC)&&(fndregion = hostregion))
+				if ((CULLNHR = CULLDHR)&&(fndregion = hostregion))
 					{
 						guicontrol, Focus, ARCPOP
 						LBEX_SetSel(arcpopu,poplind)
@@ -32886,9 +32904,15 @@ ifinstring,plstrm,%HOSTINGROMC%|
 						jumptab= 
 						return
 					}
-				if (FNDROMS = HOSTINGROMC)
+				if ((CULLNHR = CULLDHR)&&(fndregion = hostregion))
 					{
 						posib= %poplind%
+						break
+					}
+				if (MINHR = MINSR)
+					{
+						posib= %poplind%
+						break
 					}
 			}
 		guicontrol, Focus, ARCPOP
@@ -32899,7 +32923,7 @@ ifinstring,plstrm,%HOSTINGROMC%|
 	}
 poplind=
 posib= 
-ifinstring,plstrm,%HOSTINGROMX%
+ifinstring,plstrm,%HOSTINGROMJ%
 	{
 		Loop, Parse, pop_list,|
 			{
@@ -32909,8 +32933,7 @@ ifinstring,plstrm,%HOSTINGROMX%
 				stringreplace,FNDROMS,FNDROMS,.,,All
 				stringreplace,FNDROMS,FNDROMS,',,All
 				stringreplace,FNDROMS,FNDROMS,-,,All
-				stringreplace,FNDROMS,FNDROMS,_,,All
-				stringsplit,finv,FNDROMS,(
+				stringsplit,finv,FNDROMS,()
 				stringleft,fngrm,finv2,1
 				fndregion= 
 				if ((fngrm = "j")or(finv2 = "NTSCJ"))
@@ -32927,59 +32950,22 @@ ifinstring,plstrm,%HOSTINGROMX%
 					}
 				stringtrimright,FNDROMJ,finv1,5
 				FNDROMX= %finv1%
-				if ((FNDROMX = HOSTINGROMX)&&(fndregion = hostregion))
-					{
-						guicontrol,enable,ARCPOP
-						guicontrol, Focus, ARCPOP
-						LBEX_SetSel(arcpopu,poplind)
-						SB_SetText("partial match " HOSTINGROMS "")
-						guicontrolget, arcpl,,ARCPOP
-						LBEX_SetFocus(arcpopu,poplind)
-						jumptab= 
-						return
-					}
-				if (FNDROMX = HOSTINGROMX)
-					{
-						posib= %poplind%
-						continue
-					}
-				continue
-			}
-		guicontrol,enable,ARCPOP
-		guicontrol, Focus, ARCPOP	
-		LBEX_SetSel(arcpopu,posib)
-		SB_SetText("partial match " HOSTINGROMS "")
-		guicontrolget, arcpl,,ARCPOP
-		LBEX_SetFocus(arcpopu,posib)
-		return
-	}
-poplind=
-ifinstring,plstrm,%HOSTINGROMJ%
-	{
-		Loop, Parse, pop_list,|
-			{
-				poplind+=1
-				stringreplace,FNDROMS,A_LoopField,%A_Space%,,All
-				stringreplace,FNDROMS,FNDROMS,`,,,All
-				stringreplace,FNDROMS,FNDROMS,.,,All
-				stringreplace,FNDROMS,FNDROMS,',,All
-				stringreplace,FNDROMS,FNDROMS,-,,All
-				stringsplit,finv,FNDROMS,(
-				stringtrimright,FNDROMJ,finv1,5
-				FNDROMX= %finv1%
 				SB_SetText("partial match " HOSTINGROMS "")
+				if ((FNDROMJ = HOSTINGROMJ)&&(hostregion = fndregion))
+					{
+						posib= %poplind% 
+						break
+					}
 				if (FNDROMJ = HOSTINGROMJ)
 					{
-						guicontrol,enable,ARCPOP
-						LBEX_SetSel(arcpopu,poplind)
-						guicontrolget, arcpl,,ARCPOP
-						guicontrol,focus,ARCPOP
-						LBEX_SetFocus(arcpopu,poplind)
-						jumptab= 
-						return
+						posib= %poplind%
 					}
-				continue
 			}
+		guicontrol,enable,ARCPOP
+		LBEX_SetSel(arcpopu,poplind)
+		guicontrolget, arcpl,,ARCPOP
+		guicontrol,focus,ARCPOP
+		LBEX_SetFocus(arcpopu,poplind)
 	}
 guicontrol,enable,ARCPOP
 if (arcpl <> "")
