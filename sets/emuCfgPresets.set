@@ -2915,6 +2915,7 @@ SUPEMU=mame_arcade|MAME|FinalBurnalpha|FBNeo|calice|ace|zinc
 SUPCORE=mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=arcade
+RJROMXT=,.zip,.chd,.7z,.cmd
 
 [MAME - System]
 RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
@@ -2994,7 +2995,7 @@ FENAM=flash
 RJEMUPRESET=WinApe
 RJMAMENM=cpc6128p
 RJMULTIDISC=1
-RJROMXT=.dsc,.dsk,.arc,.cdt,.tzx,.czx,.voc,.wav,.cpr,.bin,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip
+RJROMXT=.dsc,.dsk,.arc,.cdt,.tzx,.czx,.voc,.wav,.cpr,.bin,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.zip,.kcr
 RJEMUARGS=</A|<
 MAME?RJEMUARGS=<
 MAME?RJEMUOPTS=<cpc6128p -[RJRTYP]<|<cpc6128p -cass<|cpc6128p -flop<
@@ -3517,7 +3518,7 @@ LNCHPRM=$|1|1|0|1|0
 [Microsoft - DOS]
 RJEMUPRESET=DOSBox-X
 RJMULTIDISC=1
-RJROMXT=.conf
+RJROMXT=.conf,.exe,.com,.bat,.cue,.iso
 SHORTNM=MSDOS
 SUPEMU=DOSBox-X|DOSBox|DosPlus
 SUPCORE=dosbox_libretro.dll
@@ -3929,7 +3930,7 @@ RJEMUPRESET=videoplayer
 RJMULTIDISC=
 SHORTNM=MLTMED
 SUPEMU=videoplayer|retroarch|vlc|mplayerc|wmplayer
-RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
+RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v,.f4v,.f4f,.3gp,.ogm,.flv,.mp3,.flac,.ogg,.m4a,.webm,.3g2,.vob,.asf,.divx,.m2p,.m2ts,.ps,.ts,.mxf,.wma,.wav
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=videoplayer
@@ -4182,7 +4183,7 @@ LNCHPRM=$|1|1|1|1|0
 FENAM=ndsi
 
 [Nintendo - Nintendo DS]
-RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
+RJROMXT=.zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl,.bin
 RJEMUPRESET=Desmume
 SHORTNM=NNDS
 SUPEMU=Desmume|ideas|No$GBA|medusa|melonds|noods
@@ -4202,7 +4203,7 @@ LNCHPRM=$|1|1|1|1|0
 RJEMUPRESET=nestopia
 RJMEDNM=nes
 RJMAMENM=nes
-RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip
+RJROMXT=.nes,.unif,.unf,.nsf,.fam,.fds,.bin,.zip,.qd
 MAME?RJEMUOPTS=<nes -cart<|<nespal -cart<|<nes -cart<
 RJZIPPEEK=0
 SHORTNM=NNES
@@ -4268,7 +4269,7 @@ FENAM=gbaE
 RJEMUPRESET=VisualBoyAdvance-M
 RJMEDNM=gba
 RJMAMENM=gba
-RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip
+RJROMXT=.gba,.gb,.gbc,.agb,.bin,.elf,.mb,.zip,.gbz
 MAME?RJEMUOPTS=<gba -cart<
 RJZIPPEEK=0
 SHORTNM=NNGBA
@@ -4375,7 +4376,7 @@ FENAM=kiosk
 RJEMUPRESET=Dolphin
 RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
 RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
-RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc
+RJROMXT=.dol,.iso,.gcm,.ciso,.wad,.elf,.wbfs,.tgc,.gcz,.dff
 RJMAMENM=wii
 SHORTNM=NNWII
 SUPEMU=Dolphin|ishiiruka|Dolwin
@@ -4422,7 +4423,7 @@ LNCHPRM=$|1|1|1|1|0
 RJEMUPRESET=snes9x
 RJMEDNM=snes
 RJMAMENM=snes
-RJROMXT=.sfc,.bml,.smc,.zip
+RJROMXT=.sfc,.bml,.smc,.zip,.fig,.gd3,.gd7,.dx2,.bsx,.swc
 MAME?RJEMUOPTS=<snes -cart<|<snespal -cart<|<snes -cart<
 RJZIPPEEK=0
 SHORTNM=NSNES
@@ -5044,7 +5045,7 @@ RJEMUPRESET=epsxe
 RJMEDNM=psx
 RJMAMENM=psu
 RJMULTIDISC=1
-RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm
+RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm,.toc,.m3u,.ccd,.exe
 MAME?RJEMUOPTS=<psu -[RJRTYP]<|<psu -cdrm<|<psj -cdrm<|<psa -cdrm<|<psu -memc1<|<pse -memc1<|<psj -memc1<|<psa -memc1<|<pse -cdrm<
 SHORTNM=SPLAY
 SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|duckstation
@@ -5311,7 +5312,7 @@ cmdfun= 1
 
 [Windows - Games]
 RJEMUPRESET=DosBox-X
-RJROMXT=.lnk,.exe,.bat,.cmd,.jar
+RJROMXT=.lnk,.exe,.bat,.cmd,.jar,.com,.conf
 SHORTNM=WINGAME
 SUPEMU=DOSBox-X|DoxBox|WinBox|BSL|FMBocks|x86box
 SUPCORE=

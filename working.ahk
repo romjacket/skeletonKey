@@ -144,9 +144,14 @@ if (romf <> "")
 						libretroDirectory= %raexedir%\cores
 					}
 				gameoverdcfg= -c "%curcfg%"
-				Loop,Read,cores.ini
+				fileread,corez,cores.ini
+				Loop,parse,corez,`n`r
 					{
-						corelist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						corelist .= (A_Index == 1 ? "" : "|") . A_LoopField
 					}
 			}
 		splitpath,romf,romtitle,rompth,inputext,romname,inputdrv
@@ -610,22 +615,30 @@ if (INITIAL = 1)
 		ARC_USER= Login Not Set
 		ARC_PASS= *****
 	}
-Loop,Read,fltlist.ini
-fltlist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+FileRead,fltlstf,fltlist.ini
+Loop,parse,fltlstf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}	
+		fltlist .= (A_Index == 1 ? "" : "|") . A_LoopField
+	}
 CORENUM:= 0
 corezips=
 corelist=
 coreNamz=
-Loop,Read,cores.ini
+Fileread,corez,cores.ini
+Loop,parse,corez,`n`r
 	{
-		if (A_loopreadLine = "")
+		if (A_LoopField = "")
 			{
 				continue
-			}
+			}	
 		CORENUM+=1
-		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All
-		corezips .= (A_Index == 1 ? "" : "|") . A_LoopReadLine "." "zip"
-		corelist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+		StringReplace,jnm,A_LoopField,_libretro.dll,,All
+		corezips .= (A_Index == 1 ? "" : "|") . A_LoopField "." "zip"
+		corelist .= (A_Index == 1 ? "" : "|") . A_LoopField
 		coreNamz .= jnm . "|"
 	}
 SKCCTXT= %CORENUM% cores
@@ -725,13 +738,33 @@ Loop,parse,felst,`n`r
 			}
 		frntdlst.= A_LoopField . "|"	
 	}
-Loop,Read,gl.ini
-gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-Loop,Read,cg.ini
-cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-Loop,Read,sl.ini
-sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+fileread,glini,gl.ini	
+fileread,cgini,cg.ini	
+fileread,slini,sl.ini	
+Loop,parse,glini,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopField
+	}
+Loop,parse,cgini,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		cg_list .= (A_Index == 1 ? "" : "|") . A_LoopField
+	}
+Loop,parse,slini,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		sl_list .= (A_Index == 1 ? "" : "|") . A_LoopField
+	}
 iniread,alra,Settings.ini,GLOBAL,%ARCSRCv%_EULA
 if (alra = 1)
 	{
@@ -1142,9 +1175,14 @@ if (raexist = 1)
 			ovr_list =
 			StringLen,ovrplngth,OverlayDirectory
 			ovrplngthpls:= ovrplngth+1
-			Loop, Read, ovr.ini
+			FileRead, ovrini, ovr.ini
+			Loop,parse,ovrini,`n`r
 				{
-					StringTrimLeft,jstpth,A_LoopReadLine,ovrplngthpls
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					StringTrimLeft,jstpth,A_LoopField,ovrplngthpls
 					ovr_list .= (A_Index == 1 ? "" : "|") . jstpth
 				}
 	}	
@@ -6104,7 +6142,7 @@ ifexist,cfg\%RUNSYSDDL%\%LCORE%\%romfn%\
 	}
 guicontrol,,JCORE,|%runlist%
 guicontrol,,LCORE,|%runlist%
-guicontrol,, MORROM, |%romf%||%HISTORY%
+guicontrol,, MORROM, |%romf%||
 iniwrite, "%coreselv%",Settings.ini,GLOBAL,last_core
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 gui, submit, nohide
@@ -8995,6 +9033,16 @@ if (omitxtn0 = "")
 		REVSPL=
 		stringsplit,omitxtn,omitxt,= | ""
 	}
+
+ay := Object()
+Loop, %omitxtn0%
+	{
+		new= % (omitxtn%a_index%)
+		if (new <> "")
+			{
+				ay.insert(new)
+			}
+	}	
 SB_SetText("... Indexing Directory ...")
 poptadd=
 IniRead,kiv,SystemLocations.ini,LOCATIONS,%OPTYP%
@@ -9004,12 +9052,11 @@ Loop,Parse,kiv,|
 			{
 				continue
 			}
-		;;Loop,%RJSYSTEMS%\%OPTYP%\*.*,0,1
-		Loop,%A_LoopField%\*.*,0,1
+		Loop,Files,%A_LoopField%\*.*,R
 			{
 				ext= %A_LoopFileExt%
 				noapl=
-				for k, v in ar
+				for k, v in ay
 					{
 						extm:= v
 						if (ext = extm)
@@ -9272,12 +9319,17 @@ if (SRCHPLRAD = 1)
 		if (SRCHLOCDDL = "All_Playlists")
 			{
 				lsrchpop=
-				Loop, Read, hashdb.ini
+				Fileread,hashdbini,hashdb.ini
+				Loop, parse, hashdbini,`n`r
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
 						hashsrch1=
 						hashsrch2=
 						hashsrch3=
-						stringsplit,hashsrch,A_LoopReadLine,|
+						stringsplit,hashsrch,A_LoopField,|
 						IfInString, hashsrch1, %SRCHROMEDT%
 							{
 									lsrchpop .= hashsrch2 . "=" . hashsrch1 . "|"
@@ -10380,7 +10432,7 @@ if (REPOSET = "")
 				guicontrol,disable,ADDREPO
 				Loop, read,repolist.ini
 					{
-						REPOSET= %A_LoopField%
+						REPOSET= %A_LoopReadLine%
 					}
 				Guicontrol,,REPOSET,|%REPOSET%||%repolst%
 			}
@@ -26075,61 +26127,32 @@ if (videoShaderDir= "")
 		videoShaderDir= %raexedir%\shaders
 	}
 filedelete, gl.ini
-glFiles =
+gl_list =
 Loop, Files, %videoShaderDir%\shaders_glsl\*.glslp, R
    {
-	   glFiles.= A_LoopFileName . "`n"
+		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopFileName
+		FileAppend, %A_LoopField%`n, gl.ini
    }
-Loop, Parse, glFiles,`n
-   {
-	   FileAppend, %A_LoopField%`n, gl.ini
-   }
-Loop,Read,gl.ini
-	{
-		gl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-	}
 return
 resetSL:
 Menu,Tray,Tip, Generating Slang Shader cache
 filedelete, sl.ini
-slangFiles =
+sl_list =
 Loop, Files, %videoShaderDir%\shaders_slang\*.slangp, R
    {
-	   slangFiles.= A_LoopFileName . "`n"
+		sl_list .= (A_Index == 1 ? "" : "|") . A_LoopFileName
+		FileAppend, %A_LoopField%`n, sl.ini
    }
-Loop, Parse, slangFiles,`r`n
-   {
-	if (A_LoopField = "")
-		{
-			continue
-		}
-	   FileAppend, %A_LoopField%`n, sl.ini
-   }
-Loop,Read,sl.ini
-	{
-		sl_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-	}
 return
 resetCG:
 Menu,Tray,Tip, Generating CG Shader cache
 filedelete, cg.ini
-cgFiles =
+cg_list =
 Loop, Files, %videoShaderDir%\shaders_cg\*.cgp, R
    {
-	   cgFiles.= A_LoopFileName . "`n"
+		cg_list .= (A_Index == 1 ? "" : "|") . A_LoopFileName
+		FileAppend, %A_LoopField%`n, cg.ini
    }
-Loop, Parse, cgFiles,`r`n
-   {
-	if (A_LoopField = "")
-		{
-			continue
-		}
-	   FileAppend, %A_LoopField%`n, cg.ini
-   }
-Loop,Read,cg.ini
-	{
-		cg_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
-	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;  RESET FILTERS ;;;;;;;;;;;;;;;;;;;;
@@ -26140,13 +26163,12 @@ if (videoFilterDir= "")
 		videoFilterDir= %raexedir%\filters\video
 	}
 filedelete, fltlist.ini
-fltFiles =
+flt_list =
 Loop, Files, %videoFilterDir%\*.filt
-   fltFiles = %fltFiles%%A_LoopFileName%`n
-Loop, Parse, fltFiles,`n
-   FileAppend, %A_LoopField%`n, fltlist.ini
-Loop,Read,fltlist.ini
-	flt_list .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+   {
+	flt_list .= (A_Index == 1 ? "" : "|") . A_LoopFileName
+   FileAppend, %A_LoopFilename%`n, fltlist.ini
+   }
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RAInitQ:
@@ -26233,11 +26255,15 @@ return
 xmbinit:
 DLLCRCreset:
 FileDelete,corecrc.ini
-Loop, Read, cores.ini
+Loop, parse, corez,`n`r
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		ApndCRC=
 		gosub, CRC32GET
-		Iniwrite, %ApndCRC%,corecrc.ini,DLLS,%A_LoopReadLine%
+		Iniwrite, %ApndCRC%,corecrc.ini,DLLS,%A_LoopField%
 	}
 return
 DefLocs:
@@ -32032,6 +32058,7 @@ Loop,Parse,lobbies,|
 					gamsplt2=
 					stringsplit,gamsplt,A_LoopReadLine,:","
 					NETHOSTGAMES= %gamsplt5%
+					stringreplace,NETHOSTGAMES,NETHOSTGAMES,\u0026,&,All
 				}
 			if (arrsp1 = "has_spectate_password")
 				{
@@ -32311,7 +32338,7 @@ if (HOSTSELECT = 1)
 		romf=
 		;{;;;;;;;;;;;;;;;;   hashdb parse  ;;;;;;;;;;;;;;;;;;
 		SB_SetText("Searching Playlist Database")
-		Loop, Read, hashdb.ini
+		Loop, parse, hashdbini,`n`r
 			{
 				xactm=
 				romf=
@@ -32324,7 +32351,7 @@ if (HOSTSELECT = 1)
 				fndpl=
 				fndnum=
 				HASHSPLIT1=
-				stringsplit,qfind,A_LoopReadLine,|
+				stringsplit,qfind,A_LoopField,|
 				romsr:= qfind1
 				splitpath,romsr,romtitle,rompth,romext,romname
 				if instr(romsr,".zip#")or instr(romsr,".7z#")
@@ -38203,7 +38230,7 @@ ifnotinstring,systmfldrs,%keyout%
 systmfldrs.= keyout . "|"
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%keyout%||%INITFLDRS%
-guicontrol,,MORROM,|%afnchk%||%HISTORY%
+guicontrol,,MORROM,|%afnchk%||
 guicontrol,,LCORE,|%ARCCORES%||%runlist%
 EXTRSYS= %keyout%
 ROMSYS= %keyout%
@@ -39659,9 +39686,9 @@ if (romf = "")
 		lastrom= %save%
 	}
 lastcore= %coreselv%
-guicontrol,,MORROM, |%romf%||%HISTORY%
 guicontrol,,RUNFLRAD,1
 guicontrol,,RUNSYSDDL,|%keyout%||%INITFLDRS%
+guicontrol,,MORROM, |%romf%||
 guicontrol,,LCORE, |%lastcore%||%runlist%
 ifnotexist, %save%
 	{
@@ -73618,30 +73645,36 @@ Msgbox,3,Delete Confirmation,Are you sure you wish to delete these components fr
 						}
 					FileAppend, %fldrz2%`n,rj\%RJSYSDD%_todel.tdb
 				}
-	Loop, Read, rj\%RJSYSDD%_todel.tdb
+	fileread,todel,rj\%RJSYSDD%_todel.tdb			
+	Loop, parse,todel,`n`r
 		{
+			if (A_LoopField = "")
+				{
+					continue
+				}
 			if (CDELNCH = 1)
 				{
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.bat
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.bat
 				}
 			if (CDELCFG = 1)
 				{
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.ini
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.cfg
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.config
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.cfg
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.xml
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.conf
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.ini
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.cfg
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.config
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.cfg
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.xml
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.conf
 				}
 			if (CDELJOY = 1)
 				{
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.xpadderprofile
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.amgp
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.xpadderprofile
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.amgp
 				}
 			if (CDELLOG = 1)
 				{
-					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadline%\*.log
+					FileDelete, %RJSYSTEMS%\%RJSYSDD%\%A_LoopField%\*.log
 				}
+			todelsys= %A_LoopField%
 			if (CDELEMU = 1)
 				{
 					fin= 
@@ -73661,7 +73694,7 @@ Msgbox,3,Delete Confirmation,Are you sure you wish to delete these components fr
 											continue
 										}
 									SB_SetText("Removing " A_LoopField " Directory")
-									FileRemoveDir, %RJSYSTEMS%\%RJSYSDD%\%A_LoopReadLine%\%A_LoopField%,1
+									FileRemoveDir, %RJSYSTEMS%\%RJSYSDD%\%todelsys%\%A_LoopField%,1
 								}
 					   }
 				}
@@ -78047,13 +78080,18 @@ ifnotexist, %MAMELOC%\%MAMEAPP%
 	{
 		goto, ALLRJVR
 	}
+fileRead,lmini,lm.ini	
 if (RJEMUPRECFG = "MAME - Arcade")
 	{
 		if (RJMAMENM <> 0)
 			{
 				newxtlst=
-				Loop,Read,lm.ini
+				Loop,parse,lmini,`n`r
 						{
+							if (A_LoopField = "")
+								{
+									continue
+								}
 							avn1=
 							avn2=
 							avn3=
@@ -78065,9 +78103,9 @@ if (RJEMUPRECFG = "MAME - Arcade")
 							avn9=
 							avn10=
 							splsys1=
-							stringsplit,splsys,A_LoopReadline,%A_Space%
-							stringsplit,avn,a_Loopreadline,(),%A_Space%
-							stringsplit,axn,a_Loopreadline,.,%A_Space%
+							stringsplit,splsys,A_LoopField,%A_Space%
+							stringsplit,avn,a_LoopField,(),%A_Space%
+							stringsplit,axn,a_LoopField,.,%A_Space%
 							if (splsys1 = mamename)
 								{
 									medtyp:= avn2
@@ -81972,16 +82010,16 @@ emuj=
 corNamz=
 siv=
 gosub, ResetCores
-gosub,CoreUpdtChk`
-Loop,Read,cores.ini
+gosub,CoreUpdtChk
+Loop,parse,corez,`n`r
 	{
-		if (A_loopreadLine = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		StringReplace,jnm,A_LoopReadLine,_libretro.dll,,All
-		corezips .= (A_Index == 1 ? "" : "|") . A_LoopReadLine "." "zip"
-		corelist .= (A_Index == 1 ? "" : "|") . A_LoopReadLine
+		StringReplace,jnm,A_LoopField,_libretro.dll,,All
+		corezips .= (A_Index == 1 ? "" : "|") . A_LoopField "." "zip"
+		corelist .= (A_Index == 1 ? "" : "|") . A_LoopField
 		coreNamz .= (A_Index == 1 ? "" : "|") . jnm
 	}
 IniRead,emuj,Assignments.ini,OVERRIDES
