@@ -192,6 +192,12 @@ mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_100a.bin?mpr-17933.bi
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:sega_101.bin?saturn-1.00-(U+E).bin:4AFCF0FA
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=:sega_101.bin:224B752C>
 SSF\Setting\STV:stv110.bin:3DFEDA92>
+SSF\Setting\STV:mp17954a.s:F77223AD>
+SSF\Setting\STV:mp17952a.s:D1BE2ADF>
+SSF\Setting\STV:epr19730.ic8:D0E0889D>
+SSF\Setting\STV:mp17953a.ic8:A4C47570>
+SSF\Setting\STV:20091.bin:59ED40F4>
+SSF\Setting\STV:mp17951a.s:2672F9D8>
 retroarch\system=:sgb.boot.rom:EC8A83B9>
 retroarch\system=:st010.data.rom:216081B2>
 retroarch\system=:st010.program.rom:691CBB4F>

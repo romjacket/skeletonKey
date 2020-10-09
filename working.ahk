@@ -53205,11 +53205,26 @@ Loop, Parse, pginitheme,`n`r
 	}
 Loop, %pghome%\themes\*,2
 	{
-		ifinstring,pgthemes,|%A_LoopFileName%|
+		ifinstring,pgthemes,%A_LoopFileName%|
 			{
 				continue
 			}
 		pgthemes.= A_LoopFileName . "|"
+	}
+stringreplace,pgthemes,pgthemes,||,|,All
+ifexist,%pghome%\settings.txt
+setheme=RJ
+Loop,read,settings.txt
+	{
+		ifinstring,A_LoopReadLine,general.theme
+			{
+				stringsplit,ebb,A_LoopReadLIne,:,/
+				Loop,parse,ebb2,\
+					{
+						setheme= %A_LoopField%
+					}
+				break	
+			}
 	}
 if (PgNpts = "")
 	{
@@ -53555,6 +53570,32 @@ if (pgteo = "")
 	}
 guicontrol,,FECBXA,|%PgNpts%
 guicontrol,enable,FEBUTA
+ifnotexist,%pghome%\settings.txt
+	{
+		SB_SetText("configuration must be created")
+		return
+	}
+Loop,files,rj\pg\%pgtheme%.*
+	{
+		fileread,pgcfgf,%pghome%\settings.txt
+		filedelete,%pghome%\settings.txt
+		Loop,parse,pgcfgf,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,fez,A_LoopField,:
+				if (fez1 = "general.theme")
+					{
+						fileappend,%fez1%: %pghome%\themes\%FEDDLD%/`n,%pghome%\settings.txt
+						continue
+					}
+				fileappend,%A_LoopField%`n,%pghome%\settings.txt
+				SB_SetText(" theme changed to " pgtheme "")
+			}
+		return	
+	}
 SB_SetText("Current theme is " PGTHEME " ")
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54273,6 +54314,34 @@ guicontrolget,pgtheme,,FEDDLD
 iniwrite,%pgtheme%,PGcfg.ini,CONFIG,theme
 cursysthemelist=
 guicontrol,,FECBXA,|%PgNpts%
+ifnotexist,%pghome%\settings.txt
+	{
+		SB_SetText("configuration must be created")
+		return
+	}
+Loop,files,rj\pg\%pgtheme%.*
+	{
+		fileread,pgcfgf,%pghome%\settings.txt
+		filedelete,%pghome%\settings.txt
+		Loop,parse,pgcfgf,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,fez,A_LoopField,:
+				if (fez1 = "general.theme")
+					{
+						fileappend,%fez1%: %pghome%\themes\%FEDDLD%/`n,%pghome%\settings.txt
+						continue
+					}
+				fileappend,%A_LoopField%`n,%pghome%\settings.txt
+				SB_SetText(" theme changed to " pgtheme "")
+			}
+		return	
+	}
+SB_SetText(" " Pgtheme " not downloaded")
+return
 return
 PegasusFECBXB:
 if (curtxt = "")
@@ -55159,6 +55228,28 @@ if (FECHKE = 1)
 		pgscraper= true
 	}
 iniwrite,%pgscraper%,PGcfg.ini,CONFIG,scraper
+ifnotexist,%pghome%\settings.txt
+	{
+		SB_SetText("configuration must be created")
+		return
+	}
+fileread,pgcfgf,%pghome%\settings.txt
+filedelete,%pghome%\settings.txt
+Loop,parse,pgcfgf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,fez,A_LoopField,:
+		if (fez1 = "providers.skraper.enabled")
+			{
+				fileappend,%fez1%: %pgscraper%`n,%pghome%\settings.txt
+				continue
+			}
+		fileappend,%A_LoopField%`n,%pghome%\settings.txt
+		SB_SetText(" scrapers enabled changed to " pgscraper "")
+	}
 return
 PegasusFECHKD:
 gui,submit,nohide
@@ -55168,6 +55259,28 @@ if (FECHKD = 1)
 		pgfullscreen= true
 	}
 iniwrite,%pgfullscreen%,PGcfg.ini,CONFIG,fullscreen
+ifnotexist,%pghome%\settings.txt
+	{
+		SB_SetText("configuration must be created")
+		return
+	}
+fileread,pgcfgf,%pghome%\settings.txt
+filedelete,%pghome%\settings.txt
+Loop,parse,pgcfgf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,fez,A_LoopField,:
+		if (fez1 = "general.fullscreen")
+			{
+				fileappend,%fez1%: %pgfullscreen%`n,%pghome%\settings.txt
+				continue
+			}
+		fileappend,%A_LoopField%`n,%pghome%\settings.txt
+		SB_SetText(" fullscreen changed to " pgfullscreen "")
+	}
 return
 PegasusFECHKF:
 gui,submit,nohide
@@ -55177,6 +55290,38 @@ if (FECHKF = 1)
 		pgaltsrcs= true
 	}
 iniwrite,%pgaltsrcs%,PGcfg.ini,CONFIG,DetectPlaylists
+ifnotexist,%pghome%\settings.txt
+	{
+		SB_SetText("configuration must be created")
+		return
+	}
+fileread,pgcfgf,%pghome%\settings.txt
+filedelete,%pghome%\settings.txt
+Loop,parse,pgcfgf,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,fez,A_LoopField,:
+		if (fez1 = "providers.gog.enabled")
+			{
+				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				continue
+			}
+		if (fez1 = "providers.steam.enabled")
+			{
+				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				continue
+			}
+		if (fez1 = "providers.es2.enabled")
+			{
+				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				continue
+			}
+		fileappend,%A_LoopField%`n,%pghome%\settings.txt
+		SB_SetText(" detect playlists changed to " pgaltsrcs "")
+	}
 return
 PegasusFERAD2B:
 return
