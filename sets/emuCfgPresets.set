@@ -2916,6 +2916,57 @@ SUPCORE=mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|m
 LNCHPRM=$|0|0|0|0|0
 FENAM=arcade
 RJROMXT=,.zip,.chd,.7z,.cmd
+FEPARAM=[ROMNAME]
+
+[FB Alpha - Arcade Games]
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=0
+NICEFLD=1
+RJPATH=0
+RJRUNDIR=0
+RJEXT=0
+RJEXTRARC=0
+RJARCLOC=0
+RJROMINJ=%ROM%
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1
+PEREMUCFG=1
+RJZIPPEEK=0
+RJLNCHP=0
+SHORTNM=FBALPHA
+SUPEMU=FBNeo|FinalBurnalpha|mame_arcade|MAME|calice|ace|zinc
+SUPCORE=mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+LNCHPRM=$|0|0|0|0|0
+FENAM=fbalpha
+RJROMXT=,.zip,.chd,.7z,.cmd
+FEPARAM=[ROMNAME]
+
+[Konami - System 573 Satellite Terminal]
+RJEMUARGS=<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
+RJPRECFG=copy /Y "mame.ini" "%EMUL%\mame.ini"|copy /y "default.cfg" "%EMUL%\ctrlr"
+RJPOSTCFG=copy /Y "%EMUL%\mame.ini" "%GAMDIR%"|copy /y "%EMUL%\ctrlr\default.cfg" "%GAMDIR%"
+RJQUOTES=0
+NICEFLD=1
+RJPATH=0
+RJRUNDIR=0
+RJEXT=0
+RJEXTRARC=0
+RJARCLOC=0
+RJROMINJ=%ROM%
+RJCONSOLID=Individuate
+RJSUBDS=.cheats:1|.patches:1|.snaps:1|.sstates:1|.Man:1|.Mem:1|.cfg:1|.ctrl:1|.hi:1|.ini:1|.inp:1
+PEREMUCFG=1
+RJZIPPEEK=0
+RJLNCHP=0
+SHORTNM=KS573
+SUPEMU=mame_arcade|MAME|FBNeo|FinalBurnalpha|calice|ace|zinc
+SUPCORE=mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
+LNCHPRM=$|0|0|0|0|0
+FENAM=system573s
+RJROMXT=,.zip,.chd,.7z,.cmd
+FEPARAM=[ROMNAME]
 
 [MAME - System]
 RJEMUARGS=<-rp "[EMUPATH]\roms"|<-rp "[ROMPATH]"|<-rp "[EMUPATH]\roms"|<
@@ -2933,6 +2984,8 @@ RJEXTRARC=0
 PEREMUCFG=1
 RJZIPPEEK=1
 RJLNCHP=0
+FEPARAM=>[ROMPATH]>
+FENAM=mess
 
 [APF - Imagination Machine]
 RJEMUPRESET=MAME
@@ -2944,6 +2997,8 @@ SHORTNM=APFIMG
 SUPEMU=virtualapf|apemuw|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=imaginationmachine
 
 [Acorn - Archimedes]
 RJEMUPRESET=Arculator
@@ -2957,6 +3012,7 @@ SUPEMU=Arculator|rpcemu|redsquirrel|ArcEM
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=archimedes
+FEPARAM=>[ROMPATH]>
 
 [Acorn - BBC]
 RJEMUPRESET=BeebEm
@@ -2969,6 +3025,7 @@ SUPEMU=BeebEm|bem|modelb|Horizon|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=bbcmicro
+FEPARAM=>[ROMPATH]>
 
 [Acorn - Electron]
 RJEMUPRESET=ElecEM
@@ -2981,6 +3038,7 @@ SUPEMU=ElectrEM|elk|elkulator|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=electron
+FEPARAM=>[ROMPATH]>
 
 [Adobe - Flash]
 RJEMUPRESET=FlashRun
@@ -2990,6 +3048,7 @@ SUPEMU=FlashRun|SWFOpener|FlashPlayer
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=flash
+FEPARAM=>[ROMPATH]>
 
 [Amstrad - CPC]
 RJEMUPRESET=WinApe
@@ -3004,6 +3063,7 @@ SUPEMU=WinApe|arnold|Arnimedes|caprice|no$cpc|cpce|javacpc|sugarbox|wincpc|MAME
 SUPCORE=crocods_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=amstradcpc
+FEPARAM=>[ROMPATH]>
 
 [Amstrad - GX4000]
 RJEMUPRESET=WinApe
@@ -3016,6 +3076,8 @@ SHORTNM=AMGX4K
 SUPEMU=MAME|WinApe
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gx4000
 
 [Apple - IIe]
 RJEMUPRESET=AppleWin
@@ -3028,6 +3090,7 @@ SUPEMU=AppleWin|Bizhawk|virtu|aipc|gsport|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=apple2
+FEPARAM=>[ROMPATH]>
 
 [Apple - II]
 RJEMUPRESET=MAME
@@ -3039,6 +3102,8 @@ SHORTNM=APLII
 SUPEMU=agat|aipc|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=appleii
 
 [Apple - IIgs]
 RJEMUPRESET=Kegs32
@@ -3052,6 +3117,7 @@ SUPEMU=ActiveGS|Kegs32|kegs|gsport|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=apple2gs
+FEPARAM=>[ROMPATH]>
 
 [Apple - Macintosh]
 RJEMUPRESET=MAME
@@ -3063,6 +3129,8 @@ SHORTNM=APLMAC
 SUPEMU=pcemacplus|minivmac|gemulator|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mac
 
 [Atari - 2600]
 RJEMUPRESET=Stella
@@ -3074,6 +3142,7 @@ SUPEMU=Stella|no$2k6|z26|MAME
 SUPCORE=stella_libretro.dll|
 LNCHPRM=$|1|1|1|1|0
 FENAM=atari2600
+FEPARAM=>[ROMPATH]>
 
 [Atari - 5200]
 RJEMUPRESET=Altirra
@@ -3087,6 +3156,7 @@ SUPEMU=Altirra|atari++|Atari800winplus|kat5200|rainbow|jum52|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atari5200
+FEPARAM=>[ROMPATH]>
 
 [Atari - 7800]
 RJEMUPRESET=prosystem
@@ -3100,6 +3170,7 @@ SUPEMU=prosystem|bliss|emu7800|Bizhawk|MAME
 SUPCORE=prosystem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atari7800
+FEPARAM=>[ROMPATH]>
 
 [Atari - 800]
 RJEMUPRESET=Altirra
@@ -3113,6 +3184,7 @@ SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
 SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atari800
+FEPARAM=>[ROMPATH]>
 
 [Atari - 800 - PAL]
 RJMULTIDISC=1
@@ -3124,6 +3196,7 @@ SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
 SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atari800p
+FEPARAM=>[ROMPATH]>
 
 [Atari - 8Bit]
 RJEMUPRESET=Altirra
@@ -3136,6 +3209,8 @@ SHORTNM=AT8B
 SUPEMU=Altirra|Atari800|atari++|Atari800winplus|rainbow|gemulator|MAME
 SUPCORE=atari800_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=atari8bit
 
 [Atari - Jaguar CD]
 RJEMUPRESET=ProjectTempest
@@ -3148,6 +3223,7 @@ SUPEMU=ProjectTempest|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atarijaguarcd
+FEPARAM=>[ROMPATH]>
 
 [Atari - Jaguar]
 RJEMUPRESET=virtualJaguar
@@ -3160,6 +3236,7 @@ SUPEMU=virtualJaguar|jagulator|projecttempest|MAME
 SUPCORE=virtualjaguar_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atarijaguar
+FEPARAM=>[ROMPATH]>
 
 [Atari - Lynx]
 RJEMUPRESET=Mednafen
@@ -3173,6 +3250,7 @@ SUPEMU=Mednafen|Bizhawk|MAME
 SUPCORE=mednafen_lynx_libretro.dll|handy_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=atarilynx
+FEPARAM=>[ROMPATH]>
 
 [Atari - ST]
 RJEMUPRESET=STeem
@@ -3185,6 +3263,7 @@ SUPEMU=STeem|hatari|gemulator|sainT|MAME
 SUPCORE=hatari_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atarist
+FEPARAM=>[ROMPATH]>
 
 [Atari - XE]
 RJEMUPRESET=Altirra
@@ -3198,6 +3277,7 @@ SUPEMU=Altirra|atari++|Atari800winplus|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=atarixe
+FEPARAM=>[ROMPATH]>
 
 [Bally - Astrocade]
 RJEMUPRESET=MAME
@@ -3209,6 +3289,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=astrocade
+FEPARAM=>[ROMPATH]>
 
 [Bandai - WonderSwan Color]
 RJEMUPRESET=Mednafen
@@ -3222,6 +3303,7 @@ SUPEMU=Mednafen|oswan|Bizhawk|xe|bws|MAME|byuu
 SUPCORE=mednafen_wswan_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wonderswancolor
+FEPARAM=>[ROMPATH]>
 
 [Bandai - WonderSwan]
 RJEMUPRESET=Mednafen
@@ -3235,6 +3317,7 @@ SUPEMU=Mednafen|oswan|Bizhawk|bws|xe|MAME|byuu
 SUPCORE=mednafen_wswan_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wonderswan
+FEPARAM=>[ROMPATH]>
 
 [BIOS - BIOS]
 RJEMUPRESET=MAME
@@ -3254,6 +3337,8 @@ SHORTNM=CAMPLYNX
 SUPEMU=jynx|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=camputerlynx
 
 [Capcom Play System - CPS III]
 RJEMUPRESET=cps3emulator
@@ -3267,6 +3352,7 @@ SUPEMU=FinalBurnAlpha|FBNeo|cps3emulator|mame_arcade|MAME
 SUPCORE=fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=cps3
+FEPARAM=[ROMNAME]
 
 [Capcom Play System - CPS II]
 RJEMUPRESET=FinalBurnAlpha
@@ -3280,6 +3366,7 @@ SUPEMU=FinalBurnalpha|FBNeo|ace|nebula|WinKawaks|mame_arcade|MAME
 SUPCORE=fbalpha2012_cps2_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=cps2
+FEPARAM=[ROMNAME]
 
 [Capcom Play System - CPS]
 RJEMUPRESET=FinalBurnAlpha
@@ -3294,6 +3381,7 @@ SUPEMU=FinalBurnalpha|FBNeo|callus|WinKawaks|ace|nebula|mame_arcade|MAME
 SUPCORE=fbalpha2012_cps1_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=cps1
+FEPARAM=[ROMNAME]
 
 [Casio - Loopy]
 RJEMUPRESET=MAME
@@ -3307,6 +3395,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=loopy
+FEPARAM=>[ROMPATH]>
 
 [Casio - PB-1000]
 RJEMUPRESET=MAME
@@ -3320,6 +3409,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=pb1000
+FEPARAM=>[ROMPATH]>
 
 [Casio - PV-1000]
 RJEMUPRESET=MAME
@@ -3333,6 +3423,7 @@ SUPEMU=pv1000|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=pv1000
+FEPARAM=>[ROMPATH]>
 
 [Casio - PV-2000]
 RJEMUPRESET=MAME
@@ -3343,6 +3434,8 @@ SHORTNM=CASPV2K
 SUPEMU=pv2000|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pv2000
 
 [Cave Systems - Cave]
 RJEMUOPTS=<[RJMAMENM] -[MAMEMEDIA]<
@@ -3359,6 +3452,7 @@ SUPEMU=MAME
 SUPCORE=fbalpha_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=cave
+FEPARAM=[ROMNAME]
 
 [Coleco - ADAM]
 RJEMUPRESET=MAME
@@ -3368,6 +3462,8 @@ SHORTNM=COLADAM
 SUPEMU=adamemu|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=colecoadam
 
 [Coleco - ColecoVision]
 RJEMUPRESET=BlueMSX
@@ -3380,6 +3476,7 @@ SUPEMU=BlueMSX|dsp|colecovision|colem|meka|koleko|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=colecovision
+FEPARAM=>[ROMPATH]>
 
 [Commodore - 64]
 RJEMUPRESET=WinVICE
@@ -3393,6 +3490,7 @@ SUPEMU=WinVICE|ccs64|no$c64|comeback64|dream64|emu64|hoxs64|vb64|frodo|hyper64|v
 SUPCORE=vice_x64_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=c64
+FEPARAM=>[ROMPATH]>
 
 [Commodore - Amiga CD32]
 RJEMUPRESET=WinVICE
@@ -3404,6 +3502,7 @@ SUPEMU=FS-UAE|WinUAE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=amigacd32
+FEPARAM=>[ROMPATH]>
 
 [Commodore - Amiga CDTV]
 RJEMUPRESET=FS-UAE
@@ -3414,6 +3513,7 @@ SUPEMU=FS-UAE|WinUAE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=amigacdtv
+FEPARAM=>[ROMPATH]>
 
 [Commodore - Amiga]
 RJEMUPRESET=FS-UAE
@@ -3426,6 +3526,7 @@ SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=amiga
+FEPARAM=>[ROMPATH]>
 
 [Commodore - Amiga 1000]
 RJEMUPRESET=FS-UAE
@@ -3437,6 +3538,8 @@ SHORTNM=AMIG1K
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=amiga1000
 
 [Commodore - Amiga 1200]
 RJEMUPRESET=FS-UAE
@@ -3448,6 +3551,8 @@ SHORTNM=AMIG12
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=amiga1200
 
 [Commodore - Amiga 2000]
 RJEMUPRESET=FS-UAE
@@ -3459,6 +3564,8 @@ SHORTNM=AMIG2K
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=amiga2000
 
 [Commodore - Amiga 3000]
 RJEMUPRESET=FS-UAE
@@ -3470,6 +3577,8 @@ SHORTNM=AMIG3K
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=amiga3000
 
 [Commodore - C16]
 RJEMUPRESET=WinVICE
@@ -3481,6 +3590,8 @@ SHORTNM=COMC16
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=c16
 
 [Commodore - PET]
 RJEMUPRESET=MAME
@@ -3492,6 +3603,8 @@ SHORTNM=COMPET
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=commodorepet
 
 [Commodore - VIC-20]
 RJEMUPRESET=WinVICE
@@ -3504,6 +3617,8 @@ RJROMXT=.wav,.tap,.d64,.g64,.g41,.d77,.d88,.1dd,.dfi,.imd,.ipf,.mfi,.mfm,.td0,.c
 MAME?RJEMUOPTS=<vic20 -[RJRTYP]<|<vic20 -cass<|<vic20 -cart<|<vic20 -flop<
 SUPCORE=vice_xvic_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vic20
 
 [DGS - Dragon 32-64]
 RJEMUPRESET=MAME
@@ -3514,6 +3629,8 @@ SHORTNM=DGSDRAG
 SUPEMU=xroar|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=rainbow100
 
 [Microsoft - DOS]
 RJEMUPRESET=DOSBox-X
@@ -3525,6 +3642,7 @@ SUPCORE=dosbox_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=dos
 cmdfun= 1
+FEPARAM=>[ROMPATH]>
 
 [Emerson - Arcadia 2001]
 RJEMUPRESET=WinArcadia
@@ -3534,6 +3652,7 @@ SUPEMU=WinArcadia|tunix
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=arcadia
+FEPARAM=>[ROMPATH]>
 
 [Enterprise - 128]
 RJEMUPRESET=MAME
@@ -3545,6 +3664,8 @@ SHORTNM=ENT128
 SUPEMU=ep32|MAME|enter|ep128emu
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=enterprise128
 
 [Enterprise - 64]
 RJEMUPRESET=MAME
@@ -3557,6 +3678,7 @@ SUPEMU=ep32|MAME|enter|ep128emu
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=e64
+FEPARAM=>[ROMPATH]>
 
 [Entex - Adventure Vision]
 RJEMUPRESET=MAME
@@ -3569,6 +3691,8 @@ SHORTNM=EADVV
 SUPEMU=AdviEmulator|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=adventurevision
 
 [Epoch - Super Cassette Vision]
 RJEMUPRESET=MAME
@@ -3582,6 +3706,7 @@ SUPEMU=scv|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=scv
+FEPARAM=>[ROMPATH]>
 
 [Fairchild - Channel F]
 RJEMUPRESET=MAME
@@ -3595,6 +3720,7 @@ SUPEMU=MAME
 SUPCORE=freechaf_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=channelf
+FEPARAM=>[ROMPATH]>
 
 [Fujitsu - FM-7]
 RJEMUPRESET=XM7
@@ -3606,6 +3732,8 @@ SHORTNM=FFM7
 SUPEMU=fm7|fm77|XM7
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=fm7
 
 [Funtech - Super Acan]
 RJEMUPRESET=MAME
@@ -3618,6 +3746,7 @@ SUPEMU=MAMEx
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=acan
+FEPARAM=>[ROMPATH]>
 
 [GCE - Vectrex]
 RJEMUPRESET=ParaJVE
@@ -3630,6 +3759,7 @@ SUPEMU=ParaJVE|vecxgl|infovectrex
 SUPCORE=vecx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=vectrex
+FEPARAM=>[ROMPATH]>
 
 [Galeco - Galeco]
 RJEMUPRESET=Demul
@@ -3641,6 +3771,7 @@ SUPEMU=Demul|mame_arcade|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=galeco
+FEPARAM=[ROMNAME]
 
 [Hartung - Game Master]
 RJEMUPRESET=MAME
@@ -3652,6 +3783,8 @@ SHORTNM=HGAMMAS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gamemaster
 
 [Sega - Hikaru]
 RJEMUPRESET=Demul
@@ -3664,6 +3797,7 @@ SUPEMU=Demul|mame_arcade|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=hikaru
+FEPARAM=[ROMNAME]
 
 [IBM - PC Jr]
 RJEMUPRESET=MAME
@@ -3675,6 +3809,8 @@ SHORTNM=IPCJR
 SUPEMU=jr100|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ibmpcjr
 
 [Interon - VC4000]
 RJEMUPRESET=MAME
@@ -3686,6 +3822,8 @@ SHORTNM=IVC4K
 SUPEMU=tunix|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vc4000
 
 [Jupiter Cantab - Jupiter Ace]
 RJEMUPRESET=MAME
@@ -3696,6 +3834,8 @@ SHORTNM=JACE
 SUPEMU=vace|zesarux|vace3d|ACE32|eightyone|mzxx|zesarux|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=jupiterace
 
 [Konami]
 RJEMUPRESET=MAME - Arcade
@@ -3714,6 +3854,8 @@ RJZIPPEEK=1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=system573
 
 [Konami - System 573 Satelite Terminal]
 RJEMUPRESET=MAME - Arcade
@@ -3736,6 +3878,8 @@ RJZIPPEEK=1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bemani573a
 
 [Konami - Bemani System 573 Digital]
 RJEMUPRESET=MAME - Arcade
@@ -3747,6 +3891,8 @@ RJZIPPEEK=1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bemani573d
 
 [Leapfrog - Leapster Learning Game System]
 RJEMUPRESET=MAME
@@ -3755,6 +3901,8 @@ SUPEMU=MAME
 SHORTNM=LEAPLGS
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=learningGS
 
 [MGT - Sam Coupe]
 RJEMUPRESET=MAME
@@ -3767,6 +3915,7 @@ SUPEMU=simcoupe|speccy|zesarux|Ascd|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=samcoupe
+FEPARAM=>[ROMPATH]>
 
 
 [Magnavox - Odyssey2]
@@ -3780,6 +3929,7 @@ RJZIPPEEK=0
 SUPCORE=o2em_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=odyssey2
+FEPARAM=>[ROMPATH]>
 
 [Magnavox - Odyssey3]
 SHORTNM=MODYS3
@@ -3791,6 +3941,8 @@ SUPEMU=MAME|mame_libretro.dll
 SUPCORE=mame_libretro.dll
 RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=odyssey3
 
 [Magnavox - Odyssey]
 RJEMUPRESET=DOSBox-X
@@ -3798,6 +3950,8 @@ SHORTNM=MODYS
 SUPEMU=DOSBox-X|DOSBox
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=odyssey
 
 [Mattel - Aquarius]
 RJEMUPRESET=MAME
@@ -3809,6 +3963,7 @@ SUPEMU=Aqemu|vaquarius|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=aquarius
+FEPARAM=>[ROMPATH]>
 
 [Mattel - Intellivision]
 RJEMUPRESET=Nostalgia
@@ -3821,6 +3976,7 @@ SUPEMU=Nostalgia|jzintv|MAME
 SUPCORE=freeintv_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=intellivision
+FEPARAM=>[ROMPATH]>
 
 [Creatronic - Mega Duck]
 SHORTNM=MEGADUCK
@@ -3832,6 +3988,8 @@ RJROMXT=.bin,.zip
 MAME?RJEMUOPTS=<megaduck -cart<
 RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=megaduck
 
 [Memotech - MTX]
 RJEMUPRESET=MAME
@@ -3844,18 +4002,21 @@ SUPEMU=mtxemu|MAME|mame_libretro.dll
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=mtx
+FEPARAM=>[ROMPATH]>
 
-[Microsoft - MSX TurboR]
+[Microsoft - MSX Turbo]
 RJEMUPRESET=BlueMSX
 RJMAMENM=fsa1st
 RJMULTIDISC=1
 BlueMSX?RJEMUOPTS=</fullscreen /machine "MSXturboR" /[RJRTYP]<</fullscreen /machine "MSXturboR" /rom1<|</machine "MSXturboR" /rom1zip<|</fullscreen /machine "MSXturboR" /rom1zip<|</machine "MSXturboR" /diskA<|</fullscreen /machine "MSXturboR" /diskA<|</machine "MSXturboR" /cas<|</fullscreen /machine "MSXturboR" /cas<|</machine "MSXturboR" /caszip<|</fullscreen /machine "MSXturboR" /caszip<|</machine "MSXturboR" /rom1<
 RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
 MAME?RJEMUOPTS=<fsa1st -[RJRTYP]<|<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
-SHORTNM=LLGSYS
+SHORTNM=MSXR
 SUPEMU=BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr
 SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=msxr
 
 [Microsoft - MSX2]
 RJEMUPRESET=BlueMSX
@@ -3869,6 +4030,7 @@ SUPEMU=BlueMSX|msx2|no$msx|MAME|openMSX|fmsx|nlmsx|EMU|byuu
 SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=msx2
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - MSX2+]
 RJEMUPRESET=BlueMSX
@@ -3883,6 +4045,7 @@ SUPEMU=BlueMSX|msx2p|no$msx|MAME|fmsx|nlmsx|openMSX
 SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=msx2p
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - MSX]
 RJEMUPRESET=BlueMSX
@@ -3896,6 +4059,7 @@ SUPEMU=BlueMSX|msx1|no$msx|MAME|fmsx|finalburnalpha|FBNeo|vdmgr|nlmsx|Xspeccy|op
 SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=msx
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - XBOX 360]
 RJEMUPRESET=Xenia
@@ -3905,6 +4069,7 @@ SUPEMU=Xenia
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=xbox360
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - XBOX ONE]
 RJEMUPRESET=Xerg
@@ -3914,6 +4079,7 @@ SUPEMU=Xerg
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=XBONE
+FEPARAM=>[ROMPATH]>
 
 [eBooks - PDFs - Texts]
 RJEMUPRESET=mupdf
@@ -3924,6 +4090,7 @@ RJROMXT=.pdf,.epub,.fdf,.xfdf,.xdp,.ppdf
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=ebook
+FEPARAM=>[ROMPATH]>
 
 [Video - Media]
 RJEMUPRESET=videoplayer
@@ -3934,6 +4101,7 @@ RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v,.f4v,.f4f,.3gp,.
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=videoplayer
+FEPARAM=>[ROMPATH]>
 
 [Television - Series]
 RJEMUPRESET=videoplayer
@@ -3944,6 +4112,7 @@ RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=videoplayer
+FEPARAM=>[ROMPATH]>
 
 [Movies - Films]
 RJEMUPRESET=videoplayer
@@ -3954,6 +4123,7 @@ RJROMXT=.avi,.mkv,.mp4,.mpeg,.mpg,.wmv,.iso,.cue,.mov,.mpv,.m4v
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=videoplayer
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - XBOX]
 RJEMUPRESET=Cxbx
@@ -3962,6 +4132,8 @@ SHORTNM=MSXBOX
 SUPEMU=Cxbx|cxbxreloaded|xqemu
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=xbox
 
 [Sega - Chihiro]
 RJEMUPRESET=Cxbx
@@ -3970,6 +4142,8 @@ SHORTNM=SEGCHI
 SUPEMU=Cxbx|cxbxreloaded|xqemu
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=chihiro
 
 [Fujitsu - FM Towns]
 RJEMUPRESET=UNZ
@@ -3983,6 +4157,7 @@ SUPEMU=UNZ|xe|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|1
 FENAM=fmtowns
+FEPARAM=>[ROMPATH]>
 
 [NEC - PC Engine SuperGrafx]
 RJEMUPRESET=Mednafen
@@ -3995,6 +4170,7 @@ SUPEMU=Mednafen|Ootake|pcengine|turboengine|finalburnalpha|BizHawk|MAME|byuu
 SUPCORE=mednafen_supergrafx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=supergrafx
+FEPARAM=>[ROMPATH]>
 
 [NEC - PC Engine - TurboGrafx 16]
 RJEMUPRESET=Mednafen
@@ -4008,6 +4184,7 @@ SUPEMU=Mednafen|hu6280|Ootake|pcengine|fbneo|turboengine|xe|pcejin|BizHawk|hu628
 SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=pcengine
+FEPARAM=>[ROMPATH]>
 
 [NEC - PC Engine - JAP]
 RJEMUPRESET=Mednafen
@@ -4019,6 +4196,8 @@ SHORTNM=PCENJ
 SUPEMU=Mednafen|Ootake|pcengine|hu6280|turboengine|pcejin|hu6280|xe|BizHawk|magicengine|hugo|MAME|byuu
 SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pcengine
 
 [NEC - PC Engine CD - TurboGrafx CD]
 RJEMUPRESET=Mednafen
@@ -4033,6 +4212,7 @@ SUPEMU=hu6280|Mednafen|Ootake|pcengine|turboengine|xe|pcejin|BizHawk|hu6280|magi
 SUPCORE=mednafen_pce_fast_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=tgcd
+FEPARAM=>[ROMPATH]>
 
 [NEC - PC-6001]
 RJEMUPRESET=MAME
@@ -4045,6 +4225,8 @@ SHORTNM=NPC6K1
 SUPEMU=pc6001|pc6601|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc6001
 
 [NEC - PC-FX]
 RJEMUPRESET=Mednafen
@@ -4058,6 +4240,7 @@ SUPEMU=Mednafen|xe
 SUPCORE=mednafen_pcfx_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=pcfx
+FEPARAM=>[ROMPATH]>
 
 [NEC - PC88]
 RJEMUPRESET=m88
@@ -4071,6 +4254,8 @@ SHORTNM=NPC88
 SUPEMU=m88|mx88|xm8|W88|vaeg|MAME|Neko
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc88
 
 [NEC - PC88-VA]
 RJEMUPRESET=m88
@@ -4084,6 +4269,8 @@ SHORTNM=NPC88A
 SUPEMU=m88|mx88|xm8|W88|vaeg|MAME|Neko
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc88va
 
 [NEC - PC8801]
 RJEMUPRESET=m88
@@ -4095,6 +4282,8 @@ SHORTNM=PC8801
 SUPEMU=m88|mx88|xm8|W88|vaeg|MAME|Neko
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc8801
 
 
 [NEC - PC9821]
@@ -4107,6 +4296,8 @@ SHORTNM=NPC98
 SUPEMU=Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME
 SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll
 SHORTNM=NPC9821
+FEPARAM=>[ROMPATH]>
+FENAM=pc9821
 
 [NEC - PC98]
 RJEMUPRESET=Neko
@@ -4118,6 +4309,8 @@ SHORTNM=NPC98
 SUPEMU=Neko|vaeg|Anex86|SL9821|pc98do|pc98ha|pc98lt|pc9801|MAME
 SUPCORE=np2kai_libretro.dll|nekop2_libretro.dll
 LNCHPRM=$|1|0|1|1|1
+FEPARAM=>[ROMPATH]>
+FENAM=pc98
 
 [Nintendo - Nintendo 64DD]
 RJEMUPRESET=Project64
@@ -4128,6 +4321,8 @@ SHORTNM=N64DD
 SUPEMU=Project64|Project64k|Mupen64Plus|Mupen64PlusPlus|MAME
 SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=n64dd
 
 [Nintendo - Nintendo 64]
 RJEMUPRESET=Project64
@@ -4140,6 +4335,7 @@ SUPEMU=Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME
 SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=n64
+FEPARAM=>[ROMPATH]>
 
 [iQue - iQue]
 RJEMUPRESET=Project64
@@ -4152,6 +4348,7 @@ SUPEMU=Project64|Project64k|Apollo|1964|Mupen64Plus|Mupen64PlusPlus|BizHawk|MAME
 SUPCORE=parallel_n64_libretro.dll|mupen64_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=ique
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - New Nintendo 3DS]
 RJEMUPRESET=Citra
@@ -4162,6 +4359,7 @@ SUPEMU=Citra|vvctre|tronds
 SUPCORE=citra_libretro.dll|citra_canary_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3ds
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Nintendo 3DS]
 RJEMUPRESET=Citra
@@ -4172,6 +4370,7 @@ SUPEMU=Citra|vvctre|tronds
 SUPCORE=citra_libretro.dll|citra_canary_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3ds
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Nintendo DSi]
 RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
@@ -4181,6 +4380,7 @@ SUPEMU=Melonds|Desmume|ideas|No$GBA|medusa|noods
 SUPCORE=desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=ndsi
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Nintendo DS]
 RJROMXT=.zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl,.bin
@@ -4190,6 +4390,7 @@ SUPEMU=Desmume|ideas|No$GBA|medusa|melonds|noods
 SUPCORE=desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nds
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Nintendo DS Decrypted]
 RJROMXT= .zip,.nds,.ds,.7z,.gz,.rar,.gba,.srl
@@ -4198,6 +4399,8 @@ SHORTNM=NNDSD
 SUPEMU=Desmume|medusa|melonds|gbeplus|No$GBA|noods
 SUPCORE=desmume_libretro.dll|desmume2012_libtro.dll|melonds_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ndsdecrypted
 
 [Nintendo - Nintendo Entertainment System]
 RJEMUPRESET=nestopia
@@ -4211,6 +4414,7 @@ SUPEMU=nestopia|virtuanes|rocknes|virtuanesplus|Mesen|Mednafen|dsp|xe|aprnes|Biz
 SUPCORE=nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nes
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Famicom]
 RJEMUPRESET=nestopia
@@ -4225,6 +4429,7 @@ SUPEMU=nestopia|Mednafen|Mesen|xe|fceux|dsp|vdmgr|BizHawk|kindred|MAME|byuu
 SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=fds
+FEPARAM=>[ROMPATH]>
 
 [Fukutake Publishing - StudyBox]
 RJEMUPRESET=nestopia
@@ -4238,6 +4443,7 @@ SUPEMU=nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|
 SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=fpsbx
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Family Computer Disk System]
 RJEMUPRESET=nestopia
@@ -4251,6 +4457,7 @@ SUPEMU=nestopia|virtuanes|xe|virtuanesplus|Mesen|BizHawk|no$nes|dsp|fceux|vdmgr|
 SUPCORE=fceumm_libretro.dll|nestopia_libretro.dll|quicknes_libretro.dll|bnes_libretro.dll|mesen_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=nfds
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - e-Reader]
 RJEMUPRESET=VisualBoyAdvance-M
@@ -4264,6 +4471,7 @@ LNCHPRM=$|1|1|1|1|0
 SUPEMU=VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb|mgba|no$gba|gbeplus|vgba|rascalboyadv|MAME|byuu
 SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll
 FENAM=gbaE
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Game Boy Advance]
 RJEMUPRESET=VisualBoyAdvance-M
@@ -4277,6 +4485,7 @@ SUPEMU=VisualBoyAdvance-M|VisualBoyAdvance|xe|Mednafen|BizHawk|boycottadv|firegb
 SUPCORE=vbam_libretro.dll|mgba_libretro.dll|vba_next_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gba
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Game Boy Color]
 RJEMUPRESET=bgb
@@ -4290,6 +4499,7 @@ SUPEMU=bgb|mgba|dinoboy|no$gmb|tgbdual|gbeplus|mednafen|xe|vgb|kigb|BizHawk|same
 SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gbc
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Game Boy]
 RJEMUPRESET=bgb
@@ -4303,6 +4513,7 @@ SUPEMU=bgb|Mednafen|zboy|mgba|dinoboy|dmgboy|no$gmb|kindred|BizHawk|xe|vgb|dsp|t
 SUPCORE=gambatte_libretro.dll|sameboy_libretro.dll|mgba_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gb
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - GameCube]
 RJEMUPRESET=Dolphin
@@ -4314,6 +4525,7 @@ SUPEMU=Dolphin|ishiiruka|supergamecube|ideas
 SUPCORE=dolphin_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gc
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Satellaview]
 RJEMUPRESET=snes9x
@@ -4325,6 +4537,8 @@ SHORTNM=NNSAT
 SUPEMU=snes9x|snes9k|MAME
 SUPCORE=bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=satellaview
 
 [Nintendo - Virtual Boy]
 RJEMUPRESET=Mednafen
@@ -4338,6 +4552,7 @@ SUPEMU=Mednafen|realityboy|vbjin|retroarch|MAME
 SUPCORE=mednafen_vb_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=virtualboy
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - WiiU]
 RJEMUPRESET=CEMU
@@ -4347,6 +4562,7 @@ SUPEMU=CEMU|decaf
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
 FENAM=wiiu
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - WiiWare]
 RJEMUPRESET=Dolphin
@@ -4359,8 +4575,9 @@ SUPEMU=Dolphin|ishiiruka
 SUPCORE=dolphin_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wiiw
+FEPARAM=>[ROMPATH]>
 
-[[Nintendo - Kiosk Compact Flash]
+[Nintendo - Kiosk Compact Flash]
 RJEMUPRESET=Dolphin
 RJPRECFG=copy /Y "gfx*.ini" "%EMUL%\User\Config"|copy /Y "Dolphin.ini" "%EMUL%\User\Config"|copy /Y "Hotkeys.ini" "%EMUL%\User\Config"|copy /Y "*New.ini" "%EMUL%\User\Config"|for /f "delims=" %%a in ('type "shad.ini"') do copy /y "%%~a" "%EMUL%\user\load\ShaderPresets"|move /Y ".sstates\*.*" "%EMUL%\User\StateSaves"|copy /Y ".Mem\*.*" "%EMUL%\User\Wii"
 RJPOSTCFG=copy /Y "%EMUL%\User\Config\*New.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Hotkeys.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\GCPad.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\gfx*.ini" "%GAMDIR%"|copy /Y "%EMUL%\User\Config\Dolphin.ini" "%GAMDIR%"|move /Y "%EMUL%\User\StateSaves\*.*" "%GAMDIR%\.sstates"|move /Y "%EMUL%\User\Wii\*.*" "%GAMDIR%\.Mem"|for /f "delims=" %%a in ('type "shad.ini"') do move /Y "%EMUL%\User\load\ShaderPresets\%%~a" "%GAMDIR%"
@@ -4383,6 +4600,7 @@ SUPEMU=Dolphin|ishiiruka|Dolwin
 SUPCORE=dolphin_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=wii
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Pokemon Mini]
 RJEMUPRESET=MAME
@@ -4394,6 +4612,8 @@ SHORTNM=NPOK
 SUPEMU=minimon|pokemini|MAME
 SUPCORE=pokemini_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pokemonmini
 
 [Nintendo - Super Famicom]
 RJEMUPRESET=snes9x
@@ -4406,6 +4626,7 @@ SUPEMU=snes9x|mesen-s|snes9k|bsnes|Mednafen|xe|MAME|BizHawk|kindred|neusnem|zmz|
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=sfam
+FEPARAM=>[ROMPATH]>
 
 [Nintendo - Super Game Boy]
 RJEMUPRESET=bgb
@@ -4418,6 +4639,8 @@ SHORTNM=NSGB
 SUPEMU=Visualboyadvance-M|Visualboyadvance|bgb|kigb|gest|mgba|tgbdual|BizHawk|MAME|byuu
 SUPCORE=higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|bsnes_balanced_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_accuracy_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=supergameboy
 
 [Nintendo - Super Nintendo Entertainment System]
 RJEMUPRESET=snes9x
@@ -4431,6 +4654,7 @@ SUPEMU=snes9x|mesen-s|snes9k|bsnes|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll|mesen-s_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=snes
+FEPARAM=>[ROMPATH]>
 
 [Nokia - N-Gage]
 RJEMUPRESET=MAME
@@ -4438,6 +4662,8 @@ SHORTNM=NNGAGE
 SUPEMU=EKA2L1
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|1
+FEPARAM=>[ROMPATH]>
+FENAM=ngage
 
 [Philips - CD-I]
 RJEMUPRESET=MAME
@@ -4450,6 +4676,7 @@ SUPEMU=wcdi|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=cdi
+FEPARAM=>[ROMPATH]>
 
 [Philips - P2000]
 RJEMUPRESET=MAME
@@ -4462,6 +4689,8 @@ SHORTNM=PPC2K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=p2000
 
 [Philips - VG-5000]
 RJEMUPRESET=MAME
@@ -4474,6 +4703,8 @@ SHORTNM=PVG5K
 SUPEMU=dcvg5k|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vg5000
 
 [Philips - Videopac+]
 RJEMUPRESET=MAME
@@ -4486,6 +4717,8 @@ SHORTNM=PVIDPAC
 SUPEMU=o2em|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=videopac
 
 [PopCap - PopCap]
 RJEMUPRESET=BSL
@@ -4494,18 +4727,24 @@ SHORTNM=POPCAP
 SUPEMU=BSL
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=popcap
 
 [RCA - CHIP 8]
 SHORTNM=RCACHP8
 SUPEMU=elf|FishNChips|sharpchip8|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=chip8
 
 [RCA - Superchip]
 SHORTNM=RCASUP
 SUPEMU=FishNChips|sharpchip8|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=superchip
 
 [RCA - Studio II]
 RJEMUPRESET=MAME
@@ -4518,6 +4757,8 @@ SHORTNM=RSTUDII
 SUPEMU=elf|FishNChips|sharpchip8|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=studio2
 
 [SNK - Neo Geo CD]
 RJEMUPRESET=NeoRaine
@@ -4530,6 +4771,8 @@ SHORTNM=SNEOCD
 SUPEMU=NeoRaine|neosdl|ncdz|xe|mame_arcade|MAME
 SUPCORE=neocd_libretro.dll|fbneo_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=neogeocd
 
 [SNK - Hyper Neo-Geo 64]
 RJEMUPRESET=MAME
@@ -4544,6 +4787,7 @@ SUPEMU=mame_arcade|MAME
 SUPCORE=mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=hyperneo
+FEPARAM=>[ROMPATH]>
 
 [SNK - Neo Geo AES]
 RJEMUPRESET=FinalBurnAlpha
@@ -4558,6 +4802,7 @@ SUPEMU=FinalBurnAlpha|FBNeo|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME
 SUPCORE=fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=neogeoaes
+FEPARAM=>[ROMPATH]>
 
 [SNK - Neo Geo MVS]
 RJEMUPRESET=FinalBurnAlpha
@@ -4572,6 +4817,7 @@ SUPEMU=FinalBurnAlpha|FBNeo|xe|WinKawaks|aes4all|nebula|ngae|mame_arcade|MAME
 SUPCORE=fbalpha2012_neogeo_libretro.dll|fbalpha2012_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|fbalpha_libretro.dll|mame2014_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=neogeo
+FEPARAM=[ROMNAME]
 
 [SNK - Neo Geo Pocket Color]
 RJEMUPRESET=Mednafen
@@ -4585,6 +4831,7 @@ SUPEMU=Mednafen|koyote|race|neopopcott|neopop|MAME|byuu
 SUPCORE=mednafen_ngp_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=ngpc
+FEPARAM=>[ROMPATH]>
 
 [SNK - Neo Geo Pocket]
 RJEMUPRESET=Mednafen
@@ -4599,10 +4846,13 @@ SUPEMU=Mednafen|neopop|koyote|neopopcott|xe|vdmgr|MAME|byuu
 SUPCORE=mednafen_ngp_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=ngp
+FEPARAM=>[ROMPATH]>
 
 [ZAPiT Games - Game Wave Family Entertainment System]
 LNCHPRM=$|1|1|0|1|0
 SHORTNM=ZPGAMW
+FEPARAM=>[ROMPATH]>
+FENAM=zapitgamewave
 
 [Sammy - Atomiswave]
 RJEMUPRESET=Demul
@@ -4622,6 +4872,7 @@ SUPEMU=Demul|mame_arcade
 SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=atomiswave
+FEPARAM=[ROMNAME]
 
 [ScummVM - ScummVM]
 RJEMUPRESET=ScummVM
@@ -4630,6 +4881,8 @@ SUPEMU=ScummVM
 SUPCORE=scummvm_libretro.dll
 LNCHPRM=$|1|1|0|1|1
 cmdfun= 1
+FEPARAM=>[ROMPATH]>
+FENAM=scummvm
 
 [Sega - SC-3000]
 RJEMUPRESET=MAME
@@ -4642,6 +4895,7 @@ SUPEMU=meka|sc3000|regen|vdmgr|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=sc-3000
+FEPARAM=>[ROMPATH]>
 
 [Sega - SF-7000]
 RJEMUPRESET=MAME
@@ -4653,6 +4907,8 @@ SHORTNM=SSF7K
 SUPEMU=meka|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sf-7000
 
 [Sega - SG-1000]
 RJEMUPRESET=Fusion
@@ -4667,6 +4923,7 @@ SUPEMU=Fusion|meka|regen|twombit|coolcv|Bizhawk|BlueMSX|xe|vdmgr|cogwheel|MAME|b
 SUPCORE=genesis_plus_gx_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=sg-1000
+FEPARAM=>[ROMPATH]>
 
 [Ouya - Ouya]
 RJEMUPRESET=Nox
@@ -4675,6 +4932,8 @@ SHORTNM=ANDRD
 SUPEMU=Nox|Bluestacks
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ouya
 
 [Android - Android]
 RJEMUPRESET=Nox
@@ -4683,6 +4942,8 @@ SHORTNM=ANDRD
 SUPEMU=Nox|Bluestacks
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=android
 
 [EasyRPG - EasyRPG]
 RJEMUPRESET=easyrpg
@@ -4691,10 +4952,14 @@ SHORTNM=EZRPG
 SUPEMU=easyrpg
 SUPCORE=easyrpg_libretro.dll
 LNCHPRM=$|0|1|0|1|1
+FEPARAM=>[ROMPATH]>
+FENAM=easyrpg
 
 [Sega - STV]
 RJEMUPRESET=SSF
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=segastv
 
 [Streets Of Rage - Remake]
 RJEMUPRESET=StreetsOfRageRemake
@@ -4703,6 +4968,8 @@ SHORTNM=SORR
 SUPEMU=StreetsOfRageRemake
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FENAM=StreetsOfRageRemake
+FEPARAM=>[ROMPATH]>
 
 [Sega - Saturn]
 RJEMUPRESET=SSF
@@ -4719,6 +4986,7 @@ SUPEMU=SSF|Mednafen|kronos|Yabause|nova|BizHawk|MAME
 SUPCORE=mednafen_saturn_libretro.dll|yabause_libretro.dll|yabasanshiro_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=saturn
+FEPARAM=>[ROMPATH]>
 
 [Sega - 32X]
 RJEMUPRESET=Fusion
@@ -4731,6 +4999,8 @@ SHORTNM=SG32X
 SUPEMU=Fusion|gensplus|gens|MAME
 SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FENAM=sega32X
+FEPARAM=>[ROMPATH]>
 
 [Sega - Dreamcast]
 RJEMUPRESET=Demul
@@ -4746,6 +5016,7 @@ SUPEMU=Demul|NullDC|chankast|reicast|flycast|redream|Makaron
 SUPCORE=flycast_libretro.dll|flycast_gles2_libretro.dll|redream_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=dreamcast
+FEPARAM=>[ROMPATH]>
 
 [Sega - Game Gear]
 RJEMUPRESET=Fusion
@@ -4760,6 +5031,7 @@ SUPEMU=Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|gensplus|xe|osmose|ge
 SUPCORE=genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=gamegear
+FEPARAM=>[ROMPATH]>
 
 [Sega - Master System - Mark III]
 RJEMUPRESET=Fusion
@@ -4774,6 +5046,7 @@ SUPEMU=Fusion|mednafen|twombit|dega|dsp|emukon|gensplus|kindred|gearsystem|osmos
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=mastersystem
+FEPARAM=>[ROMPATH]>
 
 [Sega - Mega Drive - Genesis]
 RJEMUPRESET=Fusion
@@ -4788,6 +5061,7 @@ SUPEMU=Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|xe|exodus|genesis
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=megadrive
+FEPARAM=>[ROMPATH]>
 
 [Sega - Mega-CD - Sega CD]
 RJEMUPRESET=Fusion
@@ -4802,6 +5076,7 @@ SUPEMU=Fusion|gens|gensgs|gensplus|MAME|xe|mednafen
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=segacd
+FEPARAM=>[ROMPATH]>
 
 [Sega - Model 2]
 RJEMUPRESET=m2emulator
@@ -4816,6 +5091,7 @@ SUPEMU=m2emulator|MAME
 SUPCORE=mame_libretro.dlls
 LNCHPRM=$|0|0|0|0|0
 FENAM=model2
+FEPARAM=[ROMNAME]
 
 [Sega - Model 3]
 RJEMUPRESET=supermodel
@@ -4831,6 +5107,7 @@ SUPEMU=supermodel
 SUPCORE=
 LNCHPRM=$|1|0|0|0|0
 FENAM=model3
+FEPARAM=[ROMNAME]
 
 [Sega - NAOMI]
 RJEMUPRESET=Demul
@@ -4851,6 +5128,7 @@ SUPEMU=Demul|reicast|flycast|NullDC|mame_arcade|MAME|Makaron
 SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=naomi
+FEPARAM=[ROMNAME]
 
 [Sega - Beena]
 RJEMUPRESET=MAME
@@ -4864,6 +5142,7 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=segabeena
+FEPARAM=>[ROMPATH]>
 
 [Sega - PICO]
 RJEMUPRESET=fusion
@@ -4877,6 +5156,7 @@ SUPEMU=Fusion|picodrive|MAME
 SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=segapico
+FEPARAM=>[ROMPATH]>
 
 [Sega - Super Control Station]
 RJEMUPRESET=MAME
@@ -4887,6 +5167,8 @@ SHORTNM=SSCONTS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=supercontrolstation
 
 [Sharp - MZ-700]
 RJEMUPRESET=MAME
@@ -4899,6 +5181,8 @@ SHORTNM=SMZ7H
 SUPEMU=mzxx|mz700win|mz700|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mz700
 
 [Sharp - MZ-800]
 RJEMUPRESET=MAME
@@ -4911,6 +5195,8 @@ SHORTNM=SMZ8H
 SUPEMU=mzxx|mz800|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mz800
 
 [Sharp - X1]
 RJEMUPRESET=X1turbo
@@ -4923,6 +5209,7 @@ SUPEMU=X1turbo|x1|x1twin|winX1|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=x1
+FEPARAM=>[ROMPATH]>
 
 [Sharp - X68000]
 RJEMUPRESET=XM6
@@ -4935,6 +5222,7 @@ SUPEMU=XM6|Anex86|Winx68k|ex68|MAME
 SUPCORE=px68k_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=x68k
+FEPARAM=>[ROMPATH]>
 
 [Sinclair - QL]
 RJEMUPRESET=MAME
@@ -4946,6 +5234,8 @@ SHORTNM=SINQL
 SUPEMU=ql2k|MAME
 SUPCORE=fuse_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sinclairql
 
 [Sinclair - ZX Spectrum +3]
 RJEMUPRESET=ZXSpin
@@ -4958,6 +5248,7 @@ SUPEMU=ZXSpin|jvz200|Ascd|zesarux|no$zx|dsp|tunix|ep128emu|mzxx|MAME|EMU
 SUPCORE=fuse_libretro.dll|crocods_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=zxspectrum
+FEPARAM=>[ROMPATH]>
 
 [Sinclair - ZX80]
 RJEMUPRESET=ZXSpin
@@ -4970,6 +5261,8 @@ SHORTNM=SINCZX80
 SUPEMU=ZXSpin|jvz200|zesarux|no$zx|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sinclairzx80
 
 [Sinclair - ZX81]
 RJEMUPRESET=ZXSpin
@@ -4982,6 +5275,8 @@ SHORTNM=SINZX81
 SUPEMU=ZXSpin|eightyone|zesarux|mzxx|MAME
 SUPCORE=81_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sinclairzx81
 
 [Sony - Playstation 2]
 RJEMUPRESET=pcsx2
@@ -4993,6 +5288,7 @@ SUPEMU=pcsx2|Play|hpsx
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
 FENAM=ps2
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation 4]
 RJEMUPRESET=gcps4
@@ -5003,6 +5299,7 @@ SUPEMU=gpcs4|PS4Delta
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=ps4
+FEPARAM=>[ROMPATH]
 
 [Sony - Playstation 3]
 RJEMUPRESET=rcps3
@@ -5013,6 +5310,7 @@ SUPEMU=rpcs3|nucleus|shortwave
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
 FENAM=ps3
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation Portable]
 RJEMUPRESET=PPSSPP
@@ -5022,6 +5320,7 @@ SUPEMU=PPSSPP|jpcsp|cpspemu
 SUPCORE=ppsspp_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psp
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation Mobile]
 RJEMUPRESET=PPSSPP
@@ -5030,6 +5329,7 @@ SUPEMU=PPSSPP|vita3k
 SUPCORE=.pkg
 LNCHPRM=$|1|1|1|1|0
 FENAM=psmobile
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation Vita]
 RJEMUPRESET=vita3k
@@ -5039,6 +5339,7 @@ RJROMXT=.psv,.pkg,.vpk
 SUPCORE=
 LNCHPRM=$|1|1|1|1|0
 FENAM=psvita
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation]
 RJEMUPRESET=epsxe
@@ -5052,6 +5353,7 @@ SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|duckstation
 SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|duckstation_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psx
+FEPARAM=>[ROMPATH]>
 
 [Sony - Playstation - PAL]
 RJEMUPRESET=epsxe
@@ -5065,6 +5367,7 @@ SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx
 SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psx
+FEPARAM=>[ROMPATH]>
 
 [Sony - Pocketstation]
 RJEMUPRESET=MAME
@@ -5076,6 +5379,7 @@ SUPEMU=pkemu|pk201|xebra|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=pocket
+FEPARAM=>[ROMPATH]>
 
 [Sord - M5]
 RJEMUPRESET=MAME
@@ -5088,13 +5392,16 @@ SUPEMU=m5|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=sordm5
+FEPARAM=>[ROMPATH]>
 
 [SpectraVision - Spectravideo]
 RJEMUPRESET=MAME
-SHORTNM=SORDM5
+SHORTNM=SPECTRAV
 SUPEMU=BlueMSX|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=spectravideo
 
 [Taito - Taito Type X]
 RJEMUPRESET=BSL
@@ -5104,6 +5411,7 @@ SUPEMU=TypeXtra|BSL
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=ttx
+FEPARAM=>[ROMPATH]>
 
 [Tangerine - Microtan 65]
 RJEMUPRESET=MAME
@@ -5115,6 +5423,8 @@ SHORTNM=TMIC65
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=microtan65
 
 [Tangerine - Oric Atmos]
 RJEMUPRESET=MAME
@@ -5128,6 +5438,7 @@ SUPEMU=euphoric|oricutron|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=oric
+FEPARAM=>[ROMPATH]>
 
 [The 3DO Company - 3DO]
 RJEMUPRESET=4DO
@@ -5140,6 +5451,7 @@ SUPEMU=4DO|3doPlay|freedo|phoenix|MAME
 SUPCORE=opera_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=3do
+FEPARAM=>[ROMPATH]>
 
 [Thomson - M05]
 RJEMUPRESET=MAME
@@ -5151,6 +5463,8 @@ SHORTNM=TMO5
 SUPEMU=dcmo5|dcmoto|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsonm05
 
 [Thomson - To7]
 RJEMUPRESET=MAME
@@ -5162,6 +5476,8 @@ SHORTNM=TMO7
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsont07
 
 [Thomson - To8]
 RJEMUPRESET=MAME
@@ -5173,6 +5489,8 @@ SHORTNM=TMO8
 SUPEMU=MAME
 SUPCORE=theodore_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsont08
 
 [Tiger - Game.com]
 RJEMUPRESET=MAME
@@ -5183,6 +5501,8 @@ SHORTNM=TIGAME
 SUPEMU=gamecomemu|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tigergame
 
 [Tomy - KISS-Site]
 RJEMUPRESET=MAME
@@ -5191,6 +5511,8 @@ SHORTNM=TOMKIS
 SUPEMU=
 SUPCORE=
 LNCHPRM=$|1|1|0|1|
+FEPARAM=>[ROMPATH]>
+FENAM=tomykiss
 
 [University of Cambridge - EDSAC]
 SHORTNM=EDSAC
@@ -5198,6 +5520,8 @@ RJROMXT=.txt
 SUPEMU=EdsacSim
 SUPCORE=
 LNCHPRM=$|1|1|0|1|
+FEPARAM=>[ROMPATH]>
+FENAM=esdac
 
 [Mattel - Hyperscan]
 SHORTNM=MHYPSCN
@@ -5206,6 +5530,8 @@ SUPEMU=
 RJMAMENM=hs
 SUPCORE=
 LNCHPRM=$|1|1|0|1|
+FEPARAM=>[ROMPATH]>
+FENAM=hyperscan
 
 [VM Labs - Nuon]
 SHORTNM=VMNUON
@@ -5214,6 +5540,8 @@ SUPEMU=
 RJMAMENM=
 SUPCORE=
 LNCHPRM=$|1|1|0|1|
+FEPARAM=>[ROMPATH]>
+FENAM=nuon
 
 [NEC - PC98 - Touhou]
 RJEMUPRESET=Anex86
@@ -5224,6 +5552,8 @@ SHORTNM=TOUHOU
 SUPEMU=Anex86|Winx68k
 SUPCORE=nekop2_libretro.dll|np2kai_libretro.dll
 LNCHPRM=$|1|1|0|1|1
+FEPARAM=>[ROMPATH]>
+FENAM=touhou
 
 [VTech - CreatiVision]
 RJEMUPRESET=MAME
@@ -5235,6 +5565,7 @@ SUPEMU=funnymu|creativision|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=creativision
+FEPARAM=>[ROMPATH]>
 
 [VTech - Laser 200]
 RJEMUPRESET=MAME
@@ -5246,6 +5577,8 @@ SHORTNM=VLAS2H
 SUPEMU=Winvz300|jvz200|tunix|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=laser200
 
 [VTech - Laser 310]
 RJEMUPRESET=MAME
@@ -5257,9 +5590,13 @@ SHORTNM=VLAS310
 SUPEMU=Winvz300|jvz200|tunix|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=laser310
 
 [VTech - Mobigo]
 SHORTNM=MOBIGO
+FEPARAM=>[ROMPATH]>
+FENAM=mobigo
 
 [VTech - V.Smile]
 RJEMUPRESET=MAME
@@ -5271,6 +5608,8 @@ SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vsmile
 
 [VideoBrain - FamilyComputer]
 RJEMUPRESET=MAME
@@ -5281,6 +5620,8 @@ SHORTNM=VIFAMC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=videobrainfc
 
 [Watara - SuperVision]
 RJEMUPRESET=MAME
@@ -5292,6 +5633,7 @@ SUPEMU=wataroo|potator|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=supervision
+FEPARAM=>[ROMPATH]>
 
 [Open - Beats of Rage]
 RJEMUPRESET=openbeatsofrage
@@ -5301,6 +5643,7 @@ SUPEMU=openbeatsofrage
 SUPCORE=mame_libretrol.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=obor
+FEPARAM=>[ROMPATH]>
 
 [Microsoft - Windows 3x]
 RJEMUPRESET=WinBox
@@ -5309,6 +5652,8 @@ SUPEMU=WinBox
 SUPCORE=
 SHORTNM=MSWIN3X
 cmdfun= 1
+FEPARAM=>[ROMPATH]>
+FENAM=win31
 
 [Windows - Games]
 RJEMUPRESET=DosBox-X
@@ -5319,6 +5664,7 @@ SUPCORE=
 LNCHPRM=$|1|1|0|1|0
 FENAM=pc
 cmdfun= 1
+FEPARAM=>[ROMPATH]>
 
 [WRITENAMETOBAT]
 RJROMINJ="%ROMFN%"
@@ -5333,6 +5679,8 @@ SHORTNM=32XP
 SUPEMU=Fusion|gensplus|gens|MAME
 SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=32xp
 
 [Sega - 32X - JAP]
 RJEMUPRESET=fusion
@@ -5344,6 +5692,8 @@ SHORTNM=32XJ
 SUPEMU=Fusion|gensplus|gens|MAME
 SUPCORE=picodrive_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=32xj
 
 [Atari - 2600 - PAL]
 RJEMUPRESET=MAME
@@ -5360,6 +5710,8 @@ SHORTNM=AT26P
 SUPEMU=Stella|no$2k6|z26|Bizhawk|pcae|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=2600pal
 
 [Atari - 800 - PAL]
 RJEMUPRESET=MAME
@@ -5380,6 +5732,8 @@ SHORTNM=LUX80
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=abc80
 
 [Luxor - ABC 1600]
 RJEMUPRESET=MAME
@@ -5390,6 +5744,8 @@ SHORTNM=LUX16
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=abc1600
 
 [Coleco - ADAM]
 RJEMUPRESET=MAME
@@ -5406,6 +5762,8 @@ SHORTNM=NSTADV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=northstaradv
 
 [Entex - Adventure Vision]
 RJEMUPRESET=MAME
@@ -5422,6 +5780,8 @@ SHORTNM=ROCKAIM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=aim65
 
 [Patisonic - Aleste 520EX]
 RJEMUPRESET=MAME
@@ -5432,6 +5792,8 @@ SHORTNM=PATAL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=aleste
 
 [Matra - Alice 32]
 RJEMUPRESET=MAME
@@ -5442,6 +5804,8 @@ SHORTNM=MATAL32
 SUPEMU=alice32|DCAlice|DCMicroColor|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=alice32
 
 [Matra - Alice 90]
 RJEMUPRESET=MAME
@@ -5452,6 +5816,8 @@ SHORTNM=MATAL90
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=alice90
 
 [Triumph-Adler - Alphatronic PC]
 RJEMUPRESET=MAME
@@ -5462,6 +5828,8 @@ SHORTNM=TRADLPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=alphatronic
 
 [Altos - Series 5]
 RJEMUPRESET=MAME
@@ -5472,6 +5840,8 @@ SHORTNM=ALTOSSV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=altos5
 
 [Ampro - Little Z80 Board]
 RJEMUPRESET=MAME
@@ -5482,6 +5852,8 @@ SHORTNM=AMPLZ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=AmproZ80
 
 [NEC - Advanced Personal Computer]
 RJEMUPRESET=MAME
@@ -5492,6 +5864,8 @@ SHORTNM=NECAPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=necapc
 
 [APF - Imagination Machine]
 RJEMUPRESET=MAME
@@ -5508,6 +5882,8 @@ SHORTNM=APFM1K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=apfm1000
 
 [Apogee - BK-01]
 RJEMUPRESET=MAME
@@ -5518,6 +5894,8 @@ SHORTNM=APOGBK
 SUPEMU=EMU|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bk01
 
 [Apollo - Apollo]
 RJEMUPRESET=MAME
@@ -5528,6 +5906,8 @@ SHORTNM=APOLLO
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=apollo
 
 [Apple - I]
 RJEMUPRESET=MAME
@@ -5538,6 +5918,8 @@ SHORTNM=APLI
 SUPEMU=faux1|agat|apple1|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=apple1
 
 [Apple - III]
 RJEMUPRESET=MAME
@@ -5548,6 +5930,8 @@ SHORTNM=APLIII
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=apple3
 
 [ACT - Apricot PC-Xi]
 RJEMUPRESET=MAME
@@ -5558,6 +5942,8 @@ SHORTNM=APRIC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=apricot
 
 [Acorn - Atom]
 RJEMUPRESET=MAME
@@ -5568,6 +5954,8 @@ SHORTNM=ACATOM
 SUPEMU=atom|atomulator|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=acornatom
 
 [Otrona - Attache]
 RJEMUPRESET=MAME
@@ -5578,6 +5966,8 @@ SHORTNM=OTRAT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=otronaattache
 
 [BNPO - Bashkiria-2M]
 RJEMUPRESET=MAME
@@ -5588,6 +5978,8 @@ SHORTNM=BNPOB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bashkiria
 
 [BBC - Micro Model A]
 RJEMUPRESET=MAME
@@ -5598,6 +5990,8 @@ SHORTNM=BBCMA
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bbcmicroa
 
 [BBC - Micro Model B]
 RJEMUPRESET=MAME
@@ -5608,6 +6002,8 @@ SHORTNM=BBCMB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bbcmicrob
 
 [BBC - Bridge Companion]
 RJEMUPRESET=MAME
@@ -5618,6 +6014,8 @@ SHORTNM=BBCBR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bbcbridge
 
 [BBC - Master]
 RJEMUPRESET=MAME
@@ -5628,6 +6026,8 @@ SHORTNM=BBCMAS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bbcmaster
 
 [BBC - Master Compact]
 RJEMUPRESET=MAME
@@ -5638,6 +6038,8 @@ SHORTNM=BBCMC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bbcmastercompact
 
 [Elektronika - BK-0010]
 RJEMUPRESET=MAME
@@ -5648,6 +6050,8 @@ SHORTNM=ELKBK
 SUPEMU=MAME
 SUPCORE=bk_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bk0010
 
 [Bondwell - Bondwell 12]
 RJEMUPRESET=MAME
@@ -5658,6 +6062,8 @@ SHORTNM=BOND12
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bondwell12
 
 [Bondwell - Bondwell 14]
 RJEMUPRESET=MAME
@@ -5668,6 +6074,8 @@ SHORTNM=BOND14
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bondwell14
 
 [Bondwell - Bondwell 2]
 RJEMUPRESET=MAME
@@ -5678,6 +6086,8 @@ SHORTNM=BOND2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bondwell2
 
 [Commodore BX256-80HP]
 RJEMUPRESET=MAME
@@ -5694,6 +6104,8 @@ SHORTNM=COM65
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=com65
 
 [Commodore - CBM-II]
 RJEMUPRESET=MAME
@@ -5704,6 +6116,8 @@ SHORTNM=COMCBMII
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=cbm2
 
 [Commodore - PET - 8096]
 RJEMUPRESET=MAME
@@ -5714,6 +6128,8 @@ SHORTNM=COMPET80
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pet8096
 
 [Commodore - PET - 8296]
 RJEMUPRESET=MAME
@@ -5724,6 +6140,8 @@ SHORTNM=COMPET82
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pet8296
 
 [Texas Instruments - Compact Computer 40]
 RJEMUPRESET=MAME
@@ -5734,6 +6152,8 @@ SHORTNM=TICC40
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ticc40
 
 [EACA - Colour Genie EG2000]
 RJEMUPRESET=MAME
@@ -5744,6 +6164,8 @@ SHORTNM=ECGENIE
 SUPEMU=genious|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=colorgenie
 
 [Chess-Master - Diamond Modules]
 RJEMUPRESET=MAME
@@ -5754,6 +6176,8 @@ SHORTNM=CHEDMOD
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=chessmaster
 
 [Memorex - Video Information System]
 RJEMUPRESET=MAME
@@ -5764,6 +6188,8 @@ SHORTNM=MXVIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=memorexvis
 
 [Tandy - Radio Shack - Color Computer]
 RJEMUPRESET=MAME
@@ -5774,6 +6200,8 @@ SHORTNM=TANCOCO
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=coco
 
 [Coleco - Colecovision - PAL]
 RJEMUPRESET=BlueMSX
@@ -5785,6 +6213,8 @@ SHORTNM=COLECOP
 SUPEMU=BlueMSX|colecovision|colem|meka|koleko|dsp|vdmgr|cogwheel|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=colecovisionpal
 
 [Compucolor - Compucolor II]
 RJEMUPRESET=MAME
@@ -5794,6 +6224,8 @@ SHORTNM=COCOII
 SUPEMU=xroar|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=compucolor2s
 
 [Telenova - Compis]
 RJEMUPRESET=MAME
@@ -5804,6 +6236,8 @@ SHORTNM=TELCPIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=telenovacompis
 
 [COMX - 35]
 RJEMUPRESET=MAME
@@ -5814,6 +6248,8 @@ SHORTNM=COMX35
 SUPEMU=elf|emma02|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=comx35
 
 [Yamaha - Sega - Copera]
 RJEMUPRESET=MAME
@@ -5824,6 +6260,8 @@ SHORTNM=YSCOP
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=copera
 
 [Palson - CX 3000 Tele Computer]
 RJEMUPRESET=MAME
@@ -5834,6 +6272,8 @@ SHORTNM=PALCX3K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=telecomputer
 
 [DAI - Personal Computer]
 RJEMUPRESET=MAME
@@ -5844,6 +6284,8 @@ SHORTNM=DAIPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=dacpc
 
 [Voltmace - Database]
 RJEMUPRESET=MAME
@@ -5854,6 +6296,8 @@ SHORTNM=VOLDAT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=voltmace
 
 [Dragon - Alpha]
 RJEMUPRESET=MAME
@@ -5864,6 +6308,8 @@ SHORTNM=DRAGA
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=dragonalpha
 
 [Dragon - Beta]
 RJEMUPRESET=MAME
@@ -5874,6 +6320,8 @@ SHORTNM=DRAGB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=dragonbeta
 
 [Dimension - 68000]
 RJEMUPRESET=MAME
@@ -5884,6 +6332,8 @@ SHORTNM=DIMEN68
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=dimension68000
 
 [NCR - Decision Mate V]
 RJEMUPRESET=MAME
@@ -5894,6 +6344,8 @@ SHORTNM=NCRDMV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=decisionmate
 
 [Ithaca InterSystems - DPS-1]
 RJEMUPRESET=MAME
@@ -5904,6 +6356,8 @@ SHORTNM=IIDPS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=intersystems
 
 [DGS - Dragon]
 RJEMUPRESET=MAME
@@ -5914,6 +6368,8 @@ SHORTNM=DGSDRG
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=dgsdragon
 
 [Acorn - FileStore]
 RJEMUPRESET=MAME
@@ -5924,6 +6380,8 @@ SHORTNM=ACFILST
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=filestore
 
 [ES PEVM - EC 1841]
 RJEMUPRESET=MAME
@@ -5934,6 +6392,8 @@ SHORTNM=ESPEVM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ec1841
 
 [Tatung - Einstein TC-01]
 RJEMUPRESET=MAME
@@ -5944,6 +6404,8 @@ SHORTNM=TEINST
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=einstein
 
 [Epson - CPM Systems]
 RJEMUPRESET=MAME
@@ -5954,6 +6416,8 @@ SHORTNM=EPCPM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=epsoncpm
 
 [Exelvision - EXL 100]
 RJEMUPRESET=MAME
@@ -5966,6 +6430,8 @@ SHORTNM=EXL1
 SUPEMU=dcexel|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=exl100
 
 [Fidelity - Fidelity SCC]
 RJEMUPRESET=MAME
@@ -5976,6 +6442,8 @@ SHORTNM=FIDSCC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=fidelity
 
 [Fujitsu - FM-77AV]
 RJEMUPRESET=MAME
@@ -5986,6 +6454,8 @@ SHORTNM=FM77AV
 SUPEMU=fm7|fm77|XM7|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=fm77av
 
 [Galaksija - Galaksija Plus]
 RJEMUPRESET=MAME
@@ -5996,6 +6466,8 @@ SHORTNM=GALPLUS
 SUPEMU=galaxywin|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=Galaksija
 
 [Bit Corp - Gamate]
 RJEMUPRESET=MAME
@@ -6006,6 +6478,8 @@ SHORTNM=BITCGA
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gamate
 
 [Sega - Game Gear - JAP]
 RJEMUPRESET=fusion
@@ -6016,6 +6490,8 @@ SHORTNM=SGGJ
 SUPEMU=Fusion|mednafen|dega|emukon|twombit|gamegear|mesadx|xe|gensplus|osmose|gearsystem|cogwheel|meka|osmose|regen|emukon|MAME|byuu
 SUPCORE=genesis_plus_gx_libretro.dll|gearboy_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gamegearj
 
 [TimeTop - GameKing]
 RJEMUPRESET=MAME
@@ -6026,6 +6502,8 @@ SHORTNM=TTGAM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gameking
 
 [TimeTop - GameKing 3]
 RJEMUPRESET=MAME
@@ -6036,6 +6514,8 @@ SHORTNM=TTGAM3
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gameking3
 
 [Epoch - Game Pocket Computer]
 RJEMUPRESET=MAME
@@ -6046,6 +6526,8 @@ SHORTNM=EGAMPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gamepocket
 
 [VTech - Genius 6]
 RJEMUPRESET=MAME
@@ -6056,6 +6538,8 @@ SHORTNM=VTECGEN6
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=genius6
 
 [Gimix - 6809 System]
 RJEMUPRESET=MAME
@@ -6066,6 +6550,8 @@ SHORTNM=GIM68
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=Gimix
 
 [VTech - Genius Junior Movie]
 RJEMUPRESET=MAME
@@ -6076,6 +6562,8 @@ SHORTNM=VTECJM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=juniormovie
 
 [VTech - PreComputer 1000]
 RJEMUPRESET=MAME
@@ -6086,6 +6574,8 @@ SHORTNM=VTPREC1K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=precomputer1000
 
 [VTech - Genius Leader 6000SL]
 RJEMUPRESET=MAME
@@ -6096,6 +6586,8 @@ SHORTNM=VTECGLD
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=leader6000sl
 
 [VTech - Genius Leader Color]
 RJEMUPRESET=MAME
@@ -6106,6 +6598,8 @@ SHORTNM=VTECGLDC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=leadercolor
 
 [GamePark - GP32]
 RJEMUPRESET=MAME
@@ -6116,6 +6610,8 @@ SHORTNM=GP32
 SUPEMU=geepee32|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gp32
 
 [JPM - Give Us A Break]
 RJEMUPRESET=MAME
@@ -6126,6 +6622,8 @@ SHORTNM=JGUAB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=jpmguab
 
 [TRQ - Video Computer H-21]
 RJEMUPRESET=MAME
@@ -6136,6 +6634,8 @@ SHORTNM=TRQVC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=trqvch21
 
 [Northstar - Horizon]
 RJEMUPRESET=MAME
@@ -6146,6 +6646,8 @@ SHORTNM=NSTHOR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=northstarhorizon
 
 [HP - Integral PC]
 RJEMUPRESET=MAME
@@ -6156,6 +6658,8 @@ SHORTNM=HPIPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=integralpc
 
 [HP - HP-85 Option]
 RJEMUPRESET=MAME
@@ -6166,6 +6670,8 @@ SHORTNM=HP85
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=hp85
 
 [HP - HP 9835A-B Option]
 RJEMUPRESET=MAME
@@ -6176,6 +6682,8 @@ SHORTNM=HP98B
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=hp98b
 
 [HP - HP 9845A-S Option]
 RJEMUPRESET=MAME
@@ -6186,6 +6694,8 @@ SHORTNM=HP98S
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=hp98s
 
 [HP - HP 9845B-T-C Option]
 RJEMUPRESET=MAME
@@ -6196,6 +6706,8 @@ SHORTNM=HP98C
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=hp98c
 
 [Hawthorne Technology - TinyGiant HT68k]
 RJEMUPRESET=MAME
@@ -6206,6 +6718,8 @@ SHORTNM=HAWTG
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tinygiant
 
 [Itautec - I-7000]
 RJEMUPRESET=MAME
@@ -6216,6 +6730,8 @@ SHORTNM=ITI7K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=itauteci7k
 
 [IBM - PC 5140]
 RJEMUPRESET=MAME
@@ -6226,6 +6742,8 @@ SHORTNM=IBMPC40
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ibmpc40
 
 [IBM - PC 5150]
 RJEMUPRESET=MAME
@@ -6236,6 +6754,8 @@ SHORTNM=IBMPC50
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ibmpc50
 
 [IBM - PC 5170]
 RJEMUPRESET=MAME
@@ -6246,6 +6766,8 @@ SHORTNM=IBMPC70
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ibmpc70
 
 [IBM - Displaywriter]
 RJEMUPRESET=MAME
@@ -6256,6 +6778,8 @@ SHORTNM=IBMDW
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=displaywriter
 
 [IBM - PC Jr]
 RJEMUPRESET=MAME
@@ -6271,6 +6795,8 @@ SHORTNM=INTFC
 SUPEMU=dchector|virtualinteract|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=interactfc
 
 [Mattel - Intellivision ECS]
 RJEMUPRESET=MAME
@@ -6281,6 +6807,8 @@ SHORTNM=INTELECS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=intellivisionecs
 
 [ZPA Novy Bor - IQ 151]
 RJEMUPRESET=MAME
@@ -6290,6 +6818,8 @@ SHORTNM=ZPANBIQ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=iq151
 
 [Mattel - Juice Box]
 RJEMUPRESET=MAME
@@ -6300,6 +6830,8 @@ SHORTNM=MATJB
 SUPEMU=Nostalgia|jzintv|MAME
 SUPCORE=freeintv_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=juicebox
 
 [Tiger - K28 7-232]
 RJEMUPRESET=MAME
@@ -6310,6 +6842,8 @@ SHORTNM=TIGK28
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tigerk28
 
 [Kaypro - Kaypro II]
 RJEMUPRESET=MAME
@@ -6320,6 +6854,8 @@ SHORTNM=KAYPROII
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=kaypro
 
 [VEB Mikroelektronik - KC 85]
 RJEMUPRESET=MAME
@@ -6329,6 +6865,8 @@ SHORTNM=VEBMIK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=kc85
 
 [MOS Technology - KIM-1]
 RJEMUPRESET=MAME
@@ -6339,6 +6877,8 @@ SHORTNM=MOSKIM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=moskim1
 
 [Korvet - PK8020 Korvet]
 RJEMUPRESET=MAME
@@ -6349,6 +6889,8 @@ SHORTNM=KORVPK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=korvetpk8020
 
 [Texas Instruments - Language Tutor]
 RJEMUPRESET=MAME
@@ -6359,6 +6901,8 @@ SHORTNM=TILTUT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tilangtutor
 
 [VTech - Laser 2001]
 RJEMUPRESET=MAME
@@ -6369,6 +6913,8 @@ SHORTNM=VTECL2K1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=laser2001
 
 [LeapFrog - My First LeapPad]
 RJEMUPRESET=MAME
@@ -6379,6 +6925,8 @@ SHORTNM=LEAPFST
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=firstleappad
 
 [LeapFrog - LeapPad]
 RJEMUPRESET=MAME
@@ -6389,6 +6937,8 @@ SHORTNM=LEAPST
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=leappad
 
 [Apple - Lisa]
 RJEMUPRESET=MAME
@@ -6399,6 +6949,8 @@ SHORTNM=APLISAII
 SUPEMU=lisaem|lisa|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=lisa
 
 [Apple - Lisa 2]
 RJEMUPRESET=MAME
@@ -6409,6 +6961,8 @@ SHORTNM=APLISA
 SUPEMU=lisaem|lisa|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=lisa2
 
 [V. I. Lenin - PK-01 Lviv]
 RJEMUPRESET=MAME
@@ -6419,6 +6973,8 @@ SHORTNM=VILENPK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pk01viv
 
 [Sord - M5]
 RJEMUPRESET=MAME
@@ -6434,6 +6990,8 @@ SHORTNM=OLIVM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=olivettim20
 
 [Apple - Macintosh]
 RJEMUPRESET=MAME
@@ -6449,6 +7007,8 @@ SHORTNM=SMBC2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sanyombc2
 
 [Sanyo - MBC-55x]
 RJEMUPRESET=MAME
@@ -6459,6 +7019,8 @@ SHORTNM=SMBC55
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sanyombc55x
 
 [Tandy - MC-10]
 RJEMUPRESET=MAME
@@ -6469,6 +7031,8 @@ SHORTNM=TANMC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tandymc10
 
 [NPO - Elektronika MS 1502]
 RJEMUPRESET=MAME
@@ -6479,6 +7043,8 @@ SHORTNM=NPOELMS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=elektronikams1502
 
 [Morrow Designs - Micro Decision MD-2]
 RJEMUPRESET=MAME
@@ -6489,6 +7055,8 @@ SHORTNM=MDMD2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=microdecisionmd2
 
 [Sega - Mega Drive - PAL]
 RJEMUPRESET=fusion
@@ -6499,6 +7067,8 @@ SHORTNM=SMDP
 SUPEMU=Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|exodus|xe|MAME|byuu
 SUPCORE=genesis_plus_gx_libretro.dll|picodrive_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=megadrivepal
 
 [Amstrad - Mega PC]
 RJEMUPRESET=MAME
@@ -6509,6 +7079,8 @@ SHORTNM=AMSTRMPC
 SUPEMU=WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=megapc
 
 [Sega - MegaTech]
 RJEMUPRESET=MAME
@@ -6519,6 +7091,8 @@ SHORTNM=SEGMT
 SUPEMU=Fusion|blastem|mednafen|gens|gensgs|dgen|gensplus|regen|genesisplus|MAME
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll|picodrive_libretro.dll
 LNCHPRM=$|0|0|0|0|0
+FEPARAM=>[ROMPATH]>
+FENAM=megatech
 
 [Milton Bradley - MicroVision]
 RJEMUPRESET=MAME
@@ -6529,6 +7103,8 @@ SHORTNM=MBMVIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=microvision
 
 [Mikro - Mikro-80]
 RJEMUPRESET=MAME
@@ -6539,6 +7115,8 @@ SHORTNM=MKRO80
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=micro80
 
 [Lianozovo Electromechanical Factory - Mikrosha]
 RJEMUPRESET=MAME
@@ -6548,6 +7126,8 @@ SHORTNM=LEFMIK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mikrosha
 
 [VTech - PreComputer 1000]
 RJEMUPRESET=MAME
@@ -6564,6 +7144,8 @@ SHORTNM=MIKMIK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mikromikko
 
 [Thomson - M05]
 RJEMUPRESET=MAME
@@ -6578,6 +7160,8 @@ SHORTNM=TMO6
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsonm06
 
 [Acetronic - MPU-1000]
 RJEMUPRESET=MAME
@@ -6588,6 +7172,8 @@ SHORTNM=ACEMPU1K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=acertronic
 
 [Morrow Designs - Morrow MPZ80]
 RJEMUPRESET=MAME
@@ -6598,6 +7184,8 @@ SHORTNM=MDMPZ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=morrowmpz80
 
 [Nichibutsu - My Vision]
 RJEMUPRESET=MAME
@@ -6608,6 +7196,8 @@ SHORTNM=NICHMV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=myvision
 
 [Sharp - MZ-2000]
 RJEMUPRESET=MAME
@@ -6617,6 +7207,8 @@ SHORTNM=SHRPMZ2K
 SUPEMU=emuz2000|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mz2000
 
 [Sharp - MZ-2500]
 RJEMUPRESET=MAME
@@ -6627,6 +7219,8 @@ SHORTNM=SHRPMZ25
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mz2500
 
 [Sharp - MZ-700]
 RJEMUPRESET=MAME
@@ -6649,6 +7243,8 @@ SHORTNM=NESPAL
 SUPEMU=nestopia|virtuanes|virtuanesplus|dsp|xe|aprnes|BizHawk|kindred|Mesen|no$nes|vdmgr|fceux|Mednafen|MAME|byuu
 SUPCORE=nestopia_libretro.dll|fceumm_libretro.dll|mesen_libretro.dll|bnes_libretro.dll|quicknes_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=nespal
 
 [NeXT - NeXTStation]
 RJEMUPRESET=MAME
@@ -6659,6 +7255,8 @@ SHORTNM=NEXTST
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=nextstation
 
 [Research Machines - Nimbus]
 RJEMUPRESET=MAME
@@ -6669,6 +7267,8 @@ SHORTNM=RMNIMB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=nimbus
 
 [LSI - Octopus]
 RJEMUPRESET=MAME
@@ -6679,6 +7279,8 @@ SHORTNM=LSIOCT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=octopus
 
 [Ondra - Ondra ViLi]
 RJEMUPRESET=MAME
@@ -6689,6 +7291,8 @@ SHORTNM=ONVILI
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ondravili
 
 [PEL Varazdin - Orao]
 RJEMUPRESET=MAME
@@ -6699,6 +7303,8 @@ SHORTNM=PVORAO
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=orao
 
 [Orion - Orion Pro]
 RJEMUPRESET=MAME
@@ -6709,6 +7315,8 @@ SHORTNM=ORIONP
 SUPEMU=EMU|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=orionpro
 
 [Orion - Orion 128]
 RJEMUPRESET=MAME
@@ -6719,6 +7327,8 @@ SHORTNM=OR128
 SUPEMU=EMU|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=orion128
 
 [Osborne - Osborne-1]
 RJEMUPRESET=MAME
@@ -6729,6 +7339,8 @@ SHORTNM=OSBR1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=osborne1
 
 [Osborne - Osborne-2]
 RJEMUPRESET=MAME
@@ -6739,6 +7351,8 @@ SHORTNM=OSBR2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=osborne2
 
 [SAM SKB VM - Partner-01.01]
 RJEMUPRESET=MAME
@@ -6748,6 +7362,8 @@ SHORTNM=SAMSKBVMP
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sampartner
 
 [Koei - PasoGo]
 RJEMUPRESET=MAME
@@ -6758,6 +7374,8 @@ SHORTNM=KOPASOGO
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pasogo
 
 [Casio - PB-2000C]
 RJEMUPRESET=MAME
@@ -6768,6 +7386,8 @@ SHORTNM=CASPB2KC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pb2000
 
 [Amstrad - PC1512 SD]
 RJEMUPRESET=MAME
@@ -6778,6 +7398,8 @@ SHORTNM=AMSTP5SD
 SUPEMU=WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc1512
 
 [Amstrad - PC1640 SD]
 RJEMUPRESET=MAME
@@ -6788,6 +7410,8 @@ SHORTNM=AMSTP6SD
 SUPEMU=WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc1640
 
 [NEC - PC-8201(A) Option]
 RJEMUPRESET=MAME
@@ -6798,6 +7422,8 @@ SHORTNM=PC82A
 SUPEMU=xm8|Neko|m88|mx88|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pc8021a
 
 [Amstrad - PcW]
 RJEMUPRESET=MAME
@@ -6808,6 +7434,8 @@ SHORTNM=AMSTPCW
 SUPEMU=joyce|WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pcw
 
 [Amstrad - PcW16]
 RJEMUPRESET=MAME
@@ -6818,6 +7446,8 @@ SHORTNM=AMSTPCWX
 SUPEMU=WinApe|arnold|caprice|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pcw16
 
 [Elektronska Industrija Nis - PeCom 32]
 RJEMUPRESET=MAME
@@ -6828,6 +7458,8 @@ SHORTNM=EINP32
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pecom32
 
 [Elektronska Industrija Nis - PeCom 64]
 RJEMUPRESET=MAME
@@ -6838,6 +7470,8 @@ SHORTNM=EINP64
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pecom64
 
 [Technosys - Aamber Pegasus]
 RJEMUPRESET=MAME
@@ -6848,6 +7482,8 @@ SHORTNM=TAPEG
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pegasus
 
 [Hanimex - Pencil II]
 RJEMUPRESET=MAME
@@ -6858,6 +7494,8 @@ SHORTNM=HANPII
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pencil2
 
 [Sanyo - PHC-25]
 RJEMUPRESET=MAME
@@ -6868,6 +7506,8 @@ SHORTNM=SPHC25
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sanyophc25
 
 [Konami - Picno]
 RJEMUPRESET=MAME
@@ -6879,24 +7519,32 @@ SHORTNM=KONPIC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=picno 
 
 [Mobile - Symbian]
 RJEMUPRESET=BSL
 SHORTNM=SYMBN
 SUPEMU=BSL
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=symbian
 
 [Mobile - Palm OS]
 RJEMUPRESET=BSL
 SHORTNM=PALMOS
 SUPEMU=BSL
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=palmos
 
 [Mobile - J2ME]
 RJEMUPRESET=BSL
 SHORTNM=M2JME
 SUPEMU=BSL
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=j2me
 
 [Commodore - PET]
 RJEMUPRESET=MAME
@@ -6912,6 +7560,8 @@ SHORTNM=BPLAD
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=playdia
 
 
 [Apple - Bandai - Pippin]
@@ -6923,6 +7573,8 @@ SHORTNM=BPIPN
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pippin
 
 
 [Commodore - Plus-4]
@@ -6933,6 +7585,8 @@ SHORTNM=COMPLUS
 SUPEMU=WinVICE|MAME
 SUPCORE=vice_xplus_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=plus4
 
 [Tesla - PMD-85]
 RJEMUPRESET=MAME
@@ -6943,6 +7597,8 @@ SHORTNM=TESPMD
 SUPEMU=pmd85|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pmd85
 
 [Benesse - Pocket Challenge V2]
 RJEMUPRESET=MAME
@@ -6953,6 +7609,8 @@ SHORTNM=BELPCII
 SUPEMU=MAME|byuu
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pocketchallenge
 
 [Benesse - Pocket Challenge W]
 RJEMUPRESET=MAME
@@ -6963,6 +7621,8 @@ SHORTNM=BELPCW|byuu
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pocketchallengew
 
 [Atari - Portfolio]
 RJEMUPRESET=MAME
@@ -6973,6 +7633,8 @@ SHORTNM=ATPFOL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=atariportfolio
 
 [Electronmash - Poisk-1]
 RJEMUPRESET=MAME
@@ -6983,6 +7645,8 @@ SHORTNM=ELPOISK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=poisk1
 
 [Tomy - Prin-C]
 RJEMUPRESET=MAME
@@ -6993,6 +7657,8 @@ SHORTNM=TOMYPR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tomyprin
 
 [Olivetti - Prodest PC 128]
 RJEMUPRESET=MAME
@@ -7002,6 +7668,8 @@ SHORTNM=OLIVPC128
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=olivettimpc128
 
 [Olivetti - Prodest PC 128S]
 RJEMUPRESET=MAME
@@ -7012,6 +7680,8 @@ SHORTNM=OLIVPCS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=olivettimpc128s
 
 [Conitec - PROF-80]
 RJEMUPRESET=MAME
@@ -7022,6 +7692,8 @@ SHORTNM=CONTPR80
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=prof80
 
 [Conitec - PROF-180]
 RJEMUPRESET=MAME
@@ -7032,6 +7704,8 @@ SHORTNM=CONTPR180
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=prof180
 
 [Kontron - PSI98]
 RJEMUPRESET=MAME
@@ -7042,6 +7716,8 @@ SHORTNM=KONPSI
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=psi98
 
 [Psion - Organiser I]
 RJEMUPRESET=MAME
@@ -7052,6 +7728,8 @@ SHORTNM=PSIORG
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=psion1
 
 [Psion - Organiser II]
 RJEMUPRESET=MAME
@@ -7062,6 +7740,8 @@ SHORTNM=PSIORG2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=psion2
 
 [Peripheral Technology - PT68K2]
 RJEMUPRESET=MAME
@@ -7072,6 +7752,8 @@ SHORTNM=PERT68K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pt68k2
 
 [EPSON - PX-4]
 RJEMUPRESET=MAME
@@ -7082,6 +7764,8 @@ SHORTNM=EPX4
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=epsonpx4
 
 [EPSON - PX-8]
 RJEMUPRESET=MAME
@@ -7092,6 +7776,8 @@ SHORTNM=EPX8
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=epsonpx8
 
 [Mikroelektronika - Pyldin-601]
 RJEMUPRESET=MAME
@@ -7102,6 +7788,8 @@ SHORTNM=MIKPYL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pyldin601
 
 [Epson - QX-10]
 RJEMUPRESET=MAME
@@ -7112,6 +7800,8 @@ SHORTNM=EPQX10
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=epsonqx10
 
 [ROLM - CBX 9751]
 RJEMUPRESET=MAME
@@ -7122,6 +7812,8 @@ SHORTNM=ROLMCBX
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=cbx9751
 
 [Soviet - Radio-86RK]
 RJEMUPRESET=MAME
@@ -7132,6 +7824,8 @@ SHORTNM=RAD86RK
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=86rk
 
 [DEC - Rainbow 100]
 RJEMUPRESET=MAME
@@ -7142,6 +7836,8 @@ SHORTNM=DECRBOW
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=rainbow100
 
 [Rowtron - Television Computer System]
 RJEMUPRESET=MAME
@@ -7152,6 +7848,8 @@ SHORTNM=ROWTCS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=rowtrontvs
 
 [Bandai - Gundam RX-78]
 RJEMUPRESET=MAME
@@ -7162,6 +7860,8 @@ SHORTNM=BGUND
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gundamrx
 
 [Sage Technology - Sage II]
 RJEMUPRESET=MAME
@@ -7172,6 +7872,8 @@ SHORTNM=STSAGE2
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sage2
 
 [San Bergmans - Izabella Malcolm - SITCOM]
 RJEMUPRESET=MAME
@@ -7182,6 +7884,8 @@ SHORTNM=SBIZMSITC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sitcom
 
 [Sony - SMC777]
 RJEMUPRESET=MAME
@@ -7192,6 +7896,8 @@ SHORTNM=SSMC777
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=SMC777
 
 [Mephisto - Super Mondial II]
 RJEMUPRESET=MAME
@@ -7202,6 +7908,8 @@ SHORTNM=MSMII
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mondial
 
 [Sega - Mark III - JPN]
 RJEMUPRESET=fusion
@@ -7212,6 +7920,8 @@ SHORTNM=SMSJ
 SUPEMU=Fusion|mednafen|twombit|dega|emukon|gensplus|dsp|gearsystem|mesadx|kindred|xe|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|byuu
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mark3
 
 [Sega - Master System - PAL]
 RJEMUPRESET=fusion
@@ -7222,6 +7932,8 @@ SHORTNM=SMSP
 SUPEMU=Fusion|mednafen|twombit|dega|emukon|dsp|gensplus|gearsystem|kindred|mesadx|xe|osmose|mastersystem|cogwheel|regen|meka|osmose|emukon|MAME|byuu
 SUPCORE=genesis_plus_gx_libretro.dll|blastem_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=mastersystempal
 
 [Nintendo - Super Nintendo Entertainment System - PAL]
 RJEMUPRESET=snes9x
@@ -7233,6 +7945,8 @@ RJROMXT=.smc,.sfc,.swc,.fig,.bs,.st,.zip
 SUPEMU=snes9x|mesen-s|snes9k|Mednafen|no$sns|MAME|zsnes|xe|BizHawk|zmz|snesgt|byuu
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=snespal
 
 [Bandai - Super Note Club]
 RJEMUPRESET=MAME
@@ -7243,6 +7957,8 @@ SHORTNM=BSUPRN
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=supernoteclub
 
 [Texas Instruments - Speak and Read]
 RJEMUPRESET=MAME
@@ -7253,6 +7969,8 @@ SHORTNM=TISPKR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tispeakandread
 
 [Texas Instruments - Speak and Spell]
 RJEMUPRESET=MAME
@@ -7263,6 +7981,8 @@ SHORTNM=TISPNS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tispeakandspell
 
 [Video Technology - Socrates]
 RJEMUPRESET=MAME
@@ -7273,6 +7993,8 @@ SHORTNM=VTSOCR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=socrates
 
 [Small Systems Engineering - SSE Softbox]
 RJEMUPRESET=MAME
@@ -7283,6 +8005,8 @@ SHORTNM=SSESOFT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ssesoftbox
 
 [Processor Technology Corporation - SOL-20]
 RJEMUPRESET=MAME
@@ -7293,6 +8017,8 @@ SHORTNM=PTCSOL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sol20
 
 [Exidy - Sorcerer]
 RJEMUPRESET=MAME
@@ -7302,6 +8028,8 @@ SHORTNM=EXIDSOR
 SUPEMU=sorcerer|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=sorcerer
 
 [Samsung - SPC-1000]
 RJEMUPRESET=MAME
@@ -7312,6 +8040,8 @@ SHORTNM=SAMSPC1K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=spc1000
 
 [Samsung - SPC-1500]
 RJEMUPRESET=MAME
@@ -7322,6 +8052,8 @@ SHORTNM=SAMSPC15
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=spc1500
 
 [Soviet - Specialist]
 RJEMUPRESET=MAME
@@ -7331,6 +8063,8 @@ SHORTNM=SOVSPEC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=specialist
 
 [RCA Studio II - Victory MPT-02]
 RJEMUPRESET=MAME
@@ -7341,6 +8075,8 @@ SHORTNM=RCAVICT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=victorympt2
 
 [Sega - Titan Video]
 RJEMUPRESET=SSF
@@ -7351,6 +8087,8 @@ SHORTNM=SEGSTV
 SUPEMU=SSF|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=segatitanvideo
 
 [ADC - Super Six]
 RJEMUPRESET=MAME
@@ -7361,6 +8099,8 @@ SHORTNM=SUPRSIX
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=supersix
 
 [Dick Smith Electronics - Super-80]
 RJEMUPRESET=MAME
@@ -7371,6 +8111,8 @@ SHORTNM=DSM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=super80
 
 [Bandai - Super Vision 8000]
 RJEMUPRESET=MAME
@@ -7381,6 +8123,8 @@ SHORTNM=BSUPRV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=supervision8000
 
 [Spectravision - SVI-318]
 RJEMUPRESET=MAME
@@ -7391,6 +8135,8 @@ SUPEMU=BlueMSX|MAME
 BlueMSX?RJEMUOPTS=</machine "SVI - Spectravideo SVI-318" /fullscreen /diskA<|/machine "SVI - Spectravideo SVI-318" /fullscreen /cas<|</machine "SVI - Spectravideo SVI-318" /fullscreen /rom1<
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=svi318
 
 [Sega - Visual Memory Unit]
 RJEMUPRESET=directvms
@@ -7401,6 +8147,8 @@ SHORTNM=SEGVMU
 SUPEMU=directvms|softvms|dreamvmu|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=segavmu
 
 [Tandy - 1000]
 RJEMUPRESET=MAME
@@ -7411,6 +8159,8 @@ SHORTNM=TAN1K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tandy1000
 
 [Tandy - 200 Option]
 RJEMUPRESET=MAME
@@ -7421,6 +8171,8 @@ SHORTNM=TAN2HO
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tandy200option
 
 [Tandy - 2000]
 RJEMUPRESET=MAME
@@ -7431,6 +8183,8 @@ SHORTNM=TAN2K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tandy2000
 
 [Tandy - 6000]
 RJEMUPRESET=MAME
@@ -7441,6 +8195,8 @@ SHORTNM=TAN6K
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tandy6000
 
 [Tandberg - TDV 2324]
 RJEMUPRESET=MAME
@@ -7451,6 +8207,8 @@ SHORTNM=TANTDV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ttx
 
 [Tektronix - Tektronix 4052]
 RJEMUPRESET=MAME
@@ -7461,6 +8219,8 @@ SHORTNM=TEKTRON
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tektronix
 
 [Texas Instruments - TI-73]
 RJEMUPRESET=MAME
@@ -7471,6 +8231,8 @@ SHORTNM=TI73
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti73
 
 [Texas Instruments - TI-74]
 RJEMUPRESET=MAME
@@ -7481,6 +8243,8 @@ SHORTNM=TI74
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti74
 
 [Texas Instruments - TI-80]
 RJEMUPRESET=MAME
@@ -7491,6 +8255,8 @@ SHORTNM=TI80
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti80
 
 [Texas Instruments - TI-81]
 RJEMUPRESET=MAME
@@ -7501,6 +8267,8 @@ SHORTNM=TI81
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti81
 
 [Texas Instruments - TI-82]
 RJEMUPRESET=MAME
@@ -7511,6 +8279,8 @@ SHORTNM=TI82
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti82
 
 [Texas Instruments - TI-83]
 RJEMUPRESET=MAME
@@ -7521,6 +8291,8 @@ SHORTNM=TI83
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti83
 
 [Texas Instruments - TI-92]
 RJEMUPRESET=MAME
@@ -7531,6 +8303,8 @@ SHORTNM=TI92
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti92
 
 [Texas Instruments - TI-95]
 RJEMUPRESET=MAME
@@ -7541,6 +8315,8 @@ SHORTNM=TI95
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti95
 
 [Texas Instruments - TI-99-4A]
 RJMAMENM=ti99
@@ -7550,6 +8326,8 @@ SUPEMU=win994a|classic99|ti994w|MAME
 SUPCORE=mame_libretro.dll
 RJZIPPEEK=0
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti994a
 
 [Texas Instruments - TI-99]
 RJEMUPRESET=MAME
@@ -7560,6 +8338,8 @@ SHORTNM=TI99
 SUPEMU=win994a|classic99|ti994w|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ti99
 
 [Tiki Data A-S - TIKI 100]
 RJEMUPRESET=MAME
@@ -7570,6 +8350,8 @@ SHORTNM=TIKI1H
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tikidata
 
 [Timex - Sinclair TS-2068 DOCK]
 RJEMUPRESET=MAME
@@ -7580,6 +8362,8 @@ SHORTNM=TIIMSTS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=timexsinclair
 
 [Texas Instruments - Touch and Tell]
 RJEMUPRESET=MAME
@@ -7590,6 +8374,8 @@ SHORTNM=TITNT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=titouchandtell
 
 [Thomson - TO7]
 RJEMUPRESET=MAME
@@ -7604,6 +8390,8 @@ SHORTNM=TTO7
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsont70
 
 [Thomson - TO7 - TO7-70A]
 RJEMUPRESET=MAME
@@ -7613,6 +8401,8 @@ SHORTNM=TTO7A
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=thomsont70a
 
 [Thomson - TO8]
 RJEMUPRESET=MAME
@@ -7628,6 +8418,8 @@ SHORTNM=TTRSMII
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=trs80m2
 
 [Tandy - TRS-80 Model 100 Option]
 RJEMUPRESET=MAME
@@ -7638,6 +8430,8 @@ SHORTNM=TTRS1H
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=trs80m100o
 
 [Tomy - Tutor - Pyuuta]
 RJEMUPRESET=MAME
@@ -7648,6 +8442,8 @@ SHORTNM=TOMYPU
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=tomytutor
 
 [Unisonic - Champion 2711]
 RJEMUPRESET=MAME
@@ -7658,6 +8454,8 @@ SHORTNM=UNICHAM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=champ2711
 
 [Soviet - UT-88]
 RJEMUPRESET=MAME
@@ -7668,6 +8466,8 @@ SHORTNM=SOVUT88
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ut88
 
 [Belogic - Uzebox]
 RJEMUPRESET=MAME
@@ -7678,6 +8478,8 @@ SHORTNM=BELOUZ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=uzebox
 
 [Visual Technology - Visual 1050]
 RJEMUPRESET=MAME
@@ -7688,6 +8490,8 @@ SHORTNM=VIDVIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=visual1050
 
 [Soviet - Vector 06c]
 RJEMUPRESET=MAME
@@ -7698,6 +8502,8 @@ SHORTNM=SOVVEC
 SUPEMU=EMU|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ut88
 
 [Philips - VG-5000]
 RJEMUPRESET=MAME
@@ -7714,6 +8520,20 @@ SHORTNM=COMMAX
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vic10max
+
+[Commodore - VIC-10]
+RJEMUPRESET=MAME
+RJMAMENM=vic10
+MAME?RJEMUOPTS=<vic10 -[RJRTYP]<|<vic10 -cass1<|<vic10 -cart<
+RJZIPPEEK=0
+SHORTNM=COMVIC10
+SUPEMU=WinVICE|MAME
+SUPCORE=mame_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vic10
 
 [Commodore - VIC-1001]
 RJEMUPRESET=MAME
@@ -7723,6 +8543,8 @@ SHORTNM=COMVIC1K
 SUPEMU=WinVICE|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vic1001
 
 [Victor Business Products - Victor 9000 - ACT Sirius 1]
 RJEMUPRESET=MAME
@@ -7733,6 +8555,8 @@ SHORTNM=VBPAS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=actserious
 
 [JungleTac Sport - Vii]
 RJEMUPRESET=MAME
@@ -7743,6 +8567,8 @@ SHORTNM=JUMSP
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=jsvii
 
 [RCA - VIP]
 RJEMUPRESET=MAME
@@ -7753,6 +8579,8 @@ SHORTNM=RCAVIP
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=rcavip
 
 [Toshiba - Pasopia]
 RJEMUPRESET=MAME
@@ -7764,6 +8592,8 @@ RJROMXT=.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.wav,.b
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pasopia
 
 [Toshiba - Visicom]
 RJEMUPRESET=MAME
@@ -7774,6 +8604,8 @@ SHORTNM=TOSHVIS
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=visicom
 
 [Osborne 4 - Vixen]
 RJEMUPRESET=MAME
@@ -7784,6 +8616,8 @@ SHORTNM=OSB4V
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=osbornevixen
 
 [Dick Smith Electronics - VZ-200-300]
 RJEMUPRESET=MAME
@@ -7794,6 +8628,8 @@ SHORTNM=DSMVZ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=vz200
 
 [Wang Laboratories - Wang PC]
 RJEMUPRESET=MAME
@@ -7804,6 +8640,8 @@ SHORTNM=WANGPC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=wangpc
 
 [PPG - Waveterm A]
 RJEMUPRESET=MAME
@@ -7814,6 +8652,8 @@ SHORTNM=PPGWAV
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=waveterm
 
 [Millennium Systems - Wicat]
 RJEMUPRESET=MAME
@@ -7824,6 +8664,8 @@ SHORTNM=MILWILC
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=wicat
 
 [WaveMate - Bullet]
 RJEMUPRESET=MAME
@@ -7834,6 +8676,8 @@ SHORTNM=WAVEB
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bullet
 
 [Canon - X-07]
 RJEMUPRESET=MAME
@@ -7844,6 +8688,8 @@ SHORTNM=CANX07
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=cannonx07
 
 [Xerox - 820]
 RJEMUPRESET=MAME
@@ -7854,6 +8700,8 @@ SHORTNM=XER82
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=xerox820
 
 [Nuova Elettronica - Z80NE]
 RJEMUPRESET=MAME
@@ -7864,6 +8712,8 @@ SHORTNM=NUEZ80
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=elttronicaz80
 
 [Cambridge Computers - Z88]
 RJEMUPRESET=MAME
@@ -7874,6 +8724,8 @@ SHORTNM=CAMBZ
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=ccz88
 
 [Telcon - Zorba]
 RJEMUPRESET=MAME
@@ -7884,27 +8736,37 @@ SHORTNM=TELZOR
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=zorba
 
 [Agat - 7]
 SUPEMU=MAME|EMU
 SUPCORE=mame_libretro.dll
 SHORTNM=AGAT7
+FEPARAM=>[ROMPATH]>
+FENAM=agat7
 
 [Atari - Falcon]
 SUPEMU=Hatari|MAME
 SUPCORE=mame_libretro.dll
 SHORTNM=ATFAL
+FEPARAM=>[ROMPATH]>
+FENAM=atarifalcon
 
 [Commodore - Amiga a500]
 SUPEMU=FS-UAE|WinUAE|winfellow|MAME
 SUPCORE=mame_libretro.dll
 SHORTNM=CAM5H
+FEPARAM=>[ROMPATH]>
+FENAM=a500
 
 [Commodore - BX256-80HP]
 SHORTNM=COMBX256
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=bx256
 
 [Cybiko - Cybiko]
 SHORTNM=CYBKO
@@ -7914,6 +8776,8 @@ RJROMXT=.bin,.nv
 SUPEMU=c4pc|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=cybiko
 
 [Cybiko - Xtreme]
 SHORTNM=CYBKX
@@ -7922,22 +8786,30 @@ SUPCORE=mame_libretro.dll
 MAME?RJEMUOPTS=<cybikov2 -quik<
 RJROMXT=.bin,.nv
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=cybikoxtreme
 
 [DEC - PDP-1]
 SUPEMU=SIMH|MAME
 SUPCORE=mame_libretro.dll
 SHORTNM=DPDP1
+FEPARAM=>[ROMPATH]>
+FENAM=pdp1
 
 [DEC - PDP-7]
 SUPEMU=SIMH|MAME
 SUPCORE=mame_libretro.dll
 SHORTNM=DPDP7
+FEPARAM=>[ROMPATH]>
+FENAM=pdp7
 
 [Fujitsu - FM-8]
 SHORTNM=FM8
 SUPEMU=fm8
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=fm8
 
 [Infocom - Z-Machine]
 SUPEMU=Frotz|MAME
@@ -7945,24 +8817,32 @@ SUPCORE=mame_libretro.dll
 SHORTNM=INFZM
 RJROMXT=.dat,.zip,.z1,.z2,.z3,.z4,.z5,.z6,.z7,.z8
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=zmachine
 
 [Luxor - Video Entertainment System]
 SHORTNM=LUXVES
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=luxorves
 
 [MITS - Altair 8800]
 SHORTNM=MITSALT
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=altair8800
 
 [ALG - American Laser Games]
 SUPEMU=daphne
 SUPCORE=mame_libretro.dll
 SHORTNM=ALAZG
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=lazergames
 
 [Incredible Technologies - Eagle]
 SUPEMU=MAME
@@ -7970,18 +8850,24 @@ SUPCORE=mame_libretro.dll
 MAME?RJEMUOPTS=iteagle
 SHORTNM=ITEAGLE
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=iteagle
 
 [MCA - Laserdisc Arcade]
 SUPEMU=daphne
 SUPCORE=mame_libretro.dll
 SHORTNM=MCALD
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=laserdiscarcade
 
 [Microkey - Primo]
 SHORTNM=MICPRI
 SUPEMU=ultimo|MAME|mame_libretro.dll
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=primo
 
 [Nascom - I-II]
 RJEMUPRESET=MAME
@@ -7991,17 +8877,23 @@ SHORTNM=NASCOM
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=nascom
 
 [Nintendo - Sufami Turbo]
 SUPEMU=snes9x|bsnes|mesen-s|snes9k|Mednafen|no$sns|MAME|zsnes|kindred|BizHawk|xe|zmz|snesgt
 SUPCORE=snes9x_libretro.dll|snes9x2002_libretro.dll|snes9x2005_libretro.dll|snes9x2010_libretro.dll||bsnes_accuracy_libretro.dll|bsnes_balanced_libretro.dll|bsnes_cplusplus98_libretro.dll|bsnes_mercury_accuracy_libretro.dll|bsnes_mercury_balanced_libretro.dll|bsnes_mercury_performance_libretro.dll|bsnes_performance_libretro.dll|higan_sfc_libretro.dll|higan_sfc_balanced_libretro.dll
 SHORTNM=NSUFM
+FEPARAM=>[ROMPATH]>
+FENAM=sufamiturbo
 
 [Nintendo - Nintendo Switch]
 SHORTNM=NSWTCH
 SUPEMU=yuzu|ryujinx
 SUPCORE=
 LNCHPRM=$|1|1|0|1|1
+FEPARAM=>[ROMPATH]>
+FENAM=switch
 
 [Tsukuda - Othello Multivision]
 SHORTNM=OTHLM
@@ -8011,48 +8903,64 @@ RJROMXT=.bin,.sg
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=multivision
 
 [Panasonic - JR-200]
 SHORTNM=PANJR2
 SUPEMU=vpanajr|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=jr200
 
 [Robotron - KC Compact]
 SHORTNM=ROBKCC
 SUPEMU=kcemu|EMU|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=kccompact
 
 [Robotron - Z9001]
 SHORTNM=ROBZ9K1
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=z9001
 
 [Sega - Model 1]
 SHORTNM=SMOD1
 SUPEMU=modeller|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
+FEPARAM=>[ROMPATH]>
+FENAM=model1
 
 [Seiko - Ruputer]
 SHORTNM=SRPUT
 SUPEMU=aurex|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=seikoruputer
 
 [Signetics - Pipbug]
 SHORTNM=SPIPB
 SUPEMU=winarcadia|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=pipbug
 
 [Tiger - Gizmondo]
 SHORTNM=TIGTEL
 SUPEMU=MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|1|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=gizmondo
 
 [Videoton - TV-Computer]
 SHORTNM=VIDTVC
@@ -8061,27 +8969,37 @@ RJMAMENM=tvc
 MAME?RJEMUOPTS=<tvc -[RJRTYP]<|<tvc -cass1<|<tvc -flop1<|<tvc<
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=videotontvc
 
 [V. I. Lenin - L'vov-Lviv]
 SHORTNM=VILELOV
 SUPEMU=emu
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=LvovLviv
 
 [VTech - Laser 100]
 SHORTNM=VLAS1
 SUPEMU=Winvz300|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=laser100
 
 [Commodore - C128]
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=c128
 
 [Zeebo - Zeebo]
 SHORTNM=ZEBO
 SUPEMU=
 SUPCORE=
 LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=zeebo
 
 
 
@@ -8189,3 +9107,6 @@ URLPTH=360button/360button.7z
 URLPTH=Joy2Key/Joy2Key.7z
 [x360ce]
 URLPTH=x360ce/x360ce-[ARCH].7z
+[Daphne - Daphne Laser Disc]
+FENAM=daphne
+FEPARAM=>[ROMPATH]>

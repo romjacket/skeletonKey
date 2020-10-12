@@ -57,7 +57,7 @@ model2=MODEL2=Sega - Model 2=.zip=m2emulator=[ROMNAME]
 model3=MODEL3=Sega - Model 3=.zip=supermodel=[ROMNAME]
 msx2=MSX=Microsoft - MSX2=.mx1,.mx2,.rom,.bin,.zip,.cas,.dsk=BlueMSX="[ROMPATH]"
 msx=MSX=Microsoft - MSX=.mx1,.mx2,.rom,.bin,.zip,.cas,.dsk=BlueMSX="[ROMPATH]"
-msxturbo=MSX=Microsoft - MSX Turbo=.mx1,.mx2,.rom,.bin,.zip,.cas,.dsk=BlueMSX="[ROMPATH]"
+msxturbo=MSXR=Microsoft - MSX Turbo=.mx1,.mx2,.rom,.bin,.zip,.cas,.dsk=BlueMSX="[ROMPATH]"
 mtx=MTX=Memotech - MTX=.bin,.zip=MAME - System="[ROMPATH]"
 n64=NN64=Nintendo - Nintendo 64=z64,.n64,.d64,.zip=Project64="[ROMPATH]"
 naomi=NAOMI=Sega - NAOMI=.zip,.gdi=Demul=[ROMNAME]

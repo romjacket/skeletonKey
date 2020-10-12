@@ -471,7 +471,7 @@ IniRead,ArcSRCv,%ARCORG%,SOURCES,
 srcfnd=
 Loop,Parse,ArcSRCv,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -862,7 +862,7 @@ Loop, Parse, mamesplit,`n`r
 		afep.= ji2 . "|"
 		Loop,parse,mame_sysk,|
 			{
-				if (A_Loopfield = ji1)
+				if (A_LoopField = ji1)
 					{
 						mame_sys.= ji2 . "|"
 						stringreplace,mame_sysk,mame_sysk,%ji1%|,,
@@ -1235,7 +1235,7 @@ IfExist,apps.ini
 				iniread,fealn,apps.ini,HTPC_FRONTENDS,%A_LoopField%
 				if ((fealn <> "")&&(fealn <> "ERROR"))
 					{
-						Menu, rjscopy, Add, Export to %A_LOopField%, Export_%A_LoopField%
+						Menu, rjscopy, Add, Export to %A_LoopField%, Export_%A_LoopField%
 						fSYSINSTLBX.= A_LoopField . "|"
 					}
 			}	
@@ -1387,12 +1387,19 @@ Loop, Parse, SysLLst,`n`r
 				continue
 			}
 		FENN+=1	
+		syscfgfld3= 
 		stringsplit,syscfgfld,A_LoopField,=
 		allsupsys.= syscfgfld1 . "`n"
 		allsupport.= syscfgfld1 . "|"
 		%syscfgfld2%= %syscfgfld1%
+		if (syscfgfld3 <> "")
+			{
+				stringreplace,syscfgfld3,syscfgfld3,-,_,All
+				fe_%syscfgfld3%= %syscfgfld1%
+			}
 		syspardinj_%FENN%= %syscfgfld1%
 	}
+fe_= 	
 if (INITIAL = 1)
 	{
 		RACORETAB= |Netplay|Cores
@@ -1515,12 +1522,15 @@ Menu, RUNMENU, Add
 Menu, RUNMENU, Add, Run RetroArch, RETALRAXE
 Menu, RUNMENU, Add
 Gui,Font,Bold
+Menu, PEGWIN, Add, Reset Config,PEGRSWIN
+Menu, RERCLWIN, Add, Reset Config,RFERSWIN
 Menu, REZWIN, Add,640 480, RESWARUN
 Menu, REZWIN, Add,720 480, RESWBRUN
 Menu, REZWIN, Add,1024 768, RESWCRUN
 Menu, REZWIN, Add,1280 720, RESWDRUN
 Menu, REZWIN, Add,1280 1024, RESWERUN
 Menu, REZWIN, Add,1920 1080, RESWFRUN
+Menu, REZRCLWIN, Add,Reset Config, RESRSRUN
 Menu, SHORTRUN, Add,Run With:=->, SQRUN
 Menu,SHORTRUN,Add,
 Menu, ARCSHORT, Add,Run With:=->, AQRUN
@@ -4389,7 +4399,7 @@ if (StdOut <> "")
 			{
 				stvi1=
 				stvi2=
-				stringsplit,evrx,A_loopfield,=
+				stringsplit,evrx,A_LoopField,=
 				ifinstring,evrx1,----------
 					{
 						partition+=1
@@ -4448,7 +4458,7 @@ if (StdOut <> "")
 			{
 				stvi1=
 				stvi2=
-				stringsplit,evrx,A_loopfield,=
+				stringsplit,evrx,A_LoopField,=
 				ifinstring,evrx1,----------
 					{
 						partition+=1
@@ -4733,13 +4743,37 @@ If A_GuiControlEvent RightClick
 					;;ADD EMULATORS RIGHTCLICK
 				}
 		}
-	if A_GuiControl = FEBUTK
+	if A_GuiControl = FEDDLJ
 		{
-			if (FEDDLJ <> "EmulationStation")
+			if (FEDDLJ = "RetroFE")
 				{
+					Menu, RERCLWIN, Show, %A_GuiX% %A_GuiY%
 					return
 				}
-			Menu, REZWIN, Show, %A_GuiX% %A_GuiY%
+		}
+	if A_GuiControl = FEDDLJ
+		{
+			if (FEDDLJ = "Pegasus")
+				{
+					Menu, PEGWIN, Show, %A_GuiX% %A_GuiY%
+					return
+				}
+		}
+	if A_GuiControl = FEDDLJ
+		{
+			if (FEDDLJ = "EmulationStation")
+				{
+					Menu, REZRCLWIN, Show, %A_GuiX% %A_GuiY%
+					return
+				}
+		}
+	if A_GuiControl = FEBUTK
+		{
+			if (FEDDLJ = "EmulationStation")
+				{
+					Menu, REZWIN, Show, %A_GuiX% %A_GuiY%
+					return
+				}
 		}
 	if A_GuiControl = RJLSTV
 		{
@@ -5030,7 +5064,7 @@ Loop,parse,sysllst,`n`r
 							{
 								continue
 							}
-						stringsplit,ebv,A_LOopField,=
+						stringsplit,ebv,A_LoopField,=
 						if (ebi2 = ebv2)
 							{
 								keyout= %ebv1%
@@ -5059,7 +5093,7 @@ Loop,parse,oldlkup,`n`r
 							{
 								continue
 							}
-						stringsplit,ebv,A_LOopField,=
+						stringsplit,ebv,A_LoopField,=
 						if (ebi2 = ebv2)
 							{
 								keyout= %ebv1%
@@ -5247,10 +5281,10 @@ if (isrs = "ERROR")
 							{
 								Loop, %RJSYSTEMS%\%A_LoopField%,2
 									{
-										splitpath,A_LoopFileFUllPath,fsnma
+										splitpath,A_LoopFileFullPath,fsnma
 										if (fsnma = RCLSYSTEM)
 											{
-												FileMoveDir,%A_LoopfileFullPath%,%RJSYSTEMS%\%fsys%,R
+												FileMoveDir,%A_LoopFileFullPath%,%RJSYSTEMS%\%fsys%,R
 												if (ERRORLEVEL = 0)
 													{
 														SB_SetText(" " RCLSYSTEM " renamed to " fsys "")
@@ -5597,7 +5631,7 @@ Loop,parse,SysLLst,`n`r
 							{
 								continue
 							}
-						stringsplit,ebo,A_loopField,=
+						stringsplit,ebo,A_LoopField,=
 						iniwrite,%ebo2%,emuCfgPresets.ini,%RenOsys%,%ebo1%
 					}
 				if (ldfsy <> 1)
@@ -5619,7 +5653,7 @@ Loop,parse,SysLLst,`n`r
 										{
 											continue
 										}
-									stringsplit,ebo,A_loopField,=
+									stringsplit,ebo,A_LoopField,=
 									iniwrite,%ebo2%,emuCfgPresets.ini,%ADDCORE%,%ebo1%
 									if (ebo1 = "LNCHPRM")
 										{
@@ -6012,7 +6046,7 @@ if (CUSTMOPT = "[CUSTMOPT]")
 							{
 								continue
 							}
-						stringsplit,finfa,A_loopField,<
+						stringsplit,finfa,A_LoopField,<
 						if (efxf = finfa3)
 							{
 								coreselv= %finfa1%
@@ -6087,7 +6121,7 @@ Menu, AQRUN, Add
 iniread,aimn,emuCfgPresets.ini,%keyout%,SUPEMU
 Loop,parse,aim,|
 	{
-		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
+		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_LoopField%
 		if (poprac <> "")
 			{
 				ifnotinstring,poprc,|%A_LoopField%|
@@ -6170,7 +6204,7 @@ if (RUNPLRAD = 1)
 				ifinstring,A_LoopField,%A_Space%-%A_Space%
 				Loop,parse,SysLLst,`n`r
 					{
-						if (A_loopField = "")
+						if (A_LoopField = "")
 							{
 								continue
 							}
@@ -6193,11 +6227,11 @@ if (RUNPLRAD = 1)
 							{
 								Loop,parse,SysLLst,`n`r
 									{
-										if (A_loopField = "")
+										if (A_LoopField = "")
 											{
 												continue
 											}
-										stringsplit,vir,A_loopField,=
+										stringsplit,vir,A_LoopField,=
 										if (vir1 = rsts)
 											{
 												RUNSYSDDL= %vir1%
@@ -6217,7 +6251,7 @@ ifinstring,RUNSYSDDL,:=:
 		guicontrolget,romf,,MORROM
 		Loop, Parse, SysLLst,`n`r
 			{
-				stringsplit,aie,A_loopField,=,`n`r
+				stringsplit,aie,A_LoopField,=,`n`r
 				ifinstring,romf,\%aie1%\
 					{
 						RUNSYSDDL= %aie1%
@@ -6249,7 +6283,7 @@ Menu, SQRUN, Add
 iniread,aimn,emuCfgPresets.ini,%RUNSYSDDL%,SUPEMU
 Loop,parse,aim,|
 	{
-		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_loopField%
+		iniread,poprac,Assignments.ini,ASSIGNMENTS,%A_LoopField%
 		if (poprac <> "")
 			{
 				ifnotinstring,poprc,|%A_LoopField%|
@@ -6596,7 +6630,7 @@ if (multisel = 1)
 	{
 		Loop, Parse, runlist,|
 			{
-				emuta= %A_loopField%
+				emuta= %A_LoopField%
 				gosub, AddEmuTOList
 			}
 		mousegetpos,Ngx,Ngy
@@ -7309,7 +7343,7 @@ Loop, parse, fuzsys,`n`r
 								if (JUNCTOPT = 2)
 									{
 										iniread,fik,SystemLocations.ini,LOCATIONS,%fsys%
-										ifnotinstring,fik,%A_LoopfileFullPath%|
+										ifnotinstring,fik,%A_LoopFileFullPath%|
 											{
 												iniwrite,"%A_LoopFileFullPath%|%fik%",SystemLocations.ini,LOCATIONS,%fsys%
 												SB_SetText("added " A_LoopFileFullPath " ")
@@ -8243,7 +8277,7 @@ Loop, Parse, bsys,`n`r
 		efi1=
 		efi2=
 		stringsplit,efi,A_LoopField,=
-		kbemu.= A_loopField . "`n"
+		kbemu.= A_LoopField . "`n"
 	}
 biosnum= 0
 Loop, Files, %cacheloc%\bios\*,
@@ -8582,7 +8616,7 @@ if (uuniv = "X")
 		srchtog= show
 		Loop, Parse, supgui,|
 			{
-				if ((EMUSN = A_Loopfield)&&(EMUSN <> ""))
+				if ((EMUSN = A_LoopField)&&(EMUSN <> ""))
 					{
 						gosub, %EMUSN%GUITOG
 						srchtog= hide
@@ -9143,7 +9177,7 @@ if (coreselv = "")
 				Loop, parse, emulist,|
 					{
 						kva=
-						if (A_Loopfield = kr)
+						if (A_LoopField = kr)
 							{
 								coreselv= %kr%
 								guicontrol,,LCORE,|%coreselv%||%runlist%
@@ -10478,7 +10512,7 @@ if (SALIST = "Emulators")
 			{
 				ifinstring,A_LoopField,%INSFLTR%
 					{
-						reapp.= A_LOopField . "|"
+						reapp.= A_LoopField . "|"
 					}
 			}
 		SB_SetText("")
@@ -10502,7 +10536,7 @@ if ((SALIST = "RetroArch")&&(RALIST = 1))
 			{
 				ifinstring,A_LoopField,%INSFLTR%
 					{
-						reapp.= A_LOopField . "|"
+						reapp.= A_LoopField . "|"
 					}
 			}
 		SB_SetText("")
@@ -12660,7 +12694,7 @@ Loop,parse,systmfldrs,|
 									{
 										continue
 									}
-								if (A_Loopfield = stranb)
+								if (A_LoopField = stranb)
 									{
 										noead= 1
 									}
@@ -13369,11 +13403,11 @@ if (sysnvp = "ERROR")
 	}
 Loop,parse,sysnvp,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,fei,A_LOopField,=
+		stringsplit,fei,A_LoopField,=
 		iniwrite,%fei2%,AppParams.ini,%SYSNICK%,%fei1%
 	}
 IniRead,ovrob,sets\Assignments.set,OVERRIDES,%SYSNICK%
@@ -30110,22 +30144,13 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;   Default Core Radio Button   ;;;;;;;;;;;;;
 DCore:
-ctdef=
-SYSPOPD=
 gui,submit,nohide
-SYSPROX= PRGINSTLBX
-if (SALIST = "Systems")
-	{
-		SYSPROX= ADDCORE
-	}
-guicontrolget,ADDCORE,,%SYSPROX%
-guicontrolget,OVLIST,,OVLIST
+guicontrolget,ADDCORE,,ADDCORE
 guicontrol,hide,ASCORE
 guicontrol,hide,APPOPT
 guicontrol,hide,SYSNICK
 guicontrol,hide,SVNICK
 guicontrol,hide,DELNICK
-;;guicontrol,hide,SYSIDENT
 guicontrol,hide,APPARG
 guicontrol,hide,NOEXTN
 guicontrol,hide,EMUPGC
@@ -30137,33 +30162,23 @@ guicontrol,hide,OMITPTH
 guicontrol,hide,SELAPP
 guicontrol,hide,OPTTXT
 guicontrol,hide,ARGTXT
-SYSPOPD= %OVLIST%
-if (ADDCORE <> "Select_A_System")
+iniread, ctdef,sets\Assignments.set,ASSIGNMENTS,%ADDCORE%
+IniRead,akn,Assignments.ini,OVERRIDES,%ASCORE%
+Loop,Parse,akn,|
 	{
-		SYSPOPD= %ADDCORE%
-		iniread, ctdef,sets\Assignments.set,ASSIGNMENTS,%SYSPOPD%
-		iniread, ctdek,sets\Assignments.set,OVERRIDES,%SYSPOPD%
-		sysnitmp=
-		Loop, Parse, ctdek,|
+		if (A_LoopField = "")
 			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				if (A_LoopField = sysni)
-					{
-						continue
-					}
-				sysnitmp.= A_LoopField . "|"
+				continue
 			}
-		if (sysnitmp = "")
+		if (A_LoopField = rapc1)
 			{
-				sysnitmp= 0
+				continue
 			}
-		iniwrite, "%sysnitmp%",Assignments.ini,OVERRIDES,%SYSPOPD%
-		iniwrite, "%ctdef%",Assignments.ini,ASSIGNMENTS,%SYSPOPD%
-		guicontrol,,ASCORE,|%ctdef%||%corelist%
+		racinj.= A_LoopField . "|"
 	}
+racinw= %ctdef%|%racinj%	
+iniwrite,"%racinw%",Assignments.ini,OVERRIDES,%ADDCORE%
+guicontrol,,ASCORE,|%ctdef%||%corelist%
 guicontrol,show,ASCORE
 guicontrol,,ARDCORE,1
 guicontrol,,DCORE,0
@@ -30172,20 +30187,13 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;   Alternate Core Radio Button   ;;;;;;;;;;;;
 ARDCore:
-ovrst=
-corpop=
-updtclst=
 gui,submit,nohide
-SYSPOPD= %OVLIST%
-if (ADDCORE <> "Select_A_System")
-	{
-		SYSPOPD= %ADDCORE%
-	}
+guicontrolget,ADDCORE,,ADDCORE
+guicontrolget,ASCORE,,ASCORE
 guicontrol,hide,APPOPT
 guicontrol,hide,SYSNICK
 guicontrol,hide,SVNICK
 guicontrol,hide,DELNICK
-;;guicontrol,hide,SYSIDENT
 guicontrol,hide,APPARG
 guicontrol,hide,NOEXTN
 guicontrol,hide,EMUPGC
@@ -30198,13 +30206,55 @@ guicontrol,hide,SELAPP
 guicontrol,hide,OPTTXT
 guicontrol,hide,ARGTXT
 guicontrol,show,ASCORE
-iniread,ovrst,Assignments.ini,ASSIGNMENTS,%SYSPOPD%
-guicontrol,,EXDISPL,%ovrst%
-splitpath,ovrst,corpop,,updtclst
-if (updtclst = "dll")
+guicontrol,,EXDISPL,
+iniread, ctdef,sets\Assignments.set,ASSIGNMENTS,%ADDCORE%
+iniread,supcv,EmuCfgPresets.ini,%ASCORE%,SUPCORE
+if ((supcv <> "ERROR")&&(supcv <> ""))
 	{
-		guicontrol,,ASCORE,|%corpop%||%corelist%
+		rapc1=
+		rapc2=
+		Loop,Parse,supcv,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (rapc1 = "")
+					{
+						ifexist,%libretrodirectory%\%A_LoopField%
+							{
+								rapc1= %A_LoopField%|
+								continue
+							}
+					}
+				ifexist,%libretrodirectory%\%A_LoopField%
+					{
+						rapc2.= A_LoopField . "|"
+						continue
+					}
+			}
+		racinj=
+		racinw=
+		IniRead,akn,Assignments.ini,OVERRIDES,%ASCORE%
+		Loop,Parse,akn,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (A_LoopField = rapc1)
+					{
+						continue
+					}
+				racinj.= A_LoopField . "|"
+			}
+		if (rapc1 <> "")
+			{
+				racinw= rapc1 . racinj . rapc2
+			}
+		iniwrite,"%racinw%",Assignments.ini,OVERRIDES,%ASCORE%
 	}
+guicontrol,,ASCORE,|%ctdef%||%rapc2%%corelist%	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;   Core Dropdown   ;;;;;;;;;;
@@ -30212,61 +30262,24 @@ ASCore:
 gui,submit,nohide
 guicontrolget,ASCORE,,ASCORE
 guicontrolget,ADDCORE,,ADDCORE
-if (ADDCORE <> "Select_A_System")
+if ((ADDCORE <> "Select_A_System")&&(ASCORE <> ""))
 	{
-		iniread,supcv,sets\EmuCfgPresets,%ASCORE%,SUPCORE
-		if ((supcv <> "ERROR")&&(supcv <> ""))
+		IniRead,akn,Assignments.ini,OVERRIDES,%ASCORE%
+		Loop,Parse,akn,|
 			{
-				rapc1=
-				rapc2=
-				Loop,Parse,supcv,|
+				if (A_LoopField = "")
 					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						if (rapc1 = "")
-							{
-								ifexist,%libretrodirectory%\%A_LoopField%
-									{
-										rapc1= %A_LoopField%|
-										continue
-									}
-							}
-						ifexist,%libretrodirectory%\%A_LoopField%
-							{
-								rapc2.= A_LoopField . "|"
-								continue
-							}
+						continue
 					}
-				racinj=
-				racinw=
-				IniRead,akn,Assignments.ini,OVERRIDES,%ASCORE%
-				Loop,Parse,akn,|
+				if (A_LoopField = rapc1)
 					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						if (A_LoopField = rapc1)
-							{
-								continue
-							}
-						racinj.= A_LoopField . "|"
+						continue
 					}
-				if (rapc1 <> "")
-					{
-						racinw= rapc1 . racinj . rapc2
-					}
-				iniwrite,"%racinw%",Assignments.ini,OVERRIDES,%ASCORE%
+				racinj.= A_LoopField . "|"
 			}
+		racinw= ASCORE . "|" . rapc1 . racinj . rapc2
+		iniwrite,"%racinw%",Assignments.ini,OVERRIDES,%ADDCORE%
 		iniwrite, "%ASCORE%",Assignments.ini,ASSIGNMENTS,%ADDCORE%
-		return
-	}
-if (OVLIST <> "")
-	{
-		iniwrite, "1",Assignments.ini,OVERRIDES,%OVLIST%
-		iniwrite, "%ASCORE%",Assignments.ini,ASSIGNMENTS,%OVLIST%
 		return
 	}
 return
@@ -30424,7 +30437,7 @@ loop,parse,preEmuCfg,|
 			{
 				continue
 			}
-		iniwrite, %sbr%,AppParams.ini,%A_Loopfield%,per_game_configurations
+		iniwrite, %sbr%,AppParams.ini,%A_LoopField%,per_game_configurations
 	}	
 SB_SetText("completed " seirb "  per game settings for all systems.")
 return	
@@ -30816,7 +30829,7 @@ Loop, %RJSYSTEMS%\*,2
 IniRead,ksvi,SystemLocations.ini,LOCATIONS
 Loop,Parse,ksvi,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -31331,7 +31344,7 @@ Loop,Parse,asig,`n`r
 									{
 										continue
 									}
-								ifexist,%raexedir%\cores\%a_loopField%
+								ifexist,%raexedir%\cores\%A_LoopField%
 									{
 										if (!instr(nevfdg,A_LoopField . "|") && !instr(fej,A_LoopField . "|"))
 											{
@@ -31648,7 +31661,7 @@ corever=
 HOSTINGCRCS=
 Loop,Parse,NETCLIENTGUIITEMS,|
 	{
-		guicontrol,hide,%A_Loopfield%
+		guicontrol,hide,%A_LoopField%
 	}
 Loop,Parse,NETHOSTGUIITEMS,|
 	{
@@ -32306,9 +32319,9 @@ Loop, parse, nacl,|
 					}
 				if (A_Index = 1)
 					{
-						netclist.= A_LoopFilefullPath . "||"					
+						netclist.= A_LoopFileFullPath . "||"					
 					}
-				netclist.= A_LoopFilefullPath . "|"
+				netclist.= A_LoopFileFullPath . "|"
 			}
 	}
 guicontrol,,NETROMLIST,|%netclist%	
@@ -32494,7 +32507,7 @@ Loop,parse,ncad,|
 			}
 		Loop, Files, %A_LoopField%\%NAMEDROM%,R
 			{
-				romf= %A_LoopFileFullpath%
+				romf= %A_LoopFileFullPath%
 			}
 	}
 return
@@ -32515,7 +32528,7 @@ if (AUTSYS = 1)
 		ARCSYSPOP= 1
 		Loop, Parse, syslist,|
 			{
-				if (A_loopField = keyout)
+				if (A_LoopField = keyout)
 					{
 						guicontrol,,ARCSYS,|%keyout%||%syslist%
 						if (MAMESWCHK = 1)
@@ -32871,7 +32884,7 @@ ifinstring,pop_list,%HOSTINGROMS%|
 		Loop, Parse, pop_list,|
 			{
 				poplind+=1
-				if (A_Loopfield = HOSTINGROMS)
+				if (A_LoopField = HOSTINGROMS)
 					{
 						guicontrol,enable,ARCPOP
 						guicontrol, Focus, ARCPOP
@@ -34740,7 +34753,7 @@ faromitgn:
 IniRead,kef,SystemLocations.ini,LOCATIONS,%DWNLPOS%
 Loop,parse,kef,|
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -34951,7 +34964,7 @@ Loop, Parse, CURPLST,|
 						continue
 					}
 				mvnum+=1
-				if (A_loopField = snfind)
+				if (A_LoopField = snfind)
 					{
 						mvtm:= mvnum+1
 					}
@@ -35547,7 +35560,7 @@ ifinstring,SysLLst,%keyout%=
 							{
 								continue
 							}
-						ifexist,%libretrodirectory%\%A_Loopfield%
+						ifexist,%libretrodirectory%\%A_LoopField%
 							{
 								ARCCORES:= A_LoopField . "||"
 								librk= 1
@@ -37131,14 +37144,14 @@ Loop,parse,HSH_TBD,|
 		ApndCRC=
 		CrCFLN= %A_LoopField%
 		splitpath,CrCFLN,romyu,rompd,romxt,romjn
-		filegetsize,hshfz,%A_LoopFileFUllPath%
+		filegetsize,hshfz,%A_LoopFileFullPath%
 		if InStr(FileExist(A_LoopField), "D")
 			{	
 				Loop,Files,%A_LoopField%\*.*,R
 					{						
 						CrCFLN= %A_LoopFileFullPath%
 						splitpath,CrCFLN,romyu,rompd,romxt,romjn
-						filegetsize,hshfz,%A_LoopFileFUllPath%
+						filegetsize,hshfz,%A_LoopFileFullPath%
 						gosub, HSH_FILE
 						continue
 					}
@@ -37265,7 +37278,7 @@ Loop,parse,incldats,|
 					{
 						continue
 					}
-				stringsplit,eig,A_loopfield,>
+				stringsplit,eig,A_LoopField,>
 				HASH_SYS= % %eig2%
 				stringreplace,repn,eig1,*,.*,All
 				stringsplit,aig,repn,|
@@ -37489,7 +37502,7 @@ if (datdrc = "ALL")
 					{
 						continue
 					}
-				stringsplit,feba,A_LOopField,=,"
+				stringsplit,feba,A_LoopField,=,"
 				;"
 				ifnotinstring,incldats,feba2
 					{
@@ -38188,11 +38201,11 @@ IniDelete,%ARCORG%,SOURCES
 IniRead,RESZEDA,sets\Arcorg.set,SOURCES
 Loop,parse,RESZEDA,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,vin,A_Loopfield,=
+		stringsplit,vin,A_LoopField,=
 		iniwrite,%vin2%,%ARCORG%,SOURCES,%vin1%
 	}
 return
@@ -39731,7 +39744,7 @@ if (cmdfun = 1)
 							{
 								if ((A_LoopFileExt = "bat")or(A_LoopFileExt = "exe"))
 									{
-										splitpath,A_loopFileShortPath,,dospthv
+										splitpath,A_LoopFileShortPath,,dospthv
 										stringreplace,dospthv,dospthv,%dospth%,,All
 										if (dospthv <> "")
 											{
@@ -40812,11 +40825,11 @@ stringsplit,splcr,LCORE,_
 EMUSN= %splcr1%
 Loop,parse,supguiitems,|
 	{
-		if (A_loopField = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		if (A_Loopfield = EMUSN)
+		if (A_LoopField = EMUSN)
 			{
 				svgbrnv=
 				guicontrol,enable,OPNCORE
@@ -41555,7 +41568,7 @@ if (SK_MODE = 2)
 							}
 						Loop, Parse, CFG2PROP,|
 							{
-								%SHRTNM%CFGR.= A_Loopfield . "|"
+								%SHRTNM%CFGR.= A_LoopField . "|"
 						}
 					return
 				}
@@ -43222,7 +43235,7 @@ gth=
 sysgath=
 Loop, Parse, snes9xCWopt,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43344,7 +43357,7 @@ Loop, Parse, snes9xCWopt,`n`r
 				guicontrol,show,emj%snes9xitbv%In
 				Loop,Parse,snes9xjbutv,`n`r
 					{
-						if (A_Loopfield = "")
+						if (A_LoopField = "")
 							{
 								continue
 							}
@@ -43369,7 +43382,7 @@ Loop, Parse, snes9xCWopt,`n`r
 							{
 								continue
 							}
-						stringsplit,din,A_LOopField,=
+						stringsplit,din,A_LoopField,=
 						if (plnx2 = din2)
 							{
 								guicontrol,,emj%snes9xitbv%,|%din1%||%snes9xjname%
@@ -43408,7 +43421,7 @@ mjnv=
 sysrep=
 Loop, Parse, snes9xCWopts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43451,7 +43464,7 @@ JSnes9xRAD3A:
 gui, submit, nohide
 Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
-		guicontrol,hide,%A_loopfield%
+		guicontrol,hide,%A_LoopField%
 	}
 Loop, parse,joyiterate,|
 	{
@@ -43467,7 +43480,7 @@ Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
 		ifinstring,cursnes9xjoyset,%A_LoopField%
 			{
-				guicontrol,show,%A_loopfield%
+				guicontrol,show,%A_LoopField%
 			}
 	}
 Loop, parse,joyiterate,|
@@ -43774,7 +43787,7 @@ SB_SetText(" Waiting for input TURBO")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43799,7 +43812,7 @@ SB_SetText(" Waiting for input L Trigger ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43824,7 +43837,7 @@ SB_SetText(" Waiting for input L Bumper ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43849,7 +43862,7 @@ SB_SetText(" Waiting for input R Trigger ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43874,7 +43887,7 @@ SB_SetText(" Waiting for input R Bumper ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43899,7 +43912,7 @@ SB_SetText(" Waiting for input L-Stick Up ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43924,7 +43937,7 @@ SB_SetText(" Waiting for input L-Stick Left ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43949,7 +43962,7 @@ SB_SetText(" Waiting for input L-Stick Right ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43974,7 +43987,7 @@ SB_SetText(" Waiting for input L-Stick Down ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -43999,7 +44012,7 @@ SB_SetText(" Waiting for input L3 Button ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44024,7 +44037,7 @@ SB_SetText(" Waiting for input R-Stick Up ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44049,7 +44062,7 @@ SB_SetText(" Waiting for input R-Stick Left ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44074,7 +44087,7 @@ SB_SetText(" Waiting for input R-Stick Right ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44099,7 +44112,7 @@ SB_SetText(" Waiting for input R-Stick Down ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44124,7 +44137,7 @@ SB_SetText(" Waiting for input R3 Button ")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44149,7 +44162,7 @@ SB_SetText(" Waiting for input DPad Down")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44174,7 +44187,7 @@ SB_SetText(" Waiting for input DPad Up")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44201,7 +44214,7 @@ SB_SetText(" Waiting for input DPad Left")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44226,7 +44239,7 @@ SB_SetText(" Waiting for input DPad Right")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44251,7 +44264,7 @@ SB_SetText(" Waiting for input Select Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44276,7 +44289,7 @@ SB_SetText(" Waiting for input Start Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44301,7 +44314,7 @@ SB_SetText(" Waiting for input Y Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44326,7 +44339,7 @@ SB_SetText(" Waiting for input X Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44351,7 +44364,7 @@ SB_SetText(" Waiting for input B Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44376,7 +44389,7 @@ SB_SetText(" Waiting for input A Button")
 gosub, GetJoystickInput
 Loop,Parse,snes9xjbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -44695,7 +44708,7 @@ if (rmst = "History")
 		guicontrolget,emst,,MORROM
 		Loop, parse, emst,\
 			{
-				ifinstring,A_Loopfield,%A_Space%-%A_Space%
+				ifinstring,A_LoopField,%A_Space%-%A_Space%
 				rmst= %A_LoopField%
 				break
 			}
@@ -44703,11 +44716,11 @@ if (rmst = "History")
 	}
 Loop, parse,allsupport,|
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		if (A_Loopfield = rmst)
+		if (A_LoopField = rmst)
 			{
 				ROMSYS= %A_LoopField%
 				break
@@ -44754,7 +44767,7 @@ if (ROMSYS = "")
 				guicontrolget,emst,,MORROM
 				Loop, parse, emst,\
 					{
-						ifinstring,A_Loopfield,%A_Space%-%A_Space%
+						ifinstring,A_LoopField,%A_Space%-%A_Space%
 						rmst= %A_LoopField%
 						break
 					}
@@ -44762,11 +44775,11 @@ if (ROMSYS = "")
 			}
 		Loop, parse,allsupport,|
 			{
-				if (A_Loopfield = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
-				if (A_Loopfield = rmst)
+				if (A_LoopField = rmst)
 					{
 						ROMSYS= %A_LoopField%
 						break
@@ -45055,7 +45068,7 @@ Loop, Parse, mednafenopts,`n`r
 			}
 		mspln1=
 		stringsplit,mspln,A_LoopField,.
-		ifinstring,abarb,|%A_loopField%|
+		ifinstring,abarb,|%A_LoopField%|
 			{
 				break
 			}
@@ -47391,7 +47404,7 @@ Loop,Parse,njw,`n`r
 			}
 		ifinstring,A_LoopField,%RJMEDNM%.input
 			{
-				stringsplit,fi,A_loopField,%A_Space%
+				stringsplit,fi,A_LoopField,%A_Space%
 				stringreplace,nv,fi1,.,_,All
 				Loop, %fi0%
 					{
@@ -48858,7 +48871,7 @@ if (ROMSYS = "")
 				guicontrolget,emst,,MORROM
 				Loop, parse, emst,\
 					{
-						ifinstring,A_Loopfield,%A_Space%-%A_Space%
+						ifinstring,A_LoopField,%A_Space%-%A_Space%
 						rmst= %A_LoopField%
 						break
 					}
@@ -48866,11 +48879,11 @@ if (ROMSYS = "")
 			}
 		Loop, parse,allsupport,|
 			{
-				if (A_Loopfield = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
-				if (A_Loopfield = rmst)
+				if (A_LoopField = rmst)
 					{
 						ROMSYS= %A_LoopField%
 						break
@@ -49603,7 +49616,7 @@ Loop,parse,hlslpr,`n`r
 		nvs5=
 		nvs6=
 		vnm=
-		stringsplit,nvs,A_Loopfield,%A_Space%
+		stringsplit,nvs,A_LoopField,%A_Space%
 		Loop,%nvs0%
 			{
 				if (A_Index = 1)
@@ -49817,7 +49830,7 @@ ifnotexist,%mamejglbfile%
 snv=
 Loop, parse, mamejglob,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -49889,7 +49902,7 @@ JMameRAD3A:
 gui, submit, nohide
 Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
-		guicontrol,hide,%A_loopfield%
+		guicontrol,hide,%A_LoopField%
 	}
 Loop, parse,joyiterate,|
 	{
@@ -49905,7 +49918,7 @@ Loop,Parse,EMUJOYBUTGUIITEMS,|
 	{
 		ifinstring,curmamejoyset,%A_LoopField%
 			{
-				guicontrol,show,%A_loopfield%
+				guicontrol,show,%A_LoopField%
 			}
 	}
 guicontrol,,emjDDLA,|%mamescs%
@@ -49934,7 +49947,7 @@ Loop,Parse,njw,`n`r
 			}
 		ifinstring,A_LoopField,%RJMAMENM%.input
 			{
-				stringsplit,fi,A_loopField,%A_Space%
+				stringsplit,fi,A_LoopField,%A_Space%
 				stringreplace,nv,fi1,.,_,All
 				Loop, %fi0%
 					{
@@ -49992,7 +50005,7 @@ guicontrol,,emjCHKZ,0
 svi=
 Loop, Parse, mamejglob,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -50014,7 +50027,7 @@ Loop, Parse, mamejglob,`n`r
 						stringsplit,sli,srbx,%A_space%
 						Loop, %sli0%
 							{
-								if (A_Loopfield = "")
+								if (A_LoopField = "")
 									{
 										continue
 									}
@@ -51419,7 +51432,7 @@ gth=
 sysgath=
 Loop, Parse, mamejimp,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51513,7 +51526,7 @@ Loop, Parse, mamejimp,`n`r
 		rmpbtnvlfj=
 		Loop,parse,mameitbX,%A_Space%
 			{
-				if (A_Loopfield = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
@@ -51731,7 +51744,7 @@ SB_SetText(" Waiting for input TURBO")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51756,7 +51769,7 @@ SB_SetText(" Waiting for input L Trigger ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51781,7 +51794,7 @@ SB_SetText(" Waiting for input L Bumper ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51806,7 +51819,7 @@ SB_SetText(" Waiting for input R Trigger ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51831,7 +51844,7 @@ SB_SetText(" Waiting for input R Bumper ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51856,7 +51869,7 @@ SB_SetText(" Waiting for input L-Stick Up ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51881,7 +51894,7 @@ SB_SetText(" Waiting for input L-Stick Left ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51906,7 +51919,7 @@ SB_SetText(" Waiting for input L-Stick Right ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51931,7 +51944,7 @@ SB_SetText(" Waiting for input L-Stick Down ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51956,7 +51969,7 @@ SB_SetText(" Waiting for input L3 Button ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -51981,7 +51994,7 @@ SB_SetText(" Waiting for input R-Stick Up ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52006,7 +52019,7 @@ SB_SetText(" Waiting for input R-Stick Left ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52031,7 +52044,7 @@ SB_SetText(" Waiting for input R-Stick Right ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52056,7 +52069,7 @@ SB_SetText(" Waiting for input R-Stick Down ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52081,7 +52094,7 @@ SB_SetText(" Waiting for input R3 Button ")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52106,7 +52119,7 @@ SB_SetText(" Waiting for input DPad Down")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52131,7 +52144,7 @@ SB_SetText(" Waiting for input DPad Up")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52158,7 +52171,7 @@ SB_SetText(" Waiting for input DPad Left")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52183,7 +52196,7 @@ SB_SetText(" Waiting for input DPad Right")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52208,7 +52221,7 @@ SB_SetText(" Waiting for input Select Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52233,7 +52246,7 @@ SB_SetText(" Waiting for input Start Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52258,7 +52271,7 @@ SB_SetText(" Waiting for input Y Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52283,7 +52296,7 @@ SB_SetText(" Waiting for input X Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52308,7 +52321,7 @@ SB_SetText(" Waiting for input B Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52333,7 +52346,7 @@ SB_SetText(" Waiting for input A Button")
 gosub, GetJoystickInput
 Loop,Parse,mamejbuts,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52769,7 +52782,7 @@ snv=
 mjnv=
 Loop, Parse, mamejimp,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -52827,7 +52840,7 @@ mjnv=
 sysrep=
 Loop, Parse, mamejimp,`n`r
 	{
-		if (A_Loopfield = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -53099,7 +53112,7 @@ loop,parse,mamelistedmedia,`n`r
 			{
 				continue
 			}
-		af= %A_loopField%
+		af= %A_LoopField%
 		Loop, 20
 			{
 				stringreplace,af,af,%A_Space%%A_Space%,%A_space%,All
@@ -53160,7 +53173,6 @@ if (Pegasus = "ERROR")
 filecreateDir,rj\PG
 ifnotexist,PGcfg.ini
 	{
-		FileAppend,[GLOBAL]`n,PGcfg.ini
 		FileAppend,[CONFIG]`n,PGcfg.ini
 		FileAppend,[ORDER]`n,PGcfg.ini
 		IniWrite,true,PGcfg.ini,CONFIG,scraper
@@ -53175,11 +53187,11 @@ ifnotexist,%PGRPOG%\pegasus_portable.lnk
 	{
 		FileCreateShortcut, %pegasus%, pegasus_portable.lnk, %PGPROG%, --portable, portable_mode, %pegasus%, , ,
 	}
-iniread,PGHOME,pgcfg.ini,CONFIG,home_directory
+iniread,PGHOME,pgcfg.ini,CONFIG,home
 if (PGHOME = "ERROR")
 	{
 		PGHOME= %PGPROG%\config
-		iniwrite,%PGHOME%,pgcfg.ini,CONFIG,home_directory
+		iniwrite,%PGHOME%,pgcfg.ini,CONFIG,home
 	}
 ifnotexist,%PGHOME%
 	{
@@ -53241,22 +53253,15 @@ if (PgNpts = "")
 fetog= show
 PGCURPL=
 guicontrol,,FELBXA,|
-Loop,Read,PGcfg.ini
+IniRead,pgglobal,PGcfg.ini,GLOBAL
+Loop,parse,pgglobal,`n`r
 	{
-		ccpl1=
-		ccpl2=
-		gotsy1=
-		stringsplit,ccpl,A_LoopReadLine,=
-		stringsplit,gotsy,ccpl2,|
-		if (ccpl1 = "[GLOBAL]")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		if (ccpl1 = "[CONFIG]")
-			{
-				break
-			}
-		PGCURPL.= gotsy1 . "|"
+		stringsplit,knni,A_LoopField,=
+		PGCURPL.= knni1 . "|"
 	}
 iniread,sysordr,PGcfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
@@ -53267,9 +53272,9 @@ insttheme=
 Loop,%PGHOME%\themes\*,2
 	{
 		insttheme= %A_LoopFileName%
-		ifexist,%PGHOME%\themes\rj
+		ifexist,%PGHOME%\themes\gameOS
 			{
-				insttheme= rj
+				insttheme= gameOS
 			}
 		break
 	}
@@ -53294,11 +53299,11 @@ if (pgfullscreen = "ERROR")
 		pgfullscreen= false
 	}
 pgdet= 1
-IniRead, pgaltsrcs,PGcfg.ini,CONFIG,DetectPlaylists
-if (pgaltsrcs = "ERROR")
+IniRead, pgDetectPlaylists,PGcfg.ini,CONFIG,DetectPlaylists
+if (pgDetectPlaylists = "ERROR")
 	{
 		pgdet= 0
-		pgaltsrcs= false
+		pgDetectPlaylists= false
 	}
 pgscr= 1
 IniRead,pgscraper,PGcfg.ini,CONFIG,scraper
@@ -53310,10 +53315,11 @@ if (pgscraper = "ERROR")
 altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
 Loop,parse,altnms,|
 	{
-		altpg%A_Index%:= A_Loopfield
+		altpg%A_Index%:= A_LoopField
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    PG CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+PGGUIITEMS=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ|FEBUTK|FECBXB|FECBXC|FECBXD|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEDDLA|FEDDLD|FEDDLF|FEDDLG|FEEDTA|FEEDTB|FELBXA|FELVA|FEPRGA|FERAD5A|FERAD5B|FERAD5C
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA, x527 y33 w70 h19
@@ -53384,10 +53390,12 @@ guicontrol,enable,FECHKF
 guicontrol,move,FECHKF,x642 y398 w120 h23
 guicontrol,,FECHKF,Detect Playlists
 guicontrol,,FECHKE,%pgdet%
+;;emuoptions;;
 guicontrol,%fetog%,FEEDTA
 guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
 guicontrol,,FEEDTA,%A_SPACE%"{file.path}"
+;;extensions;;
 guicontrol,%fetog%,FEEDTB
 guicontrol,enable,FEEDTB
 guicontrol,-password,FEEDTB
@@ -53409,21 +53417,22 @@ guicontrol,,FEDDLF,|%pgmirloc%||
 guicontrol,%fetog%,FEDDLG
 guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x325 y130 w100
-guicontrol,,FEDDLG,|other||%emuinstpop%
+guicontrol,,FEDDLG,|other||%runlist%
+;;fullname;;
 guicontrol,%fetog%,FECBXB
 guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x263 y153 w217
 guicontrol,,FECBXB,|%systmfldrs%
-;;platform;;
+;;platformid;;
 guicontrol,%fetog%,FECBXC
 guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
-guicontrol,,FECBXC,|%avblnk%%PgNpts%%systmfldrs%
-;;name;;
+guicontrol,,FECBXC,|%avblnk%%PgNpts%
+;;shortname;;
 guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
-guicontrol,,FECBXD,|%avblnk%%PgNpts%%systmfldrs%
+guicontrol,,FECBXD,|%avblnk%%PgNpts%
 ;;theme;;
 guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
@@ -53445,17 +53454,17 @@ Loop, Parse, systmfldrs,|
 LV_ModifyCol()
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
-guicontrol,move,FERAD5A,x265 y64 w120 h15
+guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
-guicontrol,move,FERAD5B,x265 y84 w53 h15
+guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
 guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
-guicontrol,move,FERAD5C,x265 y101 w53 h15
+guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
 guicontrol,%fetog%,FETXTA
@@ -53473,7 +53482,7 @@ guicontrol,,FETXTK,Load System List
 guicontrol,%fetog%,FETXTC
 guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
-guicontrol,,FETXTC,Mirror Location
+guicontrol,,FETXTC,System
 guicontrol,%fetog%,FELBXA
 guicontrol,enable,FELBXA
 guicontrol,move,FELBXA,x263 y223 w240 h251
@@ -53499,12 +53508,12 @@ guicontrol,move,FETXTL,x488 y155 w55 h13
 guicontrol,,FETXTL,Full-Name
 guicontrol,%fetog%,FETXTM
 guicontrol,enable,FETXTM
-guicontrol,move,FETXTM, x490 y178 w49 h13
-guicontrol,,FETXTM,Platform
+guicontrol,move,FETXTM, x490 y178 w89 h13
+guicontrol,,FETXTM,Platform-Ident
 guicontrol,%fetog%,FETXTO
 guicontrol,enable,FETXTO
-guicontrol,move,FETXTO, x491 y201 w49 h13
-guicontrol,,FETXTO,Name
+guicontrol,move,FETXTO, x491 y201 w89 h13
+guicontrol,,FETXTO,Short-Name
 guicontrol,%fetog%,FETXTP
 guicontrol,enable,FETXTP
 guicontrol,move,FETXTP, x441 y6 w47 h15
@@ -53513,7 +53522,7 @@ guicontrol,%fetog%,FEPRGA
 guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
-gosub, FERAD5C
+gosub, PGPOPULATESYS
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   PG DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53601,6 +53610,10 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTB:
+Loop,parse,PGGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
 guicontrolget,FEDDLD,,FEDDLD
@@ -53615,191 +53628,169 @@ Loop, Parse, prsy,|
 			{
 				continue
 			}
-		sysfix.= A_LoopField . "|"
-		sysfin=
-		sysesc= %A_loopField%
-		iniread,tmpes,PGcfg.ini,GLOBAL
-		Loop, Parse, tmpes,`n`r
+		IniRead,c_sysp,PGcfg.ini,%A_LoopField%,syspath
+		IniRead,c_emun,PGcfg.ini,%A_LoopField%,emuname
+		IniRead,c_emuo,PGcfg.ini,%A_LoopField%,emuoptions
+		stringreplace,c_emuo,c_emuo,> ,",All
+		;"
+		stringreplace,c_emuo,c_emuo,[ROMNAME],{file.basename},All
+		stringreplace,c_emuo,c_emuo,[ROMPATH],{file.path},All
+		IniRead,c_extn,PGcfg.ini,%A_LoopField%,extensions
+		IniRead,c_shrt,PGcfg.ini,%A_LoopField%,shortname
+		IniRead,c_full,PGcfg.ini,%A_LoopField%,fullname
+		IniRead,c_plfi,PGcfg.ini,%A_LoopField%,platformid
+		if instr(c_sysp,":")
 			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				rjsp1=
-				rjsp2=
-				stringsplit,rjsp,A_LoopField,=
-				apnd=
-				ppnd=
-				stringleft,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd= _
-						apnd=
-					}
-				stringright,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd=
-						apnd= _
-					}
-				ffj1=
-				ffj2=
-				ans1=
-				ans2=
-				stringsplit,ans,A_LoopField,=
-				stringsplit,ffj,ans2,|
-				typm= %ans1%
-				if ((apnd = ppnd) && (apnd <> "_"))
-					{
-						typm= %ffj1%
-					}
-				if (typm = sysesc)
-					{
-						iniread,sysvlz,PGcfg.ini,GLOBAL,%ans1%
-						injvar1=
-						injvar2=
-						injvar3=
-						injvar4=
-						injvar5=
-						injvar6=
-						injvar7=
-						stringsplit,injvar,sysvlz,|
-						FileDelete,%injvar6%\collections.pegasus.txt
-						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
-						ifinstring,injvar4,:
-							{
-								emushrtn= %injvar4%
-							}
-						FileAppend,collection: %injvar2%`n,%injvar6%\collections.pegasus.txt
-						FileAppend,shortname: %sysesc%`n,%injvar6%\collections.pegasus.txt
-						stringreplace,extn,injvar3,.,%A_Space%,All
-						FileAppend,extensions: %extn%`n,%injvar6%\collections.pegasus.txt
-						stringreplace,emushrtn,emushrtn,",,All
-						;"
-						FileAppend,launch: "%emushrtn%" %injvar5% `n,%injvar6%\collections.pegasus.txt
-						stringreplace,injvnp,injvar6,\,/,All
-						FileAppend,directory: %injvnp%`n,%injvar6%\collections.pegasus.txt
-						FileAppend,`n,%injvar6%\collections.pegasus.txt
-						Loop,files,%injvar6%\*,FD
-							{
-								pgdir= %A_LoopFileName%
-								splitpath,A_LoopFileFullPath,pginf,pgind,pginx,pginn
-								extnum= 
-								extvidn= 
-								pgimp= 
-								pgimgapnd= 
-								pgvidapnd= 
-								Loop,parse,extn,`,,%A_Space%
-									{
-										pinv= 
-										ifexist,%A_LoopFileFullPath%\
-											{
-												pgind= %injvar6%\%pgdir%
-												pinv= R
-											}
-											else {
-												pgimp= 
-											}
-										Loop,files,%pgind%\*.%a_loopfield%,%pinv%
-											{
-												splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
-												stringreplace,pgfullpth,A_LoopFileFullPath,\,/,All
-												stringreplace,pgad,pgd,\,/,All
-												if ((A_Index = 1) && (pgimp <> 1))
-													{
-														fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%injvar6%\collections.pegasus.txt
-														goto, ParsePGIMGS
-													}													
-												fileappend,%pgfullpth%`n,%injvar6%\collections.pegasus.txt
-												ParsePGIMGS:
-												pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
-												if (extnum = 1)
-													{
-														continue
-													}
-												Loop,parse,imgonl,|
-													{
-														if (A_LoopField = "")
-															{
-																continue
-															}
-														cextm= %a_loopfield%
-														Loop,parse,pgimgs,|
-															{
-																irnm= %A_LoopField%
-																iimmbn= %pgd%\%irnm%.%cextm%
-																ifexist,%iimmbn%
-																	{
-																		stringreplace,pgcpth,iimmbn,\,/,All
-																		stringreplace,pgimgs,pgimgs,%irnm%|,,All
-																		pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-																		extnum= 1
-																		continue
-																	}
-																etxx= % altpg%A_Index%
-																if (etxx <> irnm)
-																	{
-																		iimmbn= %pgd%\%etxx%.%cextm%
-																		stringreplace,pgcpth,iimmbn,\,/,All
-																		stringreplace,pgimgs,pgimgs,%irnm%|,,All
-																		ifexist,%pgd%\%etxx%.%cextm%
-																			{
-																				stringreplace,pgimgs,pgimgs,%irnm%|,,All
-																				pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-																				extnum= 1
-																				continue
-																			}
-																	}
-																iimmbn= %pghome%\%pgdir%\%irnm%.%cextm%
-																ifexist,%iimmbn%
-																	{
-																		stringreplace,pgcpth,iimmbn,\,/,All
-																		stringreplace,pgimgs,pgimgs,%A_LoopField%|,,All
-																		pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-																		extnum= 1
-																	}
-															}
-													}
-												if (extvidn = 1)
-													{
-														continue
-													}
-												pgvidtyp=mp4|mkv|m4a|avi
-												Loop,parse,pgvidtyp,|
-													{
-													Loop,files,%pgind%\*.%A_LoopField%
+				sysplfw= %c_sysp%
+				goto, gpsysit
+			}
+		else {
+			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%c_sysp%
+			Loop,parse,sysplfp
+				{
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					sysplfw= %A_LoopField%
+					goto, gpsysit
+				}
+			continue
+			}
+			gpsysit:
+			FileDelete,%sysplfw%\collections.pegasus.txt
+			iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
+			ifinstring,c_emun,:
+				{
+					emushrtn= %c_emun%
+				}
+			FileAppend,collection: %c_plfi%`n,%sysplfw%\collections.pegasus.txt
+			FileAppend,shortname: %c_shrt%`n,%sysplfw%\collections.pegasus.txt
+			stringreplace,extn,c_extn,.,%A_Space%,All
+			FileAppend,extensions: %extn%`n,%sysplfw%\collections.pegasus.txt
+			stringreplace,emushrtn,emushrtn,",,All
+			;"
+			FileAppend,launch: "%emushrtn%" %c_emuo% `n,%sysplfw%\collections.pegasus.txt
+			stringreplace,injvnp,sysplfw,\,/,All
+			FileAppend,directory: %injvnp%`n,%sysplfw%\collections.pegasus.txt
+			FileAppend,`n,%sysplfw%\collections.pegasus.txt
+			Loop,files,%sysplfw%\*,FD
+				{
+					pgdir= %A_LoopFileName%
+					splitpath,A_LoopFileFullPath,pginf,pgind,pginx,pginn
+					extnum= 
+					extvidn= 
+					pgimp= 
+					pgimgapnd= 
+					pgvidapnd= 
+					Loop,parse,extn,`,,%A_Space%
+						{
+							pinv= 
+							ifexist,%A_LoopFileFullPath%\
+								{
+									pgind= %sysplfw%\%pgdir%
+									pinv= R
+								}
+								else {
+									pgimp= 
+								}
+							Loop,files,%pgind%\*.%A_LoopField%,%pinv%
+								{
+									splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
+									stringreplace,pgfullpth,A_LoopFileFullPath,\,/,All
+									stringreplace,pgad,pgd,\,/,All
+									if ((A_Index = 1) && (pgimp <> 1))
+										{
+											fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
+											goto, ParsePGIMGS
+										}													
+									fileappend,%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
+									ParsePGIMGS:
+									pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
+									if (extnum = 1)
+										{
+											continue
+										}
+									Loop,parse,imgonl,|
+										{
+											if (A_LoopField = "")
+												{
+													continue
+												}
+											cextm= %A_LoopField%
+											Loop,parse,pgimgs,|
+												{
+													irnm= %A_LoopField%
+													iimmbn= %pgd%\%irnm%.%cextm%
+													ifexist,%iimmbn%
 														{
-															iimmbn= %A_LoopFileFullPath%
-															ifexist,%iimmbn%
+															stringreplace,pgcpth,iimmbn,\,/,All
+															stringreplace,pgimgs,pgimgs,%irnm%|,,All
+															pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+															extnum= 1
+															continue
+														}
+													etxx= % altpg%A_Index%
+													if (etxx <> irnm)
+														{
+															iimmbn= %pgd%\%etxx%.%cextm%
+															stringreplace,pgcpth,iimmbn,\,/,All
+															stringreplace,pgimgs,pgimgs,%irnm%|,,All
+															ifexist,%pgd%\%etxx%.%cextm%
 																{
-																	stringreplace,pgcpth,iimmbn,\,/,All
 																	stringreplace,pgimgs,pgimgs,%irnm%|,,All
-																	pgvidapnd.= "assets.video:" . A_Space . pgcpth . "`n"
-																	extvidn= 1
+																	pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+																	extnum= 1
 																	continue
 																}
 														}
+													iimmbn= %pghome%\%pgdir%\%irnm%.%cextm%
+													ifexist,%iimmbn%
+														{
+															stringreplace,pgcpth,iimmbn,\,/,All
+															stringreplace,pgimgs,pgimgs,%A_LoopField%|,,All
+															pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+															extnum= 1
+														}
 												}
-												pgimp= 1
+										}
+									if (extvidn = 1)
+										{
+											continue
+										}
+									pgvidtyp=mp4|mkv|m4a|avi
+									Loop,parse,pgvidtyp,|
+										{
+										Loop,files,%pgind%\*.%A_LoopField%
+											{
+												iimmbn= %A_LoopFileFullPath%
+												ifexist,%iimmbn%
+													{
+														stringreplace,pgcpth,iimmbn,\,/,All
+														stringreplace,pgimgs,pgimgs,%irnm%|,,All
+														pgvidapnd.= "assets.video:" . A_Space . pgcpth . "`n"
+														extvidn= 1
+														continue
+													}
 											}
 									}
-								if (pgimgapnd <> "")
-									{
-										fileappend,%pgimgapnd%,%injvar6%\collections.pegasus.txt
-									}
-								if (pgvidapnd <> "")
-									{
-										fileappend,%pgvidapnd%,%injvar6%\collections.pegasus.txt
-									}
-							}
-						fileread,pgsys,%pghome%\game_dirs.txt
-						ifnotinstring,pgsys,%injvnp%
-							{
-								FileAppend,%injvnp%`n,%pghome%\game_dirs.txt
-							}
-						break
-					}
-			}
+									pgimp= 1
+								}
+						}
+					if (pgimgapnd <> "")
+						{
+							fileappend,%pgimgapnd%,%sysplfw%\collections.pegasus.txt
+						}
+					if (pgvidapnd <> "")
+						{
+							fileappend,%pgvidapnd%,%sysplfw%\collections.pegasus.txt
+						}
+				}
+			fileread,pgsys,%pghome%\game_dirs.txt
+			ifnotinstring,pgsys,%injvnp%
+				{
+					FileAppend,%injvnp%`n,%pghome%\game_dirs.txt
+				}
 	}
 FileRead,pgcfg,sets\pgsettings.set
 pgthemeloc= %PGPROG%\config\themes\%FEDDLD%
@@ -53807,10 +53798,11 @@ stringreplace,pgthemeloc,pgthemeloc,\r,/,All
 stringreplace,pgcfg,pgcfg,[THEME],%pgthemeloc%,All
 stringreplace,pgcfg,pgcfg,[PGSCR],%pgscraper%,All
 stringreplace,pgcfg,pgcfg,[PGFS],%pgfullscreen%,All
-stringreplace,pgcfg,pgcfg,[PGGOG],%pgaltsrcs%,All
-stringreplace,pgcfg,pgcfg,[PGSTM],%pgaltsrcs%,All
-stringreplace,pgcfg,pgcfg,[PGES],%pgaltsrcs%,All
-stringreplace,pgcfg,pgcfg,[PGAND],%pgaltsrcs%,All
+stringreplace,pgcfg,pgcfg,[PGGOG],%pgDetectPlaylists%,All
+stringreplace,pgcfg,pgcfg,[PGSTM],%pgDetectPlaylists%,All
+stringreplace,pgcfg,pgcfg,[PGES],%pgDetectPlaylists%,All
+stringreplace,pgcfg,pgcfg,[PGLB],%pgDetectPlaylists%,All
+stringreplace,pgcfg,pgcfg,[PGAND],%pgDetectPlaylists%,All
 stringreplace,PGHOMER,PGHOME,\,/,All
 stringreplace,pgcfg,pgcfg,[PGHOME],%PGHOMER%,All
 if (FECHKB = 1)
@@ -53823,6 +53815,11 @@ filecopy,rj\PG\collections.pegasus.txt,%PGHOME%\metafiles,%FECHKB%
 FileDelete,%PGHOME%\settings.txt
 FileAppend,%pgcfg%,%PGHOME%\settings.txt
 msgbox,,Complete,PG configuration created,5
+
+Loop,parse,PGGUIITEMS,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 PegasusFEBUTC:
 if (sysfnd = "")
@@ -53836,86 +53833,46 @@ Loop, Parse, PGCURPL,|
 			{
 				continue
 			}
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
-				iniread,tmpes,PGcfg.ini,GLOBAL
-				Loop, Parse, tmpes,|
-					{
-						stringsplit,ffj,A_loopfield,|
-						stringsplit,ans,ffj1,=
-						if (ans2 = curtxt)
-							{
-								systdl= ans1
-							}
-					}
-				inidelete,PGcfg.ini,GLOBAL,%systdl%
+				inidelete,PGcfg.ini,%curtxt%
 				continue
 			}
 		TCURPL.= A_LoopField . "|"
 	}
 PGCURPL= %TCURPL%
 iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order
-PGCURPL= %TCURPL%
 guicontrol,,FELBXA,|%PGCURPL%
+return
+
+PEGRSWIN:
+FileDelete,PGcfg.ini
+Goto, FEDDLJ
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+/*
+*/	
+selctsystmp=
+guicontrolget,FETXTJ,,FETXTJ
+FileSelectFolder,selctsystmp,,3,Select a ROM Directory for %curtxt%
+if ((selctsystmp = "")&&(sysfnd = ""))
+	{
+		guicontrol,,FETXTJ,%selctsystmp%
+		return
+	}
 if (sysfnd = "")
 	{
 		return
 	}
-selctsystmp=
-FileSelectFolder,selctsystmp,,3,Select a ROM Directory for %curtxt%
-if (selctsystmp = "")
+if ((FETXTJ <> selctsystmp)&&(selctsystmp = ""))
 	{
-		return
+		guicontrol,,FETXTJ,
+		selctsystmp= %FECBXB%
 	}
-stringright,efi,selctsystmp,2
-stringLeft,efix,selctsystmp,2
-if (efi = ":\")
-	{
-		selctsystmp= %efix%
-	}
-selctsys= %selctsystmp%
-guicontrol,,FETXTJ,%selctsys%
-extpop=
-Loop, Read, PGcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 6)
-			{
-				kkv= %A_LoopField%
-				stringreplace,pgtv,pgtv,%kkv%,%selctsys%,All
-				iniwrite,%pgtv%,PGcfg.ini,GLOBAL,%extpop%
-			}
-	}
-return
+iniwrite,%selctsystmp%,PGCfg.ini,%curtxt%,syspath
+return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 return
 PegasusFEBUTE:
@@ -53930,270 +53887,92 @@ if (syso = "ERROR")
 	{
 		syso=
 	}
-if (FERAD5A = 1)
+if (sysfnd = 1)
 	{
-	vmint=
-	Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				Loop, Read, PGcfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, PgLkUp,`n`r
-					{
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.bat,.BAT
-								SLCTDEMU= BSL
-								SLCTDRW= "{file.path}"
-								selctsys= %RJSYSTEMS%\%CHKITM%
-								SLCTDSN= _%sfi3%
-								SNFEITMS.= "_" . sfi3 . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,=,,All
-						emks= %ffr%
-						SLCTDEXT=.bat .BAT
-						SLCTDEMU= BSL
-						SLCTDRW= "{file.path}"
-						selctsys= %RJSYSTEMS%\%CHKITM%
-						SLCTDSN= _%ffr%
-						SNFEITMS.= "_" . ffr . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,PGcfg.ini,GLOBAL,%SLCTDSN%
-			}
-		iniread,sysordr,PGcfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		PGCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order
-		guicontrol,,FELBXA,|%PGCURPL%
-		LV_Modify(0, "-Check")
+		SB_SetText("Current system is already added")
 		return
 	}
-if (FERAD5B = 1)
+RowNumber = 0
+Loop
 	{
-		guicontrolget,FEDDLF,,FEDDLF
-		iniread,pgmirror,Settings.ini,GLOBAL,%FEDDLF%
-		if (pgmirror = "ERROR")
+		RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
+		if not RowNumber
 			{
-				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
+				break
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
+	}
+Loop, Parse, PGCURPL,|
+	{
+		if (A_LoopField = curtxt)
+			{
+				SB_SetText("Current system is already in the playlist.")
 				return
 			}
-		vmint=
-		Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				Loop, Read, PGcfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, PgLkUp,`n`r
-					{
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						sfi7=
-						sfi8=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.lnk,.LNK
-								SLCTDEMU= BSL
-								SLCTDRW= "{file.path}"
-								selctsys= %pgmirror%\%CHKITM%
-								SLCTDSN= %sfi3%_
-								SNFEITMS.= sfi3 . "_" . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,%A_Space%,,All
-						stringreplace,ffr,ffr,-,,All
-						stringLower,ffr,ffr
-						emks= %ffr%
-						SLCTDEXT=.lnk .LNK
-						SLCTDEMU= BSL
-						SLCTDRW= "{file.path}"
-						selctsys= %pgmirror%\%CHKITM%
-						SLCTDSN= %ffr%_
-						SNFEITMS.= ffr . "_" . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,PGcfg.ini,GLOBAL,%SLCTDSN%
-			}
-		iniread,sysordr,PGcfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		PGCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%PGCURPL%,PGcfg.ini,ORDER,system_order
-		Guicontrol,,FELBXA,|%PGCURPL%
-		LV_Modify(0, "-Check")
+	}
+PGCURPL.= curtxt . "|"
+guicontrolget,FECBXB,,FECBXB
+if (FECBXB = "")
+	{
+		FECBXB= %curtxt%
+	}
+guicontrolget,FECBXD,,FECBXD
+if (FECBXD = "")
+	{
+		FECBXD= %curtxt%
+	}
+guicontrolget,FECBXA,,FECBXA
+if (FECBXA = "")
+	{
+		FECBXA= %curtxt%
+	}
+if (SLCTDSN = "")
+	{
+		SLCTDSN= other
+	}
+guicontrolget,SLCTDEMU,,FEDDLG
+if (SLCTDEMU = "other")
+	{		
+		SB_SetText("You must assign an Emulator")
 		return
 	}
-nvar=
-if (FERAD5C = 1)
+guicontrolget,SLCTDEXT,,FEEDTB
+if (SLCTDEXT = "")
 	{
-		if (sysfnd = 1)
+		SLCTDEXT= .*
+	}
+guicontrolget,selctsyst,,FETXTJ
+if (selctsyst = "")
+	{
+		iniread,selctsystl,SystemLocations.ini,LOCATIONS,%fecbxb%
+		if ((selctsystl = "")or(selctsystl = "ERROR"))
 			{
-				SB_SetText("Current system is already added")
-				return
+				selctsyst= %RJSYSTEMS%
 			}
-		RowNumber = 0
-		Loop
-			{
-				RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
-				if not RowNumber
+			else {
+				Loop,parse,selctsystl,|
 					{
+						selctsyst= %A_LoopField%
 						break
 					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
 			}
-		Loop, Parse, PGCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						SB_SetText("Current system is already in the playlist.")
-						return
-					}
-			}
-		PGCURPL.= curtxt . "|"
-		guicontrolget,FECBXB,,FECBXB
-		if (FECBXB = "")
-			{
-				FECBXB= %curtxt%
-			}
-		guicontrolget,FECBXD,,FECBXD
-		if (FECBXD = "")
-			{
-				FECBXD= %curtxt%
-			}
-		guicontrolget,FECBXA,,FECBXA
-		if (FECBXA = "")
-			{
-				FECBXA= %curtxt%
-			}
-		if (SLCTDSN = "")
-			{
-				SLCTDSN= other
-			}
-		guicontrolget,SLCTDEMU,,FEDDLG
-		if (SLCTDEMU = "other")
-			{
-				if (pgemu = "")
-					{
-						SB_SetText("You must assign an Emulator")
-						return
-					}
-				SLCTDEMU= %pgemu%
-			}
-		guicontrolget,SLCTDEXT,,FEEDTB
-		if (SLCTDEXT = "")
-			{
-				SLCTDEXT= .*
-			}
-		guicontrolget,SLCTDRW,,FEEDTA
-		if (SLCTDRW = "")
-			{
-				SB_SetText("You must desgnate an execution paramater, eg: ''{file.path}''")
-				return
-			}
-		SLCTDRW=%A_SPACE%%SLCTDRW%
 	}
-IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,PGcfg.ini,GLOBAL,%emks%
+guicontrolget,SLCTDRW,,FEEDTA
+if (SLCTDRW = "")
+	{
+		SB_SetText("You must desgnate an execution paramater, eg: ''{file.path}''")
+		return
+	}
+SLCTDRW=%A_SPACE%%SLCTDRW%
+iniwrite,%fecbxb%,PGCfg.ini,%curtxt%,fullname
+iniwrite,%fecbxc%,PGCfg.ini,%curtxt%,platformid
+iniwrite,%fecbxd%,PGCfg.ini,%curtxt%,shortname
+iniwrite,%SLCTDEXT%,PGCfg.ini,%curtxt%,extensions
+iniwrite,%SLCTDRW%,PGCfg.ini,%curtxt%,emuoptions
+iniwrite,%SLCTDEMU%,PGCfg.ini,%curtxt%,emuname
+iniwrite,%selctsyst%,PGCfg.ini,%curtxt%,syspath
+;;IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,PGcfg.ini,GLOBAL,%emks%
 iniread,sysordr,PGcfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -54261,52 +54040,58 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FECBXC,,FECBXC
-guicontrolget,FECBXD,,FECBXD
-iniread,pgtv,PGcfg.ini,GLOBAL,%FECBXD%
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 1)
-			{
-				kkv.= FECBXC . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,PGcfg.ini,GLOBAL,%FECBXD%
+iniwrite,%FECBXC%,PGcfg.ini,%curtxt%,platformid
 return
 PegasusFECBXD:
-guicontrolget,SYSREORDER,,FELBXA
-guicontrolget,SYSNAMEREP,,FECBXD
+gui,submit,nohide
 if (sysfnd = "")
 	{
 		return
 	}
-blockinput,on
-iniread,sysreplace,PGcfg.ini,GLOBAL,%SYSREORDER%
-inidelete,PGcfg.ini,GLOBAL,%FECBXD%
-blockinput,off
-FECBXD= %SYSNAMEREP%
-PGRELST=
-IniRead, PGQLIST,PGcfg.ini,ORDER,system_order
-IniDelete,PGcfg.ini,GLOBAL,%SYSREORDER%
-IniWrite,%sysreplace%,PGcfg.ini,GLOBAL,%SYSNAMEREP%
-Loop, Parse, PGQLIST,|
+sleep, 2500
+guicontrolget,curtxtmm,,FECBXD
+if (curtxtmm <> curtxtm)
 	{
-		if (A_LoopField = "")
+		Msgbox,8196,Rename System,Rename the %curtxtm% to %curtxtmm%?
+		ifmsgbox,yes
 			{
-				continue
+				blockinput, on
+				iniread,ebeb,PgCfg.ini,%curtxtm%
+				iniread,PG,PgCfg.ini,order,system_order
+				if ((ebeb <> "")&&(ebeb <> "ERROR"))
+					{
+						Loop,parse,ebeb,`n`r
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								stringsplit,ebu,A_LoopField,=
+								if (ebu1 = "platformid")
+									{
+										iniwrite,%curtxtmm%,PGcfg.ini,%curtxtmm%,%ebu1%
+										continue
+									}
+								iniwrite,%ebu2%,PGcfg.ini,%curtxtmm%,%ebu1%
+							}
+						inidelete,PgCfg.ini,%curtxtm%
+						sysord=
+						Loop,parse,PGCURPL,|
+							{
+								if (A_LoopField = curtxtm)
+									{
+										sysord.= curtxtmm . "|"
+										continue
+									}
+								sysord.= A_LoopField . "|"
+							}
+							PGCURPL= %sysord%
+							iniwrite,%PGCURPL%,PGcfg.ini,order,system_order
+							guicontrol,,FELBXA,|%PGCURPL%
+					}
+				blockinput, off
 			}
-		if (A_LoopField = SYSREORDER)
-			{
-				PGRELST.= SYSNAMEREP . "|"
-			}
-		PGRELST.= A_LoopField . "|"
 	}
-guicontrolget,FECBXD,,FECBXD
-guicontrol,,FELBXA,|%PGRELST%
 return
 PegasusFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54355,58 +54140,25 @@ if (sysfnd = "")
 	}
 guicontrolget,FECBXB,,FECBXB
 extpop=
-Loop, Read, PGcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 2)
-			{
-				kkv= %A_LoopField%
-				continue
-			}
-			kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,PGcfg.ini,GLOBAL,%extpop%
+iniwrite,%FECBXB%,PGcfg.ini,%curtxt%,fullname
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEDDLG:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG EMULATOR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+/*
 if (sysfnd = "")
 	{
 		return
 	}
-pto=
+*/	
 guicontrolget,FEDDLG,,FEDDLG
+pto=
 if (FEDDLG = "other")
 	{
 		pto= 1
 		pgemu= other
 		gosub,FEBUTH
-		guicontrol,,FEDDLG,|other||%emuinstpop%
+		guicontrol,,FEDDLG,|other||%runlist%
 		return
 	}
 iniread,pgemt,apps.ini,EMULATORS,%FEDDLG%
@@ -54420,26 +54172,7 @@ if (pgemt = "ERROR")
 			}
 		iniwrite, "%pgemu%",apps.ini,EMULATORS,%FEDDLG%
 	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%knti1%
-emuwr= %FEDDLG%
-if (pto = 1)
-	{
-		emuwr= %pgemu%
-	}
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 4)
-			{
-				kkv.= emuwr . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,PGcfg.ini,GLOBAL,%knti1%
-pto=
+iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEDDLF:
@@ -54458,10 +54191,17 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTH:
 guicontrolget,sysfnd,,
+guicontrolget,FEDDLG,,FEDDLG
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   PG EMULATOR SELECTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;
+/*
 if (sysfnd = "")
 	{
 		return
+	}
+*/	
+if (FEDDLG <> "other")
+	{
+		return 
 	}
 FileSelectFile,pgemutmp,3,,Select an emulator for %addsystm%
 if (pgemutmp = "")
@@ -54469,71 +54209,7 @@ if (pgemutmp = "")
 		return
 	}
 pgemu= %pgemutmp%
-extpop=
-Loop, Read, PGcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%extpop%
-avi=
-kka=
-kkb=
-kkc=
-kkd=
-kke=
-kkf=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 1)
-			{
-				kka= %A_LoopField%
-			}
-		if (avi = 2)
-			{
-				kkb= %A_LoopField%
-			}
-		if (avi = 3)
-			{
-				kkc= %A_LoopField%
-			}
-		if (avi = 4)
-			{
-				kkd= %pgemu%
-			}
-		if (avi = 5)
-			{
-				kke= %A_LoopField%
-			}
-		if (avi = 6)
-			{
-				kkf= %A_LoopField%
-			}
-		if (avi = 7)
-			{
-				kkg= %A_LoopField%
-			}
-				iniwrite,%kka%|%kkb%|%kkc%|%kkd%|%kke%|%kkf%|%kkg%,PGcfg.ini,GLOBAL,%extpop%
-	}
-guicontrol,,FEDDLG,|other||%emuinstpop%
+guicontrol,,FEDDLG,|%pgemutmp%||other|%runlist%
 return
 PegasusFEDDLC:
 guicontrolget,FEDDLC,,FEDDLC
@@ -54614,7 +54290,7 @@ Loop, Parse, PGCURPL,|
 				continue
 			}
 		mvnum+=1
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				mvtm:= mvnum+1
 			}
@@ -54652,14 +54328,118 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   LOAD PG CONFIG   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTF:
 pgcfgtmp=
-FileSelectFile,pgcfgtmp,3,,Select the collections.pegasus.txt
+FileSelectFile,pgcfgtmp,3,%pghome%,Select the game_dirs.txt,*.txt
 if (pgcfgtmp = "")
 	{
 		return
 	}
 gosub, loadpgcfg
 return
+
 loadpgcfg:
+fileread,pgsd,%pgcfgtmp%
+Loop,parse,pgsd,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringreplace,pgsdir,A_LoopField,/,\,All
+		Fileread,pgcolc,%A_LoopField%\collections.pegasus.txt
+		Loop,parse,pgcolc,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,ner,A_LoopField,:
+				sber= %ner1%
+				kber= %ner2%
+				if (sber = "collection")
+					{
+						plfrmid= %kber%
+						longn= % fe_%plfrmid%
+					}
+				if (sber = "shortname")
+					{
+						shrtnm= %kber%
+					}
+				if (sber = "extensions")
+					{
+						extns= %kber%
+					}
+				if (sber = "launch")
+					{
+						stringsplit,prts,A_LoopField,"
+						;"
+						execu= %prts2%
+						minx:= StrReplace(A_LoopField, """{file.path}""", ">[ROMPATH]>", xCount)
+						if (xCount = 0)
+							{
+								minx:= StrReplace(A_LoopField, "{file.basename}", "[ROMNAME]", nCount)
+							}
+						stringreplace,minx,minx,%prts2%,,All
+						stringreplace,minx,minx,",,All
+						;"
+					}
+				if (sber = "directory")
+					{
+						syspath= 
+						syspatht= 
+						Loop,%ner0%
+							{
+								if (A_index = 1)
+									{
+										continue
+									}
+								stringtrimleft,vmt,A_LoopField,1
+								if (vmt = "")
+									{
+										syspath= %A_LoopField%:
+										continue
+									}
+								syspatht.= A_LoopField	
+							}
+						syspath.= syspatht	
+					}
+			}
+			/*
+		guicontrol,,FEEDTA,%minx%	
+		guicontrol,,FEEDTB,%extns%
+		guicontrol,,FEDDLG,%execu%
+		guicontrol,,FECBXB,%longn%
+		guicontrol,,FECBXC,%plfrmid%
+		guicontrol,,FECBXD,%shrtn%
+		*/
+		iniread,sysord,PGcfg.ini,order,system_order
+		PGCURPL=	
+		noaddin= 
+		Loop,sysord,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				PGCURPL.= A_LoopField . "|"
+				if (A_LoopField = plfrmid)
+					{
+						noaddin= 1
+					}
+			}
+		if (noaddin = "")
+			{
+				PGCURPL.= plfrmid . "|"
+			}
+		iniwrite,%longn%,PGCfg.ini,%plfrmid%,fullname
+		iniwrite,%minx%,PGCfg.ini,%plfrmid%,emuoptions
+		iniwrite,%syspath%,PGCfg.ini,%plfrmid%,syspath
+		iniwrite,%execu%,PGCfg.ini,%plfrmid%,emuname
+		iniwrite,%extns%,PGCfg.ini,%plfrmid%,extensions
+		iniwrite,%shrtn%,PGCfg.ini,%plfrmid%,shortname
+		iniwrite,%plfrmid%,PGCfg.ini,%plfrmid%,platformid
+	}
+
+
 PGLDPL=
 LOADEDCFG=
 PGTOPOP=
@@ -54679,14 +54459,14 @@ Loop, read, %pgcfgtmp%
 						break
 					}
 			}
-		Loop,Parse,pglkup,`n`r
+		Loop,Parse,SysLLst,`n`r
 			{
 				if (A_LoopField = "")
 					{
 						continue
 					}
-				stringsplit,fjf,A_loopField,=
-				if (pgmsys = fjf3)
+				stringsplit,fjf,A_LoopField,=
+				if (pgmsys = fjf1)
 					{
 						LOADEDCFG.= fjf3 . "=" fjf1 . "|" . fjf3 . "|"
 						break
@@ -54761,7 +54541,7 @@ iniwrite,%pgfullscreen%,rj\PG\loadsys.ini,CONFIG,FullScreen
 iniwrite,%pgscraper%,rj\PG\loadsys.ini,CONFIG,scraper
 iniwrite,%pgtheme%,rj\PG\loadsys.ini,CONFIG,theme
 iniwrite,%pgtheme%,rj\PG\loadsys.ini,CONFIG,DetectPlaylists
-iniwrite,%PGHOME%,rj\PG\loadsys.ini,CONFIG,home_directory
+iniwrite,%PGHOME%,rj\PG\loadsys.ini,CONFIG,home
 guicontrol,,FELBXA,|%PGTOPOP%
 iniwrite,%PGTOPOP%,rj\PG\loadsys.ini,ORDER,system_order
 PGCURPL= %PGTOPOP%
@@ -54776,44 +54556,10 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FEEDTA,,FEEDTA
-extpop=
-Loop, Read, PGcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 5)
-			{
-				kkv.= FEEDTA . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,PGcfg.ini,GLOBAL,%extpop%
+newemuopts= %FEEDTA%
+iniwrite,%A_Space%%newemuopts%,PGCfg.ini,%curtxt%,emuoptions
 return
+
 PegasusFEEDTB:
 if (sysfnd = "")
 	{
@@ -54821,81 +54567,28 @@ if (sysfnd = "")
 	}
 guicontrolget,FEEDTB,,FEEDTB
 extpop=
-Loop, Read, PGcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,pgtv,PGcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, pgtv,|
-	{
-		avi+=1
-		if (avi = 3)
-			{
-				kkv= %A_LoopField%
-				stringreplace,pgtv,pgtv,%kkv%,%FEEDTB%,All
-				iniwrite,%pgtv%,PGcfg.ini,GLOBAL,%extpop%
-			}
-	}
+iniwrite,%FEEDTB%,PGcfg.ini,%curtxt%,extensions
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5A:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,hide,FEDDLF
-Gui,ListView,FELVA
-LV_Delete()
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-Loop, %RJSYSTEMS%\*,2
-	{
-		if A_LoopFileAttrib contains H
-			{
-				continue
-			}
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
-guicontrol,,FEDDLA,|Systems||
+guicontrol,,FEEDTB,.bat
+
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,show,FEDDLF
-guicontrolget,FEDDLF,,FEDDLF
-IniRead,mirsl,Settings.ini,%FEDDLF%
-Gui,ListView,FELVA
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-LV_Delete()
-Loop, %mirsl%\*,2
-	{
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
-guicontrol,,FEDDLA,|Systems||
+guicontrol,,FEEDTB,.lnk
+
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ksysp= % fe_%curtxt%
+iniread,allxtn,EmuCfgPresets.ini,%ksysp%,RJROMXT
+guicontrol,,FEEDTB,%allxtn%
+return
+PGPOPULATESYS:
 Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
@@ -54921,48 +54614,10 @@ return
 PegasusFELVA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
-if (FERAD5C = 1)
-	{
-		curtxt=
-		sysfnd=
-		guicontrol,,FETXTJ,
-		RowNumber = 0
-		Loop
-			{
-				RowNumber := LV_GetNext(RowNumber)
-				if not RowNumber
-					{
-						break
-					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
-			}
-		Loop, Parse, PGCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						curtxt=
-						SB_SetText("Current system is already in the playlist.")
-						LV_Modify(RowNumber, "-Select")
-						curtxt=
-						return
-					}
-			}
-		if (curtxt = "other")
-			{
-				SB_SetText("Define OTHER")
-				curtxt=
-				return
-			}
-		if (curtxt <> "")
-			{
-				gosub, poppgv
-			}
-		return
-	}
 curtxt=
 sysfnd=
 guicontrol,,FETXTJ,
+guicontrol,,FERAD5C, 1
 RowNumber = 0
 Loop
 	{
@@ -54970,239 +54625,187 @@ Loop
 		if not RowNumber
 			{
 				break
-				}
-			LV_GetNext(RowNumber, Focused)
-			LV_GetText(curtxt, RowNumber)
-	}
-Loop, Parse, PgLkUp,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
 			}
-		matv1=
-		matv2=
-		matv3=
-		matv4=
-		matv5=
-		kvmax=
-		xfnd=
-		stringsplit,matv,A_LoopField,=
-		if (matv3 = curtxt)
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
+	}
+Loop, Parse, PGCURPL,|
+	{
+		if (A_LoopField = curtxt)
 			{
-				if (matv1 <> "")
+				iniread,pgsnid,PGcfg.ini,GLOBAL,%curtxt%
+				Loop,parse,pgsnid,|
 					{
-						ifexist,%PGHOME%\themes\%pgtheme%\%matv1%\
+						if (A_LoopField = curtxt)
 							{
-								kvmax= %matv1%||
+								curtxt=
+								SB_SetText("Current system is already in the playlist.")
+								LV_Modify(RowNumber, "-Select")
+								curtxt=
+								return
 							}
 					}
-				guicontrol,,FECBXA,|%kvmax%%PgNpts%
-				guicontrol,,FECBXB,|%matv3%||%systmfldrs%%PgNpts%
-				guicontrol,,FECBXD,|%matv1%||%PgNpts%%systmfldrs%
-				guicontrol,,FECBXC,|%matv1%||%PgNpts%%systmfldrs%
-				xfnd= 1
-				break
 			}
 	}
-if (xfnd = "")
+if (curtxt = "other")
 	{
-		kvmax=
-		curtIV=
-		stringreplace,curtIV,curtxt,%A_Space%,,All
-		stringreplace,curtIV,curtIV,-,,All
-		stringreplace,curtIV,curtIV,=,,All
-		stringlower,curtIV,curtIV
-		if (curtIV <> "")
+		SB_SetText("Define OTHER")
+		curtxt=
+		return
+	}
+stringreplace,curstxt,curtxt,-,_,All
+krbz= % fe_%curstxt%
+if (krbz <> "")
+	{
+		inemuinp= 
+		iniread,emuinp,Assignments.ini,OVERRIDES,%krbz%
+		if ((emuinp <> "")&&(emuinp <> "ERROR"))
 			{
-				ifexist,%PGHOME%\themes\%pgtheme%\%curtIV%\
+				inra= 
+				Loop,parse,emuinp,|
 					{
-						kvmax= %curtIV%||
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ingr= %A_LoopField%
+						if (A_Index = 1)
+							{
+								ifinstring,ingr,_libretro
+									{
+										inra= 1
+										inemuinp= retroarch||
+										continue
+									}
+								inemuinp=%ingr%||
+								continue
+							}
+						inemuinp.= ingr . "|"	
 					}
 			}
-		guicontrol,,FECBXA,|%kvmax%%PgNpts%
+		iniread,emuinx,EmuCfgPresets.ini,%krbz%,SUPEMU
+		if ((emuinx <> "")&&(emuinx <> "ERROR"))
+			{
+				loop,parse,emuinx,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						if ((tbst = "ERROR")or(tbst = ""))
+							{
+								continue
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}
+		iniread,emuinc,EmuCfgPresets.ini,%krbz%,SUPEMU
+		if ((emuinc <> "")&&(emuinc <> "ERROR"))
+			{
+				loop,parse,emuinc,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ifnotexist,%libretrodirectory%\%A_LoopField%
+							{
+								continue	
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}	
+			if (inemuinp = "")
+				{
+					inemuinp= MAME - Systems||
+				}
+		iniread,emupxt,EmuCfgPresets.ini,%krbz%,RJROMXT
+		if ((emupxt = "")or(emupxt = "ERROR"))
+			{
+				emupxt= .zip
+			}
+		iniread,emuppp,EmuCfgPresets.ini,%krbz%,FEPARAM
+		iniread,evr,Assignments.ini,ASSIGNMENTS,retroarch
+		;;stringreplace,emuppp,emuppp,[ROMPATH],{file.path}
+		;;stringreplace,emuppp,emuppp,[ROMNAME],{file.basename}
+		;;stringreplace,emuppp,emuppp,>,",All
+		;"
+		if (inra = 1)
+			{
+				emuppp= -L%A_Space%>%libretrodirectory%\%ingr%>%A_space%%emuppp%
+			}
+		guicontrol,,FEEDTA,%A_Space%%emuppp%
+		guicontrol,,FEEDTB,%emupxt%
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
+		guicontrol,,FECBXB,|%krbz%||%systmfldrs%%PgNpts%
+		guicontrol,,FECBXD,|%curtxt%||%PgNpts%%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%PgNpts%%systmfldrs%
+	}
+	else {
+		;;guicontrol,,FECBXA,|%kvmax%%PgNpts%
 		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%PgNpts%
-		guicontrol,,FECBXD,|%curtIV%||%PgNpts%%systmfldrs%
-		guicontrol,,FECBXC,|%curtIV%||%PgNpts%%systmfldrs%
-		guicontrol,,FEEDTA,"{file.path}"
+		guicontrol,,FECBXD,|%curtxt%||%PgNpts%%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%PgNpts%%systmfldrs%
+		guicontrol,,FEEDTA,%a_space%>[ROMPATH]>
 		guicontrol,,FEEDTB,.zip
-		guicontrol,,FEDDLG,|MAME - System|%emuinstpop%
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFELBXA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
-guicontrolget,fecbxa,,FECBXA
 guicontrolget,curtxt,,FELBXA
+guicontrol,,FERAD5A,0
+guicontrol,,FERAD5B,0
+guicontrol,,FERAD5C,0
+iniread,cgpspl,Pgcfg.ini,%curtxt%
+	
+Loop,parse,cgpspl,`n`r
+	{
+		ifinstring,A_LoopField,emuoptions
+			{
+				stringsplit,bbev,A_LoopField,=
+				cgpemo= %bbev2%
+				break
+			}
+	}
+iniread,cpgfn,PGcfg.ini,%curtxt%,fullname
+iniread,cpgsn,PGcfg.ini,%curtxt%,shortname
+iniread,cpgpn,PGcfg.ini,%curtxt%,platformid
+iniread,cpgxtn,PGcfg.ini,%curtxt%,extensions
+iniread,cpgemo,PGcfg.ini,%curtxt%,emuoptions
+iniread,cpgemu,PGcfg.ini,%curtxt%,emuname	
+iniread,cpgsyp,PGcfg.ini,%curtxt%,syspath	
+guicontrol,,fecbxb,|%cpgfn%||%systmfldrs%
+guicontrol,,fecbxc,|%cpgpn%||%avblnk%%PgNpts%
+guicontrol,,fecbxd,|%curtxt%||%avblnk%%PgNpts%
+guicontrol,,FEEDTA,%A_SPACE%%cpgemo%
+guicontrol,,FEEDTB,%cpgxtn%
+guicontrol,,FEEDTB,%cpgxtn%
+guicontrol,,FEDDLG,|other|%cpgemu%||%runlist%
+guicontrolget,curtxtm,,FECBXD
+guicontrolget,curtxtp,,FECBXC
 sysfnd= 1
-gosub, poppgv
 return
-poppgv:
-if (FERAD5A = 1)
-	{
-		pglocor= %RJSYSTEMS%
-	}
-if (FERAD5B = 1)
-	{
-		pglocor= %pgmirror%
-	}
-if (FERAD5C = 1)
-	{
-		pglocor= %RJSYSTEMS%
-	}
-Loop, read, PGcfg.ini
-	{
-		ksivi1=
-		ksivi2=
-		ksivi3=
-		ksivi4=
-		ksivi5=
-		ksivi6=
-		ksivi7=
-		knti1=
-		knti2=
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		stringsplit,knti,A_LoopReadLine,=
-		stringsplit,ksivi,knti2,|
-		if (knti2 = "")
-			{
-				continue
-			}
-		ifinstring,knti1,_
-			{
-				kmpex=
-				if (knti1 = curtxt)
-					{
-						pgpopext= %knti1%
-						defthm= %ksivi1%
-						guicontrol,,FEEDTA,%ksivi5%
-						guicontrol,,FEEDTB,%ksivi3%
-						ifinstring,ksivi5,:
-							{
-								ksivi5= other
-							}
-						guicontrol,,FECBXD,|%knti1%||%systmfldrs%%PgNpts%
-						guicontrol,,FECBXC,|%ksivi1%||%PgNpts%%systmfldrs%
-						if (ksivi7 <> "")
-							{
-								ifexist,%PGHOME%\themes\%ksivi7%\
-									{
-										kmpex= %ksivi7%||
-									}
-							}
-						guicontrol,,FECBXA,|%kmpex%%PgNpts%
-						guicontrol,,FETXTJ,%ksivi6%
-						guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-						guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-						return
-					}
-			}
-		if (ksivi1 = curtxt)
-			{
-				kmpex=
-				pgpopext= %knti1%
-				defthm= %ksivi1%
-				guicontrol,,FEEDTA,%ksivi5%
-				guicontrol,,FEEDTB,%ksivi3%
-				ifinstring,ksivi5,:
-					{
-						ksivi5= other
-					}
-				guicontrol,,FECBXD,|%knti1%||%systmfldrs%%PgNpts%
-				guicontrol,,FECBXC,|%ksivi1%||%PgNpts%%systmfldrs%
-				if (ksivi7 <> "")
-					{
-						ifexist,%PGHOME%\themes\%pgtheme%\%ksivi7%\
-							{
-								kmpex= %ksivi7%||
-							}
-					}
-				guicontrol,,FECBXA,|%kmpex%%PgNpts%
-				guicontrol,,FETXTJ,%ksivi6%
-				guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-				guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-				return
-			}
-	}
-if (sysfnd = "")
-	{
-		emks=
-		emkr=
-		emkx=
-		Loop, Parse, PgLkUp,`n`r
-			{
-				kvi1=
-				kvi2=
-				kvi3=
-				kvi4=
-				kvi5=
-				stringsplit,kvi,A_LoopField,=
-				ifinstring,curtxt,_
-					{
-						stringreplace,snlk,cutxt,_,,All
-						if (kvi2 = snlk)
-							{
-								gosub, nwpglk
-								return
-							}
-					}
-				if (kvi1 = curtxt)
-					{
-						gosub, nwpglk
-						return
-					}
-			}
-	}
-return
-nwpglk:
-emke= %kvi5%
-SLCTDSN= %kvi2%
-iniread,emkce,apps.ini,EMULATORS,%kvi5%
-if (emkce = "ERROR")
-	{
-		SB_SetText(" " emkce " is not found")
-	}
-ifnotexist,%emkce%
-	{
-		SB_SetText(" " emkce " is not found")
-	}
-emks= %kvi3%
-emkx= %kvi4%
-emkr= %kvi6%
-emkt= %kvi1%
-emkn= %kvi7%
-if (emkx = ":")
-	{
-		emkx= .*
-	}
-guicontrol,,FECBXC,|%emks%||%systmfldrs%%PgNpts%
-guicontrol,,FECBXD,|%emkt%||%PgNpts%
-emky=
-if (emkn <> "")
-	{
-		ifexist,%PGHOME%\themes\%pgtheme%\%emkn%\
-			{
-				emky= %emkn%
-			}
-	}
-guicontrol,,FECBXA,|%emky%%PgNpts%
-guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
-guicontrol,,FECBXB,|other|%emks%||%systmfldrs%
-guicontrol,,FEEDTB,%emkx%
-guicontrol,,FEEDTA,%emkr%
-guicontrol,,FETXTJ,%pglocor%\%emks%
-selctsys= %pglocor%\%emks%
-ifnotexist, %pglocor%\%emks%
-	{
-		selctsys= %RJSYSTEMS%\%emks%
-		guicontrol,,FETXTJ,NOT SET (defaulting to %RJSYSTEMS%\%emks%)
-	}
-guicontrol,,FEEDTA,%emkr%
-return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTG:
 MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
@@ -55284,12 +54887,12 @@ Loop,parse,pgcfgf,`n`r
 return
 PegasusFECHKF:
 gui,submit,nohide
-pgaltsrcs= false
+pgDetectPlaylists= false
 if (FECHKF = 1)
 	{
-		pgaltsrcs= true
+		pgDetectPlaylists= true
 	}
-iniwrite,%pgaltsrcs%,PGcfg.ini,CONFIG,DetectPlaylists
+iniwrite,%pgDetectPlaylists%,PGcfg.ini,CONFIG,DetectPlaylists
 ifnotexist,%pghome%\settings.txt
 	{
 		SB_SetText("configuration must be created")
@@ -55304,23 +54907,33 @@ Loop,parse,pgcfgf,`n`r
 				continue
 			}
 		stringsplit,fez,A_LoopField,:
+		if (fez1 = "providers.androidapps.enabled")
+			{
+				fileappend,%fez1%: %pgDetectPlaylists%`n,%pghome%\settings.txt
+				continue
+			}
 		if (fez1 = "providers.gog.enabled")
 			{
-				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				fileappend,%fez1%: %pgDetectPlaylists%`n,%pghome%\settings.txt
 				continue
 			}
 		if (fez1 = "providers.steam.enabled")
 			{
-				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				fileappend,%fez1%: %pgDetectPlaylists%`n,%pghome%\settings.txt
+				continue
+			}
+		if (fez1 = "providers.launchbox.enabled")
+			{
+				fileappend,%fez1%: %pgDetectPlaylists%`n,%pghome%\settings.txt
 				continue
 			}
 		if (fez1 = "providers.es2.enabled")
 			{
-				fileappend,%fez1%: %pgaltsrcs%`n,%pghome%\settings.txt
+				fileappend,%fez1%: %pgDetectPlaylists%`n,%pghome%\settings.txt
 				continue
 			}
 		fileappend,%A_LoopField%`n,%pghome%\settings.txt
-		SB_SetText(" detect playlists changed to " pgaltsrcs "")
+		SB_SetText(" detect playlists changed to " pgDetectPlaylists "")
 	}
 return
 PegasusFERAD2B:
@@ -55336,7 +54949,7 @@ return
 PGOPNPL:
 Loop,Parse,PGPLSWAP,|
 	{
-		guicontrol,%opntog%,%A_loopField%
+		guicontrol,%opntog%,%A_LoopField%
 	}
 return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;  PEGASUS PLAYLIST FUNCTIONS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55622,10 +55235,10 @@ Loop, Parse, existlst,|
 				Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
 					{
 						fndmet=
-						FileRead,metadt,%A_loopfilefullpath%
+						FileRead,metadt,%A_LoopFileFullPath%
 						Loop, Parse, metadt,`n`r
 							{
-								if (A_Loopfield = "")
+								if (A_LoopField = "")
 									{
 										continue
 									}
@@ -55692,7 +55305,7 @@ Loop, Parse, existlst,|
 									}
 								if (fndmet = 1)
 									{
-										pulmeta.= A_loopfield . "`n"
+										pulmeta.= A_LoopField . "`n"
 										ifinstring, pulmeta,</desc>
 											{
 												fndmet=
@@ -56184,7 +55797,7 @@ if (PGRPOPROM = 1)
 			}
 		Loop,Parse,sysexlst,`,
 			{
-				Loop, %RJSYSTEMS%\%PGDWNLPOS%\*%a_loopfield%,,1
+				Loop, %RJSYSTEMS%\%PGDWNLPOS%\*%A_LoopField%,,1
 					{
 						LNKLSTP.= A_LoopFileFullPath . "|"
 					}
@@ -56958,7 +56571,7 @@ stringreplace,curpllst,curpllst,`n,|,All
 Loop, rj\PG\%syssub%\*.ini
 	{
 		splitpath,A_LoopField,,,,ftap1
-		fileread,ftap,%A_loopFileFullPath%
+		fileread,ftap,%A_LoopFileFullPath%
 		FileAppend,%ftap%,rj\PG\%syssub%\gamelist.xml
 	}
 FileAppend,`n,rj\PG\%syssub%\gamelist.xml
@@ -57674,7 +57287,7 @@ Loop, Parse, prsy,|
 				continue
 			}
 		sysfin=
-		sysesc= %A_loopField%
+		sysesc= %A_LoopField%
 		iniread,tmpes,RFcfg.ini,GLOBAL
 		Loop, Parse, tmpes,`n`r
 			{
@@ -57787,12 +57400,12 @@ Loop, Parse, RFCURPL,|
 			{
 				continue
 			}
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				iniread,tmpes,RFcfg.ini,GLOBAL
 				Loop, Parse, tmpes,|
 					{
-						stringsplit,ffj,A_loopfield,|
+						stringsplit,ffj,A_LoopField,|
 						stringsplit,ans,ffj1,=
 						if (ans2 = curtxt)
 							{
@@ -58289,6 +57902,10 @@ Loop, Parse, rftv,|
 iniwrite,%kkv%,RFcfg.ini,GLOBAL,%extpop%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RFERSWIN:
+FileDelete,RFcfg.ini
+goto, FEDDLJ
+return
 RetroFEFEDDLG:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF EMULATOR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 if (sysfnd = "")
@@ -58510,7 +58127,7 @@ Loop, Parse, RFCURPL,|
 				continue
 			}
 		mvnum+=1
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				mvtm:= mvnum+1
 			}
@@ -59157,7 +58774,7 @@ return
 RFOPNPL:
 Loop,Parse,RFPLSWAP,|
 	{
-		guicontrol,%opntog%,%A_loopField%
+		guicontrol,%opntog%,%A_LoopField%
 	}
 return
 ;};;;;;;;;
@@ -59378,7 +58995,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Folder.*
+								Loop, %A_LoopFileFullPath%\Folder.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
 											{				
@@ -59435,7 +59052,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Logo.*
+								Loop, %A_LoopFileFullPath%\Logo.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
 											{
@@ -59492,7 +59109,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Logo.*
+								Loop, %A_LoopFileFullPath%\Logo.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
 											{
@@ -59553,7 +59170,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\*.*
+								Loop, %A_LoopFileFullPath%\*.*
 									{
 										if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
 											{
@@ -59587,10 +59204,10 @@ Loop, Parse, existlst,|
 			Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
 				{
 					fndmet=
-					FileRead,metadt,%A_loopfilefullpath%
+					FileRead,metadt,%A_LoopFileFullPath%
 					Loop, Parse, metadt,`n`r
 						{
-							if (A_Loopfield = "")
+							if (A_LoopField = "")
 								{
 									continue
 								}
@@ -59657,7 +59274,7 @@ Loop, Parse, existlst,|
 									}
 							if (fndmet = 1)
 								{
-									pulmeta.= A_loopfield . "`n"
+									pulmeta.= A_LoopField . "`n"
 									ifinstring, pulmeta,</desc>
 										{
 											fndmet=
@@ -60149,7 +59766,7 @@ if (RFRPOPROM = 1)
 			}
 		Loop,Parse,sysexlst,`,
 			{
-				Loop, %RJSYSTEMS%\%RFDWNLPOS%\*%a_loopfield%,,1
+				Loop, %RJSYSTEMS%\%RFDWNLPOS%\*%A_LoopField%,,1
 					{
 						LNKLSTP.= A_LoopFileFullPath . "|"
 					}
@@ -61016,7 +60633,7 @@ stringreplace,curpllst,curpllst,`n,|,All
 Loop, rj\RF\%syssub%\*.ini
 	{
 		splitpath,A_LoopField,,,,ftap1
-		fileread,ftap,%A_loopFileFullPath%
+		fileread,ftap,%A_LoopFileFullPath%
 		FileAppend,%ftap%,rj\RF\%syssub%\gamelist.xml
 	}
 FileAppend,`n,rj\RF\%syssub%\gamelist.xml
@@ -61354,7 +60971,7 @@ Loop, Parse, esinitheme,`n`r
 		iniread,esth,sets\Themes.set,%A_LoopField%,ESTHEME
 		if (esth <> "ERROR")
 			{
-				esthemes.= A_LoopFIeld . "|"
+				esthemes.= A_LoopField . "|"
 			}
 	}
 Loop, %eshome%\themes,2
@@ -61830,7 +61447,7 @@ Loop, Parse, prsy,|
 				continue
 			}
 		sysfin=
-		sysesc= %A_loopField%
+		sysesc= %A_LoopField%
 		iniread,abr_es,EScfg.ini,%sysesc%,abbreviation
 		iniread,dsp_es,EScfg.ini,%sysesc%,dsp_es
 		iniread,ext_es,EScfg.ini,%sysesc%,ext_es
@@ -61902,7 +61519,7 @@ Loop, Parse, ESCURPL,|
 			{
 				continue
 			}
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				continue
 			}
@@ -61941,7 +61558,7 @@ EmulationStationFEBUTE:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Loop,Parse,ESFEGUIITEMS,|
 	{
-		guicontrol,disable,%A_loopField%
+		guicontrol,disable,%A_LoopField%
 	}
 SNFEITMS=
 NFEITMS=
@@ -62027,7 +61644,7 @@ if (FERAD5A = 1)
 		LV_Modify(0, "-Check")
 		Loop,Parse,ESFEGUIITEMS,|
 			{
-				guicontrol,enable,%A_loopField%
+				guicontrol,enable,%A_LoopField%
 			}
 		return
 	}
@@ -62040,7 +61657,7 @@ if (FERAD5B = 1)
 				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
 				Loop,Parse,ESFEGUIITEMS,|
 					{
-						guicontrol,enable,%A_loopField%
+						guicontrol,enable,%A_LoopField%
 					}
 				return
 			}
@@ -62124,7 +61741,7 @@ if (FERAD5B = 1)
 		LV_Modify(0, "-Check")
 		Loop,Parse,ESFEGUIITEMS,|
 			{
-				guicontrol,enable,%A_loopField%
+				guicontrol,enable,%A_LoopField%
 			}
 		return
 	}
@@ -62136,7 +61753,7 @@ if (FERAD5C = 1)
 				SB_SetText("Current system is already added")
 				Loop,Parse,ESFEGUIITEMS,|
 					{
-						guicontrol,enable,%A_loopField%
+						guicontrol,enable,%A_LoopField%
 					}
 				return
 			}
@@ -62158,7 +61775,7 @@ if (FERAD5C = 1)
 						SB_SetText("Current system is already in the playlist.")
 						Loop,Parse,ESFEGUIITEMS,|
 							{
-								guicontrol,enable,%A_loopField%
+								guicontrol,enable,%A_LoopField%
 							}
 						return
 					}
@@ -62191,7 +61808,7 @@ if (FERAD5C = 1)
 						SB_SetText("You must assign an Emulator")
 						Loop,Parse,ESFEGUIITEMS,|
 							{
-								guicontrol,enable,%A_loopField%
+								guicontrol,enable,%A_LoopField%
 							}
 						return
 					}
@@ -62229,7 +61846,7 @@ Gui,ListView,FELVA
 LV_Modify(0, "-Check")
 Loop,Parse,ESFEGUIITEMS,|
 	{
-		guicontrol,enable,%A_loopField%
+		guicontrol,enable,%A_LoopField%
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62441,6 +62058,10 @@ goto, REZRUN
 RESWERUN:
 REZRUN:= A_Space "--windowed --resolution 1280 1024"
 goto, REZRUN
+RESRSRUN:
+FileDelete,ESCfg.ini
+Goto, FEDDLJ
+return
 RESWFRUN:
 REZRUN:= A_Space "--windowed --resolution 1920 1080"
 goto, REZRUN
@@ -62519,7 +62140,7 @@ Loop, Parse, ESCURPL,|
 				continue
 			}
 		mvnum+=1
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				mvtm:= mvnum+1
 			}
@@ -62805,7 +62426,7 @@ if (FERAD5C = 1)
 			{
 				Loop,Parse,ESFEGUIITEMS,|
 					{
-						guicontrol,disable,%A_loopField%
+						guicontrol,disable,%A_LoopField%
 					}
 			}
 		Loop, Parse, ESCURPL,|
@@ -62819,7 +62440,7 @@ if (FERAD5C = 1)
 						curtxt=
 						Loop,Parse,ESFEGUIITEMS,|
 							{
-								guicontrol,enable,%A_loopField%
+								guicontrol,enable,%A_LoopField%
 							}
 						return
 					}
@@ -62831,7 +62452,7 @@ if (FERAD5C = 1)
 				curtxt=
 				Loop,Parse,ESFEGUIITEMS,|
 					{
-						guicontrol,enable,%A_loopField%
+						guicontrol,enable,%A_LoopField%
 					}
 				return
 			}
@@ -62841,7 +62462,7 @@ if (FERAD5C = 1)
 			}
 		Loop,Parse,ESFEGUIITEMS,|
 			{
-				guicontrol,enable,%A_loopField%
+				guicontrol,enable,%A_LoopField%
 			}
 		return
 	}
@@ -62911,7 +62532,7 @@ if (xfnd = "")
 	}
 Loop,Parse,ESFEGUIITEMS,|
 	{
-		guicontrol,enable,%A_loopField%
+		guicontrol,enable,%A_LoopField%
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -62923,12 +62544,12 @@ guicontrolget,curtxt,,FELBXA
 sysfnd= 1
 Loop,Parse,ESFEGUIITEMS,|
 	{
-		guicontrol,disable,%A_loopField%
+		guicontrol,disable,%A_LoopField%
 	}
 gosub, popesv
 Loop,Parse,ESFEGUIITEMS,|
 	{
-		guicontrol,enable,%A_loopField%
+		guicontrol,enable,%A_LoopField%
 	}
 return
 popesv:
@@ -63125,12 +62746,12 @@ ifmsgbox, Yes
 		filedelete,EScfg.ini
 		Loop,Parse,ESFEGUIITEMS,|
 			{
-				guicontrol,disable,%A_loopField%
+				guicontrol,disable,%A_LoopField%
 			}
 		gosub,ESINIT
 		Loop,Parse,ESFEGUIITEMS,|
 			{
-				guicontrol,enable,%A_loopField%
+				guicontrol,enable,%A_LoopField%
 			}
 	}
 return
@@ -63313,7 +62934,7 @@ return
 ESOPNPL:
 Loop,Parse,ESPLSWAP,|
 	{
-		guicontrol,%opntog%,%A_loopField%
+		guicontrol,%opntog%,%A_LoopField%
 	}
 return
 REMSYSTOG:
@@ -63433,7 +63054,7 @@ if (FECREATE = 1)
 		existlst=
 		Loop, %rmp_es%\*.*,0,1
 			{
-				ifinstring,ext_es,.%A_loopFileExt%
+				ifinstring,ext_es,.%A_LoopFileExt%
 					{
 						existlst.= (A_Index == 1 ? "" : "|") . A_LoopFileFullPath
 					}
@@ -63593,7 +63214,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Folder.*
+								Loop, %A_LoopFileFullPath%\Folder.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
 											{				
@@ -63671,7 +63292,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Logo.*
+								Loop, %A_LoopFileFullPath%\Logo.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg"))
 											{
@@ -63749,7 +63370,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\Logo.*
+								Loop, %A_LoopFileFullPath%\Logo.*
 									{
 										if ((A_LoopFileExt = "png")or(A_LoopFileExt = "jpg")or(A_LoopFileExt = "bmp")or(A_LoopFileExt = "gif"))
 											{
@@ -63828,7 +63449,7 @@ Loop, Parse, existlst,|
 					{
 						Loop, Files, %RJSYSTEMS%\%SYSNAME%\%imgetb%,D
 							{
-								Loop, %A_loopfilefullpath%\*.*
+								Loop, %A_LoopFileFullPath%\*.*
 									{
 										if ((A_LoopFileExt = "mp4")or(A_LoopFileExt = "avi"))
 											{
@@ -63884,10 +63505,10 @@ Loop, Parse, existlst,|
 		Loop, %ASSETS%\%SYSNAME%\%romname%\MetaData\*.xml
 			{
 				fndmet=
-				FileRead,metadt,%A_loopfilefullpath%
+				FileRead,metadt,%A_LoopFileFullPath%
 				Loop, Parse, metadt,`n`r
 					{
-						if (A_Loopfield = "")
+						if (A_LoopField = "")
 							{
 								continue
 							}
@@ -63974,7 +63595,7 @@ Loop, Parse, existlst,|
 							}
 						if (fndmet = 1)
 							{
-								pulmeta.= A_loopfield . "`n"
+								pulmeta.= A_LoopField . "`n"
 								ifinstring, pulmeta,</desc>
 									{
 										fndmet=
@@ -65482,7 +65103,7 @@ stringreplace,curpllst,curpllst,`n,|,All
 Loop, rj\ES\%syssub%\*.ini
 	{
 		splitpath,A_LoopField,,,,ftap1
-		fileread,ftap,%A_loopFileFullPath%
+		fileread,ftap,%A_LoopFileFullPath%
 		FileAppend,%ftap%,rj\ES\%syssub%\gamelist.xml
 	}
 FileAppend,</gameList>`n,rj\ES\%syssub%\gamelist.xml
@@ -66150,9 +65771,9 @@ Loop, Parse, FEItems,`n`r
 													{
 														Loop, %pghome%\metafiles\%curms%\media\%batn%*,2
 															{
-																ifexist,%A_LoopFileFUllPath%\BoxFront.png
+																ifexist,%A_LoopFileFullPath%\BoxFront.png
 																	{
-																		BOXPNG= %A_LoopFileFUllPath%\BoxFront.png
+																		BOXPNG= %A_LoopFileFullPath%\BoxFront.png
 																		break
 																	}
 															}
@@ -66171,7 +65792,7 @@ Loop, Parse, FEItems,`n`r
 													{
 														Loop, %eshome%\downloaded_images\%curms%\%batn%*image.*
 															{
-																BOXPNG= %A_LoopFileFUllPath%
+																BOXPNG= %A_LoopFileFullPath%
 																break
 															}
 													}
@@ -66629,7 +66250,7 @@ Loop, Parse, FEItems,|
 				icnmf1=
 				icnmf2=
 				stringsplit,icnmf,A_LoopFileName,.,
-				splitpath,A_LoopFileFullpath,lnkxn,lnkd
+				splitpath,A_LoopFileFullPath,lnkxn,lnkd
 				lnkloc= %A_LoopFileFullPath%
 				icoloc= %lnkd%\%icnmf1%.ico
 				if (INJAK = 1)
@@ -66640,7 +66261,7 @@ Loop, Parse, FEItems,|
 								icnmf1=
 								icnmf2=
 								stringsplit,icnmf,A_LoopFileName,.,
-								splitpath,A_LoopFileFullpath,lnkxn,lnkd
+								splitpath,A_LoopFileFullPath,lnkxn,lnkd
 								lnkloc= %A_LoopFileFullPath%
 								icoloc= %lnkd%\%icnmf1%.ico
 								break
@@ -67390,14 +67011,14 @@ Loop, Parse, esmlist,|
 	{
 		mls1=
 		mls2=
-		stringsplit,mls,a_loopfield,=
+		stringsplit,mls,A_LoopField,=
 		akv=
 		loop, parse, esxlist,|
 			{
 				dup=
 				xls1=
 				xls2=
-				stringsplit,xls,a_loopfield,=
+				stringsplit,xls,A_LoopField,=
 				if (mls1 = xls1)
 					{
 						if (mls2 = xls2)
@@ -67427,7 +67048,7 @@ Loop, Parse, esmlist,|
 ppartb= 	
 Loop,parse,ssenms,|
 	{
-		pggmbt%A_Index%= %A_LoopFIeld%
+		pggmbt%A_Index%= %A_LoopField%
 		ppartb.= A_LoopField . "|"
 	}
 guicontrol,enable,FEPICA
@@ -67792,7 +67413,7 @@ MediaFEBUTO:
 efbab=FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN 
 loop,parse,efbab,|
 	{
-		guicontrol,,%a_lOOPfIELD%,1
+		guicontrol,,%A_LoopField%,1
 	}
 return
 MediaFEBUTA:
@@ -68280,7 +67901,7 @@ if (FERAD2B = 1)
 		iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
 		Loop,parse,scrapeto,|
 			{
-				if (A_LoopFIeld = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
@@ -68307,7 +67928,7 @@ if (FERAD2C = 1)
 		iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
 		Loop,parse,scrapeto,|
 			{
-				if (A_LoopFIeld = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
@@ -68555,7 +68176,7 @@ Loop, Parse, metaimages,|
 		arpi= %A_LoopField%
 		Loop, Parse, iscrp,`n`r
 			{
-				stringsplit,vix,A_loopField,=
+				stringsplit,vix,A_LoopField,=
 				if (vix1 = arpi)
 					{
 						stringreplace,vixs,vix1,%A_Space%,,All
@@ -70686,7 +70307,7 @@ Loop, Parse, mediaorder,|
 				continue
 			}
 		mvnum+=1
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				mvtm:= mvnum+1
 			}
@@ -70779,7 +70400,7 @@ Loop, Parse, curmedord,|
 			{
 				continue
 			}
-		if (A_loopField = curtxt)
+		if (A_LoopField = curtxt)
 			{
 				continue
 			}
@@ -71335,7 +70956,7 @@ loop,Parse,systmfldrs,|
 			{
 				continue
 			}
-		LV_Add("",A_LoopFIeld)
+		LV_Add("",A_LoopField)
 	}
 Loop,Parse,MEDIAFEITEMS,|
 	{
@@ -71676,7 +71297,7 @@ Loop
 				dialg= 
 				Loop,%ASSETS%\%curtxt%\*,2
 					{
-						dialg.= A_LoopFilefullpath . "|"
+						dialg.= A_LoopFileFullPath . "|"
 					}
 			}	
 	}
@@ -71717,7 +71338,7 @@ if (FERAD2C = 1)
 									}
 								if (A_Index = 1)
 									{
-										fibx= %a_Loopfilename%
+										fibx= %A_LoopFilename%
 									}
 								ARINNG.= A_LoopFileName . "|"
 							}
@@ -71758,7 +71379,7 @@ SplashImage, Off
 pkvi= 
 Loop,%ASSETS%\%FEDDLA%\%curtxt%\*,2
 	{
-		pkvi.= A_LoopFileFUllPath . "|"
+		pkvi.= A_LoopFileFullPath . "|"
 	}
 guicontrol,,FECBXB,|%ASSETS%\%FEDDLA%\%curtxt%\%FEDDLE%||%pkvi%
 return
@@ -74816,11 +74437,11 @@ Loop, rj\*.jak
 		splitpath,memtrn,,CURMEM
 		Loop,parse,rjemuopts,|
 			{
-				if (A_Loopfield = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
-				RJEMUOPTS= %A_Loopfield%
+				RJEMUOPTS= %A_LoopField%
 				break
 			}
 		stringreplace,RJEMUOPTS,RJEMUOPTS,<,%A_Space%,All
@@ -75500,7 +75121,7 @@ Loop, rj\*.jak
 														injrmltix.= A_LoopFileFullPath . "|"
 													}
 											}
-										stringreplace,injromnX,injromnR,%A_LoopfileDir%,`%CD`%,All
+										stringreplace,injromnX,injromnR,%A_LoopFileDir%,`%CD`%,All
 									}
 								if (RJMULTIDISC = 0)
 									{
@@ -75725,8 +75346,8 @@ Loop, rj\*.jak
 											{
 												continue
 											}
-										vb= %A_loopField%
-										vbf= %A_loopField%
+										vb= %A_LoopField%
+										vbf= %A_LoopField%
 										ifinstring,vb,\
 											{
 												splitpath,vb,vbf,vbp
@@ -75959,7 +75580,7 @@ Loop, rj\*_q.tdb
 	}
 Loop, Parse, SYSTMQ, |
 	{
-		if (A_Loopfield = RJQLSTDD)
+		if (A_LoopField = RJQLSTDD)
 			{
 					continue
 			}
@@ -76558,7 +76179,7 @@ Loop, parse, RJSUBDS,|
 	{
 		subda1=
 		subda2=
-		stringsplit,subda,A_loopField,:
+		stringsplit,subda,A_LoopField,:
 		RJSUBDLSTSR.= subda1 . "|"
 		RJSUBDLSTSW.= A_LoopField . "|"
 	}
@@ -77172,7 +76793,7 @@ Loop, rj\*_q.tdb
 	{
 		rjvarn=
 		rjmvr=
-		splitpath,a_loopFilename,,,,rjmvr
+		splitpath,A_LoopFilename,,,,rjmvr
 		StringTrimRight,rjvarn,rjmvr,2
 		if (rjvarn = RJSYSDD)
 			{
@@ -78249,8 +77870,8 @@ if (RJEMUPRECFG = "MAME - Arcade")
 							avn10=
 							splsys1=
 							stringsplit,splsys,A_LoopField,%A_Space%
-							stringsplit,avn,a_LoopField,(),%A_Space%
-							stringsplit,axn,a_LoopField,.,%A_Space%
+							stringsplit,avn,A_LoopField,(),%A_Space%
+							stringsplit,axn,A_LoopField,.,%A_Space%
 							if (splsys1 = mamename)
 								{
 									medtyp:= avn2
@@ -78353,7 +77974,7 @@ Loop, Parse, allrjvals,`n`r
 		emprs2=
 		emprs3=
 		emprs4=
-		stringsplit,emprs, A_Loopfield,?
+		stringsplit,emprs, A_LoopField,?
 		if (emprs2 = "")
 			{
 				emprs2 = %emprs1%
@@ -78868,7 +78489,7 @@ IMCORE= %crspl1%
 fig=
 Loop, parse,supguiitems,|
 	{
-		if (A_Loopfield = IMCORE)
+		if (A_LoopField = IMCORE)
 			{
 				fig= 1
 				decore= %RJEMUTG%
@@ -78934,7 +78555,7 @@ Loop, Parse, fiiw,`n`r
 									{
 										Loop,parse,supguiitems,|
 											{
-												if (A_Loopfield = empt1)
+												if (A_LoopField = empt1)
 													{
 														decore= %A_LoopField%
 														qisf= 1
@@ -79419,11 +79040,11 @@ ejcex= 1
 EMJTOG:
 Loop,Parse,EMUINPUTNULLITEMS,|
 	{
-		guicontrol,%emjtog%,%A_Loopfield%
+		guicontrol,%emjtog%,%A_LoopField%
 	}
 Loop,Parse,EMUINPUTGUIITEMS,|
 	{
-		guicontrol,%emjtog%,%A_Loopfield%
+		guicontrol,%emjtog%,%A_LoopField%
 	}
 EMJBTOG:
 Loop,Parse,EMUJOYBUTGUIITEMS,|
@@ -79822,7 +79443,7 @@ overDD=
 siv=
 Loop, Parse, apov,`n`r
 	{
-		if ((A_LoopField = "") or (A_LoopField = A_Space) or (A_loopField = A_Tab) or (A_LoopField = "`n"))
+		if ((A_LoopField = "") or (A_LoopField = A_Space) or (A_LoopField = A_Tab) or (A_LoopField = "`n"))
 			{
 				continue
 			}
@@ -80109,7 +79730,7 @@ if (ari <> "")
 	{
 		Loop,parse,ari,|
 			{
-				if ((A_Loopfield = "") or (A_LoopField = A_Space) or (A_LoopField = A_Tab) or (A_LoopField = "`n"))
+				if ((A_LoopField = "") or (A_LoopField = A_Space) or (A_LoopField = A_Tab) or (A_LoopField = "`n"))
 					{
 						continue 
 					}
@@ -81779,7 +81400,7 @@ ifinstring,EXTRSYS,.lpl
 		ifinstring,A_LoopField,%A_Space%-%A_Space%
 		Loop,parse,SysLLst,`n`r
 			{
-				if (A_loopField = "")
+				if (A_LoopField = "")
 					{
 						continue
 					}
@@ -81801,11 +81422,11 @@ if (EXTRSYS = "History")
 					{
 						Loop,parse,SysLLst,`n`r
 							{
-								if (A_loopField = "")
+								if (A_LoopField = "")
 									{
 										continue
 									}
-								stringsplit,vir,A_loopField,=
+								stringsplit,vir,A_LoopField,=
 								if (vir1 = rsts)
 									{
 										EXTRSYSK= %vir1%
@@ -82475,7 +82096,7 @@ if (msyslist <> "")
 				afep.= ji2 . "|"
 				Loop,parse,mame_sysk,|
 					{
-						if (A_Loopfield = ji1)
+						if (A_LoopField = ji1)
 							{
 								mame_sys.= ji2 . "|"
 								stringreplace,mame_sysk,mame_sysk,%ji1%|,,
@@ -82502,11 +82123,11 @@ Loop, %RJSYSTEMS%\*,2
 IniRead,suitar,SystemLocations.ini,LOCATIONS
 Loop,parse,suitar,`n`r
 	{
-		if (A_LOopField = "")
+		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,aip,A_LOopField,=,""
+		stringsplit,aip,A_LoopField,=,""
 		if (aip2 <> "")
 			{
 				ifnotinstring,systmfldrs,%aip1%|
