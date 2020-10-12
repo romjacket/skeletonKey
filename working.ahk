@@ -53183,7 +53183,7 @@ ifnotexist,PGcfg.ini
 		pgtheme= gameOS
 	}
 splitpath,Pegasus,PGFEXE,PGPROG
-ifnotexist,%PGRPOG%\pegasus_portable.lnk
+ifnotexist,%PGPROG%\pegasus_portable.lnk
 	{
 		FileCreateShortcut, %pegasus%, pegasus_portable.lnk, %PGPROG%, --portable, portable_mode, %pegasus%, , ,
 	}
@@ -53387,6 +53387,7 @@ guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Scraper Enabled
 guicontrol,%fetog%,FECHKF
 guicontrol,enable,FECHKF
+guicontrol,,FECHKF,%pgscr%
 guicontrol,move,FECHKF,x642 y398 w120 h23
 guicontrol,,FECHKF,Detect Playlists
 guicontrol,,FECHKE,%pgdet%
@@ -53394,7 +53395,7 @@ guicontrol,,FECHKE,%pgdet%
 guicontrol,%fetog%,FEEDTA
 guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
-guicontrol,,FEEDTA,%A_SPACE%"{file.path}"
+guicontrol,,FEEDTA,%A_SPACE%>[ROMPATH]>
 ;;extensions;;
 guicontrol,%fetog%,FEEDTB
 guicontrol,enable,FEEDTB
@@ -53525,6 +53526,12 @@ guicontrol,,FEPRGA,0
 gosub, PGPOPULATESYS
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
+pgenable:
+Loop,parse,PGGUIITEMS,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
+return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   PG DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTA:
 guicontrolget,FEDDLD,,FEDDLD
@@ -53533,7 +53540,10 @@ if (FEDDLD = "")
 		SB_SetText("You need select a theme!")
 		return
 	}
-guicontrol,disable,FEBUTA
+Loop,parse,PGGUIITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}	
 pgteo=
 dwnovr= false
 if (FECHKC = 1)
@@ -53552,7 +53562,9 @@ iniRead,URLFILE,sets\themes.set,%FEDDLD%,PGTHEME
 if (URLFILE = "ERROR")
 	{
 		SB_SetText("This theme is not avaiable from the skeletonKey repository")
-		guicontrol,enable,FEBUTA
+		guicontrol,,FEDDLD,|gameOS||%pgthemes%
+		gosub,FEDDLD
+		gosub,pgenable
 		return
 	}
 save= rj\PG\%FEDDLD%.7z
@@ -53564,13 +53576,17 @@ filegetsize,pgtsz,%save%,K
 if (pgtsz < 1)
 	{
 		SB_SetText("Download Failed")
-		guicontrol,enable,FEBUTA
+		guicontrol,,FEDDLD,|gameOS||%pgthemes%
+		gosub,FEDDLD
+		gosub,pgenable
 		return
 	}
 ifnotexist,%save%
 	{
 		SB_SetText("Download Failed")
-		guicontrol,enable,FEBUTA
+		guicontrol,,FEDDLD,|gameOS||%pgthemes%
+		gosub,FEDDLD
+		gosub,pgenable
 		return
 	}
 if (pgteo = "")
@@ -53582,6 +53598,7 @@ guicontrol,enable,FEBUTA
 ifnotexist,%pghome%\settings.txt
 	{
 		SB_SetText("configuration must be created")
+		gosub,pgenable
 		return
 	}
 Loop,files,rj\pg\%pgtheme%.*
@@ -53603,9 +53620,11 @@ Loop,files,rj\pg\%pgtheme%.*
 				fileappend,%A_LoopField%`n,%pghome%\settings.txt
 				SB_SetText(" theme changed to " pgtheme "")
 			}
+		gosub,pgenable
 		return	
 	}
 SB_SetText("Current theme is " PGTHEME " ")
+gosub,pgenable
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53931,12 +53950,24 @@ if (SLCTDSN = "")
 	{
 		SLCTDSN= other
 	}
+guicontrolget,SLCTDRW,,FEEDTA
+if (SLCTDRW = "")
+	{
+		SB_SetText("You must desgnate an execution paramater, eg: ''[ROMPATH]''")
+		return
+	}
 guicontrolget,SLCTDEMU,,FEDDLG
 if (SLCTDEMU = "other")
 	{		
 		SB_SetText("You must assign an Emulator")
 		return
 	}
+ifinstring,SLCTDEMU,_libretro.dll
+	{		
+		SLCTDRW= -L "%libretrodirectory%\%SLCTDEMU%" >[ROMPATH]>
+		SLCTDEMU= retroarch
+	}
+	
 guicontrolget,SLCTDEXT,,FEEDTB
 if (SLCTDEXT = "")
 	{
@@ -53957,12 +53988,6 @@ if (selctsyst = "")
 						break
 					}
 			}
-	}
-guicontrolget,SLCTDRW,,FEEDTA
-if (SLCTDRW = "")
-	{
-		SB_SetText("You must desgnate an execution paramater, eg: ''{file.path}''")
-		return
 	}
 SLCTDRW=%A_SPACE%%SLCTDRW%
 iniwrite,%fecbxb%,PGCfg.ini,%curtxt%,fullname
@@ -54078,6 +54103,10 @@ if (curtxtmm <> curtxtm)
 						sysord=
 						Loop,parse,PGCURPL,|
 							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
 								if (A_LoopField = curtxtm)
 									{
 										sysord.= curtxtmm . "|"
@@ -54160,6 +54189,11 @@ if (FEDDLG = "other")
 		gosub,FEBUTH
 		guicontrol,,FEDDLG,|other||%runlist%
 		return
+	}
+ifinstring,FEDDLG,_libretro.dll
+	{
+		iniwrite,%A_SPace%-L "%libretrodirectory%\%FEDDLG%" >[ROMPATH]>,PgCfg.ini,%curtxt%,emuoptions
+		iniwrite,retroarch,PgCfg.ini,%curtxt%,emuname
 	}
 iniread,pgemt,apps.ini,EMULATORS,%FEDDLG%
 if (pgemt = "ERROR")
@@ -54631,6 +54665,10 @@ Loop
 	}
 Loop, Parse, PGCURPL,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		if (A_LoopField = curtxt)
 			{
 				iniread,pgsnid,PGcfg.ini,GLOBAL,%curtxt%
@@ -54777,16 +54815,6 @@ guicontrol,,FERAD5A,0
 guicontrol,,FERAD5B,0
 guicontrol,,FERAD5C,0
 iniread,cgpspl,Pgcfg.ini,%curtxt%
-	
-Loop,parse,cgpspl,`n`r
-	{
-		ifinstring,A_LoopField,emuoptions
-			{
-				stringsplit,bbev,A_LoopField,=
-				cgpemo= %bbev2%
-				break
-			}
-	}
 iniread,cpgfn,PGcfg.ini,%curtxt%,fullname
 iniread,cpgsn,PGcfg.ini,%curtxt%,shortname
 iniread,cpgpn,PGcfg.ini,%curtxt%,platformid
