@@ -53293,21 +53293,21 @@ if (pgtheme = "ERROR")
 	}
 pgfscr= 1
 IniRead, pgfullscreen,PGcfg.ini,CONFIG,Fullscreen
-if (pgfullscreen = "ERROR")
+if ((pgfullscreen = "ERROR")(pgfullscreen = "false"))
 	{
 		pgfscr= 0
 		pgfullscreen= false
 	}
 pgdet= 1
 IniRead, pgDetectPlaylists,PGcfg.ini,CONFIG,DetectPlaylists
-if (pgDetectPlaylists = "ERROR")
+if ((pgDetectPlaylists = "ERROR")or(pgDetectPlaylists= "false"))
 	{
 		pgdet= 0
 		pgDetectPlaylists= false
 	}
 pgscr= 1
 IniRead,pgscraper,PGcfg.ini,CONFIG,scraper
-if (pgscraper = "ERROR")
+if ((pgscraper = "ERROR")(pgscraper = "false"))
 	{
 		pgscr= 0
 		pgscraper= false
@@ -54607,19 +54607,58 @@ return
 PegasusFERAD5A:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,,FEEDTB,.bat
-
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,,FEEDTB,.lnk
-
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  PG ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ksysp= % fe_%curtxt%
+pgpopem= 
 iniread,allxtn,EmuCfgPresets.ini,%ksysp%,RJROMXT
+iniread,pgemuas,Assignments.ini,OVERRIDES,%ksysp%
+if (pgemuas = "")
+	{
+		iniread,pgemudef,EmuCfgPresets.ini,%ksysp%,SUPEMU
+		Loop,parse,pgemudef,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				iniread,pgapx,Apps.ini,Emulators,%A_LoopField%
+				if ((pgapx <> "ERROR")&&(pgapx <> ""))
+					{	
+						if (pgpopem = "")
+							{
+								pgpopem.= A_LoopField . "||"
+								continue
+							}
+						pgpopem.= A_LoopField . "|"
+					}
+			}
+	}
+	else {
+		Loop,parse,pgemuas,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (pgpopem = "")
+					{
+						pgpopem.= A_LoopField . "||"
+						continue
+					}
+				pgpopem.= A_LoopField . "|"
+			}
+	}
+guicontrol,,FEDDLG,|%pgpopem%%runlist%
 guicontrol,,FEEDTB,%allxtn%
 return
 PGPOPULATESYS:
