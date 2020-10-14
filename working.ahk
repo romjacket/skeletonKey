@@ -1232,7 +1232,7 @@ IfExist,apps.ini
 			}
 		Loop,parse,fesup,|
 			{
-				iniread,fealn,apps.ini,HTPC_FRONTENDS,%A_LoopField%
+				iniread,fealn,apps.ini,FRONTENDS,%A_LoopField%
 				if ((fealn <> "")&&(fealn <> "ERROR"))
 					{
 						Menu, rjscopy, Add, Export to %A_LoopField%, Export_%A_LoopField%
@@ -1397,6 +1397,7 @@ Loop, Parse, SysLLst,`n`r
 				stringreplace,syscfgfld3,syscfgfld3,-,_,All
 				fe_%syscfgfld3%= %syscfgfld1%
 			}
+		fesyslst.= syscfgfld3 . "|"
 		syspardinj_%FENN%= %syscfgfld1%
 	}
 fe_= 	
@@ -1485,6 +1486,7 @@ Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
 Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
 Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
 Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
+Menu, EMURESETI, Add, Reset, EMURSTI
 Menu,MINITOGGLE,Add, Mini-Mode ,MINIMODET
 Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
 Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
@@ -2085,7 +2087,7 @@ Gui,Add,DropDownList, hwndDplHndl43 x282 y27 w177 vINSTEMUDDL gInstEmuDDL, %emui
 Gui, Add, Button, x286 y170 w75 h23 vLOCEMUIN gLocEmuIn, SELECT
 Gui, Add, Button, x382 y92 w75 h23 vMULTINST gMULTInst hidden, ASSIGN
 Gui, Add, Button, x362 y98 w15 h15 vEMUINSC gCLRNETP,-
-Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst, Install
+Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst,Install
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
 Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA Right hidden, Append to all supported systems
@@ -4742,6 +4744,10 @@ If A_GuiControlEvent RightClick
 				{
 					;;ADD EMULATORS RIGHTCLICK
 				}
+		}
+	if A_GuiControl = EMUINST
+		{
+			Menu, EMURESETI, Show, %A_GuiX% %A_GuiY%
 		}
 	if A_GuiControl = FEDDLJ
 		{
@@ -10715,6 +10721,47 @@ Loop, Parse, EmuPartSet,`n`r
 	}
 guicontrol,enable,salist
 return
+EMURSTI:
+gui,submit,nohide
+guicontrolget,INSTEMUDDL,,INSTEMUDDL
+guicontrolget,INSTEMUDET,,EINSTLOC
+if (INSTEMUDDL = "")
+	{
+		return
+	}
+iniread,inststtl,Apps.ini,%SALIST%,%INSTEMUDDL%
+if ((inststtl = "ERROR")or(inststtl = "")&&(INSTEMUDET = ""))
+	{
+		SB_SetText("" INSTEMUDDL " is not installed")	
+	}
+inidelete,Apps.ini,%SALIST%,%INSTEMUDDL%
+iniwrite,"",Assignments.ini,Assignments,%INSTEMUDDL%
+iniread,rsetz,EmuCfgPresets.ini,%INSTEMUDDL%,URLPTH
+stringsplit,rsetzs,rsetz,/
+Loop,%rsetzs0%
+	{
+		rsetztd= %A_LoopField%
+	}
+guicontrol,,EINSTLOC,	
+Filedelete,%cacheDirectory%\%rsetztd%
+if (ERRORLEVEL = 0)
+	{
+		SB_SetText("" rsetztd " was deleted and " INSTEMUDDL " was reset")
+	}
+ifexist,%RJEMUD%\%INSTEMU%\
+	{
+		Msgbox,8196,Delete Install,Delete the %RJEMUD%\%INSTEMUDDL% folder?
+		IfMsgbox,Yes
+			{
+				FileRemoveDir,%RJEMUD%\%INSTEMU%,1
+				if (ERRORLEVEL = 0)
+					{
+						SB_SetText(" Directory Deleted ")
+					}
+			}
+	}
+return
+
 ChEmuInst:
 xtractmu=
 xtractmul=
@@ -11473,7 +11520,7 @@ Loop,Parse,UrlIndex,`n`r
 								Menu, rjscopy, Add, Export to %slfm1%, Export_%slfm1%
 								fSYSINSTLBX.= slfm1 . "|"
 							}
-						iniwrite, "%xtractmfp%",apps.ini,HTPC_FRONTENDS,%slfm1%
+						iniwrite, "%xtractmfp%",apps.ini,FRONTENDS,%slfm1%
 					}
 				if (INSTLTYP = "Utilities")
 						{
@@ -12553,7 +12600,7 @@ if (SALIST = "Utilities")
 	}
 if (SALIST = "Frontends")
 	{
-		ASREX= HTPC_FRONTENDS
+		ASREX= FRONTENDS
 	}
 if (SALIST = "Emulators")
 	{
@@ -13093,7 +13140,7 @@ Loop, Parse, PRGINSTLBX,|
 						Menu, rjscopy, Add, Export to %semu%, Export_%semu%
 						fSYSINSTLBX.= semu . "|"
 					}
-				iniwrite, "%EMUINSTLOCT%",apps.ini,HTPC_FRONTENDS,%semu%
+				iniwrite, "%EMUINSTLOCT%",apps.ini,FRONTENDS,%semu%
 			}
 	}
 if ((PRGINSTLBX = "retroArch") && (raexefile = ""))
@@ -31007,7 +31054,7 @@ Loop, Parse, FEPartSet,`n`r
 				if (prgom = 1)
 					{
 						fecnt+=1
-						iniread,fetmp,apps.ini,HTPC_FRONTENDS,%emupx1%
+						iniread,fetmp,apps.ini,FRONTENDS,%emupx1%
 						if (fetmp = "ERROR")
 							{
 								if (instr(fesup,emupx1)&& !instr(fSYSINSTLBX,emupx1))
@@ -31015,7 +31062,7 @@ Loop, Parse, FEPartSet,`n`r
 										Menu, rjscopy, Add, Export to %emupx1%, Export_%emupx1%
 										fSYSINSTLBX.= emupx1 . "|"
 									}
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,HTPC_FRONTENDS,%emupx1%
+								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,FRONTENDS,%emupx1%
 							}
 						stringreplace,fexelst,fexelst,%emupx1%>%emunmz%,,All
 						continue
@@ -31167,15 +31214,15 @@ Loop, parse, farvr,`n`r
 						alri=
 						alrk=
 						alrj=
-						iniread,alri,apps.ini,HTPC_FRONTENDS,%splemu1%
+						iniread,alri,apps.ini,FRONTENDS,%splemu1%
 						if (alri = "ERROR")
 							{
-								IniWrite, "%emuxefp%",apps.ini,HTPC_FRONTENDS,%splemu1%
+								IniWrite, "%emuxefp%",apps.ini,FRONTENDS,%splemu1%
 							}
 							else {
 								ifnotexist,%alri%
 									{
-										IniWrite, "%emuxefp%",apps.ini,HTPC_FRONTENDS,%splemu1%
+										IniWrite, "%emuxefp%",apps.ini,FRONTENDS,%splemu1%
 									}
 							}
 						if (instr(fesup,splemu1)&& !instr(fSYSINSTLBX,splemu1))
@@ -34081,13 +34128,6 @@ if (fenam = "RetroFE")
 					}
 			}
 		rfcommon=
-		Loop, Parse,RfLkUp,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-			}
 		stringreplace,RFPLPLST,RFPLPLST,||,|,All
 		stringreplace,rfcommon,rfcommon,||,|,All
 		if (RFRPOPPL = 1)
@@ -53157,7 +53197,7 @@ PegasusToggle:
 gosub, FEUNPOP
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   PG INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PGINIT:
-iniread,Pegasus,apps.ini,HTPC_FRONTENDS,Pegasus
+iniread,Pegasus,apps.ini,FRONTENDS,Pegasus
 if (Pegasus = "ERROR")
 	{
 		SB_SetText("Use the Install tab to install Pegasus.")
@@ -53661,7 +53701,7 @@ Loop, Parse, prsy,|
 		if instr(c_sysp,":")
 			{
 				sysplfw= %c_sysp%
-				goto, gpsysit
+				gosub, gpsysit
 			}
 		else {
 			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%c_sysp%
@@ -53672,144 +53712,10 @@ Loop, Parse, prsy,|
 							continue
 						}
 					sysplfw= %A_LoopField%
-					goto, gpsysit
+					gosub, gpsysit
 				}
 			continue
 			}
-			gpsysit:
-			FileDelete,%sysplfw%\collections.pegasus.txt
-			iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
-			ifinstring,c_emun,:
-				{
-					emushrtn= %c_emun%
-				}
-			FileAppend,collection: %c_plfi%`n,%sysplfw%\collections.pegasus.txt
-			FileAppend,shortname: %c_shrt%`n,%sysplfw%\collections.pegasus.txt
-			stringreplace,extn,c_extn,.,%A_Space%,All
-			FileAppend,extensions: %extn%`n,%sysplfw%\collections.pegasus.txt
-			stringreplace,emushrtn,emushrtn,",,All
-			;"
-			FileAppend,launch: "%emushrtn%" %c_emuo% `n,%sysplfw%\collections.pegasus.txt
-			stringreplace,injvnp,sysplfw,\,/,All
-			FileAppend,directory: %injvnp%`n,%sysplfw%\collections.pegasus.txt
-			FileAppend,`n,%sysplfw%\collections.pegasus.txt
-			Loop,files,%sysplfw%\*,FD
-				{
-					pgdir= %A_LoopFileName%
-					splitpath,A_LoopFileFullPath,pginf,pgind,pginx,pginn
-					extnum= 
-					extvidn= 
-					pgimp= 
-					pgimgapnd= 
-					pgvidapnd= 
-					Loop,parse,extn,`,,%A_Space%
-						{
-							pinv= 
-							ifexist,%A_LoopFileFullPath%\
-								{
-									pgind= %sysplfw%\%pgdir%
-									pinv= R
-								}
-								else {
-									pgimp= 
-								}
-							Loop,files,%pgind%\*.%A_LoopField%,%pinv%
-								{
-									splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
-									stringreplace,pgfullpth,A_LoopFileFullPath,\,/,All
-									stringreplace,pgad,pgd,\,/,All
-									if ((A_Index = 1) && (pgimp <> 1))
-										{
-											fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
-											goto, ParsePGIMGS
-										}													
-									fileappend,%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
-									ParsePGIMGS:
-									pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
-									if (extnum = 1)
-										{
-											continue
-										}
-									Loop,parse,imgonl,|
-										{
-											if (A_LoopField = "")
-												{
-													continue
-												}
-											cextm= %A_LoopField%
-											Loop,parse,pgimgs,|
-												{
-													irnm= %A_LoopField%
-													iimmbn= %pgd%\%irnm%.%cextm%
-													ifexist,%iimmbn%
-														{
-															stringreplace,pgcpth,iimmbn,\,/,All
-															stringreplace,pgimgs,pgimgs,%irnm%|,,All
-															pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-															extnum= 1
-															continue
-														}
-													etxx= % altpg%A_Index%
-													if (etxx <> irnm)
-														{
-															iimmbn= %pgd%\%etxx%.%cextm%
-															stringreplace,pgcpth,iimmbn,\,/,All
-															stringreplace,pgimgs,pgimgs,%irnm%|,,All
-															ifexist,%pgd%\%etxx%.%cextm%
-																{
-																	stringreplace,pgimgs,pgimgs,%irnm%|,,All
-																	pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-																	extnum= 1
-																	continue
-																}
-														}
-													iimmbn= %pghome%\%pgdir%\%irnm%.%cextm%
-													ifexist,%iimmbn%
-														{
-															stringreplace,pgcpth,iimmbn,\,/,All
-															stringreplace,pgimgs,pgimgs,%A_LoopField%|,,All
-															pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
-															extnum= 1
-														}
-												}
-										}
-									if (extvidn = 1)
-										{
-											continue
-										}
-									pgvidtyp=mp4|mkv|m4a|avi
-									Loop,parse,pgvidtyp,|
-										{
-										Loop,files,%pgind%\*.%A_LoopField%
-											{
-												iimmbn= %A_LoopFileFullPath%
-												ifexist,%iimmbn%
-													{
-														stringreplace,pgcpth,iimmbn,\,/,All
-														stringreplace,pgimgs,pgimgs,%irnm%|,,All
-														pgvidapnd.= "assets.video:" . A_Space . pgcpth . "`n"
-														extvidn= 1
-														continue
-													}
-											}
-									}
-									pgimp= 1
-								}
-						}
-					if (pgimgapnd <> "")
-						{
-							fileappend,%pgimgapnd%,%sysplfw%\collections.pegasus.txt
-						}
-					if (pgvidapnd <> "")
-						{
-							fileappend,%pgvidapnd%,%sysplfw%\collections.pegasus.txt
-						}
-				}
-			fileread,pgsys,%pghome%\game_dirs.txt
-			ifnotinstring,pgsys,%injvnp%
-				{
-					FileAppend,%injvnp%`n,%pghome%\game_dirs.txt
-				}
 	}
 FileRead,pgcfg,sets\pgsettings.set
 pgthemeloc= %PGPROG%\config\themes\%FEDDLD%
@@ -53838,6 +53744,141 @@ msgbox,,Complete,PG configuration created,5
 Loop,parse,PGGUIITEMS,|
 	{
 		guicontrol,enable,%A_LoopField%
+	}
+return
+gpsysit:
+FileDelete,%sysplfw%\collections.pegasus.txt
+iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
+ifinstring,c_emun,:
+	{
+		emushrtn= %c_emun%
+	}
+FileAppend,collection: %c_plfi%`n,%sysplfw%\collections.pegasus.txt
+FileAppend,shortname: %c_shrt%`n,%sysplfw%\collections.pegasus.txt
+stringreplace,extn,c_extn,.,%A_Space%,All
+FileAppend,extensions: %extn%`n,%sysplfw%\collections.pegasus.txt
+stringreplace,emushrtn,emushrtn,",,All
+;"
+FileAppend,launch: "%emushrtn%" %c_emuo% `n,%sysplfw%\collections.pegasus.txt
+stringreplace,injvnp,sysplfw,\,/,All
+FileAppend,directory: %injvnp%`n,%sysplfw%\collections.pegasus.txt
+FileAppend,`n,%sysplfw%\collections.pegasus.txt
+Loop,files,%sysplfw%\*,FD
+	{
+		pgdir= %A_LoopFileName%
+		splitpath,A_LoopFileFullPath,pginf,pgind,pginx,pginn
+		extnum= 
+		extvidn= 
+		pgimp= 
+		pgimgapnd= 
+		pgvidapnd= 
+		Loop,parse,extn,`,,%A_Space%
+			{
+				pinv= 
+				ifexist,%A_LoopFileFullPath%\
+					{
+						pgind= %sysplfw%\%pgdir%
+						pinv= R
+					}
+					else {
+						pgimp= 
+					}
+				Loop,files,%pgind%\*.%A_LoopField%,%pinv%
+					{
+						splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
+						stringreplace,pgfullpth,A_LoopFileFullPath,\,/,All
+						stringreplace,pgad,pgd,\,/,All
+						if ((A_Index = 1) && (pgimp <> 1))
+							{
+								fileappend,game:%A_Space%%pgn%`nfiles:%A_Space%%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
+								goto, ParsePGIMGS
+							}													
+						fileappend,%pgfullpth%`n,%sysplfw%\collections.pegasus.txt
+						ParsePGIMGS:
+						pgimgs= boxFront|boxBack|boxSpine|boxFull|cartridge|logo|marquee|bezel|panel|cabinetLeft|cabinetRight|tile|banner|steam|poster|background|screenshot
+						if (extnum = 1)
+							{
+								continue
+							}
+						Loop,parse,imgonl,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								cextm= %A_LoopField%
+								Loop,parse,pgimgs,|
+									{
+										irnm= %A_LoopField%
+										iimmbn= %pgd%\%irnm%.%cextm%
+										ifexist,%iimmbn%
+											{
+												stringreplace,pgcpth,iimmbn,\,/,All
+												stringreplace,pgimgs,pgimgs,%irnm%|,,All
+												pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+												extnum= 1
+												continue
+											}
+										etxx= % altpg%A_Index%
+										if (etxx <> irnm)
+											{
+												iimmbn= %pgd%\%etxx%.%cextm%
+												stringreplace,pgcpth,iimmbn,\,/,All
+												stringreplace,pgimgs,pgimgs,%irnm%|,,All
+												ifexist,%pgd%\%etxx%.%cextm%
+													{
+														stringreplace,pgimgs,pgimgs,%irnm%|,,All
+														pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+														extnum= 1
+														continue
+													}
+											}
+										iimmbn= %pghome%\%pgdir%\%irnm%.%cextm%
+										ifexist,%iimmbn%
+											{
+												stringreplace,pgcpth,iimmbn,\,/,All
+												stringreplace,pgimgs,pgimgs,%A_LoopField%|,,All
+												pgimgapnd.= "assets." . irnm . ":" . A_Space . pgcpth . "`n"
+												extnum= 1
+											}
+									}
+							}
+						if (extvidn = 1)
+							{
+								continue
+							}
+						pgvidtyp=mp4|mkv|m4a|avi
+						Loop,parse,pgvidtyp,|
+							{
+							Loop,files,%pgind%\*.%A_LoopField%
+								{
+									iimmbn= %A_LoopFileFullPath%
+									ifexist,%iimmbn%
+										{
+											stringreplace,pgcpth,iimmbn,\,/,All
+											stringreplace,pgimgs,pgimgs,%irnm%|,,All
+											pgvidapnd.= "assets.video:" . A_Space . pgcpth . "`n"
+											extvidn= 1
+											continue
+										}
+								}
+						}
+						pgimp= 1
+					}
+			}
+		if (pgimgapnd <> "")
+			{
+				fileappend,%pgimgapnd%,%sysplfw%\collections.pegasus.txt
+			}
+		if (pgvidapnd <> "")
+			{
+				fileappend,%pgvidapnd%,%sysplfw%\collections.pegasus.txt
+			}
+	}
+fileread,pgsys,%pghome%\game_dirs.txt
+ifnotinstring,pgsys,%injvnp%
+	{
+		FileAppend,%injvnp%`n,%pghome%\game_dirs.txt
 	}
 return
 PegasusFEBUTC:
@@ -54666,14 +54707,14 @@ Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, felkup,`n`r
+Loop, Parse, SysLLst,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
 		stringsplit,syslk,A_LoopField,=
-		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk3%
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk1%
 		if ((sysxst <> "")&&(sysxst <> "ERROR"))
 			{
 				LV_Add("",syslk1)
@@ -56880,7 +56921,7 @@ RetroFEToggle:
 gosub, FEUNPOP
 RFINIT:
 rfthemes=
-iniread,RetroFE,apps.ini,HTPC_FRONTENDS,RetroFE
+iniread,RetroFE,apps.ini,FRONTENDS,RetroFE
 if (RetroFE = "ERROR")
 	{
 		SB_SetText("Use the Install tab to install RetroFE.")
@@ -56896,7 +56937,6 @@ if (RetroFE = "ERROR")
 filecreateDir,rj\RF
 ifnotexist,RFcfg.ini
 	{
-		FileAppend,[GLOBAL]`n,RFcfg.ini
 		FileAppend,[CONFIG]`n,RFcfg.ini
 		FileAppend,[ORDER]`n,RFcfg.ini
 		IniWrite,stretch,RFcfg.ini,CONFIG,rfxrez
@@ -56943,7 +56983,7 @@ Loop, %rfhome%\layouts\*,2
 	}
 if (RfNpts = "")
 	{
-		Loop,Parse,RfLkUp,`n`r
+		Loop,Parse,SysLLst,`n`r
 			{
 				if (A_LoopField = "")
 					{
@@ -56963,10 +57003,6 @@ Loop,Read,RFcfg.ini
 		gotsy1=
 		stringsplit,ccpl,A_LoopReadLine,=
 		stringsplit,gotsy,ccpl2,|
-		if (ccpl1 = "[GLOBAL]")
-			{
-				continue
-			}
 		if (ccpl1 = "[CONFIG]")
 			{
 				break
@@ -57054,6 +57090,7 @@ ifnotexist,%RFHOME%\settings.conf
 rfsetcfg= %RFHOME%\settings.conf
 gosub, rfgpsetcfg
 ;};;;;;;;;;;;;;;;;;;;;;;
+RFGUIITEMS=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ|FEBUTK|FECBXA|FECBXB|FECBXC|FECBXD|FECHKB|FECHKC|FECHKD|FECHKE|FEDDLA|FEDDLD|FEDDLF|FEDDLG|FEEDTA|FEEDTB|FELBXA|FELVA|FEPRGA|FERAD2A|FERAD2B|FERAD5A|FERAD5B|FERAD5
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    RF CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
@@ -57156,12 +57193,13 @@ guicontrol,,FECBXB,|%systmfldrs%
 guicontrol,%fetog%,FECBXC
 guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
-guicontrol,,FECBXC,|%avblnk%%RfNpts%%systmfldrs%
+guicontrol,,FECBXC,|%systmfldrs%
 ;;name;;
 guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
-guicontrol,,FECBXD,|%avblnk%%RfNpts%%systmfldrs%
+;;guicontrol,,FECBXD,|%avblnk%%RfNpts%
+guicontrol,,FECBXD,|%systmfldrs%
 ;;theme;;
 guicontrol,%fetog%,FECBXA
 guicontrol,enable,FECBXA
@@ -57272,6 +57310,7 @@ guicontrol,%fetog%,FEPRGA
 guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
+gosub, RFPOPULATESYS
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   RF DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -57282,6 +57321,8 @@ if (FEDDLD = "")
 		SB_SetText("You need select a theme!")
 		return
 	}
+rfitmt= disable
+gosub,enablerfgui	
 rfteo=
 dwnovr= false
 if (FECHKC = 1)
@@ -57301,6 +57342,8 @@ iniRead,extractpthadd,sets\themes.set,%FEDDLD%,RFEXPTH
 if (URLFILE = "ERROR")
 	{
 		SB_SetText("This theme is not available from the skeletonKey repository")
+		rfitmt= enable
+		gosub,enablerfgui
 		return
 	}
 save= rj\RF\%FEDDLD%.7z
@@ -57312,11 +57355,15 @@ filegetsize,rftsz,%save%,K
 if (rftsz < 200)
 	{
 		SB_SetText("Download Failed")
+		rfitmt= enable
+		gosub,enablerfgui
 		return
 	}
 ifnotexist,%save%
 	{
 		SB_SetText("Download Failed")
+		rfitmt= enable
+		gosub,enablerfgui
 		return
 	}
 ovextinj=
@@ -57329,10 +57376,20 @@ if (rfteo = "")
 		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
 	}
 SB_SetText("Current theme is " RFTHEME " ")
+rfitmt= enable
+gosub,enablerfgui
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
+enablerfgui:
+Loop,parse,RFGUIITEMS,|
+	{
+		guicontrol,%rfitmt%,%A_LoopField%
+	}
+return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEBUTB:
+rfitmt= disable
+gosub, enablerfgui
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
 guicontrolget,FEDDLD,,FEDDLD
@@ -57344,6 +57401,9 @@ FileDelete,rj\RF\*.conf
 ifnotexist,%rfhome%\layouts\%FEDDLD%\
 	{
 		SB_SetText("The current theme is not installed/downloaded.")
+		
+		rfitmt= enable
+		gosub,enablerfgui
 		return
 	}
 FileDelete,rj\RF\menu.txt
@@ -57355,84 +57415,34 @@ Loop, Parse, prsy,|
 			}
 		sysfin=
 		sysesc= %A_LoopField%
-		iniread,tmpes,RFcfg.ini,GLOBAL
-		Loop, Parse, tmpes,`n`r
+		IniRead,c_sysp,RFCfg.ini,%A_LoopField%,syspath
+		IniRead,c_emun,RFCfg.ini,%A_LoopField%,emuname
+		IniRead,c_emuo,RFCfg.ini,%A_LoopField%,emuoptions
+		stringreplace,c_emuo,c_emuo,> ,",All
+		;"
+		stringreplace,c_emuo,c_emuo,[ROMNAME],`%ITEM_NAME`%,All
+		stringreplace,c_emuo,c_emuo,[ROMPATH],`%ITEM_FILEPATH`%,All
+		IniRead,c_extn,RFCfg.ini,%A_LoopField%,extensions
+		IniRead,c_shrt,RFCfg.ini,%A_LoopField%,shortname
+		IniRead,c_full,RFCfg.ini,%A_LoopField%,fullname
+		IniRead,c_plfi,RFCfg.ini,%A_LoopField%,platformid	
+		if instr(c_sysp,":")
 			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				rjsp1=
-				rjsp2=
-				stringsplit,rjsp,A_LoopField,=
-				apnd=
-				ppnd=
-				srnam= %rjsp1%
-				stringleft,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd= _
-						apnd=
-						stringtrimleft,srnam,rjsp1,1
-					}
-				stringright,rj,rjsp1,1
-				if (rj = "_")
-					{
-						ppnd=
-						apnd= _
-						stringtrimright,srnam,rjsp1,1
-					}
-				ffj1=
-				ffj2=
-				ans1=
-				ans2=
-				stringsplit,ans,A_LoopField,=
-				stringsplit,ffj,ans2,|
-				typm= %ans1%
-				if ((apnd = ppnd) && (apnd <> "_"))
-					{
-						typm= %ffj1%
-					}
-				if (typm = sysesc)
-					{
-						iniread,sysvlz,RFcfg.ini,GLOBAL,%ans1%
-						injvar1=
-						injvar2=
-						injvar3=
-						injvar4=
-						injvar5=
-						injvar6=
-						injvar7=
-						stringsplit,injvar,sysvlz,|
-						iniread,emushrtn,apps.ini,EMULATORS,%injvar4%
-						emunmc= %injvar4%
-						ifinstring,injvar4,:
-							{
-								stringsplit,emunmc,emushrtn
-								emunmc=
-								emushrtn= %injvar4%
-							}
-						stringreplace,injvnp,injvar6,\,/,All
-						FileAppend,list.path = %injvnp%`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,list.includeMissingItems = true`n,rj\RF\%injvar2%.settings.conf
-						stringreplace,extn,injvar3,.,,All
-						FileAppend,list.extensions = %extn%`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,list.menuSort = true`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,list.romHierarchy = true`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,launcher = %emunmc%`n,rj\RF\%injvar2%.settings.conf
-						FileAppend,executable = %emushrtn%`n,rj\RF\%emunmc%.conf
-						FileAppend,arguments = %injvar5%`n,rj\RF\%emunmc%.conf
-						FileAppend,%ffj2%`n,rj\RF\menu.txt
-						RunWait,"core\retrofe.exe" -createcollection "%ffj2%",%rfprog%,hide
-						if (FECHKB = 1)
-							{
-								filecopy,%RFHOME%\launchers\%emunmc%.conf,%RFHOME%\launchers\%emunmc%.conf.bak,1
-							}
-						filemove,rj\RF\%emunmc%.conf,%RFHOME%\launchers\%emunmc%.conf,1
-						filemove,rj\RF\%injvar2%.settings.conf,%RFHOME%\collections\%ffj2%\settings.conf,1
-						SYSNAME= %ans1%
-						break
-					}
+				sysplfw= %c_sysp%
+				gosub, frsysit
+			}
+		else {
+			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%c_sysp%
+			Loop,parse,sysplfp
+				{
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					sysplfw= %A_LoopField%
+					gosub, frsysit
+				}
+			continue
 			}
 	}
 FileRead,rfcfg,sets\rfsettings.set
@@ -57449,12 +57459,44 @@ if (FECHKB = 1)
 		Filecopy,rj\RF\menu.txt,rj\RF\menu.txt.bak,1
 		FileMove,%rfsetcfg%,%rfsetcfg%.bak,1
 	}
-FileDelete,	%rfsetcfg%
+FileDelete,%rfsetcfg%
 fileappend,%rfcfg%,rj\RF\settings.conf
 filecopy,rj\RF\settings.conf,%RFHOME%,%FECHKB%
 filecopy,rj\RF\menu.txt,%RFHOME%\collections\Main,%FECHKB%
 msgbox,,Complete,RF configuration created,5
+rfitmt= enable
+gosub,enablerfgui
 return
+
+frsysit:
+iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
+ifinstring,c_emun,:
+	{
+		stringsplit,c_emun,emushrtn
+		emunmc=
+		emushrtn= %c_emun%
+	}
+stringreplace,injvnp,sysplfw,\,/,All
+FileAppend,list.path = %injvnp%`n,rj\RF\%c_full%.settings.conf
+FileAppend,list.includeMissingItems = true`n,rj\RF\%c_full%.settings.conf
+stringreplace,extn,c_extn,.,,All
+FileAppend,list.extensions = %extn%`n,rj\RF\%c_full%.settings.conf
+FileAppend,list.menuSort = true`n,rj\RF\%c_full%.settings.conf
+FileAppend,list.romHierarchy = true`n,rj\RF\%c_full%.settings.conf
+FileAppend,launcher = %c_emun%`n,rj\RF\%c_full%.settings.conf
+FileAppend,executable = %emushrtn%`n,rj\RF\%c_emun%.conf
+FileAppend,arguments = %c_emuo%`n,rj\RF\%c_emun%.conf
+FileAppend,%c_full%`n,rj\RF\menu.txt
+RunWait,"core\retrofe.exe" -createcollection "%c_full%",%rfprog%,hide
+if (FECHKB = 1)
+	{
+		filecopy,%RFHOME%\launchers\%c_emun%.conf,%RFHOME%\launchers\%c_emun%.conf.bak,1
+	}
+filemove,rj\RF\%c_emun%.conf,%RFHOME%\launchers\%c_emun%.conf,1
+filemove,rj\RF\%c_full%.settings.conf,%RFHOME%\collections\%c_full%\settings.conf,1
+SYSNAME= %ans1%
+return
+
 RetroFEFEBUTC:
 if (sysfnd = "")
 	{
@@ -57467,86 +57509,39 @@ Loop, Parse, RFCURPL,|
 			{
 				continue
 			}
-		if (A_LoopField = curtxt)
+		if (A_LoopField = curtnm)
 			{
-				iniread,tmpes,RFcfg.ini,GLOBAL
-				Loop, Parse, tmpes,|
-					{
-						stringsplit,ffj,A_LoopField,|
-						stringsplit,ans,ffj1,=
-						if (ans2 = curtxt)
-							{
-								systdl= ans1
-							}
-					}
-				inidelete,RFcfg.ini,GLOBAL,%systdl%
+				inidelete,RFcfg.ini,%curtnm%
 				continue
 			}
 		TCURPL.= A_LoopField . "|"
 	}
 RFCURPL= %TCURPL%
 iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order
-RFCURPL= %TCURPL%
 guicontrol,,FELBXA,|%RFCURPL%
 return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEBUTD:
+selctsystmp=
+FileSelectFolder,selctsystmp,,3,Select a ROM Directory for %curtxt%
+if ((selctsystmp = "")&&(sysfnd = ""))
+	{
+		guicontrol,,FETXTJ,%selctsystmp%
+		return
+	}
 if (sysfnd = "")
 	{
 		return
 	}
-selctsystmp=
-FileSelectFolder,selctsystmp,,3,Select a ROM Directory for %curtxt%
-if (selctsystmp = "")
+if ((FETXTJ <> selctsystmp)&&(selctsystmp = ""))
 	{
-		return
+		guicontrol,,FETXTJ,
+		selctsystmp= %FECBXB%
 	}
-stringright,efi,selctsystmp,2
-stringLeft,efix,selctsystmp,2
-if (efi = ":\")
-	{
-		selctsystmp= %efix%
-	}	
-selctsys= %selctsystmp%
-guicontrol,,FETXTJ,%selctsys%
-extpop=
-Loop, Read, RFcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, rftv,|
-	{
-		avi+=1
-		if (avi = 6)
-			{
-				kkv= %A_LoopField%
-				stringreplace,rftv,rftv,%kkv%,%selctsys%,All
-				iniwrite,%rftv%,RFcfg.ini,GLOBAL,%extpop%
-			}
-	}
-return
+iniwrite,%selctsystmp%,RFCfg.ini,%curtnm%,syspath
+return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEBUTE:
@@ -57560,272 +57555,123 @@ if (syso = "ERROR")
 	{
 		syso=
 	}
-if (FERAD5A = 1)
+if (sysfnd = 1)
 	{
-	vmint=
-	Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				Loop, Read, RFcfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, RfLkUp,`n`r
-					{
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.bat,.BAT
-								SLCTDEMU= BSL
-								SLCTDRW= "{file.path}"
-								selctsys= %RJSYSTEMS%\%CHKITM%
-								SLCTDSN= _%sfi3%
-								SNFEITMS.= "_" . sfi3 . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,=,,All
-						emks= %ffr%
-						SLCTDEXT=.bat .BAT
-						SLCTDEMU= BSL
-						SLCTDRW= "{file.path}"
-						selctsys= %RJSYSTEMS%\%CHKITM%
-						SLCTDSN= _%ffr%
-						SNFEITMS.= "_" . ffr . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,RFcfg.ini,GLOBAL,%SLCTDSN%
-			}
-		iniread,sysordr,RFcfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		RFCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order
-		Guicontrol,,FELBXA,|%RFCURPL%
-		LV_Modify(0, "-Check")
+		SB_SetText("Current system is already added")
 		return
 	}
-	if (FERAD5B = 1)
+RowNumber = 0
+Loop
 	{
-		guicontrolget,FEDDLF,,FEDDLF
-		iniread,rfmirror,Settings.ini,GLOBAL,%FEDDLF%
-		if (rfmirror = "ERROR")
+		RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
+		if not RowNumber
 			{
-				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
+				break
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
+	}
+Loop,parse,SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,rfnb,A_LoopField,=
+		if (rfnb1 = curtxt)
+			{
+				curtnm= %rfnb3%
+				break
+			}
+	}		
+	
+Loop, Parse, RFCURPL,|
+	{
+		if (A_LoopField = curtnm)
+			{
+				SB_SetText("Current system is already in the playlist.")
 				return
 			}
-		vmint=
-		Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				Loop, Read, RFcfg.ini
-					{
-						ivn1=
-						ivn2=
-						ivn3=
-						ivn4=
-						ivn5=
-						ivn6=
-						ivn7=
-						stringsplit,ivn,A_LoopReadLine,=
-						if (ivn1 = "[CONFIG]")
-							{
-								continue
-							}
-						if (ivn1 = "_%A_LoopField%")
-							{
-								symnt= 1
-								break
-							}
-					}
-				if (symnt = "")
-					{
-						vmint.= A_LoopField . "|"
-					}
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, RfLkUp,`n`r
-					{
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						sfi7=
-						sfi8=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.lnk,.LNK
-								SLCTDEMU= BSL
-								SLCTDRW= "{file.path}"
-								selctsys= %rfmirror%\%CHKITM%
-								SLCTDSN= %sfi3%_
-								SNFEITMS.= sfi3 . "_" . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,%A_Space%,,All
-						stringreplace,ffr,ffr,-,,All
-						stringLower,ffr,ffr
-						emks= %ffr%
-						SLCTDEXT=.lnk .LNK
-						SLCTDEMU= BSL
-						SLCTDRW= "{file.path}"
-						selctsys= %rfmirror%\%CHKITM%
-						SLCTDSN= %ffr%_
-						SNFEITMS.= ffr . "_" . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%|%CHKITM%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%emks%,RFcfg.ini,GLOBAL,%SLCTDSN%
-			}
-		iniread,sysordr,RFcfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		RFCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order
-		Guicontrol,,FELBXA,|%RFCURPL%
-		LV_Modify(0, "-Check")
+	}
+PGCURPL.= curtnm . "|"
+guicontrolget,FECBXC,,FECBXC
+if (FECBXC = "")
+	{
+		FECBXC= %curtnm%
+	}
+guicontrolget,FECBXB,,FECBXB
+if (FECBXB = "")
+	{
+		FECBXB= %curtxt%
+	}
+guicontrolget,FECBXD,,FECBXD
+if (FECBXD = "")
+	{
+		FECBXD= %curtnm%
+	}
+guicontrolget,FECBXA,,FECBXA
+if (FECBXA = "")
+	{
+		FECBXA= %curtnm%
+	}
+if (SLCTDSN = "")
+	{
+		SLCTDSN= other
+	}
+guicontrolget,SLCTDRW,,FEEDTA
+if (SLCTDRW = "")
+	{
+		SB_SetText("You must desgnate an execution paramater, eg: ''[ROMPATH]''")
 		return
 	}
-nvar=
-if (FERAD5C = 1)
+guicontrolget,SLCTDEMU,,FEDDLG
+if (SLCTDEMU = "other")
+	{		
+		SB_SetText("You must assign an Emulator")
+		return
+	}
+ifinstring,SLCTDEMU,_libretro.dll
+	{		
+		SLCTDRW= -L "%libretrodirectory%\%SLCTDEMU%" >[ROMPATH]>
+		SLCTDEMU= retroarch
+	}
+	
+guicontrolget,SLCTDEXT,,FEEDTB
+if (SLCTDEXT = "")
 	{
-		if (sysfnd = 1)
+		SLCTDEXT= .*
+	}
+guicontrolget,selctsyst,,FETXTJ
+if (selctsyst = "")
+	{
+		iniread,selctsystl,SystemLocations.ini,LOCATIONS,%fecbxb%
+		if ((selctsystl = "")or(selctsystl = "ERROR"))
 			{
-				SB_SetText("Current system is already added")
-				return
+				selctsyst= %RJSYSTEMS%
 			}
-		RowNumber = 0
-		Loop
-			{
-				RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
-				if not RowNumber
+			else {
+				Loop,parse,selctsystl,|
 					{
+						selctsyst= %A_LoopField%
 						break
 					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
 			}
-		Loop, Parse, RFCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						SB_SetText("Current system is already in the playlist.")
-						return
-					}
-			}
-		RFCURPL.= curtxt . "|"
-		guicontrolget,FECBXB,,FECBXB
-		if (FECBXB = "")
-			{
-				FECBXB= %curtxt%
-			}
-		guicontrolget,FECBXD,,FECBXD
-		if (FECBXD = "")
-			{
-				FECBXD= %curtxt%
-			}
-		if (SLCTDSN = "")
-			{
-				SLCTDSN= other
-			}
-		guicontrolget,SLCTDEMU,,FEDDLG
-		if (SLCTDEMU = "other")
-			{
-				if (rfemu = "")
-					{
-						SB_SetText("You must assign an Emulator")
-						return
-					}
-				SLCTDEMU= %rfemu%
-			}
-		guicontrolget,SLCTDEXT,,FEEDTB
-		if (SLCTDEXT = "")
-			{
-				SLCTDEXT= .*
-			}
-		guicontrolget,SLCTDRW,,FEEDTA
-		if (SLCTDRW = "")
-			{
-				SB_SetText("You must desgnate an execution paramater, eg: ''{file.path}''")
-				return
-			}
-		SLCTDRW=%A_SPACE%%SLCTDRW%
 	}
-IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXB%,RFcfg.ini,GLOBAL,%emks%
-iniread,sysordr,RFcfg.ini,ORDER,system_order
+SLCTDRW=%A_SPACE%%SLCTDRW%
+iniwrite,%fecbxb%,RFCfg.ini,%curtnm%,fullname
+iniwrite,%fecbxc%,RFCfg.ini,%curtnm%,platformid
+iniwrite,%fecbxd%,RFCfg.ini,%curtnm%,shortname
+iniwrite,%SLCTDEXT%,RFCfg.ini,%curtnm%,extensions
+iniwrite,%SLCTDRW%,RFCfg.ini,%curtnm%,emuoptions
+iniwrite,%SLCTDEMU%,RFCfg.ini,%curtnm%,emuname
+iniwrite,%selctsyst%,RFCfg.ini,%curtnm%,syspath
+iniread,sysordr,RFCfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
-		RFCURPL= %sysordr%%curtxt%|
+		PGCURPL= %sysordr%%curtnm%|
 	}
-guicontrol,,FELBXA,|%RFCURPL%
-iniwrite,%RFCURPL%,RFcfg.ini,ORDER,system_order
+guicontrol,,FELBXA,|%PGCURPL%
+iniwrite,%PGCURPL%,RFCfg.ini,ORDER,system_order
 Gui,ListView,FELVA
 LV_Modify(0, "-Check")
 return
@@ -58367,43 +58213,8 @@ if (sysfnd = "")
 		return
 	}
 guicontrolget,FEEDTA,,FEEDTA
-extpop=
-Loop, Read, RFcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, rftv,|
-	{
-		avi+=1
-		if (avi = 5)
-			{
-				kkv.= FEEDTA . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,RFcfg.ini,GLOBAL,%extpop%
+newemuopts= %FEEDTA%
+iniwrite,%A_Space%%newemuopts%,RFCfg.ini,%curtnm%,emuoptions
 return
 RetroFEFEEDTB:
 if (sysfnd = "")
@@ -58412,137 +58223,92 @@ if (sysfnd = "")
 	}
 guicontrolget,FEEDTB,,FEEDTB
 extpop=
-Loop, Read, RFcfg.ini
-	{
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		extpov1=
-		extpov2=
-		extpon1=
-		extpon2=
-		stringsplit,extpov,A_LoopReadLine,=
-		stringsplit,extpon,extpov2,|
-		if (extpon1 = curtxt)
-			{
-				extpop= %extpov1%
-				break
-			}
-	}
-ifinstring,curtxt,_
-	{
-		extpop= %curtxt%
-	}
-iniread,rftv,RFcfg.ini,GLOBAL,%extpop%
-avi=
-kkv=
-Loop, Parse, rftv,|
-	{
-		avi+=1
-		if (avi = 3)
-			{
-				kkv= %A_LoopField%
-				stringreplace,rftv,rftv,%kkv%,%FEEDTB%,All
-				iniwrite,%rftv%,RFcfg.ini,GLOBAL,%extpop%
-			}
-	}
+iniwrite,%FEEDTB%,RFcfg.ini,%curtnm%,extensions
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFERAD5A:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,hide,FEDDLF
-Gui,ListView,FELVA
-LV_Delete()
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-Loop, %RJSYSTEMS%\*,2
-	{
-		if A_LoopFileAttrib contains H
-			{
-				continue
-			}
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
+guicontrol,,FEEDTB,.bat
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,show,FEDDLF
-guicontrolget,FEDDLF,,FEDDLF
-IniRead,mirsl,Settings.ini,%FEDDLF%
-Gui,ListView,FELVA
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-LV_Delete()
-Loop, %mirsl%\*,2
-	{
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
+guicontrol,,FEEDTB,.lnk
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+pgpopem= 
+iniread,allxtn,EmuCfgPresets.ini,%curtxt%,RJROMXT
+iniread,rfemuas,Assignments.ini,OVERRIDES,%curtxt%
+if (rfemuas = "")
+	{
+		iniread,rfemudef,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		Loop,parse,rfemudef,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				iniread,rfapx,Apps.ini,Emulators,%A_LoopField%
+				if ((rfapx <> "ERROR")&&(rfapx <> ""))
+					{	
+						if (rfpopem = "")
+							{
+								rfpopem.= A_LoopField . "||"
+								continue
+							}
+						rfpopem.= A_LoopField . "|"
+					}
+			}
+	}
+	else {
+		Loop,parse,rfemuas,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (rfpopem = "")
+					{
+						rfpopem.= A_LoopField . "||"
+						continue
+					}
+				rfpopem.= A_LoopField . "|"
+			}
+	}
+guicontrol,,FEDDLG,|%rfpopem%%runlist%
+guicontrol,,FEEDTB,%allxtn%
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+RFPOPULATESYS:
 Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, RfNpts,|
+Loop, Parse, SysLLst,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		LV_Add("",A_LoopField)
+		stringsplit,syslk,A_LoopField,=
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk1%
+		if ((sysxst <> "")&&(sysxst <> "ERROR"))
+			{
+				LV_Add("",syslk1)
+			}
 	}
 LV_ModifyCol()
 guicontrol,hide,FEDDLF
+guicontrol,,FEDDLA,|Systems||ALL
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 RetroFEFELVA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
-if (FERAD5C = 1)
-	{
-		curtxt=
-		sysfnd=
-		guicontrol,,FETXTJ,
-		RowNumber = 0
-		Loop
-			{
-				RowNumber := LV_GetNext(RowNumber)
-				if not RowNumber
-					{
-						break
-					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
-			}
-		Loop, Parse, RFCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						curtxt=
-						SB_SetText("Current system is already in the playlist.")
-						LV_Modify(RowNumber, "-Select")
-						curtxt=
-						return
-					}
-			}
-		if (curtxt = "other")
-			{
-				SB_SetText("Define OTHER")
-				curtxt=
-				return
-			}
-		if (curtxt <> "")
-			{
-				gosub, poprfv
-			}
-		return
-	}
 curtxt=
 sysfnd=
 guicontrol,,FETXTJ,
@@ -58553,235 +58319,180 @@ Loop
 		if not RowNumber
 			{
 				break
-				}
-			LV_GetNext(RowNumber, Focused)
-			LV_GetText(curtxt, RowNumber)
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
 	}
-Loop, Parse, RfLkUp,`n`r
+Loop,parse,SysLLst,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		matv1=
-		matv2=
-		matv3=
-		matv4=
-		matv5=
-		kvmax=
-		xfnd=
-		stringsplit,matv,A_LoopField,=
-		if (matv3 = curtxt)
+		stringsplit,rfnb,A_LoopField,=
+		if (rfnb1 = curtxt)
 			{
-				if (matv1 <> "")
-					{
-						ifexist,%RFHOME%\layouts\%rftheme%\%matv1%\
-							{
-								kvmax= %matv1%||
-							}
-					}
-				;;guicontrol,,FECBXA,|%kvmax%%RfNpts%
-				guicontrol,,FECBXB,|%matv3%||%systmfldrs%%RfNpts%
-				guicontrol,,FECBXD,|%matv1%||%RfNpts%%systmfldrs%
-				guicontrol,,FECBXC,|%matv1%||%RfNpts%%systmfldrs%
-				xfnd= 1
+				curtnm= %rfnb3%
 				break
 			}
-	}
-if (xfnd = "")
+	}	
+Loop, Parse, RFCURPL,|
 	{
-		kvmax=
-		curtIV=
-		stringreplace,curtIV,curtxt,%A_Space%,,All
-		stringreplace,curtIV,curtIV,-,,All
-		stringreplace,curtIV,curtIV,=,,All
-		stringlower,curtIV,curtIV
-		if (curtIV <> "")
+		if (A_LoopField = curtnm)
 			{
-				ifexist,%RFHOME%\layouts\%rftheme%\%curtIV%\
+				curtnm=
+				SB_SetText("Current system is already in the playlist.")
+				LV_Modify(RowNumber, "-Select")
+				curtnm=
+				return
+			}
+	}
+if (curtnm = "other")
+	{
+		SB_SetText("Define OTHER")
+		curtnm=
+		return
+	}
+
+if (curtnm <> "")
+	{
+		inemuinp= 
+		iniread,emuinp,Assignments.ini,OVERRIDES,%curtxt%
+		if ((emuinp <> "")&&(emuinp <> "ERROR"))
+			{
+				inra= 
+				Loop,parse,emuinp,|
 					{
-						kvmax= %curtIV%||
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ingr= %A_LoopField%
+						if (A_Index = 1)
+							{
+								ifinstring,ingr,_libretro
+									{
+										inra= 1
+										inemuinp= retroarch||
+										continue
+									}
+								inemuinp=%ingr%||
+								continue
+							}
+						inemuinp.= ingr . "|"	
 					}
 			}
-		;;guicontrol,,FECBXA,|%kvmax%%RfNpts%
-		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%RfNpts%
-		guicontrol,,FECBXD,|%curtIV%||%RfNpts%%systmfldrs%
-		guicontrol,,FECBXC,|%curtIV%||%RfNpts%%systmfldrs%
-		guicontrol,,FEEDTA,"{file.path}"
-		guicontrol,,FEEDTB,.zip
-		guicontrol,,FEDDLG,|MAME - System|%emuinstpop%
+		iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		if ((emuinx <> "")&&(emuinx <> "ERROR"))
+			{
+				loop,parse,emuinx,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						if ((tbst = "ERROR")or(tbst = ""))
+							{
+								continue
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}
+		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		if ((emuinc <> "")&&(emuinc <> "ERROR"))
+			{
+				loop,parse,emuinc,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ifnotexist,%libretrodirectory%\%A_LoopField%
+							{
+								continue	
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}	
+		if (inemuinp = "")
+			{
+				inemuinp= MAME - Systems||
+			}
+		iniread,emupxt,EmuCfgPresets.ini,%curtxt%,RJROMXT
+		if ((emupxt = "")or(emupxt = "ERROR"))
+			{
+				emupxt= .zip
+			}
+		iniread,emuppp,EmuCfgPresets.ini,%curtxt%,FEPARAM
+		iniread,evr,Assignments.ini,ASSIGNMENTS,retroarch
+
+		if (inra = 1)
+			{
+				emuppp= -L%A_Space%>%libretrodirectory%\%ingr%>%A_space%%emuppp%
+			}
+		guicontrol,,FEEDTA,%A_Space%%emuppp%
+		guicontrol,,FEEDTB,%emupxt%
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
+		guicontrol,,FECBXD,|%curtnm%||%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%systmfldrs%
 	}
-return
+	else {
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
+		guicontrol,,FECBXD,|%curtxt%||%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%systmfldrs%
+		guicontrol,,FEEDTA,%a_space%>[ROMPATH]>
+		guicontrol,,FEEDTB,.zip
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
+	}
+return	
+	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFELBXA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   RF LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
-guicontrolget,curtxt,,FELBXA
+guicontrolget,curtnm,,FELBXA
+guicontrol,,FERAD5A,0
+guicontrol,,FERAD5B,0
+guicontrol,,FERAD5C,0
+iniread,cgpspl,RFcfg.ini,%curtnm%
+iniread,crffn,RFcfg.ini,%curtnm%,fullname
+iniread,crfsn,RFcfg.ini,%curtnm%,shortname
+iniread,crfpn,RFcfg.ini,%curtnm%,platformid
+iniread,crfxtn,RFcfg.ini,%curtnm%,extensions
+iniread,crfemo,RFcfg.ini,%curtnm%,emuoptions
+iniread,crfemu,RFcfg.ini,%curtnm%,emuname	
+iniread,crfsyp,RFcfg.ini,%curtnm%,syspath	
+guicontrol,,fecbxb,|%crffn%||%systmfldrs%
+guicontrol,,fecbxc,|%crfpn%||%systmfldrs%
+guicontrol,,fecbxd,|%curtnm%||%fesyslst%
+guicontrol,,FEEDTA,%A_SPACE%%crfemo%
+guicontrol,,FEEDTB,%crfxtn%
+guicontrol,,FEEDTB,%crfxtn%
+guicontrol,,FEDDLG,|other|%crfemu%||%runlist%
+curtxt=%crffn%
+guicontrolget,curtnmm,,FECBXD
+guicontrolget,curtnmp,,FECBXC
 sysfnd= 1
-gosub, poprfv
 return
-poprfv:
-if (FERAD5A = 1)
-	{
-		rflocor= %RJSYSTEMS%
-	}
-if (FERAD5B = 1)
-	{
-		rflocor= %rfmirror%
-	}
-if (FERAD5C = 1)
-	{
-		rflocor= %RJSYSTEMS%
-	}
-Loop, read, RFcfg.ini
-	{
-		ksivi1=
-		ksivi2=
-		ksivi3=
-		ksivi4=
-		ksivi5=
-		ksivi6=
-		ksivi7=
-		knti1=
-		knti2=
-		if (A_LoopReadLine = "[CONFIG]")
-			{
-				continue
-			}
-		stringsplit,knti,A_LoopReadLine,=
-		stringsplit,ksivi,knti2,|
-		if (knti2 = "")
-			{
-				continue
-			}
-		ifinstring,knti1,_
-			{
-				kmpex=
-				if (knti1 = curtxt)
-					{
-						rfpopext= %knti1%
-						defthm= %ksivi1%
-						guicontrol,,FEEDTA,%ksivi5%
-						guicontrol,,FEEDTB,%ksivi3%
-						ifinstring,ksivi5,:
-							{
-								ksivi5= other
-							}
-						guicontrol,,FECBXD,|%knti1%||%systmfldrs%%RfNpts%
-						guicontrol,,FECBXC,|%ksivi1%||%RfNpts%%systmfldrs%
-						if (ksivi7 <> "")
-							{
-								ifexist,%RFHOME%\layouts\%ksivi7%\
-									{
-										kmpex= %ksivi7%||
-									}
-							}
-						guicontrol,,FETXTJ,%ksivi6%
-						guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-						guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-						return
-					}
-			}
-		if (ksivi1 = curtxt)
-			{
-				kmpex=
-				rfpopext= %knti1%
-				defthm= %ksivi1%
-				guicontrol,,FEEDTA,%ksivi5%
-				guicontrol,,FEEDTB,%ksivi3%
-				ifinstring,ksivi5,:
-					{
-						ksivi5= other
-					}
-				guicontrol,,FECBXD,|%knti1%||%systmfldrs%%RfNpts%
-				guicontrol,,FECBXC,|%ksivi1%||%RfNpts%%systmfldrs%
-				if (ksivi7 <> "")
-					{
-						ifexist,%RFHOME%\layouts\%rftheme%\%ksivi7%\
-							{
-								kmpex= %ksivi7%||
-							}
-					}
-				guicontrol,,FETXTJ,%ksivi6%
-				guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-				guicontrol,,FECBXB,|other|%ksivi2%||%systmfldrs%
-				return
-			}
-	}
-if (sysfnd = "")
-	{
-		emks=
-		emkr=
-		emkx=
-		Loop, Parse, RfLkUp,`n`r
-			{
-				kvi1=
-				kvi2=
-				kvi3=
-				kvi4=
-				kvi5=
-				stringsplit,kvi,A_LoopField,=
-				ifinstring,curtxt,_
-					{
-						stringreplace,snlk,cutxt,_,,All
-						if (kvi2 = snlk)
-							{
-								gosub, nwrflk
-								return
-							}
-					}
-				if (kvi1 = curtxt)
-					{
-						gosub, nwrflk
-						return
-					}
-			}
-	}
-return
-nwrflk:
-emke= %kvi5%
-SLCTDSN= %kvi2%
-iniread,emkce,apps.ini,EMULATORS,%kvi5%
-if (emkce = "ERROR")
-	{
-		SB_SetText(" " emkce " is not found")
-	}
-ifnotexist,%emkce%
-	{
-		SB_SetText(" " emkce " is not found")
-	}
-emks= %kvi3%
-emkx= %kvi4%
-emkr= %kvi6%
-emkt= %kvi1%
-emkn= %kvi7%
-if (emkx = ":")
-	{
-		emkx= .*
-	}
-guicontrol,,FECBXC,|%emks%||%systmfldrs%%RfNpts%
-guicontrol,,FECBXD,|%emkt%||%RfNpts%
-emky=
-if (emkn <> "")
-	{
-		ifexist,%RFHOME%\layouts\%rftheme%\%emkn%\
-			{
-				emky= %emkn%
-			}
-	}
-guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
-guicontrol,,FECBXB,|other|%emks%||%systmfldrs%
-guicontrol,,FEEDTB,%emkx%
-guicontrol,,FEEDTA,%emkr%
-guicontrol,,FETXTJ,%rflocor%\%emks%
-selctsys= %rflocor%\%emks%
-ifnotexist, %rflocor%\%emks%
-	{
-		selctsys= %RJSYSTEMS%\%emks%
-		guicontrol,,FETXTJ,NOT SET (defaulting to %RJSYSTEMS%\%emks%)
-	}
-guicontrol,,FEEDTA,%emkr%
-return
+
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEBUTG:
 MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
@@ -58793,6 +58504,7 @@ ifmsgbox, Yes
 		gosub,RFINIT
 	}
 return
+
 RetroFEFERAD2A:
 gui,submit,nohide
 rfcleant= %FERAD2A%
@@ -58801,6 +58513,7 @@ iniwrite,%rfcleantitle%,RfCfg.ini,CONFIG,rfcleantitle
 TF_replaceline("!"rfsetcfg,rf_PRNUM,rf_PRNUM,"showParenthesis = " rfcleantitle "")
 TF_replaceline("!"rfsetcfg,rf_BRNUM,rf_BRNUM,"showSquareBrackets = " rfcleantitle "")
 return
+
 RetroFEFERAD2B:
 rfcleant= 0
 rfcleantitle= yes
@@ -58808,8 +58521,10 @@ iniwrite,%rfcleantitle%,RfCfg.ini,CONFIG,rfcleantitle
 TF_replaceline("!"rfsetcfg,rf_PRNUM,rf_PRNUM,"showParenthesis = " rfcleantitle "")
 TF_replaceline("!"rfsetcfg,rf_BRNUM,rf_BRNUM,"showSquareBrackets = " rfcleantitle "")
 return
+
 RetroFEFECHKB:
 return
+
 RetroFEFECHKE:
 gui,submit,nohide
 rfvideoen= no
@@ -58820,6 +58535,7 @@ if (FECHKE = 1)
 iniwrite,%rfvideoen%,RFcfg.ini,CONFIG,rfvideoen
 TF_replaceline("!"rfsetcfg,rf_VENUM,rf_VENUM,"videoEnable = " rfvideoen "")
 return
+
 RetroFEFECHKD:
 gui,submit,nohide
 rffullscreen= false
@@ -58830,6 +58546,7 @@ if (FECHKD = 1)
 iniwrite,%rffullscreen%,RFcfg.ini,CONFIG,fullscreen
 TF_replaceline("!"rfsetcfg,rf_FSNUM,rf_FSNUM,"fullscreen = " rffullscreen "")
 return
+
 RetroFEFECHKF:
 return
 RetroFEFEDDLA:
@@ -60973,7 +60690,7 @@ EmulationStationToggle:
 gosub, FEUNPOP
 ESINIT:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-iniread,EmulationStation,apps.ini,HTPC_FRONTENDS,EmulationStation
+iniread,EmulationStation,apps.ini,FRONTENDS,EmulationStation
 if (EmulationStation = "ERROR")
 	{
 		SB_SetText("Use the Install tab to install EmulationStation.")
@@ -70593,7 +70310,7 @@ guicontrolget,FEDDLG,,FEDDLG
 iniread,scrapeto,MediaFE.ini,GLOBAL,scrape_destinations
 if (FEDDLG <> "Jackets")
 	{
-		iniread,feexchk,Apps.ini,HTPC_FRONTENDS,%FEDDLG%
+		iniread,feexchk,Apps.ini,FRONTENDS,%FEDDLG%
 		if ((feexchk = "ERROR")or(feexchk = ""))
 			{
 				SB_SetText("This frontend is not installed/detected")
@@ -80632,7 +80349,7 @@ FileAppend, history_append = "1"`n, Settings.ini
 filedelete, apps.ini
 FileAppend, [EMULATORS]`n, apps.ini
 FileAppend, [KEYMAPPERS]`n, apps.ini
-FileAppend, [HTPC_FRONTENDS]`n, apps.ini
+FileAppend, [FRONTENDS]`n, apps.ini
 FileAppend, [UTILITIES]`n, apps.ini
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; <     CONTINUE      >;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
