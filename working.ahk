@@ -2,6 +2,7 @@
 #NoEnv
 #SingleInstance Force
 SetWorkingDir,%A_ScriptDir%
+S_KeyDir= %A_ScriptDir%
 Process, Exist,
 CURPID= %ERRORLEVEL%	
 SetWinDelay,2
@@ -47,6 +48,7 @@ IniRead,DATHUB,%ARCORG%,GLOBAL,DATHUB
 ;{;;;;;;;;;;;;;;;;;;;        DRAG & DROP        ;;;;;;;;;;;;;;;;;;;
 tmpcvpth:
 SetWorkingDir %A_ScriptDir%
+S_KeyDir= %A_ScriptDir%
 Loop %0%
 	{
 		DDRUN= 1
@@ -212,8 +214,8 @@ if (OSVRZ1 >= 7)
 	}
 UPDATERAEXE= %RAUPDT%
 SysGet, MonitorWorkArea, MonitorWorkArea, 1
-WGET= %A_ScriptDir%\bin\wget.exe
-ARIA= %A_ScriptDir%\bin\aria2c.exe
+WGET= %S_KeyDir%\bin\wget.exe
+ARIA= %S_KeyDir%\bin\aria2c.exe
 ifNotExist, Settings.ini
 	{
 		gosub, CreateConfig
@@ -383,6 +385,7 @@ racoreopt= racoreopt.cfg
 gllist:={}
 sllist:={}
 cglist:={}
+/*	
 mirnum=
 MIRDDLOC=
 Loop, Read, Settings.ini
@@ -427,6 +430,21 @@ if (CBOXLOC = "ERROR")
 		CBOXLOC=
 	}
 MIRDISP:= "Mirror=" . CMIRLOC . "`n`r" . "Icons=" . CICOLOC . "`n`r" . "Boxart=" . CBOXLOC
+*/
+
+IniRead,CMIRLOC,Settings.ini,GLOBAL,Mirror_Links
+if ((CMIRLOC = "ERROR")or !fileexist(CMIRLOC))
+	{
+		CMIRLOC=  %S_KeyDir%\mirrors
+		iniwrite,"%CMIRLOC%",Settings.ini,GLOBAL,Mirror_Links
+	}
+IniRead,CICOLOC,Settings.ini,GLOBAL,Mirror_Icons
+if ((CICOLOC = "ERROR")or !fileexist(CICOLOC))
+	{
+		CICOLOC=  %S_KeyDir%\mirrors
+		iniwrite,"%CICOLOC%",Settings.ini,GLOBAL,Mirror_Icons
+	}
+
 Random,portbg,20000,60000
 portbe:= portbg+7
 METRANGE= %portbg%-%portbe%
@@ -1358,11 +1376,11 @@ if (FILT_UNSUP = 1)
 IniRead,RJEMUD,Settings.ini,GLOBAL,emulators_directory
 if (RJEMUD = "ERROR")
 	{
-		RJEMUD= %A_Scriptdir%\app
+		RJEMUD= %S_KeyDir%\app
 	}
 if (RJEMUD = "")
 	{
-		RJEMUD= %A_Scriptdir%\app
+		RJEMUD= %S_KeyDir%\app
 	}
 iniread,bsltmp,apps.ini,EMULATORS,BSL
 splitpath, bsltmp,,BSLPTH
@@ -7508,16 +7526,16 @@ RJSYSTSL=
 EMUTSL=
 if (INITIAL = 1)
 	{
-		splitpath,a_ScriptDir,,,,,drvp
+		splitpath,S_KeyDir,,,,,drvp
 		RJSYSTSL= %drvp%\Console
 		EMUTSL= %drvp%\Emulators
-		ifexist, %A_ScriptDir%\Console
+		ifexist, %S_KeyDir%\Console
 			{
-				RJSYSTSL= %A_ScriptDir%\Console
+				RJSYSTSL= %S_KeyDir%\Console
 			}
-		ifexist, %A_ScriptDir%\apps
+		ifexist, %S_KeyDir%\apps
 			{
-				EMUTSL= %A_ScriptDir%\apps
+				EMUTSL= %S_KeyDir%\apps
 			}
 		ifexist, %drvp%\Console
 			{
@@ -7938,7 +7956,7 @@ IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
 IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
 splitpath,UPDATEURLF,UPDATEFILE
 URLFILE= %sourceHost%
-save= %A_ScriptDir%\site\version.txt
+save= %S_KeyDir%\site\version.txt
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ifnotexist, site\version.txt
@@ -8030,7 +8048,7 @@ if (historytry > 1)
 	}
 ifnotexist,%historyloctmp%
 	{
-		historyLoc= %A_WorkingDir%\content_history.lpl
+		historyLoc= %S_KeyDir%\content_history.lpl
 		ifnotexist,%historyloc%
 			{
 				SB_SetText("HISTORY NOT FOUND")
@@ -8655,9 +8673,9 @@ historyLoctmp=
 iniread,historyloctmp,config.cfg,OPTIONS,contentHistoryPath
 if historyloctmp = "ERROR")
 	{
-		historyloc= %A_WorkingDir%\content_history.lpl
+		historyloc= %S_KeyDir%\content_history.lpl
 		contenthistorypath= %historyloc%
-		guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
+		guicontrol,,histtxt,%S_KeyDir%\content_history.lpl
 		return
 	}
 if (historyloctmp <> "")
@@ -8671,22 +8689,22 @@ if (historyloctmp <> "")
 				return
 			}
 	}
-historyloc= %A_WorkingDir%\content_history.lpl
+historyloc= %S_KeyDir%\content_history.lpl
 ifnotexist, %historyloc%
 	{
 				SB_SetText("History file not found")
 	}
-guicontrol,,histtxt,%A_WorkingDir%\content_history.lpl
-iniwrite, "%A_WorkingDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
+guicontrol,,histtxt,%S_KeyDir%\content_history.lpl
+iniwrite, "%S_KeyDir%\content_history.lpl",Settings.ini,GLOBAL,history_location
 return
 NoFNDPL:
 playlistloctmp=
 iniread,playlistloctmp,config.cfg,OPTIONS,playlist_directory
 if playlistloctmp = "ERROR")
 	{
-		playlistloc= %A_WorkingDir%\cfg
-		guicontrol,,playlisttxt,%A_WorkingDir%\cfg
-		iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
+		playlistloc= %S_KeyDir%\cfg
+		guicontrol,,playlisttxt,%S_KeyDir%\cfg
+		iniwrite, "%S_KeyDir%\cfg",Settings.ini,GLOBAL,playlist_location
 		return
 	}
 if (playlistloctmp <> "")
@@ -8699,9 +8717,9 @@ if (playlistloctmp <> "")
 				return
 			}
 	}
-playlistloc= %A_WorkingDir%\cfg
-guicontrol,,playlisttxt,%A_WorkingDir%\cfg
-iniwrite, "%A_WorkingDir%\cfg",Settings.ini,GLOBAL,playlist_location
+playlistloc= %S_KeyDir%\cfg
+guicontrol,,playlisttxt,%S_KeyDir%\cfg
+iniwrite, "%S_KeyDir%\cfg",Settings.ini,GLOBAL,playlist_location
 return
 RENONDET:
 gui,submit,nohide
@@ -10362,7 +10380,7 @@ xmbTheme= 0
 dirlocations= assets_directory|audio_filter_dir|bundle_assets_dst_path_subdir|cache_directory|content_history_dir|cursor_directory|dynamic_wallpapers_directory|input_remapping_directory|joypad_autoconfig_dir|libretro_directory|osk_overlay_directory|overlay_directory|playlist_directory|recording_config_directory|recording_output_directory|resampler_directory|video_shader_dir|video_filter_dir|rgui_browser_directory|rgui_config_directory|savefile_directory|savestate_directory|screenshot_directory|libretro_info_path|system_directory|thumbnails_directory|core_assets_directory
 netiterate= network_cmd_port|netplay_nickname|netplay_ip_address|netplay_ip_port|netplay_check_frames|netplay_client_swap_input|netplay_password|netplay_spectate_password|netplay_stateless_mode|netplay_Input_Latency_Frames_Min|netplay_Input_Latency_Frames_Range|netplay_Nat_Traversal|netplay_Use_Mitm_Server|netplay_Mitm_Server|netplay_Allow_Slaves|netplay_Require_Slaves
 pathlocations= content_database_path|cheat_database_path|content_favorites_path|content_history_path|content_image_history_path|content_music_history_path|content_video_history_path|bundle_assets_dst_path|bundle_assets_src_path|core_options_path|menu_wallpaper|video_filter|video_font_path|core_updater_buildbot_assets_url|core_updater_buildbot_url|video_shader|input_overlay
-ASSETS= %A_Scriptdir%\Assets
+ASSETS= %S_KeyDir%\Assets
 return
 RAINSTLBX:
 gui, submit, nohide
@@ -10753,7 +10771,11 @@ ifexist,%RJEMUD%\%INSTEMU%\
 		Msgbox,8196,Delete Install,Delete the %RJEMUD%\%INSTEMUDDL% folder?
 		IfMsgbox,Yes
 			{
-				FileRemoveDir,%RJEMUD%\%INSTEMU%,1
+				if (!FileExist(RJEMUD . "\" . INSTEMUDDL . "\")or(INSTEMUDDL))
+					{
+						return
+					}
+				FileRemoveDir,%RJEMUD%\%INSTEMUDDL%,1
 				if (ERRORLEVEL = 0)
 					{
 						SB_SetText(" Directory Deleted ")
@@ -10837,7 +10859,7 @@ XBLOPT=
 if (xtractmul = "")
 	{
 		XBLOPT= /S
-		xtractmul= %A_ScriptDir%\apps\Kodi
+		xtractmul= %S_KeyDir%\apps\Kodi
 	}
 Runwait,"%kodiinst%" %XBLOPT% /D=%xtractmul%,,,inspid
 guicontrol,disable,CNCLDWN
@@ -15086,7 +15108,7 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}				
 	}
-runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%A_WorkingDir%\config.cfg"",%A_WorkingDir%
+runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%S_KeyDir%\config.cfg"",%S_KeyDir%
 gosub, PostOpt
 if (RETRANSLID = 1)
 	{
@@ -15112,7 +15134,7 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}				
 	}
-runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%curcfg%"",%A_WorkingDir%
+runwait, %comspec% /c " "%raexedir%\%RaExeFile%" -c "%curcfg%"",%S_KeyDir%
 gosub, PostOpt
 if (RETRANSLID = 1)
 	{
@@ -15755,7 +15777,7 @@ return
 ;{;;;;;;;;;; RA GET UPDATES ;;;;;;;;;
 getBBCORES:
 filedelete, coreupdt.ini
-save= %A_ScriptDir%\coreupdt.ini
+save= %S_KeyDir%\coreupdt.ini
 URLFILE= %BLDBOT%/latest/.index-extended
 splitpath,save,svaf,svap
 SB_SetText(" Downloading core-list ")
@@ -25909,7 +25931,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;  RA Inits  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 GRAVER:
 gui,submit,nohide
-Run, %comspec% cmd /c " "%raexedir%\%RaExeFile%" --verbose >"%A_ScriptDir%\ralog.txt" 2>&1 ",%raexedir%,hide,kilra
+Run, %comspec% cmd /c " "%raexedir%\%RaExeFile%" --verbose >"%S_KeyDir%\ralog.txt" 2>&1 ",%raexedir%,hide,kilra
 SB_SetText(" " raexedir "\" raexefile "")
 SetTitleMatchMode, 2
 WinWait, RetroArch,RetroArch,3
@@ -25937,7 +25959,7 @@ Loop, Parse, ralog,`n`r
 return
 DefCurCfg:
 filecopy,sets\config.set,config.cfg,1
-curcfg= %A_WorkingDir%\config.cfg
+curcfg= %S_KeyDir%\config.cfg
 gameoverdcfg= -c "%curcfg%"
 iniwrite, "%curcfg%", Settings.ini,GLOBAL,working_config
 iniwrite, "%RJSYSTEMS%",%curcfg%,OPTIONS,core_assets_directory
@@ -31885,14 +31907,14 @@ IP_Get:
 FileDelete,ShowIP.txt
 IniRead,ipLookup,%ARCORG%,GLOBAL,IP_LOOKUP
 URLFILE= %ipLookup%
-save= %A_ScriptDir%\ShowIP.txt
+save= %S_KeyDir%\ShowIP.txt
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 if ErrorLevel = 1
   {
     MsgBox,16,IP Addresses,Your public IP address could not be detected., 3
   }
-FileReadLINE,MainIP,%A_ScriptDir%\ShowIP.txt,1
+FileReadLINE,MainIP,%S_KeyDir%\ShowIP.txt,1
 ipsplit1=
 ipsplit2=
 ipsplit3=
@@ -31973,7 +31995,7 @@ IPDisplay:
 gui, submit, nohide
 ifexist, ShowIP.txt
 	{
-		FileReadLINE,MainIP,%A_ScriptDir%\ShowIP.txt,1
+		FileReadLINE,MainIP,%S_KeyDir%\ShowIP.txt,1
 		ipsplit1=
 		ipsplit2=
 		ipsplit3=
@@ -32015,7 +32037,7 @@ Loop,parse,curlobby,|
 			}
 		lobn+=1 
 		URLFILE= %A_LoopField%
-		save= %A_ScriptDir%\lobby%lobn%.ini
+		save= %S_KeyDir%\lobby%lobn%.ini
 		splitpath,save,svaf,svap,svaxtn,svajn
 		exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 		if (ErrorLevel = 1)
@@ -32724,7 +32746,7 @@ if (szip = 1)
 linfo=
 if (lmxt = "zip")
 	{
-		concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+		concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%CrCFLN%"
 		StdOut := StdoutToVar_CreateProcess(concatcmd)
 		partition=
 		gosub, zpcrcproc
@@ -35752,7 +35774,7 @@ if (ARCDTYP = 1)
 linfo=
 ROMZ=
 CRCZ=
-concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%CrCFLN%"
 StdOut := StdoutToVar_CreateProcess(concatcmd)
 partition=
 gosub, zpcrcproc
@@ -36077,7 +36099,7 @@ ifnotexist,sets\%urltxt%_eula.set
 filecopy,sets\%dispeula%_eula.set,tmp.htm,1
 if (EULA <> 1)
 	{
-		ARCEULA=file:///%A_ScriptDir%\tmp.htm
+		ARCEULA=file:///%S_KeyDir%\tmp.htm
 		Options := "Buttons=I Agree/Decline, HtmW=700, HtmH=550, BDefault=2, BEsc=2,Title=" dispeula "_EULA, DlgTopmost=1,DlgStyle="
 		viSel := HtmDlg( ARCEULA, "taskbar", Options )
 		if (visel <> 1)
@@ -36863,7 +36885,7 @@ if (opndgam = 1)
 	}
 ifnotinstring,srchgamf,:\
 	{
-		srchgamf= %A_ScriptDir%\%srchgamf%
+		srchgamf= %S_KeyDir%\%srchgamf%
 	}
 splitpath,srchgamf,fnew,nesn,aien,krvm	
 Loop, %srchgamf%
@@ -37268,7 +37290,7 @@ if (HLTDATP = 1)
 		}
 	if (ZIPSEEK = 1)
 		{
-			concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%CrCFLN%"
+			concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%CrCFLN%"
 			StdOut := StdoutToVar_CreateProcess(concatcmd)
 			partition=
 			gosub, zpcrcproc
@@ -37488,7 +37510,7 @@ if (ZIPSEEK = 1)
 								stringtrimleft,zipt,zipt,1
 								stringtrimleft,ziprn,ziprn,1
 							}
-						Runwait,"%A_ScriptDir%\bin\7za.exe" x %zipovrw% "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
+						Runwait,"%S_KeyDir%\bin\7za.exe" x %zipovrw% "%CrCFLN%" "%zipt%" -O"%RJSYSTEMS%\%SYS_K%\%fldrnm%",,hide
 						if (ERRORLEVEL = 0)
 							{
 								if (RENMDRP = 1)
@@ -39582,7 +39604,7 @@ ifnotexist, %save%
 		if (meganz = 1)	
 			{
 				stringreplace,MEGALINK,URLFILE,https://mega.nz/,,All
-				concatcmd= "%A_Scriptdir%\bin\megadl.exe" --path="%save%" "%MEGALINK%"
+				concatcmd= "%S_KeyDir%\bin\megadl.exe" --path="%save%" "%MEGALINK%"
 				meganzOut := StdoutToVar_CreateProcess(concatcmd)
 				Loop,parse,meganzOut,`n`r
 					{
@@ -41550,7 +41572,7 @@ if (SK_MODE = 1)
 			{
 				RVLKUP= %EXTRSYS%
 			}
-		indvcp= %A_ScriptDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
+		indvcp= %S_KeyDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 		RVLKUP= %EXTRSYS%	
 		iniread,indvcpx,Apps.ini,EMULATORS,%nicktst%
 		if ((indvcpx <> "ERROR")or(indvcpx = ""))
@@ -41561,7 +41583,7 @@ if (SK_MODE = 1)
 		if (mednafxf = 1)
 			{
 				emucfgloc= cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%\%medcfg%
-				indvcp= %A_ScriptDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
+				indvcp= %S_KeyDir%\cfg\%EXTRSYS%\%nicktst%\%EDTRMFN%
 			}
 	}
 gosub, SHRTNMLkUp
@@ -53036,10 +53058,10 @@ if (RJZIPPEEK = 1)
 	{
 		if (fext = "zip")
 			{
-				exeu= "%A_Scriptdir%\bin\7za.exe"
+				exeu= "%S_KeyDir%\bin\7za.exe"
 				lstyp= l -slt
 				fiel= "%RJSYSTEMS%\%curjf%\%inclfspl1%\%fnm%"
-				concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%RJSYSTEMS%\%curjf%\%inclfspl1%\%inclfspl2%"
+				concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%RJSYSTEMS%\%curjf%\%inclfspl1%\%inclfspl2%"
 				StdOut := StdoutToVar_CreateProcess(concatcmd)
 				partition=
 				gosub, zpkproc
@@ -53114,7 +53136,7 @@ ifnotexist,lm.ini
 				SB_SetText(" MAME NOT FOUND ")
 				return
 			}
-		RunWait,%comspec% cmd /c " "%mame_verx%" -lm >"%A_ScriptDir%\lm.ini"",,Min
+		RunWait,%comspec% cmd /c " "%mame_verx%" -lm >"%S_KeyDir%\lm.ini"",,Min
 		RunWait,%comspec% cmd /c " "%mame_verx%" -cc",%mamevpth%,Min
 ;		guicontrol,,emuPRGA,%emuprgpl%
 	}
@@ -53321,10 +53343,11 @@ Loop,%PGHOME%\themes\*,2
 cursysthemelist= %PgNpts%
 avblnk=
 guicontrol,,FELBXA,%PGCURPL%
-IniRead, pgmirloc,PGcfg.ini,CONFIG,Mirrors
+
+IniRead, pgmirloc,PGcfg.ini,CONFIG,Mirror_Links
 if (pgmirloc = "ERROR")
 	{
-		pgmirloc= %MIRFEDDLA%
+		pgmirloc= %S_KeyDir%\mirrors
 	}
 IniRead, pgtheme,PGcfg.ini,CONFIG,theme
 if (pgtheme = "ERROR")
@@ -54243,12 +54266,12 @@ if (pgemt = "ERROR")
 		gosub, FEBUTH
 		if (pgemu = "")
 			{
+iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
+return
 				return
 			}
 		iniwrite, "%pgemu%",apps.ini,EMULATORS,%FEDDLG%
 	}
-iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
-return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEDDLF:
 ;{;;;;;;;;;;;;;;;;;;;;;;;   PG MIRROR SELECTION DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -57027,10 +57050,10 @@ Loop,%RFHOME%\layouts\*,2
 cursysthemelist= %RfNpts%
 avblnk=
 guicontrol,,FELBXA,%RFCURPL%
-IniRead, rfmirloc,RFcfg.ini,CONFIG,Mirrors
+IniRead, rfmirloc,RFcfg.ini,CONFIG,Mirror_Links
 if (rfmirloc = "ERROR")
 	{
-		rfmirloc= %MIRFEDDLA%
+		rfmirloc= %S_KeyDir%\mirrors
 	}
 IniRead, rftheme,RFcfg.ini,CONFIG,theme
 if (rftheme = "ERROR")
@@ -57225,17 +57248,17 @@ LV_ModifyCol()
 guicontrol,hide,FEDDLF
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
-guicontrol,move,FERAD5A,x265 y64 w120 h15
+guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
-guicontrol,move,FERAD5B,x265 y84 w53 h15
+guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
 guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
-guicontrol,move,FERAD5C,x265 y101 w53 h15
+guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
 guicontrol,%fetog%,FERAD2A
@@ -57835,6 +57858,11 @@ if (FEDDLG = "other")
 		guicontrol,,FEDDLG,|other||%emuinstpop%
 		return
 	}
+ifinstring,FEDDLG,_libretro.dll
+	{
+		iniwrite,%A_SPace%-L "%libretrodirectory%\%FEDDLG%" >[ROMPATH]>,RFCfg.ini,%curtnm%,emuoptions
+		iniwrite,retroarch,RFCfg.ini,%curtnm%,emuname
+	}
 iniread,rfemt,apps.ini,EMULATORS,%FEDDLG%
 if (rfemt = "ERROR")
 	{
@@ -57846,26 +57874,7 @@ if (rfemt = "ERROR")
 			}
 		iniwrite, "%rfemu%",apps.ini,EMULATORS,%FEDDLG%
 	}
-iniread,rftv,RFcfg.ini,GLOBAL,%knti1%
-emuwr= %FEDDLG%
-if (pto = 1)
-	{
-		emuwr= %rfemu%
-	}
-avi=
-kkv=
-Loop, Parse, rftv,|
-	{
-		avi+=1
-		if (avi = 4)
-			{
-				kkv.= emuwr . "|"
-				continue
-			}
-		kkv.= A_LoopField . "|"
-	}
-iniwrite,%kkv%,RFcfg.ini,GLOBAL,%knti1%
-pto=
+iniwrite,%FEDDLG%,RF.ini,%curtnm%,emuname
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEDDLF:
@@ -60804,10 +60813,10 @@ Loop, %ESHOME%\themes\%insttheme%\*,2
 			cursysthemelist.= A_LoopFileName . "|"
 		}
 guicontrol,,FELBXA,%ESCURPL%
-IniRead, esmirloc,EScfg.ini,CONFIG,Mirrors
+IniRead, esmirloc,EScfg.ini,CONFIG,Mirror_Links
 if (esmirloc = "ERROR")
 	{
-		esmirloc= %MIRFEDDLA%
+		esmirloc= %S_KeyDir%\mirrors
 	}
 IniRead, estransition,EScfg.ini,CONFIG,Transition
 if (estransition = "ERROR")
@@ -65125,30 +65134,57 @@ return
 ;};;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MIRRORED LINKSMIRRORED LINKS FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MIRRORED LINKS FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksToggle:
 gosub, FEUNPOP
+MLGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FELBXA|FELVA
 fetog= show
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA,x544 y40 w18 h23
-guicontrol,,FEBUTA,+
+artlkupit= 
+artlkupa=
+artlkupb=
+artlkupc=
+artlkupd=
+artlkupe=
+artlkupf=
+gosub, imglocfi
 guicontrol,%fetog%,FEBUTB
 guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x684 y476 w75 h23
 guicontrol,,FEBUTB,CREATE
-guicontrol,%fetog%,FEBUTC
-guicontrol,enable,FEBUTC
-guicontrol,move,FEBUTC,x293 y180 w58 h19
-guicontrol,,FEBUTC,MIRROR
 guicontrol,%fetog%,FEBUTD
 guicontrol,enable,FEBUTD
-guicontrol,move,FEBUTD,x293 y138 w51 h19
-guicontrol,,FEBUTD,ICON
-guicontrol,%fetog%,FEBUTE
-guicontrol,enable,FEBUTE
-guicontrol,move,FEBUTE,x559 y191 w53 h19
-guicontrol,,FEBUTE,Delete
+guicontrol,move,FEBUTD,x272 y180 w23 h23
+guicontrol,,FEBUTD,...
+guicontrol,%fetog%,FEBUTC
+guicontrol,enable,FEBUTC
+guicontrol,move,FEBUTC,x272 y156 w23 h23
+guicontrol,,FEBUTC,...
+guicontrol,%fetog%,FECHKA
+guicontrol,enable,FECHKA
+guicontrol,move,FECHKA,x289 y403 w132 h13
+guicontrol,,FECHKA,Enable Boxart Icons
+guicontrol,,FECHKA,0
+guicontrol,%fetog%,FECHKB
+guicontrol,enable,FECHKB
+guicontrol,move,FECHKB,x289 y453 w100 h13
+guicontrol,,FECHKB,Overwrite Mirrors
+guicontrol,%fetog%,FECHKC
+guicontrol,move,FECHKC,x289 y437 w100 h13
+guicontrol,,FECHKC,Overwrite Icons
+guicontrol,disable,FECHKC
+guicontrol,%fetog%,FECHKD
+guicontrol,enable,FECHKD
+guicontrol,move,FECHKD,x289 y387 w170 h13
+guicontrol,,FECHKD,Create Shortcut in ROM-Jacket
+guicontrol,%fetog%,FECHKE
+guicontrol,disable,FECHKE
+guicontrol,move,FECHKE,x289 y420 w170 h13
+guicontrol,,FECHKE,Create Icon in ROM-Jacket
+/*
+guicontrol,,FEBUTA,-
+guicontrol,%fetog%,FEBUTA
+guicontrol,enable,FEBUTA
+guicontrol,move,FEBUTA,x544 y40 w18 h23
 guicontrol,%fetog%,FEBUTF
 guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x741 y62 w18 h23
@@ -65157,35 +65193,11 @@ guicontrol,,FEBUTF,-
 ;;guicontrol,enable,FEBUTG
 ;;guicontrol,move,FEBUTG,x10 y9 w75 h23
 ;;guicontrol,,FEBUTG,uncheck all
-guicontrol,%fetog%,FELBXA
-guicontrol,+multi,FELBXA
-guicontrol,move,FELBXA,x279 y207 w279 h186
-guicontrol,,FELBXA,|%FEItems%
-guicontrol,%fetog%,FECHKA
-guicontrol,enable,FECHKA
-guicontrol,move,FECHKA,x289 y403 w132 h13
-guicontrol,,FECHKA,Enable Boxart Icons
-guicontrol,,FECHKA,0
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
-guicontrol,move,FECHKB,x505 y463 w100 h13
-guicontrol,,FECHKB,Overwrite Mirrors
 guicontrol,%fetog%,FECHKF
 guicontrol,move,FECHKF,x289 y452 w100 h13
 guicontrol,,FECHKF,Fuzzy Matching
 guicontrol,disable,FECHKF
-guicontrol,%fetog%,FECHKC
-guicontrol,move,FECHKC,x289 y436 w100 h13
-guicontrol,,FECHKC,Overwrite Icons
-guicontrol,disable,FECHKC
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
-guicontrol,move,FECHKD,x270 y367 w170 h13
-guicontrol,,FECHKD,Create Shortcut in ROM-Jacket
 guicontrol,hide,FECHKD
-guicontrol,enable,FECHKE
-guicontrol,move,FECHKE,x270 y384 w170 h13
-guicontrol,,FECHKE,Create Icon in ROM-Jacket
 guicontrol,hide,FECHKE
 guicontrol,%fetog%,FEDDLA
 guicontrol,enable,FEDDLA
@@ -65212,15 +65224,6 @@ guicontrol,,FERAD5B, Mirrors
 ;;guicontrol,enable,FERAD5C
 ;;guicontrol,move,FERAD5C,x275 y97 w119 h13
 ;;guicontrol,,FERAD5C, Mirror-Shortcuts
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
-guicontrol,,FELVA,Mirrors
-guicontrol,move,FELVA,x10 y34 w247 h463
-guicontrol,+altsubmit,FELVA
-guicontrol,+checked,FELVA
-guicontrol,+Multi,FELVA
-gui,ListView,FELVA
-LV_Delete()
 guicontrol,%fetog%,FETXTA
 guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x625 y26 w92 h13
@@ -65233,22 +65236,10 @@ guicontrol,,FETXTB,Create Mirrors
 ;;guicontrol,enable,FETXTC
 ;;guicontrol,move,FETXTC,x444 y404 w158 h13
 ;;guicontrol,,FETXTC,Boxart Subdirectories Source
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
-guicontrol,move,FETXTI,x354 y185 w73 h13
-guicontrol,,FETXTI,Mirror Root
 ;;guicontrol,%fetog%,FETXTD
 ;;guicontrol,enable,FETXTD
 ;;guicontrol,move,FETXTD,x352 y143 w73 h13
 ;;guicontrol,,FETXTD,Icon Destination
-guicontrol,%fetog%,FETXTE
-guicontrol,enable,FETXTE
-guicontrol,move,FETXTE,x281 y161 w476 h13
-guicontrol,,FETXTE,Mirror= %CMIRLOC%
-guicontrol,%fetog%,FETXTF
-guicontrol,enable,FETXTF
-guicontrol,move,FETXTF,x281 y123 w476 h13
-guicontrol,,FETXTF,Icons= %CICOLOC%
 ;;guicontrol,%fetog%,FETXTG
 ;;guicontrol,enable,FETXTG
 ;;guicontrol,move,FETXTG,x276 x280 y90 w475 h13
@@ -65257,63 +65248,70 @@ guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
 guicontrol,move,FETXTH,x586 y230 w118 h13
 guicontrol,,FETXTH,Delete Selected Mirrors
+
+*/
+guicontrol,%fetog%,FELBXA
+;;guicontrol,+multi,FELBXA
+guicontrol,move,FELBXA,x521 y208 w109 h186
+guicontrol,,FELBXA,|%iconsrc%
+guicontrol,%fetog%,FEBUTE
+guicontrol,enable,FEBUTE
+guicontrol,move,FEBUTE,x631 y376 w53 h19
+guicontrol,,FEBUTE,Delete
+guicontrol,,FEBUTA,Reset
+guicontrol,%fetog%,FEBUTA
+guicontrol,enable,FEBUTA
+guicontrol,move,FEBUTA,x631 y351 w53 h19
+
+guicontrol,%fetog%,FETXTI
+guicontrol,enable,FETXTI
+guicontrol,move,FETXTI,x631 y305 w83 h13
+guicontrol,,FETXTI,Icon Sources
+
+guicontrol,%fetog%,FELVA
+guicontrol,enable,FELVA
+guicontrol,,FELVA,Mirrors
+guicontrol,move,FELVA,x10 y34 w247 h463
+guicontrol,+altsubmit,FELVA
+guicontrol,+checked,FELVA
+guicontrol,+Multi,FELVA
+guicontrol,%fetog%,FETXTE
+guicontrol,enable,FETXTE
+guicontrol,move,FETXTE,x299 y160 w456 h13
+guicontrol,,FETXTE,Mirror= %CMIRLOC%
+guicontrol,%fetog%,FETXTF
+guicontrol,enable,FETXTF
+guicontrol,move,FETXTF,x299 y184 w456 h13
+guicontrol,,FETXTF,Icons= %CICOLOC%
+gui,ListView,FELVA
+LV_Delete()
 Loop, Parse, systmfldrs,|
 	{
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
-gosub, FEDDLB
+
+IniRead, CMIRLOC,Settings.ini,GLOBAL,Mirror_Links
+IniRead, CICOLOC,Settings.ini,GLOBAL,Mirror_Icons
+ifnotexist,%MIRLOC%\
+	{
+		SB_SetText("" CMIRLOC " mirror directory not found")
+		filecreateDir,%S_KeyDir%\mirrors
+		iniwrite,"%S_KeyDir%\mirrors",Settings.ini,Mirror_Links
+	}
+ifnotexist,%CICOLOC%\
+	{
+		SB_SetText("" CICOLOC " icon directory not found")
+		filecreateDir,%S_KeyDir%\icons
+		iniwrite,"%S_KeyDir%\mirrors",Settings.ini,Mirror_Icons
+	}
+
 return
 Mirrored_LinksfeBUTA:
-;{;;;;;;;;;;;;;;;;;;;;;   ADD MIRROR   ;;;;;;;;;;;;;;;;;;;;;;;
-NWMIRLOCT=
-FileSelectFolder, NWMIRLOCT,,3,Select a folder for your new mirrored systems
-if (NWMIRLOCT = "")
-	{
-		return
-	}
-stringright,efi,NWMIRLOCT,2
-stringLeft,efix,NWMIRLOCT,2
-if (efi = ":\")
-	{
-		NWMIRLOCT= %efix%
-	}	
-mirnum=
-MIRDDLOC=
-Loop, Read, Settings.ini
-		{
-			stringsplit,mirlocv,A_LoopReadLine,=
-			stringsplit, mirspl,mirlocv1,_
-			if (mirspl1 = "Mirror")
-				{
-					mirnum+=1
-					MIRDDLOC.= mirlocv1 . "|"
-					if (mirlocv2 = NWMIRLOCT)
-						{
-									SB_SetText("Mirror Location Already Exists")
-									return
-						}
-				}
-		}
-;;guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|Retroarch_Boxart|Other
-mirnum+=1
-if (NWMIRLOCT = RJSYSTEMS)
-	{
-		guicontrol,show,FECHKD
-		guicontrol,show,FECHKE
-	}
-IniWrite, "%NWMIRLOCT%",Settings.ini,GLOBAL,Mirror_%mirnum%
-IniWrite, "%NWMIRLOCT%",Settings.ini,GLOBAL,Micon_%mirnum%
-;;IniWrite, "Jacket_Boxart",Settings.ini,GLOBAL,Licon_%mirnum%
-MIRDISP:= "Mirror=" .  NWMIRLOCT . "`n`r" . "Icons=" NWMIRLOCT "`n" . "Boxart=" . Jacket_Boxart
-GuiControl,,FETXTE,Mirror= %NWMIRLOCT%
-GuiControl,,FETXTF,Icons= %NWMIRLOCT%
-GuiControl,,FETXTG,Boxart= Jacket_Boxart
-guicontrol,,FEDDLB,|Mirror_%mirnum%||%MIRDDLOC%
-if (FERAD5B = 1)
-	{
-		guicontrol,,FEDDLA,|%FEDDLA%||%MIRDDLOC%
-	}
+;{;;;;;;;;;;;;;;;;;;;;;   RESET ICONLOC   ;;;;;;;;;;;;;;;;;;;;;;;
+iniread,rfhome,rfcfg.ini,CONFIG,home_directory
+gosub, imglocfi
+guicontrol,,FELBXA,|%iconsrc%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_linksFELBXA:
@@ -65321,17 +65319,16 @@ return
 Mirrored_LinksfeBUTB:
 ;{;;;;;;;;;;;;;;;;;;;;;   MIRROR CREATION   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SB_SetText("Creating Mirrors")
+mltogl= disable
+gosub, mltogl
 guicontrolget,FECHKA,,FECHKA
 guicontrolget,FECHKB,,FECHKB
 guicontrolget,FECHKC,,FECHKC
-guicontrolget,FERAD5B,,FERAD5B
 guicontrolget,FEDDLB,,FEDDLB
 guicontrolget,FEDDLA,,FEDDLA
 guicontrolget,FECHKD,,FECHKD
 guicontrolget,FECHKE,,FECHKE
 guicontrolget,FECHKF,,FECHKF
-guicontrol,disable,FEBUTE
-guicontrol,disable,FEBUTB
 Gui,ListView,FELVA
 guicontrol,disable,FELVA
 INJAK=
@@ -65339,360 +65336,72 @@ ICJAK=
 FEItems=
 locmn=
 FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
-if (FERAD5A = 1)
+IniRead, sysma,Settings.ini,GLOBAL,Mirror_Links
+IniRead, sysmi,Settings.ini,GLOBAL,Mirror_Icons
+
+if (FECHKD = 1)
 	{
-		IniRead, sysma,Settings.ini,GLOBAL,%FEDDLB%
-		tit1=
-		tit2=
-		stringsplit,tit,FEDDLB,_
-		if (tit1 = "Mirror")
-			{
-				FEMPRFX= %tit2%
-			}
-		if (sysma = "ERROR")
-			{
-				stringreplace,MIRFEDDLA,MIRFEDDLA,Mirrors|,,All
-				Loop, %A_ScriptDir%\Mirrors\Mirror*,2,0
-					{
-						locmn+=1
-						sysma=  %A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%
-						guicontrol,,FEDDLB,|Mirror_%A_LoopFileName%||%MIRFEDDLA%
-						ifnotinstring,MIRFEDDLA,Mirror_%A_LoopFileName%
-							{
-								MIRFEDDLA.= A_LoopFileName . "|"
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Mirror_%A_LoopFileName%
-							}
-						;;IniRead, sysmtmp,Settings.ini,GLOBAL,Licon_%A_LoopFileName%
-						;;if (sysmtmp = "ERROR")
-							;;{
-								;;IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Licon_%A_LoopFileName%
-								;;systmp= %sysma%
-							;;}
-						GuiControl,,FETXTE,Mirror= %systmp%
-						IniRead, sysmtmp,Settings.ini,GLOBAL,Micon_%A_LoopFileName%
-						if (sysmtmp = "ERROR")
-							{
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_%A_LoopFileName%",Settings.ini,GLOBAL,Micon_%A_LoopFileName%
-								systmp= %sysma%
-							}
-						FEDDLB= %A_LoopFileName%
-					}
-				iniread,batmptxt,Settings.ini,GLOBAL,Micon_%FEMPRFX%
-				GuiControl,,FETXTF,Icons= %systmp%
-				if (batmptxt = "ERROR")
-					{
-						batmptxt= Jacket_Boxart
-					}
-				GuiControl,,FETXTG,Boxart= %batmptxt%
-				IF (FEDDLB = "Mirrors")
-					{
-						sysma=  %A_ScriptDir%\Mirrors\Mirror_1
-						stringreplace,MIRFEDDLA,MIRFEDDLA,Mirrors|,,All
-						guicontrol,,FEDDLB,|Mirror_1||%MIRFEDDLA%
-						ifnotinstring,MIRFEDDLA,Mirror_1
-							{
-								MIRFEDDLA.= "Mirror_1" . "|"
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Mirror_1
-								IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Micon_1
-								;;IniWrite, "%A_ScriptDir%\Mirrors\Mirror_1",Settings.ini,GLOBAL,Licon_1
-								GuiControl,,FETXTE,Mirror= %sysma%
-								GuiControl,,FETXTF,Icons= %sysma%
-								GuiControl,,FETXTG,Boxart= %batmptxt%
-							}
-						FEDDLB= Mirror_1
-					}
-			}
-		stringsplit,ddlcn,FEDDLB,_
-		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		if (sysma = RJSYSTEMS)
-			{
-				if (FECHKD = 1)
-					{
-						INJAK= 1
-					}
-				if (FECHKE = 1)
-					{
-						ICJAK= 1
-					}
-			}
-		if (FEDDLA = "Systems")
-			{
-				gosub, PROCMIRROR
-				guicontrol,enable,FELVA
-				guicontrol,enable,FEBUTE
-				guicontrol,enable,FEBUTB
-				return
-			}
-		curms= %FEDDLA%
-		gosub, PROCSYSMIRROR
-		SB_SetText("Mirrors Created")
-		guicontrol,enable,FELVA
-		guicontrol,enable,FEBUTE
-		guicontrol,enable,FEBUTB
-		return
+		INJAK= 1
 	}
-if (FERAD5B = 1)
+if (FECHKE = 1)
 	{
-		IniRead, sysma,Settings.ini,GLOBAL,%FEDDLA%
-		stringsplit,ddlcn,FEDDLA,_
-		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		if (sysma = RJSYSTEMS)
-			{
-				if (FECHKD = 1)
-					{
-						INJAK= 1
-					}
-				if (FECHKE = 1)
-					{
-						ICJAK= 1
-					}
-			}
-		gosub, PROCMIRROR
-		SB_SetText("Mirrors Created")
-		guicontrol,enable,FELVA
-		guicontrol,enable,FEBUTB
-		guicontrol,enable,FEBUTE
-		return
+		ICJAK= 1
 	}
+gosub, PROCMIRROR
+guicontrol,enable,FELVA
+guicontrol,enable,FEBUTE
+guicontrol,enable,FEBUTB
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-PROCSYSMIRROR:
-;{;;;;;;;;;;;;;;;;;;;;   PROCESS SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;
-if (CBOXLOC = "Scraped_Boxart")
+mltogl:
+Loop,MLGUIITEMS,|
 	{
-		febart= %ASSETS%\%curms%
+		guicontrol,%mltogl%,%A_LoopField%
 	}
-if (CBOXLOC = "Retroarch_Boxart")
+return	
+imglocfi:
+iconsrc= scrapedAssets|jackets|
+iniread,rfhome,rfcfg.ini,CONFIG,home_directory
+ifexist,%rfhome%\
 	{
-		febart= %thumbnailsDirectory%
-		if (menuThumbnails = 1)
-			{
-				febapnd= Named_Titles
-			}
-		if (menuThumbnails = 2)
-			{
-				febapnd= Named_Snaps
-			}
-		if (menuThumbnails = 3)
-			{
-				febapnd= Named_Boxarts
-			}
-		BOXLOC:= febart . "\" . curms . "\" . febapnd
+		artlkupa= %rfhome%\collections\$y$\medium_artwork\artwork_front\imgloop.*|%rfhome%\collections\$y$\medium_artwork\medium_front\imgloop.*|%rfhome%\collections\$y$\medium_artwork\logo\imgloop.*|%rfhome%\collections\$y$\medium_artwork\screenshot\imgloop.*
+		artlkupit.= artlkupa . "`n"
+		iconsrc.= "retroFE" . "|"
 	}
-ifNotExist, %sysma%\%curms%
+iniread,pghome,pgcfg.ini,CONFIG,home_directory
+ifexist,%pghome%
 	{
-		FileCreateDir, %sysma%\%curms%
+		artlkupb= %RJSYSTEMS%\$y$\media\imgloop\boxFront.*|%RJSYSTEMS%\$y$\media\imgloop\box_front.*|%RJSYSTEMS%\$y$\media\imgloop\box.*|%RJSYSTEMS%\$y$\media\imgloop\cartridge.*|%RJSYSTEMS%\$y$\media\imgloop\disc.*|%RJSYSTEMS%\$y$\media\imgloop\cart.*|%RJSYSTEMS%\$y$\media\imgloop\logo.*|%RJSYSTEMS%\$y$\media\imgloop\wheel.*	
+		artlkupit.= artlkupb . "`n"
+		iconsrc.= "pegasus" . "|"
 	}
-ifnotexist,%CICOLOC%\%curms%.ico
-		{
-			icosrc= lnch.ico
-			ifexist,sysico\%curms%.ico
-				{
-					icosrc= sysico\%curms%.ico
-				}
-			FileCopy, %icosrc%, %CICOLOC%\%curms%\%curms%.ico
-		}
-Loop, Parse, FEItems,`n`r
+iniread,eshome,escfg.ini,CONFIG,home_directory
+ifexist,%eshome%\
 	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		curfldp= %RJSYSTEMS%\%curms%\%A_LoopField%
-		curfldn= %A_LoopField%
-		Loop, %RJSYSTEMS%\%curms%\%curfldn%\*.bat
-			{
-				batfile= %A_LoopFileFullPath%
-				splitpath,batfile,batf,batd,batx,batn
-				if (FECHKF = 1)
-					{
-						batsrch= %batn%
-						batnc2=
-						stringsplit,batnc,batn,([
-						if (batnc2 <> "")
-							{
-								batsrch= %batnc2%
-							}
-					}
-				BOXPNG= :
-				if (FECHKA = 1)
-					{
-						ifExist,%febart%\%batn%\Boxart
-							{
-								Loop,%febart%\%batn%\Boxart\*.*
-									{
-										BOXPNG= %A_LoopFileFullPath%
-									}
-							}
-						if (BOXPNG = ":")
-							{
-								ifexist,%BOXLOC%\%batn%.png
-									{
-										BOXPNG= %BOXLOC%\%batn%.png
-									}
-								if (FECHKF = 1)
-									{
-										if (BOXPNG = ":")
-											{
-												Loop, %BOXLOC%\%batsrch%*.png
-													{
-														BOXPNG= %A_LoopFileFullPath%
-														break
-													}
-											}
-									}
-								if (BOXPNG = ":")
-									{
-										ifexist,%pghome%\metafiles\%curms%\media\%batn%\BoxFront.png
-											{
-												BOXPNG= %pghome%\metafiles\%curms%\media\%batn%\BoxFront.png
-											}
-										if (FECHKF = 1)
-											{
-												if (BOXPNG = ":")
-													{
-														Loop, %pghome%\metafiles\%curms%\media\%batn%*,2
-															{
-																ifexist,%A_LoopFileFullPath%\BoxFront.png
-																	{
-																		BOXPNG= %A_LoopFileFullPath%\BoxFront.png
-																		break
-																	}
-															}
-													}
-											}
-									}
-								if (BOXPNG = ":")
-									{			
-										ifexist,%eshome%\downloaded_images\%curms%\%batn%-image.png
-											{
-												BOXPNG= %eshome%\downloaded_images\%curms%\%batn%-image.png
-											}
-										if (FECHKF = 1)
-											{
-												if (BOXPNG = ":")
-													{
-														Loop, %eshome%\downloaded_images\%curms%\%batn%*image.*
-															{
-																BOXPNG= %A_LoopFileFullPath%
-																break
-															}
-													}
-											}
-									}
-								if (BOXPNG = ":")
-									{			
-										Loop, %curfldp%\Folder.*
-											{
-												BOXPNG= %A_LoopFileFullPath%
-												break
-											}
-										if (BOXPNG = ":")
-											{
-												BOXPNG= [INS]
-											}
-									}
-								if (BOXPNG = ":")
-									{
-										Loop, %ASSETS%\%curms%\BoxArt\%batsrch%\*.*
-											{
-												BOXPNG= %A_LoopFileFullPath%
-												break
-											}
-										if (BOXPNG = ":")
-											{
-												BOXPNG= [INS]
-											}
-									}
-							}
-						ifInString,CBOXLOC,:
-							{
-								ifexist,%CBOXLOC%\%batn%.png
-									{
-										BOXPNG= %CBOXLOC%\%batn%.png
-									}
-								if (FECHKF = 1)
-									{
-										if (BOXPNG = ":")
-											{
-												Loop, %CBOXLOC%\%batsrch%*.png
-													{
-														BOXPNG= %A_LoopFileFullPath%
-														break
-													}
-											}
-									}
-							}
-						if (FECHKA = 1)
-							{
-								cvtico= %CICOLOC%\%curms%\%batn%.ico
-								if (ICJAK = 1)
-									{
-										cvtico= %batd%\%batn%.ico
-									}
-								ifExist, %cvtico%
-									{
-										ALHERE= 1
-									}
-								if (FECHKC = 1)
-									{
-										ALHERE=
-									}
-								ifExist, %BOXPNG%
-									{
-										if (ALHERE = "")
-											{
-												RunWait, %comspec% /c " bin\any2ico.exe "-img=%BOXPNG%" "-icon=%cvtico%" -formats=32`,48`,96`,128`,256 -pngc -stretch ",,hide
-												FileSetAttrib,+H,%cvtico%,2
-											}
-									}
-								ifNotExist, %BOXPNG%
-									{
-										cvtico= %CICOLOC%\%curms%\%curms%.ico
-									}
-							}
-						lnkloc= %sysma%\%curms%\%batn%.lnk
-						if (INJAK = 1)
-							{
-								lnkloc= %batd%\%batn%.lnk
-							}
-						ifExist, %lnkloc%
-							{
-								if (FECHKB = 1)
-									{
-										FileDelete, %lnkloc%
-									}
-							}
-						FileCreateShortcut,%batfile%,%lnkloc%,%batd%,,%batn%,%cvtico%
-					}
-			}
+		artlkupc= %eshome%\imgloop-image.*
+		artlkupit.= artlkupc . "`n"
+		iconsrc.= "emulationStation" . "|"
+	}
+ashome= %S_KeyDir%\Assets
+ifexist,%ashome%\
+	{
+		artlkupd= %ashome%\$y$\imgloop\Boxart\*.*|%ashome%\$y$\imgloop\carts\*.*|%ashome%\$y$\imgloop\logos\*.*|%ashome%\$y$\imgloop\snapshots\*.*
+		artlkupit.= artlkupd . "`n"
+	}
+if (!FileExist,(%thumbnailsDirectory%)&&(%thumbnailsDirectory% <> ""))
+	{
+		artlkupe= %thumbnailsDirectory%\$y$\Named_Titles\imgloop.png|%thumbnailsDirectory%\$y$\Named_Snaps\imgloop.png|%thumbnailsDirectory%\$y$\Named_Boxarts\imgloop.png
+		artlkupit.= artlkupe . "`n"
+		iconsrc.= "retroArch" . "|"
+	}
+ifexist,%RJSYSTEMS%\
+	{
+		artlkupf= %RJSYSTEMS%\$y$\imgloop\Folder.*|%RJSYSTEMS%\$y$\imgloop\logo.*|%RJSYSTEMS%\$y$\imgloop\.snaps\*.*
+		artlkupit.= artlkupf . "`n"
 	}
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PROCMIRROR:
 ;{;;;;;;;;;;;;;;;;;;;;   PROCESS MIRRORS  ;;;;;;;;;;;;;;;;;;;;;;;;
-if (CBOXLOC = "Scraped_Boxart")
-	{
-		febart= %A_ScriptDir%\Assets
-	}
-if (CBOXLOC = "Retroarch_Boxart")
-	{
-		febart= %thumbnailsDirectory%
-		if (menuThumbnails = 1)
-			{
-				febapnd= Named_Titles
-			}
-		if (menuThumbnails = 2)
-			{
-				febapnd= Named_Snaps
-			}
-		if (menuThumbnails = 3)
-			{
-				febapnd= Named_Boxarts
-			}
-	}
 Loop, Parse, FEItems,`n`r
 	{
 		if (A_LoopField = "")
@@ -65700,144 +65409,126 @@ Loop, Parse, FEItems,`n`r
 				continue
 			}
 		curms= %A_LoopField%
-		if (CBOXLOC = "Retroarch_Boxart")
+		ifNotExist,%sysma%\%curms%\
 			{
-				BOXLOC:= febart . "\" . curms . "\" . febapnd
+				FileCreateDir,%sysma%\%curms%
 			}
-		ifNotExist, %sysma%\%curms%
+		ifNotExist,%sysmi%\%curms%\
 			{
-				FileCreateDir, %sysma%\%A_LoopField%
+				FileCreateDir,%sysmi%\%curms%
 			}
 		ifnotexist,%CICOLOC%\%curms%.ico
 				{
-					icosrc= lnch.ico
-					ifexist,sysico\%curms%.ico
+					icosrc= img\lnch.ico
+					ifexist,img\%curms%.ico
 						{
-							icosrc= sysico\%curms%.ico
+							icosrc= img\%curms%.ico
 						}
 					FileCopy,%icosrc%,%CICOLOC%\%curms%\%curms%.ico
 				}
-		Loop, %RJSYSTEMS%\%curms%\*,2
+		IniRead,syslnks,SystemLocations.ini,LOCATIONS,%curms%
+		if ((syslnks = "")or(syslnks = "ERROR"))
 			{
-				curfldp= %A_LoopFileFullPath%
-				curfldn= %A_LoopFileName%
-				Loop, %A_LoopFileFullPath%\*.bat
+				syslnks= %RJSYSTEMS%\%curms%\
+			}
+		Loop,parse,syslnks,|
+			{
+				curs_p= %A_LoopField%
+				Loop, %curs_p%\*,2
 					{
-						batfile= %A_LoopFileFullPath%
-						splitpath,batfile,batf,batd,batx,batn
-						if (FECHKF = 1)
+						curfldp= %A_LoopFileFullPath%
+						curfldn= %A_LoopFileName%
+						Loop, %A_LoopFileFullPath%\*.bat
 							{
-								batsrch= %batn%
-								batnc2=
-								stringsplit,batnc,batn,([
-								if (batnc2 <> "")
-									{
-										batsrch= %batnc2%
-									}
-							}
-						BOXPNG= :
-						if (CBOXLOC = "Scraped_Boxart")
-							{
-								ifExist,%febart%\%curms%\%batn%\Boxart
-									{
-										Loop,%febart%\%curms%\%batn%\Boxart\*.*
-											{
-												BOXPNG= %A_LoopFileFullPath%
-											}
-									}
-							}
-						if (CBOXLOC = "RetroArch_Boxart")
-							{
-								ifexist,%BOXLOC%\%batn%.png
-									{
-										BOXPNG= %BOXLOC%\%batn%.png
-									}
+								batfile= %A_LoopFileFullPath%
+								splitpath,batfile,batf,batd,batx,batn
 								if (FECHKF = 1)
 									{
-										if (BOXPNG = ":")
+										batsrch= %batn%
+										batnc2=
+										stringsplit,batnc,batn,([
+										if (batnc2 <> "")
 											{
-												Loop, %BOXLOC%\%batsrch%*.png
+												batsrch= %batnc2%
+											}
+									}
+								BOXPNG= 	
+								Loop,parse,artlkupit,`n`r
+									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										imglkb= %A_LoopField%
+										Loop,parse,imglkb,|
+											{
+												jumk= %A_LoopField%
+												stringreplace,iinv,jumk,$y$,%curms%
+												stringreplace,iinv,iinv,imgloop,%batn%
+												Loop,Files,%iinv%
 													{
 														BOXPNG= %A_LoopFileFullPath%
 														break
 													}
-											}
-									}
-							}
-						if (CBOXLOC = "Jacket_Boxart")
-							{
-								Loop, %curfldp%\Folder.*
-									{
-										BOXPNG= %A_LoopFileFullPath%
-										break
-									}
-								if (BOXPNG = ":")
-									{
-										BOXPNG= [INS]
-									}
-							}
-						ifInString,CBOXLOC,:
-							{
-								ifexist,%CBOXLOC%\%curms%\%batn%.png
-									{
-										BOXPNG= %CBOXLOC%\%curms%\%batn%.png
-									}
-								if (FECHKF = 1)
-									{
-										if (BOXPNG = ":")
-											{
-												Loop, %CBOXLOC%\%curms%\%batsrch%*.png
+												if (BOXPNG <> "")
 													{
-														BOXPNG= %A_LoopFileFullPath%
 														break
 													}
 											}
-									}
-							}
-						if (FECHKA = 1)
-							{
-								cvtico= %CICOLOC%\%curms%\%batn%.ico
-								if (ICJAK = 1)
-									{
-										cvtico= %batd%\%batn%.ico
-									}
-								ifExist, %cvtico%
-									{
-										ALHERE= 1
-									}
-								if (FECHKC = 1)
-									{
-										ALHERE=
-									}
-								ifExist, %BOXPNG%
-									{
-										if (ALHERE = "")
+										if (BOXPNG <> "")
 											{
-												RunWait, %comspec% /c " bin\any2ico.exe "-img=%BOXPNG%" "-icon=%cvtico%" -formats=32`,48`,96`,128`,256 -pngc -stretch ",,hide
-												FileSetAttrib,+H,%cvtico%,2
+												break
+											}
+										
+									}
+								if (FECHKA = 1)
+									{
+										cvtico= %CICOLOC%\%curms%\%batn%.ico										
+										if (ICJAK = 1)
+											{
+												cvtico= %batd%\%batn%.ico
+											}
+										ifExist,%cvtico%
+											{
+												ALHERE= 1
+											}
+										if (FECHKC = 1)
+											{
+												ALHERE=
+											}
+										ifExist, %BOXPNG%
+											{
+												if (ALHERE = "")
+													{
+														RunWait, %comspec% /c " bin\any2ico.exe "-img=%BOXPNG%" "-icon=%cvtico%" -formats=32`,48`,96`,128`,256 -pngc -stretch ",,hide
+														FileSetAttrib,+H,%cvtico%,2
+													}
+											}
+										ifNotExist,%BOXPNG%
+											{
+												cvtico= %CICOLOC%\%curms%\%curms%.ico
 											}
 									}
-								ifNotExist, %BOXPNG%
+								lnkloc= %sysma%\%curms%\%batn%.lnk
+								if (INJAK = 1)
 									{
-										cvtico= %CICOLOC%\%curms%\%curms%.ico
+										lnkloc= %batd%\%batn%.lnk
 									}
-							}
-						lnkloc= %sysma%\%curms%\%batn%.lnk
-						if (INJAK = 1)
-							{
-								lnkloc= %batd%\%batn%.lnk
-							}
-						ifExist, %lnkloc%
-							{
-								if (FECHKB = 1)
+								ifExist, %lnkloc%
 									{
-										FileDelete, %lnkloc%
+										if (FECHKB = 1)
+											{
+												FileDelete, %lnkloc%
+											}
 									}
+								FileCreateShortcut,%batfile%,%lnkloc%,%batd%,,%batn%,%cvtico%
 							}
-						FileCreateShortcut,%batfile%,%lnkloc%,%batd%,,%batn%,%cvtico%
 					}
+				
 			}
 	}
+mltogl= enable
+gosub, mltogl	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksFEBUTG:
@@ -65847,548 +65538,81 @@ LV_Modify(0, "-Check")
 guicontrol,,FELBXA,
 return
 Mirrored_LinksfeBUTF:
-if (FEDDLB = "Mirrors")
-	{
-		SB_SetText("Create or select a Mirror-Set in the dropdown menu")
-		return
-	}
-inidelete,Settings.ini,GLOBAL,%FEDDLB%
-stringreplace,MIRFEDDLA,MIRFEDDLA,%FEDDLB%,,All
-sort,MIRFEDDLA,D|
-guicontrol,,FEDDLB,|%MIRFEDDLA%||
-Guicontrol,,FETXTE,Mirror=
-Guicontrol,,FETXTF,Icons=
-Guicontrol,,FETXTG,Boxart=
-gosub, feDDLB
 return
 Mirrored_LinksfeBUTC:
-;{;;;;;;;;;;;;;;;;;;;;   ICON LOCATION   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
-guicontrolget,MIRSLV,,FEDDLB
-if (MIRSLV = "Mirrors")
+FileselectFolder,ebum,,3,Select the Mirror Destination
+if (ebum = "")
 	{
-		SB_SetText(" Create or select a Mirror-Set in the dropdown menu ")
 		return
 	}
-MRNTMP=
-ainc=
-fief= %cacheloc%
-mirlocrst:
-FileSelectFolder,MRNTMP,*%fief%,3,Select the location for the mirrors
-if (MRNTMP = "")
-	{
-		if (ainc > 1)
-			{
-				return
-			}
-		fief=
-		ainc+= 1
-		goto, mirlocrst
-	}
-stringright,efi,MRNTMP,2
-stringLeft,efix,MRNTMP,2
-if (efi = ":\")
-	{
-		MRNTMP= %efix%
-	}	
-mirnvl1=
-mirnvl2=
-stringsplit,mirnvl,MIRSLV,_
-IniWrite, "%MRNTMP%",Settings.ini,GLOBAL,Mirror_%mirnvl2%
+iniwrite,"%ebum%",Settings.ini,GLOBAL,Mirror_Links
+guicontrol,,FETXTE,Mirror= %ebum%
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeBUTD:
-guicontrolget,MIRSLV,,FEDDLB
-if (MIRSLV = "Mirrors")
-	{
-		SB_SetText("Create or select a Mirror-Set in the dropdown menu")
-		return
-	}
-ICNTMP=
-ainc=
-fief= %cacheloc%
-icolocrst:
-FileSelectFolder,ICNTMP,*%fief%,3,Select the location for icons to be stored for %MIRSLV%
-if (ICNTMP = "")
-	{
-		if (ainc > 1)
-			{
-				return
-			}
-		fief=
-		ainc+= 1
-		goto, icolocrst
-	}
-stringright,efi,ICNTMP,2
-stringLeft,efix,ICNTMP,2
-if (efi = ":\")
-	{
-		ICNTMP= %efix%
-	}	
-mirnvl1=
-mirnvl2=
-stringsplit,mirnvl,MIRSLV,_
-IniWrite, "%ICNTMP%",Settings.ini,GLOBAL,Micon_%mirnvl2%
 return
 Mirrored_LinksfeBUTE:
-;{;;;;;;;;;;;;;;;;;;;;;;   DELETE MIRRORS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrolget,FECHKA,,FECHKA
-guicontrolget,FECHKB,,FECHKB
-guicontrolget,FECHKC,,FECHKC
-guicontrolget,FERAD5B,,FERAD5B
-guicontrolget,FEDDLA,,FEDDLA
-guicontrolget,FECHKD,,FECHKD
-guicontrolget,FECHKE,,FECHKE
-guicontrolget,felbxa,,felbxa
-INJAK=
-ICJAK=
-FEItems=
-Loop,parse,felbxa,|
+guicontrolget,ittd,,FELBXA
+stringreplace,iconsrc,iconsrc,%ittd%|,,All
+if (ittd = "pegasus")
 	{
-		FEItems.=
+		stringreplace,artlkupit,artlkupit,%artlkupb%`n,,All
 	}
-/*
-Gui,ListView,FELVA
-FEItems:= LVGetCheckedItems("", "ahk_id" . FELSTVA)
-if (FEItems = "")
+if (ittd = "retroFE")
 	{
-		return
+		stringreplace,artlkupit,artlkupit,%artlkupa%`n,,All
 	}
-*/	
-Msgbox,3,Delete Selected,Are you sure you want to delete mirrors for the selected items?
-ifMsgBox, No
-		{
-			return
-		}
-ifMsgBox, Cancel
-		{
-			return
-		}
-if (FERAD5B = 1)
+if (ittd = "emulationStation")
 	{
-		gosub, DELMIRPROC
-		return
+		stringreplace,artlkupit,artlkupit,%artlkupc%`n,,All
 	}
-if (FERAD5A = 1)
+if (ittd = "retroArch")
 	{
-		if (FEDDLA = "Systems")
-			{
-				gosub, DELMIRPROC
-				return
-			}
-		gosub, DELSYSMIRPROC
+		stringreplace,artlkupit,artlkupit,%artlkupe%`n,,All
 	}
+if (ittd = "jackets")
+	{
+		stringreplace,artlkupit,artlkupit,%artlkupf%`n,,All
+	}
+if (ittd = "scrapedAssets")
+	{
+		stringreplace,artlkupit,artlkupit,%artlkupd%`n,,All
+	}
+guicontrol,,FELBXA,|%iconsrc%
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-DELMIRPROC:
-;{;;;;;;;;;;;;;;;;;;;;;   DELETE MIRRORS PROC   ;;;;;;;;;;;;;;;;;;;;;
-sysma=
-IniRead, sysma,Settings.ini,GLOBAL,%FEDDLB%
-ddlcn1=
-ddlcn2=
-stringsplit,ddlcn,FEDDLB,_
-if (sysma = "ERROR")
-	{
-		SB_SetText("Mirror Location not found")
-		inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
-		inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		return
-	}
-ifnotexist, %sysma%
-	{
-		SB_SetText("Mirror Location not found")
-		inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
-		inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		return
-	}
-IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-if (sysma = RJSYSTEMS)
-	{
-		if (FECHKD = 1)
-			{
-				INJAK= 1
-			}
-	}
-Loop, Parse, FEItems,|
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		curms= %A_LoopField%
-		ifNotExist, %sysma%\%curms%
-			{
-				continue
-			}
-		fltfnd= *.lnk
-		if (INJAK = 1)
-			{
-				fltfnd= *,2
-			}
-		Loop, %sysma%\%curms%\%fltfnd%
-			{
-				lnkloc= %A_LoopFileFullPath%
-				icnmf1=
-				icnmf2=
-				stringsplit,icnmf,A_LoopFileName,.,
-				splitpath,A_LoopFileFullPath,lnkxn,lnkd
-				lnkloc= %A_LoopFileFullPath%
-				icoloc= %lnkd%\%icnmf1%.ico
-				if (INJAK = 1)
-					{
-						lnkloc=
-						Loop, %A_LoopFileFullPath%\*.lnk
-							{
-								icnmf1=
-								icnmf2=
-								stringsplit,icnmf,A_LoopFileName,.,
-								splitpath,A_LoopFileFullPath,lnkxn,lnkd
-								lnkloc= %A_LoopFileFullPath%
-								icoloc= %lnkd%\%icnmf1%.ico
-								break
-							}
-					}
-				ifexist,%lnkloc%
-					{
-					FileDelete, %lnkloc%
-					}
-				ifexist,%icoloc%
-					{
-						FileDelete, %icoloc%
-					}
-			}
-	}
-inidelete,Settings.ini,GLOBAL,Mirror_%ddlcn2%
-FileDelete, %CICOLOC%\*.ico
-inidelete,Settings.ini,GLOBAL,Micon_%ddlcn2%
-;;inidelete,Settings.ini,GLOBAL,Licon_%ddlcn2%
-MsgBox,3,Files Deleted,Files were sucessfully deleted.,10
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-DELSYSMIRPROC:
-;{;;;;;;;;;;;;;;;;;;;;;   DELETE SYSTEM MIRRORS PROC   ;;;;;;;;;;;;;;
-IniRead, sysma,Settings.ini,GLOBAL,%FEDDLB%
-ddlcn1=
-ddlcn2=
-stringsplit,ddlcn,FEDDLB,_
-IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-curms= %FEDDLA%
-if (sysma = RJSYSTEMS)
-	{
-		if (FECHKD = 1)
-			{
-				INJAK= 1
-			}
-	}
-Loop, Parse, FEItems,|
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		crjfld= %A_LoopField%
-		fltfnd= %crjfld%.lnk
-		icofnd= %crjfld%.ico
-		if (INJAK = 1)
-			{
-				fltfnd= %crjfld%\%crjfld%*.lnk
-				icofnd= %crjfld%\%crjfld%*.ico
-			}
-		FileDelete, %sysma%\%curms%\%fltfnd%
-		FileDelete, %sysma%\%curms%\%icofnd%
-	}	
-MsgBox,3,Files Deleted,Files were sucessfully deleted.,10
-return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeCHKA:
-;{;;;;;;;;;;;;;;;;;;;;;;   ENABLE ICONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrolget,FECHKA,,FECHKA
-guicontrol,disable,FECHKC
-guicontrol,disable,FEBUTC
-;;guicontrol,disable,FEDDLC
-guicontrol,disable,FECHKF
-ddlcn1=
-ddlcn2=
-stringsplit,ddlcn,FEDDLB,_
-;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-if (CBOXLOC = "ERROR")
-		{
-			CBOXLOC= Scraped_Boxart
-		}
+guicontrol,disable,FECHKE
 if (FECHKA = 1)
 	{
-		guicontrol,enable,FEBUTC
-		guicontrol,enable,FECHKF
-		guicontrol,enable,FECHKC
-		;;guicontrol,enable,FEDDLC
+		guicontrol,enable,FECHKE
 	}
-ifinstring,CBOXLOC,:
-	{
-		;;guicontrol,,FEDDLC,|Other|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart
-		return
-	}
-;;guicontrol,,FEDDLC,|%CBOXLOC%||Retroarch_Boxart|Scraped_Boxart|Jacket_Boxart|Other
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeCHKB:
 return
 Mirrored_LinksfeCHKC:
 return
 Mirrored_LinksfeCHKD:
+iniread,ebum,Settings.ini,GLOBAL,Mirror_Links
+guicontrol,,FETXTE,Mirror= %ebum%
+if (FECHKD = 1)
+	{
+		guicontrol,,FETXTE,Mirror= ROMJACKETS
+	}
 return
 Mirrored_LinksfeCHKE:
+iniread,ebui,Settings.ini,GLOBAL,Mirror_Icons
+guicontrol,,FETXTF,Icons= %ebui%
+if (FECHKE = 1)
+	{
+		guicontrol,,FETXTF,Icons= ROMJACKETS
+	}
 return
 Mirrored_LinksfeCHKF:
 return
 Mirrored_LinksfeDDLA:
-;{;;;;;;;;;;;;;;;;;;;;;   SYSTEM DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui,ListView,FELVA
-guicontrol,hide,FECHKD
-guicontrol,hide,FECHKE
-guicontrolget,FERAD5A,,FERAD5A
-guicontrolget,FERAD5B,,FERAD5B
-guicontrolget,FERAD5C,,FERAD5C
-guicontrolget,FEDDLA,,FEDDLA
-guicontrolget,FEDDLB,,FEDDLB
-IniRead, CMTEST,Settings.ini,GLOBAL,%FEDDLB%
-IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLA%
-if (CMTEST = "ERROR")
-	{
-		SB_SetText("You must select or create a location for mirrors.")
-		return
-	}
-LV_Delete()
-FE_TDB=
-if (FERAD5A = 1)
-	{
-		if (FEDDLA = "Systems")
-			{
-				ddlcn1=
-				ddlcn2=
-				stringsplit,ddlcn,FEDDLB,_
-				IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
-				IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-				;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-				if (FEDDLA = "Mirrored")
-					{
-						return
-					}
-				Guicontrol,,FETXTE,Mirror= %CMIRLOC%
-				Guicontrol,,FETXTF,Icons= %CICOLOC%
-				Guicontrol,,FETXTG,Boxart= %CBOXLOC%
-				guicontrol,,FELVA,Systems
-				Loop, %RJSYSTEMS%\*,2
-					{
-						if A_LoopFileAttrib contains H
-							{
-								continue
-							}
-						lvachk= ""
-						tdbtog= 0
-						ifExist, %CMIRLOC%\%A_LoopFileName%
-							{
-								tdbtog= 1
-								lvachk= +Check
-							}
-						LV_Add(lvachk,A_LoopFileName)
-						FE_TDB.= A_LoopFileName . "|" . tdbtog
-					}
-				return
-			}
-		guicontrol,,FELVA,Mirrors
-		Loop, %RJSYSTEMS%\%FEDDLA%\*,2
-			{
-				lvachk= ""
-				ifexist, %CMIRLOC%\%FEDDLA%\%A_LoopFileName%.lnk
-					{
-						lvachk= +Check
-					}
-				LV_Add(lvachk,A_LoopFileName)
-				FE_TDB.= A_LoopFileName . "|" . tdbtog
-			}
-		LV_ModifyCol()
-	}
-if (FERAD5B = 1)
-	{
-		stringsplit,ddlcn,FEDDLA,_
-		IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLA%
-		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		if (FEDDLA = "Mirrored")
-			{
-				return
-			}
-		guicontrol,,FEDDLB,|%FEDDLA%||%MIRDDLOC%
-		Guicontrol,,FETXTE,Mirror= %CMIRLOC%
-		Guicontrol,,FETXTF,Icons= %CICOLOC%
-		Guicontrol,,FETXTG,Boxart= %CBOXLOC%
-		if (CMIRLOC = RJSYSTEMS)
-			{
-				guicontrol,show,FECHKD
-				guicontrol,show,FECHKE
-			}
-		if (CICOLOC = "ERROR")
-				{
-					CICOLOC=
-				}
-		if (CBOXLOC = "ERROR")
-				{
-					CBOXLOC=
-				}
-		guicontrol,,FELVA,Mirrors
-		FE_TDB=
-		Loop, %RJSYSTEMS%\*,2
-			{
-				if A_LoopFileAttrib contains H
-					{
-						continue
-					}
-				lvachk= ""
-				tdbtog= 0
-				exisys= %A_LoopFileName%
-				ifexist,%CMIRLOC%\%exisys%
-					{
-						tdbtog= 1
-						lvachk= +Check
-					}
-				LV_Add(lvachk,exisys)
-				FE_TDB.= A_LoopFileName . "|" . tdbtog
-			}
-		Loop, %CMIRLOC%\*,2
-			{
-				ifNotExist, %RJSYSTEMS%\%A_LoopFileName%
-					{
-						tdbtog= 0
-						LV_Add("",A_LoopFileName)
-						FE_TDB.= A_LoopFileName . "|" . tdbtog
-					}
-			}
-		LV_ModifyCol()
-	}
-if (FERAD5C = 1)
-	{
-	}
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeDDLB:
-;{;;;;;;;;;;;;;;;;;;;;;  MIRROR DROPDOWN   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-gui,submit,nohide
-guicontrol,,FECHKD,0
-guicontrol,,FECHKE,0
-guicontrol,hide,FECHKE
-guicontrol,hide,FECHKD
-Gui,ListView,FELVA
-LV_Delete()
-guicontrolget,FEDDLB,,FEDDLB
-if (FEDDLB = "")
-	{
-		return
-	}
-stringsplit,ddlcn,FEDDLB,_
-IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
-IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-if (CMIRLOC = "ERROR")
-		{
-			CMIRLOC=
-		}
-if (CICOLOC = "ERROR")
-		{
-			CICOLOC=
-		}
-if (CBOXLOC = "ERROR")
-		{
-			CBOXLOC=
-		}
-if (CMIRLOC = RJSYSTEMS)
-	{
-		guicontrol,show,FECHKE
-		guicontrol,show,FECHKD
-	}
-Guicontrol,,FETXTE,Mirror= %CMIRLOC%
-Guicontrol,,FETXTF,Icons= %CICOLOC%
-Guicontrol,,FETXTG,Boxart= %CBOXLOC%
-if (FERAD5B = 1)
-	{
-		guicontrol,,FEDDLA,|%FEDDLB%||%MIRDDLOC%
-	}
-systmir=
-FE_TDB=
-Loop, %RJSYSTEMS%\*,2
-	{
-		if A_LoopFileAttrib contains H
-			{
-				continue
-			}
-		lvachk= ""
-		tdbtog= 0
-		exisys= %A_LoopFileName%
-		ifexist,%CMIRLOC%\%exisys%\
-			{
-				tdbtog= 1
-				lvachk= +Check
-			}
-		LV_Add(lvachk,exisys)
-		FE_TDB.= A_LoopFileName . "|" . tdbtog
-	}
-Loop, %CMIRLOC%\*,2
-	{
-		if (A_LoopFileName = "")
-			{
-				continue
-			}
-		ifNotExist, %RJSYSTEMS%\%A_LoopFileName%
-			{
-				tdbtog= 0
-				LV_Add("",A_LoopFileName)
-				FE_TDB.= A_LoopFileName . "|" . tdbtog
-			}
-	}
-LV_ModifyCol()
-MIRDISP:= "Mirror=" . CMIRLOC . "`n`r" . "Icons=" . CICOLOC . "`n`r" . "Boxart=" . CBOXLOC
-Guicontrol,,FETXTE,Mirror= %CMIRLOC%
-Guicontrol,,FETXTF,Icons= %CICOLOC%
-Guicontrol,,FETXTG,Boxart= %CBOXLOC%
 return
-/*
-Mirrored_LinksfeDDLC:
-guicontrolget,FEDDLC,,FEDDLC
-stringsplit,ddlcn,FEDDLA,_
-if (FEDDLC = "Other")
-	{
-		BXTMP=
-		FileSelectFolder,BXTMP,,3,Select a Folder containing boxart subdirectories
-		if (BXTMP = "")
-			{
-				return
-			}
-		stringright,efi,BXTMP,2
-		stringLeft,efix,BXTMP,2
-		if (efi = ":\")
-			{
-				BXTMP= %efix%
-			}	
-		Guicontrolget,FEDDLC,,FEDDLB
-		mirnvl1=
-		mirnvl2=
-		stringsplit,mirnvl,FEDDLB,_
-		if (mirnvl2 = "")
-			{
-				return
-			}
-		;;IniWrite, "%BXTMP%",Settings.ini,GLOBAL,Licon_%mirnvl2%
-		guicontrol,,FETXTG,Boxart= %BXTMP%
-		return
-	}
-;;IniWrite, "%FEDDLC%",Settings.ini,GLOBAL,Licon_%ddlcn2%
-guicontrol,,FETXTG,Boxart= %FEDDLC%
-return
-*/
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeLVA:
 Gui,ListView,FELVA
 FEItemdxa=
@@ -66405,49 +65629,13 @@ return
 Mirrored_LinksfeEDTA:
 return
 Mirrored_LinksfeRAD5A:
-;{;;;;;;;;;;;;;;;;;;;;;   JACKET RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui,ListView,FELVA
-LV_Delete()
-guicontrol,,FEDDLA,|Systems||%systmfldrs%
-gosub, %FETYP%FEDDLA
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeRAD5B:
-;{;;;;;;;;;;;;;;;;;;;;   MIRROR RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-CMIR1= Mirror_1
-MIRDDLOC=
-Loop, Read, Settings.ini
-		{
-			stringsplit,mirlocv,A_LoopReadLine,=
-			stringsplit, mirspl,mirlocv1,_
-			if (mirspl1 = "Mirror")
-				{
-					mirnum+=1
-					MIRDDLOC.= mirlocv1 . "|"
-				}
-		}
-if (MIRDDLOC = "")
-		{
-			CMIR1= Mirrored
-			MIRDDLOC= Mirrored
-		}
-if (CMIR1 <> "Mirrored")
-	{
-		guicontrolget,FEDDLB,,FEDDLB
-		stringsplit,ddlcn,FEDDLB,_
-		IniRead, CMIRLOC,Settings.ini,GLOBAL,%FEDDLB%
-		IniRead, CICOLOC,Settings.ini,GLOBAL,Micon_%ddlcn2%
-		;;IniRead, CBOXLOC,Settings.ini,GLOBAL,Licon_%ddlcn2%
-		CMIR1= %FEDDLB%
-		GUICONTROL,,FEDDLA,|%CMIR1%||%MIRDDLOC%
-		gosub, %FETYP%FEDDLA
-		return
-	}
-GUICONTROL,,FEDDLA,|%CMIR1%||%MIRDDLOC%
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksfeRAD5C:
 return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;{;;;;;;;;;;;;;;;; UTIL RIGHTCLICK ;;;;;;;;;;;;;;;;;
 TOGUTSEL:
 gosub, %curutl%TOGFESEL
@@ -68585,7 +67773,7 @@ RRDboxart:
 			{
 					SB_SetText("Downloading " SYSROMD " Boxart ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=true -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder% -append=true -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -skip_check=true -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68622,7 +67810,7 @@ RRDsnapshot:
 			{
 					SB_SetText("Downloading " SYSROMD " Snapshots ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotsimgtall% -max_width=%Snapshotsimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Snapshots" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68664,7 +67852,7 @@ RRDbackdrop:
 						}
 					SB_SetText("Downloading " SYSROMD " Backdrops ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%imgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Backdropimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Backdrops" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68706,7 +67894,7 @@ RRDlogo:
 						}
 					SB_SetText("Downloading " SYSROMD " Logos ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Logoimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Logos" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68743,7 +67931,7 @@ RRD3dboxart:
 			{
 					SB_SetText("Downloading " SYSROMD " 3D-Boxart ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3D-Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68785,7 +67973,7 @@ RRDcart:
 						}
 					SB_SetText("Downloading " SYSROMD " Carts ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Cartimgtall% -max_width=%Cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Carts" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_SPace%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68824,7 +68012,7 @@ RRDlabel:
 						{
 							SB_SetText("Downloading " SYSROMD " Labels ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Labelimgtall% -max_width=%Labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Labels" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml" 
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68864,7 +68052,7 @@ RRDbanner:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68904,7 +68092,7 @@ RRD3mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 3Mix ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3Miximgtall% -max_width=%3Miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\3Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%a_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68944,7 +68132,7 @@ RRD4mix:
 						{
 							SB_SetText("Downloading " SYSROMD " 4Mix ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4Miximgtall% -max_width=%4Miximgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\4Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68984,7 +68172,7 @@ RRDmarquee:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -marquee_suffix="" -marquee_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -marquee_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -68993,7 +68181,7 @@ RRDmarquee:
 						{
 							SB_SetText("Downloading " SYSROMD " Marquees ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder% -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%SYSROMD%\%jaktit%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -69032,7 +68220,7 @@ RRDvid:
 				{
 					SB_SetText("Downloading " SYSROMD " Video ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix=""
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder%  -append=false -rom_dir="%sysfrd%" -retries=5 -download_images=false -video_suffix=""
 					enfec= -use_filename=true -video_dir="%ASSETS%\%SYSROMD%\%jaktit%\Video" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -69069,7 +68257,7 @@ RRDmetadata:
 				{
 					SB_SetText("Downloading " SYSROMD " MetaData ")
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder%  -append=true -retries=5 -download_images=false
 					enfec= -use_filename=true -output_file="%ASSETS%\%SYSROMD%\%jaktit%\MetaData\%SYSROMD%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%SYSROMD%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%sysfrd%,hide
@@ -69170,7 +68358,7 @@ JRDboxart:
 		if (getboxart = 1)
 				{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Boxartimgtall% -max_width=%Boxartimgsize% -%imgtyp%_src=%BoxArtscrapeorder%  -append=false -retries=5 -download_images=true -console_img=b -img_format=%Boxartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69217,7 +68405,7 @@ JRDsnapshot:
 		if (getsnapshot = 1)
 				{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Snapshotimgtall% -max_width=%Snapshotimgsize% -%imgtyp%_src=%Snapshotscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=s -img_format=%Snapshotimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Snapshots" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enefc%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69269,7 +68457,7 @@ JRDbackdrop:
 							artx=fly
 						}
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Backdropimgtall% -max_width=%Backdropimgsize% -%imgtyp%_src=%Backdropscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Backdrops" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69321,7 +68509,7 @@ JRDlogo:
 							artx=t
 						}
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Logoimgtall% -max_width=%Logoimgsize% -%imgtyp%_src=%Logoscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%imagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Logos" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69368,7 +68556,7 @@ JRD3dboxart:
 		if (get3dboxart = 1)
 				{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3dboximgtall% -max_width=%3dboximgsize% -%imgtyp%_src=%3DBoxartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=3b -img_format=%3dboximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3D-Boxart" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69420,7 +68608,7 @@ JRDcart:
 							artx=c
 						}
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%cartimgtall% -max_width=%cartimgsize% -%imgtyp%_src=%Cartscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=%artx% -img_format=%Cartimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Carts" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69469,7 +68657,7 @@ JRDlabel:
 					if (mameget = "")
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%labelimgtall% -max_width=%labelimgsize% -%imgtyp%_src=%Labelscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=clabel -img_format=%Labelimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Labels" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69519,7 +68707,7 @@ JRDbanner:
 					if (mameget = "")
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%marqueeimgtall% -max_width=%marqueemgsize%-append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=a -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69569,7 +68757,7 @@ JRD3mix:
 					if (mameget = "")
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%3miximgtall% -max_width=%3miximgsize% -%imgtyp%_src=%3Mixscrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix3 -img_format=%3miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\3Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69619,7 +68807,7 @@ JRD4mix:
 					if (mameget = "")
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%4Mixscrapeorder% -max_height=%4miximgtall% -max_width=%4miximgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=mix4 -img_format=%4miximagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\4Mix" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69669,7 +68857,7 @@ JRDmarquee:
 					if (mameget = "")
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Marqueescrapeorder% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -marquee_suffix="%scrsufx%" -marquee_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -marquee_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69688,7 +68876,7 @@ JRDmarquee:
 					if (mameget = 1)
 						{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt%%mamemode% -max_height=%Marqueeimgtall% -max_width=%Marqueeimgsize% -%imgtyp%_src=%Marqueescrapeorder%  -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=true -console_img=m -img_format=%Marqueeimagefrmt%
 					enfec= -use_filename=true -image_dir="%ASSETS%\%REALSYS%\%realname%\Marquees" -image_suffix="" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69736,7 +68924,7 @@ JRDvideo:
 		if (getvideo = 1)
 				{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Videoscrapeorder% -append=false -rom_dir="%RJSYSTEMS%%REALSYS%%realname%" -retries=5 -download_images=false -video_suffix="%scrsufx%"
 					enfec= -use_filename=true -video_dir="%ASSETS%\%REALSYS%\%realname%\Video" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69783,7 +68971,7 @@ JRDmetadata:
 		if (getmetadata = 1)
 				{
 					filedelete,%cacheloc%\scrape.cmd
-					enfeb="%A_ScriptDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder% -append=true -retries=5 -download_images=false
+					enfeb="%S_KeyDir%\bin\Scraper.exe"%ssopt% -%imgtyp%_src=%Metadatascrapeorder% -append=true -retries=5 -download_images=false
 					enfec= -use_filename=true -output_file="%ASSETS%\%REALSYS%\%realname%\MetaData\%realname%%scrsufx%.xml" -nested_img_dir=false -no_thumb -extra_ext="" -use_nointro_name=true -workers=1 -strip_unicode=false -update_cache=true -lang=en -region=us,wor,eu,jp,fr,xx -output_file="%ASSETS%\%REALSYS%\gamelist.xml"
 					fileappend,%enfeb%%A_Space%%enfec%,%cacheloc%\scrape.cmd
 					RunWait, "%cacheloc%\scrape.cmd" >>"%cacheloc%\scrape.log",%RJSYSTEMS%\%REALSYS%\%realname%,hide
@@ -69913,7 +69101,7 @@ Loop, Read, rj\scrapeArt\%SYSLKUP%\%xmlf%
 						ifnotexist,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4
 							{
 								SB_SetText("Downloading " realname " Video")
-								RunWait, %comspec% /c " "%A_ScriptDir%\bin\youtube-dl.exe" -R 3 -i -c --id "%xlmb3%" --no-check-certificate --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide
+								RunWait, %comspec% /c " "%S_KeyDir%\bin\youtube-dl.exe" -R 3 -i -c --id "%xlmb3%" --no-check-certificate --prefer-insecure --no-part --sleep-interval 3 --max-sleep-interval 10",%ASSETS%\%REALSYS%\%realname%\%jaksbd%,hide,%vidwnl%
 								FileGetSize,imgsz,%ASSETS%\%REALSYS%\%realname%\%jaksbd%\%xlmb3%.mp4,K
 								if (imgsz < 1)
 									{
@@ -70483,7 +69671,7 @@ if (FERAD2C = 1)
 			}
 			guicontrol,,FELBXB,|%nrnr%
 	}
-return
+return	
 MediaFEDDLE:
 Gui,ListView,FELVA
 guicontrolget,FEDDLE,,FEDDLE
@@ -70791,7 +69979,7 @@ if (FERAD2B = 1)
 		guicontrolget,msyn,,FEDDLA
 	}
 SB_SetText("opening " assets " " msyn " folder ")
-Run, %comspec% /c explorer "%A_ScriptDir%\%ASSETS%\%msyn%"
+Run, %comspec% /c explorer "%S_KeyDir%\%ASSETS%\%msyn%"
 return
 MediaFEBUTM:
 gui,submit,nohide
@@ -70946,6 +70134,7 @@ gosub, ARTPAUSE
 guicontrol,hide,FEBUTN
 guicontrol,hide,FEBUTI
 guicontrol,show,FEBUTA
+Process,close,%vidwnl%
 return
 FLDRCARRIER:
 curtxt=
@@ -71836,7 +71025,7 @@ SB_SetText(" Editing emulator executable configurations ")
 return
 executableutlBUTD:
 gui,submit,nohide
-Run, %comspec% /c explorer "%A_ScriptDir%\executable"
+Run, %comspec% /c explorer "%S_KeyDir%\executable"
 return
 executableutlBUTE:
 gui,submit,nohide
@@ -79381,7 +78570,7 @@ if (coe <> "dll")
 																	}
 																partition=
 																splitpath,romf,romtitle,rompth,xtnv,romname,romdrv
-																concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%romf%"
+																concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%romf%"
 																StdOut := StdoutToVar_CreateProcess(concatcmd)
 																partition=
 																fext= %xtnv%
@@ -79485,7 +78674,7 @@ return
 ZipOpen:
 FINR=
 ziptmp= %tstxtn%
-concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%romf%"
+concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%romf%"
 StdOut := StdoutToVar_CreateProcess(concatcmd)
 partition=
 gosub, zpkproc
@@ -80321,7 +79510,7 @@ return
 CreateConfig:
 filedelete, Settings.ini
 FileAppend, [GLOBAL]`n, Settings.ini
-FileAppend, working_config = "%A_WorkingDir%\config.cfg"`n, Settings.ini
+FileAppend, working_config = "%S_KeyDir%\config.cfg"`n, Settings.ini
 FileAppend, retroarch_location = ""`n, Settings.ini
 FileAppend, ARCH = "%ARCH%"`n, Settings.ini
 FileAppend, last_rom = "%romf%"`n, Settings.ini
@@ -80561,7 +79750,7 @@ ifinstring,RunOptions,[
 											}
 										partition=
 										splitpath,romf,romtitle,rompth,xtnv,romname,romdrv
-										concatcmd= "%A_Scriptdir%\bin\7za.exe" l -slt "%romf%"
+										concatcmd= "%S_KeyDir%\bin\7za.exe" l -slt "%romf%"
 										StdOut := StdoutToVar_CreateProcess(concatcmd)
 										partition=
 										fext= %xtnv%
@@ -81457,7 +80646,7 @@ CLEAN_ARTWORK:
 FileRemoveDir, Assets,1
 if errorlevel = 1
 {
-	Msgbox,1,In Use,Files in the ''%A_Workingdir%\Assets'' are in use`,8
+	Msgbox,1,In Use,Files in the ''%S_KeyDir%\Assets'' are in use`,8
 	return
 	}
 filecreatedir, Assets
@@ -81466,7 +80655,7 @@ CLEAN_ROMJACKETS:
 FileRemoveDir, rj\syscfgs,1
 if errorlevel = 1
 {
-Msgbox,1,In Use,The folder ''%A_Workingdir%\rj\syscfgs'' is in Use`n,8
+Msgbox,1,In Use,The folder ''%S_KeyDir%\rj\syscfgs'' is in Use`n,8
 return
 }
 filecreatedir, rj\syscfgs
@@ -82004,7 +81193,7 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    MAKE PORTABLE  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 makePortable:
 guicontrolget,Ppltxt,,PplTxt
-splitpath,A_ScriptDir,,,,,skeldrv
+splitpath,S_KeyDir,,,,,skeldrv
 pcfgext= ini|cfg|config|conf|xml|settings|opt
 stringsplit,pcfgxt,pcfgext,= | ""
 recfgf= ovr.ini|hashdb.ini|Assignments.ini|AppParams.ini|Settings.ini|config.cfg
