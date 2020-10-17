@@ -54060,7 +54060,7 @@ iniwrite,%fecbxd%,PGCfg.ini,%curtxt%,shortname
 iniwrite,%SLCTDEXT%,PGCfg.ini,%curtxt%,extensions
 iniwrite,%SLCTDRW%,PGCfg.ini,%curtxt%,emuoptions
 iniwrite,%SLCTDEMU%,PGCfg.ini,%curtxt%,emuname
-iniwrite,%selctsyst%,PGCfg.ini,%curtxt%,syspath
+iniwrite,%fecbxb%,PGCfg.ini,%curtxt%,syspath
 ;;IniWrite,%FECBXD%|%FECBXB%|%SLCTDEXT%|%SLCTDEMU%|%SLCTDRW%|%selctsys%|%FECBXA%,PGcfg.ini,GLOBAL,%emks%
 iniread,sysordr,PGcfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
@@ -54259,6 +54259,9 @@ ifinstring,FEDDLG,_libretro.dll
 		iniwrite,%A_SPace%-L "%libretrodirectory%\%FEDDLG%" >[ROMPATH]>,PgCfg.ini,%curtxt%,emuoptions
 		iniwrite,retroarch,PgCfg.ini,%curtxt%,emuname
 	}
+	else {
+		iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
+	}
 iniread,pgemt,apps.ini,EMULATORS,%FEDDLG%
 if (pgemt = "ERROR")
 	{
@@ -54266,8 +54269,7 @@ if (pgemt = "ERROR")
 		gosub, FEBUTH
 		if (pgemu = "")
 			{
-iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
-return
+				iniwrite,%FEDDLG%,PGCfg.ini,%curtxt%,emuname
 				return
 			}
 		iniwrite, "%pgemu%",apps.ini,EMULATORS,%FEDDLG%
@@ -54288,7 +54290,7 @@ LV_ModifyCol()
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;
 PegasusFEBUTH:
-guicontrolget,sysfnd,,
+;;guicontrolget,sysfnd,,
 guicontrolget,FEDDLG,,FEDDLG
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   PG EMULATOR SELECTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;
 /*
@@ -54799,10 +54801,11 @@ krbz= % fe_%curstxt%
 if (krbz <> "")
 	{
 		inemuinp= 
+		inra= 
+		ingr= 
 		iniread,emuinp,Assignments.ini,OVERRIDES,%krbz%
 		if ((emuinp <> "")&&(emuinp <> "ERROR"))
 			{
-				inra= 
 				Loop,parse,emuinp,|
 					{
 						if (A_LoopField = "")
@@ -54849,7 +54852,7 @@ if (krbz <> "")
 							}
 					}
 			}
-		iniread,emuinc,EmuCfgPresets.ini,%krbz%,SUPEMU
+		iniread,emuinc,EmuCfgPresets.ini,%krbz%,SUPCORE
 		if ((emuinc <> "")&&(emuinc <> "ERROR"))
 			{
 				loop,parse,emuinc,|
@@ -57194,10 +57197,10 @@ guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
 guicontrol,,FEDDLD,|%rftheme%||%rfthemes%
-guicontrol,%fetog%,FEDDLA
-guicontrol,enable,FEDDLA
-guicontrol,move,FEDDLA,x9 y41 w249
-guicontrol,,FEDDLA,|Systems||
+;;guicontrol,%fetog%,FEDDLA
+;;guicontrol,enable,FEDDLA
+;;guicontrol,move,FEDDLA,x9 y41 w249
+;;guicontrol,,FEDDLA,|Systems||
 guicontrol,%fetog%,FEDDLF
 guicontrol,enable,FEDDLF
 guicontrol,hide,FEDDLF
@@ -57687,7 +57690,7 @@ iniwrite,%fecbxd%,RFCfg.ini,%curtnm%,shortname
 iniwrite,%SLCTDEXT%,RFCfg.ini,%curtnm%,extensions
 iniwrite,%SLCTDRW%,RFCfg.ini,%curtnm%,emuoptions
 iniwrite,%SLCTDEMU%,RFCfg.ini,%curtnm%,emuname
-iniwrite,%selctsyst%,RFCfg.ini,%curtnm%,syspath
+iniwrite,%fecbxb%,RFCfg.ini,%curtnm%,syspath
 iniread,sysordr,RFCfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -57863,6 +57866,9 @@ ifinstring,FEDDLG,_libretro.dll
 		iniwrite,%A_SPace%-L "%libretrodirectory%\%FEDDLG%" >[ROMPATH]>,RFCfg.ini,%curtnm%,emuoptions
 		iniwrite,retroarch,RFCfg.ini,%curtnm%,emuname
 	}
+	else {
+		iniwrite,%FEDDLG%,RFCfg.ini,%curtnm%,emuname
+	}
 iniread,rfemt,apps.ini,EMULATORS,%FEDDLG%
 if (rfemt = "ERROR")
 	{
@@ -57874,7 +57880,6 @@ if (rfemt = "ERROR")
 			}
 		iniwrite, "%rfemu%",apps.ini,EMULATORS,%FEDDLG%
 	}
-iniwrite,%FEDDLG%,RF.ini,%curtnm%,emuname
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEDDLF:
@@ -58217,11 +58222,11 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFEEDTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  RF EDIT FIELDS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+guicontrolget,FEEDTA,,FEEDTA
 if (sysfnd = "")
 	{
 		return
 	}
-guicontrolget,FEEDTA,,FEEDTA
 newemuopts= %FEEDTA%
 iniwrite,%A_Space%%newemuopts%,RFCfg.ini,%curtnm%,emuoptions
 return
@@ -58249,7 +58254,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RetroFEFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RF ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-pgpopem= 
+rfpopem= 
 iniread,allxtn,EmuCfgPresets.ini,%curtxt%,RJROMXT
 iniread,rfemuas,Assignments.ini,OVERRIDES,%curtxt%
 if (rfemuas = "")
@@ -58366,10 +58371,11 @@ if (curtnm = "other")
 if (curtnm <> "")
 	{
 		inemuinp= 
+		inra= 
+		ingr= 
 		iniread,emuinp,Assignments.ini,OVERRIDES,%curtxt%
 		if ((emuinp <> "")&&(emuinp <> "ERROR"))
 			{
-				inra= 
 				Loop,parse,emuinp,|
 					{
 						if (A_LoopField = "")
@@ -58416,7 +58422,7 @@ if (curtnm <> "")
 							}
 					}
 			}
-		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
 		if ((emuinc <> "")&&(emuinc <> "ERROR"))
 			{
 				loop,parse,emuinc,|
@@ -60698,6 +60704,7 @@ return
 EmulationStationToggle:
 gosub, FEUNPOP
 ESINIT:
+ESGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ|FEBUTK|FECBXA|FECBXB|FECBXC|FECBXD|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FECHKG|FEDDLA|FEDDLC|FEDDLD|FEDDLF|FEDDLG|FEEDTA|FEEDTB|FELBXA|FELVA|FEPRGA|FERAD2A|FERAD2B|FERAD5A|FERAD5B|FERAD5C|FESLDA
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES INITIALIZE   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 iniread,EmulationStation,apps.ini,FRONTENDS,EmulationStation
 if (EmulationStation = "ERROR")
@@ -60714,7 +60721,6 @@ if (EmulationStation = "ERROR")
 esinit=
 ifnotexist,EScfg.ini
 	{
-		FileAppend,[GLOBAL]`n,EScfg.ini
 		FileAppend,[CONFIG]`n,EScfg.ini
 		FileAppend,[ORDER]`n,EScfg.ini
 		esinit= 1
@@ -61012,14 +61018,15 @@ guicontrol,,FECBXD,|%avblnk%%cursysthemelist%%systmfldrs%
 ;;theme;;
 guicontrol,%fetog%,FECBXA
 guicontrol,enable,FECBXA
-guicontrol,move,FECBXA,x598 y166 w104
+guicontrol,move,FECBXA,x590 y166 w104
 guicontrol,,FECBXA,|%avblnk%%cursysthemelist%
 guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
-guicontrol,+Multi,FELVA
+;;guicontrol,+checked,FELVA
+;;guicontrol,+Multi,FELVA
 gui,ListView,FELVA
 LV_Delete()
 Loop, Parse, systmfldrs,|
@@ -61033,17 +61040,17 @@ Loop, Parse, systmfldrs,|
 LV_ModifyCol()
 guicontrol,%fetog%,FERAD5A
 guicontrol,enable,FERAD5A
-guicontrol,move,FERAD5A,x265 y64 w120 h15
+guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
 guicontrol,%fetog%,FERAD5B
 guicontrol,enable,FERAD5B
-guicontrol,move,FERAD5B,x265 y84 w53 h15
+guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
 guicontrol,%fetog%,FERAD5C
 guicontrol,enable,FERAD5C
-guicontrol,move,FERAD5C,x265 y101 w53 h15
+guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
 guicontrol,%fetog%,FERAD2A
@@ -61102,11 +61109,11 @@ guicontrol,move,FETXTH, x329 y480 w47 h14
 guicontrol,,FETXTH, System
 guicontrol,%fetog%,FETXTN
 guicontrol,enable,FETXTN
-guicontrol,move,FETXTN,x619 y190 w70 h16
+guicontrol,move,FETXTN,x610 y190 w70 h16
 guicontrol,,FETXTN,system theme
 guicontrol,%fetog%,FETXTI
 guicontrol,enable,FETXTI
-guicontrol,move,FETXTI,x588 y115 w146 h13
+guicontrol,move,FETXTI,x580 y115 w146 h13
 guicontrol,,FETXTI, Extensions (comma sperated)
 guicontrol,%fetog%,FETXTJ
 guicontrol,enable,FETXTJ
@@ -61147,8 +61154,18 @@ seyvn= " />
 ;"
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
+esguitog:
+Loop,parse,ESGUIITEMS,|
+	{
+		guicontrol,%esguitog%,%A_LoopField%
+	}
+return	
+
+
 EmulationStationFEBUTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+esguitog= disable
+gosub,esguitog
 guicontrolget,FEDDLD,,FEDDLD
 guicontrol,disable,FEDDLD
 guicontrol,disable,FEBUTA
@@ -61157,6 +61174,8 @@ if (FEDDLD = "")
 		SB_SetText("You need select a theme!")
 		guicontrol,enable,FEDDLD
 		guicontrol,enable,FEBUTA
+		esguitog= enable
+		gosub,esguitog
 		return
 	}
 esteo=
@@ -61179,6 +61198,8 @@ if (URLFILE = "ERROR")
 		SB_SetText("This theme cannot be downloaded from the skeletonKey repository")
 		guicontrol,enable,FEDDLD
 		guicontrol,enable,FEBUTA
+		esguitog= enable
+		gosub,esguitog
 		return
 	}
 save= rj\ES\%FEDDLD%.zip
@@ -61192,6 +61213,8 @@ if (estsz < 1)
 		SB_SetText("Download Failed")
 		guicontrol,enable,FEDDLD
 		guicontrol,enable,FEBUTA
+		esguitog= enable
+		gosub,esguitog
 		return
 	}
 ifnotexist,%save%
@@ -61199,6 +61222,8 @@ ifnotexist,%save%
 		SB_SetText("Download Failed")
 		guicontrol,enable,FEDDLD
 		guicontrol,enable,FEBUTA
+		esguitog= enable
+		gosub,esguitog
 		return
 	}
 if (esteo = "")
@@ -61215,12 +61240,14 @@ ifexist, %ESHOME%\themes\%FEDDLD%
 		guicontrol,,FECBXA,|%cursysthemelist%
 	}
 SB_SetText("Current theme is " ESTHEME " ")
-guicontrol,enable,FEDDLD
-guicontrol,enable,FEBUTA
+esguitog= enable
+gosub,esguitog
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  CREATE CONFIG  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTB:
+esguitog= disable
+gosub,esguitog
 FECREATE= 1
 PLCREATE= 
 guicontrolget,FEDDLF,,FEDDLF
@@ -61246,32 +61273,29 @@ Loop, Parse, prsy,|
 		iniread,ext_es,EScfg.ini,%sysesc%,ext_es
 		iniread,emu_es,EScfg.ini,%sysesc%,emu_es
 		stringreplace,extn,ext_es,`,,%A_Space%,All
-		iniread,emushrtn,apps.ini,EMULATORS,%emu_es%
-		ifinstring,emu_es,:
-			{
-				emushrtn= %emu_es%
-			}
 		iniread,arg_es,EScfg.ini,%sysesc%,arg_es
+		stringreplace,arg_es,arg_es,>,%A_Space%,All
+		stringreplace,arg_es,arg_es,[ROMNAME],`%BASENAME`%,All
+		stringreplace,arg_es,arg_es,[ROMPATH],`%ROM_RAW`%,All
 		iniread,rmp_es,EScfg.ini,%sysesc%,rmp_es
 		iniread,thm_es,EScfg.ini,%sysesc%,thm_es
-		FileAppend,<system>`n,rj\ES\cursys.cfg
-		FileAppend,<name>%sysesc%</name>`n,rj\ES\cursys.cfg
-		FileAppend,<fullname>%dsp_es%</fullname>`n,rj\ES\cursys.cfg
-		FileAppend,<path>%rmp_es%</path>`n,rj\ES\cursys.cfg
-		FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
-		stringreplace,emushrtn,emushrtn,",,All
-		;"
-		splitpath,emushrtn,fxe,fp,xe,fn,fd
-		stringleft,fd,fd,1
-		stringtrimleft,fp,fp,3
-		FileAppend,<command>%fd%":\%fp%\%fxe%" %arg_es%</command>`n,rj\ES\cursys.cfg
-		FileAppend,<platform>%abr_es%</platform>`n,rj\ES\cursys.cfg
-		FileAppend,<theme>%thm_es%</theme>`n,rj\ES\cursys.cfg
-		FileAppend,</system>`n,rj\ES\cursys.cfg		
-		if (FECHKG = 1)
+		if instr(rmp_es,":")
 			{
-				SYSNAME= %dsp_es%	
-				gosub, plsavelp
+				sysesc= %rmp_es%	
+				gosub, essysit
+			}
+		else {
+			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%dsp_es%
+			Loop,parse,sysplfp
+				{
+					if (A_LoopField = "")
+						{
+							continue
+						}
+					sysplfw= %A_LoopField%
+					gosub, essysit
+				}
+			continue
 			}
 	}
 FileRead,escfg,sets\es_settings.cfg.set
@@ -61298,7 +61322,39 @@ if (FECHKB = 1)
 FileAppend,</systemList>`n,rj\ES\cursys.cfg
 filecopy, rj\ES\cursys.cfg, %ESHOME%\es_systems.cfg,1
 msgbox,,Complete,ES configuration created,5
+esguitog= enable
+gosub,esguitog
 return
+
+essysit:
+iniread,emushrtn,apps.ini,EMULATORS,%emu_es%
+ifinstring,emu_es,:
+	{
+		stringsplit,emu_es,emushrtn
+		emunmc=
+		emushrtn= %emu_es%
+	}
+FileAppend,<system>`n,rj\ES\cursys.cfg
+FileAppend,<name>%sysesc%</name>`n,rj\ES\cursys.cfg
+FileAppend,<fullname>%dsp_es%</fullname>`n,rj\ES\cursys.cfg
+FileAppend,<path>%sysplfw%</path>`n,rj\ES\cursys.cfg
+FileAppend,<extension>%extn%</extension>`n,rj\ES\cursys.cfg
+stringreplace,emushrtn,emushrtn,",,All
+;"
+splitpath,emushrtn,fxe,fp,xe,fn,fd
+stringleft,fd,fd,1
+stringtrimleft,fp,fp,3
+FileAppend,<command>%fd%":\%fp%\%fxe%" %arg_es%</command>`n,rj\ES\cursys.cfg
+FileAppend,<platform>%abr_es%</platform>`n,rj\ES\cursys.cfg
+FileAppend,<theme>%thm_es%</theme>`n,rj\ES\cursys.cfg
+FileAppend,</system>`n,rj\ES\cursys.cfg		
+if (FECHKG = 1)
+	{
+		SYSNAME= %dsp_es%	
+		gosub, plsavelp
+	}
+return
+	
 EmulationStationFEBUTC:
 if (sysfnd = "")
 	{
@@ -61326,33 +61382,28 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  SET ROM DIRECTORY  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-if (sysfnd = "")
-	{
-		return
-	}
 selctsystmp=
 FileSelectFolder,selctsystmp,,3,Select a ROM Directory for %curtxt%
 if (selctsystmp = "")
 	{
 		return
 	}
-stringright,efi,selctsystmp,2
-stringLeft,efix,selctsystmp,2
-if (efi = ":\")
+if (sysfnd = "")
 	{
-		selctsystmp= %efix%
-	}	
-selctsys= %selctsystmp%
-guicontrol,,FETXTJ,%selctsys%
-iniwrite,%selctsys%,EScfg.ini,%curtxt%,rompath
-return
+		return
+	}
+if ((FETXTJ <> selctsystmp)&&(selctsystmp = ""))
+	{
+		guicontrol,,FETXTJ,
+		selctsystmp= %FECBXB%
+	}
+iniwrite,%selctsystmp%,ESCfg.ini,%curtnm%,syspath
+return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTE:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ADD SYSTEMS  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Loop,Parse,ESFEGUIITEMS,|
-	{
-		guicontrol,disable,%A_LoopField%
-	}
+esguitog= disable
+gosub, esguitog
 SNFEITMS=
 NFEITMS=
 FEItems=
@@ -61363,271 +61414,108 @@ if (ESCURPL = "ERROR")
 	{
 		ESCURPL=
 	}
-if (FERAD5A = 1)
+
+if (sysfnd = 1)
 	{
-	vmint=
-	Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				vmint.= A_LoopField . "|"
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, EsLkUp,`n`r
-					{
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.bat,.BAT
-								SLCTDEMU= BSL
-								SLCTDRW= "`%ROM_RAW`%"
-								selctsys= %RJSYSTEMS%\%CHKITM%
-								SLCTDSN= _%sfi3%
-								SNFEITMS.= "_" . sfi3 . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,=,,All
-						emks= %ffr%
-						SLCTDEXT=.bat .BAT
-						SLCTDEMU= BSL
-						SLCTDRW= "`%ROM_RAW`%"
-						selctsys= %RJSYSTEMS%\%CHKITM%
-						SLCTDSN= _%ffr%
-						SNFEITMS.= "_" . ffr . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
-				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
-				IniWrite,.bat,ESCfg.ini,%SLCTDSN%,ext_es
-				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
-				IniWrite,""`%ROM_RAW`%"",ESCfg.ini,%SLCTDSN%,arg_es
-				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
-				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
-			}
-		iniread,sysordr,EScfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		ESCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
-		Guicontrol,,FELBXA,|%ESCURPL%
-		LV_Modify(0, "-Check")
-		Loop,Parse,ESFEGUIITEMS,|
-			{
-				guicontrol,enable,%A_LoopField%
-			}
+		SB_SetText("Current system is already added")
+		esguitog= enable
+		gosub, esguitog
 		return
 	}
-if (FERAD5B = 1)
+RowNumber = 0
+Loop
 	{
-		guicontrolget,FEDDLF,,FEDDLF
-		iniread,esmirror,Settings.ini,GLOBAL,%FEDDLF%
-		if (esmirror = "ERROR")
+		RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
+		if not RowNumber
 			{
-				SB_SetText("You Must define a mirror directory in the Mirrord_Links Frontend Dropdown.")
-				Loop,Parse,ESFEGUIITEMS,|
-					{
-						guicontrol,enable,%A_LoopField%
-					}
-				return
+				break
 			}
-		vmint=
-		Loop, Parse, FEItems,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				symnt=
-				vmint.= A_LoopField . "|"
-			}
-		Loop, Parse, vmint,|
-			{
-				IMTSXT=
-				sysfar=
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				CHKITM= %A_LoopField%
-				Loop, Parse, EsLkUp,`n`r
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						sfi1=
-						sfi2=
-						sfi3=
-						sfi4=
-						sfi5=
-						sfi6=
-						sfi7=
-						sfi8=
-						stringsplit,sfi,A_LoopField,=
-						if (sfi3 = CHKITM)
-							{
-								sysfar= 1
-								emks= %sfi1%
-								SLCTDEXT=.lnk,.LNK
-								SLCTDEMU= BSL
-								SLCTDRW= "`%ROM_RAW`%"
-								selctsys= %esmirror%\%CHKITM%
-								SLCTDSN= %sfi3%_
-								SNFEITMS.= sfi3 . "_" . "|"
-								break
-							}
-					}
-				if (sysfar = "")
-					{
-						stringreplace,ffr,CHKITM,%A_Space%,,All
-						stringreplace,ffr,ffr,-,,All
-						stringLower,ffr,ffr
-						emks= %ffr%
-						SLCTDEXT=.lnk .LNK
-						SLCTDEMU= BSL
-						SLCTDRW= "`%ROM_RAW`%"
-						selctsys= %esmirror%\%CHKITM%
-						SLCTDSN= %ffr%_
-						SNFEITMS.= ffr . "_" . "|"
-					}
-				NFEITMS.= A_LoopField . "|"
-				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,abbreviation
-				IniWrite,%CHKITM%,ESCfg.ini,%SLCTDSN%,dsp_es
-				IniWrite,.lnk,ESCfg.ini,%SLCTDSN%,ext_es
-				IniWrite,%SLCTDEMU%,ESCfg.ini,%SLCTDSN%,emu_es
-				IniWrite,"%SLCTDRW%",ESCfg.ini,%SLCTDSN%,arg_es
-				IniWrite,%selctsys%,ESCfg.ini,%SLCTDSN%,rmp_es
-				IniWrite,%emks%,ESCfg.ini,%SLCTDSN%,thm_es
-			}
-		iniread,sysordr,EScfg.ini,ORDER,system_order
-		if (sysordr = "ERROR")
-			{
-				sysordr=
-			}
-		ESCURPL= %sysordr%%SNFEITMS%
-		iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
-		Guicontrol,,FELBXA,|%ESCURPL%
-		LV_Modify(0, "-Check")
-		Loop,Parse,ESFEGUIITEMS,|
-			{
-				guicontrol,enable,%A_LoopField%
-			}
-		return
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
 	}
-nvar=
-if (FERAD5C = 1)
+Loop, Parse, ESCURPL,|
 	{
-		if (sysfnd = 1)
+		if (A_LoopField = curtxt)
 			{
-				SB_SetText("Current system is already added")
-				Loop,Parse,ESFEGUIITEMS,|
-					{
-						guicontrol,enable,%A_LoopField%
-					}
+				SB_SetText("Current system is already in the playlist.")
+				esguitog= enable
+				gosub, esguitog
 				return
 			}
-		RowNumber = 0
-		Loop
+	}
+ESCURPL.= curtxt . "|"
+guicontrolget,FECBXB,,FECBXB
+if (FECBXB = "")
+	{
+		FECBXB= %curtxt%
+	}
+guicontrolget,FECBXD,,FECBXD
+if (FECBXD = "")
+	{
+		FECBXD= %curtxt%
+	}
+guicontrolget,FECBXA,,FECBXA
+if (FECBXA = "")
+	{
+		FECBXA= %curtxt%
+	}
+if (SLCTDSN = "")
+	{
+		SLCTDSN= other
+	}
+guicontrolget,SLCTDEMU,,FEDDLG
+if (SLCTDEMU = "other")
+	{
+		if (esemu = "")
 			{
-				RowNumber := LV_GetNext(RowNumber)  ; Resume the search at the row after that found by the previous iteration.
-				if not RowNumber
+				SB_SetText("You must assign an Emulator")
+				esguitog= enable
+				gosub, esguitog
+				return
+			}
+		SLCTDEMU= %esemu%
+	}
+ifinstring,SLCTDEMU,_libretro.dll
+	{		
+		SLCTDRW= -L "%libretrodirectory%\%SLCTDEMU%" >[ROMPATH]>
+		SLCTDEMU= retroarch
+	}
+guicontrolget,SLCTDEXT,,FEEDTB
+if (SLCTDEXT = "")
+	{
+		SLCTDEXT= .*
+	}
+guicontrolget,SLCTDRW,,FEEDTA
+if (SLCTDRW = "")
+	{
+		SB_SetText("launch parameter set to  ''`%ROM_RAW`%''")
+		SLCTDRW=>[ROMPATH]>
+		guicontrol,,FEEDTA,%SLCTDRW%
+	}
+guicontrolget,selctsyst,,FETXTJ
+if (selctsyst = "")
+	{
+		iniread,selctsystl,SystemLocations.ini,LOCATIONS,%fecbxb%
+		if ((selctsystl = "")or(selctsystl = "ERROR"))
+			{
+				selctsyst= %RJSYSTEMS%
+			}
+			else {
+				Loop,parse,selctsystl,|
 					{
+						selctsyst= %A_LoopField%
 						break
 					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
 			}
-		Loop, Parse, ESCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						SB_SetText("Current system is already in the playlist.")
-						Loop,Parse,ESFEGUIITEMS,|
-							{
-								guicontrol,enable,%A_LoopField%
-							}
-						return
-					}
-			}
-		ESCURPL.= curtxt . "|"
-		guicontrolget,FECBXB,,FECBXB
-		if (FECBXB = "")
-			{
-				FECBXB= %curtxt%
-			}
-		guicontrolget,FECBXD,,FECBXD
-		if (FECBXD = "")
-			{
-				FECBXD= %curtxt%
-			}
-		guicontrolget,FECBXA,,FECBXA
-		if (FECBXA = "")
-			{
-				FECBXA= %curtxt%
-			}
-		if (SLCTDSN = "")
-			{
-				SLCTDSN= other
-			}
-		guicontrolget,SLCTDEMU,,FEDDLG
-		if (SLCTDEMU = "other")
-			{
-				if (esemu = "")
-					{
-						SB_SetText("You must assign an Emulator")
-						Loop,Parse,ESFEGUIITEMS,|
-							{
-								guicontrol,enable,%A_LoopField%
-							}
-						return
-					}
-				SLCTDEMU= %esemu%
-			}
-		guicontrolget,SLCTDEXT,,FEEDTB
-		if (SLCTDEXT = "")
-			{
-				SLCTDEXT= .*
-			}
-		guicontrolget,SLCTDRW,,FEEDTA
-		if (SLCTDRW = "")
-			{
-				SB_SetText("launch parameter set to  ''`%ROM_RAW`%''")
-				SLCTDRW="`%ROM_RAW`%"
-				guicontrol,,FEEDTA,%SLCTDRW%
-			}
-		SLCTDRW=%A_SPACE%%SLCTDRW%
-	}
-IniWrite,%FECBXD%,ESCfg.ini,%emks%,abbreviation
-IniWrite,%FECBXB%,ESCfg.ini,%emks%,dsp_es
-IniWrite,%SLCTDEXT%,ESCfg.ini,%emks%,ext_es
-IniWrite,%SLCTDEMU%,ESCfg.ini,%emks%,emu_es
-IniWrite,"%SLCTDRW%",ESCfg.ini,%emks%,arg_es
-IniWrite,%selctsys%,ESCfg.ini,%emks%,rmp_es
-IniWrite,%FECBXA%,ESCfg.ini,%emks%,thm_es
+	}	
+SLCTDRW=%A_SPACE%%SLCTDRW%
+IniWrite,%FECBXD%,ESCfg.ini,%curtxt%,abbreviation
+IniWrite,%FECBXB%,ESCfg.ini,%curtxt%,dsp_es
+IniWrite,%SLCTDEXT%,ESCfg.ini,%curtxt%,ext_es
+IniWrite,%SLCTDEMU%,ESCfg.ini,%curtxt%,emu_es
+IniWrite,"%SLCTDRW%",ESCfg.ini,%curtxt%,arg_es
+IniWrite,%fecbxb%,ESCfg.ini,%curtxt%,rmp_es
+IniWrite,%FECBXA%,ESCfg.ini,%curtxt%,thm_es
 iniread,sysordr,EScfg.ini,ORDER,system_order
 if (sysordr <> "ERROR")
 	{
@@ -61637,10 +61525,8 @@ guicontrol,,FELBXA,|%ESCURPL%
 iniwrite,%ESCURPL%,EScfg.ini,ORDER,system_order
 Gui,ListView,FELVA
 LV_Modify(0, "-Check")
-Loop,Parse,ESFEGUIITEMS,|
-	{
-		guicontrol,enable,%A_LoopField%
-	}
+esguitog= enable
+gosub, esguitog
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFECBXA:
@@ -61780,6 +61666,11 @@ if (FEDDLG = "other")
 		guicontrol,enable,FEBUTE
 		return
 	}
+ifinstring,FEDDLG,_libretro.dll
+	{
+		iniwrite,%A_SPace%-L "%libretrodirectory%\%FEDDLG%" >[ROMPATH]>,esCfg.ini,%curtxt%,arg_es
+		iniwrite,retroarch,esCfg.ini,%curtxt%,emu_es
+	}	
 iniread,esemt,apps.ini,EMULATORS,%FEDDLG%
 if (esemt = "ERROR")
 	{
@@ -61793,12 +61684,6 @@ if (esemt = "ERROR")
 		iniwrite, "%esemu%",apps.ini,EMULATORS,%FEDDLG%
 		guicontrol,enable,FEBUTE
 	}
-emuwr= %FEDDLG%
-if (pto = 1)
-	{
-		emuwr= %esemu%
-	}
-iniwrite,%emuwr%,EScfg.ini,%curtxt%,emu_es
 pto=
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61817,10 +61702,6 @@ return
 EmulationStationFEBUTH:
 guicontrolget,sysfnd,,FEDDLG
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   ES EMULATOR SELECTION   ;;;;;;;;;;;;;;;;;;;;;;;;;;
-if (sysfnd = "")
-	{
-		return
-	}
 FileSelectFile,esemutmp,3,,Select an emulator for %addsystm%
 if (esemutmp = "")
 	{
@@ -61829,8 +61710,9 @@ if (esemutmp = "")
 esemu= %esemutmp%
 extpop= %curtxt%
 iniwrite,%esemu%,EScfg.ini,%curtxt%,emu_es
-guicontrol,,FEDDLG,|other||%emuinstpop%
+guicontrol,,FEDDLG,|%esemu%||%emuinstpop%
 return
+
 EmulationStationFEDDLC:
 guicontrolget,FEDDLC,,FEDDLC
 iniwrite,%FEDDLC%,EScfg.ini,CONFIG,GameList
@@ -62103,162 +61985,109 @@ return
 EmulationStationFEEDTA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;  ES EDIT FIELDS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,submit,nohide
+extpop= %curtxt%
+guicontrolget,FEEDTA,,FEEDTA
 if (sysfnd = "")
 	{
 		return
 	}
-guicontrolget,FEEDTA,,FEEDTA
-extpop= %curtxt%
 iniwrite,"%FEEDTA%",EScfg.ini,%curtxt%,arg_es
 return
 EmulationStationFEEDTB:
+guicontrolget,FEEDTB,,FEEDTB
 if (sysfnd = "")
 	{
 		return
 	}
-guicontrolget,FEEDTB,,FEEDTB
 iniwrite,%FEEDTB%,EScfg.ini,%curtxt%,ext_es	
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 EmulationStationFERAD5A:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES JACKET RADIO  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,hide,FEDDLF
-Gui,ListView,FELVA
-LV_Delete()
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-Loop, %RJSYSTEMS%\*,2
-	{
-		if A_LoopFileAttrib contains H
-			{
-				continue
-			}
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
-GuiControl,,FEDDLA,|Systems||
+guicontrol,,FEEDTB,.bat
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFERAD5B:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES MIRROR RADIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,show,FEDDLF
-guicontrolget,FEDDLF,,FEDDLF
-IniRead,mirsl,Settings.ini,GLOBAL,%FEDDLF%
-Gui,ListView,FELVA
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-LV_Delete()
-Loop,%mirsl%\*,2
-	{
-		LV_Add("",A_LoopFileName)
-	}
-LV_ModifyCol()
-GuiControl,,FEDDLA,|Systems||
+guicontrol,,FEEDTB,.lnk
+guicontrol,,FEDDLG,|bsl||%runlist%
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFERAD5C:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  ES ROM RADIO   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,hide,FEDDLF
+espopem=
+iniread,allxtn,EmuCfgPresets.ini,%curtxt%,RJROMXT
+iniread,esemuas,Assignments.ini,OVERRIDES,%curtxt%
+if (esemuas = "")
+	{
+		iniread,esemudef,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		Loop,parse,esemudef,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				iniread,esapx,Apps.ini,Emulators,%A_LoopField%
+				if ((esapx <> "ERROR")&&(esapx <> ""))
+					{	
+						if (espopem = "")
+							{
+								espopem.= A_LoopField . "||"
+								continue
+							}
+						espopem.= A_LoopField . "|"
+					}
+			}
+	}
+	else {
+		Loop,parse,esemuas,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (espopem = "")
+					{
+						espopem.= A_LoopField . "||"
+						continue
+					}
+				espopem.= A_LoopField . "|"
+			}
+	}
+guicontrol,,FEDDLG,|%espopem%%runlist%
+guicontrol,,FEEDTB,%allxtn%
+return
+;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ESPOPULATESYS:
 Gui,ListView,FELVA
+Guicontrol,-checked,FELVA
+Guicontrol,-Multi,FELVA
 LV_Delete()
-Guicontrol,+checked,FELVA
-Guicontrol,+Multi,FELVA
-/*
-Loop,parse,felkup,`n`r
+Loop, Parse, SysLLst,`n`r
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,eba,A_LoopField,=
-		iniread,atbe,SystemLocations.ini,LOCATIONS,%eba3%
-		if ((atbe <> "")&&(atbe <> "ERROR"))
+		stringsplit,syslk,A_LoopField,=
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk1%
+		if ((sysxst <> "")&&(sysxst <> "ERROR"))
 			{
-				ifexist,%RJSYSTEMS\%eba3%\
-					{
-						LV_Add("",eba3)
-					}
+				LV_Add("",syslk1)
 			}
-	}
-*/
-Loop, %RJSYSTEMS%\*,2
-	{
-		if A_LoopFileAttrib contains H
-			{
-				continue
-			}
-		LV_Add("",A_LoopFileName)
 	}
 LV_ModifyCol()
-GuiControl,,FEDDLA,|Systems||ALL
+guicontrol,hide,FEDDLF
+guicontrol,,FEDDLA,|Systems||ALL
 return
-;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 EmulationStationFELVA:
 GuiControl, Choose, FELBXA, 0
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTVIEW  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gui,listview,FELVA
 guicontrol,enable,FEBUTE
-if (FERAD5C = 1)
-	{
-		curtxt=
-		sysfnd=
-		guicontrol,,FETXTJ,
-		RowNumber = 0
-		Loop
-			{
-				RowNumber := LV_GetNext(RowNumber)
-				if not RowNumber
-					{
-						break
-					}
-				LV_GetNext(RowNumber, Focused)
-				LV_GetText(curtxt, RowNumber)
-			}
-		if (curtxt <> "")
-			{
-				Loop,Parse,ESFEGUIITEMS,|
-					{
-						guicontrol,disable,%A_LoopField%
-					}
-			}
-		Loop, Parse, ESCURPL,|
-			{
-				if (A_LoopField = curtxt)
-					{
-						curtxt=
-						SB_SetText("Current system is already in the playlist.")
-						guicontrol,disable,FEBUTE
-						LV_Modify(RowNumber, "-Select")
-						curtxt=
-						Loop,Parse,ESFEGUIITEMS,|
-							{
-								guicontrol,enable,%A_LoopField%
-							}
-						return
-					}
-			}
-		if (curtxt = "other")
-			{
-				guicontrol,disable,FEBUTE
-				SB_SetText("Define OTHER")
-				curtxt=
-				Loop,Parse,ESFEGUIITEMS,|
-					{
-						guicontrol,enable,%A_LoopField%
-					}
-				return
-			}
-		if (curtxt <> "")
-			{
-				gosub, popesv
-			}
-		Loop,Parse,ESFEGUIITEMS,|
-			{
-				guicontrol,enable,%A_LoopField%
-			}
-		return
-	}
 curtxt=
 sysfnd=
 guicontrol,,FETXTJ,
@@ -62269,59 +62098,167 @@ Loop
 		if not RowNumber
 			{
 				break
-				}
-			LV_GetNext(RowNumber, Focused)
-			LV_GetText(curtxt, RowNumber)
+			}
+		LV_GetNext(RowNumber, Focused)
+		LV_GetText(curtxt, RowNumber)
 	}
-Loop, Parse, EsLkUp,`n`r
+if (curtxt <> "")
 	{
-		matv1=
-		matv2=
-		matv3=
-		matv4=
-		matv5=
-		kvmax=
-		xfnd=
-		stringsplit,matv,A_LoopField,=
-		if (matv3 = curtxt)
+		Loop,Parse,ESFEGUIITEMS,|
 			{
-				if (matv1 <> "")
+				guicontrol,disable,%A_LoopField%
+			}
+	}
+Loop, Parse, ESCURPL,|
+	{
+		if (A_LoopField = curtxt)
+			{
+				curtxt=
+				SB_SetText("Current system is already in the playlist.")
+				guicontrol,disable,FEBUTE
+				LV_Modify(RowNumber, "-Select")
+				curtxt=
+				Loop,Parse,ESFEGUIITEMS,|
 					{
-						ifexist,%ESHOME%\themes\%estheme%\%matv1%\
-							{
-								kvmax= %matv1%||
-							}
+						guicontrol,enable,%A_LoopField%
 					}
-				guicontrol,,FECBXA,|%kvmax%%cursysthemelist%
-				guicontrol,,FECBXB,|%matv3%||%systmfldrs%%cursysthemelist%
-				guicontrol,,FECBXD,|%matv1%||%cursysthemelist%%systmfldrs%
-				guicontrol,,FECBXC,|%matv1%||%cursysthemelist%%systmfldrs%
-				xfnd= 1
+				return
+			}
+	}
+if (curtxt = "other")
+	{
+		guicontrol,disable,FEBUTE
+		SB_SetText("Define OTHER")
+		curtxt=
+		Loop,Parse,ESFEGUIITEMS,|
+			{
+				guicontrol,enable,%A_LoopField%
+			}
+		return
+	}
+Loop,parse,SysLLst,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,fbe,A_LoopField,=
+		if (fbe1 = curtxt)
+			{
+				eshrtn= %fbe3%
 				break
 			}
 	}
-if (xfnd = "")
+if (curtxt <> "")
 	{
-		kvmax=
-		curtIV=
-		stringreplace,curtIV,curtxt,%A_Space%,,All
-		stringreplace,curtIV,curtIV,-,,All
-		stringreplace,curtIV,curtIV,=,,All
-		stringlower,curtIV,curtIV
-		if (curtIV <> "")
+		inemuinp= 
+		inra= 
+		ingr= 
+		iniread,emuinp,Assignments.ini,OVERRIDES,%curtxt%
+		if ((emuinp <> "")&&(emuinp <> "ERROR"))
 			{
-				ifexist,%ESHOME%\themes\%estheme%\%curtIV%\
+				Loop,parse,emuinp,|
 					{
-						kvmax= %curtIV%||
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ingr= %A_LoopField%
+						if (A_Index = 1)
+							{
+								ifinstring,ingr,_libretro
+									{
+										inra= 1
+										inemuinp= retroarch||
+										continue
+									}
+								inemuinp=%ingr%||
+								continue
+							}
+						inemuinp.= ingr . "|"	
 					}
 			}
-		guicontrol,,FECBXA,|%kvmax%%cursysthemelist%
-		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%cursysthemelist%
-		guicontrol,,FECBXD,|%curtIV%||%cursysthemelist%%systmfldrs%
-		guicontrol,,FECBXC,|%curtIV%||%cursysthemelist%%systmfldrs%
-		guicontrol,,FEEDTA,"`%ROM_RAW`%"
+		iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
+		if ((emuinx <> "")&&(emuinx <> "ERROR"))
+			{
+				loop,parse,emuinx,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
+						if ((tbst = "ERROR")or(tbst = ""))
+							{
+								continue
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}
+		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
+		if ((emuinc <> "")&&(emuinc <> "ERROR"))
+			{
+				loop,parse,emuinc,|
+					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ifnotexist,%libretrodirectory%\%A_LoopField%
+							{
+								continue	
+							}
+						if !instr(inemuinp,A_LoopField)
+							{
+								if (inemuinp = "")
+									{
+										inemuinp= %A_LoopField%||
+										continue
+									}
+								inemuinp.= A_LoopField . "|"
+							}
+					}
+			}	
+		if (inemuinp = "")
+			{
+				inemuinp= MAME - Systems||
+			}
+		iniread,emupxt,EmuCfgPresets.ini,%curtxt%,RJROMXT
+		if ((emupxt = "")or(emupxt = "ERROR"))
+			{
+				emupxt= .zip
+			}
+		iniread,emuppp,EmuCfgPresets.ini,%curtxt%,FEPARAM
+		iniread,evr,Assignments.ini,ASSIGNMENTS,retroarch
+
+		if (inra = 1)
+			{
+				emuppp= -L%A_Space%>%libretrodirectory%\%ingr%>%A_space%%emuppp%
+			}
+		guicontrol,,FEEDTA,%A_Space%%emuppp%
+		guicontrol,,FEEDTB,%emupxt%
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
+		guicontrol,,FECBXD,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXC,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXA,|%eshrtn%||%avblnk%%cursysthemelist%
+	}
+	else {
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
+		guicontrol,,FECBXD,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXC,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXA,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FEEDTA,%a_space%>[ROMPATH]>
 		guicontrol,,FEEDTB,.zip
-		guicontrol,,FEDDLG,|MAME - System|%emuinstpop%
+		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
 	}
 Loop,Parse,ESFEGUIITEMS,|
 	{
@@ -62331,6 +62268,31 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFELBXA:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;   ES LISTBOX  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+gui,submit,nohide
+guicontrolget,curtxt,,FELBXA
+guicontrol,,FERAD5A,0
+guicontrol,,FERAD5B,0
+guicontrol,,FERAD5C,0
+iniread,cestn,ESCfg.ini,%curtxt%,thm_es
+iniread,cesfn,ESCfg.ini,%curtxt%,dsp_es
+iniread,cessn,ESCfg.ini,%curtxt%,abbreviation
+iniread,cesxtn,ESCfg.ini,%curtxt%,ext_es
+iniread,cesemo,ESCfg.ini,%curtxt%,arg_es
+iniread,cesemu,ESCfg.ini,%curtxt%,emu_es	
+iniread,cessyp,ESCfg.ini,%curtxt%,rmp_es	
+guicontrol,,fecbxa,|%cestn%||%avblnk%%cursysthemelist%
+guicontrol,,fecbxb,|%cesfn%||%systmfldrs%
+guicontrol,,fecbxc,|%cessn%||%avblnk%%cursysthemelist%
+guicontrol,,fecbxd,|%cessn%||%avblnk%%cursysthemelist%
+guicontrol,,FEEDTA,%A_SPACE%%cesemo%
+guicontrol,,FEEDTB,%cesxtn%
+guicontrol,,FEDDLG,|other|%cpgemu%||%runlist%
+guicontrolget,curtxtm,,FECBXD
+guicontrolget,curtxtp,,FECBXC
+sysfnd= 1
+return
+
+
 gui,submit,nohide
 guicontrolget,fecbxa,,FECBXA
 guicontrolget,curtxt,,FELBXA
@@ -62346,40 +62308,29 @@ Loop,Parse,ESFEGUIITEMS,|
 	}
 return
 popesv:
-if (FERAD5A = 1)
+eslocor= %RJSYSTEMS%
+iniread,es_abbr,EScfg.ini,%curtxt%,abbreviation
+if ((es_abbr = "ERROR")or(es_abbr = ""))
 	{
-		eslocor= %RJSYSTEMS%
+		es_abbr= other
 	}
-if (FERAD5B = 1)
+iniread,es_disp,EScfg.ini,%curtxt%,dsp_es	
+if ((es_disp = "ERROR")or(es_disp = ""))
 	{
-		eslocor= %esmirror%
+		es_disp= other
 	}
-if (FERAD5C = 1)
+iniread,es_extn,EScfg.ini,%curtxt%,ext_es	
+if ((es_extn = "ERROR")or(es_extn = ""))
 	{
-		eslocor= %RJSYSTEMS%
+		es_extn= zip
 	}
-iniread,ksivi1,EScfg.ini,%curtxt%,abbreviation
-if ((ksivi1 = "ERROR")or(ksivi1 = ""))
+iniread,es_emun,EScfg.ini,%curtxt%,emu_es
+if ((es_emun = "ERROR")or(es_emun = ""))
 	{
-		ksivi1= other
+		es_emun= other
 	}
-iniread,ksivi2,EScfg.ini,%curtxt%,dsp_es	
-if ((ksivi2 = "ERROR")or(ksivi2 = ""))
-	{
-		ksivi2= other
-	}
-iniread,ksivi3,EScfg.ini,%curtxt%,ext_es	
-if ((ksivi3 = "ERROR")or(ksivi3 = ""))
-	{
-		ksivi3= zip
-	}
-iniread,ksivi4,EScfg.ini,%curtxt%,emu_es
-if ((ksivi4 = "ERROR")or(ksivi4 = ""))
-	{
-		ksivi4= other
-	}
-iniread,ksivir,EScfg.ini,%curtxt%
-Loop,parse,ksivir,`n`r
+iniread,es_compl,EScfg.ini,%curtxt%
+Loop,parse,es_compl,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -62388,48 +62339,48 @@ Loop,parse,ksivir,`n`r
 		stringsplit,avn,A_LoopField,=
 		if (avn1 = "arg_es")
 			{
-				ksivi5:= avn2
+				es_argum:= avn2
 			}
 	}
-if ((ksivi5 = "ERROR")or(ksivi5 = ""))
+if ((es_argum = "ERROR")or(es_argum = ""))
 	{
-		ksivi5="`%ROM_RAW`%" 
+		es_argum="`%ROM_RAW`%" 
 	}
-iniread,ksivi6,EScfg.ini,%curtxt%,rmp_es
-if ((ksivi6 = "ERROR")or(ksivi6 = ""))
+iniread,es_systm,EScfg.ini,%curtxt%,rmp_es
+if ((es_systm = "ERROR")or(es_systm = ""))
 	{
-		ksivi6= %RJSYSTEMS%\%curtxt%
+		es_systm= %curtxt%
 	}	
-iniread,ksivi7,EScfg.ini,%curtxt%,thm_es	
-if ((ksivi7 = "ERROR")or(ksivi7 = ""))
+iniread,es_thmsys,EScfg.ini,%curtxt%,thm_es	
+if ((es_thmsys = "ERROR")or(es_thmsys = ""))
 	{
-		ksivi7= other
+		es_thmsys= other
 	}
-stringreplace,ksivtr,ksivi5,"""",",All
+stringreplace,ksivtr,es_argum,"""",",All
 ;"
-stringreplace,ksivtr,ksivi5,""",",All
-stringreplace,ksivtr,ksivi5,"",",All
+stringreplace,ksivtr,es_argum,""",",All
+stringreplace,ksivtr,es_argum,"",",All
 ;"
 guicontrol,,FEEDTA,%ksivtr%
-guicontrol,,FEEDTB,%ksivi3%
-ifinstring,ksivi5,:
+guicontrol,,FEEDTB,%es_extn%
+ifinstring,es_argum,:
 	{
-		ksivi5= other
+		es_argum= other
 	}
 guicontrol,,FECBXD,|%curtxt%||%knwnfldrs%%cursysthemelist%
-guicontrol,,FECBXC,|%ksivi1%||%cursysthemelist%%knwnfldrs%
-kmpex= %ksivi1%||
-if (ksivi7 <> "")
+guicontrol,,FECBXC,|%es_abbr%||%cursysthemelist%%knwnfldrs%
+kmpex= %es_abbr%||
+if (es_thmsys <> "")
 	{
-		ifexist,%ESHOME%\themes\%estheme%\%ksivi7%\
+		ifexist,%ESHOME%\themes\%estheme%\%es_thmsys%\
 			{
-				kmpex= %ksivi7%||
+				kmpex= %es_thmsys%||
 			}
 	}
 guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
-guicontrol,,FETXTJ,%ksivi6%
-guicontrol,,FEDDLG,|other|%ksivi4%||%emuinstpop%
-guicontrol,,FECBXB,|other|%ksivi2%||%knwnfldrs%
+guicontrol,,FETXTJ,%es_systm%
+guicontrol,,FEDDLG,|other|%es_emun%||%emuinstpop%
+guicontrol,,FECBXB,|other|%es_disp%||%knwnfldrs%
 if (sysfnd = "")
 	{
 		emks=

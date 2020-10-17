@@ -2285,6 +2285,13 @@ URLPTH=pcengine/pcengine.7z
 EXENAM=pcengine.exe
 CFGPTH=pcengine.ini
 
+[pcsxredux]
+URLPTH=pcsxredux/pcsxredux[ARCH].7z
+EXENAM=pcsx-redux.exe
+CFGPTH=pcsx.json
+options=" "
+BIOS=O
+
 [pcsxr]
 URLPTH=pcsxr/pcsxr.7z
 EXENAM=pcsxr.exe
@@ -5349,7 +5356,7 @@ RJMULTIDISC=1
 RJROMXT=.cue,.iso,.bin,.nrg,.mdf,.img,.pbp,.elf,.gcm,.toc,.m3u,.ccd,.exe
 MAME?RJEMUOPTS=<psu -[RJRTYP]<|<psu -cdrm<|<psj -cdrm<|<psa -cdrm<|<psu -memc1<|<pse -memc1<|<psj -memc1<|<psa -memc1<|<pse -cdrm<
 SHORTNM=SPLAY
-SUPEMU=epsxe|Mednafen|pcsxr|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|duckstation
+SUPEMU=epsxe|Mednafen|pcsxr|pcsxredux|AdriPSX|Bizhawk|no$psx|psxfin|xebra|hpsx|duckstation
 SUPCORE=mednafen_psx_libretro.dll|pcsx_rearmed_libretro.dll|mednafen_psx_hw_libretro.dll|duckstation_libretro.dll
 LNCHPRM=$|1|1|1|1|0
 FENAM=psx
