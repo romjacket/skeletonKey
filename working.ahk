@@ -1419,8 +1419,8 @@ Loop, Parse, SysLLst,`n`r
 				
 				fe_%fe_sysn%= %re_sysn%
 			}
-		fesyslst.= syscfgfld3 . "|"
-		syspardinj_%FENN%= %syscfgfld1%
+		fesyslst.= fe_sysn . "|"
+		syspardinj_%FENN%= %re_sysn%
 	}
 fe_= 	
 if (INITIAL = 1)
@@ -53304,7 +53304,7 @@ Loop,read,settings.txt
 				break	
 			}
 	}
-if (PgNpts = "")
+if (fesyslst = "")
 	{
 		Loop,Parse,PgLkUp,`n`r
 			{
@@ -53313,7 +53313,7 @@ if (PgNpts = "")
 						continue
 					}
 				stringsplit,syslk,A_LoopField,=
-				PgNpts.= syslk1 . "|"
+				fesyslst.= syslk1 . "|"
 			}
 	}
 fetog= show
@@ -53344,7 +53344,7 @@ Loop,%PGHOME%\themes\*,2
 			}
 		break
 	}
-cursysthemelist= %PgNpts%
+cursysthemelist= %fesyslst%
 avblnk=
 guicontrol,,FELBXA,%PGCURPL%
 
@@ -53495,20 +53495,20 @@ guicontrol,,FECBXB,|%systmfldrs%
 guicontrol,%fetog%,FECBXC
 guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
-guicontrol,,FECBXC,|%avblnk%%PgNpts%
+guicontrol,,FECBXC,|%avblnk%%fesyslst%
 ;;shortname;;
 guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
-guicontrol,,FECBXD,|%avblnk%%PgNpts%
+guicontrol,,FECBXD,|%avblnk%%fesyslst%
 ;;theme;;
 guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
-guicontrol,+checked,FELVA
-guicontrol,+Multi,FELVA
+guicontrol,-checked,FELVA
+;;guicontrol,+Multi,FELVA
 gui,ListView,FELVA
 LV_Delete()
 Loop, Parse, systmfldrs,|
@@ -53660,7 +53660,7 @@ if (pgteo = "")
 	{
 		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
 	}
-guicontrol,,FECBXA,|%PgNpts%
+guicontrol,,FECBXA,|%fesyslst%
 guicontrol,enable,FEBUTA
 ifnotexist,%pghome%\settings.txt
 	{
@@ -54125,7 +54125,7 @@ Loop, Parse, pgtv,|
 	}
 pgtv= %pt1%|%pt2%|%pt3%|%pt4%|%pt5%|%pt6%|%SYSTHM%
 iniwrite,%pgtv%,PGcfg.ini,GLOBAL,%extpop%
-cursysthemelist= %PgNpts%
+cursysthemelist= %fesyslst%
 ;};;;;;;;;;;;;;;;;;;;;
 PegasusFECBXC:
 if (sysfnd = "")
@@ -54195,7 +54195,7 @@ PegasusFEDDLD:
 guicontrolget,pgtheme,,FEDDLD
 iniwrite,%pgtheme%,PGcfg.ini,CONFIG,theme
 cursysthemelist=
-guicontrol,,FECBXA,|%PgNpts%
+guicontrol,,FECBXA,|%fesyslst%
 ifnotexist,%pghome%\settings.txt
 	{
 		SB_SetText("configuration must be created")
@@ -54816,9 +54816,9 @@ if (krbz <> "")
 							{
 								continue
 							}
-						ingr= %A_LoopField%
 						if (A_Index = 1)
 							{
+								ingr= %A_LoopField%
 								ifinstring,ingr,_libretro
 									{
 										inra= 1
@@ -54831,55 +54831,61 @@ if (krbz <> "")
 						inemuinp.= ingr . "|"	
 					}
 			}
-		iniread,emuinx,EmuCfgPresets.ini,%krbz%,SUPEMU
-		if ((emuinx <> "")&&(emuinx <> "ERROR"))
-			{
-				loop,parse,emuinx,|
+			else {
+				iniread,emuinx,EmuCfgPresets.ini,%krbz%,SUPEMU
+				if ((emuinx <> "")&&(emuinx <> "ERROR"))
 					{
-						if (A_LoopField = "")
+						loop,parse,emuinx,|
 							{
-								continue
-							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						if ((tbst = "ERROR")or(tbst = ""))
-							{
-								continue
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
+								if (A_LoopField = "")
 									{
-										inemuinp= %A_LoopField%||
 										continue
 									}
-								inemuinp.= A_LoopField . "|"
+								INIREAD,TBST,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+								if ((tbst = "ERROR")or(tbst = ""))
+									{
+										continue
+									}
+								if !instr(inemuinp,A_LoopField)
+									{
+										if (inemuinp = "")
+											{
+												inemuinp= %A_LoopField%||
+												continue
+											}
+										inemuinp.= A_LoopField . "|"
+									}
 							}
+					}
+					else {
+						iniread,emuinc,EmuCfgPresets.ini,%krbz%,SUPCORE
+						if ((emuinc <> "")&&(emuinc <> "ERROR"))
+							{
+								loop,parse,emuinc,|
+									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										ifnotexist,%libretrodirectory%\%A_LoopField%
+											{
+												continue	
+											}
+										if !instr(inemuinp,A_LoopField)
+											{
+												if (inemuinp = "")
+													{
+														inra= 1
+														ingr= %A_LoopField%
+														inemuinp= %A_LoopField%||
+														continue
+													}
+												inemuinp.= A_LoopField . "|"
+											}
+									}
+							}	
 					}
 			}
-		iniread,emuinc,EmuCfgPresets.ini,%krbz%,SUPCORE
-		if ((emuinc <> "")&&(emuinc <> "ERROR"))
-			{
-				loop,parse,emuinc,|
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						ifnotexist,%libretrodirectory%\%A_LoopField%
-							{
-								continue	
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
-									{
-										inemuinp= %A_LoopField%||
-										continue
-									}
-								inemuinp.= A_LoopField . "|"
-							}
-					}
-			}	
 			if (inemuinp = "")
 				{
 					inemuinp= MAME - Systems||
@@ -54902,15 +54908,15 @@ if (krbz <> "")
 		guicontrol,,FEEDTA,%A_Space%%emuppp%
 		guicontrol,,FEEDTB,%emupxt%
 		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
-		guicontrol,,FECBXB,|%krbz%||%systmfldrs%%PgNpts%
-		guicontrol,,FECBXD,|%curtxt%||%PgNpts%%systmfldrs%
-		guicontrol,,FECBXC,|%curtxt%||%PgNpts%%systmfldrs%
+		guicontrol,,FECBXB,|%krbz%||%systmfldrs%%fesyslst%
+		guicontrol,,FECBXD,|%curtxt%||%fesyslst%%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%fesyslst%%systmfldrs%
 	}
 	else {
-		;;guicontrol,,FECBXA,|%kvmax%%PgNpts%
-		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%PgNpts%
-		guicontrol,,FECBXD,|%curtxt%||%PgNpts%%systmfldrs%
-		guicontrol,,FECBXC,|%curtxt%||%PgNpts%%systmfldrs%
+		;;guicontrol,,FECBXA,|%kvmax%%fesyslst%
+		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%%fesyslst%
+		guicontrol,,FECBXD,|%curtxt%||%fesyslst%%systmfldrs%
+		guicontrol,,FECBXC,|%curtxt%||%fesyslst%%systmfldrs%
 		guicontrol,,FEEDTA,%a_space%>[ROMPATH]>
 		guicontrol,,FEEDTB,.zip
 		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
@@ -54933,8 +54939,8 @@ iniread,cpgemo,PGcfg.ini,%curtxt%,emuoptions
 iniread,cpgemu,PGcfg.ini,%curtxt%,emuname	
 iniread,cpgsyp,PGcfg.ini,%curtxt%,syspath	
 guicontrol,,fecbxb,|%cpgfn%||%systmfldrs%
-guicontrol,,fecbxc,|%cpgpn%||%avblnk%%PgNpts%
-guicontrol,,fecbxd,|%curtxt%||%avblnk%%PgNpts%
+guicontrol,,fecbxc,|%cpgpn%||%avblnk%%fesyslst%
+guicontrol,,fecbxd,|%curtxt%||%avblnk%%fesyslst%
 guicontrol,,FEEDTA,%A_SPACE%%cpgemo%
 guicontrol,,FEEDTB,%cpgxtn%
 guicontrol,,FEEDTB,%cpgxtn%
@@ -57011,7 +57017,7 @@ Loop, %rfhome%\layouts\*,2
 			}
 		rfthemes.= A_LoopFileName . "|"
 	}
-if (RfNpts = "")
+if (fesyslst = "")
 	{
 		Loop,Parse,SysLLst,`n`r
 			{
@@ -57020,7 +57026,7 @@ if (RfNpts = "")
 						continue
 					}
 				stringsplit,syslk,A_LoopField,=
-				RfNpts.= syslk1 . "|"
+				fesyslst.= syslk1 . "|"
 			}
 	}
 fetog= show
@@ -57054,7 +57060,7 @@ Loop,%RFHOME%\layouts\*,2
 			}
 		break
 	}
-cursysthemelist= %RfNpts%
+cursysthemelist= %fesyslst%
 avblnk=
 guicontrol,,FELBXA,%RFCURPL%
 IniRead, rfmirloc,RFcfg.ini,CONFIG,Mirror_Links
@@ -57228,7 +57234,7 @@ guicontrol,,FECBXC,|%systmfldrs%
 guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
-;;guicontrol,,FECBXD,|%avblnk%%RfNpts%
+;;guicontrol,,FECBXD,|%avblnk%%fesyslst%
 guicontrol,,FECBXD,|%systmfldrs%
 ;;theme;;
 guicontrol,%fetog%,FECBXA
@@ -57243,7 +57249,7 @@ Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, RfNpts,|
+Loop, Parse, fesyslst,|
 	{
 		ifnotinstring,SysLLst,%A_LoopField%=
 			{
@@ -58386,9 +58392,9 @@ if (curtnm <> "")
 							{
 								continue
 							}
-						ingr= %A_LoopField%
 						if (A_Index = 1)
 							{
+								ingr= %A_LoopField%
 								ifinstring,ingr,_libretro
 									{
 										inra= 1
@@ -58401,55 +58407,60 @@ if (curtnm <> "")
 						inemuinp.= ingr . "|"	
 					}
 			}
-		iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
-		if ((emuinx <> "")&&(emuinx <> "ERROR"))
-			{
-				loop,parse,emuinx,|
+			else {
+				iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
+				if ((emuinx <> "")&&(emuinx <> "ERROR"))
 					{
-						if (A_LoopField = "")
+						loop,parse,emuinx,|
 							{
-								continue
-							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						if ((tbst = "ERROR")or(tbst = ""))
-							{
-								continue
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
+								if (A_LoopField = "")
 									{
-										inemuinp= %A_LoopField%||
 										continue
 									}
-								inemuinp.= A_LoopField . "|"
+								INIREAD,TBST,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+								if ((tbst = "ERROR")or(tbst = ""))
+									{
+										continue
+									}
+								if !instr(inemuinp,A_LoopField)
+									{
+										if (inemuinp = "")
+											{
+												inemuinp= %A_LoopField%||
+												continue
+											}
+										inemuinp.= A_LoopField . "|"
+									}
 							}
+					}
+					else {
+						iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
+						if ((emuinc <> "")&&(emuinc <> "ERROR"))
+							{
+								loop,parse,emuinc,|
+									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										ifnotexist,%libretrodirectory%\%A_LoopField%
+											{
+												continue	
+											}
+										if !instr(inemuinp,A_LoopField)
+											{
+												if (inemuinp = "")
+													{
+														ingr= %A_LoopField%
+														inemuinp= %A_LoopField%||
+														continue
+													}
+												inemuinp.= A_LoopField . "|"
+											}
+									}
+							}	
 					}
 			}
-		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
-		if ((emuinc <> "")&&(emuinc <> "ERROR"))
-			{
-				loop,parse,emuinc,|
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						ifnotexist,%libretrodirectory%\%A_LoopField%
-							{
-								continue	
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
-									{
-										inemuinp= %A_LoopField%||
-										continue
-									}
-								inemuinp.= A_LoopField . "|"
-							}
-					}
-			}	
 		if (inemuinp = "")
 			{
 				inemuinp= MAME - Systems||
@@ -60690,7 +60701,7 @@ return
 pgALL:
 gui,ListView,FELVA
 LV_Delete()
-Loop,parse,PgNpts,|
+Loop,parse,fesyslst,|
 	{
 		if (A_LoopField = "")
 			{
@@ -60977,7 +60988,7 @@ guicontrol,,FECHKF,%esnavsnds%
 guicontrol,%fetog%,FEEDTA
 guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
-guicontrol,,FEEDTA,%A_SPACE%"`%ROM_RAW`%"
+guicontrol,,FEEDTA,%A_SPACE%>[ROMPATH]>
 guicontrol,%fetog%,FEEDTB
 guicontrol,enable,FEEDTB
 guicontrol,-password,FEEDTB
@@ -60987,10 +60998,10 @@ guicontrol,%fetog%,FEDDLD
 guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
 guicontrol,,FEDDLD,|%esthpop%||%esthemes%
-guicontrol,%fetog%,FEDDLA
-guicontrol,enable,FEDDLA
-guicontrol,move,FEDDLA,x9 y41 w249
-guicontrol,,FEDDLA,|Systems||
+;;guicontrol,%fetog%,FEDDLA
+;;guicontrol,enable,FEDDLA
+;;guicontrol,move,FEDDLA,x9 y41 w249
+;;guicontrol,,FEDDLA,|Systems||
 guicontrol,%fetog%,FEDDLC
 guicontrol,enable,FEDDLC
 guicontrol,move,FEDDLC,x661 y259 w82
@@ -61029,7 +61040,7 @@ guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
-;;guicontrol,+checked,FELVA
+guicontrol,-checked,FELVA
 ;;guicontrol,+Multi,FELVA
 gui,ListView,FELVA
 LV_Delete()
@@ -61242,6 +61253,8 @@ ifexist, %ESHOME%\themes\%FEDDLD%
 					cursysthemelist.= A_LoopFileName . "|"
 				}
 		guicontrol,,FECBXA,|%cursysthemelist%
+		guicontrol,,FECBXC,|%cursysthemelist%%systmfldrs%
+		guicontrol,,FECBXD,|%cursysthemelist%%systmfldrs%
 	}
 SB_SetText("Current theme is " ESTHEME " ")
 esguitog= enable
@@ -61543,11 +61556,6 @@ guicontrolget,SYSTHM,,FECBXA
 guicontrolget,SYSNAM,,FECBXD
 extpop= %curtxt%
 iniwrite,%SYSTHM%,EScfg.ini,%extpop%,thm_es
-cursysthemelist=
-Loop, %ESHOME%\themes\%FEDDLD%\*,2
-	{
-		cursysthemelist.= A_LoopFileName . "|"
-	}
 return
 ;};;;;;;;;;;;;;;;;;;;;
 EmulationStationFECBXC:
@@ -61613,6 +61621,8 @@ ifexist,%ESHOME%\themes\%estheme%
 				cursysthemelist.= A_LoopFileName . "|"
 			}
 		guicontrol,,FECBXA,|%cursysthemelist%
+		guicontrol,,FECBXC,|%cursysthemelist%%systmfldrs%
+		guicontrol,,FECBXD,|%cursysthemelist%%systmfldrs%
 	}
 	else {
 		SB_SetText("Download this theme")
@@ -62167,9 +62177,9 @@ if (curtxt <> "")
 							{
 								continue
 							}
-						ingr= %A_LoopField%
 						if (A_Index = 1)
 							{
+								ingr= %A_LoopField%
 								ifinstring,ingr,_libretro
 									{
 										inra= 1
@@ -62182,55 +62192,61 @@ if (curtxt <> "")
 						inemuinp.= ingr . "|"	
 					}
 			}
-		iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
-		if ((emuinx <> "")&&(emuinx <> "ERROR"))
-			{
-				loop,parse,emuinx,|
+			else {
+				iniread,emuinx,EmuCfgPresets.ini,%curtxt%,SUPEMU
+				if ((emuinx <> "")&&(emuinx <> "ERROR"))
 					{
-						if (A_LoopField = "")
+						loop,parse,emuinx,|
 							{
-								continue
-							}																			INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						INIREAD,TBST,Assignments.ini,OVERRIDES,%A_LoopField%
-						if ((tbst = "ERROR")or(tbst = ""))
-							{
-								continue
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
+								if (A_LoopField = "")
 									{
-										inemuinp= %A_LoopField%||
 										continue
 									}
-								inemuinp.= A_LoopField . "|"
+								INIREAD,TBST,Assignments.ini,ASSIGNMENTS,%A_LoopField%
+								if ((tbst = "ERROR")or(tbst = ""))
+									{
+										continue
+									}
+								if !instr(inemuinp,A_LoopField)
+									{
+										if (inemuinp = "")
+											{
+												inemuinp= %A_LoopField%||
+												continue
+											}
+										inemuinp.= A_LoopField . "|"
+									}
 							}
+					}
+				else {
+					iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
+					if ((emuinc <> "")&&(emuinc <> "ERROR"))
+						{
+							loop,parse,emuinc,|
+								{
+									if (A_LoopField = "")
+										{
+											continue
+										}
+									ifnotexist,%libretrodirectory%\%A_LoopField%
+										{
+											continue	
+										}
+									if !instr(inemuinp,A_LoopField)
+										{
+											if (inemuinp = "")
+												{
+													inra= 
+													ingr= %A_LoopField%
+													inemuinp= %A_LoopField%||
+													continue
+												}
+											inemuinp.= A_LoopField . "|"
+										}
+								}
+						}	
 					}
 			}
-		iniread,emuinc,EmuCfgPresets.ini,%curtxt%,SUPCORE
-		if ((emuinc <> "")&&(emuinc <> "ERROR"))
-			{
-				loop,parse,emuinc,|
-					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						ifnotexist,%libretrodirectory%\%A_LoopField%
-							{
-								continue	
-							}
-						if !instr(inemuinp,A_LoopField)
-							{
-								if (inemuinp = "")
-									{
-										inemuinp= %A_LoopField%||
-										continue
-									}
-								inemuinp.= A_LoopField . "|"
-							}
-					}
-			}	
 		if (inemuinp = "")
 			{
 				inemuinp= MAME - Systems||
@@ -62242,7 +62258,6 @@ if (curtxt <> "")
 			}
 		iniread,emuppp,EmuCfgPresets.ini,%curtxt%,FEPARAM
 		iniread,evr,Assignments.ini,ASSIGNMENTS,retroarch
-
 		if (inra = 1)
 			{
 				emuppp= -L%A_Space%>%libretrodirectory%\%ingr%>%A_space%%emuppp%
@@ -62277,20 +62292,20 @@ guicontrolget,curtxt,,FELBXA
 guicontrol,,FERAD5A,0
 guicontrol,,FERAD5B,0
 guicontrol,,FERAD5C,0
-iniread,cestn,ESCfg.ini,%curtxt%,thm_es
 iniread,cesfn,ESCfg.ini,%curtxt%,dsp_es
 iniread,cessn,ESCfg.ini,%curtxt%,abbreviation
-iniread,cesxtn,ESCfg.ini,%curtxt%,ext_es
-iniread,cesemo,ESCfg.ini,%curtxt%,arg_es
+iniread,cestn,ESCfg.ini,%curtxt%,thm_es
 iniread,cesemu,ESCfg.ini,%curtxt%,emu_es	
+iniread,cesemo,ESCfg.ini,%curtxt%,arg_es
+iniread,cesxtn,ESCfg.ini,%curtxt%,ext_es
 iniread,cessyp,ESCfg.ini,%curtxt%,rmp_es	
-guicontrol,,fecbxa,|%cestn%||%avblnk%%cursysthemelist%
 guicontrol,,fecbxb,|%cesfn%||%systmfldrs%
+guicontrol,,fecbxa,|%cestn%||%avblnk%%cursysthemelist%
 guicontrol,,fecbxc,|%cessn%||%avblnk%%cursysthemelist%
 guicontrol,,fecbxd,|%cessn%||%avblnk%%cursysthemelist%
 guicontrol,,FEEDTA,%A_SPACE%%cesemo%
 guicontrol,,FEEDTB,%cesxtn%
-guicontrol,,FEDDLG,|other|%cpgemu%||%runlist%
+guicontrol,,FEDDLG,|other|%cesemu%||%runlist%
 guicontrolget,curtxtm,,FECBXD
 guicontrolget,curtxtp,,FECBXC
 sysfnd= 1
@@ -62371,8 +62386,8 @@ ifinstring,es_argum,:
 	{
 		es_argum= other
 	}
-guicontrol,,FECBXD,|%curtxt%||%knwnfldrs%%cursysthemelist%
-guicontrol,,FECBXC,|%es_abbr%||%cursysthemelist%%knwnfldrs%
+guicontrol,,FECBXD,|%curtxt%||%cursysthemelist%
+guicontrol,,FECBXC,|%es_abbr%||%cursysthemelist%
 kmpex= %es_abbr%||
 if (es_thmsys <> "")
 	{
