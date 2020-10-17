@@ -1410,10 +1410,14 @@ Loop, Parse, SysLLst,`n`r
 		allsupsys.= syscfgfld1 . "`n"
 		allsupport.= syscfgfld1 . "|"
 		%syscfgfld2%= %syscfgfld1%
-		if (syscfgfld3 <> "")
+		re_sysn= syscfgfld1
+		sn_sysn= syscfgfld2
+		fe_sysn= syscfgfld3
+		if (fe_sysn <> "")
 			{
-				stringreplace,syscfgfld3,syscfgfld3,-,_,All
-				fe_%syscfgfld3%= %syscfgfld1%
+				stringreplace,fe_sysn,fe_sysn,-,_,All
+				
+				fe_%fe_sysn%= %re_sysn%
 			}
 		fesyslst.= syscfgfld3 . "|"
 		syspardinj_%FENN%= %syscfgfld1%

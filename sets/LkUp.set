@@ -115,7 +115,7 @@ DAI - Personal Computer=DAIPC=dacpc
 DEC - PDP-1=DPDP1=pdp1
 DEC - PDP-7=DPDP7=pdp7
 DEC - Rainbow 100=DECRBOW=rainbow100
-DGS - Dragon 32-64=DGSDRAG-dragon64
+DGS - Dragon 32-64=DGSDRAG=dragon64
 DGS - Dragon=DGSDRG=dgsdragon
 Dick Smith Electronics - Super-80=DSM=super80
 Dick Smith Electronics - VZ-200-300=DSMVZ=vz200
@@ -397,7 +397,7 @@ Sord - M5=SORDM5=sordm5
 Soviet - Radio-86RK=RAD86RK=86rk
 Soviet - Specialist=SOVSPEC=specialist
 Soviet - UT-88=SOVUT88=ut88
-Soviet - Vector 06c=SOVVEC-vector06c
+Soviet - Vector 06c=SOVVEC=vector06c
 SpectraVision - Spectravideo=SPECTRAV=spectravideo
 Spectravision - SVI-318=SPECSVI=svi318
 Streets of Rage - Remake=SORR=StreetsOfRageRemake
