@@ -3985,7 +3985,7 @@ if (ServerPush = 1)
 								rpofn:= % repoln%A_Index%
 								stringupper,rpoln,rpofn
 								FileAppend, "%GITRLS%" delete -u %gituser% -s %GITPAT% -r %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
-								FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r -n %rpofn%.zip %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r %RREPO% -n %rpofn%.zip %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
 								FileAppend, "%GITRLS%" upload -u %gituser% -s %GITPAT% -R -r %RREPO% -t %rpoln% -l "%rpoln%" -n %rpofn%.7z -f "%DEPL%\%rpofn%.7z"`n,%DEPL%\gpush.cmd
 							}
 					}
