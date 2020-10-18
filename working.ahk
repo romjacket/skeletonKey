@@ -33969,7 +33969,6 @@ if (fenam = "EmulationStation")
 					}
 			}
 		escommon= %fesyslst%
-			}
 		stringreplace,ESPLPLST,ESPLPLST,||,|,All
 		stringreplace,escommon,escommon,||,|,All
 		if (ESRPOPPL = 1)
