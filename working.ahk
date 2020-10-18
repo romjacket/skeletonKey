@@ -54193,7 +54193,7 @@ return
 PegasusFEDDLD:
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;  THEME SELECTION DROPDOWN  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrolget,pgtheme,,FEDDLD
-iniwrite,%pgtheme%,PGcfg.ini,CONFIG,theme
+iniwrite,%pgtheme%,PGcfg.ini,CONFIG,theme	
 cursysthemelist=
 guicontrol,,FECBXA,|%fesyslst%
 ifnotexist,%pghome%\settings.txt
