@@ -3963,7 +3963,7 @@ if (ServerPush = 1)
 				if (ServerPush = 1)
 					{	
 						FileAppend, "%GITRLS%" delete -u %gituser% -s %GITPAT% -r skeletonkey -t portable`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r skeletonkey -n portable.zip -t portable`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r skeletonkey -n portable -t portable`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -u %gituser% -s %GITPAT% -R -r skeletonkey -t portable -l portable -n skeletonKey.zip -f "%DEPL%\skeletonKey.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -3972,7 +3972,7 @@ if (ServerPush = 1)
 				if (ServerPush = 1)
 					{					
 						FileAppend, "%GITRLS%" delete -u %gituser% -s %GITPAT% -r %DREPO% -t ART_ASSETS`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r %DREPO% -n ART_ASSETS.7z -t ART_ASSETS`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r %DREPO% -n ART_ASSETS -t ART_ASSETS`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -u %gituser% -s %GITPAT% -R -r %DREPO% -t ART_ASSETS -l "ART_ASSETS" -n ART_ASSETS.7z -f "%DEPL%\ART_ASSETS.7z"`n,%DEPL%\gpush.cmd
 					}
 			}
@@ -3985,7 +3985,7 @@ if (ServerPush = 1)
 								rpofn:= % repoln%A_Index%
 								stringupper,rpoln,rpofn
 								FileAppend, "%GITRLS%" delete -u %gituser% -s %GITPAT% -r %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
-								FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r %RREPO% -n %rpofn%.zip %RREPO% -t %rpoln%`n,%DEPL%\gpush.cmd
+								FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r %RREPO% -n %rpoln% -t %rpoln%`n,%DEPL%\gpush.cmd
 								FileAppend, "%GITRLS%" upload -u %gituser% -s %GITPAT% -R -r %RREPO% -t %rpoln% -l "%rpoln%" -n %rpofn%.7z -f "%DEPL%\%rpofn%.7z"`n,%DEPL%\gpush.cmd
 							}
 					}
@@ -3995,7 +3995,7 @@ if (ServerPush = 1)
 				if (ServerPush = 1)
 					{
 						FileAppend, "%GITRLS%" delete -u %gituser% -s %GITPAT% -r skeletonkey -t Installer`n,%DEPL%\gpush.cmd
-						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r skeletonkey -n Installer.zip -t Installer`n,%DEPL%\gpush.cmd
+						FileAppend, "%GITRLS%" release -u %gituser% -s %GITPAT% -r skeletonkey -n Installer -t Installer`n,%DEPL%\gpush.cmd
 						FileAppend, "%GITRLS%" upload -u %gituser% -s %GITPAT% -R -r skeletonkey -t Installer -l Installer -n Installer.zip -f "%DEPL%\Installer.zip"`n,%DEPL%\gpush.cmd
 					}
 			}
