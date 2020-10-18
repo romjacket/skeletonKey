@@ -226,7 +226,7 @@ ifNotExist, Settings.ini
 	}	
 IfNotExist, config.cfg
 	{
-		FileCopy,sets\config.set,config.cfg,1
+		FileCopy,sets\retroarch.set,config.cfg,1
 	}
 IfNotExist, racoreopt.cfg
 	{
@@ -671,49 +671,39 @@ if (RaExeloc = "")
 		RACORETAB=
 		SKCCTXT= Not Found
 	}
-FileRead, RepoLst,RepoList.ini
-stringreplace, RepoLst,RepoLst,`n,|,All
-FileRead,ArcOrgSet,%ARCORG%
-;;FileRead,PgLkUp,sets\Pglkup.set
-FileRead,feLkUp,sets\felkup.set
-PGLkUp= %feLkUp%
-stringreplace,rfLkUp,feLkUp,[ROMPATH],`%ITEM_FILEPATH`%,All
-stringreplace,rfLkUp,rfLkUp,[ROMNAME],`%ITEM_NAME`%,All
-stringreplace,pgLkUp,feLkUp,[ROMPATH],{file.path},All
-stringreplace,pgLkUp,pgLkUp,[ROMNAME],{file.basename},All
-stringreplace,EsLkUp,feLkUp,[ROMPATH],`%ROM_RAW`%,All
-stringreplace,EsLkUp,EsLkUp,[ROMNAME],`%BASENAME`%,All
-FileRead,UrlIndex,sets\Urls.set
-stringreplace,UrlIndex,UrlIndex,[ARCH],%ARCH%,All
 iniread,origasi,sets\Assignments.set,ASSIGNMENTS,
 iniread,origsys,sets\Assignments.set,OVERRIDES,
-FileRead,UTILst,sets\Utilities.set
-FileRead,KMPLst,sets\Keymappers.set
-FileRead,syssize,sets\size.set
-FileRead,corslk,sets\corelk.set
-FileRead,FELst,sets\Frontends.set
-FileRead,PrgLst,sets\Programs.set
-FileRead,BiosFSet,sets\Bios.set
-FileRead,fuzsys,sets\fuzsyslk.set
-FileRead,SysLLst,lkup.ini
-iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
-stringreplace,KMPPartSet,kmppartset,[ARCH],%ARCH%,All
+iniread,UTILst,sets\EmuCfgPresets.set,Utilities
 iniRead, UTLPartSet,sets\EmuParts.set,UTILITIES
 stringreplace,UTLPartSet,UTLPartSet,[ARCH],%ARCH%,All
+iniread,KMPLst,sets\EmuCfgPresets.set,Keymappers
+iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
+stringreplace,KMPPartSet,kmppartset,[ARCH],%ARCH%,All
+iniread,FELst,sets\EmuCfgPresets.set,Frontends
 iniRead, FEPartSet,sets\EmuParts.set,FRONTENDS
 stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
+iniread,PrgLst,sets\EmuCfgPresets.set,Programs
 iniRead, EmuPartSet,sets\EmuParts.set,EMULATORS
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
 iniread,RASTABLE,%ARCORG%,GLOBAL,RASTABLE
+FileRead, RepoLst,RepoList.ini
+
+stringreplace, RepoLst,RepoLst,`n,|,All
+FileRead,ArcOrgSet,%ARCORG%
+FileRead,syssize,sets\size.set
+FileRead,corslk,sets\corelk.set
+FileRead,BiosFSet,sets\Bios.set
+FileRead,fuzsys,sets\fuzsyslk.set
+FileRead,SysLLst,lkup.ini
 AllPartSet:= KMPPARTSET . "`n" . UTLPARTSET . "`n" . FEPARTSET . "`n" . EMUPARTSET
 gosub, RBLDRUNLST
 if (repoloc = "ERROR")
 	{
 		IniRead,repoloc,%ARCORG%,GLOBAL,HOSTINGURL
 	}
-FilereadLine,supcrz,sets\supported.set,2
-FilereadLine,scrsup,sets\supported.set,1
+iniread,scrsup,sets\EmuCfgPresets.set,SYSTEMS
+iniread,supcrz,sets\EmuCfgPresets.set,CORES
 Loop, Parse, scrsup,/
 	{
 		ifinstring,SysLLst,%A_LoopField%=
@@ -1144,7 +1134,7 @@ if (raexist = 1)
 		ifnotexist, %curcfg%
 			{
 				Menu,Tray,Tip, Generating retroArch settings
-				filecopy,sets\config.set,config.cfg,1
+				filecopy,sets\retroarch.set,config.cfg,1
 				gosub, VARtoINI
 			}
 		ifnotexist, %racoreopt%
@@ -11427,9 +11417,13 @@ if (selfnd = "Other")
 	}
 EMURJINT:
 emufzd= 
-Loop,Parse,UrlIndex,`n`r
+Loop,Parse,EmuPartSet,`n`r
 	{
 		if (A_LoopField = "")
+			{
+				continue
+			}
+		ifinstring,A_LoopField,[
 			{
 				continue
 			}
@@ -11437,7 +11431,7 @@ Loop,Parse,UrlIndex,`n`r
 		urloc1=
 		urloc2=
 		cplstr= %A_LoopField%
-		stringsplit,slfm,A_LoopField,|
+		stringsplit,slfm,A_LoopField,<
 		stringsplit,urloc,slfm2,/
 		if (slfm1 = selfnd)
 			{
@@ -25962,7 +25956,7 @@ SB_SetText("Saved Config as " ToCfgFile " ")
 return
 EXPRT:
 filedelete, %curcfg%
-FileCopy,sets\config.set,confg.cfg,1
+FileCopy,sets\retroarch.set,confg.cfg,1
 gosub, VARtoINI
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -25997,7 +25991,7 @@ Loop, Parse, ralog,`n`r
 	}
 return
 DefCurCfg:
-filecopy,sets\config.set,config.cfg,1
+filecopy,sets\retroarch.set,config.cfg,1
 curcfg= %S_KeyDir%\config.cfg
 gameoverdcfg= -c "%curcfg%"
 iniwrite, "%curcfg%", Settings.ini,GLOBAL,working_config
@@ -26327,7 +26321,7 @@ gosub,RAinitProc
 return
 RAInit:
 filecopy, config.cfg,config.bak,1
-filecopy,sets\config.set,config.cfg,1
+filecopy,sets\retroarch.set,config.cfg,1
 RAinitProc:
 gosub,retroarch_init
 SB_SetText("RELOADING VARIABLES")
@@ -33974,15 +33968,7 @@ if (fenam = "EmulationStation")
 						ESPLPLSTA.=  fjf3 . "|"
 					}
 			}
-		escommon=
-		Loop, Parse, EsLkUp,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				stringsplit,ffa,A_LoopField,=
-				escommon.=	ffa1 . "|"
+		escommon= %fesyslst%
 			}
 		stringreplace,ESPLPLST,ESPLPLST,||,|,All
 		stringreplace,escommon,escommon,||,|,All
@@ -34081,15 +34067,14 @@ if (fenam = "Pegasus")
 					}
 			}
 		pgcommon=
-		Loop, Parse,PgLkUp,`n`r
+		Loop, Parse,fesyslst,|
 			{
 				if (A_LoopField = "")
 					{
 						continue
 					}
+				pgcommon.= A_LoopField . "|"
 			}
-		stringsplit,ffa,A_LoopField,=
-		pgcommon.=	ffa1 . "|"
 		stringreplace,PGPLPLST,PGPLPLST,||,|,All
 		stringreplace,pgcommon,pgcommon,||,|,All
 		if (PGRPOPPL = 1)
@@ -53159,7 +53144,7 @@ return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;; MAME DATABASE ;;;;;;;;;;;;;;;;;;;
 MAMETOG:
-filereadline,supmamejoys,sets\supported.set,3
+iniread,supmamejoys,sets\EmuCfgPresets.set,MAME
 SB_SetText(" Creating MAME database ")
 ;guicontrol, %fndtog%, emuBUTJ
 ;guicontrol, %fndtog%, emuPRGA
@@ -53337,18 +53322,6 @@ Loop,read,settings.txt
 						setheme= %A_LoopField%
 					}
 				break	
-			}
-	}
-if (fesyslst = "")
-	{
-		Loop,Parse,PgLkUp,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				stringsplit,syslk,A_LoopField,=
-				fesyslst.= syslk1 . "|"
 			}
 	}
 fetog= show
@@ -57052,18 +57025,6 @@ Loop, %rfhome%\layouts\*,2
 			}
 		rfthemes.= A_LoopFileName . "|"
 	}
-if (fesyslst = "")
-	{
-		Loop,Parse,SysLLst,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				stringsplit,syslk,A_LoopField,=
-				fesyslst.= syslk1 . "|"
-			}
-	}
 fetog= show
 RFCURPL=
 guicontrol,,FELBXA,|
@@ -57286,7 +57247,7 @@ Guicontrol,-Multi,FELVA
 LV_Delete()
 Loop, Parse, fesyslst,|
 	{
-		ifnotinstring,SysLLst,%A_LoopField%=
+		if (A_LoopField = "")
 			{
 				continue
 			}
@@ -60718,17 +60679,17 @@ return
 pgSystems:
 gui,ListView,FELVA
 LV_Delete()
-Loop, Parse, felkup,`n`r
+Loop, Parse, fesyslst,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,syslk,A_LoopField,=
-		iniread,sysxst,SystemLocations.ini,LOCATIONS,%syslk3%
+		revsys= % fe_%A_LoopField%	
+		iniread,sysxst,SystemLocations.ini,LOCATIONS,%revsys%
 		if ((sysxst <> "")&&(sysxst <> "ERROR"))
 			{
-				LV_Add("",syslk1)
+				LV_Add("",A_LoopField)
 			}
 	}
 LV_ModifyCol()
@@ -61998,7 +61959,7 @@ Loop, read, %escfgtmp%
 				EROF= %vesname%
 				if (gintp = "")
 					{
-						ifinstring,eslkup,=%vesname%=
+						ifinstring,fesyslst,=%vesname%
 							{
 								EROF= %vesplatform%
 							}
@@ -62346,193 +62307,6 @@ guicontrolget,curtxtp,,FECBXC
 sysfnd= 1
 return
 
-
-gui,submit,nohide
-guicontrolget,fecbxa,,FECBXA
-guicontrolget,curtxt,,FELBXA
-sysfnd= 1
-Loop,Parse,ESFEGUIITEMS,|
-	{
-		guicontrol,disable,%A_LoopField%
-	}
-gosub, popesv
-Loop,Parse,ESFEGUIITEMS,|
-	{
-		guicontrol,enable,%A_LoopField%
-	}
-return
-popesv:
-eslocor= %RJSYSTEMS%
-iniread,es_abbr,EScfg.ini,%curtxt%,abbreviation
-if ((es_abbr = "ERROR")or(es_abbr = ""))
-	{
-		es_abbr= other
-	}
-iniread,es_disp,EScfg.ini,%curtxt%,dsp_es	
-if ((es_disp = "ERROR")or(es_disp = ""))
-	{
-		es_disp= other
-	}
-iniread,es_extn,EScfg.ini,%curtxt%,ext_es	
-if ((es_extn = "ERROR")or(es_extn = ""))
-	{
-		es_extn= zip
-	}
-iniread,es_emun,EScfg.ini,%curtxt%,emu_es
-if ((es_emun = "ERROR")or(es_emun = ""))
-	{
-		es_emun= other
-	}
-iniread,es_compl,EScfg.ini,%curtxt%
-Loop,parse,es_compl,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		stringsplit,avn,A_LoopField,=
-		if (avn1 = "arg_es")
-			{
-				es_argum:= avn2
-			}
-	}
-if ((es_argum = "ERROR")or(es_argum = ""))
-	{
-		es_argum="`%ROM_RAW`%" 
-	}
-iniread,es_systm,EScfg.ini,%curtxt%,rmp_es
-if ((es_systm = "ERROR")or(es_systm = ""))
-	{
-		es_systm= %curtxt%
-	}	
-iniread,es_thmsys,EScfg.ini,%curtxt%,thm_es	
-if ((es_thmsys = "ERROR")or(es_thmsys = ""))
-	{
-		es_thmsys= other
-	}
-stringreplace,ksivtr,es_argum,"""",",All
-;"
-stringreplace,ksivtr,es_argum,""",",All
-stringreplace,ksivtr,es_argum,"",",All
-;"
-guicontrol,,FEEDTA,%ksivtr%
-guicontrol,,FEEDTB,%es_extn%
-ifinstring,es_argum,:
-	{
-		es_argum= other
-	}
-guicontrol,,FECBXD,|%curtxt%||%cursysthemelist%
-guicontrol,,FECBXC,|%es_abbr%||%cursysthemelist%
-kmpex= %es_abbr%||
-if (es_thmsys <> "")
-	{
-		ifexist,%ESHOME%\themes\%estheme%\%es_thmsys%\
-			{
-				kmpex= %es_thmsys%||
-			}
-	}
-guicontrol,,FECBXA,|%kmpex%%cursysthemelist%
-guicontrol,,FETXTJ,%es_systm%
-guicontrol,,FEDDLG,|other|%es_emun%||%emuinstpop%
-guicontrol,,FECBXB,|other|%es_disp%||%knwnfldrs%
-if (sysfnd = "")
-	{
-		emks=
-		emkr=
-		emkx=
-		Loop, Parse, EsLkUp,`n`r
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}					
-				kvi1=
-				kvi2=
-				kvi3=
-				kvi4=
-				kvi5=
-				stringsplit,kvi,A_LoopField,=
-				ifinstring,curtxt,_
-					{
-						stringreplace,snlk,cutxt,_,,All
-						if (kvi2 = snlk)
-							{
-								gosub, nweslk
-								return
-							}
-					}
-				if (kvi3 = curtxt)
-					{
-						gosub, nweslk
-						return
-					}
-			}
-		if (FERAD5B = 1)
-			{
-				guicontrol,,FEEDTA,"%ROM_RAW%"
-				guicontrol,,FEEDTB,.lnk
-				guicontrol,,FECBXA,|BSL||%preemucfg%
-			}
-		if (FERAD5C = 1)
-			{
-				guicontrol,,FEEDTA,"%ROM_RAW%"
-				guicontrol,,FEEDTB,.bat
-				guicontrol,,FECBXA,|BSL||%preemucfg%
-			}
-	}
-return
-nweslk:
-emke= %kvi5%
-SLCTDSN= %kvi2%
-iniread,emkce,apps.ini,EMULATORS,%kvi5%
-if (emkce = "ERROR")
-	{
-		SB_SetText(" " emkce " is not found")
-		guicontrol,disable,FEBUTE
-	}
-ifnotexist,%emkce%
-	{
-		SB_SetText(" " emkce " is not found")
-		guicontrol,disable,FEBUTE
-	}
-if (FERAD5B = 1)
-	{
-		guicontrol,,FEEDTA,"%ROM_RAW%"
-		guicontrol,,FEEDTB,.lnk
-		guicontrol,,FECBXA,|BSL||%preemucfg%
-	}
-if (FERAD5C = 1)
-	{
-		guicontrol,,FEEDTA,"%ROM_RAW%"
-		guicontrol,,FEEDTB,.bat
-		guicontrol,,FECBXA,|BSL||%preemucfg%
-	}
-emks= %kvi3%
-emkx= %kvi4%
-emkr= %kvi6%
-emkt= %kvi1%
-emkn= %kvi1%
-if (emkx = ":")
-	{
-		emkx= .*
-	}
-guicontrol,,FECBXC,|%emks%||%systmfldrs%%cursysthemelist%
-guicontrol,,FECBXD,|%emkt%||%cursysthemelist%%systmfldrs%
-emky= %emkn%||
-guicontrol,,FECBXA,|%emky%%cursysthemelist%%systmfldrs%
-guicontrol,,FEDDLG,|other|%emke%||%emuinstpop%
-guicontrol,,FECBXB,|other|%emks%||%systmfldrs%
-guicontrol,,FEEDTB,%emkx%
-guicontrol,,FEEDTA,%emkr%
-guicontrol,,FETXTJ,%eslocor%\%emks%
-selctsys= %eslocor%\%emks%
-ifnotexist, %selctsys%
-	{
-		selctsys= %RJSYSTEMS%\%emks%
-		guicontrol,,FETXTJ,NOT SET (defaulting to %RJSYSTEMS%\%emks%)
-	}
-guicontrol,,FEEDTA,%emkr%
-return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 EmulationStationFEBUTG:
 MsgBox, 260, Clear List, Are you sure you want to clear all systems from the configuration list?
@@ -62701,27 +62475,26 @@ EmulationStationFEDDLA:
 guicontrolget,FEDDLA,,FEDDLA
 goto, es%FEDDLA%
 esALL:
-Loop,parse,felkup,`n`r
+Loop,parse,systmfldrs,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,eba,A_LoopField,=
-		LV_Add("",eba3)
+		LV_Add("",A_LoopField)
 }
 return
 esSystems:
-Loop,parse,felkup,`n`r
+Loop,parse,fesyslst,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		stringsplit,eba,A_LoopField,=
-		ifexist,%RJSYSTEMS%\%eba3%\
+		revsys= % fe_%A_LoopField%	
+		ifexist,%RJSYSTEMS%\%revsys%\
 			{
-				LV_Add("",eba3)
+				LV_Add("",revsys)
 			}
 	}
 return
@@ -65936,19 +65709,12 @@ cslst=
 esmlist=
 esxlist=
 cursysthemelist=
-Loop, Parse, EsLkUp,`n`r
+Loop, Parse, scrsup,|
 	{
-		svxi1=
-		svxi3=
-		stringsplit,svxi,A_LoopField,=
-		ifnotinstring,scrsup,%svxi1%
+		ifExist, %RJSYSTEMS%\%A_LoopField%
 			{
-				continue
-			}
-		ifExist, %RJSYSTEMS%\%svxi3%
-			{
-				cslst.= svxi3 . "|"
-				esmlist.= svxi3 . "=" . RJSYSTEMS . "\" . svxi3 . "|"
+				cslst.= A_LoopField . "|"
+				esmlist.= A_LoopField . "=" . RJSYSTEMS . "\" . A_LoopField . "|"
 			}
 	}
 if (ESHOME <> "")
@@ -71409,12 +71175,20 @@ Loop, Parse, emupartset,`n`r
 		if (xesel1 = utlDDLC)
 			{
 				stringsplit,afi,xesel2,/
-				Loop, Parse,UrlIndex,`n`r
+				Loop, Parse,EmuPartSet,`n`r
 					{
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						ifinstring,A_LoopField,[
+							{
+								continue
+							}
 						urloc=
 						urloc1=
 						urloc2=
-						stringsplit,slfm,A_LoopField,|
+						stringsplit,slfm,A_LoopField,<
 						stringsplit,urloc,slfm2,/
 						if (slfm1 = xesel1)
 							{
@@ -71646,16 +71420,20 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 				if (xesel1 = "antimicro")
 					{
 						stringsplit,afi,xesel2,/
-						Loop, Parse,UrlIndex,`n`r
+						Loop, Parse,EmuPartSet,`n`r
 							{
 								if (A_LoopField = "")
+									{
+										continue
+									}
+								ifinstring,A_LoopField,[
 									{
 										continue
 									}
 								urloc=
 								urloc1=
 								urloc2=
-								stringsplit,slfm,A_LoopField,|
+								stringsplit,slfm,A_LoopField,<
 								stringsplit,urloc,slfm2,/
 								if (slfm1 = xesel1)
 									{
