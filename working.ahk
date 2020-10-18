@@ -3431,7 +3431,8 @@ Menu,Tray,Add,Mini-Mode,MINIMODET
 Menu,Tray,Add,Exit,QUITOUT
 Menu,Tray,Tip
 Gui,+LastFound
-GuiID:=WinExist()
+GuiIDn:=WinExist()
+GuiID:= WinExist("Ahk_PID " DllCall("GetCurrentProcessId"))
 /*  ;;[DEBUGOV]
 Menu, tray, NoStandard
 Loop,108
@@ -4706,6 +4707,25 @@ StdoutToVar_CreateProcess(sCmd, bStream="", sDir="", sInput="")
    Return,sOutput
    }
 return
+#If (MouseIsOverTitlebar()or(MINIMODE = 1))
+;;SendMessage 0x112, 0xF020
+RButton::Menu, MINITOGGLE, Show, %A_GuiX% %A_GuiY%
+return
+
+MouseIsOverTitlebar() {
+    static WM_NCHITTEST := 0x84, HTCAPTION := 2
+    if WinActive("skeletonKey") 
+		{
+			CoordMode Mouse, Screen
+			MouseGetPos x, y, w
+			if WinExist("ahk_class Shell_TrayWnd ahk_id " w)  ; Exclude taskbar.
+				return false
+			SendMessage WM_NCHITTEST,, (x & 0xFFFF) | ((y & 0xFFFF) << 16),, ahk_id %w%
+			WinExist("ahk_id " GuiID)  ; Set Last Found Window for convenience.
+			return ErrorLevel = HTCAPTION
+		}
+}
+
 GuiContextMenu:
 gui,submit,nohide
 If A_GuiControlEvent RightClick
@@ -7414,6 +7434,7 @@ return
 MINIMODE:
 gui,submit,nohide
 MINIMODE= 1
+Guicontrol,Choose,TABMENU,2
 guicontrol,,MINISWITCH,=
 WinSet, Style, -0x800000, skeletonKey
 WinSet, Region,18-4 W750 H45,skeletonKey
@@ -81513,7 +81534,7 @@ gui,submit,nohide
 guicontrolget,PRBFND,,PRBFND
 return
 ;};;;;;;;;;;;;;;;;;
-!LButton::
+LButton::
 if (MINIMODE = 1)
 	{
 			If DoubleAlt
@@ -81550,6 +81571,7 @@ if (MINIMODE = 1)
 				}
 	}
 return
+	
 ~Alt::
 DoubleAlt := A_PriorHotkey = "~Alt" AND A_TimeSincePriorHotkey < 400
 Sleep 0
