@@ -1510,6 +1510,7 @@ Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
 Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
 Menu, EMURESETI, Add, Reset, EMURSTI
 Menu,MINITOGGLE,Add, Mini-Mode ,MINIMODET
+Menu,MINITOGGLE,Add, On-Top ,AWYONLTGL
 Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
 Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
 Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
@@ -1585,7 +1586,7 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sy
 Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
-Gui, Add, Link,x712 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
+Gui, Add, Link,x708 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
 Gui,Add,Text,x579 y484, ver %VERSION%
 Gui, Add, GroupBox, x4 y33 w560 h79 +0x400000
 Gui Add, GroupBox, x4 y107 w560 h102 +0x400000
@@ -7438,6 +7439,19 @@ Guicontrol,Choose,TABMENU,2
 guicontrol,,MINISWITCH,=
 WinSet, Style, -0x800000, skeletonKey
 WinSet, Region,18-4 W750 H45,skeletonKey
+return
+AWYONLTGL:
+gui,submit,nohide
+if (ALWOTP = 1)
+	{
+		ALWOTP:= 0
+		guicontrol,,ALWOTP,0
+	}
+else {
+		ALWOTP:= 1
+guicontrol,,ALWOTP,1
+}
+gosub, ALWOTP
 return
 AWYONTGL:
 gui,submit,nohide
@@ -81534,7 +81548,7 @@ gui,submit,nohide
 guicontrolget,PRBFND,,PRBFND
 return
 ;};;;;;;;;;;;;;;;;;
-LButton::
+!LButton::
 if (MINIMODE = 1)
 	{
 			If DoubleAlt
