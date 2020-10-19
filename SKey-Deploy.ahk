@@ -3652,7 +3652,6 @@ if (INITINCL = 1)
 			exprt.= "FileInstall, bin\Portable.bat,bin\Portable.bat" . "`n"	
 			exprt.= "FileInstall, bin\7zsd32.sfx,bin\7zsd32.sfx" . "`n"	
 			exprt.= "FileInstall, bin\7zsd64.sfx,bin\7zsd64.sfx" . "`n"	
-			exprt.= "FileInstall, bin\7zsd.sfx,bin\7zsd64.sfx" . "`n"	
 			exprt.= "FileInstall, site\index.html,site\index.html,1" . "`n"	
 			exprt.= "FileInstall, site\version.txt,site\version.txt,1" . "`n"	
 			exprt.= "FileInstall, working.ahk,working.ahk,1" . "`n"	

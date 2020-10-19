@@ -111,7 +111,7 @@ if (quotes = "")
 	}
 if (keymapper = 1)
 	{
-		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min,amik
 	}
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	

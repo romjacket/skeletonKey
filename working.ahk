@@ -953,7 +953,7 @@ MEDNAFENJOYGUIITEMS=INDWRN|emjDDLD|emjDDLA|emjDDLF|emjCHKX|emjCHKY|emjCHKZ|emjCB
 XMBGUIITEMS=raACAL|raACAT|raPLFAM|raPLSICN|raPLSLB|raPLSAL|raTHMBDDL|raBBT|raBFIL|raBFTH|raTHMBDDL|raTHMBDDL2|raENBLWID|raSELSCON|raSTRMK|raSTRMP|raSTMQSLD|raSTRMURL|raSTRMTDDL|raENBLWID|raSELSCON|raSTRMK|raSTRMP|raSTRMKTXT|raSTRMPTXT|raSTRMQSLD|raSTRMURL|raSTRMTDDL|RASHWM|RASHWCHK|XMBGRP|RETALFE|MNUCLRTXT|CLRPICKR|CLRDDL|OVRLBTN|OVRLYTXT|OVRLAY|OVRLTOG|OVRLMENU|THMTXT|RIBN|RIBTXT|XICNTXT|ICNTXT|XMBTHM|XMBCLRTHM|CLRTHM|MOUSEON|DYNWALL|SHADW|XMBSCLF|XMBSCL|XMBFTXT|FONTSB|OPACDDL|OPASLD|OPAEDT|GLBMENSETGRP|MNUACT|MNUJOY|MNUPNT|MNUFLT|THRTL|NAVWRAP|CMPAN|FILTEXT|VMPSTXT|VMSGX|VMSGY|XMBGXTXT|XMBGYTXT|VFNTEN|XMBGSZTXT|FNTSZ|XMBGATXT|XMBALF|VIDAEDT|DPIOVR|DPIPT|XMBTHMBGRP|MNUSYS|BOXCVR|TITLCVR|SSHTCVR|THUMBON|LFTTHMB|VRTTHMB|STHUMBON|XMBPL|XMBFL|PLRCR|THMBREC|XMBNCTXT|XMBSITXT|GTHMB|SVTHMB|THMBNEDT|IMGLOC|ROMFLS|IMGFLS|raSTRMTDDL|raSTRMSCLTXT|raSTRMSCL|raSTRMUTXT|raSTMMTXT|raTHMBTXT|raTHMBTXT2|raSTMQOUT|raSLSNTXT|raSTMQTXT|raTHMBDDL2
 FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ|feBUTK|feBUTL|feBUTM|feBUTO|fePICA|fePICB|fePICC|fePICD|fePICE|fePICF|fePICG|feCHKD|feCHKE|feCHKF|feCHKG|feCHKH|feCHKI|feCHKJ|feCHKK|feCHKL|feCHKM|feCHKN|feCHKO|feCHKP|feCHKQ|feCHKA|feCHKB|feCHKC|feCBXE|feCBXF|feCBXG|feCBXH|feCBXI|feCBXJ|feCBXA|feCBXB|feCBXC|feCBXD|feDDLE|feDDLG|feDDLF|feDDLG|feDDLH|feDDLI|feLNKA|feLNKB|feDDLC|feDDLD|feDDLA|feDDLB|feEDTA|feEDTB|feEDTC|feEDTD|feEDTE|feEDTF|feEDTG|feEDTI|feUPDA|feEDTH|feUPDB|feLVA|feUPDC|feGRPA|feGRPB|feGRPC|feGRPD|feGRPE|feGRPF|feGRPG|feLBXA|feLBXB|feLVA|feLVB|feLVC|fePRGB|fePRGA|feRad5B|feRad5C|feRad4A|feRad4B|feRad5A|feRad6A|feRad6B|feRad6C|feRad6D|feRad7A|feRad7B|feRad8A|feRad8B|feRad9A|feRad9B|feRad9C|feRad10A|feRad10B|feRad11A|feRad11B|feRad2A|feRad2B|feRad2C|feRad1A|feRad3A|feRad3B|feRad3C|feRad3D|feRad1B|feSLDA|feSLDB|feSLDD|feSLDE|feSLDC|feTXTA|feTXTB|feTXTC|feTXTD|feTXTE|feTXTF|feTXTG|feTXTS|feTXTT|feTXTR|feTXTM|feTXTH|feTXTI|feTXTN|feTXTO|feTXTP|feTXTQ|feTXTJ|feTXTK|feTXTL
 JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKI|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
-UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
+UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlPICA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
 XMBPLITEMS=DWNLPOS|RECURSE|RECURTX|PLALSYSBUT|PLLISTALL|PLLISTN|PLLISTSORT|RECURTX|RPOPDL|RPOPPL|ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CRCEnbl|ZIPSEEK|PLCORE|DETECTCORE|SVPLST|PLNAMEDT|OPNPLST|PGCONFG|SVAPLST|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOU|MVPLOD|CLRPL|PLCLRTXT|PLINIT|PLDBTXT|EXCLBOOL|INCLBOOL|PARSEALL|EXTPARSED|FLTXT|SVASPLST
 ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESINCLF|ESROMONLY|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
 ESPLSWAP=ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESSAVEOPL|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESOPNIMGPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
@@ -3258,6 +3258,7 @@ Gui, Add, Text, x688 y96 vutlTXTQ %utlvis%, utlTXTQ
 Gui, Add, Text, x696 y344 vutltTXTJ %utlvis%, utltTXTJ
 Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
+Gui, Add, Picture, x0 y0 w0 h0 vutlPICA %utlvis%, 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[NETPLAY TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 10
@@ -7150,7 +7151,7 @@ if ( (A_GuiX >= cRegionX) && (A_GuiX <= cRegionX+cRegionW) && (A_GuiY >= cRegion
 							{
 								arcdec= 1
 								SB_SetText("extracting " A_LoopReadLine " ")
-								Runwait, %comspec% cmd /c  "bin\7za.exe e -y "%A_LoopReadLine%" -O"%cacheloc%\bios" ",,hide
+								Runwait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" e -y "%A_LoopReadLine%" -O"%cacheloc%\bios" ",,hide
 							}
 						if (biosxt = "rar")
 							{
@@ -8440,8 +8441,8 @@ Loop, Parse, curbios,`n`r
 													}
 												stringreplace,newfd,juf1,%actnam%,%destnm%
 												filemove,%juf1%,%newfd%,R
-												RunWait, %comspec% /c " bin\7za.exe a -y "%fiad%%apndpth%" "%newfd%" ",,hide
-;												RunWait, %comspec% /c " bin\7za.exe a -y "%fiad%%apndpth%" "%juf3%" ",,hide
+												RunWait, %comspec% /c " "%S_KeyDir%\bin\7za.exe" a -y "%fiad%%apndpth%" "%newfd%" ",,hide
+;												RunWait, %comspec% /c " "%S_KeyDir%\bin\7za.exe" a -y "%fiad%%apndpth%" "%juf3%" ",,hide
 												ifinstring,biostring,>
 													{
 														FileSetAttrib,+R,%fiad%%apndpth%\%juf3%
@@ -8559,7 +8560,7 @@ ifexist,%GAMSRCS%\AutoBios.set
 						filecopy,%save%,%mame_path%\roms
 						continue
 					}
-				Runwait,"bin\7za.exe" e -y "%save%" -O"%biosout%",,hide
+				Runwait,"%S_KeyDir%\bin\7za.exe" e -y "%save%" -O"%biosout%",,hide
 				if (ERRORLEVEL <> 0)
 					{
 						SB_SetText(" " save " could not be extracted")
@@ -13477,7 +13478,7 @@ return
 XTRACTEMU:
 XTRACTFAIL=
 SB_SetText(" " save " " "extracting")
-runwait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%xtractmu%" ", ,hide
+runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%xtractmu%" ", ,hide
 SB_SetText(" " save " " "was extracted")
 ifnotexist, %xtractmu%
 		{
@@ -15362,7 +15363,7 @@ if (RETROM = 1)
 		if (sZip > 1)
 			{
 				SB_SetText(" extracting " romf " ")
-				runwait, %comspec% cmd /c  "bin\7za.exe x -y "%romf%" -O"%RJSYSTEMS%%RETDLF%\%romname%" ", ,hide
+				runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" x -y "%romf%" -O"%RJSYSTEMS%%RETDLF%\%romname%" ", ,hide
 				SB_SetText(" extraction complete ")
 				Loop, Files, %RJSYSTEMS%%RETDLF%\%romname%\*.*
 					{
@@ -16320,7 +16321,7 @@ if (BCKCORE = 1)
 				FileCopy,%raexedir%\retroarch.exe,%raexedir%\retroarch.exe%bak%,1
 			}
 	}
-RunWait, %comspec% cmd /c " "bin\7za.exe" x -y "%save%" -O"%XTRACTLOC%" ",,hide
+RunWait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%XTRACTLOC%" ",,hide
 raexedir= %xtractloc%
 raexefile= retroarch.exe
 SB_SetText(" " save " " "was extracted")
@@ -16375,7 +16376,7 @@ if (BCKCORE = 1)
 				FileCopy,%libretroDirectory%\%coredll%,%libretroDirectory%\%coredll%%bak%,1
 			}
 	}
-runwait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%libretroDirectory%" ", ,hide
+runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%libretroDirectory%" ", ,hide
 SB_SetText(" " save " " "was extracted")
 if (KARC = 0)
 	{
@@ -33303,7 +33304,7 @@ if (romext = "zip")
 ifnotexist, %RJSYSTEMS%\Netplay\%romname%.zip
 	{
 		SB_SetText(" Compressing ROM file " romf " ")
-		runwait, %comspec% cmd /c  "bin\7za.exe a "%RJSYSTEMS%\Netplay\%romname%.zip" "%romf%" ", ,hide
+		runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" a "%RJSYSTEMS%\Netplay\%romname%.zip" "%romf%" ", ,hide
 		SB_SetText(" Compression complete ")
 	}
 guicontrol,,NETHINFO,%RJSYSTEMS%\Netplay\%romname%.zip
@@ -36161,7 +36162,7 @@ ifnotexist, %save%
 		guicontrol,enable,ADDRPOL		
 		;;return
 	}
-Runwait,"bin\7za.exe" x -y "%save%" -O"gam",,hide
+Runwait,"%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"gam",,hide
 if (ERRORLEVEL <> 0)
 	{
 		msgbox,1,Extract Failed,Exraction of Archive list failed
@@ -37897,7 +37898,7 @@ ifnotexist,%save%
 		return	
 	}
 SB_SetText(" " hubtget " downloaded and extracting")
-Runwait, %comspec% cmd /c  "bin\7za.exe e -y "%save%" -O"dats\%hubtget%" ",,hide
+Runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" e -y "%save%" -O"dats\%hubtget%" ",,hide
 SB_SetText(" " hubtget " extracted")
 gosub, getdatlist
 return
@@ -39959,7 +39960,7 @@ if (EXTEXPLD = 1)
 	{
 		xtrvar= e
 	}
-runwait, %comspec% cmd /c  "bin\7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
+runwait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 SB_SetText(" extraction complete to " xtrdir " ")
 gosub, ArcExtract
 return
@@ -39976,7 +39977,7 @@ if (EXTEXPLD = 1)
 		xtrvar= e
 	}
 srvn= 
-runwait, %comspec% cmd /c  "bin\7za.exe %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
+runwait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" %xtrvar% -y "%save%" -O"%xtrdir%" ", ,hide
 srvn= %ERRORLEVEL%
 SB_SetText(" extraction complete to " xtrdir " ")
 if (RUNXTRACT = 1)
@@ -53665,7 +53666,7 @@ ifnotexist,%save%
 	}
 if (pgteo = "")
 	{
-		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
+		RunWait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%extractpath%" ",,hide
 	}
 guicontrol,,FECBXA,|%fesyslst%
 guicontrol,enable,FEBUTA
@@ -57404,7 +57405,7 @@ if (FECHKC = 1)
 	}
 if (rfteo = "")
 	{
-		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
+		RunWait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%extractpath%" ",,hide
 	}
 SB_SetText("Current theme is " RFTHEME " ")
 rfitmt= enable
@@ -61238,7 +61239,7 @@ ifnotexist,%save%
 	}
 if (esteo = "")
 	{
-		RunWait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%extractpath%" ",,hide
+		RunWait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%extractpath%" ",,hide
 	}
 ifexist, %ESHOME%\themes\%FEDDLD%
 	{
@@ -67179,7 +67180,7 @@ if (FERAD2B = 1)
 						ifexist,rj\scrapeArt\%SYSLKUP%.7z
 							{
 								SB_SetText("Extracting " SYSLKUP " metadata")
-								RunWait, "bin\7za.exe" x -y "rj\scrapeArt\%SYSLKUP%.7z" -O"rj\scrapeArt",,hide
+								RunWait, "%S_KeyDir%\bin\7za.exe" x -y "rj\scrapeArt\%SYSLKUP%.7z" -O"rj\scrapeArt",,hide
 								SB_SetText(" " SYSLKUP " metadata extracted")
 							}
 					}
@@ -67319,7 +67320,7 @@ if (FERAD2C = 1)
 							}
 					}
 						SB_SetText("Extracting " SYSLKUP " metadata")
-						RunWait, %comspec% cmd /c "  "bin\7za.exe" e -y "rj\scrapeArt\%SYSLKUP%.7z" -O"rj\scrapeArt\%SYSLKUP%" ",,hide
+						RunWait, %comspec% cmd /c "  "%S_KeyDir%\bin\7za.exe" e -y "rj\scrapeArt\%SYSLKUP%.7z" -O"rj\scrapeArt\%SYSLKUP%" ",,hide
 						SB_SetText(" " SYSLKUP " metadata extracted")
 					}
 				Loop, rj\scrapeArt\%SYSLKUP%\*.xml
@@ -70530,7 +70531,7 @@ gosub, %curutl%utlSLDE
 return
 ;{;;; ~~~~ UTILITY-template items ~~~ ;;;
 UTLUNPOP:
-Loop,Parse,UTLGUIITMES,|
+Loop,Parse,UTLGUIITEMS,|
 	{
 		guicontrol,%utltog%,%A_LoopField%
 	}
@@ -70549,17 +70550,17 @@ curxe= executable\exeparam.ini
 gui,submit,nohide
 guicontrol,show,utlRad1B
 guicontrol,,utlRad1B,Keymapper Disabled
-guicontrol,move,UTLRAD1B,x442 y116 w120 h23
+guicontrol,move,UTLRAD1B,x411 y347 w120 h23
 guicontrol,,utlRad1B,1
 guicontrol,show,utlRad1A
 guicontrol,,utlRad1A,Keymapper Enabled
-guicontrol,move,UTLRAD1A,x443 y92 w120 h23
+guicontrol,move,UTLRAD1A,x412 y323 w120 h23
 guicontrol,show,utlCBXA
 guicontrol,move,utlCBXA,x643 y236 w100
-guicontrol,,utlCBXA,|%INJARG%
+guicontrol,,utlCBXA,|
 guicontrol,show,utlCBXB
 guicontrol,move,utlCBXB,x409 y236 w134
-guicontrol,,utlCBXB,|%INJOPT%
+guicontrol,,utlCBXB,|
 guicontrol,show,utlCHKC
 guicontrol,,utlCHKC,1
 guicontrol,move,utlCHKC,x411 y267 w54 h17
@@ -70574,17 +70575,17 @@ guicontrol,move,utlCHKE,x411 y303 w44 h16
 guicontrol,,utlCHKE,path
 guicontrol,show,utlCHKF
 guicontrol,,utlCHKF,0
-guicontrol,move,utlCHKF,x400 y343 w204 h16
+guicontrol,move,utlCHKF,x511 y283 w204 h16
 guicontrol,,utlCHKF,User-Defined Extraction Path
 guicontrol,show,utlCHKG
 guicontrol,enable,utlCHKG
+guicontrol,,utlCHKG,Enable_Icon
 guicontrol,,utlCHKG,0
-guicontrol,move,utlCHKG,x366 y382 w57 h16
-guicontrol,,utlCHKG,Enable
+guicontrol,move,utlCHKG,x368 y382 w107 h16
 guicontrol,show,utlEDTC
 guicontrol,disable,utlEDTC
 guicontrol,,utlEDTC,0
-guicontrol,move,utlEDTC,x400 y363 w204 h16
+guicontrol,move,utlEDTC,x511 y303 w204 h16
 guicontrol,,utlEDTC,
 guicontrol,show,utlTXTM
 guicontrol,move,utlTXTM,x686 y219 w57 h16
@@ -70597,13 +70598,13 @@ guicontrol,+Center,utlTXTI
 guicontrol,move,utlTXTI,x545 y240 w93 h17
 guicontrol,,utlTXTI,%RODIS%
 guicontrol,show,utlBUTH
-guicontrol,move,utlBUTH,x372 y94 w50 h22
+guicontrol,move,utlBUTH,x371 y51 w50 h22
 guicontrol,,utlBUTH,Add
 guicontrol,enable,utlBUTH
 guicontrol,show,utlPRGA
 guicontrol,move,utlPRGA, x753 y44 w8 h459 -Smooth Vertical
 guicontrol,show,utlPRGA
-guicontrol,move,utlBUTJ, x685 y445 w68 h23
+guicontrol,move,utlBUTJ, x687 y470 w68 h23
 guicontrol,show,utlBUTJ
 guicontrol,enable,utlBUTJ
 guicontrol,,utlBUTJ,Create
@@ -70611,24 +70612,24 @@ guicontrol,move,utlBUTC, x367 y445 w75 h23
 guicontrol,enable,utlBUTC
 guicontrol,show,utlBUTC
 guicontrol,,utlBUTC,Out-File
-guicontrol,move,utlBUTD, x372 y476 w51 h20
+guicontrol,move,utlBUTD, x438 y51 w51 h22
 guicontrol,show,utlBUTD
 guicontrol,enable,utlBUTD
 guicontrol,,utlBUTD,Open
-guicontrol,move,utlTXTK, x425 y476 w221 h14
+guicontrol,move,utlTXTK, x495 y53 w221 h14
 guicontrol,show,utlTXTK
 guicontrol,enable,utlTXTK
 guicontrol,,utlTXTK,Open compilation-directory in explorer
-guicontrol,move,utlBUTE,x370 y41 w51 h18
+guicontrol,move,utlBUTE,x587 y470 w68 h23
 guicontrol,show,utlBUTE
 guicontrol,,utlBUTE,RESET
-guicontrol,move,utlBUTG,x495 y179 w51 h18
+guicontrol,move,utlBUTG,x556 y201 w51 h18
 guicontrol,show,utlBUTG
 guicontrol,,utlBUTG,config
-guicontrol,move,utlDDLC, x368 y179 w120 h21
+guicontrol,move,utlDDLC, x408 y198 w120
 guicontrol,,utlDDLC,|Other|%emuinstpop%
 guicontrol,show,utlDDLC
-guicontrol,move,utlBUTF, x364 y400 w75 h23
+guicontrol,move,utlBUTF, x367 y400 w75 h23
 guicontrol,show,utlBUTF
 guicontrol,enable,utlBUTF
 guicontrol,,utlBUTF,Icon
@@ -70638,24 +70639,30 @@ guicontrol,,utlGRPD,Save
 guicontrol,move,utlLVA, x20 y26 w341 h479
 guicontrol,show,utlLVA
 guicontrol,,utlLVA,|Added_Files||
-guicontrol,+checked,utlLVA
+guicontrol,-checked,utlLVA
 guicontrol,+Multi,utlLVA
 guicontrol,+AltSubmit,utlLVA
 guicontrol,move,utlTXTB, x531 y20 w79 h13
 guicontrol,show,utlTXTB
 guicontrol,,utlTXTB,Utility
-guicontrol,move,utlTXTC, x447 y449 w60 h13
+guicontrol,move,utlTXTC, x447 y449 w309 h13
 guicontrol,show,utlTXTC
-guicontrol,,utlTXTC,Location
-guicontrol,move,utlTXTD, x372 y165 w40 h13
+guicontrol,,utlTXTC,%S_KeyDir%\game.exe
+guicontrol,move,utlTXTD, x409 y178 w40 h13
 guicontrol,show,utlTXTD
 guicontrol,,utlTXTD,Emulator
-guicontrol,move,utlTXTE,x446 y406 w91 h13
+guicontrol,move,utlTXTE,x446 y406 w217 h13
 guicontrol,show,utlTXTE
 guicontrol,,utlTXTE,ICON
+guicontrol,,utlPICA,img\install.ico
+guicontrol,move,utlPICA, x688 y382 w66 h65
+guicontrol,show, utlPICA
 ifexist,executable\exe.ico
 	{
 		guicontrol,,utlTXTE,executable\exe.ico
+	}
+	else {
+	 filecopy,img\install.ico,executable\exe.ico
 	}
 Gui,Listview,utllva
 presx=
@@ -70694,12 +70701,12 @@ if (presx = 1)
 				IniRead,xeopt,%curxe%,EXECUTABLE,options
 				if (xeopt <> "ERROR")
 					{
-						guicontrol,,utlCBXB,|%xeopt%||%INJOPT%
+						guicontrol,,utlCBXB,|%xeopt%
 					}
 				IniRead,xearg,%curxe%,EXECUTABLE,arguments
 				if (xearg <> "ERROR")
 					{
-						guicontrol,,utlCBXA,|%xearg%||%INJARG%
+						guicontrol,,utlCBXA,|%xearg%
 					}
 				IniRead,xeemu,%curxe%,EXECUTABLE,emulator
 				if (xeemu <> "ERROR")
@@ -70720,13 +70727,13 @@ if (presx = 1)
 						guicontrol,,utlRAD1A,1
 					}
 				IniRead,outsv,%curxe%,EXECUTABLE,out_file
-				if (outsv <> "ERROR")
+				if ((outsv <> "ERROR")&&(outsv <> ""))
 					{
 						splitpath,outsv,outexe,outexedir
 						guicontrol,,utlTXTC,%outsv%
 					}
 				IniRead,usrdfd,%curxe%,EXECUTABLE,extraction_directory
-				if (usrdfd <> "ERROR")
+				if ((usrdfd <> "ERROR")&&(usrdfd <> ""))
 					{
 						if (usrdfd = "`%temp`%")
 							{
@@ -70759,16 +70766,23 @@ gui,submit,nohide
 return
 executableutlBUTC:
 gui,submit,nohide
-outsv=
+outsv= %S_KeyDir%
 FileSelectFile,outsv,S58,,Set the executable name/location,*.exe
 if (outsv = "")
 	{
+		outsv= %S_KeyDir%\game.exe
 		SB_SetText("")
+		iniwrite, "%outsv%",%curxe%,EXECUTABLE,out_file
 		return
 	}
 splitpath,outsv,outexe,outexedir,outxtn
 if (outxtn <> "exe")
 	{
+		if (outxtn = "")
+			{
+				outsv.= ".exe"
+				goto, exeoutsv
+			}
 		outsv=
 		outexe=
 		outexedir=
@@ -70776,6 +70790,7 @@ if (outxtn <> "exe")
 		SB_SetText("File must end in ''.exe''")
 		goto, utlBUTC
 	}
+exeoutsv:	
 guicontrol,,utlTXTC,%outsv%
 iniwrite, "%outsv%",%curxe%,EXECUTABLE,out_file
 return
@@ -70799,20 +70814,26 @@ Run, %comspec% /c explorer "%S_KeyDir%\executable"
 return
 executableutlBUTE:
 gui,submit,nohide
-MsgBox,257,Reset,Reset all executable Settings?`nThis will delete all files in the executable directory.
-ifmsgbox,ok
+MsgBox,8196,Reset,Reset all executable Settings?`nThis will delete all files in the executable directory.
+ifmsgbox,yes
 	{
 		Gui,ListView,utllva
 		LV_Delete()
-		FileRemoveDir,executable,1
-		FileCreateDir,executable
+		Loop,files,%S_KeyDir%\executable,R
+			{
+				FileDelete,%A_LoopFileFullPath%
+			}
+		FileRemoveDir,%S_KeyDir%\executable,1
+		FileCreateDir,%S_KeyDir%\executable
 		SB_SetText("RESET")
+		guicontrol,,utlTXTC,%S_KeyDir%\game.exe
 		guicontrol,,utlTXTE,Icon
 		guicontrol,,utlDDLC,|%emuinstpop%
-		guicontrol,,utlcbxa,|%INJARG%
-		guicontrol,,utlcbxb,|%INJOPT%
+		guicontrol,,utlcbxa,|
+		guicontrol,,utlcbxb,|
+		guicontrol,,utlRAD1B,1
 		xeico=
-		outsv=
+		outsv= %S_KeyDir%\game.exe
 		outexe=
 		outexedir=
 		gosub, Executable_util
@@ -70821,7 +70842,7 @@ ifmsgbox,ok
 return
 executableutlBUTF:
 gui,submit,nohide
-icotmp=
+icotmp=%S_KeyDir%\img\install.ico
 FileSelectFile,icotmp,3,,Select Image,*.*
 if (icotmp = "")
 	{
@@ -70834,6 +70855,7 @@ if (icoxt = "ico")
 		filecopy,%icotmp%,executable\exe.ico,1
 		iniwrite, exe.ico,%curxe%,EXECUTABLE,icon
 		guicontrol,,utlTXTE,enabled
+		guicontrol,,utlPICA,executable\exe.ico
 		return
 	}
 ifinstring,imgtmp,|%icoxt%|
@@ -70841,6 +70863,7 @@ ifinstring,imgtmp,|%icoxt%|
 		RunWait, "bin\any2ico.exe" "-img=%icotmp%" "-icon=executable\exe.ico" -formats=32`,64`,96`,128`,256 -center
 		iniwrite, exe.ico,%curxe%,EXECUTABLE,icon
 		guicontrol,,utlTXTE,enabled
+		guicontrol,,utlPICA,executable\exe.ico
 		return
 	}
 SB_SetText(" You must select a ''.ico'' or image file.")
@@ -70894,8 +70917,10 @@ gui,submit,nohide
 if (outexedir = "")
 	{
 		SB_SetText(" Set the destination for the executable ")
+		return
 	}
-guicontrol,disable,utlBUTJ
+utlguitog= disable	
+gosub, utlguitog
 fileDelete,executable\romlist.txt
 utlItemdxa=
 utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
@@ -70944,7 +70969,7 @@ ifexist,%cacheloc%\MakeEXE.7z
 	{
 		filedelete,%cacheloc%\MakeEXE.7z
 	}
-RunWait,  "bin\7za.exe" a -m0=lzma "%cacheloc%\MakeEXE.7z" @"%cacheloc%\MakeEXE_files.txt",executable,hide
+RunWait,  "%S_KeyDir%\bin\7za.exe" a -m0=lzma "%cacheloc%\MakeEXE.7z" @"%cacheloc%\MakeEXE_files.txt",executable,hide
 FileDelete,executable\config.txt
 FileAppend, `;!@Install@!UTF-8!`n,executable\config.txt
 FileAppend, Title="ROM-EXECUTABLE"`n,executable\config.txt
@@ -70959,20 +70984,19 @@ ifexist,%outsv%
 	{
 		FileDelete,%outsv%
 	}
-;;filecopy,bin\7zsd%ARCH%.sfx,%cacheloc%\7zsd%ARCH%.sfx,1
-filecopy,bin\7zsd.sfx,%cacheloc%\7zsd.sfx,1
+filecopy,bin\7zsd%ARCH%.sfx,%cacheloc%\7zsd%ARCH%.sfx,1
 ifexist,executable\exe.ico
 	{
 		sleep, 2000
-		;;RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%cacheloc%\7zsd%ARCH%.sfx" --set-icon executable\exe.ico,,hide
-		RunWait, %comspec% /c bin\rcedit.exe "%cacheloc%\7zsd.sfx" --set-icon executable\exe.ico,,hide
+		RunWait, %comspec% /c bin\rcedit%ARCH%.exe "%cacheloc%\7zsd%ARCH%.sfx" --set-icon executable\exe.ico,,hide
 		wicon= with icon
 	}
-;;RunWait, %comspec% /c copy /b "%cacheloc%\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
-RunWait, %comspec% /c copy /b "%cacheloc%\7zsd.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
+RunWait, %comspec% /c copy /b "%cacheloc%\7zsd%ARCH%.sfx" + "executable\config.txt" + "%cacheloc%\MakeEXE.7z" "%outexedir%\%outexe%",,hide
 wicon=
-guicontrol,enable,utlBUTJ
 SB_SetText("Executable " outsv " " wicon " created")
+
+utlguitog= enable	
+gosub, utlguitog
 return
 executableutlCHKD:
 gui,submit,nohide
@@ -71001,7 +71025,7 @@ gui,submit,nohide
 if (utlCHKF = 1)
 	{
 		guicontrol,enable,utlEDTC
-		guicontrol,,utlEDTC,`%`%S\ROM_EXECUTABLE
+		guicontrol,,utlEDTC,`%`%T
 		guicontrolget,utlEDTC,,utlEDTC
 		return
 	}
@@ -71120,6 +71144,8 @@ gui,submit,nohide
 return
 executableutlDDLC:
 gui,submit,nohide
+utlguitog= disable	
+gosub, utlguitog
 guicontrolget,utlDDLCtmp,,utlDDLC
 guicontrol,enable,utlBUTG
 Gui,Listview,utlva
@@ -71141,6 +71167,8 @@ if (utlDDLCtmp = "Other")
 		if (exefiletmp = "")
 			{
 				guicontrol,,utlDDLC,|%utlDDLC%||%emuinstpop%
+				utlguitog= enable	
+				gosub, utlguitog
 				return
 			}
 		splitpath,exefiletmp,emuexeft
@@ -71148,6 +71176,8 @@ if (utlDDLCtmp = "Other")
 			{
 				guicontrol,,utlDDLC,|%utlDDLC%||Other|%emuinstpop%
 				SB_SetText("Emulator is already added.")
+				utlguitog= enable	
+				gosub, utlguitog
 				return
 			}
 		ifnotexist,executable\emu
@@ -71161,6 +71191,8 @@ if (utlDDLCtmp = "Other")
 		LV_ModifyCol()
 		utlDDLC= %utlDDLCtmp%
 		IniWrite, "%emuexeft%",%curxe%,EXECUTABLE,Emulator
+		utlguitog= enable	
+		gosub, utlguitog
 		return
 	}
 utlDDLC= %utlDDLCtmp%
@@ -71171,77 +71203,76 @@ Loop, Parse, emupartset,`n`r
 				continue
 			}
 		stringsplit,xesel,A_LoopField,<
-		if (xesel1 = utlDDLC)
+		stringsplit,urloc,xesel2,/
+		if (utlDDLC = xesel1)
 			{
-				stringsplit,afi,xesel2,/
-				Loop, Parse,EmuPartSet,`n`r
+				URLFILE= %repoloc%/%urloc1%/%urloc2%
+				ifinstring,repoloc,github
 					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						ifinstring,A_LoopField,[
-							{
-								continue
-							}
-						urloc=
-						urloc1=
-						urloc2=
-						stringsplit,slfm,A_LoopField,<
-						stringsplit,urloc,slfm2,/
-						if (slfm1 = xesel1)
-							{
-								URLFILE= %repoloc%/%urloc1%/%urloc2%
-								ifinstring,repoloc,github
+						URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+					}
+				sb_settext(" " URLFILE " ")
+				save=%cacheloc%\%urloc2%
+				if (xtractmu = "")
+						{
+							xtractmu= %S_KeyDir%\executable
+						}
+				splitpath,save,svaf,svap
+				rtrcnt= 
+				origurl= %URLFILE%
+				EXEUTILDWN:
+				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+				;;DownloadFile(URLFILE, save, True, True)
+				ifnotexist, %save%
+					{
+						msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+						ifmsgbox,yes
+							{											
+								rtrcnt+= 1
+								Loop,parse,ALTHOST,>
 									{
-										URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
-									}
-								sb_settext(" " URLFILE " ")
-								save=%cacheloc%\%urloc2%
-								if (xtractmu = "")
-										{
-											xtractmu= executable
-										}
-								splitpath,save,svaf,svap
-								rtrcnt= 
-								origurl= %URLFILE%
-								EXEUTILDWN:
-								exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-								;;DownloadFile(URLFILE, save, True, True)
-								ifnotexist, %save%
-									{
-										msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
-										ifmsgbox,yes
-											{											
-												rtrcnt+= 1
-												Loop,parse,ALTHOST,>
-													{
-														if (A_Index = rtrcnt)
-															{
-																stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
-																break
-															}
-														rtrcnt= 
-														URLFILE= %origurl%	
-													}
-												goto, EXEUTILDWN	
+										if (A_Index = rtrcnt)
+											{
+												stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+												break
 											}
-										break
+										rtrcnt= 
+										URLFILE= %origurl%	
 									}
-								SB_SetText(" " save " " "extracting")
-								runwait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%xtractmu%\emu" ", ,hide
-								SB_SetText(" " save " " "was extracted")
-								ifnotexist, %xtractmu%\emu\
-									{
-										SB_SetText(" " save " " "was NOT extracted")
-									}
+								goto, EXEUTILDWN	
 							}
+						break
+					}
+				SB_SetText(" " save " " "extracting")
+				runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%xtractmu%\emu" ", ,hide
+				SB_SetText(" " save " " "was extracted")
+				ifnotexist, %xtractmu%\emu\
+					{
+						SB_SetText(" " save " " "was NOT extracted")
+						utlguitog= enable	
+						gosub, utlguitog
+						return
 					}
 				IniWrite, "%xesel3%",%curxe%,EXECUTABLE,Emulator
 				break
 			}
 	}
-utlitmz=
+utlinjo=
+utlinja=
+iniread,UTLEMUO,EmuCfgPresets.ini,%utlDDLC%,RJEMUOPTS
+Loop,parse,UTLEMUO,|
+	{
+		stringreplace,UTLEMUi,A_LoopField,<,%A_Space%,All
+		utlinjo.= utlemui . "|"
+	}
+guicontrol,,utlCBXB,|%utlinjo%
+iniread,UTLEMUA,EmuCfgPresets.ini,%utlDDLC%,RJEMUARGS
+Loop,parse,UTLEMUA,|
+	{
+		stringreplace,UTLEMUi,A_LoopField,<,%A_Space%,All
+		utlinja.= utlemui . "|"
+	}
+guicontrol,,utlCBXA,|%utlinja%
 Loop, Files, executable\*.*,RFD
 	{
 		ifinstring,utlitmz,%A_LoopFileFullPath%
@@ -71252,6 +71283,8 @@ Loop, Files, executable\*.*,RFD
 		utlitmz.= A_LoopFileFullPath . "|"
 	}
 LV_ModifyCol()
+utlguitog= enable	
+gosub, utlguitog
 return
 executableutlDDLD:
 gui,submit,nohide
@@ -71268,6 +71301,9 @@ return
 executableutlEDTC:
 gui,submit,nohide
 guicontrolget,utledtc,,utlEDTC
+stringreplace,utledtc,utledtc,\\\\,\\,All
+stringreplace,utledtc,utledtc,\\\,\\,All
+stringreplace,utledtc,utledtc,\,\\,All
 iniwrite,"%utledtc%",%curxe%,EXECUTABLE,extraction_directory
 return
 executableutlEDTD:
@@ -71405,9 +71441,13 @@ gui,submit,nohide
 return
 executableutlRad1A:
 gui,submit,nohide
+utlguitog= disable	
+gosub, utlguitog
 Gui,Listview,utllva
+LV_Delete()
 iniwrite,0,%curxe%,EXECUTABLE,keymapper
-ifnotexist,%cacheloc%\antimicro%ARCH%.7z
+save= %cacheloc%\antimicro-%ARCH%.7z
+ifnotexist,%save%
 	{
 		Loop, Parse, emupartset,`n`r
 			{
@@ -71416,90 +71456,49 @@ ifnotexist,%cacheloc%\antimicro%ARCH%.7z
 						continue
 					}
 				stringsplit,xesel,A_LoopField,<
-				if (xesel1 = "antimicro")
+				if (xesel1 = "Antimicro")
 					{
-						stringsplit,afi,xesel2,/
-						Loop, Parse,EmuPartSet,`n`r
+						stringsplit,urloc,xesel2,/
+						URLFILE= %repoloc%/%urloc1%/%urloc2%
+						ifinstring,repoloc,github
 							{
-								if (A_LoopField = "")
-									{
-										continue
-									}
-								ifinstring,A_LoopField,[
-									{
-										continue
-									}
-								urloc=
-								urloc1=
-								urloc2=
-								stringsplit,slfm,A_LoopField,<
-								stringsplit,urloc,slfm2,/
-								if (slfm1 = xesel1)
-									{
-										URLFILE= %repoloc%/%urloc1%/%urloc2%
-										ifinstring,repoloc,github
+								URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+							}
+						sb_settext(" " URLFILE " ")
+						save=%cacheloc%\%urloc2%
+						splitpath,save,svaf,svap
+						rtrcnt= 
+						origurl= %URLFILE%
+						AMICRODWN:
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						;;DownloadFile(URLFILE, save, True, True)
+						ifnotexist, %save%
+							{
+								msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+								ifmsgbox,yes
+									{								
+										rtrcnt+= 1
+										Loop,parse,ALTHOST,>
 											{
-												URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
-											}
-										sb_settext(" " URLFILE " ")
-										save=%cacheloc%\%urloc2%
-										if (xtractmu = "")
-												{
-													xtractmu= executable
-												}
-										splitpath,save,svaf,svap
-										rtrcnt= 
-										origurl= %URLFILE%
-										AMICRODWN:
-										exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-										;;DownloadFile(URLFILE, save, True, True)
-										ifnotexist, %save%
-											{
-												msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
-												ifmsgbox,yes
-													{								
-														rtrcnt+= 1
-														Loop,parse,ALTHOST,>
-															{
-																if (A_Index = rtrcnt)
-																	{
-																		stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
-																		break
-																	}
-																rtrcnt= 
-																URLFILE= %origurl%	
-															}
-														goto, AMICRODWN	
+												if (A_Index = rtrcnt)
+													{
+														stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+														break
 													}
-												break
+												rtrcnt= 
+												URLFILE= %origurl%	
 											}
-										SB_SetText(" " save " " "extracting")
-										runwait, %comspec% cmd /c  "bin\7za.exe x -y "%save%" -O"%xtractmu%\antimicro" ", ,hide
-										SB_SetText(" " save " " "was extracted")
-										ifnotexist, %xtractmu%\antimicro\
-											{
-												SB_SetText(" " save " " "was NOT extracted")
-												break
-											}
+										goto, AMICRODWN	
 									}
+								break
 							}
-						iniwrite,1,%curxe%,EXECUTABLE,keymapper
-						ifnotexist,executable\Player1.amgp
-							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player1.amgp,executable\Player1.amgp
-							}
-						ifnotexist,executable\Player2.amgp
-							{
-								FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player2.amgp,executable\Player2.amgp
-							}
-								ifnotexist,executable\Select.amgp
-							{
-								FileCopy,rj\joycfgs\Antimicro\MediaCenter.amgp,executable\Select.amgp
-							}
-						break
 					}
 			}
+		gosub,amicroxtr	
+		goto, reinitxe	
 	}
+gosub,amicroxtr	
+reinitxe:	
 utlitmz=
 Loop, Files, executable\*.*,RFD
 	{
@@ -71511,6 +71510,32 @@ Loop, Files, executable\*.*,RFD
 		utlitmz.= A_LoopFileFullPath . "|"
 	}
 LV_ModifyCol()
+utlguitog= enable	
+gosub, utlguitog
+return
+amicroxtr:
+SB_SetText(" " save " " "extracting")
+xtractmu= %S_KeyDir%\executable
+runwait, %comspec% cmd /c " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%xtractmu%\antimicro" ", ,hide
+SB_SetText(" " save " " "was extracted")
+ifnotexist, %xtractmu%\antimicro\
+	{
+		SB_SetText(" " save " " "was NOT extracted")
+		return
+	}
+iniwrite,1,%curxe%,EXECUTABLE,keymapper
+ifnotexist,executable\Player1.amgp
+	{
+		FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player1.amgp,executable\Player1.amgp
+	}
+ifnotexist,executable\Player2.amgp
+	{
+		FileCopy,rj\joycfgs\Antimicro\joystick\Windows - Games\Player2.amgp,executable\Player2.amgp
+	}
+		ifnotexist,executable\Select.amgp
+	{
+		FileCopy,rj\joycfgs\Antimicro\MediaCenter.amgp,executable\Select.amgp
+	}
 return
 executableutlRad3A:
 gui,submit,nohide
@@ -71542,6 +71567,12 @@ gui,submit,nohide
 return
 executableutlSLDE:
 gui,submit,nohide
+return
+utlguitog:
+Loop,parse,UTLGUIITEMS,|
+	{
+		guicontrol,%utlguitog%,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;; ~~~FE-gui functions~~~  ;;;;;
@@ -73581,7 +73612,7 @@ Loop, rj\*.jak
 							{
 								if (RJEXTRARC = 1)
 									{
-										RunWait, %comspec% /c  "bin\7za.exe e -y "%RJSYSTEMS%\%curjf%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjakn%" ",,hide
+										RunWait, %comspec% /c " "%S_KeyDir%\bin\7za.exe" e -y "%RJSYSTEMS%\%curjf%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjakn%" ",,hide
 										if (RJARCLOC = 0)
 											{
 												FileMove,%RJSYSTEMS%\%curjf%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
@@ -73602,7 +73633,7 @@ Loop, rj\*.jak
 									}
 								if (RJEXTRARC = 2)
 									{
-										RunWait, %comspec% /c  "bin\7za.exe e -y "%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjak%" ",,hide
+										RunWait, %comspec% /c " "%S_KeyDir%\bin\7za.exe" e -y "%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%" -O"%RJSYSTEMS%\%curjf%\%nwjak%" ",,hide
 											if (RJARCLOC = 0)
 												{
 													FileMove,%RJSYSTEMS%\%curjf%\%nwjak%\%ibjn2%,%cacheloc%\%curjf%\%ibjn2%,1
@@ -79353,7 +79384,7 @@ Loop, %fndext0%
 splitpath,romf,romtitle,rompth,romext,romname,romdrv
 if ((romext = "zip")or(romext = "rar")or(romext = "7z")or(romext = "gz")or(romext = "tar"))
 	{
-		RunWait, "bin\7za.exe" e -y "%romf%" -O"%cacheloc%\%romname%",,hide
+		RunWait, "%S_KeyDir%\bin\7za.exe" e -y "%romf%" -O"%cacheloc%\%romname%",,hide
 		SB_SetText(Extracting rom from " romf ")
 		Loop, %cacheloc%\%romname%\*.*
 			{
