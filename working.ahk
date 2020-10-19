@@ -6748,8 +6748,11 @@ Exe_Add:
 gui,submit,nohide
 filecreatedir,%S_KeyDir%\executable\roms
 IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
-Gui,ListView,utlLVA
 sinnz=
+itmlst=
+guicontrolget,itmlst,,SRCHROMLBX
+
+Gui,ListView,utlLVA
 lvachk= +Check
 Loop,parse,kiv,|
 	{
