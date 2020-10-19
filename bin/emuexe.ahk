@@ -29,6 +29,7 @@ if (keymapper = 1)
 			}
 		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Select.amgp",%A_ScriptDir%,min,amik
 	}
+IniRead, exe_title, exeparam.ini,EXECUTABLE,exe_title
 IniRead, emulator, exeparam.ini,EXECUTABLE,emulator
 IniRead, arguments, exeparam.ini,EXECUTABLE,arguments
 if (arguments = "ERROR")
@@ -118,12 +119,12 @@ stringreplace,RUNROM,RUNROM,`r,,All
 gui,minimize
 ;;msgbox,,, %emulator%%options%%runrom%%arguments%
 RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
+GuiClose:
+GuiEscape:
 if (keymapper = 1)
 	{
 		Process, close, %amik%
 	}
-GuiClose:
-GuiEscape:
 ExitApp
 return
 

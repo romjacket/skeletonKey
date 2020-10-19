@@ -441,7 +441,7 @@ if ((CMIRLOC = "ERROR")or !fileexist(CMIRLOC))
 IniRead,CICOLOC,Settings.ini,GLOBAL,Mirror_Icons
 if ((CICOLOC = "ERROR")or !fileexist(CICOLOC))
 	{
-		CICOLOC=  %S_KeyDir%\mirrors
+		CICOLOC=  %S_KeyDir%\icons
 		iniwrite,"%CICOLOC%",Settings.ini,GLOBAL,Mirror_Icons
 	}
 
@@ -934,7 +934,8 @@ stringreplace,joyitervars,joyiterate,_,,All
 KBSET=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|1|2|3|4|5|6|7|8|9|0|minus|add|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|up|down|left|right|pageup|pagedown|home|end|tilde|semicolon|quote|comma|period|slash|backslash|leftbracket|rightbracket|rshift|lshift|numlock|kp_period|keypad1|keypad2|keypad3|keypad4|keypad5|keypad6|keypad7|keypad8|keypad9|keypad0|subtract|equals|multiply|alt|ctrl|tab|capslock|escape|nul
 RUNBOXGUIITEMS=LCORE|RUNSYSBTN|RUNSYSDDL|RUNPLRAD|RUNFLRAD|EDTROMBTN|MINISWITCH|MORROM|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
 GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
-RJLSTCTRLS=RJSYSDDRJINCEXCLRJSETRANGERJRNGTXTRJLSTYPRJRFRSHLSTRJEDTDRJEDTDNRJTXTHRJEDTBRJEDTBNRJFLTRLSTRJEDTCgRJEDTCRJFNDINLSTRJLSTVRJSALITMSRJTXTNRJCHKLRJCHKMRJCHKPRJCHKHRJCHKIRJDELCOMPRLSTOTRJGRPARJCHKGRJSYSRADARJSYSRADBRJSYSRADCRJSYSLOADRJSYSSAVRJSYSSAVASRJGRPGRJENMAPRJOVKMRJTXTCRJTXTFRJMAPDDRJMAPRETRJMAPRETOPNRJMAP1ROFTYPARJMAP1ROFTYPBRJMAP1ROFTYPCRJTXTDRJMAP1PLRJMAP1PLOPNRJMAP2ROFTYPARJMAP2ROFTYPBRJMAP2ROFTYPCRJTXTERJMAP2PLRJMAP2PLOPNRJGRPIRJENLNCHRRJLNCHOVRRJRad4BRJRad4ARJEXEBRJTXTBPRJEMUPRECFGRJEMUPRMRJCHKQRJBUTMRJCHKKRJGRPERJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
+RJLSTCTRLS=RJSYSDD|RJINCEXCL|RJSETRANGE|RJRNGTXT|RJLSTYP|RJRFRSHLST|RJEDTD|RJEDTDN|RJTXTH|RJEDTB|RJEDTBN|RJFLTRLST|RJEDTCg|RJEDTC|RJFNDINLST|RJLSTV|RJSALITMS|RJTXTN|RJCHKL|RJCHKM|RJCHKP|RJCHKH|RJCHKI|RJDELCOMP|RLSTOT|RJGRPA|RJCHKG|RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJSYSSAV|RJSYSSAVAS|RJGRPG|RJENMAP|RJOVKM|RJTXTC|RJTXTF|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJTXTD|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJTXTE|RJMAP2PL|RJMAP2PLOPN|RJGRPI|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJTXTBP|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJGRPE|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
+RJLSTCTRLSp=RJCHKR|RJBUTA|RJSYSRADA|RJSYSRADB|RJSYSRADC|RJRFRSHLST|RJSETRANGE|RJENMAP|RJCHKU|RJCHKT|RJCHKS|RJCHKW|RJQLSTDD|RJADDQ|RJBUTH|RJBUTG|RJBUTV|RJDDLP|RJDDLF|RJLNCHTYP|RJSYSRADB|RJSYSRADA|RJRad1B|RJRad11A|RJRad11B|RJFLTRLST|RJEDTO|RJCHKK|RJENDMNT|RJEXEB|RJENLNCHR|RJFNDINLST|RJDELCOMP|RJSALITMS|RJLSTYP|RJSUBDCBX|RJINCEXCL|RJLSTV|RJEDTC|RJZIP|RJSYSSAV|RJSYSSAVAS|RJREMQSYS|RJEOPTSCBX|RRJEARGSCBX|RJPROCQ|RJADDQ|RJCHKL|RJCHKM|RJCHKP|RJCHKH|RJCHKI|RJCHKF|RJCHKG|RJCHKJ|RJEMUXTCBX|RJREMQSYS|RJXTRARCDD|RJSUBDH|RJADDSUBD|RJREMSUBD|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG
 EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
 EMUINPUTNULLITEMS=INDWRN|emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT|emjOtxt
 EMUINPUTGUIITEMS=emjRAD1A|emjRAD1B|emjRAD1C|emjRAD1D|emjBGRP|emjRAD2A|emjRAD2B|emjRAD2C|emjBUTA|emjBUTB|emjRAD3A|emjRAD3B|emjCBA|emjDDLA|emjDDLB|emjDDLD|emjCHKA|emjCHKB|emjCHKC|emjCHKD|emjCHKE|emjCHKX|emjCHKY|emjCHKZ|emjCHKH|emjDDLE|emjSLDA|emjCHKF|emjDDLF|emjUDA|emjEDTA|emjEDTB|emjUDB|emjCHKG|emjDDLC
@@ -988,6 +989,7 @@ SUBDLSTR:= SUBDLST
 qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
 qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bits 60hz|800x480 32bits 60hz|848x480 32bits 60hz|1024x600 32bits 60hz|800x600 32bits 60hz|1024x768 32bits 60hz|1152x864 32bits 60hz|1280x1024 32bits 60hz|1280x720 32bits 60hz|1280x800 32bits 60hz|1280x900 32bits 60hz|1280x960 32bits 60hz|1366x768 32bits 60hz|1360x1024 32bits 60hz|1440x900 32bits 60hz|1400x1050 32bits 60hz|1600x1024 32bits 60hz|1920x1080 32bits 60hz|1600x1024 32bits 60hz|1680x1050 32bits 60hz|1920x1200 32bits 60hz|2560x1440 32bits 60hz|3840x2160 32bits 60hz|5120x2880 32bits 60hz|7680x4320 32bits 60hz
 CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
+RAINSTGUIITEMS=AVAIL|EMUINST|EXELIST|GCUPDT|INSTEMUDDL|LOCEMUIN|MULTINST|QRSETUP|SaList|SYSINSTLBX|UPDBTC|UPDBTN|UPDCL|UPDSELCT|SKRAEXE|SKRADISP|SKRAIMP|SKSAVE|SKSVAS|GRAVER|QRSETUP|EXELIST|RALIST|BCKCORE|KARC
 RAGUIMENUITEMS=ART|ARTXT|ASYNC|AUO|AUTOASPECT|AUTSHD|BFI|CGSHDVAR|CGSLCT|CROP|CSTCMD|CSTCRE|CSTRAOPTF|CSTRAARGF|D3DDRV|D3D11|D3D12|DDRVGRP|DIRSTXT|DLFRMTXT|DRCGRP|DSND|DTCOMP|DirBut|FILTSEL|FILTXT|FLICKF|FLK|FLTFILE|FORCEAR|FRMDL|FRMDLTXT|FSREZ|GDIDRV|GLBLAUDIO|GLSHDVAR|GLSLCT|GPUFRMTXT|GPUSS|GPUV|GPUVREC|DISPLDRV|RaSpdEdt|RaSpdSld|RASpdTxt|DISPDRVTXT|AUDDRVTXT|GUIDRV|AUDDRV|GUIDRVTXT|HSYNC|INTG|IntXres|IntYres|LATENCY|LOCDIR|LOCPTH|MAXSWPTXT|MONGTXT|MONRESTXT|MONUM|MONXREZ|MONXTXT|MONYREZ|MSWCHI|MUTE|OGLDRV|OPENAL|OPERGRP|OUTFS|OUTFW|OUTMGRP|OUTW|OVRIDGRP|PAUSMNU|DBLESCP|PAUSEBG|PGM|VRSTRABUT|POSYTXT|PTHSTXT|PthBut|REFRESH|REFSLD|REFTXT|REFUD|REWEN|REWGRAN|REZV|ROTATE|SAVDIVTXT|SAVEXIT|SAVGRP|SAVSECTXT|SAVSRT|SAVSTPTXT|SCLGRP|SCLTXT|SDL2|SDL2DRV|SHAREDV|SHDEN|SHDPTHTXT|SHDSEL|SLCT|SLSHDVAR|SMTHV|SNDGRP|SNDLATXT|STAI|STAL|STAS|STORT|STRCH|SVINT|SWHOST|SWPFRMTXT|SWPV|THRDV|VIDASPECT|VIDGTXT|VIDRESTXT|VIDRESTXT|VIDSCL|AVIDSYNC|VIDSYNC|VIDXTXT|VPOSTXT|VPOSXTXT|VROTXT|VidXLoc|VidYLoc|RUN2ND|RUNAHEAD|RUNAFRMS|ROMRPGRP
 RAJOYINBUTITEMS=LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TURBOIN
 RAJOYGUIITEMS=JOYPIC|JOYDRVGRP|JHIDDRV|JDINDRV|JXINDRV|JSDLDRV|INPDRVGRP|IDDINP|IDSDLINP|IDRAW|LASTKGRP|RASTKGRP|DPADGRP|CIREMAPGRP|BBUTTXT|YBUTTXT|XBUTTXT|ABUTTXT|L3BUTTXT|R3BUTTXT|LTRIGTXT|RTRIGTXT|LBUTTXT|RBUTTXT|HBTNTXT|SELECTBUTTXT|STARTBUTTXT|CFGPLGRP|INDWRN|CLRPLYR|RSTPLYR|DEFPLCTRLGRP|HOTKGRP|JSW|KSW|HKEYCB|HKEYDD|JYPLTXT|PLAYERN|MENBUTCMBTXT|DSPLGC|MGPC|MXUSRTXT|MXUSR|SWAPOKC|ADJS|REMPB|RMPLOAD|ENDVBR|KBGP|AUM|JPINDX|MOUSEIND|JOYIND|MINXTXT|ANLDZGRP|ANLDZTXT|DEDZTXT|DEDZ|UNIFMENU|POLLING|POLTXT|JBLNKGRP|TRBPRD|TURBOP|TURBUD|DUTCTXT|DUTYCYCLE|DUTYUD|ANLDP|TRBTXT|TURBOIN|LTRIGIN|LBUMPIN|RTRIGIN|RBUMPIN|LSTICKUPIN|LSTICKLFTIN|LSTICKRTIN|LSTICKDWNIN|LSTICKBUTIN|RSTICKUPIN|RSTICKLFTIN|RSTICKRTIN|RSTICKDWNIN|RSTICKBUTIN|DPADDWNIN|DPADUPIN|DPADLFTIN|DPADRTIN|SLCTBUTIN|STRTBUTIN|YBUTIN|XBUTIN|BBUTIN|ABUTIN|INPBUTIN|TRBCMB|RA_RXMinus|RA_RYPlus|RA_R|RA_L|RA_RXPlus|RA_RYMinus|RA_R3|RA_L3|RA_LXMinus|RA_LYPlus|RA_LYMinus|RA_LXPlus|RA_select|RA_start|RA_up|RA_left|RA_right|RA_down|RA_Y|RA_X|RA_B|RA_A|RA_l2|RA_r2|RA_Home
@@ -1481,14 +1483,11 @@ Menu, rjscopy, Add`
 Menu, rjscopy, Add, Delete, delete_image
 Menu, rjscopy, Add
 Menu, medcachedel, Add, Delete sselph-scraper cache, Media_Cache_delete
-Menu, RunWithDD, Add, Emulator Run-List >>, Emulator_Add
-Menu, RunWithDD, Add
+Menu, RunWithDD, Add, Run With >>, Emulator_Add
 Menu, RunWithDD, Add, Download Assets >>, ARCGSNP
-Menu, RunWithDD, Add
 Menu, RunWithDD, Add, Add to Playlist +, Playlist_Add
-Menu, RunWithDD, Add
+Menu, RunWithDD, Add, Add to Executable +, Exe_Add
 Menu, RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
-Menu, RunWithDD, Add
 Menu, RunWithDD, Add, Open In Explorer !, Open_Add
 Menu, UndoRARST, Add, Undo Reset, RAINITUNDO
 Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
@@ -2012,11 +2011,9 @@ Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
 Gui,Add,listbox,x5 y23 w271 h463 HWNDtrxvail vPRGINSTLBX gPRGINSTLBX hidden,
 Gui,Add,listbox, Multi x5 y23 w271 h463 HWNDeavlbx vSYSINSTLBX gSYSINSTLBX, %allsupport%
 Gui,Add,listbox, Multi x5 y23 w237 h433 hwndAVWIND vRAINSTLBX gRAINSTLBX Hidden, %corezips%
-Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
-Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS, 0
 Gui,Add,listbox, x282 y433 w175 h69 HWNDprisl vEMPRLST gEMPRLST,
-Gui, Add, Button, x422 y413 w16 h17 v gEMPRBUTA, +
+Gui, Add, Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA, +
 Gui,Add,DropDownList, hwndDplHndl34 x283 y411 w125 vEMPRDDL gEMPRDDL, Emulators|%runlist%
 Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU, P
 Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX, X
@@ -2038,11 +2035,9 @@ Gui,Add,DropDownList, hwndDplHndl37 x570 y452 w143 vEMDDLP gEMDDLP +0x2 +E0x5000
 Gui, Add, Button, x703 y476 w33 h23 vEMBUTO gEMBUTO hidden disabled, Add
 Gui,Add,Edit, hwndEdtHndl27 x529 y477 w169 h21 vEMEDTO gEMEDTO disabled
 Gui, Add, Button, x715 y451 w21 h23 vEMBUTH gEMBUTH disabled, X ;PrePostDelete
-Gui, Add, Checkbox, x282 y390 h17 vKARC gKeepArchives checked, Keep archives
 Gui,Add,ComboBox, hwndCbxHndl23 x280 y411 w156 vRepoSet gRepoSet hidden, %repoloc%||%repolst%
 Gui, Add, Text, x280 y436 h15 vSITEDTXT hidden, Remote Repository
 Gui, Add, Button, x440 y412 w23 h19 vAddRepo gAddRepo hidden, +
-Gui, Add, CheckBox, x282 y372 h17 vBCKCORE gBckCore hidden, Backup
 Gui,Font,Bold
 Gui, Add, Button,x252 y433 w115 h43 vUPDBTN gUpdSelct Hidden Disabled, DOWNLOAD
 Gui, Add, Button,x370 y445 w15 h15 vUPDBTC gCLRNETP Hidden Disabled,-
@@ -2051,8 +2046,6 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x278 y5 w185 h366 Center vCCGRP, Installer
 Gui,Font,Norm
 Gui,Add,listbox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNoSelCores hidden,|%CoreNamz%
-Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
-Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
 Gui,Font,Bold
 Gui,Add,DropDownList, hwndDplHndl38 x65 y485 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
 Gui, Add, Text, x9 y490 h15,Installers
@@ -2111,6 +2104,12 @@ Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
 Gui, Add, Text, x288 y212 h17 vROMDTXT,-=>ROM Directories
 Gui,Add,Listbox, hwndLbxHndl3 x285 y234 w171 h123 vROMDEDT Multi +HScroll,
 ;;;;;;;;;;;;;;;;;;;;  RETROARCH UI  ;;;;;;;;;;;;;;;;;
+Gui, Add, CheckBox, x282 y372 h17 vBCKCORE gBckCore hidden, Backup
+Gui, Add, Checkbox, x282 y390 h17 vKARC gKeepArchives checked, Keep archives
+Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
+Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
+Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
+Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXEP hidden, SET
 Gui, Add, Text, x515 y42 w109 h13 vSKRAXETXT hidden, Retroarch Location
 Gui,Add,Edit, hwndEdtHndl31 x516 y58 w203 h40 Multi ReadOnly vSKRADISP hidden, %raexedir%
@@ -3259,7 +3258,7 @@ Gui, Add, Text, x688 y96 vutlTXTQ %utlvis%, utlTXTQ
 Gui, Add, Text, x696 y344 vutltTXTJ %utlvis%, utltTXTJ
 Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
 Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
-Gui, Add, Picture, x0 y0 w0 h0 vutlPICA %utlvis%, 
+Gui, Add, Picture, x0 y0 w66 h66 vutlPICA %utlvis%, 
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;       [[NETPLAY TAB]]        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 10
@@ -3574,7 +3573,6 @@ CLRPP_TT :="Clears populated ROMs"
 CLRTHM_TT :="Color theme"
 DYNTRANS_TT :="Dynamically enables\disables and sets the transparency of skeletonKey to 20`% when launching emulators."
 CMPAN_TT :="Shows a brief description of menu items in the XMB GUI"
-CNCLDWN_TT :="Cancel the download"
 CNCTBUT_TT :="Connects/Invades using selected settings."
 COREOPTCPY_TT :="Copies current core-options at launch`n then copies back changes made in retroarch."
 CPORTNUM_TT :="Port of the Host."
@@ -6746,6 +6744,41 @@ if (multisel = 1)
 	}
 SB_SetText("Select a single item only")
 return
+Exe_Add:
+gui,submit,nohide
+filecreatedir,%S_KeyDir%\executable\roms
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
+Gui,ListView,utlLVA
+sinnz=
+lvachk= +Check
+Loop,parse,kiv,|
+	{
+		newn= %A_LoopField%
+		insrtsys= %newn%\%SRCHLOCDDL%\
+		Loop, Parse, itmLst,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ifnotinstring,A_LoopField,:
+					{
+						rplf= %insrtsys%
+						sinnz:= insrtsys . A_LoopField
+					}
+					else {
+						rplf=
+						sinnz:= A_LoopField
+					}
+				splitpath,sinnz,sinnxe
+				filecopy,%sinnz%,%S_KeyDir%\executable\roms\%sinnxe%,1
+				LV_Add(lvachk,sinnxe)
+				stringreplace,itmlst,itmlst,%A_LoopField%|,,All
+			}
+	}
+LV_ModifyCol()	
+Guicontrol,choose,TABMENU,9	
+return	
 Playlist_Add:
 gui,submit,nohide
 itmlst=
@@ -6760,10 +6793,30 @@ if (noadpl = 1)
 		return
 		SB_SetText("Cannot add items to playlist currently being edited")
 	}
-Loop, Parse, itmLst,`n`r|
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
+sinnz= 
+Loop,parse,kiv,|
 	{
-		sinnz:= RJSYSTEMS . "\" . SRCHLOCDDL . "\" . A_LoopField . ">" . ccoreLBX
-		LBEX_Add(insel,sinnz)
+		newn= %A_LoopField%
+		insrtsys= %newn%\%SRCHLOCDDL%\
+		Loop, Parse, itmLst,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}				
+				ifnotinstring,A_LoopField,:
+					{
+						rplf= %insrtsys%
+						sinnz:= insrtsys . A_LoopField . ">" . ccoreLBX
+					}
+					else {
+						rplf= 
+						sinnz:=  A_LoopField . ">" . ccoreLBX
+					}
+				LBEX_Add(insel,sinnz)
+				stringreplace,itmlst,itmlst,%A_LoopField%|,,All
+			}
 	}
 IF (itmlst <> "")
 		{
@@ -9533,11 +9586,14 @@ Loop,Parse,kiv,|
 						lsrchpop .= A_LoopFileFullPath . "|"
 					}
 			}
-		lsrchpok= %lsrchpop%
-		if instr(LOCSRCHFLDR,RJSYSTEMS)
+		if (A_index = 1)
 			{
-				stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All			
-			}
+				lsrchpok= %lsrchpop%
+				if instr(LOCSRCHFLDR,RJSYSTEMS)
+					{
+						stringreplace,lsrchpop,lsrchpop,%LOCSRCHFLDR%\,,All			
+					}				
+			}	
 		guicontrolget, existingpop,,SRCHROMLBX
 		guicontrol,,SRCHROMLBX,|%existingpop%|%lsrchpop%
 		SB_SetText("Search Complete")
@@ -9567,6 +9623,12 @@ Loop, Parse, romOVf,|
 				break
 			}
 	}
+iniread,srchlocone,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
+Loop,parse,srchlocone,|
+	{
+		srchlocrpl= %A_LoopField%
+		break
+	}
 ainc=
 Loop, Parse, romOVf,|
 	{
@@ -9579,10 +9641,10 @@ Loop, Parse, romOVf,|
 		splitpath,romf,romfn,romfpth
 		if !instr(romf,":")
 			{
-				romfx= %RJSYSTEMS%\%SRCHLOCDDL%\%romf%
+				romfx= %srchlocrpl%\%romf%
 				if (SRCHLOCDDL = ":=:System List:=:")
 					{
-						romfx= %RJSYSTEMS%\%romf%
+						romfx= %srchlocrpl%\%romf%
 						stringsplit,SRCHLOCDDZ,romf,\
 						SRCHLOCDDL= %SRCHLOCDDZ1%
 						RUNSYSDDL= %SRCHLOCDDL%
@@ -9594,7 +9656,7 @@ Loop, Parse, romOVf,|
 		SRCHOVRD= 1
 		if (SRCHFLRAD = 1)
 			{
-				stringreplace,nocad,romf,%RJSYSTEMS%\,,All
+				stringreplace,nocad,romf,%srchlocrpl%\,,All
 				if (ERRORLEVEL <> 0)
 					{
 						isofldr1=
@@ -9716,7 +9778,7 @@ if (poptadd = "")
 prexv=
 ifnotinstring,romfj1,:\
 	{
-		prexv= %RJSYSTEMS%\%SRCHLOCDDLP%\
+		prexv= %srchlocrpl%\
 	}
 if (ainc = 1)	
 	{
@@ -10877,7 +10939,6 @@ stringreplace,sanfile,sanfile,`%7E,~,All
 stringreplace,sanfile,sanfile,`%25,`%,All
 return
 INST_Kodi_XBMC:
-guicontrol,enable,CNCLDWN
 kodiinst=
 Loop, apps\%semu%\*.exe
 	{
@@ -10894,10 +10955,8 @@ if (xtractmul = "")
 		xtractmul= %S_KeyDir%\apps\Kodi
 	}
 Runwait,"%kodiinst%" %XBLOPT% /D=%xtractmul%,,,inspid
-guicontrol,disable,CNCLDWN
 return
 INST_MediaBrowser:
-guicontrol,enable,CNCLDWN
 mbinst=
 Loop, apps\%semu%\MediaBrowser*.msi
 	{
@@ -10914,10 +10973,8 @@ if (xtractmul = "")
 		xtractmul= %A_ProgramFiles%
 	}
 Runwait,msiexec %mbinstopt% "%mbinst%",,,inspid
-guicontrol,disable,CNCLDWN
 return
 INST_Xinput_Drivers:
-guicontrol,enable,CNCLDWN
 xbdrvinst=
 Loop, apps\%semu%\Xbox360_*eng.exe
 	{
@@ -10928,10 +10985,8 @@ ifnotexist, %xbdrvinst%
 		return
 	}
 Runwait,"%xbdrvinst%" /q:a,,,inspid
-guicontrol,disable,CNCLDWN
 return
 INST_Visual_C++_Runtimes:
-guicontrol,enable,CNCLDWN
 vcdrvinst=
 Loop, apps\%semu%\VBCRedist_AIO_x86_x64.exe
 	{
@@ -10942,10 +10997,8 @@ ifnotexist, %vcdrvinst%
 		return
 	}
 Runwait,"%vcdrvinst%" /ai /y,,,inspid
-guicontrol,disable,CNCLDWN
 return
 INST_DirectX:
-guicontrol,enable,CNCLDWN
 dxdrvinst=
 Loop, apps\%semu%\dxwebsetup.exe
 	{
@@ -10956,10 +11009,8 @@ ifnotexist, %dxdrvinst%
 		return
 	}
 Runwait,"%dxdrvinst%" /Q,,,inspid
-guicontrol,disable,CNCLDWN
 return
 INST_Daemon_Tools:
-guicontrol,enable,CNCLDWN
 dtdrvinst=
 if (xtractmfp = "")
 	{
@@ -10987,7 +11038,6 @@ RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\GuiNa
 RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\GuiNamespace,AskRemoveVD,0
 RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Disc Soft\DAEMON Tools Pro\Options,ManageIsImageInfoEnable,0
 Daemon_Tools=%xtractmul%\DTLite.exe
-guicontrol,disable,CNCLDWN
 return
 PRGINSTLBX:
 gui, submit, nohide
@@ -11414,7 +11464,6 @@ GuiControl, Disable, PRGINSTLBX
 GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
-GuiControl, Enable, CNCLDWN
 if (selfnd = "Other")
 	{
 	}
@@ -11534,7 +11583,6 @@ Loop,Parse,EmuPartSet,`n`r
 						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUINST
 						GuiControl, Enable, EMUASIGN
-						GuiControl, Disable, CNCLDWN
 						return
 					}
 				if ((rjintr = 1) or (rjintr = "x"))
@@ -11546,7 +11594,6 @@ Loop,Parse,EmuPartSet,`n`r
 						GuiControl, Enable, AVAIL
 						GuiControl, Enable, EMUINST
 						GuiControl, Enable, EMUASIGN
-						GuiControl, Disable, CNCLDWN
 						return
 					}
 				fSYSINSTLBX= 
@@ -11683,7 +11730,6 @@ Loop,Parse,EmuPartSet,`n`r
 				GuiControl, Enable, AVAIL
 				GuiControl, Enable, EMUINST
 				GuiControl, Enable, EMUASIGN
-				GuiControl, Disable, CNCLDWN
 				guicontrol,,EMPRLST,|%EMPRLT%
 				ifinstring,selfnd,MAME
 					{
@@ -11714,7 +11760,6 @@ if (emufzd = "")
 		GuiControl, Enable, AVAIL
 		GuiControl, Enable, EMUINST
 		GuiControl, Enable, EMUASIGN
-		GuiControl, Disable, CNCLDWN
 		SB_SetText(" " selfnd " not found")
 		return
 	}
@@ -11775,7 +11820,6 @@ GuiControl, Enable, PRGINSTLBX
 GuiControl, Enable, AVAIL
 GuiControl, Enable, EMUINST
 GuiControl, Enable, EMUASIGN
-GuiControl, Disable, CNCLDWN
 if (EMUASIGN = 1)
 	{
 		if (MULTISYS = 1)
@@ -15691,31 +15735,29 @@ QINSTALL:
 MsgBox,262404,Quick Install,Install RetroArch and popular emulator cores?,15
 IfMsgBox, Yes
 	{
+		RAINSTGUIITEMS=disable
+		gosub,RAINSTGUIITEMS
 		gosub, RASETUPCONT
 	}
+RAINSTGUIITEMS=enable
+gosub,RAINSTGUIITEMS	
 return
+
 QRSETUP:
+RAINSTGUIITEMS=disable
+gosub,RAINSTGUIITEMS
 if (raexefile <> "")
 	{
 		Msgbox,1,Install,Retroarch is installed.`nReinstall with the current stable version?`n    %RASTABLE%   ?
 		ifmsgbox,Cancel
 			{
-				SB_SetText(" Install Cancelled ")
+				SB_SetText(" Install Cancelled ")				
+				RAINSTGUIITEMS=enable
+				gosub,RAINSTGUIITEMS
 				return
 			}
 	}
 RASETUPCONT:
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, QRSETUP
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
-GuiControl, Disable, SYSINSTLBX
-GuiControl, Disable, SaList
 EXELIST= 1
 gosub, STABLE
 gosub, RBundle
@@ -15731,19 +15773,15 @@ gosub, UpdateCores
 SB_SetText(" complete ")
 gosub, GRAVER
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
-GuiControl, Disable, CNCLDWN
-GuiControl, Enable, AVAIL
-GuiControl, Enable, LOCEMUIN
-GuiControl, Enable, QRSETUP
-GuiControl, Enable, EMUINST
-GuiControl, Enable, MULTINST
-GuiControl, Enable, INSTEMUDDL
-GuiControl, Enable, UPDBTN
-GuiControl, enable, SYSINSTLBX
-GuiControl, enable, SaList
-GuiControl, Enable, EXELIST
 gosub, RAInit
+RAINSTGUIITEMS=enable
+gosub,RAINSTGUIITEMS
 return
+RAINSTGUIITEMS:
+Loop,parse,RAINSTGUIITEMS,|
+	{
+		guicontrol,%RAINSTGUIITEMS%,%A_LoopField%
+	}
 ;{;;;;;;;;;;;;;;;;;;;;    RA UPDATE   ;;;;;;;;;;;;;;;;;;;;;
 RetroarchUpdate:
 RUpdate:
@@ -15804,7 +15842,6 @@ guicontrol,,NETNAME,%NETNAME%(nightly)
 GuiControl, Enable, UPDBTN
 GuiControl, Enable, EXELIST
 GuiControl, Enable, AVAIL
-GuiControl, Disable, CNCLDWN
 guicontrol, enable, UPDSELCT
 guicontrol, enable, UPDCL
 guicontrol, enable, GCUPDT
@@ -15873,10 +15910,8 @@ return
 UpdSelct:
 gui, submit, nohide
 guicontrolget, SLCTCORES, ,RAINSTLBX
-GuiControl, show, UPDBTC
-GuiControl, Disable, AVAIL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
+RAINSTGUIITEMS=disable
+gosub,RAINSTGUIITEMS
 gosub, UpdateCores
 return
 crcChk:
@@ -15907,7 +15942,6 @@ if  (crtmp2 = ApndCRC)
 SB_SetText(" " dwncore " " " is current ")
 GuiControl, Enable, AVAIL
 GuiControl, Enable, UPDBTN
-GuiControl, Disable, CNCLDWN
 return
 ShowBB:
 ifexist, %raexedir%\retroarch.exe
@@ -15951,25 +15985,8 @@ return
 ;};;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;     RA UPDATE SELECTED     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 UpdateCores:
-guicontrol, enable, UPDBTC
-guicontrol, show, UPDBTC
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, QRSETUP
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-guicontrol, disable, GCUPDT
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-guicontrol, disable, UPDCL
-guicontrol, disable, UPDSELCT
-GuiControl, Disable, EXELIST
-GuiControl, Disable, SYSINSTLBX
-GuiControl, Disable, SaList
 corexist=
 redistr= redist.7z
-;;RAUPDF= 
 ifinstring,SLCTCORES,stable|
 	{
 		SLCTCORES=
@@ -16048,26 +16065,14 @@ Loop, Parse, SLCTCORES,|
 				ifnotexist, %save%
 					{
 						msgbox,0,, %dwncore%`n%URLFILE%`n was not downloaded,3
-						GuiControl, Enable, UPDBTN
-						guicontrol, hide, UPDBTC
-						GuiControl, Enable, EXELIST
-						GuiControl, Enable, AVAIL
-						GuiControl, Disable, CNCLDWN
 						continue
 					}
 				gosub, XTRACTCORE
 			}
 	}
-GuiControl, Enable, EXELIST
-GuiControl, Enable, UPDBTN
-GuiControl, Enable, AVAIL
-GuiControl, Enable, SaList
-guicontrol, hide, UPDBTC
-guicontrol, enable, UPDSELCT
-guicontrol, enable, UPDCL
-guicontrol, enable, GCUPDT
 gosub, GetCoreList
 return
+
 downloadingcores:
 if (nocoredwn = "")
 	{
@@ -16078,13 +16083,6 @@ if (nocoredwn = "")
 	}
 Guicontrol, ,DWNPRGRS, 0
 SB_SetText(" ")
-GuiControl, Enable, AVAIL
-GuiControl, Enable, UPDBTN
-GuiControl, Enable, EXELIST
-guicontrol, hide, UPDBTC
-guicontrol, enable, UPDSELCT
-guicontrol, enable, UPDCL
-guicontrol, enable, GCUPDT
 nocoredwn=
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16092,17 +16090,6 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;   RA PARTS DOWNLOAD  ;;;;;;;;;;;;;;
 STABLE:
 SB_SetText("Downloading Stable")
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, QRSETUP
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
-GuiControl, Disable, SYSINSTLBX
-GuiControl, Disable, SaList
 updtmsg= RetroArch.7z
 iniread,raexeloc,Settings.ini,GLOBAL,retroarch_location
 splitpath,raexeloc,raexefile,raexedir
@@ -16131,75 +16118,20 @@ if (ntna2 = RASTABLE)
 		NETNAME:= ntna1
 	}
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
-GuiControl, disable, CNCLDWN
-GuiControl, enable, AVAIL
-GuiControl, enable, QRSETUP
-GuiControl, enable, LOCEMUIN
-GuiControl, enable, EMUINST
-GuiControl, enable, MULTINST
-GuiControl, enable, INSTEMUDDL
-GuiControl, enable, UPDBTN
-GuiControl, enable, EXELIST
-GuiControl, enable, SYSINSTLBX
-GuiControl, enable, SaList
 return
 RBundle:
 SB_SetText("Downloading Bundle")
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, QRSETUP
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
-GuiControl, Disable, SYSINSTLBX
-GuiControl, Disable, SaList
 updtmsg= bundle.zip
 XTRACTLOC= %raexedir%
 URLFILE= %buildBotCore%/assets/frontend/%updtmsg%
 gosub GettingRA
-GuiControl, disable, CNCLDWN
-GuiControl, enable, AVAIL
-GuiControl, enable, QRSETUP
-GuiControl, enable, LOCEMUIN
-GuiControl, enable, EMUINST
-GuiControl, enable, MULTINST
-GuiControl, enable, INSTEMUDDL
-GuiControl, enable, UPDBTN
-GuiControl, enable, EXELIST
-GuiControl, enable, SYSINSTLBX
-GuiControl, enable, SaList
 return
 RRedist:
 SB_SetText("Downloading Redistributable")
-GuiControl, Enable, CNCLDWN
-GuiControl, Disable, AVAIL
-GuiControl, Disable, QRSETUP
-GuiControl, Disable, LOCEMUIN
-GuiControl, Disable, EMUINST
-GuiControl, Disable, MULTINST
-GuiControl, Disable, INSTEMUDDL
-GuiControl, Disable, UPDBTN
-GuiControl, Disable, EXELIST
-GuiControl, Disable, SYSINSTLBX
-GuiControl, Disable, SaList
 updtmsg= redist.7z
 XTRACTLOC= %raexedir%
 URLFILE= %BLDBOT%/%updtmsg%
 gosub GettingRA
-GuiControl, disable, CNCLDWN
-GuiControl, enable, AVAIL
-GuiControl, enable, QRSETUP
-GuiControl, enable, LOCEMUIN
-GuiControl, enable, EMUINST
-GuiControl, enable, MULTINST
-GuiControl, enable, INSTEMUDDL
-GuiControl, enable, UPDBTN
-GuiControl, enable, EXELIST
-GuiControl, enable, SYSINSTLBX
-GuiControl, enable, SaList
 return
 RAssets:
 SB_SetText("Downloading Assets")
@@ -16281,7 +16213,6 @@ if (ntna2 = RASTABLE)
 guicontrol,,NETNAME,%NETNAME%(%RASTABLE%)
 return
 GettingRA:
-guicontrol,enable,UPDBTC
 if (DWNCNCL= 1)
 	{
 		gosub, InteruptDwn
@@ -16294,10 +16225,6 @@ exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ifnotexist, %cacheloc%\%updtmsg%
 	{
 		msgbox,0,, %updtmsg%`n''%URLFILE%`n'' was not downloaded, 20
-		GuiControl, Enable, AVAIL
-		GuiControl, Enable, UPDBTN
-		GuiControl, Enable, EXELIST
-		guicontrol, hide, UPDBTC
 		return
 	}
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
@@ -41491,56 +41418,7 @@ guicontrol,move,SRCHROMBUT,x707 y79 w43 h23
 guicontrol,move,SRCHLOCDDL,x214 y79 w260
 return
 NOTOG:
-retroarchTOG:
 ;;;;;;;;
-return
-;;;;;;;;
-guicontrol,%moptog%,SKSUMGB
-guicontrol,%moptog%,SETEMUD
-guicontrol,%moptog%,EMUDETECT
-guicontrol,%moptog%,SETJKD
-guicontrol,%moptog%,SKSYSTXT
-guicontrol,%moptog%,SKDTTXT
-guicontrol,%moptog%,SKDETSTXT
-guicontrol,%moptog%,SKDSETXT
-guicontrol,%moptog%,SKEMUDTXT
-guicontrol,%moptog%,SKCCTXT
-guicontrol,%moptog%,SKRJQTXT
-guicontrol,%moptog%,SKDISPLCHTXT
-guicontrol,%moptog%,SKEMUDISP
-guicontrol,%moptog%,SKSYSDISP
-guicontrol,%moptog%,SKRESET
-guicontrol,%moptog%,SKRESDDL
-guicontrol,%moptog%,SKRAEXE
-guicontrol,%moptog%,SKRAXETXT
-guicontrol,%moptog%,RAVERTXT
-guicontrol,%moptog%,GRAVER
-guicontrol,%moptog%,QRSETUP
-guicontrol,%moptog%,SKRADISP
-guicontrol,%moptog%,SKIMPRATXT
-guicontrol,%moptog%,SKRAIMP
-guicontrol,%moptog%,LNCHPT
-guicontrol,%moptog%,HOVPREV
-guicontrol,%moptog%,SKSAVE
-guicontrol,%moptog%,SKSVAS
-guicontrol,%moptog%,SKSAVTXT
-guicontrol,%moptog%,SKRBLD
-guicontrol,%moptog%,SKRBLDTXT
-guicontrol,%moptog%,SKBSRLGRP
-guicontrol,%moptog%,DISCFG
-guicontrol,%moptog%,SKCLRQ
-guicontrol,%moptog%,SKCLRTXT
-guicontrol,%moptog%,SKAFTCMD
-guicontrol,%moptog%,SKRBFTXT
-guicontrol,%moptog%,SKRAFTXT
-guicontrol,%moptog%,SKENBF
-guicontrol,%moptog%,SKENAF
-guicontrol,%moptog%,SKOVRJM
-guicontrol,%moptog%,SKXPADOV
-guicontrol,%moptog%,SKAMOV
-guicontrol,%moptog%,SKPROFOV
-guicontrol,%moptog%,SKFROVDD
-guicontrol,%moptog%,SKFROV
 return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;   RELOAD EMULATOR CONFIG    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RELOADCFG:
@@ -70590,18 +70468,20 @@ guicontrol,move,utlCHKE,x411 y303 w44 h16
 guicontrol,,utlCHKE,path
 guicontrol,show,utlCHKF
 guicontrol,,utlCHKF,0
-guicontrol,move,utlCHKF,x511 y283 w204 h16
+guicontrol,move,utlCHKF,x531 y283 w204 h16
 guicontrol,,utlCHKF,User-Defined Extraction Path
 guicontrol,show,utlCHKG
 guicontrol,enable,utlCHKG
 guicontrol,,utlCHKG,Enable_Icon
 guicontrol,,utlCHKG,0
 guicontrol,move,utlCHKG,x368 y382 w107 h16
-guicontrol,show,utlEDTC
-guicontrol,disable,utlEDTC
-guicontrol,,utlEDTC,0
-guicontrol,move,utlEDTC,x511 y303 w204 h16
-guicontrol,,utlEDTC,
+guicontrol,show,utlEDTA
+guicontrol,move,utlEDTA,x495 y80 w221 h21
+guicontrol,,utlEDTA,EXECUTBALE TITLE
+guicontrol,show,utlCBXD
+guicontrol,disable,utlCBXD
+guicontrol,move,utlCBXD,x531 y303 w204 h21
+guicontrol,,utlCBXD,|temp||exe directory|desktop
 guicontrol,show,utlTXTM
 guicontrol,move,utlTXTM,x686 y219 w57 h16
 guicontrol,,utlTXTM,arguments
@@ -70660,6 +70540,9 @@ guicontrol,+AltSubmit,utlLVA
 guicontrol,move,utlTXTB, x531 y20 w79 h13
 guicontrol,show,utlTXTB
 guicontrol,,utlTXTB,Utility
+guicontrol,move,utlTXTF, x515 y103 w221 h14
+guicontrol,show,utlTXTF
+guicontrol,,utlTXTF,Executable Title
 guicontrol,move,utlTXTC, x447 y449 w309 h13
 guicontrol,show,utlTXTC
 guicontrol,,utlTXTC,%S_KeyDir%\game.exe
@@ -70750,14 +70633,14 @@ if (presx = 1)
 				IniRead,usrdfd,%curxe%,EXECUTABLE,extraction_directory
 				if ((usrdfd <> "ERROR")&&(usrdfd <> ""))
 					{
-						if (usrdfd = "`%temp`%")
+						if (usrdfd = "temp")
 							{
-								guicontrol,,utlEDTC,%usrdfd%
+								guicontrol,,utlCBXD,|temp||exe directory|desktop|
 								return
 							}
 						guicontrol,,utlCHKF,1
-						guicontrol,enable,utlEDTC
-						guicontrol,,utlEDTC,%usrdfd%
+						guicontrol,enable,utlCBXD
+						guicontrol,,utlCBXD,|%usrdfd%|||temp|exe directory|desktop|
 					}
 			}
 	}
@@ -70796,6 +70679,8 @@ if (outxtn <> "exe")
 		if (outxtn = "")
 			{
 				outsv.= ".exe"
+				outexe.= ".exe"
+				outxtn= exe
 				goto, exeoutsv
 			}
 		outsv=
@@ -70937,6 +70822,7 @@ if (outexedir = "")
 utlguitog= disable	
 gosub, utlguitog
 fileDelete,executable\romlist.txt
+gosub, utlEDTA
 utlItemdxa=
 utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
 stringreplace,utlchki,utlItemdxa,`n,|,All
@@ -70989,10 +70875,19 @@ FileDelete,executable\config.txt
 FileAppend, `;!@Install@!UTF-8!`n,executable\config.txt
 FileAppend, Title="ROM-EXECUTABLE"`n,executable\config.txt
 FileAppend, RunProgram="hidcon:emuexe.exe"`n,executable\config.txt
-if (utlCHKF = 1)
+iniread,extraction_directory,%curxe%,EXECUTABLE,extraction_directory
+if ((extraction_directory <> "temp")&&(extraction_directory <> "")&&(extraction_directory <> "ERROR"))
 	{
+		if (extraction_directory = "desktop")
+			{
+				extraction_directory= `%USERPROFILE`%\\Desktop
+			}
+		if (extraction_directory = "exe directory")
+			{
+				extraction_directory= `%`%S
+			}
 		FileAppend, GUIFlags="1200"`n,executable\config.txt
-		FileAppend, InstallPath="%utlEDTC%"`n,executable\config.txt
+		FileAppend, InstallPath="%extraction_directory%"`n,executable\config.txt
 	}
 FileAppend,`;!@InstallEnd@!`n,executable\config.txt
 ifexist,%outsv%
@@ -71039,13 +70934,16 @@ executableutlCHKF:
 gui,submit,nohide
 if (utlCHKF = 1)
 	{
-		guicontrol,enable,utlEDTC
-		guicontrol,,utlEDTC,`%`%T
-		guicontrolget,utlEDTC,,utlEDTC
+		iniread,exe_title,%curxe%,EXECUTABLE,exe_title
+		guicontrol,enable,utlCBXD
+		guicontrol,,utlCBXD,|%exe_title%||temp|exe directory|desktop
+		iniwrite,"%exe_title%",%curxe%,EXECUTABLE,extraction_directory
+		guicontrolget,utlCBXD,,utlCBXD
 		return
 	}
-guicontrol,disable,utlEDTC
-guicontrol,,utlEDTC,`%temp`%
+guicontrol,disable,utlCBXD
+guicontrol,,utlCBXD,|temp||exe directory|desktop
+iniwrite,"",%curxe%,EXECUTABLE,extraction_directory
 return
 executableutlCHKG:
 gui,submit,nohide
@@ -71138,6 +71036,10 @@ gui,submit,nohide
 return
 executableutlCBXD:
 gui,submit,nohide
+guicontrolget,utlCBXD,,utlCBXD
+stringreplace,utlCBXD,utlCBXD,\\\\,\\,All
+stringreplace,utlCBXD,utlCBXD,\\\,\\,All
+stringreplace,utlCBXD,utlCBXD,\,\\,All
 return
 executableutlDDLE:
 gui,submit,nohide
@@ -71309,17 +71211,14 @@ gui,submit,nohide
 return
 executableutlEDTA:
 gui,submit,nohide
+guicontrolget,utlEDTA,,utlEDTA
+iniwrite,%utlEDTA%,%curxe%,EXECUTABLE,exe_title
 return
 executableutlEDTB:
 gui,submit,nohide
 return
 executableutlEDTC:
 gui,submit,nohide
-guicontrolget,utledtc,,utlEDTC
-stringreplace,utledtc,utledtc,\\\\,\\,All
-stringreplace,utledtc,utledtc,\\\,\\,All
-stringreplace,utledtc,utledtc,\,\\,All
-iniwrite,"%utledtc%",%curxe%,EXECUTABLE,extraction_directory
 return
 executableutlEDTD:
 gui,submit,nohide
@@ -74112,18 +74011,10 @@ Loop, rj\*.jak
 										gosub, XTRACTEMU
 										KARC= 0
 									}
-								;;FileRead,newlnch,rj\sysCfgs\%curjf%\lnch.cmd
-								;;FileMove, rj\sysCfgs\%curjf%\lnch.cmd,rj\sysCfgs\%curjf%\lnch.orig,1
 								StringReplace,newlnch,newlnch,[EMUL]\[EMUZ],%emuname%\%emuxe%
-								;;StringReplace,newlnch,newlnch,[EMUL],%emuname%
 								StringReplace,newlnch,newlnch,[EMUL],`%CD`%\%emuname%
 								StringReplace,newlnch,newlnch,[EMUL],%emuname%,All
-								;;StringReplace,newlnch,newlnch,[EMUL],%RJSYSTEMS%\%curjf%\%curomfd%\%emuname%,All
 								StringReplace,newlnch,newlnch,[EMUZ],%emuxe%,All
-								;;filedelete,rj\sysCfgs\%curjf%\lnch.cmd
-								;;fileappend,%newlnch%,rj\syscfgs\%curjf%\lnch.cmd
-								;;FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
-								;;FileMove, rj\sysCfgs\%curjf%\lnch.orig,rj\sysCfgs\%curjf%\lnch.cmd,1
 							}
 						FileAppend, %newlnch%,rj\sysCfgs\%curjf%\lnch.cmd
 						FileCopy, rj\sysCfgs\%curjf%\lnch.cmd,%RJSYSTEMS%\%curjf%\%curomfd%\%curomfd%.bat,%RJLNCHCFGOW%
@@ -74748,7 +74639,7 @@ Loop, Parse, RJSYSDD_TDB,`n`r
 		stringsplit,rjflz,A_LoopField,|
 		ifinstring,rjflz1,%RJEDTC%
 			{
-				lvachk= +Check
+				lvachk= +Check 
 				if (rjflz2 = 0)
 					{
 						lvachk= ""
@@ -75821,7 +75712,8 @@ if (syspref <> "")
 											stringreplace,sysqv2,sysqv2,%A_Space%,<,All
 											stringsplit,ejespl,sysqv2,|
 											Iniwrite, %ejespl1%,rj\dflt.ini,%RJSYSDD%,RJEMUOPTS
-											guicontrol,,RJEOPTSCBX,|%ejespl1%||%sysqv2%|%INJOPT%
+											;;guicontrol,,RJEOPTSCBX,|%ejespl1%||%sysqv2%|%INJOPT%
+											guicontrol,,RJEOPTSCBX,|%ejespl1%||%sysqv2%
 											continue
 										}
 								}
@@ -75833,7 +75725,8 @@ if (syspref <> "")
 											stringreplace,sysqv2,sysqv2,%A_Space%,<,All
 											stringsplit,ejespl,sysqv2,|
 											Iniwrite, %ejespl1%,rj\dflt.ini,%RJSYSDD%,RJEMUARGS
-											guicontrol,,RJEARGSCBX,|%ejespl1%||%sysqv2%|%INJARG%
+											;;guicontrol,,RJEARGSCBX,|%ejespl1%||%sysqv2%|%INJARG%
+											guicontrol,,RJEARGSCBX,|%ejespl1%||%sysqv2%
 											continue
 										}
 								}
@@ -76024,80 +75917,11 @@ LSTCTRLS= enable
 gosub, LSTCTRLS
 return
 LSTCTRLS:
-/*
-Loop,parse,RJLSTCTRLS,|
+
+Loop,parse,RJLSTCTRLSp,|
 	{
-		guicontrol,%LSTCTRLS%,%A_LoopField%		
+		guicontrol,%LSTCTRLS%,%A_LoopField%
 	}
-return
-*/
-guicontrol,%LSTCTRLS%,RJCHKR
-guicontrol,%LSTCTRLS%,RJBUTA
-guicontrol,%LSTCTRLS%,RJSYSRADA
-guicontrol,%LSTCTRLS%,RJSYSRADB
-guicontrol,%LSTCTRLS%,RJSYSRADC
-guicontrol,%LSTCTRLS%,RJRFRSHLST
-guicontrol,%LSTCTRLS%,RJSETRANGE
-guicontrol,%LSTCTRLS%,RJENMAP
-guicontrol,%LSTCTRLS%,RJCHKU
-guicontrol,%LSTCTRLS%,RJCHKT
-guicontrol,%LSTCTRLS%,RJCHKS
-guicontrol,%LSTCTRLS%,RJCHKW
-guicontrol,%LSTCTRLS%,RJQLSTDD
-guicontrol,%LSTCTRLS%,RJADDQ
-guicontrol,%LSTCTRLS%,RJBUTH
-guicontrol,%LSTCTRLS%,RJBUTG
-guicontrol,%LSTCTRLS%,RJBUTV
-guicontrol,%LSTCTRLS%,RJDDLP
-guicontrol,%LSTCTRLS%,RJDDLF
-guicontrol,%LSTCTRLS%,RJLNCHTYP
-guicontrol,%LSTCTRLS%,RJSYSRADB
-guicontrol,%LSTCTRLS%,RJSYSRADA
-guicontrol,%LSTCTRLS%,RJRad1B
-guicontrol,%LSTCTRLS%,RJRad11A
-guicontrol,%LSTCTRLS%,RJRad11B
-guicontrol,%LSTCTRLS%,RJFLTRLST
-guicontrol,%LSTCTRLS%,RJEDTO
-guicontrol,%LSTCTRLS%,RJCHKK
-guicontrol,%LSTCTRLS%,RJENDMNT
-guicontrol,%LSTCTRLS%,RJEXEB
-guicontrol,%LSTCTRLS%,RJENLNCHR
-guicontrol,%LSTCTRLS%,RJFNDINLST
-guicontrol,%LSTCTRLS%,RJDELCOMP
-guicontrol,%LSTCTRLS%,RJSALITMS
-guicontrol,%LSTCTRLS%,RJLSTYP
-guicontrol,%LSTCTRLS%,RJSUBDCBX
-guicontrol,%LSTCTRLS%,RJINCEXCL
-guicontrol,%LSTCTRLS%,RJLSTV
-guicontrol,%LSTCTRLS%,RJEDTC
-guicontrol,%LSTCTRLS%,RJZIP
-guicontrol,%LSTCTRLS%,RJSYSSAV
-guicontrol,%LSTCTRLS%,RJSYSSAVAS
-guicontrol,%LSTCTRLS%,RJREMQSYS
-guicontrol,%LSTCTRLS%,RJEOPTSCBX
-guicontrol,%LSTCTRLS%,RRJEARGSCBX
-guicontrol,%LSTCTRLS%,RJPROCQ
-guicontrol,%LSTCTRLS%,RJADDQ
-guicontrol,%LSTCTRLS%,RJCHKL
-guicontrol,%LSTCTRLS%,RJCHKM
-guicontrol,%LSTCTRLS%,RJCHKP
-guicontrol,%LSTCTRLS%,RJCHKH
-guicontrol,%LSTCTRLS%,RJCHKI
-guicontrol,%LSTCTRLS%,RJCHKF
-guicontrol,%LSTCTRLS%,RJCHKG
-guicontrol,%LSTCTRLS%,RJCHKJ
-guicontrol,%LSTCTRLS%,RJEMUXTCBX
-guicontrol,%LSTCTRLS%,RJREMQSYS
-guicontrol,%LSTCTRLS%,RJXTRARCDD
-guicontrol,%LSTCTRLS%,RJSUBDH
-guicontrol,%LSTCTRLS%,RJADDSUBD
-guicontrol,%LSTCTRLS%,RJREMSUBD
-guicontrol,%LSTCTRLS%,RJPRECFGCBX
-guicontrol,%LSTCTRLS%,RJADDPRECFG
-guicontrol,%LSTCTRLS%,RJREMPRECFG
-guicontrol,%LSTCTRLS%,RJPOSTCFGCBX
-guicontrol,%LSTCTRLS%,RJADDPOSTCFG
-guicontrol,%LSTCTRLS%,RJREMPOSTCFG
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RJFLTRALL:
@@ -76185,7 +76009,8 @@ ejespl1=
 if (lkupa <> "ERROR")
 	{
 		stringsplit,ejespl,lkupa,|
-		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupa%|%INJOPT%
+		;;guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupa%|%INJOPT%
+		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupa%
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
 		iniWrite, %ejespl1%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
@@ -76204,7 +76029,8 @@ if (lkupax <> "ERROR")
 				lkupax:= lkupa . "|" . lkupax
 			}
 		stringsplit,ejespl,lkupax,|
-		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupax%|%INJOPT%
+		;;guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupax%|%INJOPT%
+		guicontrol,,RJEOPTSCBX,|%ejespl1%||%lkupax%
 		guicontrolget,RJEOPTSCBX,,RJEOPTSCBX
 		iniWrite, %RJEOPTSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUOPTS
 	}
@@ -76213,7 +76039,8 @@ ejespl1=
 if (lkupb <> "ERROR")
 	{
 		stringsplit,ejespl,lkupa,|
-		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupb%|%INJARG%
+		;;guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupb%|%INJARG%
+		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupb%
 		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
 		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,RJEMUARGS
 	}
@@ -76232,7 +76059,8 @@ if (lkupbx <> "ERROR")
 				lkupbx:= lkupbx . "|" . lkupb
 			}
 		stringsplit,ejespl,lkupbx,|
-		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupbx%|%INJARG%
+		;;guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupbx%|%INJARG%
+		guicontrol,,RRJEARGSCBX,|%ejespl1%||%lkupbx%
 		guicontrolget,RRJEARGSCBX,,RRJEARGSCBX
 		iniWrite, %RRJEARGSCBX%,rj\cur.ini,%RJSYSDD%,%RJEMUTG%?RJEMUARGS
 	}
@@ -76852,10 +76680,12 @@ guicontrol,,RJSYSRADB,1
 return
 RJEMUOPTS:
 gui,submit,nohide
-guicontrol,,RJEOPTSCBX,|%rjaval2%||%INJOPT%
+;;guicontrol,,RJEOPTSCBX,|%rjaval2%||%INJOPT%
+guicontrol,,RJEOPTSCBX,|%rjaval2%
 return
 RJEMUARGS:
-guicontrol,,RRJEARGSCBX,|%rjaval2%||%INJARG%
+;;guicontrol,,RRJEARGSCBX,|%rjaval2%||%INJARG%
+guicontrol,,RRJEARGSCBX,|%rjaval2%
 gui,submit,nohide
 return
 RJZIPPEEK:
