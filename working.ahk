@@ -6751,13 +6751,12 @@ IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
 sinnz=
 itmlst=
 guicontrolget,itmlst,,SRCHROMLBX
-
+utladitms= 
 Gui,ListView,utlLVA
 lvachk= +Check
 Loop,parse,kiv,|
 	{
-		newn= %A_LoopField%
-		insrtsys= %newn%\%SRCHLOCDDL%\
+		newn= %A_LoopField%\
 		Loop, Parse, itmLst,|
 			{
 				if (A_LoopField = "")
@@ -6766,20 +6765,19 @@ Loop,parse,kiv,|
 					}
 				ifnotinstring,A_LoopField,:
 					{
-						rplf= %insrtsys%
-						sinnz:= insrtsys . A_LoopField
+						sinnz:= newn . A_LoopField
 					}
 					else {
-						rplf=
 						sinnz:= A_LoopField
 					}
+				utladitms.= sinnz . "|"	
 				splitpath,sinnz,sinnxe
+				sinnta= executable\roms\%sinnxe%
 				filecopy,%sinnz%,%S_KeyDir%\executable\roms\%sinnxe%,1
-				LV_Add(lvachk,sinnxe)
-				stringreplace,itmlst,itmlst,%A_LoopField%|,,All
+				stringreplace,itmlst,itmlst,%A_LoopField%,,All
 			}
 	}
-LV_ModifyCol()	
+gosub,utlAdditms
 Guicontrol,choose,TABMENU,9	
 return	
 Playlist_Add:
@@ -65429,6 +65427,7 @@ SB_SetText("Emulator cleared")
 return
 UTLREMFESEL:
 gui,submit,nohide
+Gui,ListView,utlLVA
 RowNumber = 0
 Loop
 	{
@@ -65448,6 +65447,7 @@ Loop
 			{
 			}
 	}
+LV_ModifyCol()	
 return
 FEDELSEL:
 gui,submit,nohide
@@ -70537,7 +70537,7 @@ guicontrol,,utlGRPD,Save
 guicontrol,move,utlLVA, x20 y26 w341 h479
 guicontrol,show,utlLVA
 guicontrol,,utlLVA,|Added_Files||
-guicontrol,-checked,utlLVA
+guicontrol,+checked,utlLVA
 guicontrol,+Multi,utlLVA
 guicontrol,+AltSubmit,utlLVA
 guicontrol,move,utlTXTB, x531 y20 w79 h13
@@ -70555,15 +70555,15 @@ guicontrol,,utlTXTD,Emulator
 guicontrol,move,utlTXTE,x446 y406 w217 h13
 guicontrol,show,utlTXTE
 guicontrol,,utlTXTE,ICON
-guicontrol,,utlPICA,img\install.ico
+guicontrol,,utlPICA,%S_KeyDir%\img\install.ico
 guicontrol,move,utlPICA, x688 y382 w66 h65
 guicontrol,show, utlPICA
-ifexist,executable\exe.ico
+ifexist,%S_KeyDir%\executable\exe.ico
 	{
-		guicontrol,,utlTXTE,executable\exe.ico
+		guicontrol,,utlPICA,%S_KeyDir%\executable\exe.ico
 	}
 	else {
-	 filecopy,img\install.ico,executable\exe.ico
+	 filecopy,%S_KeyDir%\img\install.ico,%S_KeyDir%\executable\exe.ico
 	}
 Gui,Listview,utllva
 presx=
@@ -70781,6 +70781,7 @@ if (utladitms = "")
 	}
 stringreplace,utladitms,utladitms,`r,|,All
 stringreplace,utladitms,utladitms,`n,|,All
+utlAdditms:
 Gui,ListView,utlLVA
 utlItemdxa=
 utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
