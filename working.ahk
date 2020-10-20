@@ -1498,6 +1498,7 @@ Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
 Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
 Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
 Menu, EMURESETI, Add, Reset, EMURSTI
+Menu, PLSTMENU, Add, Add Selection, ADDPLSLC
 Menu,MINITOGGLE,Add, Mini-Mode ,MINIMODET
 Menu,MINITOGGLE,Add, On-Top ,AWYONLTGL
 Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
@@ -4778,6 +4779,10 @@ If A_GuiControlEvent RightClick
 				{
 					;;ADD EMULATORS RIGHTCLICK
 				}
+		}
+	if A_GuiControl = ROMPOP
+		{
+			Menu, PLSTMENU, Show, %A_GuiX% %A_GuiY%
 		}
 	if A_GuiControl = EMUINST
 		{
@@ -34209,6 +34214,87 @@ if (crpln = 1)
 		crpln=
 	}
 return
+
+ADDPLSLC:
+gui,submit,nohide
+itmlst=
+guicontrolget,DWNLPOS,,DWNLPOS
+guicontrolget, PLISTTYP,,PLISTTYP
+guicontrolget,pcorel,,PLCORE
+if (pcorel = "")
+	{
+		pcorel= DETECT
+		}
+guicontrolget,itmlst,,ROMPOP
+if (noadpl = 1)
+	{
+		return
+		SB_SetText("Cannot add items to playlist currently being edited")
+	}
+IniRead,kiv,SystemLocations.ini,LOCATIONS,%DWNLPOS%
+sinnz= 
+pldelim= >
+if (PLISTTYP = "Pegasus")
+	{
+		plswap= %systmfldrs%
+		pldelim=
+		pcorel=
+		IDWNLPOS= %PGPLXMP%
+	}
+if (PLISTTYP = "RetroFE")
+	{
+		plswap= %systmfldrs%
+		pldelim=
+		pcorel=
+		IDWNLPOS= %RFPLXMP%
+	}
+if (PLISTTYP = "EmulationStation")
+	{
+		plswap= %ESPLPLST%
+		pldelim= :
+		pcorel=
+		IDWNLPOS= %ESPLXMP%
+	}
+if ((DWNLPOS = ":=:System List:=:")or(kiv = "ERROR"))
+	{
+		insrtsys= %RJSYSTEMS%\%DWNLPOS%
+		gosub, itmlstp
+		goto, itmlstpc	
+	}
+Loop,parse,kiv,|
+	{
+		newn= %A_LoopField%\
+		insrtsys= %newn%\
+		gosub, itmlstp
+	}
+itmlstp:
+Loop, Parse, itmLst,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}				
+		ifnotinstring,A_LoopField,:
+			{
+				sinnz:= insrtsys . A_LoopField . pldelim . pcorel
+			}
+			else {
+				sinnz:=  A_LoopField . ">" . pcorel
+			}
+		ifnotinstring,existlst,%sinnz%|
+			{
+				existlst.= sinnz . "|"
+			}
+		stringreplace,itmlst,itmlst,%A_LoopField%,,All
+	}
+itmlstpc:	
+guicontrol,,CURPLST,|%existlst%
+ifinstring,sysposb,|%DWNLPOS%|
+	{
+		guicontrol,,PLNAMEDT,|%DWNLPOS%|%sysposb%
+	}
+return
+
 DragROM:
 if (RPDND = 1)
 	{
@@ -35107,7 +35193,8 @@ Loop, Parse, CURPLLST,|
 			}
 	}
 ESINIPOP= %nwplst%
-guicontrol,,CURPLST,|%nwplst%
+existlst= %nwplst%
+guicontrol,,CURPLST,|%existlst%
 gosub, CURPLST
 return
 PLLISTALL:
@@ -35156,6 +35243,7 @@ return
 CopyToPl:
 coreInJV= DETECT
 stringreplace,IDWNLPOS,DWNLPOS,.lpl,,All
+guicontrolget, PLISTTYP,,PLISTTYP
 guicontrolget, ESPLXMP,,ESDWNLPOS
 guicontrolget, PGPLXMP,,PGDWNLPOS
 guicontrolget, RFPLXMP,,RFDWNLPOS
@@ -35193,15 +35281,37 @@ if (DETECTCORE = 1)
 ToPlFromSRCH:
 passlist=
 guicontrolget, passlist, ,ROMPOP
+iniread,systpl,SystemLocations.ini,LOCATIONS,%IDWNLPOS%
+if ((systpl = "ERROR")or(systpl = ""))
+	{
+		prtsub= %RJSYSTEMS%\%IDWNLPOS%
+		goto,passlist
+	}
+Loop,parse,systpl,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		prtsub= %A_LoopField%
+		gosub,passlist
+	}
+goto, cplist	
+passlist:	
 Loop, Parse, passlist,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		ifinstring,A_LoopField,:
 			{
 				existlst.= A_LoopField . pldelim . coreInJV . "|"
 				continue
 			}
-		existlst.= RJSYSTEMS . "\" . IDWNLPOS . "\" . A_LoopField . pldelim . coreInJV . "|"
+		existlst.= prtsub . "\" . A_LoopField . pldelim . coreInJV . "|"
 	}
+cplist:	
 guicontrol,,CURPLST, |%existlst%
 gui, submit, nohide
 return
@@ -35708,7 +35818,8 @@ ControlGet,curpllst, List,,,ahk_id %insel%
 existlst=
 stringreplace,existlst,curplLst,`n,|,All
 newplst .= existlst . "|" . addedFiles
-guicontrol,,CURPLST, |%newplst%
+existlst= %nwplst%
+guicontrol,,CURPLST, |%existlst%
 return
 AltTempl:
 TemplCfg=
@@ -43497,7 +43608,7 @@ if (emjrad3b = 1)
 	{
 		inipt= Joystick
 	}
-iniread,dfs9j,rj\emucfgs\snes9x\snes9x_defaults.set,Controls\%inipt%
+iniread,dfs9j,rj\emucfgs\snes9x\snes9x_defaults.get,Controls\%inipt%
 Loop,Parse,dfs9j,`n`r
 	{
 		if (A_LoopField = "")
