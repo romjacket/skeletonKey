@@ -36273,7 +36273,7 @@ gosub, REHRPO
 if (EDTROMBTN = "E")
 	{
 		guicontrol,,ARCSYS,| ||Select a System|%syslist%
-		guicontrol,,RUNROMCBX,|%MORROM%||%lsrchpop%
+		guicontrol,,RUNROMCBX,|%MORROM%||%poptadd%
 		guicontrol,hide,MORROM
 		guicontrol,show,RUNROMCBX
 		guicontrol,,EDTROMBTN,>
@@ -70995,7 +70995,7 @@ if ((extraction_directory <> "temp")&&(extraction_directory <> "")&&(extraction_
 	{
 		if (extraction_directory = "desktop")
 			{
-				extraction_directory= `%USERPROFILE`%\\Desktop
+				extraction_directory= `%USERPROFILE`%\\Desktop\\%utledtc%
 			}
 		if (extraction_directory = "exe directory")
 			{
