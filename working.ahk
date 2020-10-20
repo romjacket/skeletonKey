@@ -9219,7 +9219,12 @@ Loop,Parse,kiv,|
 							{
 								romf= %A_LoopFileLongPath%
 							}
-						poptadd .= A_LoopFileLongPath . "|"
+						krtn= %A_LoopFileLongPath%
+						ifinstring,krtn,%RJSYSTEMS%\%OPTYP%\
+							{
+								stringreplace,krtn,A_LoopFileLongPath,%RJSYSTEMS%\%OPTYP%\,,All
+							}
+						poptadd .= krtn . "|"
 					}
 			}
 	}
@@ -78846,6 +78851,12 @@ Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
 ROMSYS= %OPTYP%
 Guicontrolget,romf,,MORROM
+ifnotinstring,romf,:\
+	{
+		romf= %RJSYSTEMS%\%OPTYP%\%romf%
+		guicontrol,,MORROM,|%romf%||%lsrchpop%
+	}
+MORROM= %romf%
 splitpath,MORROM,EDTRMF,EDTRMP,inputext,EDTRMFN
 guicontrol,-Altsubmit,MORROM
 gui,submit,nohide
@@ -79107,10 +79118,12 @@ gosub, LNCHCHK
 SK_MODE= 1
 RUNSYSCHNG=
 return
+
 NEWROM:
 if romf=
 gosub, GetROM
 return
+
 GetROM:
 ROMFileSel=
 FileSelectFile, ROMFileSel, 3, , Select a ROM file, ROM (*.*)
