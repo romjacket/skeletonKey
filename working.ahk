@@ -6751,7 +6751,7 @@ IniRead,kiv,SystemLocations.ini,LOCATIONS,%SRCHLOCDDL%
 sinnz=
 itmlst=
 guicontrolget,itmlst,,SRCHROMLBX
-utladitms= 
+
 Gui,ListView,utlLVA
 lvachk= +Check
 Loop,parse,kiv,|
@@ -6770,14 +6770,14 @@ Loop,parse,kiv,|
 					else {
 						sinnz:= A_LoopField
 					}
-				utladitms.= sinnz . "|"	
 				splitpath,sinnz,sinnxe
 				sinnta= executable\roms\%sinnxe%
 				filecopy,%sinnz%,%S_KeyDir%\executable\roms\%sinnxe%,1
+				LV_Add(lvachk,sinnta)
 				stringreplace,itmlst,itmlst,%A_LoopField%,,All
 			}
 	}
-gosub,utlAdditms
+LV_ModifyCol()	
 Guicontrol,choose,TABMENU,9	
 return	
 Playlist_Add:
