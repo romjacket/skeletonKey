@@ -980,6 +980,7 @@ UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|PRGINSTLBX|EINSTTXT|EINSTLOC|CHE
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|PRGINSTLBX|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 PSETCFGITEMS= ADDCORE|OPNSYS|ADDNSYS|SAVNSYS|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
+LNCHUI=RUNPLRAD|RUNFLRAD|RUNROMCBX|EDTROMBTN|MORROM|SWHOST|FNDGUI|CUSTSWITCHS|CUSTMOPTS|CUSTMARGS|GROM|ESWPLCORE|LCORECBX|LCORECBX|JCORE|OPNCORE|HLNCHBUT|LNCHBUT|RCLLNCH|CLRCUROM|RETAL|RUNSYSDDL|RUNSYSCBX|RUNSYSBTN|CNCTBUT|HOSTBUTTON
 JSTSET= %JOYSET%
 RJSYSDN= Systems
 AXISET= nul|nul
@@ -9121,7 +9122,6 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
-		guicontrol,,MORROM,|%romf%||%poptadd%
 		guicontrol,,LCORE,|%coreselv%||%runlist%
 		if (SRCHCOMPL = 1)
 			{
@@ -78839,6 +78839,10 @@ return
 EDTFROM:
 gui,submit,nohide
 guicontrolget,KITLSN,,RUNROMCBX
+ifnotinstring,KITLSN,:\
+	{
+		KITLSN= %RJSYSTEMS%\%OPTYP%\%romf%
+	}
 guicontrol,,MORROM,|%KITLSN%||%lsrchpop%
 guicontrol,,hide,RUNROMCBX
 EDTROM:
@@ -78854,7 +78858,7 @@ Guicontrolget,romf,,MORROM
 ifnotinstring,romf,:\
 	{
 		romf= %RJSYSTEMS%\%OPTYP%\%romf%
-		guicontrol,,MORROM,|%romf%||%lsrchpop%
+		guicontrol,,MORROM,%romf%||
 	}
 MORROM= %romf%
 splitpath,MORROM,EDTRMF,EDTRMP,inputext,EDTRMFN
@@ -79809,10 +79813,8 @@ if (STRMVID = 1)
 		RUNROM= "%URLFILE%"
 	}
 splitpath,OvrExtAs,xenm,xenmp
-guicontrol, Disable, LNCHBUT
-guicontrol, Disable, RCLLNCH
-guicontrol, Disable, CNCTBUT
-guicontrol, Disable, HostButton
+lnchui= disable
+gosub, LNCHUI
 gosub, SKLPRER
 iniread,dmchk,AppParams.ini,%coreselv%,DSKMNTCHK
 if (dmchk = 1)
@@ -79942,10 +79944,8 @@ if (EPGC = 1)
 		gosub, OPNCOREV
 		SB_SetText("settings reloaded")
 	}
-guicontrol, Enable, LNCHBUT
-guicontrol, Enable, RCLLNCH
-guicontrol, Enable, CNCTBUT
-guicontrol, Enable, HostButton
+lnchui= enable
+gosub, LNCHUI
 inithist= 
 if (HISAPND = 1)
 	{
@@ -80321,10 +80321,8 @@ if (romf = "")
 		LNCHCORE=
 		LNCHROM=
 	}
-guicontrol, Disable, RCLLNCH
-guicontrol, Disable, LNCHBUT
-guicontrol, Disable, CNCTBUT
-guicontrol, Disable, HostButton
+lnchui= disable
+gosub, LNCHUI
 gosub, PreOpt
 RETRANSLID= 
 if ((TRANSLID > 65)&&(DYNTRANS = 1))
@@ -80354,14 +80352,18 @@ if (SAVEXIT = 1)
 		gosub, GetIniVars
 	}
 lastcore= %coreselv%
-guicontrol, Enable, LNCHBUT
-guicontrol, Enable, RCLLNCH
-guicontrol, Enable, CNCTBUT
-guicontrol, Enable, HostButton
+lnchui= enable
+gosub, LNCHUI
 IniWrite, "%coreselv%", Settings.ini,GLOBAL,last_core
 gosub, RecentWrite
 LNCH=
 return
+LNCHUI:
+Loop,parse,LNCHUI,|
+	{
+		guicontrol,%lnchui%,%A_LoopField%
+	}	
+return	
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    RESETTING   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SKRESET:
