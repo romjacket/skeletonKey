@@ -101,6 +101,7 @@ if (selected = "")
 RUNROM= "%A_ScriptDir%\roms\%selected%"
 
 LAUNCH:
+gui, destroy
 if (path = "")
 	{
 		splitpath,RUNROM,RUNROM
@@ -126,7 +127,6 @@ gui,minimize
 RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
 if (retroms = 1)
 	{
-		gui, destroy
 		goto, Gui
 	}
 GuiClose:
