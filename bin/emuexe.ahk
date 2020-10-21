@@ -60,7 +60,7 @@ if (path = "ERROR")
 	}
 stringreplace,romlist,romlist,`n,|,All
 Hotkey, Enter, Button_OK
-gosub GUI
+goto GUI
 return
 
 Gui:
@@ -69,6 +69,7 @@ if (rtt = "")
 		RUNROM:= "%frm%"
 		goto, LAUNCH
 	}
+retroms= 1	
 Gui, Add, Button,  xp w90 yp gButton_OK, Launch
 Gui, Add, Listview, xp yp+30 -E0x200 R5 w200 -Multi hwndThisList vMyList,|
 Gui +Resize	
@@ -93,6 +94,10 @@ gui,submit,nohide
 guicontrol,focus,MyList
 RowNum := LV_GetNext(,"Focused")
 LV_GetText(Selected,RowNum,1)
+if (selected = "")
+	{
+		return
+	}				  
 RUNROM= "%A_ScriptDir%\roms\%selected%"
 
 LAUNCH:
@@ -112,13 +117,18 @@ if (quotes = "")
 	}
 if (keymapper = 1)
 	{
-		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min,amik
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min
 	}
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
 gui,minimize
 ;;msgbox,,, %emulator%%options%%runrom%%arguments%
 RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
+if (retroms = 1)
+	{
+		gui, destroy
+		goto, Gui
+	}
 GuiClose:
 GuiEscape:
 if (keymapper = 1)

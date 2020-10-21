@@ -71258,27 +71258,30 @@ Loop, Parse, emupartset,`n`r
 				rtrcnt= 
 				origurl= %URLFILE%
 				EXEUTILDWN:
-				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 				;;DownloadFile(URLFILE, save, True, True)
 				ifnotexist, %save%
 					{
-						msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
-						ifmsgbox,yes
-							{											
-								rtrcnt+= 1
-								Loop,parse,ALTHOST,>
-									{
-										if (A_Index = rtrcnt)
+						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+						ifnotexist, %save%
+							{
+								msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+								ifmsgbox,yes
+									{											
+										rtrcnt+= 1
+										Loop,parse,ALTHOST,>
 											{
-												stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
-												break
+												if (A_Index = rtrcnt)
+													{
+														stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+														break
+													}
+												rtrcnt= 
+												URLFILE= %origurl%	
 											}
-										rtrcnt= 
-										URLFILE= %origurl%	
+										goto, EXEUTILDWN	
 									}
-								goto, EXEUTILDWN	
+								break
 							}
-						break
 					}
 				SB_SetText(" " save " " "extracting")
 				runwait, %comspec% cmd /c  " "%S_KeyDir%\bin\7za.exe" x -y "%save%" -O"%xtractmu%\emu" ", ,hide
@@ -71290,6 +71293,39 @@ Loop, Parse, emupartset,`n`r
 						gosub, utlguitog
 						return
 					}
+				iniread,emubiosr,EmuCfgPresets.ini,%UTLDDLC%,BIOS
+				if ((emubiosr <> "")&&(emubiosr <> "ERROR")&&(emubiosr <> "0"))
+					{
+						iniread,emuloct,Apps.ini,EMULATORS,%UTLDDLC%
+						splitpath,emuloct,emulocf,emulocp
+						if (emuloct <> "ERROR")
+							{
+								Loop,parse,BiosFSet,`n`r
+									{
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										ifinstring,A_LoopField,%UTLDDLC%
+											{
+												stringsplit,bprt,A_LoopField,=
+												Loop,%bprt0%
+													{
+														bprx= % bprt%A_index%
+														ifinstring,bprx,%UTLDDLC%
+															{
+																stringreplace,emudest,bprx,%UTLDDLC%,executable\emu
+																break
+															}	
+													}
+												stringsplit,bfpr,A_LoopField,:?,>
+												filecopy,%emulocp%\%bfpr2%,%emudest%,1
+											}
+									}
+							}
+						
+					}
+					
 				IniWrite, "%xesel3%",%curxe%,EXECUTABLE,Emulator
 				break
 			}
