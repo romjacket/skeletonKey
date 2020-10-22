@@ -3761,6 +3761,15 @@ if (BCANC = 1)
 	}
 if (GitPush = 1)
 	{
+		ifinstring,pushnotes,<
+			{
+				stringsplit,ebeb,A_LoopField,
+				TAGLINE= %ebeb2%				
+			}
+			else {
+			TAGLINE= A unified interface for ROMs, emulators and frontends.
+			}
+			
 		ifinstring,pushnotes,$
 			{
 				stringgetpos,verstr,pushnotes,$
@@ -4058,6 +4067,7 @@ if (SiteUpdate = 1)
 				FileMove, %DEPL%\site\index.html, %DEPL%\index.bak,1
 				FileRead,skelhtml,%BUILDIR%\site\index.html
 				StringReplace,skelhtml,skelhtml,[CURV],%vernum%,All
+				StringReplace,skelhtml,skelhtml,[TAGLINE],%tagline%,All
 				FileDelete,%BUILDIR%\insts.sha1
 
 				if (OvrStable = 1)
