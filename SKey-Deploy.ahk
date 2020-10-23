@@ -3769,7 +3769,7 @@ if (GitPush = 1)
 			else {
 			TAGLINE= A unified interface for ROMs, emulators and frontends.
 			}
-			
+			msgbox,,,pushnotes=%pushnotes%`n`nebeb=%ebeb1%`nebeb2=%ebeb2%=ebeb3=%ebeb3%`nebeb4=%ebeb4%
 		ifinstring,pushnotes,$
 			{
 				stringgetpos,verstr,pushnotes,$
@@ -4068,6 +4068,7 @@ if (SiteUpdate = 1)
 				FileRead,skelhtml,%BUILDIR%\site\index.html
 				StringReplace,skelhtml,skelhtml,[CURV],%vernum%,All
 				StringReplace,skelhtml,skelhtml,[TAGLINE],%tagline%,All
+				msgbox,,,tagline=%tagline%
 				FileDelete,%BUILDIR%\insts.sha1
 
 				if (OvrStable = 1)
