@@ -59,14 +59,18 @@ if (path = "ERROR")
 		path= 1
 	}
 stringreplace,romlist,romlist,`n,|,All
-Hotkey, Enter, Button_OK
-goto GUI
-return
+
+If (WinActive,exe_title)
+	{
+		Hotkey, Enter, Button_OK
+		goto GUI
+		return
+	}
 
 Gui:
 if (rtt = "")
 	{
-		RUNROM:= "%frm%"
+		RUNROM= "%A_ScriptDir%\%frm%"
 		goto, LAUNCH
 	}
 retroms= 1	
@@ -75,7 +79,7 @@ Gui, Add, Listview, xp yp+30 -E0x200 R5 w200 -Multi hwndThisList vMyList,|
 Gui +Resize	
 
 Gosub LV_populate
-Gui, Show, h420, Select
+Gui, Show, h420, %exe_title%
 GuiControl, Focus, MyList
 return
 
@@ -118,12 +122,11 @@ if (quotes = "")
 	}
 if (keymapper = 1)
 	{
-		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min,amik
 	}
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
 gui,minimize
-;;msgbox,,, %emulator%%options%%runrom%%arguments%
 RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
 if (retroms = 1)
 	{

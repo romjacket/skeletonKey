@@ -41119,6 +41119,10 @@ return
 emuBUTJ:
 gui,submit,nohide
 guicontrolget, EMUSN,,RJEMUPRECFG
+if (EXEMODE = 1)
+	{
+		guicontrolget, EMUSN,,UTLDDLC
+	}
 try, gosub, %EMUSN%BUTJ
 	catch
 		{
@@ -41563,6 +41567,10 @@ if (SK_MODE = "")
 		;filedelete,%indvcp%\mednafen.cf*
 		RVLKUP= %RJSYSDD%
 		indvcp= rj\sysCfgs\%curjf%
+		if (EXEMODE = 1)
+			{
+				indvcp= %S_KeyDir%\executable\emu\%curjf%
+			}
 	}
 if (SK_MODE = 2)
 		{
@@ -41874,6 +41882,11 @@ if (SK_MODE = "")
 			}
 		emucfgloc= rj\syscfgs\%ROMSYS%\snes9x.conf
 		snes9xcfgloc= rj\syscfgs\%ROMSYS%\snes9x.conf
+		if (EXEMODE = 1)	
+			{
+				emucfgloc= %S_KeyDir%\executable\emu\snes9x.conf
+				snes9xcfgloc= %S_KeyDir%\executable\emu\snes9x.conf
+			}
 		iniread,snes9xHopts,%emucfgloc%,Hacks
 		iniread,snes9xRopts,%emucfgloc%,ROM
 		iniread,snes9xSopts,%emucfgloc%,Sound
@@ -43094,7 +43107,7 @@ iniwrite,%emuSLDA%,%snes9xcfgloc%,Settings\Win,RewindBufferSize
 return
 SNES9XBUTJ:
 gui,submit,nohide
-Guicontrol,Choose,TABMENU,8
+Guicontrol,Choose,TABMENU,9
 SVTGTS= 1
 return
 SNES9XBUTK:
@@ -44885,7 +44898,7 @@ if (ROMSYS = "")
 			{
 				guicontrolget,rmst,,ARCSYS
 				keyin=%rmst%
-			gosub,TransformSys
+				gosub,TransformSys
 				if (rmst = "Select a System")
 					{
 						ROMSYS= Sony - Playstation
@@ -44898,8 +44911,12 @@ if (SK_MODE = "")
 		ifnotexist,rj\syscfgs\%ROMSYS%\
 			{
 				filecreateDir,rj\syscfgs\%ROMSYS%
+				emucfgloc= rj\syscfgs\%ROMSYS%\mednafen.cfg
 			}
-		emucfgloc= rj\syscfgs\%ROMSYS%\mednafen.cfg
+		if (EXEMODE = 1)	
+			{
+				emucfgloc= %S_KeyDir%\executable\emu\mednafen.cfg
+			}
 		filedelete,%emucfgloc%
 		curjf= %ROMSYS%
 	}
@@ -45123,6 +45140,12 @@ if (SK_MODE = "")
 				EXTRSYS= %RJSYSDD%
 				emucfgloc= rj\sysCfgs\%RJSYSDD%\%emucfgu%
 			}
+		if (EXEMODE = 1)	
+			{
+				emucfgu= mednafen.cfg.ret
+				EXTRSYS= %SPLAY%
+				emucfgloc= %S_KeyDir%\executable\emu\mednafen.cfg
+			}	
 	}
 ifexist, %emucfgloc%
 	{
@@ -45604,8 +45627,6 @@ Loop, parse, MEDNAFENGUIITEMS,|
 	}
 return
 MednafenInit:
-IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
-stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
 ;;;global export;;;;
 Loop, parse, medglobal,`n`r
 	{
@@ -45641,6 +45662,38 @@ Loop, parse, medglobal,`n`r
 			}
 		FileAppend,%aii1% %aii2%`n,%emucfgloc%
 	}
+tafm=	
+if (EXEMODE = 1)
+	{
+		IniRead, medsystms,rj\emuCfgs\mednafen\defaults.ini.get
+		Loop,parse,medsystms,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (A_LoopField = "GLOBAL")
+					{
+						continue
+					}
+				if (A_LoopField = "COMMON")
+					{
+						continue
+					}
+				if (A_LoopField = "INPUT")
+					{
+						continue
+					}
+				RJMEDNM= %A_LoopField%
+				stringlower,rjmednm,rjmednm
+				IniRead, medcomn,rj\emuCfgs\mednafen\defaults.ini.get,COMMON
+				gosub, COMPLMEDRST
+				tafm= 1
+			}
+	}
+COMPLMEDRST:	
+stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
+IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
 ;;;;system unique export;;;;
 Loop, parse, medsysdef,`n`r
 	{
@@ -45666,6 +45719,10 @@ Loop, parse, medcomn,`n`r
 		FileAppend,%aii1% %aii2%`n,%emucfgloc%
 	}
 ;;;;input export;;;;
+if (tafm = 1)
+	{
+		return
+	}
 Loop, 16
 	{
 		jnum+= 1
@@ -45728,7 +45785,7 @@ mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "filesys.fname_state \E.*", 
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "filesys.path_state \E.*", "filesys.path_state `%d`%z.sstates`n")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "filesys.path_cheat \E.*", "filesys.path_cheat `%d`%z.cheats`n")
 gosub, RewMedn
-Guicontrol,Choose,TABMENU,8
+Guicontrol,Choose,TABMENU,9
 gosub, mednafenSaveOpts
 return
 mednafenCHKD:
@@ -46311,7 +46368,10 @@ if ((emjddlb = "n") or (emjddlb = ""))
 		emjddlb= 1
 		MedPlayerJoy= 1
 	}
-gosub, MED%RJMEDNM%JOY
+	try, gosub, MED%RJMEDNM%JOY
+			catch 
+				{				
+		}
 SB_SetText(" Mednafen " RJMEDNM " joystick loading complete ")
 emjtog= enable
 gosub, EMJTOG
@@ -48906,6 +48966,11 @@ if (SK_MODE = "")
 			}
 		emucfgloc= rj\syscfgs\%ROMSYS%\mame.ini
 		mamejglbfile= rj\syscfgs\%ROMSYS%\default.cfg
+		if (EXEMODE = 1)	
+			{
+				emucfgloc= %S_KeyDir%\executable\emu\mame.ini
+				mamejglbfile= %S_KeyDir%\executable\emu\default.cfg
+			}
 		fileread,mameopts,%emucfgloc%
 		curjf= %ROMSYS%
 	}
@@ -49784,7 +49849,7 @@ return
 MAMEBUTJ:
 gui,submit,nohide
 gosub, MameRew
-Guicontrol,Choose,TABMENU,8
+Guicontrol,Choose,TABMENU,9
 SVTGTS= 1
 return
 MameRew:
@@ -70816,14 +70881,20 @@ return
 executableutlBUTG:
 gui,submit,nohide
 GuiControl, Choose, TABMENU, 2
-guicontrol,,JCORE,|%runlist%
+guicontrol,,JCORE,
+guicontrol,,RUNSYSDDL,
+guicontrol,,MORROM,
 svgbrnv= 1
-guicontrol,,LCORE,|%utlDDLC%||%runlist%
+guicontrol,,LCORE,%utlDDLC%||
 EMUSN= %utlDDLC%
+EXEMODE= 1
 gosub, EMUOPTPOP
+srchtog= hide
+gosub, TOGGLESEARCHBOX
 svgbrnv=
-guicontrol,,JOYCORE,|%utlDDLC%||Antimicro|Xpadder|%supguiitems%|%corelist%
+guicontrol,,JOYCORE,%utlDDLC%||
 gosub, JOYEMUCORE
+EXEMODE= 
 guicontrol,,CFGSWITCH,|||EXE|||
 SB_SetText(" Editing emulator executable configurations ")
 return
@@ -70954,13 +71025,20 @@ ifnotexist,executable\roms\
 SB_SetText("Copying Files")
 Loop, Parse, utlchki,|
 	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
 		ifnotinstring,A_LoopField,executable\
 			{
 				FileCopy, %A_LoopField%,executable\roms\%A_LoopFileName%
 				if (ERRORLEVEL > 0)
 					{
-						stringsplit,A_LoopField,fnm,fdir,fxtn,fnnx
-						filecopy, %A_LoopField%,executable\roms\%fnnx%_.%fxtn%,1
+						splitpath,A_LoopField,fnm,fdir,fxtn,fnnx
+						if ((fnnx <> "")&&(fxtn <> "")&&(fnm <> "_"))
+							{
+								filecopy, %A_LoopField%,executable\roms\%fnnx%_.%fxtn%,1
+							}
 					}
 			}
 		SB_SetText("Copying " A_LoopFileName " ")

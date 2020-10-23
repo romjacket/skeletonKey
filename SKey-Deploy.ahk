@@ -3763,7 +3763,7 @@ if (GitPush = 1)
 	{
 		ifinstring,pushnotes,<
 			{
-				stringsplit,ebeb,A_LoopField,<>
+				stringsplit,ebeb,pushnotes,<>
 				TAGLINE= %ebeb2%				
 			}
 			else {
