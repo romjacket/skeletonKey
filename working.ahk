@@ -3241,7 +3241,7 @@ Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vutlSLDD gutlSLDD %utlvis%, 50
 Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vutlSLDE gutlSLDE %utlvis%, 50
 Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vutlSLDC gutlSLDC %utlvis%, 50
 Gui, Add, Text, x248 y240 vutlTXTA %utlvis%, utlTXTA
-Gui, Add, Text, x248 y264 vutlTXTB, utlTXTB
+Gui, Add, Text, x248 y264 vutlTXTB %utlvis%, utlTXTB
 Gui, Add, Text, x248 y288 vutlTXTC %utlvis%, utlTXTC
 Gui, Add, Text, x376 y368 vutlTXTD %utlvis%, utlTXTD
 Gui, Add, Text, x376 y392 vutlTXTE %utlvis%, utlTXTE
@@ -8669,10 +8669,12 @@ guicontrol,enable,RCLLNCH
 return
 RUNPLRAD:
 gui,submit,nohide
+EXEMODE= 
 guicontrol,,RUNSYSDDL,|History||%plistfiles%
 gosub, RUNSYSDDL
 return
 RUNFLRAD:
+EXEMODE= 
 gui,submit,nohide
 guicontrolget,lcrtst,,LCORE
 guicontrolget,EDTROM,,MORROM
@@ -8920,6 +8922,7 @@ guicontrol,,RUNSYSCBX,|%OPSYS%||%main_search%
 Control, ShowDropDown, , ,ahk_id %CbxHndl109%
 return
 RUNSYSDDL:
+EXEMODE= 
 guicontrol,,RUNSYSCBX,| |
 gui,submit,nohide
 Sleep, 1000
@@ -45665,6 +45668,7 @@ Loop, parse, medglobal,`n`r
 tafm=	
 if (EXEMODE = 1)
 	{
+		rjmednlp=
 		IniRead, medsystms,rj\emuCfgs\mednafen\defaults.ini.get
 		Loop,parse,medsystms,`n`r
 			{
@@ -45688,13 +45692,36 @@ if (EXEMODE = 1)
 				stringlower,rjmednm,rjmednm
 				IniRead, medcomn,rj\emuCfgs\mednafen\defaults.ini.get,COMMON
 				gosub, COMPLMEDRST
+				rjmednlp.= rjmednm . "|"
 				tafm= 1
 			}
+		return	
 	}
 COMPLMEDRST:	
 stringreplace,medcomn,medcomn,<system>,%RJMEDNM%,All
 IniRead, medsysdef,rj\emuCfgs\mednafen\defaults.ini.get,%RJMEDNM%
 ;;;;system unique export;;;;
+Loop, parse, medinput,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		aii1=
+		aii2=
+		stringsplit,aii,A_LoopField,=
+		api1=
+		api2=
+		stringsplit,api,aii1,.
+		if (api1 = RJMEDNM)
+			{
+				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
+			}
+		if (RJMEDNM	= "")
+			{
+				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
+			}
+	}
 Loop, parse, medsysdef,`n`r
 	{
 		if (A_LoopField = "")
@@ -45744,27 +45771,6 @@ Loop, 16
 				medjid%A_Index%= 0x0
 			}
 		medjindex= % medjid%A_index%
-	}
-Loop, parse, medinput,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-		aii1=
-		aii2=
-		stringsplit,aii,A_LoopField,=
-		api1=
-		api2=
-		stringsplit,api,aii1,.
-		if (api1 = RJMEDNM)
-			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
-			}
-		if (RJMEDNM	= "")
-			{
-				FileAppend,%aii1%%A_Space%%aii2%`n,%emucfgloc%
-			}
 	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -45838,7 +45844,17 @@ if (emuCHKH = 0)
 				emuSTRETCH= aspect_mult2
 			}
 	}
-mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuSTRETCH "`n")
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
+				mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuSTRETCH "`n")
+			}
+	}
+	else {
+	mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuSTRETCH "`n")
+	}
 gosub, RewMedn
 return
 mednafenCHKB:
@@ -45855,24 +45871,64 @@ if (emuCHKB = 0)
 	}
 guicontrolget,emuEDTD,,emuEDTD
 guicontrolget,emuSLDA,,emuSLDA
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
+				mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuEDTD "`n")
+			}
+	}
+	else {
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuEDTD "`n")
+	}
 gosub, RewMedn
 return
 mednafenCHKC:
 gui,submit,nohide
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
+				mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".cd_sanity \E.*", "" RJMEDNM ".cd_sanity " emuCHKC "`n")
+			}
+	}
+	else {
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".cd_sanity \E.*", "" RJMEDNM ".cd_sanity " emuCHKC "`n")
+	}
 gosub, RewMedn
 return
 mednafenDDLA:
 gui,submit,nohide
 guicontrolget,emuDDLA,,emuDDLA
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader \E.*", "" RJMEDNM ".shader " emuDDLA "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader \E.*", "" RJMEDNM ".shader " emuDDLA "`n")
+	}
 gosub, RewMedn
 return
 mednafenDDLB:
 gui,submit,nohide
 guicontrolget,emuDDLB,,emuDDLB
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".special \E.*", "" RJMEDNM ".special " emuDDLB "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".special \E.*", "" RJMEDNM ".special " emuDDLB "`n")
+	}
 gosub, RewMedn
 return
 mednafenDDLC:
@@ -45894,7 +45950,17 @@ if (emuDDLC = "y-axis")
 	{
 		emuVIDIP= y
 	}
+	if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".videoip \E.*", "" RJMEDNM ".videoip " emuVIDIP "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".videoip \E.*", "" RJMEDNM ".videoip " emuVIDIP "`n")
+	}
 gosub, RewMedn
 return
 mednafenDDLD:
@@ -45923,20 +45989,50 @@ return
 mednafenEDTA:
 gui,submit,nohide
 guicontrolget,emuEDTA,,emuEDTA
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".xscalefs \E.*", "" RJMEDNM ".xscalefs " emuEDTA "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".xscalefs \E.*", "" RJMEDNM ".xscalefs " emuEDTA "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTB:
 gui,submit,nohide
 guicontrolget,emuEDTB,,emuEDTB
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".yscalefs \E.*", "" RJMEDNM ".yscalefs " emuEDTB "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".yscalefs \E.*", "" RJMEDNM ".yscalefs " emuEDTB "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTD:
 gui,submit,nohide
 guicontrolget,emuEDTD,,emuEDTD
 guicontrol,,emuSLDA,%emuEDTD%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuEDTD "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuEDTD "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTC:
@@ -45951,7 +46047,17 @@ if (emuRAD11A = 1)
 emuSLDE:= emuEDTC * 10
 MEDemuv%gextn%= %emuEDTC%
 guicontrol,,emuSLDE,%emuSLDE%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
+	}
 gosub, RewMedn
 return
 numchkedc:
@@ -45964,7 +46070,17 @@ gosub, numchkede
 guicontrolget,emuEDTE,,emuEDTE
 emuSLDC:= emuEDTE * 10
 guicontrol,,emuSLDC,%emuSLDC%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.tp \E.*", "" RJMEDNM ".shader.goat.tp " emuEDTE "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.tp \E.*", "" RJMEDNM ".shader.goat.tp " emuEDTE "`n")
+	}
 gosub, RewMedn
 return
 numchkede:
@@ -45975,19 +46091,49 @@ mednafenEDTF:
 gui,submit,nohide
 guicontrolget,emuEDTF,,emuEDTF
 guicontrol,,emuSLDB,%emuEDTF%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTG:
 gui,submit,nohide
 guicontrolget,emuEDTG,,emuEDTG
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".xres \E.*", "" RJMEDNM ".xres " emuEDTG "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".xres \E.*", "" RJMEDNM ".xres " emuEDTG "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTH:
 gui,submit,nohide
 guicontrolget,emuEDTH,,emuEDTH
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".yres \E.*", "" RJMEDNM ".yres " emuEDTH "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".yres \E.*", "" RJMEDNM ".yres " emuEDTH "`n")
+	}
 gosub, RewMedn
 return
 mednafenEDTI:
@@ -46016,9 +46162,22 @@ return
 mednafenRad5A:
 gui,submit,nohide
 emuRAD5= 0
+
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 0")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount.*", "" RJMEDNM ".tblur.accum.amount 0")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum *", "" RJMEDNM ".tblur.accum 0")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 0")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount.*", "" RJMEDNM ".tblur.accum.amount 0")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum *", "" RJMEDNM ".tblur.accum 0")
+	}
 guicontrol,,emuSLDB,0
 guicontrol,,emuEDTF,0
 gosub, RewMedn
@@ -46026,35 +46185,90 @@ return
 mednafenRad5B:
 gui,submit,nohide
 emuRAD5B= 1
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 1")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum .*", "" RJMEDNM ".tblur.accum 0")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 1")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum .*", "" RJMEDNM ".tblur.accum 0")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad5C:
 gui,submit,nohide
 emuRAD5C= 1
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 1")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum .*", "" RJMEDNM ".tblur.accum 1")
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur .*", "" RJMEDNM ".tblur 1")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum .*", "" RJMEDNM ".tblur.accum 1")
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuEDTF "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad9A:
 gui,submit,nohide
 emuRAD9= borg
+
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad9B:
 gui,submit,nohide
 emuRAD9= goatron
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad9C:
 gui,submit,nohide
 emuRAD9= slenderman
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.pat \E.*", "" RJMEDNM ".shader.goat.pat " emuRAD9 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad8A:
@@ -46074,7 +46288,17 @@ slmhdv:= MEDemuhdiv * 10
 guicontrol,,emuSLDE,%slmhdv%
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.hdiv \E.*", "" RJMEDNM ".shader.goat.hdiv " emuEDTC "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.hdiv \E.*", "" RJMEDNM ".shader.goat.hdiv " emuEDTC "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad11B:
@@ -46084,44 +46308,114 @@ slmhdv:= MEDemuvdiv * 10
 guicontrol,,emuSLDE,%slmhdv%
 guicontrolget,emuEDTC,,emuEDTC
 guicontrolget,emuSLDE,,emuSLDE
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.vdiv \E.*", "" RJMEDNM ".shader.goat.vdiv " emuEDTC "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.vdiv \E.*", "" RJMEDNM ".shader.goat.vdiv " emuEDTC "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad3A:
 gui,submit,nohide
 emuRAD3= full
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad3B:
 gui,submit,nohide
 emuRAD3= aspect
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad3C:
 gui,submit,nohide
 emuRAD3= aspect_int
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")
+	}
 gosub, RewMedn
 return
 mednafenRad3D:
 gui,submit,nohide
 emuRAD3= aspect_mult2
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")gosub, RewMedn
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".stretch \E.*", "" RJMEDNM ".stretch " emuRAD3 "`n")gosub, RewMedn
+	}
 return
 mednafenSLDA:
 gui,submit,nohide
 guicontrolget,emuSLDA,,emuSLDA
 guicontrol,,emuEDTD,%emuSLDA%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuSLDA "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".scanlines \E.*", "" RJMEDNM ".scanlines " emuSLDA "`n")
+	}
 gosub, RewMedn
 return
 mednafenSLDB:
 gui,submit,nohide
 guicontrolget,MEDemuEDTF,,emuSLDB
 guicontrol,,emuEDTF,%emuSLDB%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuSLDB "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".tblur.accum.amount \E.*", "" RJMEDNM ".tblur.accum.amount " emuSLDB "`n")
+	}
 gosub, RewMedn
 return
 mednafenSLDE:
@@ -46135,7 +46429,17 @@ if (emuRAD11A = 1)
 emuEDTC:= (emuSLDE / 10)
 MEDemuv%gextn%= %emuEDTC%
 guicontrol,,emuEDTC,%emuEDTC%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat." gextn " \E.*", "" RJMEDNM ".shader.goat." gextn " " emuEDTC "`n")
+	}
 gosub, RewMedn
 return
 mednafenSLDC:
@@ -46143,7 +46447,17 @@ gui,submit,nohide
 guicontrolget,emuSLDC,,emuSLDC
 emuEDTE:= (emuSLDC / 10)
 guicontrol,,emuEDTE,%emuEDTE%
+if (EXEMODE = 1)
+	{
+		Loop,parse,rjmednlp,|
+			{
+				rjmednm= %A_Loopfield%
 mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.tp \E.*", "" RJMEDNM ".shader.goat.tp " emuEDTE "`n")
+			}
+	}
+	else {
+mednafenopts := RegExReplace(mednafenopts, "m)^\Q"  "" RJMEDNM ".shader.goat.tp \E.*", "" RJMEDNM ".shader.goat.tp " emuEDTE "`n")
+	}
 gosub, RewMedn
 return
 RewMedn:
@@ -70894,8 +71208,8 @@ gosub, TOGGLESEARCHBOX
 svgbrnv=
 guicontrol,,JOYCORE,%utlDDLC%||
 gosub, JOYEMUCORE
-EXEMODE= 
 guicontrol,,CFGSWITCH,|||EXE|||
+guicontrol,disable,LNCHBUT
 SB_SetText(" Editing emulator executable configurations ")
 return
 executableutlBUTD:
