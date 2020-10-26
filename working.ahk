@@ -3454,6 +3454,7 @@ Loop,Parse,lbxhwnds,|
 */  ;;[DEBUGOV]
 Gui, Show, Autosize,skeletonKey
 SplashTextOff
+gosub,FndGui
 ;;Progress, off
 Guicontrol,,TABMENU,|Settings|:=: MAIN :=:||Emu:=:Sys|Joysticks|Playlists|Frontends|DAT:=:Repo|Jackets|Util%RACORETAB%
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;    TOOLTIP FUNCTIONS   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -9440,8 +9441,14 @@ guicontrol, move, MORROM, x39 y24 w377
 return
 SRCHLOCDDL:
 gui,submit,nohide
+guicontrolget,FNDGUI,,FNDGUI
 guicontrolget,lcrtst,,LCORE
 guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
+if (FNDGUI = "X")
+	{
+		guicontrol,,RUNSYSDDL,%SRCHLOCDDL%||
+		gosub,RUNSYSDDL
+	}
 return
 SRCHFLRAD:
 gui,submit,nohide
