@@ -1,6 +1,7 @@
 #NoEnv
 #SingleInstance Force
 SetBatchLines -1
+SetTitlematchMode,2
 FileRead,romlist,romlist.txt
 stringreplace,romlist,romlist,roms\,,All
 filereadline,frm,romlist.txt,1
@@ -60,13 +61,6 @@ if (path = "ERROR")
 	}
 stringreplace,romlist,romlist,`n,|,All
 
-If (WinActive,exe_title)
-	{
-		Hotkey, Enter, Button_OK
-		goto GUI
-		return
-	}
-
 Gui:
 if (rtt = "")
 	{
@@ -75,12 +69,17 @@ if (rtt = "")
 	}
 retroms= 1	
 Gui, Add, Button,  xp w90 yp gButton_OK, Launch
-Gui, Add, Listview, xp yp+30 -E0x200 R5 w200 -Multi hwndThisList vMyList,|
-Gui +Resize	
+Gui, Add, Listview, xp yp+30 -E0x200 R5 w200 -Multi hwndThisList vMyList gMyList,|
+Gui +Resize
 
 Gosub LV_populate
 Gui, Show, h420, %exe_title%
 GuiControl, Focus, MyList
+guicontrolget,MyList,,MyList
+return
+
+MyList:
+guicontrolget,MyList,,MyList
 return
 
 GuiSize:
@@ -91,6 +90,16 @@ if A_EventInfo = 1
 GuiControl, Move, MyList, % "W" . (A_GuiWidth - 10) . " H" . (A_GuiHeight - 40)
 return
 
+$enter::
+	send, {enter}
+If (A_GuiControl = MyList)
+	{
+		goto Button_OK
+		return
+	}
+	else {
+	} 
+return
 
 ;;enter::
 Button_OK:
