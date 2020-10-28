@@ -5094,6 +5094,26 @@ SB_SetText("...ROM location is opening...")
 Run, explorer.exe %romrow%,%romrow%
 SB_SetText("")
 return
+InvTransformSys:
+keyout= 
+Loop,parse,oldlkup,`n`r
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		stringsplit,ebi,A_LoopField,=
+		einxh= % ebi1
+		if (einxh = keyin)
+			{
+				Arc_OS= %ebi2%
+				break
+			}
+			keyout= %keyin%
+			Arc_OS= %keyin%
+	}
+ARC_OL= 	
+return
 RevTransformSys:
 keyout= 
 Loop,parse,sysllst,`n`r
@@ -9441,7 +9461,7 @@ guicontrol, move, MORROM, x39 y24 w377
 return
 SRCHLOCDDL:
 gui,submit,nohide
-guicontrolget,FNDGUI,,FNDGUI
+guicontrolget,FNDGUI,,FNDGUI 	
 guicontrolget,lcrtst,,LCORE
 guicontrolget,SRCHLOCDDL,,SRCHLOCDDL
 if (FNDGUI = "X")
@@ -15642,6 +15662,10 @@ if(coreselv = "")
 HOSTING:
 splitpath,romf,romtitle,rompth,romext,romname
 stringreplace, ccv, coreselv,_libretro.dll, ,All
+guicontrol,,NETNAME,#%ARC_ON%#%ARC_OS%#%ARC_OL%
+guicontrol,,HNETNAME,#%ARC_ON%#%ARC_OS%#%ARC_OL%
+netplayNickname=[#%ARC_ON%#%ARC_OS%#%ARC_OL%
+IniWrite, "%netplayNickname%",%curcfg%,OPTIONS,netplay_nickname%A_Space%
 SB_SetText("Hosting. " romf " ")
 guicontrol, Disable, LNCHBUT
 guicontrol, Disable, RCLLNCH
@@ -15691,7 +15715,7 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}				
 	}	
-Runwait, "%raexedir%\%RaExeFile%" -H -L %corehlb% %romhf% %gameoverdcfg%%pgmargs%,%raexedir%
+Runwait, "%raexedir%\%RaExeFile%" -L %corehlb% -H %romhf% %gameoverdcfg%%pgmargs%,%raexedir%
 gosub, PostOpt
 if (RETRANSLID = 1)
 	{
@@ -32070,9 +32094,18 @@ Loop,Parse,lobbies,|
 			arrsp4=
 			stringsplit,arrsp,A_LoopReadLine,:,`" `,
 			;;"
+			trnlnlk=
 			if (arrsp1 = "username")
 				{
 					NETHOSTNAMES:= arrsp2
+					if instr(NETHOSTNAMES,"[#")
+						{
+							trnlnlk=1
+							stringsplit,nhlspl,NETHOSTNAMES,#
+							Arc_DS= % nhlspl3
+							Arc_AN= nhlsp2
+							Arc_LN= nhlspl4
+						}
 				}
 				if (arrsp1 = "game_crc")
 				{
@@ -32218,8 +32251,22 @@ if (NETHOSTPASSWDS = "true")
 		}
 trpn=
 FILTNUM+=1
+rmfltu=
 ROOMFLT%FILTNUM%=  %NETHOSTNAMES% | %NETHOSTGAMES% | %NETHOSTCRCD% | %NETHOSTCORES% | %NETHOSTCOREVERSIONS% | %FRONTENDOS% | %NETHOSTIPS% | %NETHOSTPORTS% | %PORTAV% | %NETPWDZ% | %WORLDLOC% | %RAEXEVERS%
+rmfltu=ROOMFLT%FILTNUM%
 LV_Add("", NETHOSTNAMES ,  NETHOSTGAMES , NETHOSTCRCD , NETHOSTCORES , NETHOSTCOREVERSIONS , FRONTENDOS, NETHOSTIPS, NETHOSTPORTS, PORTAV, NETPWDZ, WORLDLOC, RAEXEVERS )
+if (trnlnlk = 1)
+	{
+		Loop,parse,rmfltu,|
+			{
+				if (A_index = 1)
+					{
+						LVA_SetCell(NETHOSTLIST, FILTNUM, 1, cBGCol="Red", cFGCol="White")
+					}
+			}
+LV_ModifyCol()
+Return
+	}
 LV_ModifyCol()
 Return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -32862,6 +32909,10 @@ if A_GuiEvent = Normal
 				stringleft,NINLPRSE,HOSTINGROMS,1
 				NINLPRSE= %NINLPRSE%*
 				gosub, NetCoreAssets
+			}
+		if (instr(HOSTINGUSER,".com")or(HOSTINGUSER,".ly")or(HOSTINGUSER,"archive.org/"))
+			{
+				trnlnlk=1
 			}
 		guicontrolget,SRCHARCORG,,SRCHARCORG	
 		IniWrite, "%IPADR%",Settings.ini,GLOBAL,last_connect
@@ -36631,12 +36682,14 @@ if (DownOnly = 0)
 			}
 		Loop,%searchparams%
 			{
+				ArcIndxPtr=
 				Loop, Read, %A_LoopFileFullPath%
 					{
 						if (A_LoopReadLine = "")
 							{
 								continue
-							}							
+							}
+						ArcIndxPtr+=1	
 						Loop, 12
 							{
 								aftpth%A_Index%=
@@ -36735,6 +36788,7 @@ if (DownOnly = 0)
 								afnchk= %savefile%
 								splitpath,savefile,,,,romfname
 								krbrk=
+								ARC_OL:= ArcIndxPtr
 								break
 							}
 					}
@@ -38028,6 +38082,7 @@ ArchiveSystems:
 opndgam= 
 gui, submit, nohide
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
+guicontrolget,ARC_ON,,UrlTxt
 NetArcSystem:
 guicontrol,hide,ENHAK
 overrdx:= % (%urlsv%_EULA)
@@ -38061,6 +38116,8 @@ guicontrol,,ARCLNCH,PLAY ::>
 guicontrol,disable,ARCLNCH
 guicontrol,disable,ARCNCT
 guicontrol, disable, ARCHOST
+keyin= %ARCSYS%
+gosub, InvTransformSys
 ARCSEL=
 romarray1=
 romarray2=
