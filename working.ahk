@@ -6,7 +6,7 @@ S_KeyDir= %A_ScriptDir%
 Process, Exist,
 CURPID= %ERRORLEVEL%	
 SetWinDelay,2
-CoordMode,Mouse
+CoordMode,Mouse 
 ;{;	;;;;;;;;              FOLD                ;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;             SKELETONKEY            ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;   by romjacket 2018  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1618,11 +1618,11 @@ Gui, Add, Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported a
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
 Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,text, hwndEdtHndl3 x63 y65 w490 h20 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
-Gui, Add, Checkbox, x583 y76 vALWOTP gALWOTP, Always On Top
-Gui, Add, CheckBox, x583 y94 vLOGGING gLOGGING %logenable%, Logging
-Gui, Add, CheckBox, x583 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
-Gui, Add, CheckBox, x583 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
-Gui, Add, CheckBox, x583 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
+Gui, Add, Checkbox, x573 y76 vALWOTP gALWOTP, Always On Top
+Gui, Add, CheckBox, x573 y94 vLOGGING gLOGGING %logenable%, Logging
+Gui, Add, CheckBox, x573 y124 vHOVPREV gHovPrev %hovvalue%, Hover-Preview
+Gui, Add, CheckBox, x573 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
+Gui, Add, CheckBox, x573 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 Gui,Add,text, hwndEdtHndl4 x63 y149 w490 h20 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 Gui,Add,text, hwndEdtHndl5 x61 y453 w490 h20 vtmpdispl Multi ReadOnly, %cacheloc%
 Gui, Font, Bold
@@ -1653,7 +1653,7 @@ Gui Tab, :=: MAIN :=:
 Gui,Font,Bold
 Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
-Gui, Add, Radio, x18 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
+Gui, Add, Radio, x10 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
 Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
 Gui,Add,ComboBox, hwndCbxHndl1 x39 y24 w604 vRUNROMCBX gEDTFROM +0x2 +E0x5000 Right hidden,
 Gui Add, Button, x23 y25 w15 h17 vEDTROMBTN gEDTROMBTN,E
@@ -1852,8 +1852,8 @@ Gui, Add, GroupBox, x487 y203 w268 h306 Right vSRCHGRP, SEARCH
 Gui,Font,Norm
 Gui,Add,listbox, x491 y277 w261 h232 HWNDlocalromp +HScroll1500 Multi vSRCHROMLBX gSRCHROMLBX hidden,
 Gui, Add, Radio, x562 y212 w53 h18 vSRCHFLRAD gSRCHFLRAD Checked, Folder
-Gui, Add, Radio, x623 y212 w53 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
-Gui, Add, CheckBox, x495 y212 w60 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
+Gui, Add, Radio, x623 y212 w60 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
+Gui, Add, CheckBox, x490 y212 w65 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
 Gui,Add,Edit, hwndEdtHndl16 x491 y254 w216 h21 vSRCHROMEDT gSRCHROMEDT,
 Gui, Add, Button, x707 y253 w45 h23 vSRCHROMBUT gSRCHROMBUT,search
 Gui,Add,DropDownList, hwndDplHndl23 x491 y231 w260 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=:||%systmfldrs%
@@ -2099,9 +2099,9 @@ Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst,Install
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
 Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA Right hidden, Append to all supported systems
-Gui, Add, Text, x288 y58 h13 Center vEINSTTXT, Change Install Location
+Gui, Add, Text, x298 y58 h13 Center vEINSTTXT, Install Location
 Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +0x400000 +ReadOnly vEINSTLOC,
-Gui, Add, Button, x382 y207 w75 h23 vROMDLOC gRomDLoc, ADD
+Gui, Add, Button, x402 y207 w55 h23 vROMDLOC gRomDLoc, ADD
 Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
 Gui, Add, Text, x288 y212 h17 vROMDTXT,-=>ROM Directories
 Gui,Add,Listbox, hwndLbxHndl3 x285 y234 w171 h123 vROMDEDT Multi +HScroll,
@@ -2876,15 +2876,15 @@ gui, Add, Checkbox, x210 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
 gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
-gui, Add, Checkbox, x200 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
+gui, Add, Checkbox, x210 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
 
 gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP checked hidden, Search Compressed
 ;;gui, Add, Checkbox, x270 y98 vEXTDRP gEXTDRP hidden, Extract Dropped
 ;;Gui, Add, Radio, x109 y84 vARCSORT gARCSORT hidden Checked disabled, Archive
 ;;Gui, Add, Radio, x170 y84 vKEEPSORT gKEEPSORT hidden disabled, Keep
 gui, Add, Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
-Gui, Add, Radio, x121 y98 vJAKBF gJAKBF hidden Checked disabled, Individuate
-Gui, Add, Radio, x208 y98 vJAKAFT gJAKAFT hidden disabled, Consolidate
+Gui, Add, Radio, x131 y98 vJAKBF gJAKBF hidden Checked disabled, Individuate
+Gui, Add, Radio, x218 y98 vJAKAFT gJAKAFT hidden disabled, Consolidate
 Gui, Add, ListBox, x9 y120 w329 h200 hwndDATLBX multi vDATLBX gDATLBX hidden,|
 Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT hidden,
 Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT hidden,X
@@ -2926,12 +2926,12 @@ Gui,Add,Button,x350 y3 w15 h15 vARCLRFLT gARCLRFLT,X
 Gui,Add,Button,x9 y32 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
 Gui,Add,DropDownList, hwndDplHndl122 x24 y51 w138 vARCCORES gArcCores, Emu_Preset||%runlist%
 Gui, Add, Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
-Gui, Add, CheckBox, x169 y64 h13 vDOWNONLY gDownOnly, Download Only
+Gui, Add, CheckBox, x178 y74 h13 vDOWNONLY gDownOnly, Download Only
 Gui, Add, CheckBox, x189 y78 h13 vstrmvid gSTRMVID hidden, Stream
 Gui, Add, Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
 Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
-Gui, Add, CheckBox, x26 y75 w61 h17 vCUSTSWITCH gCustSwitch, switches
+Gui, Add, CheckBox, x26 y75 w65 h17 vCUSTSWITCH gCustSwitch, switches
 Gui, Add, Checkbox, x287 y33 w25 vENHAK gENHAK,+hacks
 Gui, Add, Checkbox, x9 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
@@ -7512,7 +7512,9 @@ MINIMODE= 1
 Guicontrol,Choose,TABMENU,2
 guicontrol,,MINISWITCH,=
 WinSet, Style, -0x800000, skeletonKey
-WinSet, Region,18-4 W750 H45,skeletonKey
+mmwdth:= 750*(A_ScreenDPI/96)
+mmwhght:= 45*(A_ScreenDPI/96)
+WinSet, Region,18-4 W%mmwdth% H%mmwhght%,skeletonKey
 return
 AWYONLTGL:
 gui,submit,nohide
@@ -11510,13 +11512,12 @@ if (selfnd = "Other")
 	}
 EMURJINT:
 emufzd= 
-Loop,Parse,EmuPartSet,`n`r
+;;msgbox,,,"%selfnd%"
+iniread,urlloc,EmuCfgPresets.ini,%selfnd%,URLPTH
+stringsplit,urloc,urlloc,<
+Loop,Parse,AllPartSet,`n`r
 	{
 		if (A_LoopField = "")
-			{
-				continue
-			}
-		ifinstring,A_LoopField,[
 			{
 				continue
 			}
@@ -11526,8 +11527,11 @@ Loop,Parse,EmuPartSet,`n`r
 		cplstr= %A_LoopField%
 		stringsplit,slfm,A_LoopField,<
 		stringsplit,urloc,slfm2,/
+		;;msgbox,,,%A_LoopField%
 		if (slfm1 = selfnd)
 			{
+				;;msgbox,,,%repoloc%/%urloc1%/raw/master/%urloc2%
+			
 				emufzd= 1
 				URLFILE= %repoloc%/%urloc1%/%urloc2%
 				ifinstring,repoloc,github
@@ -11572,6 +11576,7 @@ Loop,Parse,EmuPartSet,`n`r
 				rtrcnt= 
 				origurl= %URLFILE%
 				EMUDOWNLOADING:
+				;;MSGBOX,,,URL=%URLFILE%
 				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 				if (rjintr = 1)
 					{
@@ -11609,6 +11614,7 @@ Loop,Parse,EmuPartSet,`n`r
 						guicontrol,,DCORE,1
 						break
 					}
+
 				if (rjintr = 2)
 					{
 						return
@@ -41587,11 +41593,11 @@ guicontrol,move,SRCHGRP,x487 y203 w268 h299
 guicontrol,move,DropHideLBX,x342 y163 w138 h128
 guicontrol,move,SRCHLOCDDL,x491 y231 w260
 guicontrol,move,SRCHFLRAD,x562 y212 w53 h18
-guicontrol,move,SRCHPLRAD,x623 y212 w53 h18
+guicontrol,move,SRCHPLRAD,x623 y212 w60 h18
 guicontrol,move,SRCHROMLBX,x491 y277 w261 h232
 guicontrol,move,SRCHROMEDT,x491 y254 w216 h21
 guicontrol,move,SRCHROMBUT,x707 y253 w45 h23
-guicontrol,move,SRCHRCRSCHK,x495 y212 w60 h16
+guicontrol,move,SRCHRCRSCHK,x490 y212 w65 h16
 return
 MOVESEARCHBOX:
 guicontrol,move,DropHideLBX,x17 y47 w150 h138
@@ -41599,8 +41605,8 @@ guicontrol,move,SRCHGRP,x172 y50 w583 h442
 guicontrol,move,SRCHROMLBX,x173 y111 w579 h368
 guicontrol,move,SRCHROMLBX,x173 y111 w579 h368
 guicontrol,move,SRCHFLRAD,x285 y61 w53 h18
-guicontrol,move,SRCHPLRAD,x346 y61 w53 h18
-guicontrol,move,SRCHRCRSCHK,x218 y61 w60 h16
+guicontrol,move,SRCHPLRAD,x346 y61 w60 h18
+guicontrol,move,SRCHRCRSCHK,x213 y61 w65 h16
 guicontrol,move,SRCHROMEDT,x489 y80 w218 h21
 guicontrol,move,SRCHROMBUT,x707 y79 w43 h23
 guicontrol,move,SRCHLOCDDL,x214 y79 w260
