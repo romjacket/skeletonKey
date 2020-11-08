@@ -3761,7 +3761,7 @@ if (BCANC = 1)
 	}
 if (GitPush = 1)
 	{
-		ifinstring,pushnotes,<
+		ifinstring,pushnotes,|
 			{
 				stringsplit,ebeb,pushnotes,|
 				TAGLINE= %ebeb2%				

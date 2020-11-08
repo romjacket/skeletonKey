@@ -11512,7 +11512,6 @@ if (selfnd = "Other")
 	}
 EMURJINT:
 emufzd= 
-;;msgbox,,,"%selfnd%"
 iniread,urlloc,EmuCfgPresets.ini,%selfnd%,URLPTH
 stringsplit,urloc,urlloc,<
 Loop,Parse,AllPartSet,`n`r
@@ -11527,11 +11526,8 @@ Loop,Parse,AllPartSet,`n`r
 		cplstr= %A_LoopField%
 		stringsplit,slfm,A_LoopField,<
 		stringsplit,urloc,slfm2,/
-		;;msgbox,,,%A_LoopField%
 		if (slfm1 = selfnd)
 			{
-				;;msgbox,,,%repoloc%/%urloc1%/raw/master/%urloc2%
-			
 				emufzd= 1
 				URLFILE= %repoloc%/%urloc1%/%urloc2%
 				ifinstring,repoloc,github
@@ -11576,7 +11572,6 @@ Loop,Parse,AllPartSet,`n`r
 				rtrcnt= 
 				origurl= %URLFILE%
 				EMUDOWNLOADING:
-				;;MSGBOX,,,URL=%URLFILE%
 				exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 				if (rjintr = 1)
 					{
@@ -54240,7 +54235,6 @@ Loop,parse,PGGUIITEMS,|
 	}
 return
 gpsysit:
-msgbox,,,%sysplfw%
 FileDelete,%sysplfw%\collections.pegasus.txt
 iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
 ifinstring,c_emun,:
@@ -57462,7 +57456,7 @@ ifexist,%RJSYSTEMS%\%systid%\
 	}
 guicontrol,,PGPTHEDT,.%pgperpath%
 return
-;};;;;;;;;;;;;
+;};;;
 ;};;;
 ;};;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  RETROFE FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -57737,7 +57731,7 @@ guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
 ;;guicontrol,,FECBXD,|%avblnk%%fesyslst%
-guicontrol,,FECBXD,|%systmfldrs%
+guicontrol,,FECBXD,|%fesyslst%
 ;;theme;;
 guicontrol,%fetog%,FECBXA
 guicontrol,enable,FECBXA
@@ -59017,9 +59011,9 @@ iniread,crfxtn,RFcfg.ini,%curtnm%,extensions
 iniread,crfemo,RFcfg.ini,%curtnm%,emuoptions
 iniread,crfemu,RFcfg.ini,%curtnm%,emuname	
 iniread,crfsyp,RFcfg.ini,%curtnm%,syspath	
-guicontrol,,fecbxb,|%crffn%||%systmfldrs%
-guicontrol,,fecbxc,|%crfpn%||%systmfldrs%
-guicontrol,,fecbxd,|%curtnm%||%fesyslst%
+guicontrol,,fecbxb,%crffn%||
+guicontrol,,fecbxc,%crfpn%||
+guicontrol,,fecbxd,%crfsn%||
 guicontrol,,FEEDTA,%A_SPACE%%crfemo%
 guicontrol,,FEEDTB,%crfxtn%
 guicontrol,,FEEDTB,%crfxtn%
@@ -61217,7 +61211,7 @@ Loop,parse,fesyslst,|
 		stringsplit,syslk,A_LoopField,=
 		LV_Add("",syslk1)
 	}
-LV_ModifyCol()	
+LV_ModifyCol()
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61270,10 +61264,29 @@ ifnotexist,EScfg.ini
 iniread,ESHOME,escfg.ini,CONFIG,home_directory
 if (ESHOME = "ERROR")
 	{
-		ESHOME= %CURSRPTH%\.emulationstation
+		ESHOME= %CURSRPTH%\	
 		iniwrite,%ESHOME%,escfg.ini,CONFIG,home_directory
 	}
 splitpath,EmulationStation,ESFEXE,ESPROG
+
+cplinites:
+eshfl= %ESPROG%\.emulationstation
+eshomept := DllCall("GetFileAttributes","str",eshfl)
+if (eshomept != -1 && eshomept & 0x400)
+    {
+		fileappend,!,%ESPROG%\.emulationstation\~.del
+		if (ERRORLEVEL = 0)
+			{
+				filedelete,%ESPROG%\.emulationstation\~.del
+			}
+			else {
+					gosub, initeshome			
+			}
+	}
+else
+	{
+		gosub, initeshome			
+	}
 ifnotexist,%ESHOME%
 	{
 		FileCreateDir,%ESHOME%\collections
@@ -61531,17 +61544,17 @@ guicontrol,,FECBXB,|%systmfldrs%
 guicontrol,%fetog%,FECBXC
 guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
-guicontrol,,FECBXC,|%avblnk%%cursysthemelist%%systmfldrs%
+guicontrol,,FECBXC,|%systmfldrs%
 ;;name;;
 guicontrol,%fetog%,FECBXD
 guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
-guicontrol,,FECBXD,|%avblnk%%cursysthemelist%%systmfldrs%
+guicontrol,,FECBXD,|%cursysthemelist%
 ;;theme;;
 guicontrol,%fetog%,FECBXA
 guicontrol,enable,FECBXA
 guicontrol,move,FECBXA,x590 y166 w104
-guicontrol,,FECBXA,|%avblnk%%cursysthemelist%
+guicontrol,,FECBXA,|%cursysthemelist%
 guicontrol,%fetog%,FELVA
 guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
@@ -61774,6 +61787,7 @@ esguitog= disable
 gosub,esguitog
 FECREATE= 1
 PLCREATE= 
+
 guicontrolget,FEDDLF,,FEDDLF
 guicontrolget,FEDDLC,,FEDDLC
 guicontrolget,FEDDLD,,FEDDLD
@@ -61798,7 +61812,8 @@ Loop, Parse, prsy,|
 		iniread,emu_es,EScfg.ini,%sysesc%,emu_es
 		stringreplace,extn,ext_es,`,,%A_Space%,All
 		iniread,arg_es,EScfg.ini,%sysesc%,arg_es
-		stringreplace,arg_es,arg_es,>,%A_Space%,All
+		stringreplace,arg_es,arg_es,>,",All
+		;"
 		stringreplace,arg_es,arg_es,[ROMNAME],`%BASENAME`%,All
 		stringreplace,arg_es,arg_es,[ROMPATH],`%ROM_RAW`%,All
 		iniread,rmp_es,EScfg.ini,%sysesc%,rmp_es
@@ -61810,7 +61825,7 @@ Loop, Parse, prsy,|
 			}
 		else {
 			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%dsp_es%
-			Loop,parse,sysplfp
+			Loop,parse,sysplfp,|
 				{
 					if (A_LoopField = "")
 						{
@@ -61849,6 +61864,22 @@ msgbox,,Complete,ES configuration created,5
 esguitog= enable
 gosub,esguitog
 return
+
+initeshome:	
+ifexist,%CURSRPTH%\.emulationstation
+	{
+		FileMoveDir,%eshfl%,%eshfl%_rnmd,R
+		Runwait, %comspec% /c mklink /J "%eshfl%" "%CURSRPTH%\.emulationstation",,hide
+	}
+	else {
+		FileCreateDir,%CURSRPTH%\.emulationstation
+		if (ERRORLEVEL = 0)
+			{
+				goto, cplinites
+			}
+	}
+return
+
 
 essysit:
 iniread,emushrtn,apps.ini,EMULATORS,%emu_es%
@@ -62772,16 +62803,16 @@ if (curtxt <> "")
 		guicontrol,,FEEDTA,%A_Space%%emuppp%
 		guicontrol,,FEEDTB,%emupxt%
 		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
-		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
-		guicontrol,,FECBXD,|%eshrtn%||%avblnk%%cursysthemelist%
-		guicontrol,,FECBXC,|%eshrtn%||%avblnk%%cursysthemelist%
-		guicontrol,,FECBXA,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXB,%curtxt%||
+		guicontrol,,FECBXD,%eshrtn%||
+		guicontrol,,FECBXC,%eshrtn%||
+		guicontrol,,FECBXA,%eshrtn%||
 	}
 	else {
-		guicontrol,,FECBXB,|%curtxt%||%systmfldrs%
-		guicontrol,,FECBXD,|%eshrtn%||%avblnk%%cursysthemelist%
-		guicontrol,,FECBXC,|%eshrtn%||%avblnk%%cursysthemelist%
-		guicontrol,,FECBXA,|%eshrtn%||%avblnk%%cursysthemelist%
+		guicontrol,,FECBXB,%curtxt%||
+		guicontrol,,FECBXD,%eshrtn%||
+		guicontrol,,FECBXC,%eshrtn%||
+		guicontrol,,FECBXA,%eshrtn%||
 		guicontrol,,FEEDTA,%a_space%>[ROMPATH]>
 		guicontrol,,FEEDTB,.zip
 		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
@@ -62806,10 +62837,10 @@ iniread,cesemu,ESCfg.ini,%curtxt%,emu_es
 iniread,cesemo,ESCfg.ini,%curtxt%,arg_es
 iniread,cesxtn,ESCfg.ini,%curtxt%,ext_es
 iniread,cessyp,ESCfg.ini,%curtxt%,rmp_es	
-guicontrol,,fecbxb,|%cesfn%||%systmfldrs%
-guicontrol,,fecbxa,|%cestn%||%avblnk%%cursysthemelist%
-guicontrol,,fecbxc,|%cessn%||%avblnk%%cursysthemelist%
-guicontrol,,fecbxd,|%cessn%||%avblnk%%cursysthemelist%
+guicontrol,,fecbxb,%cesfn%||
+guicontrol,,fecbxa,%cestn%||
+guicontrol,,fecbxc,%cessn%||
+guicontrol,,fecbxd,%cessn%||
 guicontrol,,FEEDTA,%A_SPACE%%cesemo%
 guicontrol,,FEEDTB,%cesxtn%
 guicontrol,,FEDDLG,|other|%cesemu%||%runlist%
