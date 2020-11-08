@@ -281,7 +281,7 @@ IfNotExist, skopt.cfg
 						
 						GITMAIL= %A_Username%@nomailaddy.org
 						_GITMAIL= %A_Username%@nomailaddy.org
-						CONTPARAM20= 1
+						CONTPARAM19= 1
 						iniwrite,%GITUSER%,skopt.cfg,GLOBAL,git_email
 						
 						SITEDIR= %A_MyDocuments%\GitHub\%A_Username%.github.io
@@ -308,21 +308,11 @@ IfNotExist, skopt.cfg
 	}
 
 READSKOPT:
-
 Loop, Read, skopt.cfg
 	{
 		curvl1= 
 		curvl2= 
 		stringsplit, curvl, A_LoopReadLine,=
-		if (curvl1 = "git_email")
-				{
-					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
-						{
-							GITMAIL= %curvl2%
-							_GITMAIL= %curvl2%
-							CONTPARAM20= 1
-						}
-				}
 		if (curvl1 = "git_username")
 				{
 					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
@@ -467,6 +457,16 @@ Loop, Read, skopt.cfg
 							_ALTHOST= %curvl2%
 						}
 				}
+		if (curvl1 = "git_email")
+				{
+					if ((curvl2 <> "")&&(curvl2 <> "ERROR"))
+						{
+							GITMAIL= %curvl2%
+							_GITMAIL= %curvl2%
+							CONTPARAM19= 1
+						}
+				}
+
 		if (curvl1 = "repo_hub")
 				{
 					_DREPO= repo_hub
@@ -575,7 +575,7 @@ DatBld_TT :="Recompiles the metadata database xmls"
 
 ;{;;;;;;;;;;;;;;;;;;;  INITIALIZATION MENU GUI  ;;;;;;;;;;;;;;;;;;;;;;;;;;
 initchk= 
-Loop,18
+Loop,19
 	{
 		vinit= % CONTPARAM%A_Index%
 		if (vinit = "")
@@ -864,7 +864,7 @@ if (optionONE = "DEV")
 	{
 		guicontrol,,ialth, %optionTWO%
 	}
-Loop,16
+Loop,19
 	{
 		CONTPARAM%A_Index%= 
 	}
@@ -887,11 +887,11 @@ if (CONTPARAM21 = "")
 		iniwrite,%IALTH%,skopt.cfg,GLOBAL,alt_host
 		CONTPARAM21= 1
 	}
-if (CONTPARAM20 = "")
+if (CONTPARAM19 = "")
 	{
 		guicontrolget,IEmail,,IEmail
 		iniwrite,%IEmail%,skopt.cfg,GLOBAL,git_email
-		CONTPARAM20= 1
+		CONTPARAM19= 1
 	}
 if (CONTPARAM13 = "")
 	{
@@ -1023,7 +1023,7 @@ if (nocont = 1)
 				SB_SetText("github skeletonkey project not defined")
 				return
 			}
-	if (CONTPARAM20 = "")
+	if (CONTPARAM19 = "")
 			{
 				SB_SetText("github email not defined")
 				return
@@ -1274,7 +1274,7 @@ if (IEMAIL = "")
 		IEMAIL= %A_Username%@nomailaddy.org
 		guicontrol,,IEMAIL,%IEMAIL%
 	}
-CONTPARAM20= 1
+CONTPARAM19= 1
 iniwrite,%IEMAIL%,skopt.cfg,GLOBAL,git_email
 return
 

@@ -1403,9 +1403,9 @@ Loop, Parse, SysLLst,`n`r
 		allsupsys.= syscfgfld1 . "`n"
 		allsupport.= syscfgfld1 . "|"
 		%syscfgfld2%= %syscfgfld1%
-		re_sysn= syscfgfld1
-		sn_sysn= syscfgfld2
-		fe_sysn= syscfgfld3
+		re_sysn= %syscfgfld1%
+		sn_sysn= %syscfgfld2%
+		fe_sysn= %syscfgfld3%
 		if (fe_sysn <> "")
 			{
 				stringreplace,fe_sysn,fe_sysn,-,_,All
@@ -11644,7 +11644,6 @@ Loop,Parse,AllPartSet,`n`r
 						return
 					}
 				fSYSINSTLBX= 
-				Loop, Parse, AllPartSet,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -53908,7 +53907,7 @@ guicontrol,,FECHKB,Create Backups
 guicontrol,,FECHKB,1
 guicontrol,%fetog%,FECHKC
 guicontrol,enable,FECHKC
-guicontrol,move,FECHKC,x529 y55 w66 h13
+guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
 guicontrol,%fetog%,FECHKD
 guicontrol,enable,FECHKD
@@ -54024,7 +54023,7 @@ guicontrol,move,FELBXA,x263 y223 w240 h251
 guicontrol,%fetog%,FETXTG
 guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
-guicontrol,,FETXTG, Added Systems
+guicontrol,,FETXTG, Current
 guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x316 y480 w85 h19
@@ -54039,7 +54038,7 @@ guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
 guicontrol,%fetog%,FETXTL
 guicontrol,enable,FETXTL
-guicontrol,move,FETXTL,x488 y155 w55 h13
+guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
 guicontrol,%fetog%,FETXTM
 guicontrol,enable,FETXTM
@@ -54199,7 +54198,7 @@ Loop, Parse, prsy,|
 			}
 		else {
 			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%c_sysp%
-			Loop,parse,sysplfp
+			Loop,parse,sysplfp,|
 				{
 					if (A_LoopField = "")
 						{
@@ -54241,6 +54240,7 @@ Loop,parse,PGGUIITEMS,|
 	}
 return
 gpsysit:
+msgbox,,,%sysplfw%
 FileDelete,%sysplfw%\collections.pegasus.txt
 iniread,emushrtn,apps.ini,EMULATORS,%c_emun%
 ifinstring,c_emun,:
@@ -54277,6 +54277,7 @@ Loop,files,%sysplfw%\*,FD
 					else {
 						pgimp= 
 					}
+/*
 				Loop,files,%pgind%\*.%A_LoopField%,%pinv%
 					{
 						splitpath,A_LoopFileFullPath,pgf,pgd,pgx,pgn
@@ -54359,6 +54360,7 @@ Loop,files,%sysplfw%\*,FD
 						}
 						pgimp= 1
 					}
+	*/
 			}
 		if (pgimgapnd <> "")
 			{
@@ -55239,6 +55241,29 @@ Loop
 		LV_GetNext(RowNumber, Focused)
 		LV_GetText(curtxt, RowNumber)
 	}
+	/*
+Loop, parse, SysLLst,`n`r
+		{
+			if (A_Loopfield = "")
+				{
+					continue
+				}
+		ebvm3= 		
+		stringsplit,ebvm,A_LoopField,=
+		if (ebvm1 = curtxtr)
+			{
+				if (ebvm3 = "")
+					{
+						fe_curtxt= %ebvm2%
+						ebvm3= %ebvm2%
+						stringreplace,SysLLst,SysLLst,%A_LoopField%,%A_LoopField%=%ebvm3%`n
+					}
+				stringreplace,curtxt,ebvm3,-,_,All
+				break
+			}
+		
+		}
+	*/ 		
 Loop, Parse, PGCURPL,|
 	{
 		if (A_LoopField = "")
@@ -55268,7 +55293,21 @@ if (curtxt = "other")
 		return
 	}
 stringreplace,curstxt,curtxt,-,_,All
-krbz= % fe_%curstxt%
+fesn= %curtxt%
+krbz= %curtxt%
+Loop,paRSe,sysllst,`n`r
+	{
+		if (a_loopfield = "")
+			{
+				continue
+			}
+			stringsplit,fesplkrbz,A_LoopField,=
+			if (fesplkrbz1 = curtxt)
+				{
+					fesn= %fesplkrbz3%
+					break
+				}
+	}
 if (krbz <> "")
 	{
 		inemuinp= 
@@ -55375,9 +55414,14 @@ if (krbz <> "")
 		guicontrol,,FEEDTA,%A_Space%%emuppp%
 		guicontrol,,FEEDTB,%emupxt%
 		guicontrol,,FEDDLG,|other|%inemuinp%%runlist%
+		guicontrol,,FECBXB,%krbz%||
+		guicontrol,,FECBXD,%fesn%||
+		guicontrol,,FECBXC,%fesn%||
+		/*
 		guicontrol,,FECBXB,|%krbz%||%systmfldrs%%fesyslst%
-		guicontrol,,FECBXD,|%curtxt%||%fesyslst%%systmfldrs%
-		guicontrol,,FECBXC,|%curtxt%||%fesyslst%%systmfldrs%
+		guicontrol,,FECBXD,|%fesn%||%fesyslst%%systmfldrs%
+		guicontrol,,FECBXC,|%fesn%||%fesyslst%%systmfldrs%
+		*/
 	}
 	else {
 		;;guicontrol,,FECBXA,|%kvmax%%fesyslst%
@@ -55405,9 +55449,12 @@ iniread,cpgxtn,PGcfg.ini,%curtxt%,extensions
 iniread,cpgemo,PGcfg.ini,%curtxt%,emuoptions
 iniread,cpgemu,PGcfg.ini,%curtxt%,emuname	
 iniread,cpgsyp,PGcfg.ini,%curtxt%,syspath	
-guicontrol,,fecbxb,|%cpgfn%||%systmfldrs%
-guicontrol,,fecbxc,|%cpgpn%||%avblnk%%fesyslst%
-guicontrol,,fecbxd,|%curtxt%||%avblnk%%fesyslst%
+;;guicontrol,,fecbxb,|%cpgfn%||%systmfldrs%
+;;guicontrol,,fecbxc,|%cpgpn%||%avblnk%%fesyslst%
+;;guicontrol,,fecbxd,|%curtxt%||%avblnk%%fesyslst%
+guicontrol,,fecbxb,%cpgfn%||
+guicontrol,,fecbxc,%cpgpn%||
+guicontrol,,fecbxd,%cpgsn%||
 guicontrol,,FEEDTA,%A_SPACE%%cpgemo%
 guicontrol,,FEEDTB,%cpgxtn%
 guicontrol,,FEEDTB,%cpgxtn%
@@ -57585,7 +57632,7 @@ RFGUIITEMS=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    RF CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 guicontrol,%fetog%,FEBUTA
 guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA, x537 y33 w60 h19
+guicontrol,move,FEBUTA, x530 y28 w65 h20
 guicontrol,,FEBUTA,Download
 guicontrol,%fetog%,FEBUTB
 guicontrol,enable,FEBUTB
@@ -57637,7 +57684,7 @@ guicontrol,,FECHKB,Create Backups
 guicontrol,,FECHKB,1
 guicontrol,%fetog%,FECHKC
 guicontrol,enable,FECHKC
-guicontrol,move,FECHKC,x529 y55 w66 h13
+guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
 guicontrol,%fetog%,FECHKD
 guicontrol,enable,FECHKD
@@ -57704,7 +57751,7 @@ Gui,ListView,FELVA
 Guicontrol,-checked,FELVA
 Guicontrol,-Multi,FELVA
 LV_Delete()
-Loop, Parse, fesyslst,|
+Loop, Parse, systmfldrs,|
 	{
 		if (A_LoopField = "")
 			{
@@ -57731,7 +57778,7 @@ guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
 guicontrol,%fetog%,FERAD2A
 guicontrol,enable,FERAD2A
-guicontrol,move,FERAD2A,x645 y241 w57 h13
+guicontrol,move,FERAD2A,x635 y241 w62 h13
 guicontrol,,FERAD2A,cleaned
 guicontrol,,FERAD2A, %rfcleant%
 guicontrol,%fetog%,FERAD2B
@@ -57756,7 +57803,7 @@ guicontrol,move,FETXTC,x14 y23 w512 h16
 guicontrol,,FETXTC,Mirror Location
 guicontrol,%fetog%,FETXTD
 guicontrol,enable,FETXTD
-guicontrol,move,FETXTD,x577 y242 w60 h13
+guicontrol,move,FETXTD,x577 y220 w90 h13
 guicontrol,,FETXTD,Clean Titles
 guicontrol,%fetog%,FELBXA
 guicontrol,enable,FELBXA
@@ -57764,7 +57811,7 @@ guicontrol,move,FELBXA,x263 y223 w240 h251
 guicontrol,%fetog%,FETXTG
 guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
-guicontrol,,FETXTG, Added Systems
+guicontrol,,FETXTG, Current
 guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x316 y480 w85 h19
@@ -57783,7 +57830,7 @@ guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
 guicontrol,%fetog%,FETXTL
 guicontrol,enable,FETXTL
-guicontrol,move,FETXTL,x488 y155 w55 h13
+guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
 guicontrol,%fetog%,FETXTM
 guicontrol,enable,FETXTM
@@ -57898,6 +57945,7 @@ ifnotexist,%rfhome%\layouts\%FEDDLD%\
 		return
 	}
 FileDelete,rj\RF\menu.txt
+cfulld= 
 Loop, Parse, prsy,|
 	{
 		if (A_LoopField = "")
@@ -57924,7 +57972,7 @@ Loop, Parse, prsy,|
 			}
 		else {
 			iniread,sysplfp,SystemLocations.ini,LOCATIONS,%c_sysp%
-			Loop,parse,sysplfp
+			Loop,parse,sysplfp,|
 				{
 					if (A_LoopField = "")
 						{
@@ -57977,7 +58025,11 @@ FileAppend,list.romHierarchy = true`n,rj\RF\%c_full%.settings.conf
 FileAppend,launcher = %c_emun%`n,rj\RF\%c_full%.settings.conf
 FileAppend,executable = %emushrtn%`n,rj\RF\%c_emun%.conf
 FileAppend,arguments = %c_emuo%`n,rj\RF\%c_emun%.conf
+ifnotinstring,cfulld,%c_full%|
+{
+cfulld.= c_full . "|"
 FileAppend,%c_full%`n,rj\RF\menu.txt
+}
 RunWait,"core\retrofe.exe" -createcollection "%c_full%",%rfprog%,hide
 if (FECHKB = 1)
 	{
@@ -61418,17 +61470,17 @@ guicontrol,,FECHKB,Video-sound-on
 guicontrol,,FECHKB,%esvideosnd%
 guicontrol,%fetog%,FECHKC
 guicontrol,enable,FECHKC
-guicontrol,move,FECHKC,x529 y55 w66 h13
+guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
 guicontrol,%fetog%,FECHKD
 guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x642 y357 w120 h23
-guicontrol,,FECHKD,Parse Gamelists Only
+guicontrol,,FECHKD,GameLists Only
 guicontrol,,FECHKD,%esgameparse%
 guicontrol,%fetog%,FECHKE
 guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
-guicontrol,,FECHKE,Quick System Select
+guicontrol,,FECHKE,Quick Select
 guicontrol,,FECHKE,%esquickselect%
 guicontrol,%fetog%,FECHKG
 guicontrol,enable,FECHKG
@@ -61572,7 +61624,7 @@ guicontrol,,FETXTF, Gamelist Style
 guicontrol,hide,FETXTG
 guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
-guicontrol,,FETXTG, Added Systems
+guicontrol,,FETXTG, Current
 guicontrol,%fetog%,FETXTH
 guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x329 y480 w47 h14
@@ -61591,7 +61643,7 @@ guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
 guicontrol,%fetog%,FETXTL
 guicontrol,enable,FETXTL
-guicontrol,move,FETXTL,x488 y155 w55 h13
+guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
 guicontrol,%fetog%,FETXTM
 guicontrol,enable,FETXTM

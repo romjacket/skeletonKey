@@ -1,6 +1,6 @@
-skeletonKey 0.99.80.21
+skeletonKey 0.99.80.22
 
- 2020-11-02 3:55 PM
+ 2020-11-07 6:33 PM
  
 by romjacket 
 
@@ -16,8 +16,7 @@ http://github.com/romjacket/skeletonKey
 https://www.paypal.me/romjacket/8.88
 
               
-			  Money is for rich people, and you're a true rebel.
-			  
+donate for the 8 if your gr8 m8.			  
 
 ################  USAGE  ##################
 
@@ -25,13 +24,13 @@ Nearly all options have a hover-tool-tip which describe uses and functions.
 
 Refer to the html help included (..\site\index.html) for detailed information.
 
-Upon installtion, a quick-start wizard will allow users to get up and running quickly.
+The skeletonKey.exe file contains all the files it needs and creates them in the directory it in which it is.
 
-If you obtained source files for skeletonKey, you can compile all the files with an ".ahk" 
+If you obtained source files for skeletonKey, links to the needed binary dependencies can be found in the \bin\ directory.
 
-extension found in the root of the skeletonKey directory as well as those found in the
+and, you should compile all the files with an ".ahk" extension found in the root of the skeletonKey directory as well as those found in the
 
-"bin" directory with the Ahk2Exe compiler found in your AutoHotKey "Compiler" directory.
+"bin" directory with the Ahk2Exe compiler found in AutoHotKey's "Compiler" directory.
 
 ###########################################
 
