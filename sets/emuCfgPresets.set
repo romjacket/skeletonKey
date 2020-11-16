@@ -9075,7 +9075,7 @@ EXENAM=WinCDEmu.exe
 URLPTH=VirtualCloneDrive/VirtualCloneDrive.7z
 EXENAM=VirtualCloneDrive.exe
 [Antimicro]
-URLPTH=Antimicro/antimicro-64.7z
+URLPTH=antimicro/antimicro-[ARCH].7z
 EXENAM=antimicro.exe
 [Xinput_Drivers]
 URLPTH=Xinput_Drivers/Xbox360-[ARCH]Eng.7z

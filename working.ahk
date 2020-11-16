@@ -246,7 +246,9 @@ ifnotexist,lkup.ini
 	}	
 IfNotExist, emuCfgPresets.ini
 	{
-		FileCopy,sets\emuCfgPresets.set,emuCfgPresets.ini
+		FileRead,emuCfgPresets,sets\emuCfgPresets.set
+		stringreplace,emucfgpresets,emucfgpresets,[ARCH],%ARCH%,All
+		fileappend,%emucfgpresets%,EmuCfgPresets.ini
 	}
 IfNotExist, launchparams.ini
 	{
@@ -1577,7 +1579,7 @@ Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sy
 Gui, Tab, 1
 Gui Tab, Settings
 Gui, Add, GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
-Gui, Add, Link,x708 y484 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket">Donate</a>
+Gui, Add, Link,x708 y428 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket/8.88">Donate</a>
 Gui,Add,Text,x579 y484, ver %VERSION%
 Gui, Add, GroupBox, x4 y33 w560 h79 +0x400000
 Gui Add, GroupBox, x4 y107 w560 h102 +0x400000
@@ -1589,7 +1591,7 @@ Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help
 Gui,Font,Bold
 Gui, Font, %fontXmed%	
 Gui, Add, Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
-Gui ,Add, Picture, x707 y428 w44 h48 ,site\key.png
+Gui ,Add, Picture, x707 y448 w44 h48 ,site\key.png
 Gui, Add, Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
 Gui, Add, Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
 Gui, Add, Text, x18 y88 vSKSYSTXT, Systems Dir
@@ -2098,8 +2100,8 @@ Gui, Add, Button, x362 y98 w15 h15 vEMUINSC gCLRNETP,-
 Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst,Install
 Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst, Browse
-Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA Right hidden, Append to all supported systems
 Gui, Add, Text, x298 y58 h13 Center vEINSTTXT, Install Location
+Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA hidden, Append to all systems
 Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +0x400000 +ReadOnly vEINSTLOC,
 Gui, Add, Button, x402 y207 w55 h23 vROMDLOC gRomDLoc, ADD
 Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
@@ -4376,16 +4378,19 @@ return
 SetWinDelay,2
 CoordMode,Mouse
 return
-LVGetCheckedItems(cN,wN) {
-ControlGet, LVItems, List,, % cN, % wN
-Pos:=!Pos,Item:=Object()
-While Pos
-	Pos:=RegExMatch(LVItems,"`am)(^.*?$)",_,Pos+StrLen(_)),mCnt:=A_Index-1,Item[mCnt]:=_1
-Loop % mCnt {
-	SendMessage, 0x102c, A_Index-1, 0x2000, % cN, % wN
-	ChkItems.=(ErrorLevel ? Item[A_Index-1] "`n" : "")
-	}
-		Return ChkItems
+LVGetCheckedItems(cN,wN) 
+	{
+		ControlGet, LVItems, List,, % cN, % wN
+		Pos:=!Pos,Item:=Object()
+		While Pos
+			{
+				Pos:=RegExMatch(LVItems,"`am)(^.*?$)",_,Pos+StrLen(_)),mCnt:=A_Index-1,Item[mCnt]:=_1
+			}
+		Loop % mCnt {
+			SendMessage, 0x102c, A_Index-1, 0x2000, % cN, % wN
+			ChkItems.=(ErrorLevel ? Item[A_Index-1] "`n" : "")
+			}
+				Return ChkItems
 	}
 return
 ResolveHostname(hostname)
@@ -5714,6 +5719,7 @@ Loop,parse,SysLLst,`n`r
 					}
 					else {
 							iniread,aea,sets\emuCfgPresets.set,%ADDCORE%
+							stringreplace,aea,aea,[ARCH],%ARCH%
 							loop,parse,aea,`n
 								{
 									if (A_LoopField = "")
@@ -11732,6 +11738,7 @@ Loop,Parse,AllPartSet,`n`r
 				emuprt2=
 				emuprt3=
 				emuprt4=
+				iniread,emuxe,EmuCfgPresets.ini,%slfm1%,EXENAM
 				Loop, Parse, EmuPartSet,`n`r
 					{
 						if (A_LoopField = "")
@@ -44985,6 +44992,7 @@ if (SK_MODE = "")
 				emucfgloc= %S_KeyDir%\executable\emu\mednafen.cfg
 			}
 		filedelete,%emucfgloc%
+		guicontrol,,emuBUTJ,SAVE
 		curjf= %ROMSYS%
 	}
 IniRead,RJMEDNM,emuCfgPresets.ini,%ROMSYS%,RJMEDNM
@@ -53598,6 +53606,7 @@ return
 ;{;;;;;;;;;;;; MAME DATABASE ;;;;;;;;;;;;;;;;;;;
 MAMETOG:
 iniread,supmamejoys,sets\EmuCfgPresets.set,MAME
+stringreplace,supmamejoys,supmamejoys,[ARCH],%ARCH%,All
 SB_SetText(" Creating MAME database ")
 ;guicontrol, %fndtog%, emuBUTJ
 ;guicontrol, %fndtog%, emuPRGA
@@ -71242,6 +71251,11 @@ if (presx = 1)
 					{
 						guicontrol,,utlCHKD,%utlchkd%
 					}
+				IniRead,emucfgf,%curxe%,EXECUTABLE,configs
+				if (emucfgf <> "ERROR")
+					{
+						;;guicontrol,,utlCHKE,%utlchke%
+					}
 				IniRead,utlchke,%curxe%,EXECUTABLE,path
 				if (utlchke <> "ERROR")
 					{
@@ -71348,6 +71362,7 @@ return
 executableutlBUTG:
 gui,submit,nohide
 GuiControl, Choose, TABMENU, 2
+guicontrolget,utlDDLC,,utlDDLC
 guicontrol,,JCORE,
 guicontrol,,RUNSYSDDL,
 guicontrol,,MORROM,
@@ -71364,6 +71379,7 @@ gosub, JOYEMUCORE
 guicontrol,,CFGSWITCH,|||EXE|||
 guicontrol,disable,LNCHBUT
 SB_SetText(" Editing emulator executable configurations ")
+guicontrol,show,emuBUTJ
 return
 executableutlBUTD:
 gui,submit,nohide
@@ -71481,6 +71497,7 @@ utlguitog= disable
 gosub, utlguitog
 fileDelete,executable\romlist.txt
 gosub, utlEDTA
+Gui,ListView,utlLVA
 utlItemdxa=
 utlItemdxa:= LVGetCheckedItems("", "ahk_id" . UTILVA)
 stringreplace,utlchki,utlItemdxa,`n,|,All
@@ -71733,6 +71750,7 @@ guicontrol,enable,utlBUTG
 Gui,Listview,utlva
 lvachk= +Check
 utlitmz=
+CFGFINC= *.ini|*.cfg|*.xml|*.txt|*.conf|*.config|*.settings
 if (utlDDLCtmp = "Other")
 	{
 		guicontrol,disable,utlBUTG
@@ -71838,6 +71856,13 @@ Loop, Parse, emupartset,`n`r
 						gosub, utlguitog
 						return
 					}
+					
+				iniread,CFGFINCx,EmuCfgPresets.ini,%UTLDDLC%,CFGPTH
+				if (CFGFINCx <> "ERROR")
+					{
+						CFGFINC= %CFGFINCx%
+					}
+				iniwrite,%CFGFINC%,%curxe%,EXECUTABLE,CFGFINC
 				iniread,emubiosr,EmuCfgPresets.ini,%UTLDDLC%,BIOS
 				if ((emubiosr <> "")&&(emubiosr <> "ERROR")&&(emubiosr <> "0"))
 					{
@@ -72061,59 +72086,44 @@ gosub, utlguitog
 Gui,Listview,utllva
 LV_Delete()
 iniwrite,0,%curxe%,EXECUTABLE,keymapper
-save= %cacheloc%\antimicro-%ARCH%.7z
+iniread,xesel,EmuCfgPresets.ini,Antimicro,URLPTH
+iniread,xnsel,EmuCfgPresets.ini,Antimicro,EXENAM
+stringsplit,urloc,xesel,/
+save= %cacheloc%\%urloc2%
+splitpath,save,svaf,svap
+origurl= %URLFILE%
 ifnotexist,%save%
 	{
-		Loop, Parse, emupartset,`n`r
+		URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
+		sb_settext(" " URLFILE " ")
+		rtrcnt= 
+		AMICRODWN:
+		exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+		;;DownloadFile(URLFILE, save, True, True)
+		ifnotexist, %save%
 			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				stringsplit,xesel,A_LoopField,<
-				if (xesel1 = "Antimicro")
-					{
-						stringsplit,urloc,xesel2,/
-						URLFILE= %repoloc%/%urloc1%/%urloc2%
-						ifinstring,repoloc,github
+				msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
+				ifmsgbox,yes
+					{								
+						rtrcnt+= 1
+						Loop,parse,ALTHOST,>
 							{
-								URLFILE= %repoloc%/%urloc1%/raw/master/%urloc2%
-							}
-						sb_settext(" " URLFILE " ")
-						save=%cacheloc%\%urloc2%
-						splitpath,save,svaf,svap
-						rtrcnt= 
-						origurl= %URLFILE%
-						AMICRODWN:
-						exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
-						;;DownloadFile(URLFILE, save, True, True)
-						ifnotexist, %save%
-							{
-								msgbox,8452,, %xesel1%`n''%URLFILE%''`n was not downloaded`nretry?, 20
-								ifmsgbox,yes
-									{								
-										rtrcnt+= 1
-										Loop,parse,ALTHOST,>
-											{
-												if (A_Index = rtrcnt)
-													{
-														stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
-														break
-													}
-												rtrcnt= 
-												URLFILE= %origurl%	
-											}
-										goto, AMICRODWN	
+								if (A_Index = rtrcnt)
+									{
+										stringreplace,URLFILE,origurl,repoloc,%A_LoopField%,All
+										break
 									}
-								break
+								rtrcnt= 
+								URLFILE= %origurl%
 							}
+						goto, AMICRODWN	
 					}
 			}
-		gosub,amicroxtr	
-		goto, reinitxe	
 	}
-gosub,amicroxtr	
+gosub,amicroxtr
+goto, reinitxe
 reinitxe:	
+Gui,Listview,utllva
 utlitmz=
 Loop, Files, executable\*.*,RFD
 	{

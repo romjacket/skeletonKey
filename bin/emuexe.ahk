@@ -65,6 +65,7 @@ Gui:
 if (rtt = "")
 	{
 		RUNROM= "%A_ScriptDir%\%frm%"
+		splitpath,runrom,,,runxt,runfrm
 		goto, LAUNCH
 	}
 retroms= 1	
@@ -90,10 +91,11 @@ if A_EventInfo = 1
 GuiControl, Move, MyList, % "W" . (A_GuiWidth - 10) . " H" . (A_GuiHeight - 40)
 return
 
-$enter::
-	send, {enter}
+enter::
+send, {enter}
 If (A_GuiControl = MyList)
 	{
+		Hotkey, enter , off
 		goto Button_OK
 		return
 	}
@@ -110,7 +112,8 @@ LV_GetText(Selected,RowNum,1)
 if (selected = "")
 	{
 		return
-	}				  
+	}
+splitpath,selected,,,runxt,runfrm	
 RUNROM= "%A_ScriptDir%\roms\%selected%"
 
 LAUNCH:
@@ -136,9 +139,16 @@ if (keymapper = 1)
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
 gui,minimize
-RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
 if (retroms = 1)
 	{
+		gosub, pre
+	}
+RunWait, %emulator%%options%%runrom%%arguments%,%A_ScriptDir%\emu
+
+if (retroms = 1)
+	{
+		Hotkey, enter , On
+		gosub, post
 		goto, Gui
 	}
 GuiClose:
@@ -148,6 +158,40 @@ if (keymapper = 1)
 		Process, close, %amik%
 	}
 ExitApp
+return
+
+pre:
+iniread,CFGFINC,exeparam.ini,EXECUTABLE,CFGFINC
+Loop,parse,CFGFINC,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		Loop,files,emu\%A_LoopField%
+			{
+				stringreplace,enr,A_LoopFilename,%runfrm%_,,All
+				if (ERRORLEVEL = 0)
+					{
+						filemove,%A_LoopFileFullPath%,%enr%,R
+					}
+			}
+	}
+return
+
+post:
+Loop,parse,CFGFINC,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}	
+		Loop,files,emu\%A_LoopField%
+			{
+				stringreplace,enr,A_LoopFileFullPath,%runfrm%_,,All
+				filecopy,%enr%,emu\%runfrm%_%A_LoopFilename%,1
+			}
+	}
 return
 
 LV_populate:
