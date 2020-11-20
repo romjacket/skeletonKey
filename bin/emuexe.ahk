@@ -151,6 +151,7 @@ if (retroms = 1)
 		gosub, post
 		goto, Gui
 	}
+
 GuiClose:
 GuiEscape:
 if (keymapper = 1)
@@ -168,13 +169,19 @@ Loop,parse,CFGFINC,|
 			{
 				continue
 			}
+		ifinstring,A_LoopField,*.
+			{
+				stringsplit,ebe,A_LoopField,*
+				manfbx= %ebe2%
+			}
 		Loop,files,emu\%A_LoopField%
 			{
 				stringreplace,enr,A_LoopFilename,%runfrm%_,,All
 				if (ERRORLEVEL = 0)
 					{
-						filemove,%A_LoopFileFullPath%,%enr%,R
 					}
+				filemove,%A_LoopFileFullPath%,%enr%,1
+				filemove,%runfrm%_%A_LoopFileFullPath%,%enr%,1
 			}
 	}
 return
