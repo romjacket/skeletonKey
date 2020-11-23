@@ -134,7 +134,22 @@ if (quotes = "")
 	}
 if (keymapper = 1)
 	{
-		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "Player1.amgp" %p2prof%,%A_ScriptDir%,min,amik
+		Loop, 2
+			{
+				ifexist,%runfrm%_Player%A_Index%.amgp
+					{
+						p%A_index%gam= %runfrm%_Player%A_Index%
+						if (A_Index = 2)
+							{
+								stringreplace,p2prof,p2prof,Player2,%runfrm%_Player2,All
+							}
+					}
+				else {
+					p%A_index%gam= Player%A_Index%.amgp
+				}
+				
+			}
+		Run, antimicro\%AMIC% --hidden --profile-controller 1 --profile "%p1gam%.amgp" %p2prof%,%A_ScriptDir%,min,amik
 	}
 stringreplace,RUNROM,RUNROM,`n,,All
 stringreplace,RUNROM,RUNROM,`r,,All	
@@ -197,6 +212,13 @@ Loop,parse,CFGFINC,|
 			{
 				stringreplace,enr,A_LoopFileFullPath,%runfrm%_,,All
 				filecopy,%enr%,emu\%runfrm%_%A_LoopFilename%,1
+			}
+	}
+Loop, 2
+	{
+		ifnotexist,%runfrm%_Player%A_Index%.amgp
+			{
+				filecopy,Player%A_Index%.amgp, %runfrm%_Player%A_Index%.amgp,1
 			}
 	}
 return

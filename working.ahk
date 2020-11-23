@@ -2440,14 +2440,14 @@ Gui, Tab, 5
 Gui, Tab, Playlists
 Gui,Add,DropDownList, hwndDplHndl167 x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
 Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
-Gui, Add, Text, x312 y31 w39 h13 vRECURTX, Recurse
+Gui, Add, Text, x310 y31 w41 h13 vRECURTX,Recurse
 Gui, Add, Radio, x22 y46 vEXCLBOOL gINCLBool hidden checked, exclude
 Gui, Add, Radio, x81 y46 vINCLBOOL gINCLBool hidden, include
-Gui, Add, CheckBox, x137 y46 h17 vPARSEALL gParseAll hidden, All
+Gui, Add, CheckBox, x140 y46 h17 vPARSEALL gParseAll hidden, All
 Gui, Add, Radio, x22 y46 vRPOPDL gRPopDl checked, Directories
 Gui, Add, Radio, x115 y46 vRPOPPL gRPopPl, Playlists
-Gui,Add,ComboBox, hwndCbxHndl57 x171 y44 w158 vEXTPARSED gExtParsed hidden, %omitxtv%
-Gui, Add, Button, x329 y45 w22 h21 vFLTXT gFltXt hidden, F
+Gui,Add,ComboBox, hwndCbxHndl57 x177 y44 w152 vEXTPARSED gExtParsed hidden, %omitxtv%
+Gui, Add, Button, x331 y45 w22 h21 vFLTXT gFltXt hidden,F
 Gui,Add,listbox, x24 y66 w316 h420 hwndLFTLSTBX vROMPOP gDragROM Multi +HScroll, %RomPLst%
 Gui, Add, GroupBox, x356 y140 w58 h91 vPLGBA
 Gui, Add, GroupBox, x391 y295 w58 h126 vPLGBB
@@ -2470,7 +2470,7 @@ Gui, Add, Button,x679 y77 w60 h21 vSVPLST gSaveToPl,Create
 Gui, Add, Button, x701 y30 w36 h23 vOPNPLST gOpnPlst,Open
 Gui, Add, CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
 Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
-Gui, Add, Button, x457 y78 w54 h19 vSVAPLST gAltTempl, Template
+Gui, Add, Button, x453 y78 w58 h19 vSVAPLST gAltTempl,Template
 Gui Add, Text, x361 y79 w35 h15 vPLSELTXT, Select
 Gui Add, Button, x361 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
 Gui Add, Button, x361 y108 w35 h15 +0x100 vPLLISTN gPLLISTN, None
@@ -2877,8 +2877,8 @@ Gui, Add, Checkbox, x280 y28 vDETHSHSZ gDETHSHSZ hidden, Limit Size
 gui, Add, Checkbox, x210 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
 Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
 gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
-gui, Add, Checkbox, x109 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
-gui, Add, Checkbox, x210 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
+gui, Add, Checkbox, x114 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
+gui, Add, Checkbox, x215 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
 
 gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP checked hidden, Search Compressed
 ;;gui, Add, Checkbox, x270 y98 vEXTDRP gEXTDRP hidden, Extract Dropped
@@ -35040,23 +35040,33 @@ stringreplace,omitxty,omitxp1,`,,|,All
 stringsplit,omitxtt,omitxty,|
 OutList:
 POPLDWN=
-Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
+iniread,ebui,SystemLocations.ini,LOCATIONS,%DWNLPOS%
+Loop,parse,ebui,|
 	{
-		ext= %A_LoopFileExt%
-		noapl= 0
-		for k, v in ar
+		if (A_LoopField = "")
 			{
-				extm:= v
-				if (ext = extm)
+				continue
+			}	
+		Loop,%A_LoopField%,,%RECURSE%
+			{
+				ext= %A_LoopFileExt%
+				noapl= 0
+				for k, v in ar
 					{
-						noapl= 1
+						extm:= v
+						if (ext = extm)
+							{
+								noapl= 1
+							}
+					}
+				if (noapl = INCLBOOL)
+					{
+						POPLDWN .= A_LoopFileFullPath . "|"
 					}
 			}
-		if (noapl = INCLBOOL)
-			{
-				POPLDWN .= A_LoopFileFullPath . "|"
-			}
+		
 	}
+
 stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 return
