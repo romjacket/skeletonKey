@@ -2871,7 +2871,7 @@ Gui, Tab, 7
 Gui, Tab, DAT:=:Repo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
-Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden, Select
+Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden disabled, Select
 Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Ext
 Gui, Add, Checkbox, x280 y28 vDETHSHSZ gDETHSHSZ hidden, Limit Size
 gui, Add, Checkbox, x210 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
@@ -2902,7 +2902,7 @@ Gui, Font, Bold
 Gui, Add, Button,x290 y465 w53 h29 vHASHALLROMS gHASHALLROMS hidden, SORT
 Gui, Font, Normal
 Gui Add, Button, x695 y3 w43 h19 vADDSRTFILE gADDSRTFILE hidden, File
-Gui Add, Button, x645 y3 w51 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
+Gui Add, Button, x640 y3 w51 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
 Gui, Add, Button, x740 y3 w15 h15 vHLTDATP gHLTDATP hidden,-
 Gui Add, DropDownList, x6 y481 w120 hwndDplHndl174 vDATREPO gDATREPO hidden,TOSEC||NO-INTRO|REDUMP|MAME
 Gui Add, Button, x135 y483 w73 h17 vGETDATREP gGETDATREP hidden, Download
@@ -3009,8 +3009,8 @@ Gui, Add, CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked disabled, Auto-Pop
 Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked disabled, Reset
 Gui, Add, Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD disabled, Default ;Settings
 Gui, Add, Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD disabled, Custom ;Settings
-Gui, Add, Button, x281 y89 w42 h20 vRJSYSLOAD gRJSYSLOAD disabled, Load ;Settings
-Gui, Add, Button, x326 y89 w42 h20 vRJSYSSAV gRJSYSSAV disabled, Save ;Settings
+Gui, Add, Button, x281 y91 w42 h20 vRJSYSLOAD gRJSYSLOAD disabled, Load ;Settings
+Gui, Add, Button, x326 y91 w42 h20 vRJSYSSAV gRJSYSSAV disabled, Save ;Settings
 Gui, Add, Button, x368 y95 w12 h14 +0x800 vRJSYSSAVAS gRJSYSSAVAS disabled, v ;Settings
 Gui, Font, Bold
 Gui, Add, GroupBox, x388 y6 w371 h109 vRJGRPG, Keymapper
@@ -3025,13 +3025,13 @@ Gui, Add, Button, x732 y41 w21 h23 vRJMAPRETOPN gRJMAPRETOPN Disabled, O ;bounce
 Gui, Add, Radio, x398 y64 h13 vRJMAP1ROFTYPA gRJMAP1ROFTYPA Disabled, Joy 1
 Gui, Add, Radio, x398 y79 h13 vRJMAP1ROFTYPB gRJMAP1ROFTYPB Disabled Checked, Kb 1
 Gui, Add, Radio, x398 y95 h13 vRJMAP1ROFTYPC gRJMAP1ROFTYPC Disabled, Blank 1
-Gui, Add, Text, x514 y92 h13 vRJTXTD, Joy 1 Profile
+Gui, Add, Text, x504 y92 h13 vRJTXTD, Joy 1 Profile
 Gui,Add,ComboBox, hwndCbxHndl80 x449 y70 w100 vRJMAP1PL gRJMAP1PL Disabled, Player1%kmprxtn%||%kmprd%\nolayout1%kmprxtn%
 Gui, Add, Button, x550 y68 w21 h23 vRJMAP1PLOPN gRJMAP1PLOPN Disabled, O ;player1profile
 Gui, Add, Radio, x579 y65 h13 vRJMAP2ROFTYPA gRJMAP2ROFTYPA Disabled, Joy 2
 Gui, Add, Radio, x579 y80 h13 vRJMAP2ROFTYPB gRJMAP2ROFTYPB Disabled Checked, Kb 2
 Gui, Add, Radio, x579 y96 h13 vRJMAP2ROFTYPC gRJMAP2ROFTYPC Disabled, Blank 2
-Gui, Add, Text, x692 y94 h13 vRJTXTE, Joy 2 Profile
+Gui, Add, Text, x689 y94 h13 vRJTXTE, Joy 2 Profile
 Gui,Add,ComboBox, hwndCbxHndl81 x631 y70 w100 vRJMAP2PL gRJMAP2PL Disabled, Player2%kmprxtn%||%kmprd%\nolayout2%kmprxtn%
 Gui, Add, Button, x732 y69 w21 h23 vRJMAP2PLOPN gRJMAP2PLOPN Disabled, O ;player2profile
 Gui,Font,Bold
@@ -3047,7 +3047,7 @@ Gui,Add,DropDownList, hwndDplHndl130 x379 y177 w156 vRJEMUPRECFG gRJEMUPRECFG Di
 Gui, Add, Button, x537 y177 w22 h23 vRJEMUPRM gRJEMUPRM Disabled, C
 Gui, Add, CheckBox, x379 y199 h21 w60 vRJCHKQ gRJCHKQ Disabled, Other
 Gui, Add, Button, x484 y199 w75 h23 vRJBUTM gRJBUTM Disabled, Browse
-Gui, Add, CheckBox, x394 y221 h23 +0x20 vRJCHKK gRJCHKK Disabled, Write ROM-Name to Launcher
+Gui, Add, CheckBox, x384 y218 h23 +0x20 vRJCHKK gRJCHKK Disabled, Write ROM-Name to Launcher
 Gui,Font,Bold
 Gui, Add, GroupBox, x567 y115 w192 h97 vRJGRPE, Jacketize
 Gui,Font,Normal
@@ -3055,8 +3055,8 @@ Gui, Add, CheckBox, x572 y130 h13 vRJCHKA gRJCHKA disabled, Jacketize
 Gui, Add, Button, x740 y152 w16 h16 vRJADDSUBD gRJADDSUBD disabled, +
 Gui, Add, Button, x740 y167 w16 h16 vRJREMSUBD gRJREMSUBD disabled, X
 Gui,Add,ComboBox, hwndCbxHndl82 x646 y156 w92 vRJSUBDCBX gRJSUBDCBX disabled, %SUBDLST%
-Gui, Add, Text, x611 y155 w33 h18 vRJTXTA1 +0x200, sub-dir
-Gui, Add, CheckBox, x684 y179 w54 h13 +0x20 vRJSUBDH gRJSUBDH checked disabled, Hidden
+Gui, Add, Text, x608 y155 w33 h18 vRJTXTA1 +0x200, sub-dir
+Gui, Add, CheckBox, x684 y179 w58 h13 +0x20 vRJSUBDH gRJSUBDH checked disabled, Hidden
 Gui,Add,DropDownList, hwndDplHndl131 x651 y125 w84 vRJCNSLDD gRJCNSLDD Disabled, ()[]||()|[]|Individuate
 Gui, Add, CheckBox,x741 y126 h13 w16 vRJENCNSLD gRJENCNSLD Disabled,  ;Consolidate Individuate
 Gui, Add, CheckBox, x569 y178 h13 vRJENXTRARC gRJENXTRARC Disabled, Extract Archives
@@ -3065,7 +3065,7 @@ Gui, Add, Radio, x572 y206 h13 vRJXTRARCB gRJXTRARCB checked  Disabled, After
 Gui, Add, Text, x627 y204 h13 vRJTXTK, and
 Gui,Add,DropDownList, hwndDplHndl132 x649 y197 w100 vRJXTRARCDD gRJXTRARCDD Disabled, Store||Delete|Keep
 Gui, Font,Bold
-Gui, Add, GroupBox, x565 y227 w194 h112 vRJGRPF, Pre Cmd/ Post Cmd
+Gui, Add, GroupBox, x565 y227 w194 h112 right vRJGRPF, Pre Cmd/ Post Cmd
 Gui, Font,Normal
 Gui, Add, Button, x568 y282 w21 h23 vRJBUTV gRJBUTV disabled, ~ ;Edit Command
 Gui, Add, Radio, x642 y247 h13 vRJRad11A gRJRad11A disabled, Local
@@ -3084,19 +3084,19 @@ Gui,Font,Normal
 Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT disabled, Enable ;Disc Mounting
 Gui,Add,DropDownList, hwndDplHndl135 x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 Gui, Add, Button, x706 y361 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
-Gui, Add, Radio, x536 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
-Gui, Add, Radio, x536 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
-Gui, Add, Checkbox, x671 y386 h17 vRJENDMOV +0x20 gRJENDMOV Disabled, Disk Override
+Gui, Add, Radio, x530 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
+Gui, Add, Radio, x530 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
+Gui, Add, Checkbox, x661 y386 h17 vRJENDMOV +0x20 gRJENDMOV Disabled, Disk Override
 Gui,Font,Bold
 Gui, Add, GroupBox, x503 y430 w256 h77 vRJGRPC, Emulator Config Files
 Gui,Font,Normal
 Gui, Add, Text, x510 y463 h18 vRJTXTL, Pre-Run
-Gui, Add, CheckBox, x630 y443 h13 vRJCHKF gRJCHKF Disabled, Create ;CfgCreation
+Gui, Add, CheckBox, x627 y443 h13 vRJCHKF gRJCHKF Disabled, Create ;CfgCrea	tion
 Gui, Add, CheckBox, x687 y443 h13 vRJCHKO gRJCHKO Disabled, Overwrite
 Gui,Add,ComboBox, hwndCbxHndl84 x557 y459 w158 vRJPRECFGCBX gRJPRECFGCBX disabled,
 Gui, Add, Button, x715 y458 w16 h16 vRJADDPRECFG gRJADDPRECFG disabled, + ;Add Pre Cfg Cmd
 Gui, Add, Button, x734 y458 w16 h16 vRJREMPRECFG gRJREMPRECFG disabled, - ;Remove Pre Cfg Cmd
-Gui, Add, Text, x510 y486 h18 vRJTXTM, Post-Run
+Gui, Add, Text, x505 y486 h18 vRJTXTM, Post-Run
 Gui,Add,ComboBox, hwndCbxHndl85 x557 y481 w158 vRJPOSTCFGCBX gRJPOSTCFGCBX disabled,
 Gui, Add, Button, x715 y480 w16 h16 vRJADDPOSTCFG gRJADDPOSTCFG disabled, + ;Add Post Cfg Cmd
 Gui, Add, Button, x734 y480 w16 h16 vRJREMPOSTCFG gRJREMPOSTCFG disabled, - ;Remove Pre Cfg Cmd
@@ -3113,7 +3113,7 @@ Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX Disabled,
 Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
 Gui,Add,ComboBox, hwndCbxHndl89 x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX Disabled, %rjemuarg%
 Gui, Add, Text, x456 y365 h17 vRJTXT1A, arguments
-Gui, Add, CheckBox, x430 y392 h17 vRJZJP gRJZJP checked disabled, Zip-Peek
+Gui, Add, CheckBox, x435 y388 h17 vRJZJP gRJZJP checked disabled, Zip-Peek
 Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked disabled, Run from Emulator Directory
 Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B disabled, Run from ROM Directory
 gui,add,Button, x278 y494 h18 vRJCHKJ gRJCHKJ disabled, Preview Queue
@@ -71216,7 +71216,7 @@ guicontrol,,utlTXTF,Executable Title
 guicontrol,move,utlTXTC, x447 y449 w309 h13
 guicontrol,show,utlTXTC
 guicontrol,,utlTXTC,%S_KeyDir%\game.exe
-guicontrol,move,utlTXTD, x409 y178 w40 h13
+guicontrol,move,utlTXTD, x409 y178 w45 h13
 guicontrol,show,utlTXTD
 guicontrol,,utlTXTD,Emulator
 guicontrol,move,utlTXTE,x446 y406 w217 h13
