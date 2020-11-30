@@ -11497,7 +11497,7 @@ gui,submit,nohide
 guicontrolget,INSTLTYP,,SaList
 guicontrolget,selfnd,,INSTEMUDDL
 guicontrolget,EINSTLOC,,EINSTLOC
-if (EINSTLOC <> "")
+if ((EINSTLOC <> "")&&(INSTLTYP = "Systems"))
 	{
 		goto, MultiSys
 		sb_settext(" MultiSys ")
@@ -13213,6 +13213,7 @@ if (EMUINSTLOCT= "")
 		return
 	}
 EMUTRPDRP:
+guicontrolget,emtw,,InstEmuDDL
 SplitPath,EMUINSTLOCT,emuxe,EINSTPTH,,emunm
 guicontrol,,EINSTLOC,%EMUINSTLOCT%
 splitpath,EINSTPTH,EINSTFNM,EINSTDIR,EINSTX,EINSTNAM
@@ -16069,7 +16070,7 @@ Loop, Parse, SLCTCORES,|
 		stringreplace, crdub,dbtyp1,-,,All
 		stringreplace, crdub,crdub,_,,All
 		coredll= %crdll1%.%crdll2%
-		if (EXELIST = 1)
+		if ((EXELIST = 1)&& !instr(dwncore,"_libretro"))
 			{
 				gosub, R%crdub%
 				if (DWNCNCL = 1)
