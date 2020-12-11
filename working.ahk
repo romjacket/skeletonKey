@@ -1729,13 +1729,13 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x485 y46 w269 h162 vSCLGRP hidden, Scaling
 Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl5 x491 y61 w55 vVIDSCL gSclVid hidden, 3||1|2|3|4|5|6
-Gui, Add, Radio, x661 y57 h18 vSTRCH gScaleMode hidden, Stretch
-Gui, Add, Radio, x661 y77 h18 vINTG gScaleMode Checked hidden, Integer
+Gui, Add, Radio, x665 y57 h18 vSTRCH gScaleMode hidden, Stretch
+Gui, Add, Radio, x665 y77 h18 vINTG gScaleMode Checked hidden, Integer
 Gui, Add, CheckBox, x612 y80 vAUTOASPECT gAARatio Checked hidden, Auto
 Gui,Add,DropDownList, AltSubmit x550 y61 w57 vVIDASPECT gAspect hidden, CORE||%ARI%
 Gui, Add, CheckBox, x612 y60 vFORCEAR gFAspect Checked hidden, Force
-Gui, Add, Text, x498 y84 h15 vSCLTXT hidden, Scale
-Gui, Add, Text, x544 y84 h15 vARTXT hidden, Aspect Ratio
+Gui, Add, Text, x493 y84 h15 vSCLTXT hidden, Scale
+Gui, Add, Text, x542 y84 h15 vARTXT hidden, Aspect Ratio
 Gui, Add, Text, x600 y153 h20 vVIDGTXT hidden, VIDEO
 Gui,Add,DropDownList, hwndDplHndl11 x653 y175 w47 vROTATE gROTATE hidden, 0||90|180|270
 Gui, Add, Text, x702 y179 h15 vVROTXT hidden, Rotation
@@ -1755,7 +1755,7 @@ Gui,Add,Edit, hwndEdtHndl12 x561 y176 w35 h20 vVidXLoc gVidPosX Number hidden, 0
 Gui, Add, Text, x599 y172 w5 vVPOSXTXT hidden, x
 Gui,Add,Edit, hwndEdtHndl13 x605 y176 w35 h20 vVidYLoc gVidPosY Number hidden, 0
 Gui, Add, Text, x642 y172 w5 vPOSYTXT hidden, y
-Gui, Add, Text, x490 y181 vVPOSTXT hidden, Video Position
+Gui, Add, Text, x490 y181 vVPOSTXT hidden, Video Pos
 Gui, Add, CheckBox, x496 y104 vCROP gCropOS hidden, Crop-Overscan
 Gui, Add, Button, x702 y476 h22 vVRSTRABUT gRAInitQ hidden, RESET
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1765,13 +1765,13 @@ Gui, Add, GroupBox, x24 y173 w314 h149 vSHDPTHTXT hidden, Shaders\Paths
 Gui,Font,Norm
 Gui, Add, Radio,x124 y188 h18 vCGSLCT gCGPoP hidden, CG
 Gui, Add, Radio, x86 y188 h18 vGLSLCT gGLPoP Checked hidden, GL
-Gui, Add, Radio, x161 y189 h18 vSLCT gSLPoP hidden, Slang
+Gui, Add, Radio, x161 y188 h18 vSLCT gSLPoP hidden, Slang
 Gui,Add,DropDownList, hwndDplHndl162 x30 y208 w281 vGLSHDVAR gGLShdGet hidden, nul||%gl_list%
 Gui,Add,DropDownList, hwndDplHndl163 x30 y208 w281 vSLSHDVAR gSLShdGet hidden, nul||%sl_list%
 Gui,Add,DropDownList, hwndDplHndl164 x30 y208 w281 vCGSHDVAR gCGShdGet hidden, nul||%cg_list%
 Gui, Add, CheckBox, x31 y188 h18 vSHDEN gSHATOG hidden, Enable
 Gui, Add, Button, x316 y208 w18 h22 vSHDSEL gSelectShader hidden, O
-Gui, Add, CheckBox, x232 y189 h17 vAUTSHD gAutoShd Checked hidden, Auto
+Gui, Add, CheckBox, x228 y189 h17 vAUTSHD gAutoShd Checked hidden, Auto
 Gui, Add, CheckBox,x277 y188 h17 vSMTHV gSmoothVid hidden, Smooth
 Gui, Add, Text, x32 y243 h17 vFILTXT hidden, Filter
 Gui,Add,DropDownList, hwndDplHndl18 x69 y241 w243 vFLTFILE gFltShdGet hidden, nul||%fltlist%
@@ -1788,12 +1788,12 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x24 y322 w342 h59 vOPERGRP hidden, Operational
 Gui,Font,Norm
 Gui, Add, CheckBox, x348 y166 h13 vPAUSEBG gBGPause hidden, Pause in Background
-Gui, Add, CheckBox, x348 y188 w94 h13 vPAUSMNU gPauseMenu hidden, Pause In Menu
-Gui, Add, CheckBox, x348 y210 w94 h13 vDBLESCP gDblEscp hidden, Double-Escape
+Gui, Add, CheckBox, x348 y188 w114 h13 vPAUSMNU gPauseMenu hidden, Pause In Menu
+Gui, Add, CheckBox, x348 y210 w114 h13 vDBLESCP gDblEscp hidden, Double-Escape
 Gui, Add, CheckBox, x284 y342 h13 vGPUVREC gGPURecord hidden, GPU Rec.
-Gui, Add, CheckBox, x205 y342 h13 vGPUSS gGPUScreenShot Checked hidden, GPU Snaps
+Gui, Add, CheckBox, x200 y342 h13 vGPUSS gGPUScreenShot Checked hidden, GPU Snap
 Gui, Add, CheckBox, x36 y342 h13 vSAVEXIT gSaveOnExit Checked hidden, Save on Exit
-Gui, Add, CheckBox, x36 y360 vCSTCMD gEnableCC hidden, Custom Cmd
+Gui, Add, CheckBox, x36 y360 vCSTCMD gEnableCC hidden, Custm Cmd
 Gui,Add,Edit, hwndEdtHndl14 x117 y358 w100 h17 vCSTRAOPTF gROMOverride Disabled hidden,[opt]
 Gui, Add, Text, x219 y360 vCSTCRE hidden,$ROM$
 Gui,Add,Edit, hwndEdtHndl15 x259 y358 w103 h17 vCSTRAARGF gCORECommand Disabled hidden,[arg]
@@ -2641,38 +2641,38 @@ Gui, Add, GroupBox, x10 y192 w326 h314 vGLBMENSETGRP, Global Menu Settings
 Gui,Font,Norm
 Gui,Add,DropDownList, hwndDplHndl104 x48 y208 w169 vMNUACT gMenuButDDL, OK||Cancel|Info|ScrollUp|ScrollDown|Search
 Gui,Add,ComboBox, hwndCbxHndl64 x232 y208 w90 vMNUJOY gMenuJoy, 1||%JOYSET%	
-Gui, Add, CheckBox, x32 y264 w85 h13 vMNUPNT gMenuPointer, Menu Pointer
-Gui, Add, CheckBox, x32 y278 w135 h13 vNAVWRAP gNavigaionWrap Checked, Navigation Wraparound
-Gui, Add, CheckBox, x32 y293 w106 h13 vMNUFLT gMenuFilter Checked, Menu Linear Filter
-Gui, Add, CheckBox, x32 y309 w111 h13 vTHRTL gThrottleMenu Checked, Throttle Frame-rate
-Gui, Add, CheckBox, x32 y324 w133 h13 vFILTEXT gFilterExt Checked, Filter Known Extensions
-Gui, Add, CheckBox, x32 y339 w110 h13 vCMPAN gCompanion Checked, Companion
+Gui, Add, CheckBox, x32 y264 h13 vMNUPNT gMenuPointer, Menu Pointer
+Gui, Add, CheckBox, x32 y278 h13 vNAVWRAP gNavigaionWrap Checked, Navigation Wraparound
+Gui, Add, CheckBox, x32 y293 h13 vMNUFLT gMenuFilter Checked, Menu Linear Filter
+Gui, Add, CheckBox, x32 y309 h13 vTHRTL gThrottleMenu Checked, Throttle Frame-rate
+Gui, Add, CheckBox, x32 y324 h13 vFILTEXT gFilterExt Checked, Filter Known Extensions
+Gui, Add, CheckBox, x32 y339 h13 vCMPAN gCompanion Checked, Companion
 Gui,Add,DropDownList, hwndDplHndl171 x30 y357 w134 vRaSHWM gRaSHWM,FPS||Frame_counter|Time_and_Date|Images|Music|Video|Settings|Advanced_Settings|Configurations|Core_Updater|Help|Information|Load_Content|Load_Core|Online_Updater|Quit|Statistics|Reboot|History|Hidden_Files|Memory|FPS|Battery_Level|Import_Content|Shutdown|Latency|Overlays|SubLabels|Rewind|Download_thumbnails|Recording|Reset_Cores_Association|Save_content_Overrides|Start_Recording|Streaming|Start_Streaming
-Gui, Add, CheckBox, x170 y361 w47 h13 vRaSHWCHK gRaSHWCHK, Show
-Gui Add, CheckBox, x353 y200 w161 h13 vraBBT graBBT +Checked, Background Filler Thickness
-Gui Add, CheckBox, x353 y216 w106 h13 vraBFIL graBFIL +Checked, Border filler
-Gui Add, CheckBox, x353 y232 w116 h13 vraBFTH graBFTH +Checked, Border Thickness
-Gui Add, CheckBox, x353 y250 w139 h13 vraACAL graACAL +Checked, Apply Cheats After Load
-Gui Add, CheckBox, x353 y265 w149 h13 vraACAT graACAT +Checked, Apply Cheats After Toggle
-Gui Add, CheckBox, x561 y202 w139 h13 vraPLFAM graPLFAM +Checked, Fuzzy Archive Matching
-Gui Add, CheckBox, x561 y217 w157 h13 vraPLSICN graPLSICN +Checked, Show inline core-name
-Gui Add, CheckBox, x561 y233 w139 h13 vraPLSLB graPLSLB +Checked, Show labels
-Gui Add, CheckBox, x561 y249 w139 h13 vraPLSAL graPLSAL +Checked, Sort alphabetical
-Gui Add, CheckBox, x196 y264 w120 h15 vraENBLWID graENBLWID, Enable Widgets
+Gui, Add, CheckBox, x170 y361 h13 vRaSHWCHK gRaSHWCHK, Show
+Gui Add, CheckBox, x353 y200 h13 vraBBT graBBT +Checked, Background Filler Thickness
+Gui Add, CheckBox, x353 y216 h13 vraBFIL graBFIL +Checked, Border filler
+Gui Add, CheckBox, x353 y232 h13 vraBFTH graBFTH +Checked, Border Thickness
+Gui Add, CheckBox, x353 y250 h13 vraACAL graACAL +Checked, Apply Cheats After Load
+Gui Add, CheckBox, x353 y265 h13 vraACAT graACAT +Checked, Apply Cheats After Toggle
+Gui Add, CheckBox, x561 y202 h13 vraPLFAM graPLFAM +Checked, Fuzzy Archive Matching
+Gui Add, CheckBox, x561 y217 h13 vraPLSICN graPLSICN +Checked, Show inline core-name
+Gui Add, CheckBox, x561 y233 h13 vraPLSLB graPLSLB +Checked, Show labels
+Gui Add, CheckBox, x561 y249 h13 vraPLSAL graPLSAL +Checked, Sort alphabetical
+Gui Add, CheckBox, x196 y264 h15 vraENBLWID graENBLWID, Enable Widgets
 Gui Add, Button, x351 y292 w19 h21 vraSELSCON graSELSCON, F
-Gui Add, Text, x377 y294 w269 h23 vraSLSNTXT, stream config
+Gui Add, Text, x377 y294  h23 vraSLSNTXT, stream config
 Gui,Add,Edit, hwndEdtHndl55 x376 y316 w213 h21 vraSTRMK graSTRMK, %youtubestreamkey%
 Gui,Add,Edit, hwndEdtHndl56 x376 y339 w80 h21 vraSTRMP graSTRMP, %videostreamport%
-Gui Add, Text, x469 y343 w60 h14 vraSTRMPTXT, stream port
-Gui Add, Text, x602 y322 w60 h14 vraSTRMKTXT, stream key
+Gui Add, Text, x469 y343 h14 vraSTRMPTXT, stream port
+Gui Add, Text, x602 y322 h14 vraSTRMKTXT, stream key
 Gui Add, Slider, x375 y365 w120 h20 vraSTMQSLD graSTMQSLD range1-10,9
-Gui Add, Text, x502 y367 w70 h14 vraSTMQTXT, stream quality
+Gui Add, Text, x502 y367 h14 vraSTMQTXT, stream quality
 Gui Add, Text, x349 y366 w28 h17 vraSTMQOUT,
 Gui,Add,Edit, hwndEdtHndl57 x376 y387 w239 h21 vraSTRMURL graSTRMURL, %videostreamurl%
-Gui Add, Text, x620 y391 w60 h14 vraSTRMUTXT, stream url
-Gui Add, Text, x595 y295 w65 h23 vraSTMMTXT, stream mode
+Gui Add, Text, x620 y391 h14 vraSTRMUTXT, stream url
+Gui Add, Text, x595 y295 h23 vraSTMMTXT, stream mode
 Gui,Add,DropDownList, hwndDplHndl106 x471 y292 w120 vraSTRMTDDL graSTRMTDDL, youtube||twitch|local|custom
-Gui Add, Text, x355 y417 w64 h14 vraSTRMSCLTXT, stream scale
+Gui Add, Text, x355 y417 h14 vraSTRMSCLTXT, stream scale
 Gui,Add,Edit, hwndEdtHndl58 x422 y413 w38 h21 vraSTRMSCL graSTRMSCL %videostreamscalefactor%
 Gui, Add, Text, x77 y432 h23 +0x200 vVMPSTXT, Video Message Position
 Gui,Add,Edit, hwndEdtHndl59 x197 y432 w55 h21 vVMSGX gVideoMesPosX, 0.050000
@@ -2692,8 +2692,8 @@ Gui,Add,ComboBox, hwndCbxHndl66 x280 y480 w48 vDPIPT gDPISize, 200||200|300|100
 Gui, Add, Radio, x491 y55 h20 vBOXCVR gBoxThumb +0x20 Checked, Box-Cover
 Gui, Add, Radio, x484 y73 h20 vTITLCVR gTitleThumb +0x20, Title Screen
 Gui, Add, Radio, x487 y89 h20 vSSHTCVR gScreenShotThumb +0x20, Screenshot
-Gui, Add, CheckBox, x375 y109 h20 vVRTTHMB gVertThumb +0x20 Checked, Vertical
-Gui, Add, CheckBox, x436 y109 h20 vLFTTHMB gLeftThumb +0x20 Checked, Left Side
+Gui, Add, CheckBox, x365 y109 h20 vVRTTHMB gVertThumb +0x20 Checked, Vertical
+Gui, Add, CheckBox, x429 y109 h20 vLFTTHMB gLeftThumb +0x20 Checked, Left Side
 Gui, Add, CheckBox, x502 y109 h20 vTHUMBON gThumbEnable +0x20 Checked, Thumbs
 Gui, Add, CheckBox, x353 y73 h20 vSTHUMBON gSThumbEnable +0x20, SaveState Thumbs
 Gui Add, Text, x353 y146 w70 h16 vraTHMBTXT, Thumbnails
@@ -32950,6 +32950,7 @@ if A_GuiEvent = Normal
 		if (jumptab = 1)
 			{
 				GuiControl, Choose, TABMENU, 7
+				GuiControl,,ARCTAB,1
 			}
 		if (SRCHARCORG = 1)
 			{
@@ -66425,11 +66426,11 @@ guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
 guicontrol,move,FELNKA,x289 y208 w128 h13
 guicontrol,enable,FEEDTA
 guicontrol,hide,FEEDTA
-guicontrol,move,FEEDTA,x341 y158 w110 h21
+guicontrol,move,FEEDTA,x348 y158 w110 h21
 guicontrol,,FEEDTA,%ssuser%
 guicontrol,enable,FEEDTB
 guicontrol,hide,FEEDTB
-guicontrol,move,FEEDTB,x341 y180 w110 h21
+guicontrol,move,FEEDTB,x348 y180 w110 h21
 guicontrol,+password,FEEDTB
 guicontrol,,FEEDTB,%sspassw%
 guicontrol,enable,FEEDTC
@@ -66603,12 +66604,12 @@ guicontrol,,FERAD2C,ROMs
 guicontrol,,FERAD2C, 0
 guicontrol,hide,FERAD7A
 guicontrol,enable,FERAD7A
-guicontrol,move,FERAD7A,x608 y457 w40 h13
+guicontrol,move,FERAD7A,x615 y457 w50 h13
 guicontrol,,FERAD7A,Strict
 guicontrol,,FERAD7A, 1
 guicontrol,hide,FERAD7B
 guicontrol,enable,FERAD7B
-guicontrol,move,FERAD7B,x557 y455 w45 h15
+guicontrol,move,FERAD7B,x557 y457 w50 h15
 guicontrol,,FERAD7B,Fuzzy
 guicontrol,,FERAD7B, 0
 ;};;;;;
@@ -66700,7 +66701,7 @@ guicontrol,move,FETXTN,x470 y75 w88 h13
 guicontrol,,FETXTN,Image-Name
 ;};;;;;
 guicontrol,%fetog%,FEGRPA
-guicontrol,move,FEGRPA,x282 y133 w180 h98
+guicontrol,move,FEGRPA,x282 y133 w200 h98
 guicontrol,hide,FEGRPA
 guicontrol,,FEGRPA,ScreenScraper
 guicontrol,%fetog%,FEPRGA
