@@ -173,15 +173,16 @@ retroarch\system=:rtc.ram:16CF848D>
 neko=retroarch\system\np2=:BIOS.ROM:34A19A59>
 neko=retroarch\system\np2=:font.bmp:D271798B>
 
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:EC541CD0
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5500.bin:3B601FC8
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5500.bin?ps-30j.bin:FF3EEB8C>
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:502224B6
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5501.bin:37157331
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5501.bin?ps-30a.bin:8D8CB7E4>
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:4D9E7C86
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=:scph5502.bin:318178BF
-mednafen=psxfin\BIOS=ePSXe\BIOS=pcsxr\BIOS=xebraretroarch\system=bizhawk\firmware=:scph5502.bin?ps-30e.bin:D786F0B9>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:EC541CD0
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=:scph5500.bin:3B601FC8
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware=:scph5500.bin?ps-30j.bin:FF3EEB8C>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=:scph5501.bin:502224B6
+mednafen=retroarch\system=:scph5501.bin:37157331>
+psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=:scph1001.bin:37157331>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware=:scph5501.bin?ps-30a.bin:8D8CB7E4>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=:scph5502.bin:4D9E7C86
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=:scph5502.bin:318178BF
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware=:scph5502.bin?ps-30e.bin:D786F0B9>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:mpr-18811-mx.ic1?Ultraman.bin:B9644B52>
 mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware=:mpr-19367-mx.ic1?kof95.bin:90412E10>
 retroarch\system=bizhawk\firmware=:mpr-17933.bin?saturn-1.00-(U+E).bin:4AFCF0FA>

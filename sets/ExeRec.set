@@ -70,6 +70,7 @@ FileCreateDir,rj\emuCfgs\dgen
 FileCreateDir,rj\emuCfgs\Dolphin
 FileCreateDir,rj\emuCfgs\DosPlus
 FileCreateDir,rj\emuCfgs\dsp
+FileCreateDir,rj\emuCfgs\duckstation
 FileCreateDir,rj\emuCfgs\EightyOne
 FileCreateDir,rj\emuCfgs\Electrem
 FileCreateDir,rj\emuCfgs\elkulator
@@ -1108,6 +1109,7 @@ FileInstall,rj\emucfgs\Dolphin\WiimoteNew.ini.set,rj\emucfgs\Dolphin\WiimoteNew.
 FileInstall,rj\emucfgs\DosPlus\4DOS.INI.set,rj\emucfgs\DosPlus\4DOS.INI.set,1
 FileInstall,rj\emucfgs\DosPlus\config.txt.set,rj\emucfgs\DosPlus\config.txt.set,1
 FileInstall,rj\emucfgs\dsp\dsp.ini.set,rj\emucfgs\dsp\dsp.ini.set,1
+FileInstall,rj\emucfgs\duckstation\settings.ini.get,rj\emucfgs\duckstation\settings.ini.get,1
 FileInstall,rj\emucfgs\EightyOne\EightyOne.ini.set,rj\emucfgs\EightyOne\EightyOne.ini.set,1
 FileInstall,rj\emucfgs\Electrem\electrem.cfg.set,rj\emucfgs\Electrem\electrem.cfg.set,1
 FileInstall,rj\emucfgs\elkulator\elk.cfg.set,rj\emucfgs\elkulator\elk.cfg.set,1

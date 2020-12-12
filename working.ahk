@@ -2052,9 +2052,8 @@ Gui,Font,Norm
 Gui,Add,listbox, x258 y22 w198 h316 -LV0x20 Altsubmit HWNDnocrsl vCRNTCORS gNoSelCores hidden,|%CoreNamz%
 Gui,Font,Bold
 Gui,Add,DropDownList, hwndDplHndl38 x65 y485 w110 vSaList gSaList,Systems||Emulators|RetroArch|Utilities|Frontends
-Gui, Add, Text, x9 y490 h15,Installers
-Gui, Add, Text, x180 y490 h15,Installers
-Gui,Font,Bold
+Gui, Add, Text, x9 y490 h15, \\\\\\\\\\
+Gui, Add, Text, x185 y490 h15, //////////
 Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch, Skeletonkey-System-Associations
 Gui,Font,Norm
 Gui,Add,DropDownList, hwndDplHndl39 x588 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
@@ -2111,7 +2110,7 @@ Gui,Add,Listbox, hwndLbxHndl3 x285 y234 w171 h123 vROMDEDT Multi +HScroll,
 Gui, Add, CheckBox, x282 y372 h17 vBCKCORE gBckCore hidden, Backup
 Gui, Add, Checkbox, x282 y390 h17 vKARC gKeepArchives checked, Keep archives
 Gui, Add, Radio, x123 y463 h14 vEXELIST gExeList hidden, Parts
-Gui, Add, Radio, x71 y463 h14 Checked vRALIST gRaList hidden, Cores
+Gui, Add, Radio, x67 y463 h14 Checked vRALIST gRaList hidden, Cores
 Gui, Add, Button, x258 y341 w48 h20 vUPDCL gGetCoreList hidden, Refresh
 Gui, Add, Button, x377 y340 w80 h26 vGCUPDT gGCUpdt hidden, Update Cores
 Gui, Add, Button, x473 y57 w43 h23 vSKRAEXE gRAEXEP hidden, SET
@@ -71115,11 +71114,11 @@ curxe= executable\exeparam.ini
 gui,submit,nohide
 guicontrol,show,utlRad1B
 guicontrol,,utlRad1B,Keymapper Disabled
-guicontrol,move,UTLRAD1B,x411 y347 w120 h23
+guicontrol,move,UTLRAD1B,x411 y347 w140 h23
 guicontrol,,utlRad1B,1
 guicontrol,show,utlRad1A
 guicontrol,,utlRad1A,Keymapper Enabled
-guicontrol,move,UTLRAD1A,x412 y323 w120 h23
+guicontrol,move,UTLRAD1A,x412 y323 w140 h23
 guicontrol,show,utlCBXA
 guicontrol,move,utlCBXA,x643 y236 w100
 guicontrol,,utlCBXA,|
