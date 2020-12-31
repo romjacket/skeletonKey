@@ -291,8 +291,9 @@ gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XG.BIN?
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XM.BIN?32X_M_BIOS.BIN:D3D57C39>
 gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=:BIOS32XS.BIN?32X_S_BIOS.BIN:FFB1B7FA>
 
-nostalgia=retroarch\system=bizhawk\firmware=:exec.bin?erom.bin:CBCE86F7>
+nostalgia=retroarch\system=:exec.bin:CBCE86F7>
 nostalgia=retroarch\system=bizhawk\firmware=:grom.bin:683A4158>
+nostalgia=retroarch\system=bizhawk\firmware=:exec.bin?erom.bin:CBCE86F7>
 
 pcsx2\bios=retroarch\system\PCSX2\bios=play\bios=:ps2-0101j-20000217.bin:211DFB6A
 pcsx2\bios=retroarch\system\PCSX2\bios=play\bios=:ps2-0101xd-20000224.bin:2FEF9FAF

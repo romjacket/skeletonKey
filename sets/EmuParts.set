@@ -110,6 +110,7 @@ elkulator<elkulator/elkulator.7z<Elkulator.exe<
 em7<em7/em7.7z<em7.exe<
 emma02<emma02/emma02-[ARCH].7z<emma02.exe<*\*.ini<
 emu2001<emu2001/emu2001.7z
+EmuZ2000<emuz2000/emuz2000.7z<EmuZ2000TF.exe<EmuZ2000TF.ini
 emu64<emu64/emu64[ARCH].7z<emu64.exe<
 EMU7800<EMU7800/EMU7800.7z<EMU7800.Win.exe<EMU7800.Win.exe.config
 emu<emu/emu.7z<EMU.exe<config\*.cfg<
@@ -233,7 +234,7 @@ medusa<medusa/medusa.7z<medusa.exe<portable.ini|config.ini
 meka<meka/meka.7z<mekaw.exe<
 melonDS<melonDS/melonDS.7z<melonDS.exe<
 mesadx<mesadx/mesadx.7z<MesaDX.exe<
-mesen-s<mesen-s/mesen-s.7z<mesen-s.exe<settings.xml<savestates\*.mss<saves\*.srm
+mesen-s<mesen-s/mesen-s.7z<mesens.exe<settings.xml<savestates\*.mss<saves\*.srm
 Mesen<Mesen/Mesen.7z<Mesen.exe<settings.xml
 Mess<Mess/Mess-[ARCH].7z<Mess.exe<mess.ini|cfg\[ROMNAME]*.cfg
 mgba<mgba/mgba-[ARCH].7z<mgba.exe<mgba.ini

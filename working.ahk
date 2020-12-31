@@ -2026,8 +2026,8 @@ Gui, Font,Bold
 Gui, Add, GroupBox, x510 y409 w228 h97 vEMGRPF Right, Pre Cmd/ Post Cmd
 Gui Add, GroupBox, x472 y362 w262 h43 vDSKMNTGRP, Disc-Mounting
 Gui, Font, Normal
-Gui Add, CheckBox, x475 y380 vDSKMNTCHK gDSKMNTCHK disabled, Enable
-Gui,Add,DropDownList, hwndDplHndl35 x533 y378 w91 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
+Gui Add, CheckBox, x474 y38880 vDSKMNTCHK gDSKMNTCHK disabled,Enable
+Gui,Add,DropDownList, hwndDplHndl35 x534 y378 w90 vDSKMNTDDL gDSKMNTDDL disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
 Gui Add, Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT disabled, Disc...
 Gui Add, CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR disabled, override
 Gui, Add, Radio, x674 y416 w63 h13 vEMRad11B gEMRad11B Checked disabled hidden, Absolute
@@ -2068,9 +2068,9 @@ Gui,Add, Edit, hwndEdtHnd200 x471 y54 w264 vRenOSys gRenOSys Hidden,
 Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
 Gui, Add, Button, x694 y79 w42 h19 vSAVOSYS gSavOSys Hidden, save
 Gui, Add, Text, x577 y75 h23 vOVSETTXT hidden, Extension-Override
-Gui, Add, Radio, x501 y122 h19 vDCORE gDCore Checked, Default Core
-Gui, Add, Radio, x501 y144 h16 vARDCORE gARDCore disabled, Core
-Gui, Add, Radio, x501 y170 h16 vDAPP gDApp disabled, Application
+Gui, Add, Radio, x490 y122 h19 vDCORE gDCore Checked, Default Core
+Gui, Add, Radio, x490 y144 h16 vARDCORE gARDCore disabled, Core
+Gui, Add, Radio, x490 y170 h16 vDAPP gDApp disabled, Application
 Gui,Add,DropDownList, hwndDplHndl42 x550 y144 w184 vASCORE gASCore hidden, %corelist%
 Gui, Add, Button, x575 y167 w58 h19 vSELAPP gSelApp hidden, BROWSE
 Gui ,Add, Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
@@ -2083,10 +2083,10 @@ Gui,Add,ComboBox, hwndCbxHndl27 x505 y218 w120 vAPPARG gAppArg Hidden,|[CUSTMARG
 Gui, Add, Text, x633 y191 h23 vOPTTXT hidden, options
 Gui, Add, Text, x633 y215 h23 vARGTXT hidden, arguments
 Gui,Add,Button,x501 y122 h20 w50 vGBLpgs gGBLpgs hidden,Global
-Gui, Add, CheckBox, x595 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Configurations
-Gui, Add, Radio, x506 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
-Gui, Add, Radio, x506 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
-Gui, Add, CheckBox, x505 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
+Gui, Add, CheckBox, x588 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Config Files
+Gui, Add, Radio, x490 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
+Gui, Add, Radio, x490 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
+Gui, Add, CheckBox, x490 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
 Gui, Add, CheckBox, x649 y283 h13 vEXTARUN gEXTARUN Hidden,Run-Extracted
 Gui, Add, CheckBox, x649 y244 h13 vOMITQ gOmitQ hidden, Omit-Quotes
 Gui, Add, CheckBox, x649 y261 h13 vOMITPTH gOmitPth Hidden, No-Path
@@ -2950,8 +2950,8 @@ Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcS
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
-Gui Add, CheckBox, x110 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
-Gui, Add, CheckBox, x170 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
+Gui Add, CheckBox, x113 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui, Add, CheckBox, x176 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
 Gui, Add, Checkbox, x262 y100 h15 vArcMove gArcMove hidden,cleanup
 Gui, Add, Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
 Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
@@ -11495,7 +11495,9 @@ EmuInst:
 gui,submit,nohide
 guicontrolget,INSTLTYP,,SaList
 guicontrolget,selfnd,,INSTEMUDDL
+guicontrolget,SYSINSTLBX,,SYSINSTLBX
 guicontrolget,EINSTLOC,,EINSTLOC
+guicontrolget,EmuAsign,,EmuAsign
 if ((EINSTLOC <> "")&&(INSTLTYP = "Systems"))
 	{
 		goto, MultiSys
@@ -11512,9 +11514,6 @@ GuiControl, Disable, PRGINSTLBX
 GuiControl, Disable, AVAIL
 GuiControl, Disable, EMUASIGN
 GuiControl, Disable, EMUINST
-if (selfnd = "Other")
-	{
-	}
 EMURJINT:
 emufzd= 
 iniread,urlloc,EmuCfgPresets.ini,%selfnd%,URLPTH
@@ -11830,12 +11829,46 @@ if ((INSTLTYP = "Emulators")&&(EMUAUTOA = 1))
 	{
 		stranb= %selfnd%
 		gosub, EmuIterA
-		SB_SetText("assigned " byuu "to supported systems detected")
+		SB_SetText("assigned " stranb "to supported systems detected")
 	}
 if (INSTLTYP = "Systems")
 	{
 		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%
 		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
+		iniread,supemu,emuCfgPresets.ini,%SYSINSTLBX%,SUPEMU
+		if ((supemu = "")or(supemu = "ERROR"))
+			{
+			}
+		fndsy= %selfnd%	
+		noead= 
+		rewr= 
+		Loop,parse,supemu,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (A_LoopField = selfnd)
+					{
+						if (EmuAsign = 1)
+							{
+							}
+						iniread,ceurmu,Assignments.ini,OVERRIDES,%SYSINSTLBX%
+						Loop,parse,ceurmu,|
+							{
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								if (selfnd = A_LoopField)
+									{
+										continue
+									}
+								rewr.= A_LoopField . "|"
+							}
+						iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
+					}
+			}
 	}
 ifinstring,selfnd,MAME
 	{
