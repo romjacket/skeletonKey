@@ -11362,6 +11362,10 @@ ifinstring,ksir1,_libretro.dll
 	}
 gosub, AppParamPop
 guicontrol,,EMUASIGN,0
+if (SALIST = "Systems")
+	{
+		GuiControl,,EMUASIGN,1
+	}
 if (SALIST = "Emulators")
 	{
 		GuiControl, choose, PRGINSTLBX,0
@@ -11482,6 +11486,7 @@ if (SALIST = "Emulators")
 		SB_SetText(" " semu " assigned ")
 		return
 	}
+GuiControl,,EMUASIGN,1
 Loop, Parse, semu,|
 	{
 		OVRKND=
@@ -11613,7 +11618,6 @@ Loop,Parse,AllPartSet,`n`r
 						guicontrol,,DCORE,1
 						break
 					}
-
 				if (rjintr = 2)
 					{
 						return
@@ -11644,10 +11648,6 @@ Loop,Parse,AllPartSet,`n`r
 					}
 				fSYSINSTLBX= 
 					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
 						emuxetmp1=
 						emuxetmp2=
 						emuxetmp3=
@@ -11658,7 +11658,6 @@ Loop,Parse,AllPartSet,`n`r
 						if (emuxetmp1 = slfm1)
 							{
 								xtractmfp= %xtractmu%\%emuxetmp3%
-								break
 							}
 					}
 				guicontrol,,EINSTLOC,%xtractmfp%
@@ -11836,37 +11835,37 @@ if (INSTLTYP = "Systems")
 		iniwrite, "%xtractmfp%",apps.ini,EMULATORS,%selfnd%
 		iniwrite, "%xtractmfp%",Assignments.ini,ASSIGNMENTS,%selfnd%
 		iniread,supemu,emuCfgPresets.ini,%SYSINSTLBX%,SUPEMU
-		if ((supemu = "")or(supemu = "ERROR"))
+		if (EmuAsign = 1)
 			{
-			}
-		fndsy= %selfnd%	
-		noead= 
-		rewr= 
-		Loop,parse,supemu,|
-			{
-				if (A_LoopField = "")
+				if ((supemu = "")or(supemu = "ERROR"))
 					{
-						continue
 					}
-				if (A_LoopField = selfnd)
+				fndsy= %selfnd%	
+				noead= 
+				rewr= 
+				Loop,parse,supemu,|
 					{
-						if (EmuAsign = 1)
+						if (A_LoopField = "")
 							{
+								continue
 							}
-						iniread,ceurmu,Assignments.ini,OVERRIDES,%SYSINSTLBX%
-						Loop,parse,ceurmu,|
+						if (A_LoopField = selfnd)
 							{
-								if (A_LoopField = "")
+								iniread,ceurmu,Assignments.ini,OVERRIDES,%SYSINSTLBX%
+								Loop,parse,ceurmu,|
 									{
-										continue
+										if (A_LoopField = "")
+											{
+												continue
+											}
+										if (selfnd = A_LoopField)
+											{
+												continue
+											}
+										rewr.= A_LoopField . "|"
 									}
-								if (selfnd = A_LoopField)
-									{
-										continue
-									}
-								rewr.= A_LoopField . "|"
+								iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
 							}
-						iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
 					}
 			}
 	}
@@ -11909,6 +11908,7 @@ if (EMUASIGN = 1)
 	}	
 gosub, PRGINSTLBX
 return
+
 MultiSys:
 EmuAsign:
 gui, submit, nohide
