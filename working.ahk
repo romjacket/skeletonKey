@@ -982,7 +982,7 @@ UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|PRGINSTLBX|EINSTTXT|EINSTLOC|CHE
 EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|PRGINSTLBX|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
 PSETCFGITEMS= ADDCORE|OPNSYS|ADDNSYS|SAVNSYS|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
 ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
-LNCHUI=RUNPLRAD|RUNFLRAD|RUNROMCBX|EDTROMBTN|MORROM|SWHOST|FNDGUI|CUSTSWITCHS|CUSTMOPTS|CUSTMARGS|GROM|ESWPLCORE|LCORECBX|LCORECBX|JCORE|OPNCORE|HLNCHBUT|LNCHBUT|RCLLNCH|CLRCUROM|RETAL|RUNSYSDDL|RUNSYSCBX|RUNSYSBTN|CNCTBUT|HOSTBUTTON
+LNCH_UI= RUNPLRAD|RUNFLRAD|RUNROMCBX|EDTROMBTN|MORROM|SWHOST|FNDGUI|CUSTSWITCHS|CUSTMOPTS|CUSTMARGS|GROM|ESWPLCORE|LCORECBX|LCORECBX|JCORE|OPNCORE|HLNCHBUT|LNCHBUT|RCLLNCH|CLRCUROM|RETAL|RUNSYSDDL|RUNSYSCBX|RUNSYSBTN|CNCTBUT|HOSTBUTTON
 JSTSET= %JOYSET%
 RJSYSDN= Systems
 AXISET= nul|nul
@@ -2951,8 +2951,8 @@ Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopu
 Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
 Gui Add, CheckBox, x113 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
-Gui, Add, CheckBox, x176 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
-Gui, Add, Checkbox, x262 y100 h15 vArcMove gArcMove hidden,cleanup
+Gui, Add, CheckBox, x180 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
+Gui, Add, Checkbox, x266 y100 h15 vArcMove gArcMove hidden,cleanup
 Gui, Add, Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
 Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
 Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
@@ -15754,7 +15754,7 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 			{
 				Winset,Disable,,skeletonKey
 			}				
-	}	
+	}
 Runwait, "%raexedir%\%RaExeFile%" -L %corehlb% -H %romhf% %gameoverdcfg%%pgmargs%,%raexedir%
 gosub, PostOpt
 if (RETRANSLID = 1)
@@ -26263,12 +26263,16 @@ if (CORECOPY = 1)
 	{
 		FileCopy, %racoreopt%,%raexedir%\retroarch-core-options.cfg,1
 	}
+lnchui= disable
+gosub, LNCHUI	
 return
 PostOpt:
 if (CORECOPY = 1)
 	{
 		FileCopy,%raexedir%\retroarch-core-options.cfg,%racoreopt%,1
 	}
+lnchui= enable
+gosub, LNCHUI	
 return
 ;{;;;;;;;;;;;;  RESET SHADERS  ;;;;;;;;;;;;;
 resetGL:
@@ -36593,8 +36597,8 @@ SRCHEDT:= sanm
 SRCHREC=
 SRCHCRI= %SRCHSYS%
 if (ENHAK = 1)
-	{
 		SRCHCRI= #HACKS#%SRCHSYS%
+	{
 	}
 if (SRCHSYS = "All")
 	{
@@ -36795,6 +36799,7 @@ if (DownOnly = 0)
 										stringsplit,axrm,aftpth3,|:,<>
 										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 										guicontrol,,DOWNONLY,1
+										
 										gosub, DownOnly
 										guicontrol,,RNMJACK,
 										guicontrol,,JACKETMODE,%axrm2%
@@ -36999,6 +37004,7 @@ Loop, Parse, tmpsr,|
 				guicontrol,enable,ARCLNCH
 				guicontrol,,ARCLNCH,Download
 				guicontrol,,downOnly,1
+				
 				multsrch= 1
 				guicontrol,,ARCSYS,|Select a System||%sysddllist%
 				if (SRCHDDL = "All")
@@ -39517,6 +39523,7 @@ if (tmprm <> "")
 														stringsplit,axrm,ave3,|:,<>
 														iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 														guicontrol,,DOWNONLY,1
+														
 														gosub, DownOnly
 														guicontrol,,JACKETMODE,%axrm2%
 														guicontrol,,EXTRURL,%axrm3%
@@ -39557,25 +39564,6 @@ if (tmprm <> "")
 							{
 								SB_SetText(" This item requires a LOGIN/PASSWORD ")
 								;;break
-							}
-					}
-				if ((ave3 <> "")&&(ave3 <> A_Space))
-					{
-						if (instr(ave3,">")&& instr(ave3,"<"))
-							{
-								stringsplit,axrm,ave3,:|,<>
-								iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
-								guicontrol,,DOWNONLY,1
-								gosub,DownOnly
-								guicontrol,,JACKETMODE,%axrm2%
-								guicontrol,,EXTRURL,%axrm3%
-								guicontrol,,EXTEXPLD,%axrm4%
-								guicontrol,,RUNXTRACT,%axrm5%
-								guicontrol,,RNMJACK,
-								guicontrol,,ARCMOVE,%axrm6%
-							}
-							else {
-									iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd							
 							}
 					}
 				;;URLFILE= %sysurl%%ave1%
@@ -39639,6 +39627,26 @@ if (tmprm <> "")
 										ariadltyp=magnet
 									}
 							}
+						if ((ave3 <> "")&&(ave3 <> A_Space))
+							{
+								if (instr(ave3,">")&& instr(ave3,"<"))
+									{
+										stringsplit,axrm,ave3,:|,<>
+										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
+										guicontrol,,DOWNONLY,1
+										
+										gosub,DownOnly
+										guicontrol,,JACKETMODE,%axrm2%
+										guicontrol,,EXTRURL,%axrm3%
+										guicontrol,,EXTEXPLD,%axrm4%
+										guicontrol,,RUNXTRACT,%axrm5%
+										guicontrol,,RNMJACK,
+										guicontrol,,ARCMOVE,%axrm6%
+									}
+									else {
+											iniwrite,%ave3%,%ACSVDEST%\settings.ini,Run,cmd							
+									}
+							}
 						ifinstring,ave1,://
 							{
 								URLFILE= %ave1%
@@ -39670,6 +39678,7 @@ if (tmpsr <> "")
 										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%keyout%
 										guicontrol,,DOWNONLY,1
+										
 										gosub,DownOnly
 										guicontrol,,JACKETMODE,%axrm2%
 										guicontrol,,EXTRURL,%axrm3%
@@ -41621,6 +41630,7 @@ gui,submit,nohide
 gosub, %EMUSN%SLDE
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;
+
 TOGSKELRUN:
 Loop,Parse,RUNBOXGUIITEMS,|
 	{
@@ -80448,8 +80458,6 @@ if (STRMVID = 1)
 		RUNROM= "%URLFILE%"
 	}
 splitpath,OvrExtAs,xenm,xenmp
-lnchui= disable
-gosub, LNCHUI
 gosub, SKLPRER
 iniread,dmchk,AppParams.ini,%coreselv%,DSKMNTCHK
 if (dmchk = 1)
@@ -80503,6 +80511,8 @@ if ((TRANSLID > 65)&&(DYNTRANS = 1))
 				Winset,Disable,,skeletonKey
 			}
 	}
+lnchui= disable
+gosub, LNCHUI
 RunWait, "%OvrExtAs%"%RunOptions%%RUNROM%%RunArgs%,%runloc%,,overxtpid
 if (RETRANSLID = 1)
 	{
@@ -80994,7 +81004,7 @@ gosub, RecentWrite
 LNCH=
 return
 LNCHUI:
-Loop,parse,LNCHUI,|
+Loop,parse,LNCH_UI,|
 	{
 		guicontrol,%lnchui%,%A_LoopField%
 	}	
