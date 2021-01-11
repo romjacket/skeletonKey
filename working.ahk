@@ -1494,6 +1494,7 @@ Menu, RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
 Menu, RunWithDD, Add, Open In Explorer !, Open_Add
 Menu, UndoRARST, Add, Undo Reset, RAINITUNDO
 Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
+Menu,EMURCLASGN,Add,Open Emulator Directory,Emu_Open
 Menu, RSTAPAR, Add, Reset-Preset, ReSeTAPAR
 Menu, TONTPLCFG, Add, Configure NetPlay,toNetPCfg
 Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
@@ -1521,6 +1522,7 @@ Menu, FEDELMENU, Add, Remove Selection, REMFESEL
 Menu, FEDELMENU, Add, Delete Scraped Artwork, FEDELSEL
 Menu, CLRROMLST, Add, Clear Assignments, CLRSYSLOC
 Menu, RMVSYSLST, Add, Remove Path, RMVFSYS
+Menu,RMVSYSLST,Add,Open System Directory,Sys_Open
 Menu, RNMSYSA, Add, Rename System, RenameSystem
 Menu, RNMSYSA, Add, Restore System Name, RestoreSystemN
 Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
@@ -1763,9 +1765,9 @@ Gui, Add, Button, x702 y476 h22 vVRSTRABUT gRAInitQ hidden, RESET
 Gui,Font,Bold
 Gui, Add, GroupBox, x24 y173 w314 h149 vSHDPTHTXT hidden, Shaders\Paths
 Gui,Font,Norm
-Gui, Add, Radio,x124 y188 h18 vCGSLCT gCGPoP hidden, CG
-Gui, Add, Radio, x86 y188 h18 vGLSLCT gGLPoP Checked hidden, GL
-Gui, Add, Radio, x161 y188 h18 vSLCT gSLPoP hidden, Slang
+Gui, Add, Radio,x128 y188 h18 vCGSLCT gCGPoP hidden, CG
+Gui, Add, Radio, x90 y188 h18 vGLSLCT gGLPoP Checked hidden, GL
+Gui, Add, Radio, x167 y188 h18 vSLCT gSLPoP hidden, Slang
 Gui,Add,DropDownList, hwndDplHndl162 x30 y208 w281 vGLSHDVAR gGLShdGet hidden, nul||%gl_list%
 Gui,Add,DropDownList, hwndDplHndl163 x30 y208 w281 vSLSHDVAR gSLShdGet hidden, nul||%sl_list%
 Gui,Add,DropDownList, hwndDplHndl164 x30 y208 w281 vCGSHDVAR gCGShdGet hidden, nul||%cg_list%
@@ -1792,10 +1794,10 @@ Gui, Add, CheckBox, x348 y188 w114 h13 vPAUSMNU gPauseMenu hidden, Pause In Menu
 Gui, Add, CheckBox, x348 y210 w114 h13 vDBLESCP gDblEscp hidden, Double-Escape
 Gui, Add, CheckBox, x284 y342 h13 vGPUVREC gGPURecord hidden, GPU Rec.
 Gui, Add, CheckBox, x200 y342 h13 vGPUSS gGPUScreenShot Checked hidden, GPU Snap
-Gui, Add, CheckBox, x36 y342 h13 vSAVEXIT gSaveOnExit Checked hidden, Save on Exit
-Gui, Add, CheckBox, x36 y360 vCSTCMD gEnableCC hidden, Custm Cmd
-Gui,Add,Edit, hwndEdtHndl14 x117 y358 w100 h17 vCSTRAOPTF gROMOverride Disabled hidden,[opt]
-Gui, Add, Text, x219 y360 vCSTCRE hidden,$ROM$
+Gui, Add, CheckBox, x33 y342 h13 vSAVEXIT gSaveOnExit Checked hidden, Save on Exit
+Gui, Add, CheckBox, x33 y360 vCSTCMD gEnableCC hidden, Custm Cmd
+Gui,Add,Edit, hwndEdtHndl14 x119 y358 w98 h17 vCSTRAOPTF gROMOverride Disabled hidden,[opt]
+Gui, Add, Text, x219 y360 vCSTCRE hidden, ROM
 Gui,Add,Edit, hwndEdtHndl15 x259 y358 w103 h17 vCSTRAARGF gCORECommand Disabled hidden,[arg]
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;~~~SAVE MENU GROUP~~~;;;;;;;;;;;;;;;;;;;
@@ -2950,8 +2952,8 @@ Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcS
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
 Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
 Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
-Gui Add, CheckBox, x113 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
-Gui, Add, CheckBox, x180 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
+Gui Add, CheckBox, x118 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui, Add, CheckBox, x185 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
 Gui, Add, Checkbox, x266 y100 h15 vArcMove gArcMove hidden,cleanup
 Gui, Add, Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
 Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
@@ -5008,6 +5010,14 @@ If A_GuiControlEvent RightClick
 					return
 				}
 		}
+	if A_GuiControl = SYSINSTLBX
+		{
+			if (SALIST = "Systems")
+				{
+					Menu, EMURCLASGD,Show, %A_GuiX% %A_GuiY%
+					return
+				}
+		}
 	if A_GuiControl = PRGINSTLBX
 		{
 			if (SALIST = "Emulators")
@@ -6178,9 +6188,11 @@ if (plenb = 0)
 	{
 		return
 	}
-poprc=
+keyin= %ARCSYS%
+gosub, RevTransformSys	
+poprc= 
 IniRead,poprc,Assignments.ini,OVERRIDES,%keyout%
-if (poprc <> "")
+if ((poprc <> "")&&(poprc <> "ERROR"))
 	{
 		poprc= |%poprc%|
 	}
@@ -13646,6 +13658,15 @@ if ((ovrob <> "ERROR") and (ovrob <> ""))
 		iniwrite,%ovrob%,Assignments.ini,OVERRIDES,%SYSNICK%
 	}
 gosub, SysNick
+return
+
+
+Emu_Open:
+gui,submit,nohide
+guicontrolget,emupsgn,,PRGINSTLBX
+iniread,aix,Apps.ini,EMULATORS,%emupsgn%
+splitpath,aix,,,emupsgd
+RunWait, %comspec% /c explorer "%emupsgd%",,
 return
 Emu_popasgn:
 gui,submit,nohide
@@ -36799,7 +36820,6 @@ if (DownOnly = 0)
 										stringsplit,axrm,aftpth3,|:,<>
 										iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,%EXTRSYS%
 										guicontrol,,DOWNONLY,1
-										
 										gosub, DownOnly
 										guicontrol,,RNMJACK,
 										guicontrol,,JACKETMODE,%axrm2%
@@ -38138,6 +38158,7 @@ return
 ArchiveSystems:
 opndgam= 
 gui, submit, nohide
+sleep, 500
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 guicontrolget,ARC_ON,,UrlTxt
 NetArcSystem:
@@ -38347,6 +38368,10 @@ if (lnchparam = "ERROR")
 				iniread,lnchparam,launchparams.ini,LAUNCHPARAMS,Video - Media
 				guicontrol,show,strmvid
 			}
+			else {
+				lnchparam=	$|1|1|0|1|0
+				goto, arlnchprm
+			}
 	}
 if ((lnchparam <> "ERROR")&&(lnchparam <> ""))
 	{
@@ -38374,6 +38399,7 @@ if ((lnchparam <> "ERROR")&&(lnchparam <> ""))
 			}
 		guicontrol,,ARCMOVE,%aprm6%
 	}
+arlnchprm:
 if (EXTRSYS = "MAME - Arcade")
 	{
 		guicontrol,,OVDTXT,%RJSYSTEMS%\MAME - Arcade
@@ -38792,6 +38818,7 @@ gui,submit,nohide
 guicontrolget,LCORE,,LCORE
 guicontrolget,coreselv,,ARCCORES
 guicontrolget,RNMJACK,,RNMJACK
+guicontrolget,JACKETMODE,,JACKETMODE
 guicontrolget,MAMESWCHK,,MAMESWCHK
 if (arctvl = "")
 	{
@@ -40344,10 +40371,12 @@ guicontrolget,CUSTSWITCH,,CUSTSWITCH
 if (CUSTSWITCH = 0)
 	{
 		guicontrol, hide, CUSTMOPT
+		guicontrol, show, DOWNONLY
 		guicontrol, hide, CUSTMARG
 		guicontrol, hide, CUSTMOPTS
 		guicontrol, hide, CUSTMARGS
 		guicontrol,,CUSTSWITCHS,0
+		guicontrol,,DOWNONLY,0
 		guicontrol, move, RUNROMCBX, x39 y24 w604
 		guicontrol, move, MORROM, x39 y24 w377
 		CUSTMARG=
@@ -40356,9 +40385,11 @@ if (CUSTSWITCH = 0)
 	}
 guicontrol, show, CUSTMOPT
 guicontrol, show, CUSTMARG
+guicontrol, hide, DOWNONLY
 guicontrol, show, CUSTMOPTS
 guicontrol, show, CUSTMARGS
 guicontrol,,CUSTSWITCHS,1
+guicontrol,,DOWNONLY,0
 guicontrol, move, RUNROMCBX, x39 y24 w377
 guicontrol, move, MORROM, x39 y24 w377
 return
@@ -75099,6 +75130,14 @@ Gui, ListView, RJLSTV
 LV_Modify(0,"+Select")
 return
 ;};;;;;;;;;;
+
+
+Sys_Open:
+gui,submit,nohide
+guicontrolget,ROMDEDS,,ROMDEDT
+RunWait, %comspec% /c explorer "%ROMDEDS%"
+return
+
 RMVFSYS:
 gui,submit,nohide
 guicontrolget,ROMDEDS,,ROMDEDT
