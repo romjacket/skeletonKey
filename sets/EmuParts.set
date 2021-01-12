@@ -232,7 +232,7 @@ Mednafen-server<Mednafen/Mednafen-server-x[ARCH].7z
 Mednafen<Mednafen/Mednafen-[ARCH].7z<Mednafen.exe<mednafen.cfg<sav\*.bkr<sav\*.smpc
 medusa<medusa/medusa.7z<medusa.exe<portable.ini|config.ini
 meka<meka/meka.7z<mekaw.exe<
-melonDS<melonDS/melonDS.7z<melonDS.exe<
+melonDS<melonDS/melonDS.7z<melonDS.exe<melonds.ini|
 mesadx<mesadx/mesadx.7z<MesaDX.exe<
 mesen-s<mesen-s/mesen-s.7z<mesens.exe<settings.xml<savestates\*.mss<saves\*.srm
 Mesen<Mesen/Mesen.7z<Mesen.exe<settings.xml

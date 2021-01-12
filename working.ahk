@@ -74154,7 +74154,7 @@ Loop, rj\*.jak
 			}
 		if (RJMULTIDISC = 1)
 			{
-				stringreplace,toapd,toapd,[ROMIN],[NWLNCH],All
+				;;stringreplace,toapd,toapd,[ROMIN],[NWLNCH],All
 			}
 		StringReplace,toapd,toapd,[RUNOPTS],%RJEMUOPTS%,All
 		StringReplace,toapd,toapd,[RUNARGS],%RJEMUARGS%,All
@@ -74323,7 +74323,6 @@ Loop, rj\*.jak
 							{
 								nwjakxtr= 1
 							}
-						msgbox,,,nwjaxtr=%nwjaxtr%`nRJEXTRARC=%RJEXTRARC%`nibjn2=%ibjn2%
 						IF (nwjakxtr = 1)
 							{
 								if (RJEXTRARC = 1)
@@ -74664,7 +74663,7 @@ Loop, rj\*.jak
 								cvil=
 								injromful=
 								NUMINC= 1
-								msgbox,,,rjmultidisc=%RJMULTIDISC%
+								
 								if (RJMULTIDISC = 1)
 									{
 										Loop, Parse, injrmltix,|
@@ -74789,6 +74788,7 @@ Loop, rj\*.jak
 											}
 										stringreplace,newlnch,newlnch,[NWLNCH],%injromful%,All
 									}
+								
 								stringreplace,newlnch,newlnch,[GAMLST],%dromdtk%,All
 							}
 						If (RJPROPXE = 1)
