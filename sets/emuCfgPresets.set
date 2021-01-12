@@ -329,6 +329,12 @@ URLPTH=virtualjaguar/virtualjaguar-[ARCH].7z
 EXENAM=virtualjaguar.exe
 CFGPTH=vjag.cmd
 
+[Tsugaru]
+URLPATH=Tusgaru/Tsugaru.7z
+EXENAM=Tsugaru_CUI.exe
+RJLNCHP=0
+BIOS=R
+
 
 [UNZ]
 RJPRECFG=copy /Y "*.ini" "%EMUL%"
@@ -4917,7 +4923,7 @@ RJDISCMNT=1
 RJROMXT=.bin,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.dsk,.chd,.cue,.toc,.nrg,.gdi,.iso,.cdr,.chd,.hd,.icm,.zip,.img
 MAME?RJEMUOPTS=<fmtownsux -[RJRTYP]<|<fmtownsux -cdrm<|<fmtownsux -hard1<|<fmtownsux -memcard<|<fmtownsa -flop1<|<fmtownsa -cdrm<|<fmtownsa -hard1<|<fmtownsa -memcard<|<fmtownsmx -flop1<|<fmtownsmx -cdrm<|<fmtownsmx -hard1<|<fmtownsmx -memcard<|<fmtownssj -flop1<|<fmtownssj -cdrm<|<fmtownssj -hard1<|<fmtownssj -memcard<|<fmtownshr -flop1<|<fmtownshr -cdrm<|<fmtownshr -hard1<|<fmtownshr -memcard<|<fmtownsftv -flop1<|<fmtownsftv -cdrm<|<fmtownsftv -hard1<|<fmtownsftv -memcard<|<fmtmarty -flop1<|<fmtmarty -cdrm<|<fmtmarty -hard1<|<fmtmarty -memcard<|<fmtmarty2 -flop1<|<fmtmarty2 -cdrm<|<fmtmarty2 -hard1<|<fmtmarty2 -memcard<|<fmtownsux -flop1<
 SHORTNM=FFMTOWN
-SUPEMU=UNZ|xe|MAME
+SUPEMU=UNZ|xe|Tsugaru|MAME
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|1
 FENAM=fmtowns
@@ -5318,7 +5324,7 @@ LNCHPRM=$|1|1|1|1|0
 FENAM=virtualboy
 FEPARAM=>[ROMPATH]>
 
-[Nintendo - WiiU]
+[Nintendo - Wii U]
 RJEMUPRESET=CEMU
 RJMAMENM=wiiu
 SHORTNM=NNWIIU
@@ -5632,7 +5638,7 @@ RJQUOTES=0
 RJEXTRARC=0
 RJZIPPEEK=0
 SHORTNM=SATOM
-SUPEMU=Demul|mame_arcade
+SUPEMU=flycast|redream|Demul|mame_arcade
 SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll|mame_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=atomiswave
@@ -5888,7 +5894,7 @@ RJQUOTES=0
 RJEXTRARC=0
 MAME?RJEMUOPTS=<naomi -[RJRTYP]<|<naomi -cdrm<|<naomi2 -cdrm<|<naomigd -gdrm<
 SHORTNM=SNAOMI
-SUPEMU=Demul|reicast|flycast|NullDC|mame_arcade|MAME|Makaron
+SUPEMU=Demul|redream|flycast|reicast|NullDC|mame_arcade|MAME|Makaron
 SUPCORE=flycast_libretro.dll|mame2014_libretro.dll|mame2010_libretro.dll|mame2003_plus_libretro.dll|mame2003_libretro.dll|mame2000_libretro.dll|mame2016_libretro.dll
 LNCHPRM=$|0|0|0|0|0
 FENAM=naomi

@@ -34,13 +34,13 @@ XM7=:Userdic.dat:B42934350>
 Dolphin\Sys\GC=:dsp_coef.bin:D2777C90>
 Dolphin\Sys\GC=:dsp_rom.bin:47DAAA65>
 
-UNZ=:FMT_DIC.ROM:82D1DAA2>
-UNZ=:FMT_DOS.ROM:112872EE>
-UNZ=:FMT_F20.ROM:9F55A20C>
-UNZ=:FMT_FNT.ROM:DD6FD544>
-UNZ=:Fmt_sys [a].rom:842B72D8>
-UNZ=:FMT_SYS.ROM:AFE4EBCF>
-UNZ=:Marty.rom:39D81A66>
+Tsugaru=UNZ=:FMT_DIC.ROM:82D1DAA2>
+Tsugaru=UNZ=:FMT_DOS.ROM:112872EE>
+Tsugaru=UNZ=:FMT_F20.ROM:9F55A20C>
+Tsugaru=UNZ=:FMT_FNT.ROM:DD6FD544>
+Tsugaru=UNZ=:Fmt_sys [a].rom:842B72D8>
+Tsugaru=UNZ=:FMT_SYS.ROM:AFE4EBCF>
+Tsugaru=UNZ=:Marty.rom:39D81A66>
 
 
 kegs=kegs32=:Rom03gd:DE7DDF29>
@@ -370,6 +370,16 @@ pcsx2\bios=retroarch\system\PCSX2\bios=play\bios=:fps2bios.rom:BA45BD94
 
 gambatte=retroarch\system=mgba=bizhawk\firmware=:dmg_boot.bin?GB_boot_ROM.gb:59C8598E>
 
+desmume=corgids=melonds=retroarch\system=:biosdsi7.bin:9F1840D9>
+desmume=corgids=melonds=retroarch\system=:biosdsi9.bin:3D64D498>
+desmume=corgids=melonds=retroarch\system=:biosnds7.bin:1280F0D5>
+desmume=corgids=melonds=retroarch\system=:biosnds9.bin:2AB23573>
+desmume=corgids=melonds=retroarch\system=:dsfirmware.bin:62EFC03D>
+desmume=corgids=melonds=retroarch\system=:dsifirmware.bin:6F6D289B>
+desmume=corgids=melonds=retroarch\system=:dsinand.bin:8B79A73C>
+desmume=corgids=melonds=retroarch\system=:BIOSGBA.ROM:81977335>
+desmume=corgids=melonds=retroarch\system=:key.cfg:0D1C432B>
+
 desmume=corgids=melonds=retroarch\system=:bios7.bin:1280F0D5>
 desmume=corgids=melonds=retroarch\system=:bios9.bin:2AB23573>
 desmume=corgids=melonds=retroarch\system=:firmware.bin:6133798D>
@@ -398,11 +408,11 @@ desmume=corgids=melonds=retroarch\system=:flashme_stealth v7.nds:19AF919B
 desmume=corgids=melonds=retroarch\system=:installer.nds:87F6D64C
 desmume=corgids=melonds=retroarch\system=:noflashme v4.ds.gba:3B320FDC
 
-demul\roms\dc.zip=:1_01d_01.bin:89F2B1A1
-demul\roms\dc.zip=:1_01d_02.bin:A2564FAD
-demul\roms\dc.zip=:1_004_01.bin:545481F
-demul\roms\dc.zip=:1_011_01.bin:2186E0E5
-demul\roms\dc.zip=:1_022_01.bin:786168F9
+redream\bios=flycast\data=demul\roms\dc.zip=:1_01d_01.bin:89F2B1A1
+redream\bios=flycast\data=demul\roms\dc.zip=:1_01d_02.bin:A2564FAD
+redream\bios=flycast\data=demul\roms\dc.zip=:1_004_01.bin:545481F
+redream\bios=flycast\data=demul\roms\dc.zip=:1_011_01.bin:2186E0E5
+redream\bios=flycast\data=demul\roms\dc.zip=:1_022_01.bin:786168F9
 
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - BIOS (All).bin:61D5613F
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Flash (All).bin:E0D202A2
@@ -416,58 +426,69 @@ redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_nvmem
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:fsca-table.bin:5D905DE4>
 
 
-retroarch\system\dc\naomi.zip=:naomi_boot.bin:D2A1C6BF
-retroarch\system\dc=:vmu_save_A1.bin:7EE8CDCD>
+redream\bios=flycast\data=retroarch\system\dc\naomi.zip=:naomi_boot.bin:D2A1C6BF
+redream\bios=flycast\data=retroarch\system\dc=:vmu_save_A1.bin:7EE8CDCD>
 
-demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23:5D5687C7
-demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23_l:E5693CE3
-demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios0.ic23:719B2B0B
-demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios1.ic23:D3E80A9F
+yuzu\keys=:prod.keys:DCAA7CAC>
+yuzu\keys=:title.keys:7467A450>
+yuzu\sysdata=:FontChineseSimplified.ttf:725c5a9a>
+yuzu\sysdata=:FontChineseTraditional.ttf:9f579516>
+yuzu\sysdata=:FontExtendedChineseSimplified.ttf:d5d7ce2f>
+yuzu\sysdata=:FontKorean.ttf:eb2882a7>
+yuzu\sysdata=:FontNintendoExtended.ttf:19bd72e8>
+yuzu\sysdata=:FontNintendoExtended2.ttf:7f2a88f5>
+yuzu\sysdata=:FontStandard.ttf:514c512b>
 
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:dcnaodev.bios:7A50FAB9
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:eeprom-naomi-main-default.bin:FEA29CBB
 
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:eeprom-naomi-main-default.bin:FEA29CBB
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576d.bin:3B2AFA7B
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576e.bin:08C0ADD7
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576g.bin:D2A1C6BF
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576h.bin:D4895685
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577d.bin:60DDCBBE
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577e.bin:CF36E97B
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577g.bin:25F64AF7
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578d.bin:DFD5F42A
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578e.bin:087F09A3
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578g.ic27:55413214
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578h.ic27:7B452946
-demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:fpr-23489c.ic14:BC38BEA1
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23:5D5687C7
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios.ic23_l:E5693CE3
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios0.ic23:719B2B0B
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip=:bios1.ic23:D3E80A9F
 
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576.ic27:9DAD3495
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576b.ic27:755A6E07
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576d.ic27:3B2AFA7B
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576e.ic27:08C0ADD7
-demul\roms\naomi.zi=retroarch\system\dc\naomi.zipp=:epr-21576g.ic27:D2A1C6BF
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576h.ic27:D4895685
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577d.ic27:60DDCBBE
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577e.ic27:CF36E97B
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577g.ic27:25F64AF7
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578b.ic27:6C9AAD83
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578d.ic27:DFD5F42A
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578e.ic27:087F09A3
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578g.ic27:55413214
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578h.ic27:7B452946
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-22850.ic27:28AA539D
-demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-22851.ic27:62483677
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:dcnaodev.bios:7A50FAB9
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:eeprom-naomi-main-default.bin:FEA29CBB
 
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:eeprom-naomi-main-default.bin:FEA29CBB
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605.bin:5731E446
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605a.bin:7BC3FC2D
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605b.bin:3A3242D4
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605c.bin:297EA6ED
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23607.bin:2B55ADD2
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23607b.bin:F308C5E9
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608.bin:929CC3A6
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608b.bin:A554B1E3
-demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608c.bin:6EF1DD8E
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:eeprom-naomi-main-default.bin:FEA29CBB
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576d.bin:3B2AFA7B
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576e.bin:08C0ADD7
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576g.bin:D2A1C6BF
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21576h.bin:D4895685
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577d.bin:60DDCBBE
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577e.bin:CF36E97B
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21577g.bin:25F64AF7
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578d.bin:DFD5F42A
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578e.bin:087F09A3
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578g.ic27:55413214
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:epr-21578h.ic27:7B452946
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip=:fpr-23489c.ic14:BC38BEA1
+
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576.ic27:9DAD3495
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576b.ic27:755A6E07
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576d.ic27:3B2AFA7B
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576e.ic27:08C0ADD7
+redream\bios=flycast\data=demul\roms\naomi.zi=retroarch\system\dc\naomi.zipp=:epr-21576g.ic27:D2A1C6BF
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21576h.ic27:D4895685
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577d.ic27:60DDCBBE
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577e.ic27:CF36E97B
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21577g.ic27:25F64AF7
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578b.ic27:6C9AAD83
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578d.ic27:DFD5F42A
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578e.ic27:087F09A3
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578g.ic27:55413214
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-21578h.ic27:7B452946
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-22850.ic27:28AA539D
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip=:epr-22851.ic27:62483677
+
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:eeprom-naomi-main-default.bin:FEA29CBB
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605.bin:5731E446
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605a.bin:7BC3FC2D
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605b.bin:3A3242D4
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23605c.bin:297EA6ED
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23607.bin:2B55ADD2
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23607b.bin:F308C5E9
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608.bin:929CC3A6
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608b.bin:A554B1E3
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip=:epr-23608c.bin:6EF1DD8E
 
 retroarch\system=:ProSystem.dat:9402D164>
 
