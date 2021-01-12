@@ -8111,7 +8111,7 @@ if ((VERCHKC3 <> RELEASE)or(DATECHK = "404: Not Found")or(DATECHK = "[CURV]"))
 			{
 				gosub, getupdate
 				guicontrol,enable,UpdateSK
-				ifnotexist,%cacheloc%\%UPDATEFILEF%
+				ifnotexist,%cacheloc%\%UPDATEURLF%
 					{
 						return
 					}
@@ -8127,13 +8127,13 @@ return
 getupdate:
 upcnt=
 filedelete,%cacheloc%\%UPDATEURLF%
-loop, %cacheloc%\%updateurln%*
-	{
-		upcnt+=1
-	}
+;loop, %cacheloc%\%updateurln%*
+;	{
+;		upcnt+=1
+;	}
 save= %cacheloc%\%UPDATEURLF%%upcnt%.zip
 splitpath,save,svaf,svap
-exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
+exe_get(ARIA,UPDATEFILE,svap,svaf,CURPID,cacheloc)
 ifexist,%save%
 	{
 		Process, close, Invader.exe
