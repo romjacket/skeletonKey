@@ -8091,7 +8091,7 @@ FileDelete, site\version.txt
 guicontrol,disable,UpdateSK
 IniRead,sourceHost,%ARCORG%,GLOBAL,SOURCEHOST
 IniRead,UPDATEFILE,%ARCORG%,GLOBAL,UPDATEFILE
-splitpath,UPDATEURLF,UPDATEFILE
+splitpath,UPDATEFILE,UPDATEURLF,updateurlhost,updateurlx,updateurln
 URLFILE= %sourceHost%
 save= %S_KeyDir%\site\version.txt
 splitpath,save,svaf,svap
@@ -8111,7 +8111,7 @@ if ((VERCHKC3 <> RELEASE)or(DATECHK = "404: Not Found")or(DATECHK = "[CURV]"))
 			{
 				gosub, getupdate
 				guicontrol,enable,UpdateSK
-				ifnotexist,%cacheloc%\%UPDATEFILE%
+				ifnotexist,%cacheloc%\%UPDATEFILEF%
 					{
 						return
 					}
@@ -8126,14 +8126,17 @@ guicontrol,enable,UpdateSK
 return
 getupdate:
 upcnt=
-
-;loop, %cacheloc%\%UPDATEFILE%
-;	{
-;		upcnt+=1
-;	}
-URLFILE= %UPDATEFILE%
-save= %cacheloc%\skeletonKey%upcnt%.zip
+filedelete,%cacheloc%\%UPDATEURLF%
+loop, %cacheloc%\%updateurln%*
+	{
+		upcnt+=1
+	}
+save= %cacheloc%\%UPDATEURLF%%upcnt%.zip
 splitpath,save,svaf,svap
+ifexist,%save%
+	{
+		
+	}
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ifexist,%save%
 	{
