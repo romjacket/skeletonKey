@@ -58,7 +58,7 @@ Loop %0%
 			{
 				LongName = %A_LoopFileLongPath%
 			}
-		if !instr(LongName,":")
+		if (!instr(LongName,":")&& !instr(LongName,"="))
 			{
 				DDRUN=
 				directrun=
@@ -1561,7 +1561,7 @@ Menu,SHORTRUN,Add,
 Menu, ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add,
 Menu, ASOCRUN, Add, Assign to System, ASRUN
-Menu, ASOCRUN, Add, Configure Emulator, ASEMUCFG
+Menu, ASOCRUN, Add, Launch Paramaters, ASEMUCFG
 Menu,ASOCRUN,Add,
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 Menu, ARCSETB, Add, Reset-URL, ARCEDURL
@@ -8133,10 +8133,6 @@ loop, %cacheloc%\%updateurln%*
 	}
 save= %cacheloc%\%UPDATEURLF%%upcnt%.zip
 splitpath,save,svaf,svap
-ifexist,%save%
-	{
-		
-	}
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
 ifexist,%save%
 	{
@@ -74327,6 +74323,7 @@ Loop, rj\*.jak
 							{
 								nwjakxtr= 1
 							}
+						msgbox,,,nwjaxtr=%nwjaxtr%`nRJEXTRARC=%RJEXTRARC%`nibjn2=%ibjn2%
 						IF (nwjakxtr = 1)
 							{
 								if (RJEXTRARC = 1)
@@ -74667,6 +74664,7 @@ Loop, rj\*.jak
 								cvil=
 								injromful=
 								NUMINC= 1
+								msgbox,,,rjmultidisc=%RJMULTIDISC%
 								if (RJMULTIDISC = 1)
 									{
 										Loop, Parse, injrmltix,|
@@ -76897,7 +76895,7 @@ if (lkupd <> "ERROR")
 		guicontrol,,RJPOSTCFGCBX,|%lkupd%||%RJPOSTCFG%
 		iniWrite, %lkupd%,rj\cur.ini,%RJSYSDD%,RJPOSTCFG
 	}
-iniread, lkupd,emuCfgPresets.ini, %RJEMUTG%, RJEXTRARC
+iniread, lkupd,emuCfgPresets.ini, %RJEMUTG%,RJEXTRARC
 if (lkupd <> "ERROR")
 	{
 		guicontrol,,RJENXTRARC,0

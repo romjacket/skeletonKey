@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<configuration version="1.40">
+<configuration version="0.0">
     <cheats>
         <show-hex-code-view>no</show-hex-code-view>
         <show-hex-main-view>no</show-hex-main-view>
@@ -40,7 +40,7 @@
                 <straight>Up</straight>
             </excitingboxing>
             <file>
-                <exit>F12</exit>
+                <exit>Alt+X</exit>
                 <launcher>Alt+L</launcher>
                 <load-state>F7</load-state>
                 <open>Ctrl+O</open>
@@ -64,7 +64,7 @@
                 <quick-save-state-8>Shift+8</quick-save-state-8>
                 <quick-save-state-9>Shift+9</quick-save-state-9>
                 <quick-save-state-oldest>Shift+0</quick-save-state-oldest>
-                <save-screenshot>F10</save-screenshot>
+                <save-screenshot>Alt+E</save-screenshot>
                 <save-state>F5</save-state>
             </file>
             <help>
@@ -89,11 +89,11 @@
             </karaokestudio>
             <machine>
                 <change-disk-side>Shift+B</change-disk-side>
-                <hard-reset>Alt+F11</hard-reset>
+                <hard-reset>Shift+T</hard-reset>
                 <no-sprite-limit-toggle>Shift+U</no-sprite-limit-toggle>
                 <pause>Shift+P</pause>
-                <power>Alt+F12</power>
-                <soft-reset>F11</soft-reset>
+                <power>Shift+D</power>
+                <soft-reset>Shift+R</soft-reset>
             </machine>
             <mahjong>
                 <a>Q</a>
@@ -148,17 +148,17 @@
                 <up>Up</up>
             </pad-1>
             <pad-2>
-                <a>Num del</a>
-                <auto-fire-a>Home</auto-fire-a>
-                <auto-fire-b>Home</auto-fire-b>
-                <b>Num 0</b>
-                <down>Num 2</down>
-                <left>Num 4</left>
-                <mic>Insert</mic>
-                <right>Num 6</right>
-                <select>Num /</select>
-                <start>*</start>
-                <up>Num 8</up>
+                <a>X</a>
+                <auto-fire-a>W</auto-fire-a>
+                <auto-fire-b>Q</auto-fire-b>
+                <b>Z</b>
+                <down>V</down>
+                <left>C</left>
+                <mic>M</mic>
+                <right>B</right>
+                <select>A</select>
+                <start>S</start>
+                <up>F</up>
             </pad-2>
             <pad-3>
                 <a>...</a>
@@ -258,7 +258,7 @@
         </keys>
     </input>
     <language>
-        <file>[EMUPATH]\language\english.nlg</file>
+        <file>C:\Emulators\nestopia\language\english.nlg</file>
     </language>
     <launcher>
         <search>
@@ -311,7 +311,7 @@
         <region>auto</region>
     </machine>
     <netplay>
-        <fullscreen>yes</fullscreen>
+        <fullscreen>no</fullscreen>
     </netplay>
     <nsf>
         <play-in-background>yes</play-in-background>
@@ -320,7 +320,7 @@
         <cheats>
             <auto-load>no</auto-load>
             <auto-save>no</auto-save>
-            <directory>[ROMPATH]\[CHEATS]\</directory>
+            <directory>C:\Emulators\nestopia\cheats\</directory>
         </cheats>
         <fds>
             <bios />
@@ -328,40 +328,39 @@
             <save-method>patch</save-method>
         </fds>
         <images>
-            <directory>[EMUPATH]</directory>
+            <directory>C:\Emulators\nestopia\</directory>
             <use-recent-directory>yes</use-recent-directory>
         </images>
         <patches>
             <auto-apply>no</auto-apply>
             <bypass-validation>no</bypass-validation>
-            <directory>[ROMPATH]\.patches\</directory>
+            <directory>C:\Emulators\nestopia\patches\</directory>
         </patches>
         <recent>
             <directories>
-                <directory>[ROMPATH]\</directory>
-                <directory>[ROMPATH]\</directory>
+                <directory>C:\Console\Nintendo - Nintendo Entertainment System\Double Dribble\</directory>
                 <locked>no</locked>
             </directories>
             <files>
-                <file>[ROMPATH]\[ROMF]</file>
+                <file>C:\Console\Nintendo - Nintendo Entertainment System\Double Dribble\Double Dribble (USA).nes</file>
                 <locked>no</locked>
             </files>
         </recent>
         <samples>
-            <directory>[ROMPATH]\[SNAPS]\</directory>
+            <directory>C:\Emulators\nestopia\samples\</directory>
         </samples>
         <saves>
-            <directory>[ROMPATH]\[MEM]\</directory>
+            <directory>C:\Emulators\nestopia\save\</directory>
             <force-read-only>no</force-read-only>
         </saves>
         <screenshots>
-            <directory>[ROMPATH]\[SNAPS]\</directory>
+            <directory>C:\Emulators\nestopia\screenshots\</directory>
             <format>png</format>
         </screenshots>
         <states>
             <auto-export>yes</auto-export>
             <auto-import>yes</auto-import>
-            <directory>[ROMPATH]\[SSTATE]\</directory>
+            <directory>C:\Emulators\nestopia\states\</directory>
             <use-compression>yes</use-compression>
         </states>
         <tapes>
@@ -384,15 +383,16 @@
         <application>
             <allow-multiple-instances>no</allow-multiple-instances>
             <autostart>yes</autostart>
-            <confirm-exit>no</confirm-exit>
+            <confirm-exit>yes</confirm-exit>
             <confirm-reset>no</confirm-reset>
+            <disable-statusmsg>no</disable-statusmsg>
             <exit-power-off>no</exit-power-off>
             <favored-system>nes-ntsc</favored-system>
             <favored-system-always-ask>no</favored-system-always-ask>
             <priority>normal</priority>
-            <run-background>yes</run-background>
-            <start-fullscreen>yes</start-fullscreen>
-            <suppress-warnings>yes</suppress-warnings>
+            <run-background>no</run-background>
+            <start-fullscreen>no</start-fullscreen>
+            <suppress-warnings>no</suppress-warnings>
         </application>
         <save>
             <cheats>yes</cheats>
@@ -406,9 +406,9 @@
     </preferences>
     <sound>
         <adjust-pitch>no</adjust-pitch>
-        <buffers>2</buffers>
+        <buffers>1</buffers>
         <device>00000000-0000-0000-0000-000000000000</device>
-        <memory-pool>hardware</memory-pool>
+        <memory-pool>system</memory-pool>
         <sample-bits>16</sample-bits>
         <sample-rate>44100</sample-rate>
         <speakers>mono</speakers>
@@ -477,7 +477,7 @@
             </ry>
             <yellow-boost>no</yellow-boost>
         </decoder>
-        <device>D7B71E3E-4968-11CF-4357-19DF1CC2C535</device>
+        <device>D7B78E66-1A66-11CF-736A-4220BDC2D735</device>
         <filters>
             <2xsai>
                 <bilinear>no</bilinear>
@@ -496,7 +496,7 @@
                 <resolution>100</resolution>
                 <scanlines>0</scanlines>
                 <sharpness>100</sharpness>
-                <tv-aspect>yes</tv-aspect>
+                <tv-aspect>no</tv-aspect>
             </ntsc>
             <scalex>
                 <bilinear>no</bilinear>
@@ -507,9 +507,15 @@
                 <scanlines>0</scanlines>
             </standard>
             <type>standard</type>
+            <xbr>
+                <bilinear>no</bilinear>
+                <blend-pixels>yes</blend-pixels>
+                <corner>Some</corner>
+                <scale>auto</scale>
+            </xbr>
         </filters>
         <fullscreen>
-            <bpp>16</bpp>
+            <bpp>32</bpp>
             <height>480</height>
             <width>640</width>
         </fullscreen>

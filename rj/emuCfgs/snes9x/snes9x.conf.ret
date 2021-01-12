@@ -114,7 +114,7 @@ WrongMovieStateProtection = ON
 MessageDisplayTime = 120
 
 [Settings\Win]
-RewindBufferSize = [REWB]
+RewindBufferSize = 2
 RewindGranularity = 1
 PauseWhenInactive = FALSE
 CustomRomOpenDialog = FALSE

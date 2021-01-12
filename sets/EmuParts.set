@@ -98,7 +98,7 @@ DosPlus<DosPlus/DosPlus.7z<vDosPlus.exe<
 dream64<dream64/dream64.7z<dream64.exe<
 dreamvmu<dreamvmu/dreamvmu.7z<DreamVMU.exe<
 dsp<dsp/dsp[ARCH].7z<dsp.exe<dsp.ini<nvram\*<
-duckstation<duckstation/duckstation.7z<duckstation-qt-x64-ReleaseLTCG.exe<qt.conf<|<|<|<|
+duckstation<duckstation/duckstation.7z<duckstation-qt-x64-ReleaseLTCG.exe<qt.conf|settings.ini<
 easyrpg<easyrpg/easyrpg-[ARCH].7z<ERPG.exe<
 EdsacSim<EdsacSim/EdsacSim.7z<EdsacPC.exe<
 eightyone<eightyone/eightyone.7z<EightyOne.exe<
@@ -174,7 +174,7 @@ gens<gens/Gens.7z<gens.exe<
 gensgs<gensgs/gensgs.7z<gens.exe<
 gensplus<gensplus/gensplus.7z<gens+.exe<
 gest<gest/gest.7z<GEST.exe<
-gpcs4<gpcs4/gpcs4.7z<GPCS4.exe<|<|<|<|<|<|
+gpcs4<gpcs4/gpcs4.7z<GPCS4.exe<
 gSport<gSport/gsport.7z<GSport.exe<
 hatari<hatari/hatari-[ARCH].7z<hatari.exe<hatari.ini
 hc20<hc20/hc20.7z
@@ -354,7 +354,7 @@ Project64<Project64/Project64-32.7z<Project64.exe<Plugin\GFX\Rice.cfg|Plugin\GFX
 project64k<project64k/project64k.7z<Project64.exe<
 ProjectTempest<ProjectTempest/ProjectTempest.7z<PT.exe<
 ProSystem<ProSystem/ProSystem.7z<ProSystem.exe<ProSystem.ini
-PS4Delta<PS4Delta/PS4Delta.7z<PS4Delta.exe<|<|<|<|<|
+PS4Delta<PS4Delta/PS4Delta.7z<PS4Delta.exe<
 psxfin<psx/psx.7z<psxfin.exe<psx.ini
 psxjin<psxjin/psxjin.7z<psxjin.exe<psxjin.ini<memcards\*.mcr
 pv1000<pv1000/pv1000.7z<pv1000.exe<pv1000.ini<
@@ -369,14 +369,14 @@ rainbow<rainbow/rainbow.7z<rainbow 2.2.exe<rainbow.config<
 raine<raine/raine.7z<raine.exe<
 rascalboyadv<rascalboyadv/rascalboyadv.7z<RascalBoy.exe<
 realityboy<realityboy/realityboy.7z<reality_boy.exe<reality_boy.ini<
-redream<redream/redream.7z<redream.exe<
+redream<redream/redream.7z<redream.exe<redream.cfg|vmu*.bin
 redsquirrel<redsquirrel/redsquirrel.7z<RedSquirrel.exe<
 regen<regen/regen.7z<Regen.exe<
 reicast<reicast/reicast[ARCH].7z<reicast.exe<emu.cfg<|<vmu_save_*.bin
-retroArch<retroArch/retroArch-[ARCH].7z<retroarch.exe<retroarch.cfg|retroarch-core-options.cfg<|<|<|<|<|
+retroArch<retroArch/retroArch-[ARCH].7z<retroarch.exe<retroarch.cfg|retroarch-core-options.cfg<
 rocknes<rocknes/rocknes.7z<rocknes.exe<rocknes.ini<*.rs0
 rpcemu<rpcemu/rpcemu.7z<RPCEmu-Recompiler.exe<
-rpcs3<rpcs3/rpcs3.7z<rpcs3.exe<config*.yml<|<|<|<|<|
+rpcs3<rpcs3/rpcs3.7z<rpcs3.exe<config*.yml<
 rx78<rx78/rx78.7z
 ryujinx<ryujinx/ryujinx.7z<ryujinx.exe<Ryujinx.runtimeconfig.json|ryujinx.conf<
 sainT<sainT/sainT.7z<sainT.exe<sainT.ini<
