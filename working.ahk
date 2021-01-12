@@ -8126,11 +8126,12 @@ guicontrol,enable,UpdateSK
 return
 getupdate:
 upcnt=
-loop, %cacheloc%\%UPDATEFILE%
-	{
-		upcnt+=1
-	}
-URLFILE= %UPDATEURLF%
+
+;loop, %cacheloc%\%UPDATEFILE%
+;	{
+;		upcnt+=1
+;	}
+URLFILE= %UPDATEFILE%
 save= %cacheloc%\skeletonKey%upcnt%.zip
 splitpath,save,svaf,svap
 exe_get(ARIA,URLFILE,svap,svaf,CURPID,cacheloc)
