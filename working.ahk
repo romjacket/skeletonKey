@@ -58,6 +58,11 @@ Loop %0%
 			{
 				LongName = %A_LoopFileLongPath%
 			}
+		if !instr(LongName,":")
+			{
+				DDRUN=
+				directrun=
+			}
 	}
 romf= %LongName%
 getport= %1%
