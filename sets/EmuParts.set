@@ -98,7 +98,7 @@ DosPlus<DosPlus/DosPlus.7z<vDosPlus.exe<
 dream64<dream64/dream64.7z<dream64.exe<
 dreamvmu<dreamvmu/dreamvmu.7z<DreamVMU.exe<
 dsp<dsp/dsp[ARCH].7z<dsp.exe<dsp.ini<nvram\*<
-duckstation<duckstation/duckstation.7z<duckstation-qt-x64-ReleaseLTCG.exe<qt.conf|settings.ini<
+duckstation<duckstation/duckstation.7z<duckstation-qt-x64-ReleaseLTCG.exe<qt.conf|settings.ini<|savestate\*.*<saves\*.msd"<
 easyrpg<easyrpg/easyrpg-[ARCH].7z<ERPG.exe<
 EdsacSim<EdsacSim/EdsacSim.7z<EdsacPC.exe<
 eightyone<eightyone/eightyone.7z<EightyOne.exe<
@@ -160,7 +160,7 @@ Frotz<Frotz/Frotz.7z<Frotz.exe<
 FS-UAE<FS-UAE/FS-UAE-[ARCH].7z<FS-UAE.exe<Config.fs-uae<|<SaveStates\Default\*.uss
 fsa1<fsa1/fsa1.7z
 funnymu<funnymu/funnymu.7z<funnymu.exe<
-Fusion<Fusion/Fusion.7z<Fusion.exe<Fusion.ini<*.srm<*.SGX
+Fusion<Fusion/Fusion.7z<Fusion.exe<Fusion.ini<*.sr0|*.srm<*.SGX
 galaxywin<galaxywin/galaxywin.7z<Galaxy.exe<
 gamecomemu<gamecomemu/gamecomemu.7z<GAMECOM.EXE<
 gamegear<gamegear/gamegear.7z<gamegear.exe<gamegear.ini<
@@ -342,7 +342,6 @@ phc25<phc25/phc25.7z
 phoenix<phoenix\phoenix.7z<PhoenixEmuProject.exe<
 PicoDrive<PicoDrive/PicoDrive.7z<PicoDrive.exe<pico.ini
 pk201<pk201/pk201.7z<pk201.exe<
-pkemu<pkemu/pkemu.7z
 pkemu<pkemu/pkemu.7z<pkemu.exe<
 Play!<Play-/Play!-[ARCH].7z<Play.exe<
 pmd85<pmd85/pmd85.7z<PMD85v13p.exe<
