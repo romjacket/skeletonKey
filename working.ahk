@@ -53971,123 +53971,73 @@ Loop,parse,altnms,|
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    PG CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 PGGUIITEMS=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ|FEBUTK|FECBXB|FECBXC|FECBXD|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEDDLA|FEDDLD|FEDDLF|FEDDLG|FEEDTA|FEEDTB|FELBXA|FELVA|FEPRGA|FERAD5A|FERAD5B|FERAD5C
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
+peg_fetog=FEPRGA|FETXTP|FETXTO|FETXTM|FETXTL|FETXTJ|FETXTI|FETXTH|FETXTG|FELBXA|FETXTC|FETXTK|FETXTB|FETXTA|FERAD5C|FERAD5B|FERAD5A|FELVA|FECBXD|FECBXC|FECBXB|FEDDLG|FEDDLA|FEDDLD|FEEDTB|FEEDTA|FECHKF|FECHKE|FECHKD|FECHKC|FECHKB|FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTH|FEBUTF|FEBUTG|FEBUTJ|FEBUTI|FEBUTK
+peg_etog=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FELVA|FERAD5A|FERAD5B|FERAD5C|FETXTA|FETXTB|FETXTK|FETXTC|FELBXA|FETXTG|FETXTH|FETXTI|FETXTJ|FETXTL|FETXTM|FETXTO|FETXTP|FEPRGA
+guicontrol,,FEBUTJ,^
 guicontrol,move,FEBUTA, x527 y33 w70 h19
 guicontrol,,FEBUTA,Download
-guicontrol,%fetog%,FEBUTB
-guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x659 y473 w93 h23
 guicontrol,,FEBUTB,CREATE
-guicontrol,%fetog%,FEBUTC
-guicontrol,enable,FEBUTC
 guicontrol,move,FEBUTC,x505 y456 w46 h17
 guicontrol,,FEBUTC,delete
-guicontrol,%fetog%,FEBUTD
-guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x355 y105 w37 h19
 guicontrol,,FEBUTD,. . .
-guicontrol,%fetog%,FEBUTE
-guicontrol,enable,FEBUTE
 guicontrol,move,FEBUTE,x262 y475 w52 h22
 guicontrol,,FEBUTE,Add
-guicontrol,%fetog%,FEBUTF
-guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x704 y451 w46 h17
 guicontrol,,FEBUTF,Load
-guicontrol,%fetog%,FEBUTH
-guicontrol,enable,FEBUTH
 guicontrol,move,FEBUTH,x261 y130 w62 h20
 guicontrol,,FEBUTH,Emulator
-guicontrol,%fetog%,FEBUTG
-guicontrol,enable,FEBUTG
 guicontrol,move,FEBUTG,x506 y477 w46 h17
 guicontrol,,FEBUTG,clear
-guicontrol,%fetog%,FEBUTI
-guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x508 y352 w18 h18
 guicontrol,,FEBUTI,v
-guicontrol,%fetog%,FEBUTJ
-guicontrol,enable,FEBUTJ
 guicontrol,move,FEBUTJ,x508 y334 w18 h18
-guicontrol,,FEBUTJ,^
-guicontrol,%fetog%,FEBUTK
-guicontrol,enable,FEBUTK
 guicontrol,move,FEBUTK,x419 y4 w18 h18
 gui, font, %fontXlg% bold
 guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
 gui, font, %fontXmed% normal
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x643 y424 w111 h13
 guicontrol,,FECHKB,Create Backups
 guicontrol,,FECHKB,1
-guicontrol,%fetog%,FECHKC
-guicontrol,enable,FECHKC
 guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x642 y357 w120 h23
 guicontrol,,FECHKD,Fullscreen
 guicontrol,,FECHKD,%pgfscr%
-guicontrol,%fetog%,FECHKE
-guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Scraper Enabled
-guicontrol,%fetog%,FECHKF
-guicontrol,enable,FECHKF
 guicontrol,,FECHKF,%pgscr%
 guicontrol,move,FECHKF,x642 y398 w120 h23
 guicontrol,,FECHKF,Detect Playlists
 guicontrol,,FECHKE,%pgdet%
 ;;emuoptions;;
-guicontrol,%fetog%,FEEDTA
-guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
 guicontrol,,FEEDTA,%A_SPACE%>[ROMPATH]>
 ;;extensions;;
-guicontrol,%fetog%,FEEDTB
-guicontrol,enable,FEEDTB
 guicontrol,-password,FEEDTB
 guicontrol,move,FEEDTB,x578 y130 w120 h21
 guicontrol,,FEEDTB,
-guicontrol,%fetog%,FEDDLD
-guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
 guicontrol,,FEDDLD,|%pgtheme%||%pgthemes%
-guicontrol,%fetog%,FEDDLA
-guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
 guicontrol,,FEDDLA,|Systems||
-guicontrol,%fetog%,FEDDLF
-guicontrol,enable,FEDDLF
 guicontrol,hide,FEDDLF
 guicontrol,move,FEDDLF,x324 y79 w100
 guicontrol,,FEDDLF,|%pgmirloc%||
-guicontrol,%fetog%,FEDDLG
-guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x325 y130 w100
 guicontrol,,FEDDLG,|other||%runlist%
 ;;fullname;;
-guicontrol,%fetog%,FECBXB
-guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x263 y153 w217
 guicontrol,,FECBXB,|%systmfldrs%
 ;;platformid;;
-guicontrol,%fetog%,FECBXC
-guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
 guicontrol,,FECBXC,|%avblnk%%fesyslst%
 ;;shortname;;
-guicontrol,%fetog%,FECBXD
-guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
 guicontrol,,FECBXD,|%avblnk%%fesyslst%
 ;;theme;;
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
@@ -54104,77 +54054,52 @@ Loop, Parse, systmfldrs,|
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
-guicontrol,%fetog%,FERAD5A
-guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
-guicontrol,%fetog%,FERAD5B
-guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
-guicontrol,%fetog%,FERAD5C
-guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
-guicontrol,%fetog%,FETXTA
-guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x643 y55 w110 h13
 guicontrol,,FETXTA,Global Theme
-guicontrol,%fetog%,FETXTB
-guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x508 y437 w120 h15
 guicontrol,,FETXTB,Remove
-guicontrol,%fetog%,FETXTK
-guicontrol,enable,FETXTK
 guicontrol,move,FETXTK,x597 y452 w106 h15
 guicontrol,,FETXTK,Load System List
-guicontrol,%fetog%,FETXTC
-guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
 guicontrol,,FETXTC,System
-guicontrol,%fetog%,FELBXA
-guicontrol,enable,FELBXA
 guicontrol,move,FELBXA,x263 y223 w240 h251
-guicontrol,%fetog%,FETXTG
-guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
 guicontrol,,FETXTG, Current
-guicontrol,%fetog%,FETXTH
-guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x316 y480 w85 h19
 guicontrol,,FETXTH, Add system
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
 guicontrol,move,FETXTI,x588 y115 w146 h13
 guicontrol,,FETXTI, Extensions (comma sperated)
-guicontrol,%fetog%,FETXTJ
-guicontrol,enable,FETXTJ
 guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
-guicontrol,%fetog%,FETXTL
-guicontrol,enable,FETXTL
 guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
-guicontrol,%fetog%,FETXTM
-guicontrol,enable,FETXTM
 guicontrol,move,FETXTM, x490 y178 w89 h13
 guicontrol,,FETXTM,Platform-Ident
-guicontrol,%fetog%,FETXTO
-guicontrol,enable,FETXTO
 guicontrol,move,FETXTO, x491 y201 w89 h13
 guicontrol,,FETXTO,Short-Name
-guicontrol,%fetog%,FETXTP
-guicontrol,enable,FETXTP
 guicontrol,move,FETXTP, x441 y6 w47 h15
 guicontrol,,FETXTP,Launch
-guicontrol,%fetog%,FEPRGA
-guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
 gosub, PGPOPULATESYS
+Loop,parse,peg_fetog,|
+	{
+		guicontrol,%fetog%,%A_LoopField%
+		
+	}
+Loop,parse,peg_etog,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 pgenable:
@@ -57746,122 +57671,73 @@ rfsetcfg= %RFHOME%\settings.conf
 gosub, rfgpsetcfg
 ;};;;;;;;;;;;;;;;;;;;;;;
 RFGUIITEMS=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTH|FEBUTI|FEBUTJ|FEBUTK|FECBXA|FECBXB|FECBXC|FECBXD|FECHKB|FECHKC|FECHKD|FECHKE|FEDDLA|FEDDLD|FEDDLF|FEDDLG|FEEDTA|FEEDTB|FELBXA|FELVA|FEPRGA|FERAD2A|FERAD2B|FERAD5A|FERAD5B|FERAD5
+rfe_tog=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FEEDTA|FEEDTB|FEDDLD|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FETXTA|FETXTK|FETXTC|FETXTD|FELBXA|FETXTG|FETXTH|FETXTN|FETXTI|FETXTJ|FETXTL|FETXTM|FETXTO|FETXTP|FEPRGA
+rft_entog=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FEEDTA|FEEDTB|FEDDLD|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FETXTA|FETXTK|FETXTC|FETXTD|FELBXA|FETXTG|FETXTH|FETXTN|FETXTI|FETXTJ|FETXTL|FETXTM|FETXTO|FETXTP|FEPRGA
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    RF CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA, x530 y28 w65 h20
 guicontrol,,FEBUTA,Download
-guicontrol,%fetog%,FEBUTB
-guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x659 y473 w93 h23
 guicontrol,,FEBUTB,CREATE
-guicontrol,%fetog%,FEBUTC
-guicontrol,enable,FEBUTC
 guicontrol,move,FEBUTC,x505 y456 w46 h17
 guicontrol,,FEBUTC,delete
-guicontrol,%fetog%,FEBUTD
-guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x355 y105 w37 h19
 guicontrol,,FEBUTD,. . .
-guicontrol,%fetog%,FEBUTE
-guicontrol,enable,FEBUTE
 guicontrol,move,FEBUTE,x262 y475 w52 h22
 guicontrol,,FEBUTE,Add
-guicontrol,%fetog%,FEBUTF
-guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x704 y451 w46 h17
 guicontrol,,FEBUTF,Load
-guicontrol,%fetog%,FEBUTH
-guicontrol,enable,FEBUTH
 guicontrol,move,FEBUTH,x261 y130 w62 h20
 guicontrol,,FEBUTH,Emulator
-guicontrol,%fetog%,FEBUTG
-guicontrol,enable,FEBUTG
 guicontrol,move,FEBUTG,x506 y477 w46 h17
 guicontrol,,FEBUTG,clear
-guicontrol,%fetog%,FEBUTI
-guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x508 y352 w18 h18
 guicontrol,,FEBUTI,v
-guicontrol,%fetog%,FEBUTJ
-guicontrol,enable,FEBUTJ
 guicontrol,move,FEBUTJ,x508 y334 w18 h18
 guicontrol,,FEBUTJ,^
-guicontrol,%fetog%,FEBUTK
-guicontrol,enable,FEBUTK
 guicontrol,move,FEBUTK,x419 y4 w18 h18
 gui, font, %fontXlg% bold
 guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
 gui, font, %fontXmed% normal
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x643 y424 w111 h13
 guicontrol,,FECHKB,Create Backups
 guicontrol,,FECHKB,1
-guicontrol,%fetog%,FECHKC
-guicontrol,enable,FECHKC
 guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x642 y357 w120 h23
 guicontrol,,FECHKD,Fullscreen
 guicontrol,,FECHKD,%rffscr%
-guicontrol,%fetog%,FECHKE
-guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Video Enabled
 guicontrol,,FECHKE,%rfven%
-guicontrol,%fetog%,FEEDTA
-guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
 guicontrol,,FEEDTA,
-guicontrol,%fetog%,FEEDTB
-guicontrol,enable,FEEDTB
 guicontrol,-password,FEEDTB
 guicontrol,move,FEEDTB,x578 y130 w120 h21
 guicontrol,,FEEDTB,
-guicontrol,%fetog%,FEDDLD
-guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
 guicontrol,,FEDDLD,|%rftheme%||%rfthemes%
-;;guicontrol,%fetog%,FEDDLA
-;;guicontrol,enable,FEDDLA
+;;
+;;
 ;;guicontrol,move,FEDDLA,x9 y41 w249
 ;;guicontrol,,FEDDLA,|Systems||
-guicontrol,%fetog%,FEDDLF
-guicontrol,enable,FEDDLF
-guicontrol,hide,FEDDLF
 guicontrol,move,FEDDLF,x324 y79 w100
 guicontrol,,FEDDLF,|%rfmirloc%||
-guicontrol,%fetog%,FEDDLG
-guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x325 y130 w100
 guicontrol,,FEDDLG,|other||%emuinstpop%
 ;;fullname;;
-guicontrol,%fetog%,FECBXB
-guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x263 y153 w217
 guicontrol,,FECBXB,|%systmfldrs%
 ;;platform;;
-guicontrol,%fetog%,FECBXC
-guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
 guicontrol,,FECBXC,|%systmfldrs%
 ;;name;;
-guicontrol,%fetog%,FECBXD
-guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
 ;;guicontrol,,FECBXD,|%avblnk%%fesyslst%
 guicontrol,,FECBXD,|%fesyslst%
 ;;theme;;
-guicontrol,%fetog%,FECBXA
-guicontrol,enable,FECBXA
 guicontrol,move,FECBXA,x641 y266 w104
 guicontrol,,FECBXA,|%rfrez%||stretch|%qres%
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 Gui,ListView,FELVA
@@ -57877,95 +57753,61 @@ Loop, Parse, systmfldrs,|
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
-guicontrol,hide,FEDDLF
-guicontrol,%fetog%,FERAD5A
-guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
-guicontrol,%fetog%,FERAD5B
-guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
-guicontrol,%fetog%,FERAD5C
-guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
-guicontrol,%fetog%,FERAD2A
-guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x635 y241 w62 h13
 guicontrol,,FERAD2A,cleaned
 guicontrol,,FERAD2A, %rfcleant%
-guicontrol,%fetog%,FERAD2B
-guicontrol,enable,FERAD2B
 guicontrol,move,FERAD2B,x710 y242 w50 h13
 guicontrol,,FERAD2B,[]()
-guicontrol,%fetog%,FETXTA
-guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x643 y55 w110 h13
 guicontrol,,FETXTA,Global Theme
-guicontrol,hide,FETXTB
-guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x508 y437 w120 h15
 guicontrol,,FETXTB,Remove
-guicontrol,%fetog%,FETXTK
-guicontrol,enable,FETXTK
 guicontrol,move,FETXTK,x660 y452 w45 h15
 guicontrol,,FETXTK,menu.txt
-guicontrol,%fetog%,FETXTC
-guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
 guicontrol,,FETXTC,Mirror Location
-guicontrol,%fetog%,FETXTD
-guicontrol,enable,FETXTD
 guicontrol,move,FETXTD,x577 y220 w90 h13
 guicontrol,,FETXTD,Clean Titles
-guicontrol,%fetog%,FELBXA
-guicontrol,enable,FELBXA
 guicontrol,move,FELBXA,x263 y223 w240 h251
-guicontrol,%fetog%,FETXTG
-guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
 guicontrol,,FETXTG, Current
-guicontrol,%fetog%,FETXTH
-guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x316 y480 w85 h19
 guicontrol,,FETXTH, Add system
-guicontrol,%fetog%,FETXTN
-guicontrol,enable,FETXTN
 guicontrol,move,FETXTN,x587 y271 w50 h16
 guicontrol,,FETXTN,resolution
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
 guicontrol,move,FETXTI,x588 y115 w146 h13
 guicontrol,,FETXTI, Extensions (comma sperated)
-guicontrol,%fetog%,FETXTJ
-guicontrol,enable,FETXTJ
 guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
-guicontrol,%fetog%,FETXTL
-guicontrol,enable,FETXTL
 guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
-guicontrol,%fetog%,FETXTM
-guicontrol,enable,FETXTM
 guicontrol,move,FETXTM, x490 y178 w49 h13
 guicontrol,,FETXTM,Platform
-guicontrol,%fetog%,FETXTO
-guicontrol,enable,FETXTO
 guicontrol,move,FETXTO, x491 y201 w49 h13
 guicontrol,,FETXTO,Name
-guicontrol,%fetog%,FETXTP
-guicontrol,enable,FETXTP
 guicontrol,move,FETXTP, x441 y6 w47 h15
 guicontrol,,FETXTP,Launch
-guicontrol,%fetog%,FEPRGA
-guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
 gosub, RFPOPULATESYS
+Loop,parse,rfe_tog,|
+	{
+		guicontrol,%fetog%,%A_LoopField%
+	}
+return
+Loop,parse,rft_entog,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;   RF DOWNLOAD THEMES  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61550,136 +61392,82 @@ if (estransition = "slide")
 	}
 ;};;;;;;;;;;;;;;;;;;;;;;
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;    ES CREATE GUI   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
+emst_dtog=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLC|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FETXTA|FETXTC|FETXTD|FELBXA|FETXTE|FETXTF|FETXTH|FETXTN|FETXTI|FETXTJ|FETXTL|FETXTM|FETXTO|FETXTP|FEPRGA
+emst_etog=FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FETXTA|FETXTB|FETXTK|FETXTC|FETXTD|FELBXA|FETXTE|FETXTF|FETXTG|FETXTH|FETXTN|FETXTI|FETXTJ|FETXTL|FETXTM|FETXTO|FETXTP|FEPRGA
 guicontrol,move,FEBUTA, x537 y33 w60 h19
 guicontrol,,FEBUTA,Download
 gui,font,normal
 Guicontrol,font,FEBUTA
-guicontrol,%fetog%,FEBUTB
-guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x659 y473 w93 h23
 guicontrol,,FEBUTB,CREATE
-guicontrol,%fetog%,FEBUTC
-guicontrol,enable,FEBUTC
 guicontrol,move,FEBUTC,x394 y475 w52 h22
 guicontrol,,FEBUTC,Delete
-guicontrol,%fetog%,FEBUTD
-guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x355 y105 w37 h19
 guicontrol,,FEBUTD,. . .
-guicontrol,%fetog%,FEBUTE
-guicontrol,enable,FEBUTE
 guicontrol,move,FEBUTE,x262 y475 w52 h22
 guicontrol,,FEBUTE,Add
-guicontrol,%fetog%,FEBUTF
-guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x704 y451 w46 h17
 guicontrol,,FEBUTF,Load
-guicontrol,%fetog%,FEBUTH
-guicontrol,enable,FEBUTH
 guicontrol,move,FEBUTH,x261 y130 w62 h20
 guicontrol,,FEBUTH,Emulator
-guicontrol,%fetog%,FEBUTG
-guicontrol,enable,FEBUTG
 guicontrol,move,FEBUTG,x450 y475 w52 h22
 guicontrol,,FEBUTG,Clear
-guicontrol,%fetog%,FEBUTI
-guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x508 y352 w18 h18
 guicontrol,,FEBUTI,v
-guicontrol,%fetog%,FEBUTJ
-guicontrol,enable,FEBUTJ
 guicontrol,move,FEBUTJ,x508 y334 w18 h18
 guicontrol,,FEBUTJ,^
-guicontrol,%fetog%,FEBUTK
-guicontrol,enable,FEBUTK
 guicontrol,move,FEBUTK,x419 y4 w18 h18
 gui, font, %fontXlg% bold
 guicontrol, font, FEBUTK
 guicontrol,,FEBUTK,>
 gui, font, %fontXmed% normal
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x643 y424 w111 h13
 guicontrol,,FECHKB,Video-sound-on
 guicontrol,,FECHKB,%esvideosnd%
-guicontrol,%fetog%,FECHKC
-guicontrol,enable,FECHKC
 guicontrol,move,FECHKC,x521 y55 w74 h13
 guicontrol,,FECHKC,Overwrite
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x642 y357 w120 h23
 guicontrol,,FECHKD,GameLists Only
 guicontrol,,FECHKD,%esgameparse%
-guicontrol,%fetog%,FECHKE
-guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x642 y378 w120 h23
 guicontrol,,FECHKE,Quick Select
 guicontrol,,FECHKE,%esquickselect%
-guicontrol,%fetog%,FECHKG
-guicontrol,enable,FECHKG
 guicontrol,move,FECHKG,x514 y406 w125 h13
 guicontrol,,FECHKG,Overwrite Gamelists
 guicontrol,,FECHKG,1
-guicontrol,%fetog%,FECHKF
-guicontrol,enable,FECHKF
 guicontrol,move,FECHKF,x642 y400 w120 h23
 guicontrol,,FECHKF,Navigation Sounds
 guicontrol,,FECHKF,%esnavsnds%
-guicontrol,%fetog%,FEEDTA
-guicontrol,enable,FEEDTA
 guicontrol,move,FEEDTA,x428 y130 w145 h21
 guicontrol,,FEEDTA,%A_SPACE%>[ROMPATH]>
-guicontrol,%fetog%,FEEDTB
-guicontrol,enable,FEEDTB
 guicontrol,-password,FEEDTB
 guicontrol,move,FEEDTB,x578 y130 w120 h21
 guicontrol,,FEEDTB,
-guicontrol,%fetog%,FEDDLD
-guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y32 w162
 guicontrol,,FEDDLD,|%esthpop%||%esthemes%
-;;guicontrol,%fetog%,FEDDLA
-;;guicontrol,enable,FEDDLA
+;;
+;;
 ;;guicontrol,move,FEDDLA,x9 y41 w249
 ;;guicontrol,,FEDDLA,|Systems||
-guicontrol,%fetog%,FEDDLC
-guicontrol,enable,FEDDLC
 guicontrol,move,FEDDLC,x661 y259 w82
 guicontrol,,FEDDLC,|video||automatic|detailed|basic|
-guicontrol,%fetog%,FEDDLF
-guicontrol,enable,FEDDLF
 guicontrol,hide,FEDDLF
 guicontrol,move,FEDDLF,x324 y79 w100
 guicontrol,,FEDDLF,|%esmirloc%||
-guicontrol,%fetog%,FEDDLG
-guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x325 y130 w100
 guicontrol,,FEDDLG,|other||%emuinstpop%
 ;;fullname;;
-guicontrol,%fetog%,FECBXB
-guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x263 y153 w217
 guicontrol,,FECBXB,|%systmfldrs%
 ;;platform;;
-guicontrol,%fetog%,FECBXC
-guicontrol,enable,FECBXC
 guicontrol,move,FECBXC,x263 y176 w217
 guicontrol,,FECBXC,|%systmfldrs%
 ;;name;;
-guicontrol,%fetog%,FECBXD
-guicontrol,enable,FECBXD
 guicontrol,move,FECBXD,x264 y199 w217
 guicontrol,,FECBXD,|%cursysthemelist%
 ;;theme;;
-guicontrol,%fetog%,FECBXA
-guicontrol,enable,FECBXA
 guicontrol,move,FECBXA,x590 y166 w104
 guicontrol,,FECBXA,|%cursysthemelist%
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
@@ -61696,105 +61484,57 @@ Loop, Parse, systmfldrs,|
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
-guicontrol,%fetog%,FERAD5A
-guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x701 y151 w56 h15
 guicontrol,,FERAD5A, Jackets
 guicontrol,,FERAD5A, 0
-guicontrol,%fetog%,FERAD5B
-guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x701 y171 w53 h15
 guicontrol,,FERAD5B, Mirrors
 guicontrol,,FERAD5B, 0
-guicontrol,%fetog%,FERAD5C
-guicontrol,enable,FERAD5C
 guicontrol,move,FERAD5C,x701 y133 w53 h15
 guicontrol,,FERAD5C,ROMs
 guicontrol,,FERAD5C, 1
-guicontrol,%fetog%,FERAD2A
-guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x661 y241 w44 h13
 guicontrol,,FERAD2A,slide
 guicontrol,,FERAD2A, %estrans%
-guicontrol,%fetog%,FERAD2B
-guicontrol,enable,FERAD2B
 guicontrol,move,FERAD2B,x710 y242 w50 h13
 guicontrol,,FERAD2B, Fade
 guicontrol,,FERAD2B,%estrans2%
-guicontrol,%fetog%,FESLDA
 guicontrol,+Range100-1000,FESLDA
-guicontrol,enable,FESLDA
 guicontrol,move,FESLDA,x636 y316 w120 h32
 guicontrol,,FESLDA,%esvideoram%
-guicontrol,%fetog%,FETXTA
-guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x643 y55 w110 h13
 guicontrol,,FETXTA,Global Theme
-guicontrol,hide,FETXTB
-guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x508 y437 w120 h15
 guicontrol,,FETXTB,Remove
-guicontrol,hide,FETXTK
-guicontrol,enable,FETXTK
 guicontrol,move,FETXTK,x597 y452 w106 h15
 guicontrol,,FETXTK,Load es_systems.cfg
-guicontrol,%fetog%,FETXTC
-guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x14 y23 w512 h16
 guicontrol,,FETXTC,System Location
-guicontrol,%fetog%,FETXTD
-guicontrol,enable,FETXTD
 guicontrol,move,FETXTD,x577 y242 w82 h13
 guicontrol,,FETXTD,Transition Style
-guicontrol,%fetog%,FELBXA
-guicontrol,enable,FELBXA
 guicontrol,move,FELBXA,x263 y223 w240 h251
-guicontrol,%fetog%,FETXTE
-guicontrol,enable,FETXTE
 guicontrol,move,FETXTE,x652 y297 w93 h23
 guicontrol,,FETXTE,Vram limit : %esvideoram%
-guicontrol,%fetog%,FETXTF
-guicontrol,enable,FETXTF
 guicontrol,move,FETXTF,x583 y263 w71 h13
 guicontrol,,FETXTF, Gamelist Style
-guicontrol,hide,FETXTG
-guicontrol,enable,FETXTG
 guicontrol,move,FETXTG,x424 y478 w80 h20
 guicontrol,,FETXTG, Current
-guicontrol,%fetog%,FETXTH
-guicontrol,enable,FETXTH
 guicontrol,move,FETXTH, x329 y480 w47 h14
 guicontrol,,FETXTH, System
-guicontrol,%fetog%,FETXTN
-guicontrol,enable,FETXTN
 guicontrol,move,FETXTN,x610 y190 w70 h16
 guicontrol,,FETXTN,system theme
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
 guicontrol,move,FETXTI,x580 y115 w146 h13
 guicontrol,,FETXTI, Extensions (comma sperated)
-guicontrol,%fetog%,FETXTJ
-guicontrol,enable,FETXTJ
 guicontrol,move,FETXTJ,x424 y82 w326 h31
 guicontrol,,FETXTJ,
-guicontrol,%fetog%,FETXTL
-guicontrol,enable,FETXTL
 guicontrol,move,FETXTL,x488 y155 w62 h13
 guicontrol,,FETXTL,Full-Name
-guicontrol,%fetog%,FETXTM
-guicontrol,enable,FETXTM
 guicontrol,move,FETXTM, x490 y178 w49 h13
 guicontrol,,FETXTM,Platform
-guicontrol,%fetog%,FETXTO
-guicontrol,enable,FETXTO
 guicontrol,move,FETXTO, x491 y201 w49 h13
 guicontrol,,FETXTO,Name
-guicontrol,%fetog%,FETXTP
-guicontrol,enable,FETXTP
 guicontrol,move,FETXTP, x441 y6 w47 h15
 guicontrol,,FETXTP,Launch
-guicontrol,%fetog%,FEPRGA
-guicontrol,enable, FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
 curjmn= %ESHOME%\es_settings.cfg
@@ -61810,6 +61550,14 @@ beyvn= <string name="ThemeSet" value="
 ;"
 seyvn= " />
 ;"
+Loop,parse,emst_dtog,|
+	{
+		guicontrol,%fetog%,%A_LoopField%
+	}
+Loop,parse,emst_etog,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;
 esguitog:
@@ -65580,6 +65328,8 @@ return
 ;{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  MIRRORED LINKS FRONTEND  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Mirrored_LinksToggle:
 gosub, FEUNPOP
+mlk_etog=FEBUTB|FEBUTD|FEBUTC|FECHKA|FECHKB|FECHKD|FEBUTE|FEBUTA|FETXTI|FELVA|FETXTE|FETXTF
+mlk_dtog=FEBUTB|FEBUTD|FEBUTC|FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FELBXA|FEBUTE|FEBUTA|FETXTI|FELVA|FETXTE|FETXTF
 MLGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FELBXA|FELVA
 fetog= show
 artlkupit= 
@@ -65590,140 +65340,40 @@ artlkupd=
 artlkupe=
 artlkupf=
 gosub, imglocfi
-guicontrol,%fetog%,FEBUTB
-guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x684 y476 w75 h23
 guicontrol,,FEBUTB,CREATE
-guicontrol,%fetog%,FEBUTD
-guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x272 y180 w23 h23
 guicontrol,,FEBUTD,...
-guicontrol,%fetog%,FEBUTC
-guicontrol,enable,FEBUTC
 guicontrol,move,FEBUTC,x272 y156 w23 h23
 guicontrol,,FEBUTC,...
-guicontrol,%fetog%,FECHKA
-guicontrol,enable,FECHKA
 guicontrol,move,FECHKA,x289 y403 w132 h13
 guicontrol,,FECHKA,Enable Boxart Icons
 guicontrol,,FECHKA,0
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x289 y453 w100 h13
 guicontrol,,FECHKB,Overwrite Mirrors
-guicontrol,%fetog%,FECHKC
 guicontrol,move,FECHKC,x289 y437 w100 h13
 guicontrol,,FECHKC,Overwrite Icons
 guicontrol,disable,FECHKC
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x289 y387 w170 h13
 guicontrol,,FECHKD,Create Shortcut in ROM-Jacket
-guicontrol,%fetog%,FECHKE
 guicontrol,disable,FECHKE
 guicontrol,move,FECHKE,x289 y420 w170 h13
 guicontrol,,FECHKE,Create Icon in ROM-Jacket
-/*
-guicontrol,,FEBUTA,-
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
-guicontrol,move,FEBUTA,x544 y40 w18 h23
-guicontrol,%fetog%,FEBUTF
-guicontrol,enable,FEBUTF
-guicontrol,move,FEBUTF,x741 y62 w18 h23
-guicontrol,,FEBUTF,-
-;;guicontrol,%fetog%,FEBUTG
-;;guicontrol,enable,FEBUTG
-;;guicontrol,move,FEBUTG,x10 y9 w75 h23
-;;guicontrol,,FEBUTG,uncheck all
-guicontrol,%fetog%,FECHKF
-guicontrol,move,FECHKF,x289 y452 w100 h13
-guicontrol,,FECHKF,Fuzzy Matching
-guicontrol,disable,FECHKF
-guicontrol,hide,FECHKD
-guicontrol,hide,FECHKE
-guicontrol,%fetog%,FEDDLA
-guicontrol,enable,FEDDLA
-guicontrol,move,FEDDLA,x9 y11 w249
-guicontrol,,FEDDLA,|Systems||%systmfldrs%
-guicontrol,%fetog%,FEDDLB
-guicontrol,enable,FEDDLB
-guicontrol,move,FEDDLB,x563 y41 w195
-guicontrol,,FEDDLB,|%MIRFEDDLA%
-;;guicontrol,%fetog%,FEDDLC
-;;guicontrol,move,FEDDLC,x279 y398 w162
-;;guicontrol,,FEDDLC,|Jacket_Boxart||Scraped_Boxart|RetroArch_Boxart|Other
-;;guicontrol,disable,FEDDLC
-guicontrol,%fetog%,FERAD5A
-guicontrol,enable,FERAD5A
-guicontrol,move,FERAD5A,x275 y43 w108 h13
-guicontrol,,FERAD5A,Systems
-guicontrol,,FERAD5A,1
-guicontrol,%fetog%,FERAD5B
-guicontrol,enable,FERAD5B
-guicontrol,move,FERAD5B,x275 y63 w105 h13
-guicontrol,,FERAD5B, Mirrors
-;;guicontrol,hide,FERAD5C
-;;guicontrol,enable,FERAD5C
-;;guicontrol,move,FERAD5C,x275 y97 w119 h13
-;;guicontrol,,FERAD5C, Mirror-Shortcuts
-guicontrol,%fetog%,FETXTA
-guicontrol,enable,FETXTA
-guicontrol,move,FETXTA,x625 y26 w92 h13
-guicontrol,,FETXTA,Mirror-Locations
-guicontrol,%fetog%,FETXTB
-guicontrol,enable,FETXTB
-guicontrol,move,FETXTB,x472 y44 w70 h13
-guicontrol,,FETXTB,Create Mirrors
-;;guicontrol,%fetog%,FETXTC
-;;guicontrol,enable,FETXTC
-;;guicontrol,move,FETXTC,x444 y404 w158 h13
-;;guicontrol,,FETXTC,Boxart Subdirectories Source
-;;guicontrol,%fetog%,FETXTD
-;;guicontrol,enable,FETXTD
-;;guicontrol,move,FETXTD,x352 y143 w73 h13
-;;guicontrol,,FETXTD,Icon Destination
-;;guicontrol,%fetog%,FETXTG
-;;guicontrol,enable,FETXTG
-;;guicontrol,move,FETXTG,x276 x280 y90 w475 h13
-;;guicontrol,,FETXTG,Boxart= %CBOXLOC%
-guicontrol,%fetog%,FETXTH
-guicontrol,enable,FETXTH
-guicontrol,move,FETXTH,x586 y230 w118 h13
-guicontrol,,FETXTH,Delete Selected Mirrors
-
-*/
-guicontrol,%fetog%,FELBXA
-;;guicontrol,+multi,FELBXA
 guicontrol,move,FELBXA,x521 y208 w109 h186
 guicontrol,,FELBXA,|%iconsrc%
-guicontrol,%fetog%,FEBUTE
-guicontrol,enable,FEBUTE
 guicontrol,move,FEBUTE,x631 y376 w53 h19
 guicontrol,,FEBUTE,Delete
 guicontrol,,FEBUTA,Reset
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA,x631 y351 w53 h19
-
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
 guicontrol,move,FETXTI,x631 y305 w83 h13
 guicontrol,,FETXTI,Icon Sources
-
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y34 w247 h463
 guicontrol,+altsubmit,FELVA
 guicontrol,+checked,FELVA
 guicontrol,+Multi,FELVA
-guicontrol,%fetog%,FETXTE
-guicontrol,enable,FETXTE
 guicontrol,move,FETXTE,x299 y160 w456 h13
 guicontrol,,FETXTE,Mirror= %CMIRLOC%
-guicontrol,%fetog%,FETXTF
-guicontrol,enable,FETXTF
 guicontrol,move,FETXTF,x299 y184 w456 h13
 guicontrol,,FETXTF,Icons= %CICOLOC%
 gui,ListView,FELVA
@@ -65748,7 +65398,14 @@ ifnotexist,%CICOLOC%\
 		filecreateDir,%S_KeyDir%\icons
 		iniwrite,"%S_KeyDir%\mirrors",Settings.ini,Mirror_Icons
 	}
-
+Loop,parse,mlk_dtog,|
+	{
+		guicontrol,%fetog%,%A_LoopField%
+	}
+Loop,parse,mlk_etog,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 Mirrored_LinksfeBUTA:
 ;{;;;;;;;;;;;;;;;;;;;;;   RESET ICONLOC   ;;;;;;;;;;;;;;;;;;;;;;;
@@ -66346,6 +66003,8 @@ return
 MediaToggle:
 gosub, FEUNPOP
 fetog= show
+fe_medshw=FEPRGA|FETXTE|FETXTD|FETXTC|FETXTB|FETXTA|FERAD2C|FERAD2A|FERAD5A|FERAD5B|FELVA|FEDDLA|FEDDLD|FECHKG|FECHKP|FECHKE|FECHKD|FECHKB|FECHKA|FEBUTA|FECHKC
+fe_medtog=FEBUTM|FEPICA|FEBUTA|FEBUTN|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTG|FEBUTO|FETXTN|FETXTM|FETXTL|FETXTJ|FETXTG|FETXTE|FETXTD|FETXTC|FETXTB|FETXTA|FERAD4B|FERAD4A|FERAD7B|FERAD2B|FERAD2A|FERAD2C|FERAD7A|FERAD5A|FERAD5B|FELVA|FEDDLA|FEDDLC|FEDDLF|FEDDLE|FEDDLD|FEDDLG|FECHKN|FECHKO|FECHKM|FECHKL|FECHKK|FECHKJ|FECHKH|FECHKG|FECHKF|FECHKP|FECHKE|FECHKD|FECHKC|FECHKB|FECHKA|FELBXA|FECBXB|FEBUTI|FEBUTM|FEBUTL|FEEDTA|FEEDTB|FEEDTC|FEEDTD|FELBXB|FECBXA
 ifnotexist, mediafe.ini
 	{
 		filecopy,sets\mediafe.set,mediafe.ini
@@ -66461,216 +66120,115 @@ Loop,parse,ssenms,|
 		pggmbt%A_Index%= %A_LoopField%
 		ppartb.= A_LoopField . "|"
 	}
-guicontrol,enable,FEPICA
 guicontrol,move,FEPICA,x495 y5 w240 h205
 guicontrol,,FEPICA,
-guicontrol,%fetog%,FEBUTA
-guicontrol,enable,FEBUTA
 guicontrol,move,FEBUTA,x458 y420 w83 h33
 guicontrol,,FEBUTA,Download
 gui,font,Bold
 Guicontrol,font,FEBUTA
 gui,font,normal
-guicontrol,hide,FEBUTN
-guicontrol,enable,FEBUTN
 guicontrol,move,FEBUTN,x350 y470 w15 h15
 guicontrol,,FEBUTN,-
-guicontrol,hide,FEBUTB
-guicontrol,enable,FEBUTB
 guicontrol,move,FEBUTB,x259 y285 w17 h18
 guicontrol,,FEBUTB,^
-guicontrol,hide,FEBUTC
-guicontrol,enable,FEBUTC
 guicontrol,move,FEBUTC,x259 y305 w17 h18
 guicontrol,,FEBUTC,v
-guicontrol,hide,FEBUTD
-guicontrol,enable,FEBUTD
 guicontrol,move,FEBUTD,x279 y367 w45 h19
 guicontrol,,FEBUTD, reset
-guicontrol,hide,FEBUTE
-guicontrol,enable,FEBUTE
 guicontrol,move,FEBUTE,x330 y367 w48 h19
 guicontrol,,FEBUTE, remove
-guicontrol,hide,FEBUTF
-guicontrol,enable,FEBUTF
 guicontrol,move,FEBUTF,x339 y110 w45 h19
 guicontrol,,FEBUTF,. . .
-guicontrol,hide,FEBUTG
-guicontrol,enable,FEBUTG
 guicontrol,move,FEBUTG,x533 y474 w11 h16
 guicontrol,,FEBUTG,<
-guicontrol,hide,FEBUTO
-guicontrol,enable,FEBUTO
 guicontrol,move,FEBUTO,,x534 y240 w30 h19
 guicontrol,,FEBUTO,>All
-guicontrol,hide,FEBUTH
 guicontrol,enable,FEBUTH
 guicontrol,move,FEBUTH,x544 y474 w11 h16
 guicontrol,,FEBUTH,>
-guicontrol,hide,FEBUTI
-guicontrol,enable,FEBUTI
 guicontrol,move,FEBUTI,x458 y420 w83 h33
 guicontrol,,FEBUTI,cancel
-guicontrol,hide,FEBUTM
-guicontrol,enable,FEBUTM
 guicontrol,move,FEBUTM,x738 y473 w20 h20
 guicontrol,,FEBUTM,...
-guicontrol,hide,FEBUTL
-guicontrol,enable,FEBUTL
 guicontrol,move,FEBUTL,x619 y214 w36 h17
 guicontrol,,FEBUTL,open
-guicontrol,hide,FELNKB
 ;;guicontrol, ,FELNKB,<a href="https://www.python.org/downloads/">Python not detected.</a>
 guicontrol, ,FELNKB,
 guicontrol,move,FELNKB,x435 y5 w137 h13
-guicontrol,hide,FELNKA
 guicontrol, ,FELNKA,<a href="http://screenscraper.fr">screenscraper.fr</a>
 guicontrol,move,FELNKA,x289 y208 w128 h13
-guicontrol,enable,FEEDTA
-guicontrol,hide,FEEDTA
 guicontrol,move,FEEDTA,x348 y158 w110 h21
 guicontrol,,FEEDTA,%ssuser%
-guicontrol,enable,FEEDTB
-guicontrol,hide,FEEDTB
 guicontrol,move,FEEDTB,x348 y180 w110 h21
 guicontrol,+password,FEEDTB
 guicontrol,,FEEDTB,%sspassw%
-guicontrol,enable,FEEDTC
-guicontrol,hide, FEEDTC
 guicontrol,move,FEEDTC, x397 y368 w72 h21
 guicontrol,+number,FEEDTC
 guicontrol,,FEEDTC, %imagewidth%
-guicontrol,enable,FEEDTD
-guicontrol,hide, FEEDTD
 guicontrol,move, FEEDTD,x397 y393 w72 h21
 guicontrol,+number,FEEDTD
 guicontrol,,FEEDTD, %imageheight%
-guicontrol,hide,FELBXB
 guicontrol,-Multi,FELBXB
-guicontrol,enable,FELBXB
 guicontrol,move,FELBXB,x564 y235 w199 h212
-guicontrol,hide,FECBXA
 guicontrol,,FECBXA,|ImageName||
-guicontrol,enable,FECBXA
 guicontrol,move,FECBXA,x444 y89 w100 h21
-guicontrol,hide,FECBXB
 guicontrol,+Right,FECBXB
 guicontrol,,FECBXB,|
-guicontrol,enable,FECBXB
 guicontrol,move,FECBXB,x565 y474 w171
 guicontrol,,FELBXB,|
-guicontrol,hide,FELBXA
-guicontrol,enable,FELBXA
 guicontrol,move,FELBXA,x279 y259 w101 h108
 guicontrol,,FELBXA,|%mediaorder%
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;{;;;; CHECKBOXES ;;;;;;;
-guicontrol,%fetog%,FECHKA
-guicontrol,enable,FECHKA
 guicontrol,move,FECHKA,x466 y259 w80 h13
 guicontrol,,FECHKA,Backdrop
-guicontrol,%fetog%,FECHKB
-guicontrol,enable,FECHKB
 guicontrol,move,FECHKB,x466 y277 w80 h13
 guicontrol,,FECHKB,Box-Art
-guicontrol,%fetog%,FECHKC
-guicontrol,enable,FECHKC
 guicontrol,move,FECHKC,x466 y293 w80 h13
 guicontrol,,FECHKC,Logo
-guicontrol,%fetog%,FECHKD
-guicontrol,enable,FECHKD
 guicontrol,move,FECHKD,x466 y310 w81 h13
 guicontrol,,FECHKD,Video
-guicontrol,%fetog%,FECHKE
-guicontrol,enable,FECHKE
 guicontrol,move,FECHKE,x466 y327 w80 h13
 guicontrol,,FECHKE,Metadata
-guicontrol,%fetog%,FECHKP
-guicontrol,enable,FECHKP
 guicontrol,move,FECHKP, x466 y243 w80 h13
 guicontrol,,FECHKP,Photos
-guicontrol,%fetog%,FECHKF
-guicontrol,enable,FECHKF
 guicontrol,move,FECHKF,x385 y323 w80 h13
 guicontrol,,FECHKF,Overwrite
-guicontrol,%fetog%,FECHKG
-guicontrol,enable,FECHKG
 guicontrol,move,FECHKG,x466 y346 w80 h13
 guicontrol,,FECHKG,Snapshot
-guicontrol,hide,FECHKG
-guicontrol,%fetog%,FECHKH
-guicontrol,enable,FECHKH
 guicontrol,move,FECHKH, x389 y259 w70 h17
 guicontrol,,FECHKH,3D Boxart
-guicontrol,hide,FECHKH
-guicontrol,%fetog%,FECHKI
-guicontrol,enable,FECHKI
 guicontrol,move,FECHKI,x389 y327 w59 h17
 guicontrol,,FECHKI,Cart
-guicontrol,hide,FECHKI
-guicontrol,%fetog%,FECHKJ
-guicontrol,enable,FECHKJ
 guicontrol,move,FECHKJ,x389 y346 w59 h17
 guicontrol,,FECHKJ,3 Mix
-guicontrol,hide,FECHKJ
-guicontrol,%fetog%,FECHKK
-guicontrol,enable,FECHKK
 guicontrol,move,FECHKK,x389 y293 w59 h17
 guicontrol,,FECHKK,4 Mix
-guicontrol,hide,FECHKK
-guicontrol,%fetog%,FECHKL
-guicontrol,enable,FECHKL
 guicontrol,move,FECHKL,x389 y310 w59 h17
 guicontrol,,FECHKL,Label
-guicontrol,hide,FECHKL
-guicontrol,%fetog%,FECHKM
-guicontrol,enable,FECHKM
 guicontrol,move,FECHKM,x389 y277 w59 h17
 guicontrol,,FECHKM,Marquee
-guicontrol,hide,FECHKM
-guicontrol,%fetog%,FECHKN
-guicontrol,enable,FECHKN
 guicontrol,move,FECHKN,x285 y423 w82 h13
 guicontrol,,FECHKN,Redundancy
-guicontrol,hide,FECHKN
-guicontrol,hide,FECHKO
-guicontrol,enable,FECHKO
 guicontrol,move,FECHKO,x265 y463 w69 h13
 guicontrol,,FECHKO,Scrape to
 ;};;;;;
 ;{;;;; DROPDOWNS ;;;;;;
-guicontrol,hide,FEDDLG
-guicontrol,enable,FEDDLG
 guicontrol,move,FEDDLG,x340 y460 w130
 guicontrol,,FEDDLG,|Jackets||%fSYSINSTLBX%
 guicontrolget,FEDDLG,,FEDDLG
-guicontrol,%fetog%,FEDDLD
-guicontrol,enable,FEDDLD
 guicontrol,move,FEDDLD,x599 y22 w162
 guicontrol,,FEDDLD,|rj||
 guicontrolget,FEDDLD,,FEDDLD
-guicontrol,%fetog%,FEDDLE
-guicontrol,enable,FEDDLE
 guicontrol,move,FEDDLE,x662 y212 w100
 guicontrol,,FEDDLE,|
-guicontrol,hide,FEDDLE
-guicontrol,hide,FEDDLF
-guicontrol,enable,FEDDLF
 guicontrol,move,FEDDLF,x340 y89 w100
 guicontrol,,FEDDLF,|Image Type||%ppartb%
-guicontrol,hide,FEDDLF
-guicontrol,%fetog%,FEDDLC
-guicontrol,enable,FEDDLC
 guicontrol,move,FEDDLC,x281 y237 w100
 guicontrol,,FEDDLC,|Global||%metaimages%
-guicontrol,hide,FEDDLC
-guicontrol,%fetog%,FEDDLA
-guicontrol,enable,FEDDLA
 guicontrol,move,FEDDLA,x9 y41 w249
 guicontrol,,FEDDLA,|Systems||
 ;};;;;
-guicontrol,%fetog%,FELVA
-guicontrol,enable,FELVA
 guicontrol,,FELVA,Mirrors
 guicontrol,move,FELVA,x10 y64 w247 h433
 guicontrol,+altsubmit,FELVA
@@ -66679,55 +66237,35 @@ guicontrol,+Multi,FELVA
 gui,ListView,FELVA
 LV_Delete()
 ;{;;; RADIOS ;;;;;
-guicontrol,%fetog%,FERAD5B
-guicontrol,enable,FERAD5B
 guicontrol,move,FERAD5B,x289 y79 w81 h13
 guicontrol,,FERAD5B,All Systems
 guicontrol,,FERAD5B, 0
-guicontrol,%fetog%,FERAD5A
-guicontrol,enable,FERAD5A
 guicontrol,move,FERAD5A,x289 y95 w130 h13
 guicontrol,,FERAD5A, Individual System
 guicontrol,,FERAD5A, 1
-guicontrol,%fetog%,FERAD2A
-guicontrol,enable,FERAD2A
 guicontrol,move,FERAD2A,x272 y65 w80 h13
 guicontrol,,FERAD2A,Systems
 guicontrol,,FERAD2A, 1
-guicontrol,hide,FERAD2B
-guicontrol,enable,FERAD2B
 guicontrol,move,FERAD2B,x272 y89 w60 h13
 guicontrol,,FERAD2B,Jackets
 guicontrol,,FERAD2B, 0
-guicontrol,%fetog%,FERAD2C
-guicontrol,enable,FERAD2C
 guicontrol,move,FERAD2C,x272 y110 w60 h13
 guicontrol,,FERAD2C,ROMs
 guicontrol,,FERAD2C, 0
-guicontrol,hide,FERAD7A
-guicontrol,enable,FERAD7A
 guicontrol,move,FERAD7A,x615 y457 w50 h13
 guicontrol,,FERAD7A,Strict
 guicontrol,,FERAD7A, 1
-guicontrol,hide,FERAD7B
-guicontrol,enable,FERAD7B
 guicontrol,move,FERAD7B,x557 y457 w50 h15
 guicontrol,,FERAD7B,Fuzzy
 guicontrol,,FERAD7B, 0
 ;};;;;;
-guicontrol,hide,FERAD4A
-guicontrol,enable,FERAD4A
 guicontrol,move,FERAD4A,x454 y240 w44 h13
 guicontrol,,FERAD4A,PNG
 guicontrol,,FERAD4A, 1
-guicontrol,hide,FERAD4B
-guicontrol,enable,FERAD4B
 guicontrol,move,FERAD4B,x405 y239 w38 h15
 guicontrol,,FERAD4B,JPG
 guicontrol,,FERAD4B, 0
 ;{;;; TEXT ;;;;
-guicontrol,%fetog%,FETXTA
-guicontrol,enable,FETXTA
 guicontrol,move,FETXTA,x599 y5 w140 h13
 guicontrol,,FETXTA,Global Artwork Theme
 bdset= Not Found
@@ -66735,8 +66273,6 @@ ifexist,rj\netArt\%FEDDLD%\Backdrops.7z
 	{
 		bdset= Downloaded
 	}
-guicontrol,%fetog%,FETXTB
-guicontrol,enable,FETXTB
 guicontrol,move,FETXTB,x435 y23 w137 h13
 guicontrol,,FETXTB,Backdrop Set %bdset%
 icoset= Not Found
@@ -66744,8 +66280,6 @@ ifexist,rj\netArt\%FEDDLD%\Icons.7z
 	{
 		icoset= Downloaded
 	}
-guicontrol,%fetog%,FETXTC
-guicontrol,enable,FETXTC
 guicontrol,move,FETXTC,x435 y37 w137 h13
 guicontrol,,FETXTC,Icon Set %icoset%
 logset= Not Found
@@ -66753,8 +66287,6 @@ ifexist,rj\netArt\%FEDDLD%\Logos.7z
 	{
 		logset= Downloaded
 	}
-guicontrol,%fetog%,FETXTD
-guicontrol,enable,FETXTD
 guicontrol,move,FETXTD,x435 y51 w138 h13
 guicontrol,,FETXTD,Logo Set %logset%
 metset= Not Found
@@ -66762,51 +66294,25 @@ ifexist,rj\netArt\%FEDDLD%\MetaData.7z
 	{
 		metset= Downloaded
 	}
-guicontrol,%fetog%,FETXTE
-guicontrol,enable,FETXTE
 guicontrol,move,FETXTE,x435 y66 w147 h13
 guicontrol,,FETXTE,Metadata Set %metset%
-guicontrol,%fetog%,FETXTG
-guicontrol,enable,FETXTG
-guicontrol,hide,FETXTG
 guicontrol,move,FETXTG,x291 y392 w78 h13
 guicontrol,,FETXTG,Scraper Priority
-guicontrol,%fetog%,FETXTI
-guicontrol,enable,FETXTI
-guicontrol,hide,FETXTI
 guicontrol,move,FETXTI,x288 y157 w53 h23
 guicontrol,,FETXTI,Username
-guicontrol,%fetog%,FETXTJ
-guicontrol,enable,FETXTJ
-guicontrol,hide,FETXTJ
 guicontrol,move,FETXTJ,x290 y180 w50 h23
 guicontrol,,FETXTJ,Password
-guicontrol,%fetog%,FETXTK
-guicontrol,enable,FETXTK
-guicontrol,hide,FETXTK
 guicontrol,move,FETXTK,x390 y110 w350 h13
 guicontrol,,FETXTK,ROMPATHS
-guicontrol,%fetog%,FETXTL
-guicontrol,enable,FETXTL
-guicontrol,hide,FETXTL
 guicontrol,move,FETXTL,x472 y373 w88 h13
 guicontrol,,FETXTL,Image Max-Width
-guicontrol,%fetog%,FETXTM
-guicontrol,enable,FETXTM
-guicontrol,hide,FETXTM
 guicontrol,move,FETXTM,x472 y396 w88 h13
 guicontrol,,FETXTM,Image Max-height
-guicontrol,hide,FETXTN
-guicontrol,enable,FETXTN
-guicontrol,hide,FETXTN
 guicontrol,move,FETXTN,x470 y75 w88 h13
 guicontrol,,FETXTN,Image-Name
 ;};;;;;
-guicontrol,%fetog%,FEGRPA
 guicontrol,move,FEGRPA,x282 y133 w200 h98
-guicontrol,hide,FEGRPA
 guicontrol,,FEGRPA,ScreenScraper
-guicontrol,%fetog%,FEPRGA
 guicontrol,move,FEPRGA,x15 y500 w736 h7
 guicontrol,,FEPRGA,0
 Gui,ListView,FELVA
@@ -66815,6 +66321,14 @@ Loop, Parse, systmfldrs,|
 		LV_Add("",A_LoopField)
 	}
 LV_ModifyCol()
+Loop,parse,fe_medtog,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
+Loop,parse,fe_medshw,|
+	{
+		guicontrol,show,%A_LoopField%
+	}
 return
 MediaFEBUTN:
 gosub, CLRNETP
