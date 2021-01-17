@@ -2181,7 +2181,7 @@ Gui,Font,Bold
 Gui, Add, GroupBox, x46 y259 w216 h120 vLASTKGRP hidden, Left Analog Stick
 Gui, Add, GroupBox, x512 y259 w216 h120 vRASTKGRP hidden, Right Analog Stick
 Gui, Add, GroupBox, x46 y386 w215 h90 vDPADGRP hidden, Directional Pad
-Gui, Add, GroupBox, x523 y101 w232 h91 vCIREMAPGRP hidden, Input-remapping
+Gui, Add, GroupBox, x523 y101 w232 h91 Right vCIREMAPGRP hidden, Input-remapping
 Gui,Font,Norm
 JOYCFGMODE= core
 Gui,Font,Bold
@@ -2223,12 +2223,12 @@ Gui, Add, Text, x103 y160 w121 +0x200 vDSPLGC disabled hidden, None
 Gui,Add,DropDownList, hwndDplHndl165 x102 y136 w40 vMGPC gGamepadCombo hidden, 0||0|1|2|3
 Gui, Add, Text, x31 y132 h23 +0x200 vMXUSRTXT hidden, Max Users
 Gui,Add,DropDownList, hwndDplHndl49 x34 y158 w40 vMXUSR gMaxUsers hidden, 5||1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
-Gui, Add, CheckBox, x605 y5 h18 +0x20 vSWAPOKC gSwapOKC hidden, Swap OK/Cancel Buttons
-Gui, Add, CheckBox, x624 y21 h18 +0x20 vADJS gAutoDetectJoy Checked hidden, Auto-Detect Joysticks
-Gui, Add, CheckBox, x664 y38 h18 +0x20 vREMPB gRemapBinds Checked hidden, Remap Binds
-Gui, Add, CheckBox, x633 y55 h18 +0x20 vKBGP gKeyboardGamepad Checked hidden, Keyboard Gamepad
-Gui, Add, CheckBox, x656 y72 h18 +0x20 vAUM gAllMenu hidden, All-Users Menu
-Gui, Add, CheckBox, x656 y90 h18 +0x20 vENDVBR gRaVibr hidden, Vibration
+Gui, Add, CheckBox, x555 y5 h18 vSWAPOKC gSwapOKC hidden, Swap OK/Cancel Buttons
+Gui, Add, CheckBox, x555 y21 h18 vADJS gAutoDetectJoy Checked hidden, Auto-Detect Joysticks
+Gui, Add, CheckBox, x555 y38 h18 vREMPB gRemapBinds Checked hidden, Remap Binds
+Gui, Add, CheckBox, x555 y55 h18 vKBGP gKeyboardGamepad Checked hidden, Keyboard Gamepad
+Gui, Add, CheckBox, x555 y72 h18 vAUM gAllMenu hidden, All-Users Menu
+Gui, Add, CheckBox, x555 y90 h18 vENDVBR gRaVibr hidden, Vibration
 Gui, Add, Text, x334 y65 h23 +0x200 vJPINDX hidden, Joystick Index
 Gui,Add,DropDownList, hwndDplHndl50 x409 y65 w40 vJOYIND gJoypadIndex hidden, 0||0|1|2|3|4|5|6|7|8
 Gui, Add, Text, x339 y91 vMINXTXT hidden, Mouse Index
@@ -2238,9 +2238,9 @@ Gui, Add, GroupBox, x314 y419 w160 h80 Center vANLDZGRP hidden,Analog DeadZone
 Gui, Font, Normal
 Gui, Add, Text, x320 y448 w130 h18 vDEDZTXT Center hidden, 0.%dedz%
 Gui, Add, Slider, x320 y472 w152 h24 Range0-100000 vDEDZ gDedZ hidden, %dedzmult%
-Gui, Add, CheckBox, x118 y112 w83 h16 vUNIFMENU gUnifMenu hidden, Unified Menu
-Gui,Add,DropDownList, hwndDplHndl52 x158 y88 w100 vPOLLING gPolling hidden, Early|Normal|Late||
-Gui, Add, Text, x268 y91 w34 h15 vPOLTXT hidden, Polling
+Gui, Add, CheckBox, x118 y112 w100 h16 vUNIFMENU gUnifMenu hidden, Unified Menu
+Gui,Add,DropDownList, hwndDplHndl52 x155 y88 w100 vPOLLING gPolling hidden, Early|Normal|Late||
+Gui, Add, Text, x261 y91 w34 h15 vPOLTXT hidden, Polling
 Gui, Add, GroupBox, x272 y173 w225 h70 vJBLNKGRP hidden,
 Gui, Add, Text, x437 y187 h18 vTRBPRD hidden, Period
 Gui,Add,Edit, hwndEdtHndl32 x388 y184 w45 h21 vTURBOP gTURBOP Number hidden, %inputTurboPeriod%
@@ -4782,7 +4782,7 @@ If A_GuiControlEvent RightClick
 		{
 			ifexist,config.bak
 				{
-					Menu, UndoRARST,Show,%A_guiX% %A_guiy%
+					Menu, UndoRARST,Show,%A_GuiX% %A_GuiY%
 				}
 		}
 	if A_GuiControl = SYSINSTLBX
@@ -4868,7 +4868,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = MORROM
 		{
-			Menu, MORROMDDLM, Show, %A_GuiX% %A_GUIY%
+			Menu, MORROMDDLM, Show, %A_GuiX% %A_GuiY%
 			return
 		}
 	if A_GuiControl = FELBXB
@@ -5064,7 +5064,7 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = RETAL
 		{
-			Menu, RUNMENU, show, %a_guix% %a_guiy%
+			Menu, RUNMENU, show, %A_GuiX% %A_GuiY%
 			return
 		}
 	if A_GuiControl = ARCPOP
@@ -5074,7 +5074,7 @@ If A_GuiControlEvent RightClick
 			SYSLKUP= %ARCSYS%
 			FEDDLA= %ARCSYS%
 			pldelim= :
-			Menu, ARCART, show, %a_guix% %a_guiy%
+			Menu, ARCART, show, %A_GuiX% %A_GuiY%
 			return
 		}
 	if A_GuiControl = SRCHRSLT
@@ -5093,14 +5093,14 @@ If A_GuiControlEvent RightClick
 					stringsplit,ari,A_LoopField,=
 					bltoh.= ari2 . "|"
 				}
-			Menu, ARCART, show, %a_guix% %a_guiy%
+			Menu, ARCART, show, %A_GuiX% %A_GuiY%
 			return
 		}
 	if A_GUICONTROL = MINISWITCH
 		{
 			if (TABMENU = ":=: MAIN :=:")
 				{
-					Menu, MINITOGGLE, show, %a_guix% %a_guiy%
+					Menu, MINITOGGLE, show, %A_GuiX% %A_GuiY%
 				}
 		}
 	Return
@@ -9038,6 +9038,11 @@ Loop,Parse,RUNBOXGUIITEMS,|
 	{
 		guicontrol,disable,%A_LoopField%
 	}
+
+Loop,Parse,GUISRCHITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}
 poptadd=
 romf=
 if (RUNPLRAD = 1)
@@ -9419,6 +9424,10 @@ Loop,Parse,RUNBOXGUIITEMS,|
 	{
 		guicontrol,enable,%A_LoopField%
 	}
+Loop,Parse,GUISRCHITEMS,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 RUNSYSCHNG=
 rflr=
 gosub, LNCHCHK
@@ -9700,6 +9709,18 @@ guicontrolget, SRCHROMEDT,,SRCHROMEDT
 return
 SRCHROMLBX:
 gui,submit,nohide
+guicontrolget, rmget,,EDTROM
+splitpath,rmget,rmnm
+guicontrolget,romOVf,,SRCHROMLBX
+splitpath,romovf,rmnx
+if (rmnx = romnm)
+	{
+		return
+	}
+Loop,Parse,GUISRCHITEMS,|
+	{
+		guicontrol,disable,%A_LoopField%
+	}	
 guicontrolget, SRCHLOCDDL,,SRCHLOCDDL
 stringreplace,SRCHLOCDDLP,SRCHLOCDDL,.lpl,,All
 guicontrolget, RUNSYSDDL,,RUNSYSDDL
@@ -9707,7 +9728,6 @@ guicontrolget, SRCHFLRAD,,SRCHFLRAD
 guicontrolget, SRCHPLRAD,,SRCHPLRAD
 guicontrol,,RUNPLRAD,%SRCHPLRAD%
 guicontrol,,RUNFLRAD,%SRCHFLRAD%
-guicontrolget,romOVf,,SRCHROMLBX
 MSRCHSEL=
 Loop, Parse, romOVf,|
 	{
@@ -9879,7 +9899,10 @@ if (ainc = 1)
 		guicontrol,,MORROM,|%prexv%%romfj1%||%poptadd%
 		gosub, EDTROM
 	}
-gui,submit,nohide
+Loop,Parse,GUISRCHITEMS,|
+	{
+		guicontrol,enable,%A_LoopField%
+	}
 return
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;};;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16492,6 +16515,7 @@ Loop,Parse,joyitervars,|
 goto, KBJInitd
 ResetPlayerJoy:
 gui, submit, nohide
+Loop,parse,
 if (RMPLOAD = 1)
 	{
 		corecfg= %ccv%.cfg
@@ -24518,7 +24542,7 @@ emujchk1=
 emujchk2=
 emujchk3=
 StringSplit,emujchk,JOYCORE,.
-if (emujchk2 <> "dll")
+if ((emujchk2 <> "dll")&&(JOYCORE = "retroarch"))
 	{
 		return
 	}
@@ -77578,7 +77602,7 @@ if (JOYCORE = "retroArch")
 		guicontrol,,JOYCORE,|retroArch||Antimicro|Xpadder|%supguiitems%|%corelist%
 		return
 	}
-if (rajoycore = "retroArch")
+/*]if (rajoycore = "retroArch")
 	{
 		ifinstring,supgui,retroarch
 			{
@@ -77592,6 +77616,7 @@ if (rajoycore = "retroArch")
 			}
 		return	
 	}
+*/	
 if (JOYCORE = "Antimicro")
 	{
 		gosub,HIDEJOYCTRLS
