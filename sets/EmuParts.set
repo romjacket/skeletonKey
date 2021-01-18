@@ -97,8 +97,8 @@ DOSBox<DOSBox/DOSBox.7z<DOSBox.exe<dosbox.conf< <SAVE\*.*
 DosPlus<DosPlus/DosPlus.7z<vDosPlus.exe<
 dream64<dream64/dream64.7z<dream64.exe<
 dreamvmu<dreamvmu/dreamvmu.7z<DreamVMU.exe<
+duckstation<duckstation/duckstation.7z<duckstation.exe<qt.conf|settings.ini<|savestate\*.*<saves\*.msd"<
 dsp<dsp/dsp[ARCH].7z<dsp.exe<dsp.ini<nvram\*<
-duckstation<duckstation/duckstation.7z<duckstation-qt-x64-ReleaseLTCG.exe<qt.conf|settings.ini<|savestate\*.*<saves\*.msd"<
 easyrpg<easyrpg/easyrpg-[ARCH].7z<ERPG.exe<
 EdsacSim<EdsacSim/EdsacSim.7z<EdsacPC.exe<
 eightyone<eightyone/eightyone.7z<EightyOne.exe<
@@ -372,7 +372,7 @@ redream<redream/redream.7z<redream.exe<redream.cfg|vmu*.bin
 redsquirrel<redsquirrel/redsquirrel.7z<RedSquirrel.exe<
 regen<regen/regen.7z<Regen.exe<
 reicast<reicast/reicast[ARCH].7z<reicast.exe<emu.cfg<|<vmu_save_*.bin
-retroArch<retroArch/retroArch-[ARCH].7z<retroarch.exe<retroarch.cfg|retroarch-core-options.cfg<
+retroArch<https://github.com/romjacket/retroArch/releases/download/x[ARCH]/RetroArch-[ARCH].7z<retroarch.exe<retroarch.cfg|retroarch-core-options.cfg<
 rocknes<rocknes/rocknes.7z<rocknes.exe<rocknes.ini<*.rs0
 rpcemu<rpcemu/rpcemu.7z<RPCEmu-Recompiler.exe<
 rpcs3<rpcs3/rpcs3.7z<rpcs3.exe<config*.yml<
@@ -516,7 +516,7 @@ Xinput_Drivers<Xinput_Drivers/Xbox360-[ARCH]Eng.7z<Xbox360_[ARCH]Eng.exe<
 Visual_C++_Runtimes<allvcs/allvcs.7z<install.exe<
 DS4Windows<DS4Windows/DS4Windows[ARCH].7z<DS4Windows.exe<
 DirectX<DirectX/dxwebsetup.7z<dxwebsetup.exe<
-Display_Changer<DisplayChanger/dc.7z<dc64.exe<
+displaychanger<DisplayChanger/dc.7z<dc64.exe<
 XOutput<XOutput/XOutput.7z<XOutput.exe<configs\*.ini<
 DisplayChanger<DisplayChanger/dc.7z
 [KEYMAPPERS]

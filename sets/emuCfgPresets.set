@@ -929,7 +929,7 @@ RJEXTRARC=0
 RJEMUOPTS=<
 RJLNCHP=0
 URLPTH=duckstation/duckstation.7z
-EXENAM=duckstation-qt-x64-ReleaseLTCG.exe
+EXENAM=duckstation.exe
 options=" "
 run_location="1"
 BIOS=1
@@ -1864,7 +1864,7 @@ RJEXTRARC=0
 RJRUNDIR=1
 PEREMUCFG=1
 RJLNCHP=0
-URLPTH=retroArch/retroArch-[ARCH].7z
+URLPTH=https://github.com/romjacket/retroArch/releases/download/x[ARCH]/RetroArch-[ARCH].7z
 EXENAM=retroarch.exe
 CFGPTH=retroarch.cfg|retroarch-core-options.cfg
 run_location="1"
@@ -9696,6 +9696,9 @@ RJEMUARGS=
 RJEMUOPTS=<
 RJPRECFG=copy /y "%GAMDIR%\*.ini" "%EMUL%"
 RJPOSTCFG=copy /y "%EMUL%\*.ini" "%GAMDIR%"
+[displaychanger]
+URLPTH=DisplayChanger/dc.7z
+EXENAM=dc64.exe
 RJQUOTES=1
 RJPATH=1
 RJRUNDIR=1
@@ -18215,9 +18218,6 @@ URLPATH=jsm/jsm-[ARCH].7z
 EXENAM=JoyShockMapper.exe
 URLPTH=DirectX/dxwebsetup.7z
 EXENAM=dxwebsetup.exe
-[Display_Changer]
-URLPTH=DisplayChanger/dc.7z
-EXENAM=dc64.exe
 [XOutput]
 URLPTH=XOutput/XOutput.7z
 EXENAM=XOutput.exe
@@ -18259,7 +18259,7 @@ DS4Windows|DS4Windows
 Daemon_Tools|Daemon_Tools
 VirtualCloneDrive|VirtualCloneDrive
 WinCDEmu|WinCDEmu
-Display_Changer|Display_Changer
+displaychanger|displaychanger
 Xinput_Drivers|Xinput_Drivers
 [KEYMAPPERS]
 Antimicro|Antimicro
@@ -18275,7 +18275,7 @@ Visual_C++_Runtimes|allvcs
 Xinput_Drivers|Xinput_Drivers
 Xpadder|Xpadder
 ViGEmBus|ViGEmBus
-Display_Changer|Display_Changer
+displaychanger|displaychanger
 CabrioFE|CabrioFE
 SimpleTouchFE|SimpleTouchFE
 attractMode|attractMode
@@ -18287,6 +18287,8 @@ VirtualCloneDrive|VirtualCloneDrive
 WinCDEmu|WinCDEmu
 360Button|360Button
 Joy2Key|Joy2Key
+[PLAYLISTS]
+sysposb=|Atari - 2600|Atari - 7800|Atari - 800|Atari - Jaguar|Atari - Lynx|Atari - ST|Bandai - WonderSwan|Bandai - WonderSwan Color|Casio - Loopy|Casio - PV-1000|Coleco - ColecoVision|Commodore - 64|Commodore - 64 (PP)|Commodore - 64 (Tapes)|Commodore - Amiga|Commodore - Amiga|Commodore - Plus-4|Commodore - VIC-20|Emerson - Arcadia|Entex - Adventure Vision|FB Alpha - Arcade Games|Fairchild - Channel F|Funtech - Super Acan|GCE - Vectrex|GCE - Vectrex|GamePark - GP32|Hartung - Game Master|Leapfrog - Leapster Learning Game System|MAME - Arcade|MAME2003|MAME2010|Magnavox - Odyssey2|Magnavox - Odyssey2|Magnavox - Odyssey2|Microsoft - DOS|Microsoft - MSX|Microsoft - MSX2|NEC - PC Engine - TurboGrafx 16|NEC - PC Engine CD - TurboGrafx CD|NEC - PC Engine SuperGrafx|NEC - PC-FX|NEC - PC98|Nintendo - Famicom Disk System|Nintendo - Famicom System|Nintendo - Game Boy|Nintendo - Game Boy Advance|Nintendo - Game Boy Advance(e-Cards)|Nintendo - Game Boy Color|Nintendo - Nintendo 3DS|Nintendo - Nintendo 64|Nintendo - Nintendo 64DD|Nintendo - Nintendo DS|Nintendo - Nintendo DS Decrypted|Nintendo - Nintendo Entertainment System|Nintendo - Pokemon Mini|Nintendo - Satellaview|Nintendo - Satellaview|Nintendo - Sufami Turbo|Nintendo - Super Nintendo Entertainment System|Nintendo - Virtual Boy|Nokia - N-Gage|RCA - Studio II|RCA - Studio II|SNK - Neo Geo|SNK - Neo Geo MVS|SNK - Neo Geo Pocket|ScummVM|Sega - 32X|Sega - Dreamcast|Sega - Game Gear|Sega - Master System - Mark III|Sega - Mega Drive - Genesis|Sega - Mega-CD - Sega CD|Sega - PICO|Sega - SG-1000|Sega - Saturn|Sharp - X68000|Sinclair - ZX 81|Sinclair - ZX Spectrum|Sony - Playstation|Sony - Playstation 2|Sony - Playstation Portable|The 3DO Company - 3DO|Tiger - Game com|VTech - CreatiVision|VTech - V.Smile|TurboGrafx 16
 [SUPPORTED]
 SYSTEMS=Acorn - BBC/bbcmicro/Acorn - BBC/Acorn - Electron/electron/Acorn - Electron/Amstrad - CPC/amstradcpc/Amstrad - CPC/Amstrad - GX4000/Android - Android/APF - Imagination Machine/Apogee - BK-101/Apple - IIe/apple2/Apple - IIe/Apple - IIgs/apple2gs/Apple - IIgs/Apple - iOS/Apple - MacOS/Atari - 2600/atari2600/Atari - 2600/Atari - 5200/atari5200/Atari - 5200/Atari - 7800/atari7800/Atari - 7800/Atari - 800/atari800/Atari - 800/Atari - Jaguar CD/atarijaguarcd/Atari - Jaguar CD/Atari - Jaguar/atarijaguar/Atari - Jaguar/Atari - Lynx/atarilynx/Atari - Lynx/Atari - ST/atarist/Atari - ST/Atari - XEGS/Bally - Astrocade/astrocade/Bandai - WonderSwan Color/wonderswancolor/Bandai - WonderSwan Color/Bandai - WonderSwan/wonderswan/Bandai - WonderSwan/Camputers - Lynx/Casio - Loopy/loopy/Casio - Loopy/Casio - PV-1000/pv1000/Casio - PV-1000/Coleco - Adam/Coleco - ColecoVision/colecovision/Coleco - ColecoVision/Commodore - 128/Commodore - 64/c64/Commodore - 64/Commodore - Amiga /Commodore - Amiga CD32/amigacd32/Commodore - Amiga CD32/Commodore - Amiga CDTV/amigacdtv/Commodore - Amiga CDTV/Commodore - Plus 4/Commodore - VIC-20/Creatronic - Mega Duck/Dragon - 32-64/Emerson - Arcadia 2001/arcadia/Emerson - Arcadia 2001/Enterprise - 128/Entex - Adventure Vision/Epoch - Game Pocket Computer/Epoch - Super Cassette Vision/scv/Epoch - Super Cassette Vision/Fairchild - Channel F/channelf/Fairchild - Channel F/Fujitsu - FM Towns/Funtech - Super 'Acan/GamePark - GP32/GCE - Vectrex/vectrex/GCE - Vectrex/Hartung - Game Master/Magnavox - Odyssey/Magnavox - Odyssey2/odyssey2/Magnavox - Odyssey2/Mattel - Aquarius/aquarius/Mattel - Aquarius/Mattel - Hyperscan/Mattel - Intellivision/intellivision/Mattel - Intellivision/Memotech - MTX/mtx/Memotech - MTX/Microsoft - MSX Turbo/Microsoft - MSX/msx/Microsoft - MSX/Microsoft - MSX2/msx2/Microsoft - MSX2/Microsoft - Windows - 3x/Microsoft - Xbox ONE/Microsoft - Xbox/Mugen/NEC - PC Engine - TurboGrafx 16/pcengine/NEC - PC Engine - TurboGrafx 16/tg16/NEC - PC Engine - TurboGrafx 16/NEC - PC Engine CD - TurboGrafx CD/tgcd/NEC - PC Engine CD - TurboGrafx CD/NEC - PC Engine SuperGrafx/supergrafx/NEC - PC Engine SuperGrafx/NEC - PC-FX/pcfx/NEC - PC-FX/NEC - PC8801/NEC - PC9801/Nintendo - Famicom/fds/Nintendo - Famicom/nfam/Nintendo - Famicom/Nintendo - Game & Watch/Nintendo - Game Boy Advance/gba/Nintendo - Game Boy Advance/Nintendo - Game Boy Color/gbc/Nintendo - Game Boy Color/Nintendo - Game Boy/gb/Nintendo - Game Boy/Nintendo - Nintendo 3DS/3ds/Nintendo - Nintendo 3DS/Nintendo - Nintendo 64/n64/Nintendo - Nintendo 64/Nintendo - Nintendo 64DD/Nintendo - Wii U/Nuon - Nuon/Open - Beats of Rage/Oric - Atmos/Ouya - Ouya/Philips - CD-I/Philips - Videopac+/ScummVM - ScummVM/Sega - 32X/Sega - Dreamcast/dreamcast/Sega - Dreamcast/Sega - Game Gear/gamegear/Sega - Game Gear/Sega - Hikaru/Sega - Master System - Mark III/mastersystem/Sega - Master System - Mark III/Sega - Mega Drive - Genesis/megadrive/Sega - Mega Drive - Genesis/Sega - Mega-CD - Sega CD/segacd/Sega - Mega-CD - Sega CD/Sega - Model 2/model2/Sega - Model 2/Sega - Model 3/model3/Sega - Model 3/Sega - NAOMI/naomi/Sega - NAOMI/Sega - PICO/segapico/Sega - PICO/Sega - Saturn/saturn/Sega - Saturn/Sega - SC-3000/sc-3000/Sega - SC-3000/Sega - SG-1000/sg-1000/Sega - SG-1000/Sega - ST-V/Sega - Triforce/Sharp - X1/x1/Sharp - X1/Sharp - X68000/x68k/Sharp - X68000/Sinclair - ZX Spectrum +3/zxspectrum/Sinclair - ZX Spectrum +3/SNK - Neo Geo AES/SNK - Neo Geo CD/SNK - Neo Geo Pocket Color/ngpc/SNK - Neo Geo Pocket Color/SNK - Neo Geo Pocket/ngp/SNK - Neo Geo Pocket/Sony - Playstation 4/Sony - Playstation Vita/psvita/Sony - Playstation/Sony - Playstation - PAL/Sord - M5/sordm5/Sord - M5/Taito - Taito Type X/ttx/Taito - Taito Type X/Tandy - CoCo/Tandy - TRS-80/Texas Instruments - TI-99-4A/Tiger - Game.com/Tomy - Tutor/VTech - CreatiVision/creativision/VTech - CreatiVision/VTech - Socrates/Watara - Supervision/supervision/Watara - Supervision/Web - Browser/WOW - Action Max/Xavi - XPORT/MAME - Arcade/mame/Microsoft - DOS/msdos/Microsoft - Xbox 360/Nintendo - GameCube/gamecube/Nintendo - Nintendo DS/nds/Nintendo - Nintendo Entertainment System/nes/Nintendo - Pokemon Mini/pokemini/Nintendo - Satellaview/satellav/Nintendo - Super Nintendo Entertainment System/snes/Nintendo - Nintendo Switch/switch/Nintendo - Virtual Boy/vboy/Pinball/Sony - Playstation 2/ps2/Sony - Playstation 3/ps3/Sony - Playstation 4/ps4/Sony - Playstation Portable/psp/Windows - Games/win32/Sammy - Atomiswave/awave
 CORES=4DO|opera|crocods|81|bluemsx|bnes|bsnes_accuracy|bsnes_mercury_accuracy|bsnes_mercury_performance|bsnes_performance|higan_sfc_balanced|higan_sfc|bsnes_balanced|bsnes_mercury_balanced|bsnes_cplusplus98|bzsnes|catsfc|desmume2015|desmume|px68k|dosbox_pure|dosbox_svn|dosbox_svn_glide|dosbox|emux_chip8|emux_gb|freeintv|emux_nes|emux_sms|fbalpha|fbaneo|fba|fbneo|fb_alpha|fbalpha2012|fb_alpha_neo|fbalpha2012_neogeo|fbalpha2012_cps1|fb_alpha_cps1|fbalpha2012_cps2|fb_alpha_cps2|fceumm|fmsx|fuse|gambatte_GBC|gambatte|genesis_plus_gx_gg|genesis_plus_gx_SMS|genesis_plus_gx|gme|gpsp|gw|handy|hatari|mame2000|mame2003|mame2010|mame2014|mame2016|mame|mednafen_gba|mednafen_lynx|mednafen_ngp|mednafen_pce_fast|mednafen_supergrafx|mednafen_pcfx|mednafen_psx_hw|mednafen_psx|mednafen_saturn|mednafen_vb|mednafen_wswan|mess2015|mess2014|mgba|glupen64|mupen64plus|parallel_n64|nestopia|o2em|parallel|picodrive|ppsspp|prboom|prosystem|puae|quicknes|flycast_gles2|flycast|scummvm|snes9x2002|snes9x2005_plus|snes9x2005|snes9x2010|snes9x|snes9x_next|stella|tgbdual|ume2014|vbam|vba_next|vecx|virtualjaguar|yabause

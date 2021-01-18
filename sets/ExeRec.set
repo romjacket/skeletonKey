@@ -1019,6 +1019,8 @@ FileInstall,rj\KODI\IAGL\userdata\addon_data\plugin.program.iagl\settings.xml.se
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emurom.set,1
 FileInstall,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,rj\KODI\RCB\userdata\addon_data\script.games.rom.collection.browser\emuromend.set,1
 FileInstall,src\AHKSock.ahk,src\AHKSock.ahk,1
+FileInstall,src\colorpicker.ahk,src\colorpicker.ahk,1
+FileInstall,src\gets.ahk,src\gets.ahk,1
 FileInstall,src\HtmlDlg.ahk,src\HtmlDlg.ahk,1
 FileInstall,src\lbex.ahk,src\lbex.ahk,1
 FileInstall,src\LVA.ahk,src\LVA.ahk,1
