@@ -419,6 +419,9 @@ redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Fla
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.cdi>
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - Utopia CD Loader V1.1.nrg>
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC - VMS BIOS (Full).bin:C7C77B3C>
+chankast=:dc_bios.bin:C611B498
+chankast=:dc_bios.bin:05EFF2BB
+chankast=:dc_bios.bin:89F2B1A1>
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC101d_us.bin:05EFF2BB>
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_boot.bin:89F2B1A1>
 redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc=:DC_flash.bin:C611B498>

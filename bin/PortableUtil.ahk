@@ -8,7 +8,7 @@ filedelete,..\vdrv.tmp
 splitpath,A_ScriptDir,,,,,skeldrv
 RunWait, %comspec% cmd /c for /F "usebackq tokens=1`,2`,3`,4 " `%i in (`wmic logicaldisk get caption^`,description^`,drivetype 2^ >NUL`) do (if `%l equ 2 echo.`%i>>d.tmp),,hide
 filereadline,NWDRV,d.tmp,1
-RunWait, %comspec% cmd /c start /w VDrive.exe configuration && if "`%VDrive`%" NEQ "" echo.`%VDrive`%>"..\vdrv.tmp"&& exit /b|| exit /b),,hide
+RunWait, %comspec% cmd /c start /w "%A_ScriptDir%\VDrive.exe" configuration && if "`%VDrive`%" NEQ "" echo.`%VDrive`%>"..\vdrv.tmp"&& exit /b|| exit /b),,hide
 filereadline,tmpraloc,..\vdrv.tmp,1
 if ((tmpraloc = "") or (tmpraloc = "`%VDrive`%"))
 	{
@@ -29,62 +29,39 @@ IfNotExist, ..\Settings.ini
 			}
 		goto Quitout
 	}
-IfNotExist, ..\config.cfg
-	{		
-		TGLPBL= 1
-		MsgBox,3,No Config,No Config.cfg file has not been found.`nOpen skeleteonKey and create a config?
-		ifmsgbox,Ok
-			{
-				Run,..\Skeletonkey.exe
-			}
-		goto Quitout
-	}
-
-skeloc= 	
-oldskel= 
+skeloc=
+oldskel=
 IniRead, pcfgskel, ..\Settings.ini,GLOBAL,working_config
 SplitPath,pcfgskel,,oldskel
 guicontrol,,PRBFND,|%oldskel%||%oldra%
 if (A_ScriptDir <> oldskel)
-	{	
+	{
 		gosub, SetPSK
 		ifnotexist, %oldskel%
 			{
 				oldskel:= skeloc
 			}
 	}
-
-fileselectFile, reconfRA, 3, %tmpraloc%\retroarch.exe,Select portable drive's retroarch.exe, *.exe
-if (reconfRA = "")
+IniRead,syslocdir,..\Settings.ini,GLOBAL,systems_directory
+if ((syslocdir = "")or(syslocdir = "ERROR"))
 	{
-		gosub, SetPRA
-	}
-splitpath, reconfRA,newraxe ,pradir
-oldra=
-IniRead, oldra, ..\Settings.ini,GLOBAL,retroarch_location
-SplitPath,oldra,,,,,oldradrv
-ifnotexist, %oldra%
-	{
-		gosub, SetPRA
-		ifnotexist, %oldra%
+		fileselectFolder, syslocdir,, 3,Select Systems Directory
+		if (syslocdir= "")
 			{
-				oldra= %pradir%
+				SB_SetText("You must select a systems directory")
+				return
 			}
-	}
-if (skeldrv <> oldradrv)
-	{
-		
-	}	
-	
+}
+
 Gui, Add, Button,x333 y0 w43 h22 vSETPRA gSetPRA, Select
 Gui, Add, Button, x333 y24 w43 h21 vSETPSK gSetPSK, Select
-Gui, Add, Edit, x6 y0 w323 h21 vDisplRaTXT gDisplRaTXT, %pradir%
+Gui, Add, Edit, x6 y0 w323 h21 vDisplRaTXT gDisplRaTXT, %syslocdir%
 Gui, Add, Edit, x6 y24 w323 h21 vDisplSkTXT gDisplSkTXT, %oldskel%
 Gui, Add, Button, x4 y63 w29 h20 vSeekRep gSeekRep, File
 Gui, Add, CheckBox, x37 y66 w118 h14 vTGLREP gTglRep, Replace instances of
-Gui, Add, ComboBox, x158 y59 w216 vPRBFND gPrbFnd disabled, |%oldra%\downloads||%oldskel%|%pradir%
+Gui, Add, ComboBox, x158 y59 w216 vPRBFND gPrbFnd disabled, |%syslocdir%||
 Gui, Add, Text, x39 y86h16 vPToTxt disabled, To
-Gui, Add, ComboBox, x56 y82 w218 h21 vPRBREP gPrbRep disabled, |%pradir%\downloads||%oldskel%|%oldra%
+Gui, Add, ComboBox, x56 y82 w218 h21 vPRBREP gPrbRep disabled, |%syslocdir%||
 Gui, Add, Checkbox, x278 y84 h23 vPplTxt gPortablocal disabled checked, localize
 ;;gui, Add, Text, x278 y84 h23 vPplTxt disabled hidden, in playlists
 gui, font, Bold
@@ -97,21 +74,11 @@ Gui Show, w379 h131, PortableUtil
 return
 
 ;{;;;;;;;;;;;;  ASSIGN PORTABLE DIRECTORIES ;;;;;;;;;;;;;;;
-SetPRA:
-gui,submit,nohide
-pradir= 
-FileSelectFile, pradfile,,3,Select the portable retroarch.exe,*.exe
-if (pradfile = "")
-	{
-		goto, QUITOUT
-	}
-SplitPath,pradfile,praxe,prapth,,pradrv
-guicontrol,,DisplRaTXT, %pradir%
-return
+
 
 SetPSK:
 gui,submit,nohide
-skeloc= 
+skeloc=
 FileSelectFolder, skeloc,,3,Select the portable skeletonkey folder
 if (skeloc = "")
 	{
@@ -124,7 +91,7 @@ SETSYSTMP:
 gui,submit,nohide
 if (SETSYSTMP = 0)
 {
-	systemp= %ralocsel%\downloads\netplay
+	systemp= %temp%
 	return
 }
 FileDelete, %lpful%\tst.txt
@@ -132,7 +99,7 @@ FileAppend, tst,%lpful%\tst.txt
 if (errorLevel <> 0)
 	{
 		guicontrol,,SETSYSTMP,0
-		systemp= %ralocsel%\downloads\netplay
+		systemp= %temp%
 		SB_SetText("cache directory set to " lpful "")
 		return
 	}
@@ -166,17 +133,13 @@ if (MKPDTI = 1)
 		FileDelete,%A_Desktop%\skeletonKey.lnk
 		FileCreateShortcut, %skeloc%\skeletonKey.exe, %A_Desktop%\skeletonKey.lnk, %skeloc%\, , Portable skeletonKey, %skeloc%\key.ico
 	}
-IniWrite, "%pradir%",..\Settings.ini,GLOBAL,retroarch_location
-IniWrite, "%skeloc%\config.cfg", ..\Settings.ini,GLOBAL,working_config
-iniread,cdtmp,..\config.cfg,OPTIONS,cache_directory
+IniWrite, "%syslocdir%",..\Settings.ini,GLOBAL,systems_directory
+iniread,cdtmp,..\Settings.ini,OPTIONS,cache_directory
 if (cdtmp = "ERROR")
 	{
-		fileread,cdtmp,..\config.cfg
-		filedelete,..\config.cfg
-		fileAppend,[OPTIONS]`n,..\config.cfg
-		fileappend,%cdtmp%,..\config.cfg
+
 	}
-IniWrite, "%systemp%",..\config.cfg,OPTIONS,cache_directory
+IniWrite, "%systemp%",..\Settings.ini,OPTIONS,temp_location
 if (TGLREP = 1)
 	{
 		guicontrolget,PRBFND,,PRBFND
@@ -187,7 +150,7 @@ if (TGLREP = 1)
 					{
 						FileRead,REPB,..\%A_LoopField%
 						FileMove,..\%A_LoopField%,..\%A_LoopField%.bak,1
-						StringReplace,NREPB,REPB,%PRBFND%,%PRBREP%,All						
+						StringReplace,NREPB,REPB,%PRBFND%,%PRBREP%,All
 						SB_SetText("Replacing in file " A_LoopField " ")
 						FileAppend,%NREPB%,..\%A_LoopField%
 					}
@@ -200,11 +163,11 @@ if (TGLREP = 1)
 								ar.insert(new)
 							}
 					}
-				cfgplst= 
+				cfgplst=
 				Loop, Files, cfg\*.*,R
 					{
 						ext= %A_LoopFileExt%
-						noapl= 
+						noapl=
 						for k, v in ar
 							{
 								extm:= v
@@ -221,7 +184,7 @@ if (TGLREP = 1)
 				Loop, Files, %RJEMUD%\*.*,R
 					{
 						ext= %A_LoopFileExt%
-						noapl= 
+						noapl=
 						for k, v in ar
 							{
 								extm:= v
@@ -240,7 +203,7 @@ if (TGLREP = 1)
 						Loop, Files, %pradir%\playlists\*.lpl
 							{
 								subpl.= A_LoopFileFullPath . "|"
-							}							
+							}
 						Loop, Parse, subpl,|
 							{
 								FileRead,REPB,%A_LoopField%
@@ -287,13 +250,13 @@ if (lplsrch = "")
 	{
 		return
 	}
-repPl= 
-arbdfn= 
-fndrep= 
+repPl=
+arbdfn=
+fndrep=
 Loop, read, %lplsrch%
 	{
 		arbdfn+=1
-		vok= 
+		vok=
 		newprfx := StrLen(A_LoopReadLine)
 		if (PRBFND <> "")
 			{
@@ -303,7 +266,7 @@ Loop, read, %lplsrch%
 						if (vok >= 0)
 							{
 								vokk:= vok+fullnm
-								newrepp= 
+								newrepp=
 								stringleft,newrepp,A_LoopReadLine,%vokk%
 								if (newrepp <> fndrep)
 									{
@@ -312,7 +275,7 @@ Loop, read, %lplsrch%
 											{
 												repPl= 1
 												SB_SetText(" " newrepp " found")
-												guicontrol,,PRBFND,|%newrepp%||%PRBFND%|%oldra%|%oldskel%
+												guicontrol,,PRBFND,|%newrepp%||%PRBFND%|%syslocdir%
 												break
 											}
 										IfMsgBox,No
@@ -324,42 +287,13 @@ Loop, read, %lplsrch%
 							}
 					}
 			}
-		if (PRBFND = "")
-			{
-				ifinstring,A_LoopReadLine,\retroarch\downloads
-					{
-				StringGetPos,vok,A_LoopReadLine, \retroarch\downloads,
-				if (vok >= 0)
-					{
-						vokk:= vok+20
-						newrepp= 
-						stringleft,newrepp,A_LoopReadLine,%vokk%
-						if (newrepp <> fndrep)
-							{
-							msgbox,4, Retroarch Downloads Found,`n"%newrepp%" was detected.`nWould you like to migrate this to your current portable setup?
-							IfMsgBox,Yes
-								{
-									repPl= 1
-									SB_SetText(" " newrepp " found")
-									guicontrol,,PRBFND,|%newrepp%||%PRBFND%|%oldra%|%oldskel%
-									break
-								}
-							IfMsgBox,No
-								{
-									repPl= 0
-									fndrep= %newrepp%
-								}
-							}
-					}
-				}
-			}
 	}
 Loop, Parse, recfgf,|
 	{
 		FileRead, RepSet, ..\%A_LoopField%
 		FileDelete, ..\%A_LoopField%
 		StringReplace, gvo, RepSet,%skeloc%, %skeloc%, All
-		StringReplace, repout,gvo,%ralocsel%, %pradir%, All
+		StringReplace, repout,gvo,%ralocsel%, %syslocdir%, All
 		FileAppend, %repout%, ..\%A_LoopField%
 	}
 

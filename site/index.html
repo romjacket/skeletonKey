@@ -26,16 +26,10 @@
                         <a href="#USE" class="pk" data-smoothie>USAGE</a>
                     </li>
                     <li>
-                        <a href="#JOYSTICKS" class="pk" data-smoothie>JOYSTICKS</a>
-                    </li>
-                    <li>
                         <a href="#DATREPO" class="pk" data-smoothie>DAT-REPO</a>
                     </li>
                     <li>
                         <a href="#FRONTENDS" class="pk" data-smoothie>FRONTENDS</a>
-                    </li>
-                    <li>
-                        <a href="#NETPLAY" class="pk" data-smoothie>NETPLAY</a>
                     </li>
                     <li>
                         <a href="#ROMJACKETS" class="pk" data-smoothie>RoM-JACKETS</a>
@@ -152,15 +146,14 @@
 										                  <div id="playerdiv"></div>
 										              </div>
 										          </div>
-										      </div>
 										            -->
+										      </div>
                                         </div>
                                     </div>
                                     <br>
                                 </div>
                             </li>
                     </div>
-                </div>
                 <br>
                 <div id="SectSeparate" align="center">
                     <h1>Features</h1>
@@ -171,7 +164,6 @@
                         <ul>
                             <li><strong>A comprehensive, easy to use &amp; compact GUI</strong></li>
                             <li><strong>Drag &amp; Drop simplicity.</strong></li>
-                            <!--<li><strong>Leverages internet ROM repositories for netplay automation</strong></li>-->
                             <li><strong>Global and granular control over libraires of ROMs.</strong></li>
                             <li><strong>Deploy a gaming environment to a portable device such as a flash-drive.</strong></li>
                             <li><strong>Convert ROMs to a Windows executable</strong></li>
@@ -183,7 +175,7 @@
                 <div align="left" id="outer">
                     <div id="inner">
                         <h3><a>To Do:</a></h3>
-                        <p>- Mirrored Link Integration.<br>- retroArch GUI presets.<br>- Mirror saves and save-states into a cloud (Dropbox/GDrive/OneDrive)
+                        <p>- Mirrored Link Integration.<br>- Mirror saves and save-states into a cloud (Dropbox/GDrive/OneDrive)
                             <br>- Gamepad-driven disk-menus.<br>- Scraped Metadata Propagation
                             <br>
                             <p>Disable GUI components for downloads and procedures.</p>
@@ -239,10 +231,9 @@
                                 <li>Drag &amp; drop a ROM into the main tab</li>
                                 <li>Categorically filtered from playlists, ROM directories or search functions.</li>
                                 <li>Via ROM-Jacket Launchers</li>
-                                <!--<li>From an internet ROM-repository</li>-->
                                 <li>From the <a href="#CLI" data-smoothie>command line</a></li>
                             </ul>
-                            <p>As a ROM-Launcher, skeletonKey provides a robust interface for retroArch, MAME, snes9x, mednafen and an extensible environment for the granular controls needed to automate hundreds of emulators</p>
+                            <p>As a ROM-Launcher, skeletonKey provides a robust interface needed to automate hundreds of emulators</p>
                             <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.
                             </p>
                         </div>
@@ -292,15 +283,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <!--
-						<ul class="accordion css-accordion" align="right">
-						<li class="accordion-item">
-						<input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
-						<label for="item-1" class="accordion-item-hd" align="right">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
-						<div class="accordion-item-bd">
-						
-						</div>
-						-->
+        
                     </div>
                 </div>
                 <a id="MAIN"></a>
@@ -369,24 +352,12 @@
                                             <h4>ROM List</h4>
                                             <p>The editable dropdown menu contains a list of all ROMs in the current system/playlist dropdown menu.
                                             </p>
-                                            <!--<p>If the auto-load setting is enabled, whenever a new ROM is selected, the configuration files for that ROM will have values populate the tab.
-                                            </p>-->
                                             <p>A new configuration will be generated in the ROMs' configuration folder if one is not found.
                                             </p>
                                             <p>(eg:<code>\...\skeletonkey\cfg\Microsoft - DOS\msds_dosbox\TMNT\dosbox.conf</code>).</p>
                                             <h4>EMU List</h4>
-                                            <p>The EMU list is a core/emulator dropdown which contains a list of all cores, all nicknames for system-associations, and all emuators.<br> <!--Changing the core/emulator dropdown will dynamically populate the Main
-                                                tab with options for the emulator/core (if supported) and any load existing settings the title may have.-->
-                                            </p>
+                                            <p>The EMU list is a core/emulator dropdown which contains a list of all cores, all nicknames for system-associations, and all emuators.<br>
                                             <p>Right-Clicking on this menu enables assignment and configuration.</p>
-                                            <!--<p>RetroArch, MAME, Snes9x and Mednafen are currently supported.</p>
-                                            <h4>[C] Configure Button</h4>
-                                            <p>Brings forth the options for the currently selected emulator or core.<br>Right-click menu items include per-game overrides.
-                                            </p>-->
-                                            <h4>Emulator Configuration Options</h4>
-                                            <p>These options are dynamically loaded for each emulator. Settings changed by the user at run-time should load and populate the GUI after lauching.
-                                            </p>
-                                            -
                                         </div>
                                     </div>
                                     <br>
@@ -418,32 +389,9 @@
                     <div id="inner">
                         <h3><a>Basic Overview</a></h3>
                         <p>After installing skeletonKey, use the <strong>"EMU :=: SYS"</strong> tab to import systems and emulators, or download new ones. </p>
-                        <h3><a>RetroArch, Systems, Emulators, Frontends &amp; Utilities</a></h3>
-                        <p>SkeletonKey can be used to quickly install emulators, frontends, retroArch and utilities. The Install Tab is also used to associate skeletonKey's systems with emulators and retroArch cores when using skeletonKey as a launcher.
+                        <h3><a>Systems, Emulators, Frontends &amp; Utilities</a></h3>
+                        <p>SkeletonKey can be used to quickly install emulators, frontends, <!--retroArch -->and utilities. The Install Tab is also used to associate skeletonKey's systems with emulators and control paramaters of the execution of the skeletonKey-launcher.
                         </p>
-                        <ul class="accordion css-accordion" align="right">
-                            <li class="accordion-item">
-                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-radets" />
-                                <label for="item-radets" class="accordion-item-hd" align="right">↕ RetroArch Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                <div class="accordion-item-bd">
-                                    <div id="detailsdiv" align="left">
-                                        <div>
-                                            <h4>Installing RetroArch &amp; cores</h4>
-                                            <p>RetroArch and components can be installed separately or as a single package (stable). The "RetroArch" list item includes all components needed by retroArch. The most recent nightly build as well as the stable
-                                                version are available. A core-upate button will check for cores with updates to upgrade en-masse.
-                                            </p>
-                                            <p>RetroArch is tightly integrated into skeletonKey with an <em>exhaustive</em> set of options and exclusive features for netplay. By default the most compatible core is selected as the skeletonkey's primary association
-                                                for most of retroarch's supported systems. The GUI interface for retroArch is dynamic, responding after any changes made during gameplay.
-                                            </p>
-                                            <p>RetroArch's "core_assets_directory" should be assigned to the [Systems ROOT] folder.</p>
-                                            <p>The <code>playlist_directory</code> and <code>content_history_path</code> (history file) should also be shared with skeletonKey.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <br>
-                                </div>
-                            </li>
-                        </ul>
                         <div id="indent">
                             <h4>Installing BIOS Files</h4>
                             <p>
@@ -510,7 +458,6 @@
                                                         <p><strong><code>[CUSTMOPT]</code></strong> &amp; <strong><code>[CUSTMARG]</code></strong> are special tags assigned to MAME and other emulators which allow skeletonKey to detect and automate the passing
                                                             of overriding-options and arguments at runtime via the &quot;switches&quot; checkbox in the Global-Launch-Menu (this is generally reserved for MAME and other multi-system emulators which use
                                                             zip-contents to determine command-line parameters.)
-                                                            <!-- or Repository-Systems-Menu.-->
                                                         </p>
                                                         <p>!!!!Enabling the &quot;switches&quot; override will deactivate preset options such as auto-system and ROM-type detection!!!!
                                                         </p>
@@ -625,52 +572,50 @@
 			<a id="JOYSTICKS"></a>
 			<div id="SectSeparate" align="center">
 			<h1>[Joysticks]</h1>
-                                    </div>
-                                    <div align="left" id="outer">
-                                        <div id="inner">
-                                            <h4><a>Joystick Options</a></h4>
-                                            <p>Joystick options are dynamic and respond to the currently selected supported input-remap system and emulator.
-                                                <br> RetroArch, MAME, Snes9x and Mednafen are currently supported through directinput and xinput.</p>
-                                            <h3><a>Keyboard-Mappers</a></h3>
-                                            <p>Features such as rewind/fast-forward and save-state saving/loading are assigned to keyboard shortcuts
-                                                <p>and button-combinations to trigger these keyboard-shortcuts are preset for many emulators..</p>
-                                                <p>RoM-Jacket libraries require a keyboard-remapper for a seamless HTPC gaming frontend experience.</p>
-                                                <div id="indent">
-                                                    <h4>Xpadder</h4>
-                                                    <p>Xpadder is a very reliable and enhanced keyboard remapper. Presets are ubiquitous and abundant and skeletonKey has hundreds for many emulators ready to go for xinput devices.</p>
-                                                    <h4>Antimicro</h4>
-                                                    <p>default.</p>
-                                                    <p>Antimicro is open source, extremely versitile and the preferred keyboard remapper.
-                                                </div>
-                                                <ul class="accordion css-accordion" align="right">
-                                                    <li class="accordion-item">
-                                                        <input class="accordion-item-input" type="checkbox" name="accordion" id="item-kmd" />
-                                                        <label for="item-kmd" class="accordion-item-hd" align="right">↕ Keymapper Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                                        <div class="accordion-item-bd">
-                                                            <div id="detailsdiv" align="left">
-                                                                <div>
-                                                                    <h4>Return Profile</h4>
-                                                                    <p>Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game.
-                                                                    </p>
-                                                                    <h4>Keyboard</h4>
-                                                                    <p>The emulator's default assigned keys are used wherever possible. Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down a trigger
-                                                                        will enable the joystick's hotkey buttons
-                                                                    </p>
-                                                                    <h4>Blank</h4>
-                                                                    <p>Causes an empty profile to be created for each game so changes made to the keymapper are saved for the currently running title.</p>
-                                                                    <p><span style="font-size: x-small">If a return profile is enabled .)*</span></p>
-                                                                    <h4>Joy</h4>
-                                                                    <p>This is the default option for skeletonKey and creates a profile with only Emulator functionality.
-                                                                        <br> Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down L trigger will enable the joystick's hotkey buttons </p>
-                                                                </div>
-                                                            </div>
-                                                            <br>
-                                                        </div>
+			</div>
+			<div align="left" id="outer">
+				<div id="inner">
+					<h4><a>Joystick Options</a></h4>
+					<h3><a>Keyboard-Mappers</a></h3>
+					<p>Features such as rewind/fast-forward and save-state saving/loading are assigned to keyboard shortcuts
+						<p>and button-combinations to trigger these keyboard-shortcuts are preset for many emulators..</p>
+						<p>RoM-Jacket libraries require a keyboard-remapper for a seamless HTPC gaming frontend experience.</p>
+						<div id="indent">
+							<h4>Xpadder</h4>
+							<p>Xpadder is a very reliable and enhanced keyboard remapper. Presets are ubiquitous and abundant and skeletonKey has hundreds for many emulators ready to go for xinput devices.</p>
+							<h4>Antimicro</h4>
+							<p>default.</p>
+							<p>Antimicro is open source, extremely versitile and the preferred keyboard remapper.
+						</div>
+						<ul class="accordion css-accordion" align="right">
+							<li class="accordion-item">
+								<input class="accordion-item-input" type="checkbox" name="accordion" id="item-kmd" />
+								<label for="item-kmd" class="accordion-item-hd" align="right">↕ Keymapper Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+								<div class="accordion-item-bd">
+									<div id="detailsdiv" align="left">
+										<div>
+											<h4>Return Profile</h4>
+											<p>Frontends may require a unique joystick profile to properly function. This profile is loaded when returning from a game.
+											</p>
+											<h4>Keyboard</h4>
+											<p>The emulator's default assigned keys are used wherever possible. Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down a trigger
+												will enable the joystick's hotkey buttons
+											</p>
+											<h4>Blank</h4>
+											<p>Causes an empty profile to be created for each game so changes made to the keymapper are saved for the currently running title.</p>
+											<p><span style="font-size: x-small">If a return profile is enabled .)*</span></p>
+											<h4>Joy</h4>
+											<p>This is the default option for skeletonKey and creates a profile with only Emulator functionality.
+												<br> Functional hotkeys are assigned to triggered button sequences. (eg: holding the back-button while holding down L trigger will enable the joystick's hotkey buttons </p>
+										</div>
+									</div>
+									<br>
+								</div>
                             </li>
                         </ul>
                         <br>
                         </div>
-                        </div>
+                        </div
                         <a id="PLAYLISTS"></a>
                         <div id="SectSeparate" align="center">
                             <h1>[Playlists]</h1>
@@ -803,64 +748,6 @@
                             </div>
                             <br>
                         </div>
-                        <!--
-				<a id="REPOSITORY"></a>
-				<div id="SectSeparate" align="center">
-				  <h1>[Repository]</h1>
-				</div>
-				<div align="left" id="outer">
-				   <div id="inner">
-				      <p>Remote ROM repositories and libraries have been collated to be launched via this tab.</p>
-				      <p>Right-Clicking on a selection of ROMs will allow metadata to be downloaded.</p>
-				      <p>The Repository Tab can be used to list, search, download and emulate the ROMs available on remote
-				         repositories.
-				      </p>
-				      <p>This tab is brought forward automatically under certain conditions while connecting to players listed in
-				         the netplay tab.
-				      </p>
-						 <ul class="accordion css-accordion" align="right">
-				<li class="accordion-item">
-				 <input class="accordion-item-input" type="checkbox" name="accordion" id="item-xx" />
-				 <label for="item-xx" class="accordion-item-hd" align="right">↕ Example<span class="accordion-item-hd-cta">&#9650;</span></label>
-				 <div class="accordion-item-bd">
-				<div id="detailsdiv" align="left">
-				            <h8 class="tabItemHeading">↕ Repository Details</h8>
-				           <div>
-				               <p>You must agree to the repository's EULA before downloading or allowing skeletonkey access to repository
-				                  lists.
-				               </p>
-				               <p>Repositories may contain contents which may be restricted in your juristiction. These
-				                  contents include copyrited machine BIOS and game ROM files.
-				               </p>
-				               <p>Options to download into a ROM-Jacket, manual overrides and extraction settings for
-				                  compressed files can be combined in many ways to create custom libraries.
-				               </p>
-				               <p>Right-Clicking on the emu/core dropdown will allow the ROM to be configured for the selected
-				                  emulator/core.
-				               </p>
-				               <p>Enabling the &quot;Download Only&quot; option will allow multiple files to be selected and
-				                  queued.
-				               </p>
-				              <p>MAME ROM-Lists can often contain ROMs which are incompatible with other emulators. MAME/MESS
-				                  systems' ROM-Lists should be in the <strong><em>Your_Repository_Name\MAME - Systems</em></strong> subdirectory.
-				              </p>
-					 <hr>
-					 <p>Have your own special list of ROMs you want to share with others?<br>Links to repositories can include a EULA for those who wish to distribute their own executables or ROM-Jackets.</p>
-					 
-					 <h4>&gt;...\skeletonKey\gam\<em>Your_Repository_Name\Your_List.gam</em></h4>
-					<br>The following structures are observed for repository list files:<br>
-					  <code><strong>url|ROM title|options to pass to the emulator|alternate url|System-Name|torrent_index_number?filename:file2:file3:...|genre/genre2/...|login_toggle</code>
-					 </strong><p></p>
-					  <p>Each line only needs to contain a direct link to a file.<br>The <code>ROM title</code> will be inferred from the filename if none is specified<br> eg: paramaters are pipe delimited, and a single space may be used to specify default/detected settings.</p>
-				           </div>
-				         </div>
-				<br>
-				</div>
-				</li>
-				</ul>
-				   </div>
-				</div>
-				-->
                         <a id="FRONTENDS"></a>
                         <div id="SectSeparate" align="center">
                             <h1>[Frontends]</h1>
@@ -993,32 +880,7 @@
                                 </ul>
                             </div>
                             <br>
-                            <div id="inner">
-                                <h3><a>XMB</a></h3>
-                                <p>XMB is retroArch's premiere GUI with thumnail support.</p>
-                                <p>Inspired by the PS3's UI, XMB for retroArch is very flexible, feature-rich and navigatable via the joystick.
-                                </p>
-                                <h4><a>XMB Menu Options</a></h4>
-                                <ul class="accordion css-accordion" align="right">
-                                    <li class="accordion-item">
-                                        <input class="accordion-item-input" type="checkbox" name="accordion" id="item-17" />
-                                        <label for="item-17" class="accordion-item-hd" align="right">↕ XMB Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                        <div class="accordion-item-bd">
-                                            <div id="detailsdiv" align="left">
-                                                <div>
-                                                    <p>SkeletonKey can configure the XMB interface for retroArch. Most cosmetic options are exposed and provides an easy way to tailor the available options for your needs.
-                                                    </p>
-                                                    <p>Many options found for the XMB interface may also affect the RGUI or other available interfaces for retroArch.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
+                          </div>
                         <br>
                         <div align="left" id="outer">
                             <div id="inner" align="center">
@@ -1056,84 +918,6 @@
                             </div>
                         </div>
                         <div id="SectSeparate" align="center">
-                            <h1>[Cores]</h1>
-                        </div>
-                        <div align="left" id="outer">
-                            <div id="inner">
-                                <h3><a>Retroarch Core Options</a></h3>
-                                <p>Configure Cores and create core-configuration overrides.</p>
-                                <p>Skeletonkey can populate many core-options in the tab. Additionally, each system can retain seperate core options which can be saved and loaded.
-                                </p>
-                                <ul class="accordion css-accordion" align="right">
-                                    <li class="accordion-item">
-                                        <input class="accordion-item-input" type="checkbox" name="accordion" id="item-coreoptdet" />
-                                        <label for="item-coreoptdet" class="accordion-item-hd" align="right">↕ Core-option Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                        <div class="accordion-item-bd">
-                                            <div id="detailsdiv" align="left">
-                                                <div>
-                                                    <p>Retroarch stores core-options and settings in the <code>retroarch-core-options.cfg</code> file.
-                                                    </p>
-                                                    <p> While not all core-options can populate in the core tab, any settings stored in the file will be saved to the specified core-override configuration.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                        <div id="SectSeparate" align="center">
-                            <a id="NETPLAY"></a>
-                            <h1>[Netplay]</h1>
-                        </div>
-                        <div align="left" id="outer">
-                            <br>
-                            <div id="inner">
-                                <h3><a>Netplay Options</a></h3>
-                                <div id="indent">
-                                    <p>a browsable List View for retroArch's netplay lobbies, settings and options populates the netplay tab.</p>
-                                    <h4>Hosting:</h4>
-                                    <p>In the Main tab, settings such as delay-frames, port number and file-server port can be adjusted.</p>
-                                    <!--<p>In the Repository-Tab, users can select any ROM from a repository to host.</p>-->
-                                    <h4>Connecting:</h4>
-                                    <p>In the Netplay Tab, refreshing the hosts will populate the lobby with currently hosted ROMs.
-                                        <!--
-				If the
-				            ROM is not located on disk, enabling the &quot;web-lookup&quot; option will select a ROM from the
-				            Archve tab and enable connection options.-->
-                                    </p>
-                                </div>
-                                <ul class="accordion css-accordion" align="right">
-                                    <li class="accordion-item">
-                                        <input class="accordion-item-input" type="checkbox" name="accordion" id="item-netp" />
-                                        <label for="item-netp" class="accordion-item-hd" align="right">↕ Netplay Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                        <div class="accordion-item-bd">
-                                            <div id="detailsdiv" align="left">
-                                                <div>
-                                                    <p>When connecting to a client, skeletonKey will search for the matching ROM within playlists or directories.
-                                                    </p>
-                                                    <!--
-				<p>If enabled, skeletonKey will also search within the current repository, automatically selecting the ROM if found.</p>
-				-->
-                                                    <h4>Tips:</h4>
-                                                    <p>In the Main tab, uncheck the "Pause In Background" &amp; in the Frontends tab, select &quot;XMB&quot; in the main dropdown menu and uncheck "Pause In Menu" option to help maintain a synced connection
-                                                        while adjusting settings.</p>
-                                                    <p>Using the relay-server option may enable netplay between users who otherwise cannot host.
-                                                    </p>
-                                                    <p>SkeletonKey hosts with the file-server option enabled wll appear with the port number in brackets prefixed to their username.
-                                                    </p>
-                                                    <p>This <code>[tag]</code> is automatically detected by skeletonKey clients which will enable the "Recieve ROM" option to download the file from the host to play automatically.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <br>
-                            </div>
                         </div>
                         <a id="ROMJACKETS"></a>
                         <div id="SectSeparate" align="center">
@@ -1275,6 +1059,7 @@
                                     <p>After archives are extracted they can be stored in skeletonKey's tmp directory, deleted, or kept in the jacket.
                                     </p>
                                     <br>
+									<hl><hl>
                                     <h3><a>Launcher Options</a></h3>
                                     <p>The default settings for each emulator are designed for low-powered specification settings, however many consoles offer a variety of settings which you may change when configuring a console individually.
                                     </p>
@@ -1511,8 +1296,7 @@
                                         <div class="accordion-item-bd">
                                             <div id="detailsdiv" align="left">
                                                 <div>
-                                                    <p class="hasShadow">Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace. Retroarch and skeletonKey's other supported emulators' per-game settings
-                                                        are updated to reflect the new portable skeletonKey location.
+                                                    <p class="hasShadow">Migration options for the portable utility include localization of items to the drive for playlists and simple search &amp; replace are updated to reflect the new portable skeletonKey location.
                                                     </p>
                                                     <p class="hasShadow">Typically, a skeletonkey installation is copied to a removable drive. The PortableUtil.exe file should then be run from the portable device when first starting skeletonKey on a new computer or if the
                                                         drive letter of the portable device has changed.
@@ -1573,7 +1357,7 @@
                                                     <hr>
                                                     <h4>Options to reset and initialize skeletonKey:</h4>
                                                     <p>-clearrj will reset the ROM-Jacket system-setup preferences and queue<br> -clearcfg will reset the per-game settings for all <strong>skeletonkey
-			launcher</strong> presets :: (not ROM-Jackets)<br> -clearset will reset the skeletonkey program settings<br> -clearra will reset global retroarch settings<br> -clearexe will reset emulator executable settings<br> -clearscrape will delete scraped art
+			launcher</strong> presets :: (not ROM-Jackets)<br> -clearset will reset the skeletonkey program settings<br> -clearexe will reset emulator executable settings<br> -clearscrape will delete scraped art
                                                         and assets<br> adding a !q to the end of your clear command will override and assume yes on all deletion queries.<br> eg -clearra!q</p><br>
                                                     <hr>
                                                     <h4>The Skey-Deploy utility accepts the following:</h4>
