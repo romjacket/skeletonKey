@@ -520,13 +520,10 @@ if (INITIAL = 1)
 iniread,origasi,sets\Assignments.set,ASSIGNMENTS,
 iniread,origsys,sets\Assignments.set,OVERRIDES,
 iniread,sysposb,sets\emucfgpresets.set,PLAYLISTS,sysposb
-iniread,UTILst,sets\EmuCfgPresets.set,Utilities
 iniRead, UTLPartSet,sets\EmuParts.set,UTILITIES
 stringreplace,UTLPartSet,UTLPartSet,[ARCH],%ARCH%,All
-iniread,KMPLst,sets\EmuCfgPresets.set,Keymappers
 iniRead, KMPPartSet,sets\EmuParts.set,KEYMAPPERS
 stringreplace,KMPPartSet,kmppartset,[ARCH],%ARCH%,All
-iniread,FELst,sets\EmuCfgPresets.set,Frontends
 iniRead, FEPartSet,sets\EmuParts.set,FRONTENDS
 stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 iniread,PrgLst,sets\EmuCfgPresets.set,Programs
@@ -560,21 +557,12 @@ Loop, Parse, scrsup,/
 					}
 			}
 	}
-emuinstpop=
-Loop, Parse, EmuPartSet,`n`r
-	{
-		if (A_LoopField = "")
-			{
-				continue
-			}
-	stringsplit,kvar,A_LoopField,<
-	emuinstpop.= kvar1 . "|"
-	}
-sort,emuinstpop,D|
+
 if (INITIAL = 1)
 	{
 		SplashTextOn, ,skeletonKey,Creating Configuration
 	}
+emuinstpop=
 Loop, Parse, EmuPartSet,`n`r
 	{
 		if (A_LoopField = "")
@@ -583,8 +571,11 @@ Loop, Parse, EmuPartSet,`n`r
 			}
 		StringSplit,sysplix,A_LoopField,<,:
 		emupos .= (A_Index == 1 ? "" : "|") . sysplix1
+		stringsplit,kvar,A_LoopField,<
+		emuinstpop.= kvar1 . "|"
 	}
-Loop,parse,felst,`n`r
+sort,emuinstpop,D|
+Loop,parse,FEPartSet,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -1128,7 +1119,8 @@ if (INITIAL = 1)
 			}
 		fileread,EmuPartSet,sets\EmuParts.set
 		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
-		FileRead,FELst,sets\Frontends.set
+		iniRead, FEPartSet,sets\EmuParts.set,FRONTENDS
+		stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 		gosub, EmuDetect
 		gosub, INITIALASIGN
 		ifnotexist, rj\sysCfgs
@@ -1458,7 +1450,7 @@ Gui, Add, Button, x286 y170 w75 h23 vLOCEMUIN gLocEmuIn hidden, SELECT
 Gui, Add, Button, x382 y92 w75 h23 vMULTINST gMULTInst hidden, ASSIGN
 Gui, Add, Button, x740 y3 w15 h15 vEMUINSC gCLRNETP hidden,-
 Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst hidden,Install
-Gui, Add, CheckBox, x350 y75 w110 h16 +0x20 vEMUASIGN gEmuAsign hidden, Assign to System
+Gui, Add, CheckBox, x350 y75 w120 h16 +0x20 vEMUASIGN gEmuAsign hidden, Assign to System
 Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst hidden, Browse
 Gui, Add, Text, x298 y58 h13 Center vEINSTTXT hidden, Install Location
 Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA hidden, Append to all systems
@@ -2032,7 +2024,7 @@ Gui, Add, Text, x484 y270 vRJTXTJ, disk identifiers
 Gui, Add, CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked disabled,
 Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX Disabled, .exe`,.cmd`,,bat||.bin`,.cue
 Gui, Add, Text, x275 y314 h16 vRJTXTG, ROM extensions
-Gui, Add, CheckBox, x370 y315 h17 vRJCHKU gRJCHKU checked Disabled, Quotes
+Gui, Add, CheckBox, x374 y315 h17 vRJCHKU gRJCHKU checked Disabled, Quotes
 Gui, Add, CheckBox, x429 y315 h17 vRJCHKT gRJCHKT checked Disabled, Path
 Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked Disabled, Extension
 Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX Disabled, %rjemuopt%
@@ -3286,7 +3278,10 @@ StdoutToVar_CreateProcess(sCmd, bStream="", sDir="", sInput="")
    }
 return
 #If (MouseIsOverTitlebar()or(MINIMODE = 1))
-RButton::Menu, MINITOGGLE, Show, %A_GuiX% %A_GuiY%
+
+MENU_X:= A_GuiX*(A_ScreenDPI/96)
+MENU_Y:= A_GuiY*(A_ScreenDPI/96)
+RButton::Menu, MINITOGGLE, Show, %MENU_X% %MENU_Y%
 return
 MouseIsOverTitlebar() {
     static WM_NCHITTEST := 0x84, HTCAPTION := 2
@@ -3306,7 +3301,9 @@ return
 GuiContextMenu:
 gui,submit,nohide
 If A_GuiControlEvent RightClick
-	{
+	{	
+	MENU_X:= A_GuiX*(A_ScreenDPI/96)
+	MENU_Y:= A_GuiY*(A_ScreenDPI/96)
 	GuiScrapeMenu:
 	URLFILE=
 	save=
@@ -3314,7 +3311,7 @@ If A_GuiControlEvent RightClick
 	gui,submit,nohide
 	if A_GuiControl = ROMFLS
 		{
-			Menu, ScrapeMenu, Show, %A_GuiX% %A_GuiY%
+			Menu, ScrapeMenu, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = SRCHROMLBX
@@ -3325,17 +3322,10 @@ If A_GuiControlEvent RightClick
 				FEDDLA= %SRCHLOCDDL%
 				if (SelectedRow <> 0)
 					{
-						Menu, RunWithDD, Show, %A_GuiX% %A_GuiY%
+						Menu, RunWithDD, Show, %MENU_X% %MENU_Y%
 						return
 					}
 			}
-	if A_GuiControl = VRSTRABUT
-		{
-			ifexist,config.bak
-				{
-					Menu, UndoRARST,Show,%A_GuiX% %A_GuiY%
-				}
-		}
 	if A_GuiControl = SYSINSTLBX
 		{
 			if (SALIST = "Systems")
@@ -3352,17 +3342,17 @@ If A_GuiControlEvent RightClick
 		}
 	if A_GuiControl = ROMPOP
 		{
-			Menu, PLSTMENU, Show, %A_GuiX% %A_GuiY%
+			Menu, PLSTMENU, Show, %MENU_X% %MENU_Y%
 		}
 	if A_GuiControl = EMUINST
 		{
-			Menu, EMURESETI, Show, %A_GuiX% %A_GuiY%
+			Menu, EMURESETI, Show, %MENU_X% %MENU_Y%
 		}
 	if A_GuiControl = FEDDLJ
 		{
 			if (FEDDLJ = "RetroFE")
 				{
-					Menu, RERCLWIN, Show, %A_GuiX% %A_GuiY%
+					Menu, RERCLWIN, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3370,7 +3360,7 @@ If A_GuiControlEvent RightClick
 		{
 			if (FEDDLJ = "Pegasus")
 				{
-					Menu, PEGWIN, Show, %A_GuiX% %A_GuiY%
+					Menu, PEGWIN, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3378,7 +3368,7 @@ If A_GuiControlEvent RightClick
 		{
 			if (FEDDLJ = "EmulationStation")
 				{
-					Menu, REZRCLWIN, Show, %A_GuiX% %A_GuiY%
+					Menu, REZRCLWIN, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3386,7 +3376,7 @@ If A_GuiControlEvent RightClick
 		{
 			if (FEDDLJ = "EmulationStation")
 				{
-					Menu, REZWIN, Show, %A_GuiX% %A_GuiY%
+					Menu, REZWIN, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3394,17 +3384,17 @@ If A_GuiControlEvent RightClick
 		{
 			if (SelectedRow <> 0)
 				{
-					Menu, RJRCLMENU, Show, %A_GuiX% %A_GuiY%
+					Menu, RJRCLMENU, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
 	if A_GuiControl = DATLBX
 		{
-			Menu,REMDATSEL,show,%A_GuiX% %A_GuiY%
+			Menu,REMDATSEL,show,%MENU_X% %MENU_Y%
 		}
 	if A_GuiControl = DRPLV
 		{
-			Menu,REMHSHSEL,show,%A_GuiX% %A_GuiY%
+			Menu,REMHSHSEL,show,%MENU_X% %MENU_Y%
 		}
 	if A_GuiControl = FEBUTA
 		{
@@ -3412,49 +3402,39 @@ If A_GuiControlEvent RightClick
 				{
 					if (FERAD2A <> 1)
 						{
-							Menu, medcachedel, Show, %A_GuiX% %A_GuiY%
+							Menu, medcachedel, Show, %MENU_X% %MENU_Y%
 							return
 						}
 				}
 		}
 	if A_GuiControl = MORROM
 		{
-			Menu, MORROMDDLM, Show, %A_GuiX% %A_GuiY%
+			Menu, MORROMDDLM, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = FELBXB
 		{
-			Menu, rjscopy, Show, %A_GuiX% %A_GuiY%
-			return
-		}
-	if A_GuiControl = HLNCHBUT
-		{
-			Menu, TONTPLCFG, Show, %A_GuiX% %A_GuiY%
+			Menu, rjscopy, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = LNCHBUT
 		{
-			if (RCLLNCH = 1)
-				{
-					Menu, SHORTRUN, Show, 746 5
-					return
-				}
-			Menu, SHORTRUN, Show, %A_GuiX% %A_GuiY%
+			Menu, SHORTRUN, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_Guicontrol = SvNick
 		{
-			Menu, RSTAPAR, Show, %A_GuiX% %A_GuiY%
+			Menu, RSTAPAR, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_Guicontrol = ADDCORE
 		{
-			Menu, RNMSYSA, Show, %A_GuiX% %A_GuiY%
+			Menu, RNMSYSA, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = ARCLNCH
 		{
-			Menu, ARCSHORT, Show, %A_GuiX% %A_GuiY%
+			Menu, ARCSHORT, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = CURPLST
@@ -3471,7 +3451,7 @@ If A_GuiControlEvent RightClick
 					guicontrolget,SYSLKUP,,ESDWNLPOS
 					pldelim= :
 				}
-			Menu, PLEDTMENU, Show, %A_GuiX% %A_GuiY%
+			Menu, PLEDTMENU, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = LCORE
@@ -3486,7 +3466,7 @@ If A_GuiControlEvent RightClick
 				{
 					return
 				}
-			Menu, ASOCRUN, Show, %A_GuiX% %A_GuiY%
+			Menu, ASOCRUN, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = RUNSYSDDL
@@ -3496,7 +3476,7 @@ If A_GuiControlEvent RightClick
 				{
 					return
 				}
-			Menu, ASOCCFG, Show, %A_GuiX% %A_GuiY%
+			Menu, ASOCCFG, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_Guicontrol = UrlTxt
@@ -3510,7 +3490,7 @@ If A_GuiControlEvent RightClick
 			stringreplace,urlsv,urlsv,`,,,All
 			stringreplace,urlsv,urlsv,~,,All
 			stringreplace,urlsv,urlsv,%A_Space%,,All
-			Menu, ARCSETB, Show, %A_GuiX% %A_GuiY%
+			Menu, ARCSETB, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = ARCSYS
@@ -3522,47 +3502,47 @@ If A_GuiControlEvent RightClick
 				}
 			keyin=%ARCSYS%
 			gosub,TransformSys	
-			Menu, ARSOCCFG, Show, %A_GuiX% %A_GuiY%
+			Menu, ARSOCCFG, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = ARCCORES
 		{
-			MENU, ARCGPCFG, Show,%A_GuiX% %A_GuiY%
+			MENU, ARCGPCFG, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = INSTEMUDDL
 		{
-			Menu, EMURCLMENU, Show, %A_GuiX% %A_GuiY%
+			Menu, EMURCLMENU, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GUicontrol = CLRFLTR
 		{
 			if ((SALIST = "Systems")or(SALIST = "Emulators"))
 				{
-					Menu, clRfltmenu, show, %A_GuiX% %A_GuiY%
+					Menu, clRfltmenu, Show, %MENU_X% %MENU_Y%
 				}
 			return
 		}
 	if A_GuiControl = AUTOBIOS
 		{
-			Menu, BDRCLMENU, Show, %A_GuiX% %A_GuiY%
+			Menu, BDRCLMENU, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = RomDLoc
 		{
-			Menu, CLRROMLST, Show, %A_GuiX% %A_GuiY%
+			Menu, CLRROMLST, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = ROMDEDT
 		{
-			Menu, RMVSYSLST, Show, %A_GuiX% %A_GuiY%
+			Menu, RMVSYSLST, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = UTLLVA
 		{
 			if (SelectedRow <> 0)
 				{
-					Menu, UTRCLMENU, Show, %A_GuiX% %A_GuiY%
+					Menu, UTRCLMENU, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3570,7 +3550,7 @@ If A_GuiControlEvent RightClick
 		{
 			if ((SALIST = "Systems")&&(MULTISYS <> 1))
 				{
-					Menu, RCL_CSYS,Show, %A_GuiX% %A_GuiY%
+					Menu, RCL_CSYS,Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3578,7 +3558,7 @@ If A_GuiControlEvent RightClick
 		{
 			if (SALIST = "Emulators")
 				{
-					Menu, EMURCLASGN,Show, %A_GuiX% %A_GuiY%
+					Menu, EMURCLASGN,Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
@@ -3592,7 +3572,7 @@ If A_GuiControlEvent RightClick
 						}
 					if (SelectedRow <> 0)
 						{
-							Menu, ESRCLMENU, Show, %A_GuiX% %A_GuiY%
+							Menu, ESRCLMENU, Show, %MENU_X% %MENU_Y%
 							return
 						}
 				}
@@ -3600,16 +3580,16 @@ If A_GuiControlEvent RightClick
 				{
 					if (FERAD2A <> 1)
 						{
-							Menu, FEDELMENU, show, %A_GuiX% %A_GuiY%
+							Menu, FEDELMENU, Show, %MENU_X% %MENU_Y%
 							return
 						}
-					Menu, FERCLMENU, Show, %A_GuiX% %A_GuiY%
+					Menu, FERCLMENU, Show, %MENU_X% %MENU_Y%
 					return
 				}
 		}
 	if A_GuiControl = RETAL
 		{
-			Menu, RUNMENU, show, %A_GuiX% %A_GuiY%
+			Menu, RUNMENU, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = ARCPOP
@@ -3619,7 +3599,7 @@ If A_GuiControlEvent RightClick
 			SYSLKUP= %ARCSYS%
 			FEDDLA= %ARCSYS%
 			pldelim= :
-			Menu, ARCART, show, %A_GuiX% %A_GuiY%
+			Menu, ARCART, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GuiControl = SRCHRSLT
@@ -3638,14 +3618,14 @@ If A_GuiControlEvent RightClick
 					stringsplit,ari,A_LoopField,=
 					bltoh.= ari2 . "|"
 				}
-			Menu, ARCART, show, %A_GuiX% %A_GuiY%
+			Menu, ARCART, Show, %MENU_X% %MENU_Y%
 			return
 		}
 	if A_GUICONTROL = MINISWITCH
 		{
 			if (TABMENU = ":=: MAIN :=:")
 				{
-					Menu, MINITOGGLE, show, %A_GuiX% %A_GuiY%
+					Menu, MINITOGGLE, Show, %MENU_X% %MENU_Y%
 				}
 		}
 	Return
@@ -4588,7 +4568,9 @@ Loop, Parse, runlist,|
 		Menu, PLEDTMENU, Add, %A_LoopField%, PLSWPMENU
 	}
 mousegetpos,Ngx,Ngy
-Menu,PLEDTMENU, Show, %Ngx% %Ngy%
+MENU_X:= Ngx*(A_ScreenDPI/96)
+MENU_Y:= Ngy*(A_ScreenDPI/96)
+Menu,PLEDTMENU, Show, %MENU_X% %MENU_Y%
 return
 
 PLSWPMENU:
@@ -4822,7 +4804,9 @@ Loop,Parse,poprc,|
 		Menu, AQRUN, Add, %A_LoopField%, ArcRCL
 	}
 mousegetpos,Ngx,Ngy
-Menu,AQRUN, Show, %Ngx% %Ngy%
+MENU_X:= Ngx*(A_ScreenDPI/96)
+MENU_Y:= Ngy*(A_ScreenDPI/96)
+Menu,AQRUN, Show, %MENU_X% %MENU_Y%
 Menu,AQRUN,DeleteAll
 return
 
@@ -4985,13 +4969,7 @@ Loop,Parse,poprc,|
 			}
 		Menu, SQRUN, Add, %A_LoopField%, RunRCL
 	}
-mousegetpos,Ngx,Ngy
-if (RCLCNCH = 1)
-	{
-		Ngx:= 747
-		Ngy:= 5
-	}
-Menu,SQRUN, Show, %Ngx% %Ngy%
+Menu,SQRUN, Show, %MENU_X% %MENU_Y%
 Menu,SQRUN,DeleteAll
 RCLCNCH=
 return
@@ -5309,7 +5287,9 @@ if (multisel = 1)
 				gosub, AddEmuTOList
 			}
 		mousegetpos,Ngx,Ngy
-		Menu,Emulator_Add, Show, %Ngx% %Ngy%
+		MENU_X:= Ngx*(A_ScreenDPI/96)
+		MENU_Y:= Ngy*(A_ScreenDPI/96)
+		Menu,Emulator_Add, Show, %MENU_X% %MENU_Y%
 	}
 Menu,Emulator_Add,DeleteAll
 return
@@ -6475,7 +6455,7 @@ if (INITIAL = 1)
 	{
 		fileread,EmuPartSet,sets\EmuParts.set
 		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
-		FileRead,FELst,sets\Frontends.set
+		FileRead,FEPartSet,sets\Frontends.set
 	}
 gosub, emuDetect
 gosub, resetEmuList
@@ -7324,7 +7304,11 @@ if (FILT_UNSUP <> 1)
 guicontrolget,coretmp,,LCORE
 if (coretmp <> LCORE)
 	{
-		guicontrol,,SWHOST,0
+		guicontrolget,eiei,,ESWPLCRE
+		if (eiei = ">")
+			{
+				gosub, ESWPLCRE
+			}
 	}
 guicontrol,,LCORE,|%runlist%
 guicontrolget,RUNPLRAD,,RUNPLRAD
@@ -12271,30 +12255,18 @@ Loop, Parse, UTLPartSet,`n`r
 				emucnt+=1
 				fetmp=
 				prgom=
-				Loop, Parse, UTILst,`n`r
+				fecnt+=1
+				iniread,fetmp,apps.ini,UTILITIES,%emupx1%
+				if (fetmp = "ERROR")
 					{
-						prga1=
-						stringsplit,prga,A_LoopField,|
-						if (prga1 = emupx1)
-							{
-								prgom= 1
-							}
+						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,UTILITIES,%emupx1%
 					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,UTILITIES,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,UTILITIES,%emupx1%
-							}
-						stringreplace,utlxelst,utlxelst,%emupx1%>%emunmz%,,All
-						SB_SetText(" " emupx1 " found ")
-						continue
-					}
+				stringreplace,utlxelst,utlxelst,%emupx1%>%emunmz%,,All
+				SB_SetText(" " emupx1 " found ")
+				continue
 			}
 	}
-Loop, Parse, KMPartSet,`n`r
+Loop, Parse, KMPPartSet,`n`r
 	{
 		if (A_LoopField = "")
 			{
@@ -12313,27 +12285,15 @@ Loop, Parse, KMPartSet,`n`r
 			{
 				emucnt+=1
 				prgom=
-				Loop, Parse, KMPLst,`n`r
+				fecnt+=1
+				iniread,fetmp,apps.ini,KEYMAPPERS,%emupx1%
+				if (fetmp = "ERROR")
 					{
-						prga1=
-						stringsplit,prga,A_LoopField,|
-						if (prga1 = emupx1)
-							{
-								prgom= 1
-							}
+						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYMAPPERS,%emupx1%
 					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,KEYMAPPERS,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,KEYMAPPERS,%emupx1%
-							}
-						stringreplace,kmpxelst,kmpxelst,%emupx1%>%emunmz%,,All
-						SB_SetText(" " emupx1 " found ")
-						continue
-					}
+				stringreplace,kmpxelst,kmpxelst,%emupx1%>%emunmz%,,All
+				SB_SetText(" " emupx1 " found ")
+				continue
 			}
 	}
 Loop, Parse, FEPartSet,`n`r
@@ -12355,30 +12315,19 @@ Loop, Parse, FEPartSet,`n`r
 			{
 				emucnt+=1
 				fetmp=
-				prgom=
-				Loop, Parse, FELst,`n`r
+				fecnt+=1
+				iniread,fetmp,apps.ini,FRONTENDS,%emupx1%
+				if (fetmp = "ERROR")
 					{
-						if (A_LoopField = emupx1)
+						if (instr(fesup,emupx1)&& !instr(fSYSINSTLBX,emupx1))
 							{
-								prgom= 1
+								Menu, rjscopy, Add, Export to %emupx1%, Export_%emupx1%
+								fSYSINSTLBX.= emupx1 . "|"
 							}
+						IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,FRONTENDS,%emupx1%
 					}
-				if (prgom = 1)
-					{
-						fecnt+=1
-						iniread,fetmp,apps.ini,FRONTENDS,%emupx1%
-						if (fetmp = "ERROR")
-							{
-								if (instr(fesup,emupx1)&& !instr(fSYSINSTLBX,emupx1))
-									{
-										Menu, rjscopy, Add, Export to %emupx1%, Export_%emupx1%
-										fSYSINSTLBX.= emupx1 . "|"
-									}
-								IniWrite, "%RJEMUD%\%emupx1%\%emunmz%",apps.ini,FRONTENDS,%emupx1%
-							}
-						stringreplace,fexelst,fexelst,%emupx1%>%emunmz%,,All
-						continue
-					}
+				stringreplace,fexelst,fexelst,%emupx1%>%emunmz%,,All
+				continue
 			}
 	}
 Loop, Parse, EmuPartSet,`n`r
@@ -12590,7 +12539,7 @@ Loop, Parse, amultmp,`n`r
 		emunumtot+=1
 	}
 ratstchk=
-IniRead, ratstchk,Settings.ini,GLOBAL,retroarch_location
+IniRead, ratstchk,Apps.ini,GLOBAL,retroarch
 if (fileexist(ratstchk))
 	{
 		if (INITIAL <> 1)
@@ -16848,8 +16797,10 @@ Loop,Parse,sysllst,`n`r
 		stringsplit,abe,A_LoopField,=
 		Menu, MOVE_HSH, Add, %abe1%, MOVE_TOSYS
 	}
-mousegetpos,Ngx,Ngy	
-Menu,MOVE_HSH, Show, %ngX% %ngY%
+mousegetpos,Ngx,Ngy
+MENU_X:= ngx*(A_ScreenDPI/96)
+MENU_Y:= ngy*(A_ScreenDPI/96)
+Menu,MOVE_HSH, Show, %MENU_X% %MENU_Y%
 Menu,MOVE_HSH,DeleteAll
 return
 
@@ -19814,7 +19765,9 @@ Loop,parse,thebb,|
 Menu, MASOCREA, Add,Create Emulator Override, ASOCREA
 Menu, MASOCREA, Add,Delete Emulator Override, ASOCDEL
 mousegetpos,Ngx,Ngy
-Menu,MASOCREA, Show, %Ngx% %Ngy%
+MENU_X:= ngx*(A_ScreenDPI/96)
+MENU_Y:= ngy*(A_ScreenDPI/96)
+Menu,MASOCREA, Show, %MENU_X% %MENU_Y%
 Menu,MASOCREA,DeleteAll
 return
 
@@ -19853,7 +19806,9 @@ ifinstring,SYSLKUP,.lpl
 ContAddAssets:
 gosub, AddAssetType
 mousegetpos,Ngx,Ngy
-Menu,ARCGSNP, Show, %Ngx% %Ngy%
+MENU_X:= ngx*(A_ScreenDPI/96)
+MENU_Y:= ngy*(A_ScreenDPI/96)
+Menu,ARCGSNP, Show, %MENU_X% %MENU_Y%
 Menu,ARCGSNP,DeleteAll
 return
 
@@ -46541,9 +46496,8 @@ if (HISAPND = 1)
 			{
 				inithist= 1
 				FileAppend,{`n%pspce%"version": "1.0"`,`n%pspce%"items": [`n,*%historyloc%
-				;};;
 			}
-		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n
+		hisapl= %pspxe%{`n%pspce%"path": %RUNROM%`,`n%pspce%"label": "%ROMNAME%"`,`n%pspce%"core_path": "%OvrExtAs%"`,`n%pspce%"core_name": "%coreselv%"`,`n%pspce%"crc32": ""`,`n%pspce%"db_name": ""`,`n%pspxe%}`n%A_Space%%A_Space%]`n ;}}}
 		stringreplace,hisapl,hisapl,\\\\,\,All
 		stringreplace,hisapl,hisapl,\\\,\,All
 		stringreplace,hisapl,hisapl,\\,\,All
