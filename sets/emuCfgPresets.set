@@ -13142,6 +13142,20 @@ LNCHPRM=$|1|1|0|1|0
 FENAM=mtx
 FEPARAM=>[ROMPATH]>
 
+[Microsoft - MSX TurboR]
+RJEMUPRESET=BlueMSX
+RJMAMENM=fsa1st
+RJMULTIDISC=1
+BlueMSX?RJEMUOPTS=</fullscreen /machine "MSXturboR" /[RJRTYP]<</fullscreen /machine "MSXturboR" /rom1<|</machine "MSXturboR" /rom1zip<|</fullscreen /machine "MSXturboR" /rom1zip<|</machine "MSXturboR" /diskA<|</fullscreen /machine "MSXturboR" /diskA<|</machine "MSXturboR" /cas<|</fullscreen /machine "MSXturboR" /cas<|</machine "MSXturboR" /caszip<|</fullscreen /machine "MSXturboR" /caszip<|</machine "MSXturboR" /rom1<
+RJROMXT=.dsk,.dmk,.d77,.d88,.1dd,.dfi,.hfe,.imd,.ipf,.mfi,.mfm,.td0,.cqm,.cqi,.mx1,.bin,.rom,.wav,.tap,.cas.zip
+MAME?RJEMUOPTS=<fsa1st -[RJRTYP]<|<fsa1st -cart1<|<fsa1st -cass<|<fsa1st -flop<
+SHORTNM=MSXR
+SUPEMU=BlueMSX|msx2p|no$msx|MAME|nlmsx|openMSX|EMU|fmsx|vdmgr
+SUPCORE=bluemsx_libretro.dll|fmsx_libretro.dll
+LNCHPRM=$|1|1|0|1|0
+FEPARAM=>[ROMPATH]>
+FENAM=msxr
+
 [Microsoft - MSX Turbo]
 RJEMUPRESET=BlueMSX
 RJMAMENM=fsa1st
@@ -14572,7 +14586,7 @@ RJROMXT=.wav,.tap,.zip
 MAME?RJEMUOPTS=<oric1 -cass<|<orica -cass<
 RJZIPPEEK=0
 SHORTNM=TOATMOS
-SUPEMU=euphoric|oricutron|MAME
+SUPEMU=oricutron|MAME|euphoric
 SUPCORE=mame_libretro.dll
 LNCHPRM=$|1|1|0|1|0
 FENAM=oric

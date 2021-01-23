@@ -264,11 +264,6 @@ ifnotexist,datlist.ini
 		stringreplace,alldats,alldats,dats\,,all	
 	}	
 fileread,oldlkup,sets\lkup.set	
-Iniread,raexeloc,apps.ini,EMULATORS,retroarch
-if ((raexeloc <> "ERROR")&&(raexeloc <> ""))
-	{
-		splitpath,raexeloc,RaExeFile,raexedir
-	}
 RJQNUM:= 0
 Loop, rj\*_q.tdb
 	{
@@ -295,13 +290,17 @@ if (RJEMUD = "")
 	{
 		gosub, SETEMUD
 	}
-IniRead,raexeloc,Apps.ini,EMULATORS,retroarch
-splitpath,raexeloc,RaExeFile,raexedir
-If (raexedir = "")
+Iniread,raexeloc,apps.ini,EMULATORS,retroarch
+if ((raexeloc <> "ERROR")&&(raexeloc <> ""))
 	{
-	}
-	else {
-		gosub resetCORES
+		splitpath,raexeloc,RaExeFile,raexedir
+		splitpath,raexeloc,RaExeFile,raexedir
+		If (raexedir = "")
+			{
+			}
+			else {
+				gosub resetCORES
+			}
 	}
 IniRead,playlistloctmp,Settings.ini,GLOBAL,playlist_location
 If (playlistloctmp <> "ERROR")
@@ -545,18 +544,6 @@ if (repoloc = "ERROR")
 	{
 		IniRead,repoloc,%ARCORG%,GLOBAL,HOSTINGURL
 	}
-iniread,scrsup,sets\EmuCfgPresets.set,SYSTEMS
-iniread,supcrz,sets\EmuCfgPresets.set,CORES
-Loop, Parse, scrsup,/
-	{
-		ifinstring,SysLLst,%A_LoopField%=
-			{
-				ifnotinstring,dispsup,%A_LoopField%|
-					{
-						dispsup.= A_LoopField . "|"
-					}
-			}
-	}
 
 if (INITIAL = 1)
 	{
@@ -581,7 +568,10 @@ Loop,parse,FEPartSet,`n`r
 			{
 				continue
 			}
-		frntdlst.= A_LoopField . "|"	
+		StringSplit,feplix,A_LoopField,<,:
+		fepos .= (A_Index == 1 ? "" : "|") . feplix1
+		stringsplit,kvar,A_LoopField,<	
+		frntdlst.= kvar1 . "|"	
 	}
 iniread,alra,Settings.ini,GLOBAL,%ARCSRCv%_EULA
 if (alra = 1)
@@ -1019,7 +1009,7 @@ if (RJSYSTMP <> "")
 				allsys+=1
 				sysnam= %A_LoopFileName%
 				systmfldrs.= A_LoopFileName . "|"
-				Loop, Parse, SysLst,`n`r
+				Loop, Parse, SyslLst,`n`r
 					{
 						if (A_LoopField = "")
 							{
@@ -1027,11 +1017,12 @@ if (RJSYSTMP <> "")
 							}
 						sdspl1=
 						sdspl2=
-						stringsplit,sdspl,A_LoopField,=
+						stringsplit,sdspl,A_LoopField,=,"
+						;"
 						if (sdspl1 = sysnam)
 							{
 								totsys+=1
-								knownfldrs.= avnu1 . "|"
+								knownfldrs.= sysnam . "|"
 								break
 							}
 					}
@@ -1237,6 +1228,7 @@ Menu, ASOCRUN, Add, Launch Paramaters, ASEMUCFG
 Menu, ASOCRUN, Add, Delete Game Settings, DelCfg_Add
 Menu, ASOCRUN, Add, Open Game Settings, CfgBrowse
 Menu, ASOCRUN, Add, << game-override >>, ASEMUOVR
+Menu, ASOCRUN, Add, Run Emulator, ASLNEMU
 Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 Menu, ARCSETB, Add, Reset-URL, ARCEDURL
 Menu, ARCSETB, Add,
@@ -4416,6 +4408,27 @@ guicontrol,hide,SavOsys
 guicontrol,hide,RenOsys
 guicontrol,hide,OpnSys
 return
+
+ASLNEMU:
+guicontrolget,runalone,,LCORE
+iniread,runalx,Assignments.ini,ASSIGNMENTS,%runalone%
+if ((runalx <> "ERROR")&&(runalx <> ""))
+	{
+		runfrm= 
+		runald= 
+		iniread,runfrm,AppParams.ini,%runalone%,run_location
+		if (runfrm = 0)
+			{
+				splitpath,runalx,,runald
+			}
+		SB_SetText(" " runalx " ")
+		RunWait, "%runalx%",,%runald%
+	}
+else {
+	SB_SetText(" Could not run " runalone " ")
+	return
+}	
+return	
 
 ASEMUCFG:
 guicontrolget,SEMURUN,,LCORE
@@ -7697,18 +7710,19 @@ if (coreselv = "")
 							{
 								gosub, MINIMODEOFF
 							}
-						guicontrol,,SALIST,|Systems|Emulators||Utilities|Frontends
+						guicontrol,,SALIST,|Emulators|Systems||Utilities|Frontends
 						guicontrol,choose,TABMENU,3
 						gosub, SaList
 						knum=
-						Loop, Parse, emuinstpop,|
+						Loop, Parse, allsupport,|
 							{
 								knum+=1
-								if (A_LoopField = ink)
+								if (A_LoopField = OPTYP)
 									{
-										guicontrol, choose, PRGINSTLBX,%knum%
-										gosub, PRGINSTLBX
-										SB_SetText(" " ink " emulator auto-suggested")
+										guicontrol, choose, SYSINSTLBX,%knum%
+										guicontrol,,INSTEMUDDL,|%coreselx%|%emuinstpop%
+										gosub, SYSINSTLBX
+										SB_SetText(" " coreselx " emulator auto-suggested")
 										break
 									}
 							}
@@ -10878,7 +10892,7 @@ if (LNCHPRDDL = "Emulators")
 	}
 if (LNCHPRDDL = "retroarch")
 	{
-		iniread,raexefile,Apps.ini,EMULATORS,retroarch
+		iniread,raexeloc,Apps.ini,EMULATORS,retroarch
 		if (RaExeFile = "ERROR")
 				{
 					SB_SetText("Retroarch is not present")
@@ -12628,27 +12642,24 @@ Loop,Parse,asig,`n`r
 			}
 		iniread,stfe,emuCfgPresets.ini,%rasig1%,SUPCORE
 		nevfdg= 
-		if (INITIAL = 1)
+		ifexist,%raexedir%\%raexefile%
 			{
-				ifexist,%raexedir%\%raexefile%
+				Loop, parse,stfe,|
 					{
-						Loop, parse,stfe,|
+						if (A_LoopField = "")
 							{
-								if (A_LoopField = "")
+								continue
+							}
+						ifexist,%raexedir%\cores\%A_LoopField%
+							{
+								if (!instr(nevfdg,A_LoopField . "|") && !instr(fej,A_LoopField . "|"))
 									{
-										continue
-									}
-								ifexist,%raexedir%\cores\%A_LoopField%
-									{
-										if (!instr(nevfdg,A_LoopField . "|") && !instr(fej,A_LoopField . "|"))
-											{
-												nevfdg.= A_LoopField . "|"
-											}
+										nevfdg.= A_LoopField . "|"
 									}
 							}
-						nevfdg.= fej
-						iniwrite,"%nevfdg%",Assignments.ini,OVERRIDES,%rasig1%
 					}
+				nevfdg.= fej . "|"
+				iniwrite,"%nevfdg%",Assignments.ini,OVERRIDES,%rasig1%
 			}
 	}
 fileread,tdk,Assignments.ini
@@ -19593,7 +19604,7 @@ if (GFERYP = 1)
 gosub, ferad2c
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%systmfldrs%
 FEDDLA= %SYSLKUP%
 gui,ListView,FELVA
 arcgsa= +Check
@@ -19862,7 +19873,7 @@ if (GFERYP = 1)
 	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%systmfldrs%
 FEDDLA= %SYSLKUP%
 gui,ListView,FELVA
 arcgsa= +Check
@@ -19915,7 +19926,7 @@ if (GFERYP = 1)
 	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%systmfldrs%
 FEDDLA= %SYSLKUP%
 gui,ListView,FELVA
 arcgsa= +Check
@@ -19968,7 +19979,7 @@ if (GFERYP = 1)
 	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%systmfldrs%
 FEDDLA= %SYSLKUP%
 gui,ListView,FELVA
 arcgsa= +Check
@@ -20021,7 +20032,7 @@ if (GFERYP = 1)
 	}
 fromcfg= 1
 GuiControl,Choose,TABMENU,6
-guicontrol,,feDDLA,|%SYSLKUP%||Systems|%dispsup%
+guicontrol,,feDDLA,|%SYSLKUP%||Systems|%systmfldrs%
 FEDDLA= %SYSLKUP%
 gui,ListView,FELVA
 arcgsa= +Check
@@ -47070,7 +47081,8 @@ Loop, Parse, emultl,`n`r
 		StringSplit,emulti,A_LoopField,=
 		emulist.= emulti1 . "|"
 	}
-guicontrol,,EMPRDDL,|Emulators||%emulist%	
+guicontrol,,EMPRDDL,|Emulators||%emulist%
+guicontrol,,INSTEMUDDL,|%selfnd%|%emuinstpop%
 return
 
 resetRunList:
