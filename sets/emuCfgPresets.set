@@ -7060,6 +7060,7 @@ RJLNCHP=0
 options=<
 arguments=
 BIOS=
+
 [neocd]
 URLPTH=neocd/neocd.7z
 EXENAM=neocd.exe

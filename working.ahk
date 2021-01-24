@@ -1472,14 +1472,12 @@ Gui,Add,DropDownList, hwndDplHndl44 x564 y103 w163 vSKFROVDD gSKFROVDD disabled 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [PLAYLISTS TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui, Tab, 4
 Gui, Tab, Playlists
-Gui,Add,DropDownList, hwndDplHndl167 x24 y22 w283 vDWNLPOS gPopDownloads, :=:System List:=:||%systmfldrs%
+Gui,Add,DropDownList, hwndDplHndl167 x24 y22 w283 vDWNLPOS gPOPLDDL, :=:System List:=:||%systmfldrs%
 Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
 Gui, Add, Text, x310 y31 w41 h13 vRECURTX,Recurse
-Gui, Add, Radio, x22 y46 vEXCLBOOL gINCLBool hidden checked, exclude
-Gui, Add, Radio, x81 y46 vINCLBOOL gINCLBool hidden, include
+Gui, Add, Radio, x22 y46 vEXCLBOOL gEXCLBOOL hidden checked,exclude
+Gui, Add, Radio, x87 y46 vINCLBOOL gINCLBool hidden,include
 Gui, Add, CheckBox, x140 y46 h17 vPARSEALL gParseAll hidden, All
-Gui, Add, Radio, x22 y46 vRPOPDL gRPopDl checked, Directories
-Gui, Add, Radio, x115 y46 vRPOPPL gRPopPl, Playlists
 Gui,Add,ComboBox, hwndCbxHndl57 x177 y44 w152 vEXTPARSED gExtParsed hidden, %omitxtv%
 Gui, Add, Button, x331 y45 w22 h21 vFLTXT gFltXt hidden,F
 Gui,Add,listbox, x24 y66 w316 h420 hwndLFTLSTBX vROMPOP gDragROM Multi +HScroll, %RomPLst%
@@ -2474,7 +2472,7 @@ PSTIP_TT :="Pastes the i.p address:portnumber"
 PLLISTALL_TT :="selects all items"
 PLLISTN_TT :="deselects all items"
 PLLISTSORT_TT :="Alphabetically sorts the list by ROM Title."
-PLALSYSBUT_TT :="Adds all ROMs from every system to a playlist named of the ROM's parent system.`nAll systems will use the ''detect'' core-name.`n***`nTHIS MAY TAKE SOME TIME`n***"
+
 PthBut_TT := "Select the file"
 PRVTSV_TT :="Disables netplay visibility for public servers`n(Private hosting)"
 RALIST_TT :="Install RetroArch game and emulator cores."
@@ -13353,42 +13351,11 @@ if (RPDND = 1)
 	}
 return
 
-PLALSYSBUT:
-guicontrol,,Fltxt
-Loop, Files, %RJSYSTEMS%\*,DR
-	{
-		if (A_LoopFilename = "")
-			{
-			}
-	}
-return
 
 Recurse:
 gui,submit,nohide
-guicontrol, hide, EXTPARSED
-guicontrol,show, RPOPDL
-guicontrol,show, PLALSYSBUT
-guicontrol,show, RPOPPL
-guicontrol, hide, PARSEALL
-guicontrol, hide, INCLBOOL
-guicontrol, hide, EXCLBOOL
-guicontrol, hide, FLTXT
 guicontrolget, RECURSE,,RECURSE
 gosub, ClearROMPop
-if (RECURSE = 1)
-	{
-		guicontrol, show, EXTPARSED
-		guicontrol,hide, PLALSYSBUT
-		guicontrol,hide, RPOPDL
-		guicontrol,hide, RPOPPL
-		guicontrol, show, PARSEALL
-		guicontrol, show, INCLBOOL
-		guicontrol, show, EXCLBOOL
-		guicontrol, show, FLTXT
-		gosub, ExtParsing
-		return
-	}
-gosub, PopDownloads
 return
 
 RPopPl:
@@ -13549,8 +13516,8 @@ plopen=
 popAlist=
 popBPlist=
 vividx=
-FileSelectFile,popAlist,3,%playlistLoc%
-if (popAlist = "")
+FileSelectFile,popAlist,3,%playlistLoc%,Select a Playlist,*.lpl
+if ((popAlist = "")or(popAList = historyloc))
 	{
 		return
 	}
@@ -13597,6 +13564,7 @@ gui, submit, nohide
 guicontrolget,omitxtv,,EXTPARSED
 return
 
+EXCLBool:
 INCLBool:
 gui, submit, nohide
 guicontrolget, filtxtnl, ,EXTPARSED
@@ -13605,6 +13573,7 @@ guicontrolget, DWNLPOS,,DWNLPOS
 guicontrolget, RECURSE,,RECURSE
 StringReplace, xtnprs, filtxtnl,`,,|,All
 stringsplit,omitxtn,xtnprs,|
+guicontrol,,EXTPARSED,|
 if (INCLBOOL = 1)
 	{
 		gosub, ExtParsing
@@ -13612,9 +13581,7 @@ if (INCLBOOL = 1)
 if (EXCLBOOL = 1)
 	{
 		guicontrol,,EXTPARSED,|%omitxj%||
-		gosub, EXFilter
 	}
-gosub, FltXt
 return
 
 FltXt:
@@ -13629,18 +13596,17 @@ guicontrol,disable,RECURSE
 guicontrolget,DETECTCORE,,DETECTCORE
 guicontrolget,INCLBOOL,,INCLBOOL
 guicontrolget,EXCLBOOL,,EXCLBOOL
+
 guicontrolget, filtxtnl, ,EXTPARSED
-guicontrolget, popfiltlst, ,ROMPOP
-guicontrolget, DWNLPOS,,DWNLPOS
-guicontrolget, RECURSE,,RECURSE
-stringreplace,splfilt,filtxtnl,., ,All
+stringreplace,splfilt,filtxtnl,.,,All
 stringsplit,fltselc,splfilt,|
 StringReplace, xtnprs, fltselc1,`,,|,All
+
+guicontrolget, DWNLPOS,,DWNLPOS
+guicontrolget, RECURSE,,RECURSE
 stringsplit,omitxtn,xtnprs,|
-omitxtv=
-guicontrol,,ROMPOP,|
 POPLDWN=
-if (INCLBOOL <> 1)
+if (EXCLBOOL = 1)
 	{
 		gosub, OutList
 		guicontrol,enable,RPopDl
@@ -13652,7 +13618,28 @@ if (INCLBOOL <> 1)
 		guicontrol,enable,FLTXT
 		return
 	}
-gosub, FilterTargetButton
+IniRead,kef,SystemLocations.ini,LOCATIONS,%DWNLPOS%
+Loop,parse,kef,|
+	{
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		sbn=
+		Loop,%A_LoopField%\*.*,,%RECURSE%
+			{
+				ext= %A_LoopFileExt%|
+				noapl=
+				if instr(xtnprs,ext)
+					{
+						sbn+=1
+						POPLDWN .= A_LoopFileFullPath . "|"
+					}
+			}
+	}
+stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
+guicontrol,,ROMPOP,|%POPLDWN%
+SB_SetText(" " sbn " items in the directory")	
 guicontrol,enable,RPopDl
 guicontrol,enable,RPopPl
 guicontrol,enable,ROMPOP
@@ -13725,84 +13712,40 @@ guicontrol,,SKSYSDISP,%RJSYSTEMS%
 guicontrol,,RJSYSDD,|Systems||%systmfldrs%
 return
 
-PopDownloads:
+POPLDDL:
 gui, submit, nohide
+
+guicontrol, show, RECURTX
+guicontrol, show, RECURSE
+guicontrol, show, EXCLBOOL
+guicontrol, show, FLTXT
+guicontrol, show, INCLBOOL
+guicontrol, show, RECURSE
+guicontrol, show, EXTPARSED
 guicontrol,enable,RPopDl
 guicontrol,enable,RPopPl
 guicontrol,enable,PARSEALL
 guicontrol,enable,EXTPARSED
 guicontrol,enable,RECURSE
 guicontrol,enable,FLTXT
-omitxtv=
 guicontrolget,RPOPDL,,RPOPDL
-guicontrolget, EXCLBOOL,,EXCLBOOL
 guicontrolget, DWNLPOS,,DWNLPOS
 guicontrol,,PLNAMEDT,|%DWNLPOS%||%sysposb%
-guicontrolget, RECURSE,,RECURSE
-guicontrol, HIDE, PLALSYSBUT
-guicontrol, show, RECURTX
-guicontrol, show, RECURSE
-guicontrol,,EXTPARSED
-if (DWNLPOS = "Playlists")
-	{
-		guicontrol, hide, RECURTX
-		guicontrol, hide, RECURSE
-		guicontrol,,RECURSE,0
-		guicontrol, hide, EXTPARSED
-		guicontrol, hide, PARSEALL
-		guicontrol, hide, INCLBOOL
-		guicontrol, hide, EXCLBOOL
-		guicontrol, hide, FLTXT
-		guicontrol, enable,EXCLBOOL
-		guicontrol, ,EXCLBOOL, 1
-		guicontrol, enable, INCLBOOL
-		guicontrol, enable, EXTPARSED
-		guicontrol, ,EXTPARSED, |%omitxtv%
-		return
-	}
-if (RPOPDL = 0)
-	{
-		goto, PopPLpl
-	}
+guicontrolget, RECURSE,,RECURSED
+guicontrol,,EXCLBOOL,0
+EXCLBOOL= 0
+INCLBOOL= 1
+guicontrol,,INCLBOOL,1
+guicontrol,,RECURSE,1
+guicontrol,,EXTPARSED, |
 if (DWNLPOS = ":=:System List:=:")
 	{
-		guicontrol, SHOW, PLALSYSBUT
-		guicontrol, hide, RECURTX
-		guicontrol, hide, RECURSE
 		guicontrol,,RECURSE,0
-		guicontrol, hide, EXTPARSED
-		guicontrol, hide, PARSEALL
-		guicontrol, hide, INCLBOOL
-		guicontrol, hide, EXCLBOOL
-		guicontrol, hide, FLTXT
-		guicontrol, enable,EXCLBOOL
 		guicontrol, ,EXCLBOOL, 1
-		guicontrol, enable, INCLBOOL
-		guicontrol, enable, EXTPARSED
-		guicontrol, ,EXTPARSED, |%omitxtv%
+		guicontrol, ,EXTPARSED, |
 		return
 	}
-IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
-if ((stevr <> "")&&(stevr <> "ERROR"))
-	{
-		Loop, Parse, stevr,|
-			{
-				ifExist, %raexedir%\cores\%A_LoopField%
-					{
-						guicontrol,,PLCORE,|%A_LoopField%||%runlist%
-						break
-					}
-			}
-	}
-omitxtv:= omitxj
-if (EXCLBOOL = 1)
-	{
-		stringreplace, omitxtt, omitxtt,`,,|, All
-		guicontrol,,EXTPARSED, |%omitxtv%||
-		goto, EXFilter
-	}
-goto, ExtParBegin
-ExtParBegin:
+	
 ExtParsing:
 omitxtv=
 listswp=
@@ -13811,35 +13754,58 @@ POPLDWN=
 EXTPARSED=
 extoutp1=
 extoutp2=
-omitxtv= 
 omitxtr= 
 allxtn= 
-guicontrolget,PLCORE,,PLCORE
-IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
-if ((stevr <> "")&&(stevr <> "ERROR"))
-	{
-		Loop, Parse, stevr,|
+PLCORE=
+if (raexeloc <> "")
+	{		
+		IniRead,stevr,emuCfgPresets.ini,%DWNLPOS%,SUPCORE
+		if ((stevr <> "")&&(stevr <> "ERROR"))
 			{
-				SplitPath,A_LoopField,,,,matchinfo
-				matchinfo= %matchinfo%.info
-				Loop, Read, %raexedir%\info\%matchinfo%
-					{
-						extoutp1=
-						extoutp2=
-						stringsplit,extoutp, A_LoopReadLine,=,%A_Space% ""
-						if (extoutp1 = "supported_extensions")
+				jinj=	
+				Loop, Parse, stevr,|
+					{						
+						if (A_LoopField = "")
 							{
-								Loop,Parse,extoutp2,|
+								continue
+							}
+						jinj+=	1
+						if (jinj = 1)
+							{
+								ifExist, %raexedir%\cores\%A_LoopField%
 									{
-										ifnotinstring,allxtn,%A_LoopField%
+										guicontrol,,PLCORE,|%A_LoopField%||%runlist%
+										PLCORE= %A_LoopField%
+									}
+							}
+						stringreplace,matchinfo,A_LoopField,.dll,.info,All
+						ifexist,%raexedir%\info\%matchinfo%
+							{
+								FileRead,nioh,%raexedir%\info\%matchinfo%
+								Loop,parse,nioh,`n`r
+									{
+										if (A_LoopField = "")
 											{
-												allxtn.= A_LoopField . ","
+												continue
+											}
+										extoutp1=
+										extoutp2=
+										stringsplit,extoutp, A_LoopField,=,%A_Space% ""
+										if (extoutp1 = "supported_extensions")
+											{
+												Loop,Parse,extoutp2,|
+													{
+														ifnotinstring,allxtn,%A_LoopField%
+															{
+																allxtn.= A_LoopField . ","
+															}	
+													}
+												listswp= 1
+												StringReplace, omitxtv, extoutp2,|,`,,All
+												libxtn= %omitxtv%	
+												break
 											}
 									}
-								listswp= 1
-								StringReplace, omitxtv, extoutp2,|,`,,All
-								libxtn= %omitxtv%	
-								break
 							}
 					}
 			}
@@ -13881,24 +13847,17 @@ if ((fein <> "ERROR")&&(fein <> ""))
 								}		
 							}
 					}
-			}
+			}	
 		omitxtv:= omitxtc . "," . omitxtv
 		stringreplace,omitxtv,omitxtv,.,,All
 	}
-if (extoutp2 = "")
+if (libxtn <> "")
 	{
-		if (EXCLBOOL = 1)
+		omitxtv:= omitxtv . "|" . "|" . libxtn
+		if instr(PLCORE,"_libretro.dll")&&(DETECTCORE <> 1)
 			{
-				{
-					listswp= 1
-					extoutp2:= omitxi
-					stringreplace, omitxtv, extoutp2,|,`,, All
-				}
+				omitxtv:= libxtn . "|" . "|" . omitxtv . "|" . allxtn
 			}
-	}
-if instr(PLCORE,"_libretro.dll")&&(DETECTCORE <> 1)
-	{
-		omitxtv:= libxtn . "|" . "|" . omitxtv . "|" . allxtn
 	}
 	else {
 		if (omitxtc <> "")
@@ -13906,47 +13865,30 @@ if instr(PLCORE,"_libretro.dll")&&(DETECTCORE <> 1)
 				omitxtv:= omitxtv . "|" . "|" . omitxtc
 			}
 	}
-PIIPDXTF:
-guicontrol,,EXTPARSED, |%omitxtv%
-stringsplit,omitxtf,omitxtv,|
-stringreplace, pipxtr, omitxtf1,`,,|, All
-stringreplace,pipxtr,pipxtr,||,|,All
-stringsplit,omitxtt,pipxtr,|
-goto, faromitgn
-FilterTargetButton:
-if (omitxtt0 = "")
+exclinc:
+
+stringreplace,omitxts,omitxtv,||,|,,All
+stringleft,omitxtsv,omitxtv,1
+if (omitxtsc = "|")
 	{
-		gosub, PopDownloads
+		stringtrimleft,omitxtv,omitxts,1
 	}
-faromitgn:
-IniRead,kef,SystemLocations.ini,LOCATIONS,%DWNLPOS%
-Loop,parse,kef,|
+
+PIIPDXTF:
+guicontrol,,EXTPARSED,|%omitxtv%|
+omitxtva= 
+Loop,parse,omitxtv,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		Loop,%A_LoopField%\*.*,,%RECURSE%
+		ifnotinstring,omitxtva,%A_LoopField%
 			{
-				ext= %A_LoopFileExt%
-				noapl=
-				for k, v in ar
-					{
-						extm:= v
-						if (ext = extm)
-							{
-								noapl= 1
-							}
-					}
-				if (noapl = 1)
-					{
-						POPLDWN .= A_LoopFileFullPath . "|"
-					}
+				omitxtva.= A_LoopField . "|"
 			}
 	}
-stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
-guicontrol,,ROMPOP,|%POPLDWN%
-SB_SetText("")
+omitxtv= %omitxtva%
 return
 
 PopPLpl:
@@ -14017,24 +13959,21 @@ Loop, Read, %playlistLoc%\%DWNLPOS%
 				PLineAdd=
 			}
 	}
+
 splitpath,DWNLPOS,,,,DWNLPOZ
 stringreplace,poptadd,poptadd,%RJSYSTEMS%\%DWNLPOZ%\,,All
 guicontrol,,ROMPOP,|%poptadd%
 gosub, EDTROM
 return
 
-EXFilter:
+OutList:
 listswp=
 matchinfo=
 EXTPARSED=
 extoutp1=
 extoutp2=
 omitxtd=
-guicontrolget,omitxtt,,EXTPARSED
-stringsplit,omitxtp,omitxtt,|
-stringreplace,omitxty,omitxp1,`,,|,All
-stringsplit,omitxtt,omitxty,|
-OutList:
+ekn=
 POPLDWN=
 iniread,ebui,SystemLocations.ini,LOCATIONS,%DWNLPOS%
 Loop,parse,ebui,|
@@ -14043,24 +13982,30 @@ Loop,parse,ebui,|
 			{
 				continue
 			}	
-		Loop,%A_LoopField%,,%RECURSE%
+		Loop,%A_LoopField%\*.*,,%RECURSE%
 			{
 				ext= %A_LoopFileExt%
-				noapl= 0
-				for k, v in ar
+				APL=
+				Loop,parse,splfilt,`,
 					{
-						extm:= v
-						if (ext = extm)
+						if (A_LoopField = "")
 							{
-								noapl= 1
+								continue
+							}
+						if (A_LoopField = ext)
+							{
+								APL= 1
+								break
 							}
 					}
-				if (noapl = INCLBOOL)
+				if (apl = "")
 					{
-						POPLDWN .= A_LoopFileFullPath . "|"
+						ekn+=1
+						POPLDWN.= A_LoopFileFullPath . "|"
 					}
 			}
 	}
+SB_SetText(" " ekn " items added")	
 stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
 guicontrol,,ROMPOP,|%POPLDWN%
 return
@@ -14182,43 +14127,6 @@ return
 ParseAll:
 gui, submit, nohide
 guicontrolget,PARSEALL,,PARSEALL
-if (PARSEALL = 1)
-	{
-		guicontrol,,EXCLBOOL,1
-		guicontrol,,EXTPARSED,|%omitxi%||
-		guicontrol, disable, EXCLBool
-		guicontrol, disable, INCLBool
-		guicontrol, disable, EXTPARSED
-		POPLDWN=
-		Loop,%RJSYSTEMS%\%DWNLPOS%\*.*,,%RECURSE%
-			{
-				POPLDWN .= A_LoopFileFullPath . "|"
-			}
-		guicontrolget, existingpop,,ROMPOP
-		if (existingpop = "")
-			{
-				guicontrol,,ROMPOP,|%POPLDWN%
-				return
-			}
-		stringreplace,POPLDWN,POPLDWN,%RJSYSTEMS%\%DWNLPOS%\,,All
-		guicontrol,,ROMPOP,|%existingpop%|%POPLDWN%
-		return
-	}
-if (PARSEALL = 0)
-	{
-		guicontrol, enable, EXCLBool
-		guicontrol, enable, INCLBool
-		guicontrol, enable, EXTPARSED
-		guicontrolget,INCLBOOL,,INCLBOOL
-		if (INCLBOOL = 1)
-			{
-				gosub, ExtParsing
-				guicontrol,,EXTPARSED, |%omitxtv%
-				return
-			}
-	}
-gosub, ExFilter
-guicontrol,,EXTPARSED, |%omitxtv%
 return
 
 PLPerGameConfig:
