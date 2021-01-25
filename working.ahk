@@ -17,6 +17,7 @@ VERSION= [CURV]
 #Include src\lbex.ahk
 #Include src\LVA.ahk
 #Include src\gets.ahk
+#Include src\sets.ahk
 #Include src\HtmlDlg.ahk
 #Include src\AHKsock.ahk
 /*  ;;[DEBUGOV]
@@ -680,145 +681,7 @@ Loop, Parse, mamesplit,`n`r
 	}
 mame_sys.= mame_sysk
 sort,mame_sys, Alphabetically D|
-omitxi= jpg|ini|cfg|png|html|dll|nfo|srm|exe|sav|bak|conf|shader|inp|zst|cg|settings|gif|bat|cmd|pdf|ips|xdelta|7z|rar|001|mp3|mp4|shortcuts|config|tmp|readme|txt|rtf|htm|js|xml|bmp|gif|css|amgp|xpadderprofile|input|lnk|state|dat|ogg|log|flv|doc|php|text|tiff|brm|ps2|sys
-omitxt:= omitxi
-stringsplit,omitxtn,omitxt,= | ""
-ar := Object()
-Loop, %omitxtn0%
-{
-	new= % (omitxtn%a_index%)
-	if (omitxtn%a_index% <> "")
-		{
-			ar.insert(new)
-		}
-}
-stringreplace,parxti,omitxi,rar|,,All
-stringreplace,parxti,parxti,7z|,,All
-noBrws= Xinput_Drivers|DirectX|Visual_C++_Runtimes|Winows_Icons|IAGL|AdvancedLauncher|ICE|ROM_Collection_Browser
-rjdexcl= .Mem|.Man|backdrops|.sstates|.snaps|.patches|.cheats|
-rjfexcl= Folder.png|Folder.jpg|Backdrop.jpg|Backdrop.png|Banner.png|Banner.jpg|Logo.png|Logo.jpg|marquee.png|marquee.jpg|back.jpg|back.png|title.png|title.jpg|Cover.png|Cover.jpg|BoxFront.jpg|BoxFront.png|BoxBack.png|BoxBack.jpg|Spine.jpg|Spine.png|Disc.png|Disc.jpg
-omtiall:= omitxt . "|" . rjdexcl
-StringReplace, omitxtv, omitxt, |,`,,All
-imgonl= |png|jpg|svg|bmp|jpeg|gif|
-omitxj:= omitxtv
-metaimages= 3DBoxart|Marquee|4Mix|3Mix|Label|Cart|Backdrop|BoxArt|Logo|Video|Metadata|Snapshot
-ssenms= BoxArt|3DBoxart|Label|4Mix|cart|Logo|Marquee|Label|Logo|3DBoxart|3DBoxart|Snapshot|Logo|Label|3Mix|Backdrop|Snapshot
-altnms=Folder|Back|spine|4mix|cart|logo|marquee|bezel|panel|cab_L|cab_R|tile|banner|steam|poster|fanart|snap
-INJOPT=  [CUSTMOPT]| -b -e | /b -e | --windowed-fullscreen | --fullscreen | /f | -f | -FullScreen | -fs 1 | -d1 | /fullscreen /machine "COL - Colecovision" /rom1 | /fullscreen /machine "MSX" /rom1 | /fullscreen /machine "MSX2+" /rom1 | /fullscreen /machine "MSXturboR" /rom1 | /fullscreen /machine "SEGA -SG-1000" /rom1 | /fullscreen /machine "SEGA -SF-7000" /rom1 | /f /hardware:5200 /kernel:5200lle | /fullscreen /machine "SEGA -SC-3000" /rom1 | /fullscreen /machine "SVI - Spectravideo SVI-328 MK2" /rom1 | --startLoadFile | -run=dc -image=| -run=awave -rom=| -nogui -loadbin | -run=naomi -rom=| -autostart -cartcrt | -ntsc +confirmexit -saveres +warp -fullscreen -cartgeneric | -autoload | apfimag -cart | bbcm512 -cart1 | electron -flop | cpc464 -cart | gx4000 -cart | appl2cp -flop1 | apple2gs -flop1 | apple1 -cass | a2600 -cart | a5200 -cart | a7800 -cart | a800xe -flop1 | jaguar -cart | lynx -cart | xegs -cart | astrocde -cart | wswan -cart | wscolor -cart | lynx128k -flop1 | casloopy -cart | pv1000 -cart | pv2000 -cart | adam -cart1 | coleco -cart | c64 -flop | a500n -flop | a1200n -flop | a3000n -flop | cd32n -cdrm | vic20 -cart | d64plus -cart | cdtvn -cdrm | exl100 -cart | arcadia -cart | advision -cart | ep128 -cart | ep64 -cart | scv -cart | channelf -cart | fm7 -flop1 | supracan -cart | vectrex -cart | gmaster -cart | ibmpcjr -flop | vc4000 -cart | jupace -cass | samcoupe -flop1 | odyssey2 -cart | odyssey3 -cart | aquarius -cart | intv -cart | megaduck -cart | mtx512 -cass | fsa1gt -cart1 | pce -cart | tg16 -cart | sgx -cart | pce -cdrm | tg16 -cdrm | pc6001 -cart1 | pcfx | pc8801mk2 -flop1 | pc9821xs -flop1 | n64 -cart | nes -cart | famicom -cart | fds -flop | gameboy -cart | gbcolor -cart | gba -cart | vboy -cart | pokemini -cart | snes -cart | cdimono2 -cdrm | pc2000 -cart | vg5k -cass | videopac -cart | studio2 -cart | neocd -cdrm | neogeo -cart1 | aes -cart | ngp -cart | ngpc -cart | pico -cart | sc3000 -cart | sf7000 -flop | sg1000 -cart | stvbios -cart1 | 32xe -cart | 32xj -cart | 32x -cart | segacd2 -cdrm | megacd2 -cdrm | megacd2j -cdrm | dc -cdrm | dceu -cdrm | dcjp -cdrm | gamegear -cart | gamegeaj -cart | gamecom -cart1 | mz700 -cass | mz800 -cass | x1 -cart | x86kxvi -flop1 | ql_us -cass1 | psa -cdrm | pse -cdrm | psj -cdrm | psu -cdrm | pockstat -cart | m5 -flop | microtan -cart | oric -cass | mo5 -cass | 3do -cdrm | 3do_pal -cdrm | to7 -cass | crvision -cart | crvisio2 -cart | crvisioj -cart | laser200 -cass | laser310 -cass | vsmile -cart | vidbrain -cart | svisionn -cart | svisionp -cart | genesis -cart | megadriv -cart | expertdx -cart1 | canonv20s -cart1 | fmtmarty2 -cdrm | MACHINE=ARCADIA SETTINGS="WA.CFG" FULLSCREEN=ON AUTOSAVE=ON TITLEBAR=OFF TOOLBAR=OFF STRETCH=ON FILE= | -5200 -cart |  -Fullscreen 1 -MenuEnabled 0 -Region auto | --chromeless | --StartLoadFile | -32X | -sms | -scd | -gg | -md | -gen | -res=1024,768 -input-system=xinput -fullscreen | -p -f -u -c=studio -s
-INJARG= [CUSTMARG]| -rp "[ROMPATH]" | -rp "[EMUPATH]\roms" | --startFullScreen | -no-printscreen-dlg | -d2 | --StartFullScreen | /A
-Loop, rj\emuCfgs\*,2
-	{
-		SUPEMUOPT.= A_LoopFileName . "|"
-	}
-mediaordert= theGamesDB|OpenVGDB|ScreenScraper|arcadeitalia|mamedb|IAGL
-fesup= EmulationStation|RetroFE|Pegasus
-noinstallers= |Media|Mirrored_Links|IAGL|AdvancedLauncher|ROM_Collection_Browser|MediaBrowser|ICE|
-JUNCTOPT= 2
-emu_lst=LOCEMUIN|MULTINST|EMUINSC|EMUINST|EMUASIGN|CHEMUINST|EMUAUTOA|RepoSet|AddRepo|GBLpgs|EMUPGC|LNCHPRDDL|LNCHPT
-systm_hide=SAVNSYS|ADDNSYS|APPOPT|APPARG|NOEXTN|EMUPGC|SYSNICK|EXDISPL|SVNICK|DELNICK|ERUN|LRUN|SELAPP|OPTTXT|ARGTXT|OMITQ|EXTARUN|OMITPTH|DSKMNTGRP|DSKMNTCHK|DSKSELBUT|DSKMNTOVR|EMGRPF|EMCHKW|EMDDLP|EMDDLF|EMBUTG|EMBUTH|DSKMNTDDL
-systm_show=SELAPP|APPOPT|SYSNICK|SVNICK|DELNICK|APPARG|NOEXTN|EMUPGC|EMUPGC|EXDISPL|ERUN|LRUN|OMITQ|EXTARUN|OMITPTH|OPTTXT|ARGTXT|DSKMNTGRP|DSKMNTCHK|DSKSELBUT|DSKMNTOVR|EMGRPF|EMCHKW|EMDDLP|EMDDLF|EMBUTG|EMBUTH|DSKMNTDDL
-emu_params=SELAPP|APPOPT|SYSNICK|SVNICK|DELNICK|APPARG|NOEXTN|EMUPGC|EMUPGC|ERUN|LRUN|OMITQ|EXTARUN|OMITPTH|OPTTXT|ARGTXT
-mednfsc= gb|gg|gba|lynx|md|nes|ngp|pce|pce_fast|pcfx|psx|sms|snes|snes_faust|ss|vb|wswan
-mamefsc= default|32x|32xe|32xj|a1000n|a1200n|a2000n|a2600|a2600p|a3000|a3000n|a310|a500n|a5200|a7800|a800|a800pal|abc1600|abc80|adam|advantage|advision|aim65|aleste|alice32|alice90|alphatro|altos5|amiga|ampro|apc|apfimag|apfm1000|apogee|apollo|apple1|apple2|apple2gs|apple3|apricot|aquarius|arcadia|archimedes|astrocde|atom|attache|b2m|bbca|bbcb|bbcbc|bbcm|bbcmc|bk0010|bw12|bw14|bw2|bx256hp|c128|c64|c65|canonv30f|canonv8|casloopy|cbm2|cbm8096|cbm8296|cc40|cdtv|cgenie|channelf|chessmstdm|coco|coleco|colecop|compclr2|compis|comx35|copera|cpc|cpc6128p|crvision|cx3000tc|dai|database|dgnalpha|dgnbeta|dim68k|dmv|dps1|dragon|e01|ec1841|einstein|electron|ep64|epson|exl100|famicom|fidel|fm7|fm77av|fmtowns|fsa1st|g7400|galaxy|gamate|gameboy|gamecom|gamegear|gamegearj|gameking|gameking3|gamepock|gba|gbcolor|genesis|genius|genius6|gimix|gjmovie|gl2000|gl6000sl|glcolor|gmaster|gp32|guab|gx4000|h21|hbf9sp|horizon|hp|hp85|hp9835a|hp9845a|hp9845b|ht68k|hx20|i7000|ibm5140|ibm5150|ibm5170|ibm6580|ibmpcjr|interact|intv|intvecs|iq151|jaguar|juicebox|jupace|k28m2|kayproii|kc|kim1|konami|korvet|lantutor|laser2001|leapster|lisa|lisa2|lviv|lynx|m20|m5|mac|MAME-BIOS|mbc200|mbc55x|mc10|mc1502|md2|megadriv|megaduck|megapc|megatech|microvision|mikro80|mikrosha|misterx|mm1|mo5|mo6|mpu1000|mpz80|msx1|msx2|msx2p|msxr|mtx|mtx512|myvision|mz2000|mz2500|mz700|mz800|n64|n64dd|nascom|neocd|neogeo|nes|nespal|next|ngp|ngpc|nimbus|octopus|odyssey2|ondra|orao|orionide|orionpro|osborne1|osborne2|p500|partner|pasogo|pb2000c|pc1000|pc1512|pc1640|pc8201|pc8801|pc88va|pc98|pc9821xs|pce|pcecd|pcw|pcw16|pecom|pecom32|pegasus|pencil2|pentagon|pet64|phc25|picno|pico|picou|pippin|plus4|pmd853|pockchalv2|pockchalw|pofo|poisk1|pokemini|princ|pro128|pro128s|prof180|prof80|psi98|psion1|psion2|psx|pt68k2|pv1000|pv2000|px4|px8|pyl601|ql|qx10|r9751|radio86|rainbow|rwtrntcs|rx78|sage2|samcoupe|sat|saturnu|sawatte|sc3000|scv|sf7000|sg1000|sgx|sitcom|smc777|smondial2|sms|smsj|smspal|snes|snespal|snotec|snread|snspell|socrates|softbox|sol20|sorcerer|spc1000|spc1500|spec128|special|specpls3|spectrum|st|studio2|stv|super6|super80|superpet|supracan|sv8000|svi318|svision|svmu|t1000|tandy200|tandy2k|tandy6k|tdv2324|tek4052|tg16|ti74|ti95|ti99|tiki100|timex|tntell|to7|to770|to770a|to8|trs80m2|trsm100|tutor|tvc|unichamp|ut88|uzebox|v1050|vboy|vc4000|vector06|vectrex|vg5k|vic10|vic1001|victor9k|vidbrain|vii|vip|visicom|vixen|vsmile|vsmileb|vsmilef|vsmileg|vz|wangpc|waveterm|wicat|wmbullet|wscolor|wswan|x07|x1|x68k|x68ksupr|x820ii|xegs|xerox820|z80ne|z88|zorba|zx80|zx81
-FELIST=Mirrored_Links|Media|retroFE|Hyperspin|EmulationStation|Pegasus|MediaBrowser|CairoFE|Kodi_AL|Kodi_RCB|Kodi_IAGL|Steam
-RUNBOXGUIITEMS=LCORE|RUNSYSBTN|RUNSYSDDL|RUNPLRAD|RUNFLRAD|EDTROMBTN|MINISWITCH|MORROM|GROM|OPNCORE|LNCHBUT|RCLLNCH|CLRCUROM
-GUISRCHITEMS=SRCHGRP|SRCHLOCDDL|SRCHFLRAD|SRCHPLRAD|SRCHROMLBX|SRCHROMEDT|SRCHROMBUT|SRCHRCRSCHK
-RJLSTCTRLS=RJSYSDD|RJINCEXCL|RJSETRANGE|RJRNGTXT|RJLSTYP|RJRFRSHLST|RJEDTD|RJEDTDN|RJTXTH|RJEDTB|RJEDTBN|RJFLTRLST|RJEDTCg|RJEDTC|RJFNDINLST|RJLSTV|RJSALITMS|RJTXTN|RJCHKL|RJCHKM|RJCHKP|RJCHKH|RJCHKI|RJDELCOMP|RLSTOT|RJGRPA|RJCHKG|RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJSYSSAV|RJSYSSAVAS|RJGRPG|RJENMAP|RJOVKM|RJTXTC|RJTXTF|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJTXTD|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJTXTE|RJMAP2PL|RJMAP2PLOPN|RJGRPI|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJTXTBP|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJGRPE|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJTXTA1|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJTXTK|RJXTRARCDD|RJGRPF|RJBUTV|RJRad11A|RJRad11B|RJCHKW|RJDDLF|RJBUTG|RJCBXH|RJDDLP|RJBUTO|RJEDTO|RJBUTH|RJGRPD|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJGRPC|RJTXTL|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJTXTM|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RJCHKR|RJCBXJ|RJTXTJ|RJLNCHTYP|RJEMUXTCBX|RJTXTG|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJTXTZ|RRJEARGSCBX|RJTXT1A|RJZJP|RJRAD1A|RJRAD1B|RJCHKJ|RJQLSTDD|RJADDQ|RJREMQSYS|RJTXTAB
-RJLSTCTRLSp=RJCHKR|RJBUTA|RJSYSRADA|RJSYSRADB|RJSYSRADC|RJRFRSHLST|RJSETRANGE|RJENMAP|RJCHKU|RJCHKT|RJCHKS|RJCHKW|RJQLSTDD|RJADDQ|RJBUTH|RJBUTG|RJBUTV|RJDDLP|RJDDLF|RJLNCHTYP|RJSYSRADB|RJSYSRADA|RJRad1B|RJRad11A|RJRad11B|RJFLTRLST|RJEDTO|RJCHKK|RJENDMNT|RJEXEB|RJENLNCHR|RJFNDINLST|RJDELCOMP|RJSALITMS|RJLSTYP|RJSUBDCBX|RJINCEXCL|RJLSTV|RJEDTC|RJZIP|RJSYSSAV|RJSYSSAVAS|RJREMQSYS|RJEOPTSCBX|RRJEARGSCBX|RJPROCQ|RJADDQ|RJCHKL|RJCHKM|RJCHKP|RJCHKH|RJCHKI|RJCHKF|RJCHKG|RJCHKJ|RJEMUXTCBX|RJREMQSYS|RJXTRARCDD|RJSUBDH|RJADDSUBD|RJREMSUBD|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG
-EMUTABGUIITEMS=emuBUTA|emuBUTB|emuBUTC|emuBUTG|emuBUTD|emuBUTE|emuBUTF|emuBUTH|emuBUTI|emuBUTJ|emuBUTK|emuCHKD|emuCHKE|emuCHKF|emuCHKG|emuCHKH|emuCHKI|emuCHKJ|emuCHKK|emuCHKL|emuCHKM|emuCHKN|emuCHKO|emuCHKP|emuCHKQ|emuCHKR|emuCHKS|emuCHKT|emuCHKU|emuCHKA|emuCHKB|emuCHKC|emuCBXE|emuCBXF|emuCBXG|emuCBXH|emuCBXI|emuCBXJ|emuCBXA|emuCBXB|emuCBXC|emuCBXD|emuDDLE|emuDDLF|emuDDLG|emuDDLH|emuDDLI|emuDDLJ|emuDDLC|emuDDLD|emuDDLA|emuDDLB|emuEDTA|emuEDTB|emuEDTC|emuEDTD|emuEDTE|emuEDTF|emuEDTG|emuEDTI|emuUPDA|emuEDTH|emuUPDB|emuLVA|emuUPDC|emuLBXA|emuLBXB|emuLVA|emuLVB|emuLVC|emuPRGB|emuPRGA|emuRad5B|emuRad5C|emuRad4A|emuRad4B|emuRad5A|emuRad6A|emuRad6B|emuRad6C|emuRad6D|emuRad7A|emuRad7B|emuRad8A|emuRad8B|emuRad9A|emuRad9B|emuRad9C|emuRad10A|emuRad10B|emuRad11A|emuRad11B|emuRad2A|emuRad2B|emuRad2C|emuRad1A|emuRad3A|emuRad3B|emuRad3C|emuRad3D|emuRad1B|emuSLDA|emuSLDB|emuSLDD|emuSLDE|emuSLDC|emuGRPA|emuGRPB|emuGRPC|emuGRPD|emuGRPE|emuGRPF|emuGRPG|emuTXTA|emuTXTB|emuTXTC|emuTXTD|emuTXTE|emuTXTF|emuTXTG|emuTXTS|emuTXTT|emuTXTR|emuTXTM|emuTXTH|emuTXTI|emuTXTN|emuTXTO|emuTXTP|emuTXTQ|emuTXTJ|emuTXTK|emuTXTL
-EMUINPUTNULLITEMS=INDWRN|emjAGRP|emjCGRP|emjDGRP|emjEGRP|emjFGRP|emjATXT|emjBTXT|emjCTXT|emjDTXT|emjETXT|emjFTXT|emjGTXT|emjHTXT|emjITXT|emjJTXT|emjKTXT|emjLTXT|emjMTXT|emJHGRP|emjNTXT|emjGGRP|emjPTXT|emjRTXT|emjSTXT|emjTTXT|emjJGRP|emjUTXT|emjVTXT|emjWTXT|emjIGRP|emjXTXT|emjYTXT|emjZTXT|emjQTXT|emjOtxt
-EMUINPUTGUIITEMS=emjRAD1A|emjRAD1B|emjRAD1C|emjRAD1D|emjBGRP|emjRAD2A|emjRAD2B|emjRAD2C|emjBUTA|emjBUTB|emjRAD3A|emjRAD3B|emjCBA|emjDDLA|emjDDLB|emjDDLD|emjCHKA|emjCHKB|emjCHKC|emjCHKD|emjCHKE|emjCHKX|emjCHKY|emjCHKZ|emjCHKH|emjDDLE|emjSLDA|emjCHKF|emjDDLF|emjUDA|emjEDTA|emjEDTB|emjUDB|emjCHKG|emjDDLC
-EMUJOYBUTGUIITEMS=emjTURBOIN|emjL2In|emjLIn|emjR2In|emjRIn|emjLYPlusIn|emjLXMinusIn|emjLXPlusIn|emjLYMinusIn|emjL3In|emjRYPlusIn|emjRXMinusIn|emjRXPlusIn|emjRYMinusIn|emjR3In|emjDownIn|emjUpIn|emjLeftIn|emjRightIn|emjSelectIn|emjStartIn|emjYIn|emjXIn|emjBIn|emjAIn|emjINPBUTIN
-EMUJOYCBXGUIITEMS=emjTRBCMB|emjRXMinus|emjRYPlus|emjR|emjL|emjRXPlus|emjRYMinus|emjR3|emjL3|emjLXMinus|emjLYPlus|emjLYMinus|emjLXPlus|emjselect|emjstart|emjup|emjleft|emjright|emjdown|emjY|emjX|emjB|emjA|emjl2|emjr2|emjHome
-NETHOSTGUIITEMS=NetPlist|NetDwnl|INETHOST|RELYSRV|ALSLV|SLVONLY|PRVTSV|IPORTNUM|NOSTATE|CHECKFRAMES|CHKFTXT|CHKFRSLD|MINLAT|MINLATTXT|MINLATSLD|LATRNG|LATRNGTXT|LATRNGSLD|NETHROM|HOSTBUTTON|HOSTIP|FSRVTXT|FILESERV|SERVPORT|GETIP|GETLAN|NETIPRAD|LANIPRAD|NETPW
-NETCLIENTGUIITEMS=PSTIP|FORCEROM|NETROM|ROOMFILTER|SRCHARCORG|AUTSYS|IPA|IPB|IPC|IPD|NETSPECPW|NETCROM|CPORTNUM|PSTIP|NETCONNECT
-COREGUIITEMS=COREDDLB|COREDDLC|COREDDLD|COREDDLE|COREDDLTXTA|COREDDLTXTB|COREDDLTXTC|COREDDLTXTD|CORERADA|CORERADB|CORECMBA|CORECMBTXTA|CORERADC|CORERADD|CORERADE|CORERADF|CORECHKA|CORECHKB|CORECHKC|COREDDLH|CORERADG|CORERADH|CORECHKD|CORECHKD|CORECMBB|CORECMBTXTB|CORESLDA|CORESLDTXTA|CORERADI|CORERADJ|CORERADK|CORERADL|COREDDLTXTE|COREDDLF|COREDDLG|COREDDLH|COREDDLI|COREDDLJ|COREDDLK|COREDDLL|COREDDLTXTF|COREDDLTXTG|COREDDLTXTH|COREDDLTXTI|CORECHKE|CORECHKF|CORECHKG|CORECHKH|CORECHKI|CORERADM|CORERADN|CORERADO|CORERADP|CORERADQ|CORERADR|CORERADS|CORERADT|CORERADU|CORERADV
-MEDIAFEITEMS=FEBUTL|FEBUTG|FEBUTH|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTO|FEEDTA|FEEDTB|FELBXA|FELBXB|FEDDLE|FELNKA|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN|FETXTG|FERAD7B|FERAD7A|FETXTI|FETXTJ|FETXTM|FEEDTD|FETXTL|FEEDTC|FEGRPA|FEPICA|FERAD4A|FERAD4B|FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKF|FECHKO|FEDDLG|FECBXB|FERAD5A|FERAD5B|FERAD2A|FERAD2B|FERAD2C|FEBUTM|FELVA|FEDDLG|FEBUTI
-FEGUIITEMS=feBUTA|feBUTB|feBUTC|feBUTG|feBUTD|feBUTE|feBUTF|feBUTH|feBUTI|feBUTJ|feBUTK|feBUTL|feBUTM|feBUTO|fePICA|fePICB|fePICC|fePICD|fePICE|fePICF|fePICG|feCHKD|feCHKE|feCHKF|feCHKG|feCHKH|feCHKI|feCHKJ|feCHKK|feCHKL|feCHKM|feCHKN|feCHKO|feCHKP|feCHKQ|feCHKA|feCHKB|feCHKC|feCBXE|feCBXF|feCBXG|feCBXH|feCBXI|feCBXJ|feCBXA|feCBXB|feCBXC|feCBXD|feDDLE|feDDLG|feDDLF|feDDLG|feDDLH|feDDLI|feLNKA|feLNKB|feDDLC|feDDLD|feDDLA|feDDLB|feEDTA|feEDTB|feEDTC|feEDTD|feEDTE|feEDTF|feEDTG|feEDTI|feUPDA|feEDTH|feUPDB|feLVA|feUPDC|feGRPA|feGRPB|feGRPC|feGRPD|feGRPE|feGRPF|feGRPG|feLBXA|feLBXB|feLVA|feLVB|feLVC|fePRGB|fePRGA|feRad5B|feRad5C|feRad4A|feRad4B|feRad5A|feRad6A|feRad6B|feRad6C|feRad6D|feRad7A|feRad7B|feRad8A|feRad8B|feRad9A|feRad9B|feRad9C|feRad10A|feRad10B|feRad11A|feRad11B|feRad2A|feRad2B|feRad2C|feRad1A|feRad3A|feRad3B|feRad3C|feRad3D|feRad1B|feSLDA|feSLDB|feSLDD|feSLDE|feSLDC|feTXTA|feTXTB|feTXTC|feTXTD|feTXTE|feTXTF|feTXTG|feTXTS|feTXTT|feTXTR|feTXTM|feTXTH|feTXTI|feTXTN|feTXTO|feTXTP|feTXTQ|feTXTJ|feTXTK|feTXTL
-JACKETGUIITEMS=RJSYSRADA|RJSYSRADB|RJSYSRADC|RJSYSLOAD|RJCHKL|RJCHKH|RJCHKI|RJCHKM|RJCHKP|RJDELCOMP|RJSYSSAV|RJSYSSAVAS|RJENMAP|RJOVKM|RJMAPDD|RJMAPRET|RJMAPRETOPN|RJMAP1ROFTYPA|RJMAP1ROFTYPB|RJMAP1ROFTYPC|RJMAP1PL|RJMAP1PLOPN|RJMAP2ROFTYPA|RJMAP2ROFTYPB|RJMAP2ROFTYPC|RJMAP2PL|RJMAP2PLOPN|RJENLNCHR|RJLNCHOVR|RJRad4B|RJRad4A|RJEXEB|RJEMUPRECFG|RJEMUPRM|RJCHKQ|RJBUTM|RJCHKK|RJCHKA|RJADDSUBD|RJREMSUBD|RJSUBDCBX|RJSUBDH|RJCNSLDD|RJENCNSLD|RJENXTRARC|RJXTRARCA|RJXTRARCB|RJXTRARCDD|RJRad11A|RJRad11B|RJEDTO|RJDDLF|RJCHKW|RJBUTV|RJBUTG|RJCBXJ|RJDDLP|RJCBXH|RJBUTH|RJENDMNT|RJDMNTDD|RJDIMGET|RJRad8A|RJRad8B|RJENDMOV|RJCHKF|RJCHKO|RJPRECFGCBX|RJADDPRECFG|RJREMPRECFG|RJPOSTCFGCBX|RJADDPOSTCFG|RJREMPOSTCFG|RRJEARGSCBX|RJEMUXTCBX|RJRAD1A|RJRAD1B|RJZJP|RJCHKU|RJCHKT|RJCHKS|RJEOPTSCBX|RJCHKR|RJCHKJ
-UTLGUIITEMS=utlBUTB|utlBUTC|utlBUTG|utlBUTD|utlBUTE|utlBUTF|utlBUTH|utlBUTI|utlBUTJ|utlCHKD|utlCHKE|utlCHKF|utlCHKG|utlCHKH|utlCHKI|utlCHKJ|utlCHKK|utlCHKL|utlCHKM|utlCHKN|utlCHKO|utlCHKP|utlCHKQ|utlCHKA|utlCHKB|utlCHKC|utlCBXE|utlCBXF|utlCBXG|utlCBXH|utlCBXI|utlCBXJ|utlCBXA|utlCBXB|utlCBXC|utlCBXD|utlDDLE|utlDDLF|utlDDLG|utlDDLH|utlDDLI|utlDDLJ|utlDDLC|utlDDLD|utlDDLB|utlEDTA|utlEDTB|utlEDTC|utlEDTD|utlEDTE|utlEDTF|utlEDTG|utlEDTI|utlUPDA|utlEDTH|utlUPDB|utlLVA|utlUPDC|utlGRPA|utlGRPB|utlGRPC|utlGRPD|utlGRPE|utlGRPF|utlGRPG|utlLBXA|utlLBXB|utlLVA|utlLVB|utlLVC|utlPRGB|utlPRGA|utlRad5B|utlRad5C|utlRad4A|utlRad4B|utlRad5A|utlRad6A|utlRad6B|utlRad6C|utlRad6D|utlRad7A|utlRad7B|utlRad8A|utlRad8B|utlRad9A|utlRad9B|utlRad9C|utlRad10A|utlRad10B|utlRad11A|utlRad11B|utlRad2A|utlRad2B|utlRad2C|utlRad1A|utlRad3A|utlRad3B|utlRad3C|utlRad3D|utlRad1B|utlSLDA|utlSLDB|utlSLDD|utlSLDE|utlSLDC|utlTXTA|utlPICA|utlTXTC|utlTXTD|utlTXTE|utlTXTF|utlTXTG|utlTXTS|utlTXTT|utlTXTR|utlTXTM|utlTXTH|utlTXTI|utlTXTN|utlTXTO|utlTXTP|utlTXTQ|utlTXTJ|utlTXTK|utlTXTL
-ESPLRI=ESBACKUP|ESSVPL|ESPLXMP|ESCPYSCR|ESUSESCR|ESRPOPDL|ESINCLF|ESROMONLY|ESRPOPPL|ESPLCORE|ESRPOPROM|ESROMROOT|ESRRTXT|ESMIRSEL|ESDWNLPOS|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT
-ESPLSWAP=ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESSAVEOPL|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESOPNIMGPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
-ESPLITEMS=ESPLCORE|ESBACKUP|ESSVPL|ESPLXMP|ESOPENPL|ESUSESCR|ESCPYSCR|ESDWNLPOS|ESRPOPDL|ESRPOPPL|ESRPOPROM|ESMIRSEL|ESROMROOT|ESRRTXT|ESBOXSRCHBUT|ESBOXCHK|ESMRQCHK|ESTHMBCHK|ESVIDCHK|ESMARQSRCHBUT|ESTHUMBSRCHBUT|ESVIDSRCHBUT|ESNAMTXT|ESNAMEDT|ESPTHTXT|ESDESCTXT|ESDESCEDT|ESIMGBUT|ESIMGTXT|ESOPNIMGPTHTXT|ESVIDPTHTXT|ESVIDTXT|ESVIDBUT|ESPTHEDT|ESMARQTXT|ESMARQBUT|ESMARQPTHTXT|ESPUBTXT|ESPUBEDT|ESDEVTXT|ESDEVEDT|ESRATTXT|ESRATSLD|ESRLSDTXT|ESRLSDG|ESGENTXT|ESGENEDT|ESDDPLNUM|ESPLNUMTXT|ESROMPTHBUT|ESROMADDBUT|ESFLDADDBUT|ESKIDG|ESFAV|ESHIDDEN|ESTHMBTXT|ESTHUMBBUT|ESTHUMBP
-PGPLRI=PGBACKUP|PGSVPL|PGPLXMP|PGCPYSCR|PGUSESCR|PGRPOPDL|PGRPOPPL|PGPLCORE|PGRPOPROM|PGROMROOT|PGRRTXT|PGMIRSEL|PGDWNLPOS|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT
-PGPLSWAP=PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGSAVEOPL|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGOPNIMGPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
-PGPLITEMS=PGPLCORE|PGBACKUP|PGSVPL|PGPLXMP|PGOPENPL|PGUSESCR|PGCPYSCR|PGDWNLPOS|PGRPOPDL|PGRPOPPL|PGRPOPROM|PGMIRSEL|PGROMROOT|PGRRTXT|PGBOXSRCHBUT|PGBOXCHK|PGMRQCHK|PGTHMBCHK|PGVIDCHK|PGMARQSRCHBUT|PGTHUMBSRCHBUT|PGVIDSRCHBUT|PGNAMTXT|PGNAMEDT|PGPTHTXT|PGDESCTXT|PGDESCEDT|PGIMGBUT|PGIMGTXT|PGOPNIMGPTHTXT|PGVIDPTHTXT|PGVIDTXT|PGVIDBUT|PGPTHEDT|PGMARQTXT|PGMARQBUT|PGMARQPTHTXT|PGPUBTXT|PGPUBEDT|PGDEVTXT|PGDEVEDT|PGRATTXT|PGRATSLD|PGRLSDTXT|PGRLSDG|PGGENTXT|PGGENEDT|PGDDPLNUM|PGPLNUMTXT|PGROMPTHBUT|PGROMADDBUT|PGFLDADDBUT|PGKIDG|PGFAV|PGHIDDEN|PGTHMBTXT|PGTHUMBBUT|PGTHUMBP
-RFPLRI=RFBACKUP|RFSVPL|RFPLXMP|RFCPYSCR|RFUSESCR|RFRPOPDL|RFRPOPPL|RFPLCORE|RFRPOPROM|RFROMROOT|RFRRTXT|RFMIRSEL|RFDWNLPOS|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT
-RFPLSWAP=RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFSAVEOPL|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFOPNIMGPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
-pspce:= A_Tab . A_Space . A_Space
-pspxe:= A_Tab
-imgtmp= |jpg|bmp|png|jpeg|
-UNUSED=OVEXTL|OVSETRM|SYSIDENT|SKPRFJTXT|OVSETTXT
-RFPLITEMS=RFPLCORE|RFBACKUP|RFSVPL|RFPLXMP|RFOPENPL|RFUSESCR|RFCPYSCR|RFDWNLPOS|RFRPOPDL|RFRPOPPL|RFRPOPROM|RFMIRSEL|RFROMROOT|RFRRTXT|RFBOXSRCHBUT|RFBOXCHK|RFMRQCHK|RFTHMBCHK|RFVIDCHK|RFMARQSRCHBUT|RFTHUMBSRCHBUT|RFVIDSRCHBUT|RFNAMTXT|RFNAMEDT|RFPTHTXT|RFDESCTXT|RFDESCEDT|RFIMGBUT|RFIMGTXT|RFOPNIMGPTHTXT|RFVIDPTHTXT|RFVIDTXT|RFVIDBUT|RFPTHEDT|RFMARQTXT|RFMARQBUT|RFMARQPTHTXT|RFPUBTXT|RFPUBEDT|RFDEVTXT|RFDEVEDT|RFRATTXT|RFRATSLD|RFRLSDTXT|RFRLSDG|RFGENTXT|RFGENEDT|RFDDPLNUM|RFPLNUMTXT|RFROMPTHBUT|RFROMADDBUT|RFFLDADDBUT|RFKIDG|RFFAV|RFHIDDEN|RFTHMBTXT|RFTHUMBBUT|RFTHUMBP
-UNIPLITEMS=ROMPOP|PLGBA|PLGBB|PLGBC|PLGBD|CURPLST|APNDTYPGRP|PLAPPND|PLOVR|CPYPL|PLADPTXT|CLRPP|PLCLRPTXT|BRADD|FENWTXT|REMPL|PLRMVTXT|MVPLOD|MVPLOU|CLRPL|PLCLRTXT
-systmitems=SELAPP|APPOPT|SYSNICK|SVNICK|DELNICK|APPARG|NOEXTN|EMUPGC|EMUPGC|ERUN|LRUN|OMITQ|EXTARUN|OMITPTH|OPTTXT|ARGTXT|EMUINST
-emu_dmnt=DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR
-emu_ppst=EMCHKW|EMDDLF|EMBUTG|EMDDLP|EMBUTH
-EMUTABITEMS= SKBSRLGRP|CACGRP|GRPDROPBIOS|PRGINSTLBX|SYSINSTLBX|DWNPRGRS|EMPRLST|EMPRBUTA|EMPRDDL|EMPRBUTU|EMPRBUTX|DELCFGPGC|EMGRPF|DSKMNTGRP|DSKMNTCHK|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|EMRad11B|EMCHKW|EMDDLF|EMBUTG|EMCBXH|EMDDLP|EMBUTH|RepoSet|SITEDTXT|AddRepo|EMUAUTOA|BCKCORE|UPDBTN|CCGRP|CRNTCORS|EXELIST|RALIST|SKRAstch|LNCHPRDDL|LNCHPT|ADDCORE|OPNSYS|ADDNSYS|SAVNSYS|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|UNIQLNK|INSTEMUDDL|LOCEMUIN|MULTINST|EMUINST|EMUASIGN|CHEMUINST|EINSTTXT|EINSTLOC|ROMDLOC|MROMDLOC|ROMDTXT|ROMDEDT|SKENBF|SKBEFCMD|SKRBFTXT|SKENAF|SKAFTCMD|SKRAFTXT|DISCFG|SKOVRJM|SKXPADOV|SKAMOV|SKPROFOV|SKFROV|SKFROVDD|SKRAEXE|SKRAXETXT|SKRADISP|SKIMPRATXT|SKRAIMP|SKSAVTXT|SKSAVE|SKSVAS|SKCCTXT|RAVERTXT|GRAVER|QRSETUP|EXTARUN|EMUINSC|GBLpgs
-SYSINSTITEMS= SYSINSTLBX|EMPRDDL|EMPRLST|EMPRBUTA|EMPRBUTU|EMPRBUTD|EMPRBUTX|DELCFGPGC|OPNSYS|ADDCORE|OVLIST|SYSINSTLBX|EINSTTXT|EINSTLOC|CHEMUINST|INSTEMUDDL|LOCEMUIN|EMUINST|EMUASIGN|ROMDLOC|ROMDTXT|ROMDEDT
-sysselitems= KARC|ADDCORE|APPARG|APPOPT|ARDCORE|CHEMUINST|DELCFGPGC|DELNICK|EMBUTG|EMBUTH|EMBUTV|EMCBXH|EMCHKW|EMDDLF|EMDDLP|EMPRBUTA|EMPRBUTU|EMPRBUTX|EMPRDDL|EMPRLST|EMUASIGN|EMUINST|EMUPGC|ERUN|EXTARUN|INSTEMUDDL|LOCEMUIN|LRUN|NOEXTN|OMITPTH|OMITQ|OPNSYS|OVLIST|ROMDLOC|SELAPP|SVNICK|SYSNICK|EMGRPF|DSKMNTGRP|OPTTXT|ARGTXT|EXDISPL|DSKMNTDDL|DSKSELBUT|DSKMNTOVR|
-FEINSTITEMS= ADDREPO|CHEMUINST|DISCFG|EINSTLOC|EINSTTXT|EMUINST|INSTEMUDDL|LOCEMUIN|REPOSET|SITEDTXT|SKAFTCMD|SKAMOV|SKAMOV|SKBEFCMD|SKBSRLGRP|SKENAF|SKENBF|SKFROV|SKFROVDD|SKOVRJM|SKOVRJM|SKPROFOV|SKRAFTXT|SKRBFTXT|SKXPADOV|PRGINSTLBX
-UTLINSTITEMS= REPOSET|SITEDTXT|ADDREPO|LOCEMUIN|PRGINSTLBX|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL
-EMUINSTITEMS= GRPDROPBIOS|REPOSET|SITEDTXT|ADDREPO|EMUAUTOA|PRGINSTLBX|LNCHPT|LNCHPRDDL|EINSTTXT|EINSTLOC|CHEMUINST|EMUINST|INSTEMUDDL|LOCEMUIN
-PSETCFGITEMS= ADDCORE|OPNSYS|ADDNSYS|SAVNSYS|DCORE|ARDCORE|DAPP|ASCORE|SELAPP|SYSNICK|SVNICK|DELNICK|EXTINP|APPOPT|APPARG|OPTTXT|ARGTXT|EMUPGC|ERUN|LRUN|NoExtn|OMITQ|OMITPTH|EXDISPL|EXTARUN
-ESFEGUIITEMS= FEBUTA|FEBUTB|FEBUTC|FEBUTD|FEBUTE|FEBUTF|FEBUTH|FEBUTG|FEBUTI|FEBUTJ|FEBUTK|FECHKB|FECHKC|FECHKD|FECHKE|FECHKF|FEEDTA|FEEDTB|FEDDLD|FEDDLA|FEDDLC|FEDDLF|FEDDLG|FECBXB|FECBXC|FECBXD|FECBXA|FELVA|FERAD5A|FERAD5B|FERAD5C|FERAD2A|FERAD2B|FESLDA|FELBXA|FEPRGA
-LNCH_TUI= RUNPLRAD|RUNFLRAD|RUNROMCBX|EDTROMBTN|MORROM|SWHOST|FNDGUI|CUSTSWITCHS|CUSTMOPTS|CUSTMARGS|GROM|ESWPLCORE|LCORECBX|LCORECBX|JCORE|OPNCORE|HLNCHBUT|CLRCUROM|RETAL|RUNSYSDDL|RUNSYSCBX|RUNSYSBTN|CNCTBUT|HOSTBUTTON|LCORE|ESWPLCRE
-LNCH_UI= RUNPLRAD|RUNFLRAD|RUNROMCBX|EDTROMBTN|MORROM|SWHOST|FNDGUI|CUSTSWITCHS|CUSTMOPTS|CUSTMARGS|GROM|ESWPLCORE|LCORECBX|LCORECBX|JCORE|OPNCORE|HLNCHBUT|LNCHBUT|RCLLNCH|CLRCUROM|RETAL|RUNSYSDDL|RUNSYSCBX|RUNSYSBTN|CNCTBUT|HOSTBUTTON|LCORE|ESWPLCRE
-RJSYSDN= Systems
-SUBDLST= .Mem||.snaps|.sstates|.Man|.patches|.cheats
-SUBDLSTR:= SUBDLST
-qres= 320x240|640x480|720x480|720x576|800x480|848x480|1024x600|800x600|1024x768|1152x864|1280x1024|1280x720|1280x800|1280x900|1280x960|1366x768|1360x1024|1440x900|1400x1050|1600x1024|1920x1080|1600x1024|1680x1050|1920x1200|2560x1440|3840x2160|5120x2880|7680x4320
-qresf= 320x240 32bits 60hz|640x480 32bits 60hz|720x480 32bits 60hz|720x576 32bits 60hz|800x480 32bits 60hz|848x480 32bits 60hz|1024x600 32bits 60hz|800x600 32bits 60hz|1024x768 32bits 60hz|1152x864 32bits 60hz|1280x1024 32bits 60hz|1280x720 32bits 60hz|1280x800 32bits 60hz|1280x900 32bits 60hz|1280x960 32bits 60hz|1366x768 32bits 60hz|1360x1024 32bits 60hz|1440x900 32bits 60hz|1400x1050 32bits 60hz|1600x1024 32bits 60hz|1920x1080 32bits 60hz|1600x1024 32bits 60hz|1680x1050 32bits 60hz|1920x1200 32bits 60hz|2560x1440 32bits 60hz|3840x2160 32bits 60hz|5120x2880 32bits 60hz|7680x4320 32bits 60hz
-CoreMI= DDLB|DDLC|DDLD|DDLE|DDLF|DDLG|DDLH|DDLI|DDLJ|DDLK|DDLL|RadA|RadB|CMBA|RadC|RadD|RadE|RadF|CHKA|CHKB|CHKC|RadG|RadH|CHKD|CHKE|CMBB|SLDA|RadI|RadJ|RadK|RadL|CHKF|CHKG|CHKH|CHKI|RadM|RadN|RadO|RadP|RadQ|RadR|RadS|RadT|RadU|RadV
-SHOWARCTAB=ARCGSYS|ARCLNCH|ARCSYS|ARCMFLT|ARCLRFLT|fltrRpoBtn|ARCCORES|REDWN|DOWNONLY|CUSTSWITCH|ENHAK|MAMESWCHK|UrlTxt|ALTURLGET|ADDRPOL|SRCHEDT|SearchArc|AincTog|AexcTog|SRCHDDL|ARCPOP|CLIPURL|EXTRURL|SETOVD|JACKETMODE|OVDCHK|OVDLDS|OVDTXT|ARCDET|CLRNETP|ARCNCT|ARCHOST
-HIDEARCTAB=strmvid|CUSTMOPT|CUSTMARG|EXTEXPLD|RUNXTRACT|ArcMove|ArcCull|SortOverride|ExpndASrch|SRCHRSLT|RNMJACK|ARCCBX
-SORTROMTAB=SRCHDRP|KNOWNDRP|DETSORT|SELSORT|DRPSEL|MOVDRP|OVRWDRP|RENMDRP|EXTDRP|JAKDRP|KEEPSORT|ARCSORT|JAKAFT|JAKBF|DRPLV|SRTFLT|SRTCLRFLT|DATLBX|BRWSDAT|HASHALLROMS|ADDATS|ADDSRTFILE|ADDSRTDIR|DATDRPD|HLTDATP|GETDATREP|DATREPO|RDUMPDATYP|TOSECDATYP|MAMEDATYP|NOINTDATYP|DETECTXTN|DETHSHSZ
-Loop,4
-	{
-		FAN%A_Index%ART= Backdrops
-	}
-Loop, 10
-	{
-		SNAP%A_Index%ART= Snapshots
-	}
-Loop,5
-	{
-		B%A_Index%ART= Boxart
-	}
-LOG1ART= Logos
-LOG2ART= Logos
-BANNR= Logos
-BANNR1= Logos
-BANNR2= Logos
-VIDID= Videos
-rjcaching= enabled
-PLYRTYP= J
-JXT= _btn
-CLJXT= btn
-RegionX = 0
-RegionY = 0
-RegionW = 820
-RegionH = 620
-bRegionX = 11
-bRegionY = 12
-bRegionW = 346
-bRegionH = 485
-cRegionX = 470
-cRegionY = 25
-cRegionW = 263
-cRegionH = 94
-dRegionX = 285
-dRegionY = 234
-dRegionW = 171
-dRegionH = 123
-eRegionX = 286
-eRegionY = 118
-eRegionW = 171
-eRegionH = 73
-RDXgrid= %RegionX%
-RDYgrid= %RegionY%
-RDWgrid= %RegionW%
-RDHgrid= %RegionH%
+
 if (INITIAL = 1)
 	{
 		gosub, DestroySplashGUI
@@ -1140,171 +1003,171 @@ if (INITIAL = 1)
 		SplashImageGUI(SplashImage, "Center", "Center", true)
 	}
 Gui +hWndhMainWnd
-Gui, Color,%bgcolor%
-Gui, Font,%fontColor% %fontXmed%,%fontName%
-Menu, ContextMenu, Add
-Menu, rjscopy, Add, Export to Jacket, Export_image
+Gui,Color,%bgcolor%
+Gui,Font,%fontColor% %fontXmed%,%fontName%
+Menu,ContextMenu,Add
+Menu,rjscopy, Add, Export to Jacket, Export_image
 Loop,parse,fSYSINSTLBX,|
 	{
 		if (A_LoopField = "")
 			{
 				continue
 			}
-		Menu, rjscopy, Add, Export to %A_LoopField%, Export_%A_LoopField%
+		Menu,rjscopy, Add, Export to %A_LoopField%, Export_%A_LoopField%
 	}
-Menu, rjscopy, Add
-Menu, rjscopy, Add, Save As..., Renamesave_image
-Menu, rjscopy, Add
-Menu, rjscopy, Add, Open Folder, Open_ScrpFld
-Menu, rjscopy, Add`
-Menu, rjscopy, Add, Delete, delete_image
-Menu, rjscopy, Add
-Menu, medcachedel, Add, Delete sselph-scraper cache, Media_Cache_delete
-Menu, RunWithDD, Add, Run With >>, Emulator_Add
-Menu, RunWithDD, Add, Download Assets >>, ARCGSNP
-Menu, RunWithDD, Add, Add to Playlist +, Playlist_Add
-Menu, RunWithDD, Add, Add to Executable +, Exe_Add
-Menu, RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
-Menu, RunWithDD, Add, Open In Explorer !, Open_Add
+Menu,rjscopy, Add
+Menu,rjscopy, Add, Save As..., Renamesave_image
+Menu,rjscopy, Add
+Menu,rjscopy, Add, Open Folder, Open_ScrpFld
+Menu,rjscopy, Add`
+Menu,rjscopy, Add, Delete, delete_image
+Menu,rjscopy, Add
+Menu,medcachedel, Add, Delete sselph-scraper cache, Media_Cache_delete
+Menu,RunWithDD, Add, Run With >>, Emulator_Add
+Menu,RunWithDD, Add, Download Assets >>, ARCGSNP
+Menu,RunWithDD, Add, Add to Playlist +, Playlist_Add
+Menu,RunWithDD, Add, Add to Executable +, Exe_Add
+Menu,RunWithDD, Add, Delete Emulator Settings, DelCfg_Add
+Menu,RunWithDD, Add, Open In Explorer !, Open_Add
 Menu,EMURCLASGN,Add,Assign to Unassigned Systems,Emu_popasgn
 Menu,EMURCLASGN,Add,Open Emulator Directory,Emu_Open
 Menu,RCL_CSYS,Add,Open System Directory,INSys_Open
-Menu, RSTAPAR, Add, Reset-Preset, ReSeTAPAR
-Menu, ESRCLMENU, Add, Toggle Selection, TOGFESEL
-Menu, ESRCLMENU, Add, Add Selection, ADDFESEL
-Menu, ESRCLMENU, Add, Remove Selection, REMFESEL
-Menu, ESRCLMENU, Add, Delete Scraped Artwork, FEDELSEL
-Menu, EMURESETI, Add, Reset, EMURSTI
-Menu, PLSTMENU, Add, Add Selection, ADDPLSLC
-Menu,MINITOGGLE,Add, Mini-Mode ,MINIMODET
-Menu,MINITOGGLE,Add, On-Top ,AWYONLTGL
-Menu, UTRCLMENU, Add, Toggle Selection, UTLTOGFESEL
-Menu, UTRCLMENU, Add, Add Selection, UTLADDFESEL
-Menu, UTRCLMENU, Add, Remove Selection, UTLREMFESEL
-Menu, BDRCLMENU, Add, Delete Bios Cache, BIOSREMFESEL
-Menu, EMURCLMENU, Add, Clear Emulator, EMUREMFESEL
-Menu, EMURCLMENU, Add, Delete Emulator, EMUDELFESEL
-Menu, EMURCLMENU, Add, Update Emulator, EMUUPDTSEL
+Menu,RSTAPAR, Add, Reset-Preset, ReSeTAPAR
+Menu,ESRCLMenu,Add,Toggle Selection, TOGFESEL
+Menu,ESRCLMenu,Add,Add Selection, ADDFESEL
+Menu,ESRCLMenu,Add,Remove Selection, REMFESEL
+Menu,ESRCLMenu,Add,Delete Scraped Artwork, FEDELSEL
+Menu,EMURESETI, Add, Reset, EMURSTI
+Menu,PLSTMenu,Add,Add Selection, ADDPLSLC
+Menu,MINITOGGLE,Add,Mini-Mode ,MINIMODET
+Menu,MINITOGGLE,Add,On-Top ,AWYONLTGL
+Menu,UTRCLMenu,Add,Toggle Selection, UTLTOGFESEL
+Menu,UTRCLMenu,Add,Add Selection, UTLADDFESEL
+Menu,UTRCLMenu,Add,Remove Selection, UTLREMFESEL
+Menu,BDRCLMenu,Add,Delete Bios Cache, BIOSREMFESEL
+Menu,EMURCLMenu,Add,Clear Emulator, EMUREMFESEL
+Menu,EMURCLMenu,Add,Delete Emulator, EMUDELFESEL
+Menu,EMURCLMenu,Add,Update Emulator, EMUUPDTSEL
 Menu,clRfltmenu,Add,Show Detected,CLRFLTRSUB
-Menu, FERCLMENU, Add, Toggle Selection, TOGFESEL
-Menu, FERCLMENU, Add, Add Selection, ADDFESEL
-Menu, FERCLMENU, Add, Remove Selection, REMFESEL
-Menu, FEDELMENU, Add, Toggle Selection, TOGFESEL
-Menu, FEDELMENU, Add, Add Selection, ADDFESEL
-Menu, FEDELMENU, Add, Remove Selection, REMFESEL
-Menu, FEDELMENU, Add, Delete Scraped Artwork, FEDELSEL
-Menu, CLRROMLST, Add, Clear Assignments, CLRSYSLOC
-Menu, RMVSYSLST, Add, Remove Path, RMVFSYS
-Menu, RMVSYSLST,Add,Open System Directory,Sys_Open
-Menu, RNMSYSA, Add, Rename System, RenameSystem
-Menu, RNMSYSA, Add, Restore System Name, RestoreSystemN
-Menu, RJRCLMENU, Add, Toggle Selection, TOGRJSEL
-Menu, RJRCLMENU, Add, Add Selection, ADDRJSEL
-Menu, RJRCLMENU, Add, Remove Selection, REMRJSEL
-Menu, REMDATSEL, Add, Remove Selection, REMDAT
-Menu, REMDATSEL, Add, Clear All, REMADAT
-Menu, REMHSHSEL, Add, Remove Selection, REMHSH
-Menu, REMHSHSEL, Add, Clear All, REMAHSH
-Menu, REMHSHSEL, Add, Move to >, MOVEHSH
-Menu, MORROMDDLM, Add, Open Game Directory, MORROMDDLMENU
-Menu, RUNMENU, Add, Run Menu, RUNMENU
-Menu, RUNMENU, Add
+Menu,FERCLMenu,Add,Toggle Selection, TOGFESEL
+Menu,FERCLMenu,Add,Add Selection, ADDFESEL
+Menu,FERCLMenu,Add,Remove Selection, REMFESEL
+Menu,FEDELMenu,Add,Toggle Selection, TOGFESEL
+Menu,FEDELMenu,Add,Add Selection, ADDFESEL
+Menu,FEDELMenu,Add,Remove Selection, REMFESEL
+Menu,FEDELMenu,Add,Delete Scraped Artwork, FEDELSEL
+Menu,CLRROMLST, Add, Clear Assignments, CLRSYSLOC
+Menu,RMVSYSLST, Add, Remove Path, RMVFSYS
+Menu,RMVSYSLST,Add,Open System Directory,Sys_Open
+Menu,RNMSYSA, Add, Rename System, RenameSystem
+Menu,RNMSYSA, Add, Restore System Name, RestoreSystemN
+Menu,RJRCLMenu,Add,Toggle Selection, TOGRJSEL
+Menu,RJRCLMenu,Add,Add Selection, ADDRJSEL
+Menu,RJRCLMenu,Add,Remove Selection, REMRJSEL
+Menu,REMDATSEL, Add, Remove Selection, REMDAT
+Menu,REMDATSEL, Add, Clear All, REMADAT
+Menu,REMHSHSEL, Add, Remove Selection, REMHSH
+Menu,REMHSHSEL, Add, Clear All, REMAHSH
+Menu,REMHSHSEL, Add, Move to >, MOVEHSH
+Menu,MORROMDDLM, Add, Open Game Directory, MORROMDDLMENU
+Menu,RUNMenu,Add,Run Menu,RUNMENU
+Menu,RUNMenu,Add
 Gui,Font,Bold
-Menu, PEGWIN, Add, Reset Config,PEGRSWIN
-Menu, RERCLWIN, Add, Reset Config,RFERSWIN
-Menu, REZWIN, Add,640 480, RESWARUN
-Menu, REZWIN, Add,720 480, RESWBRUN
-Menu, REZWIN, Add,1024 768, RESWCRUN
-Menu, REZWIN, Add,1280 720, RESWDRUN
-Menu, REZWIN, Add,1280 1024, RESWERUN
-Menu, REZWIN, Add,1920 1080, RESWFRUN
-Menu, REZRCLWIN, Add,Reset Config, RESRSRUN
-Menu, SHORTRUN, Add,Run With:=->, SQRUN
+Menu,PEGWIN, Add, Reset Config,PEGRSWIN
+Menu,RERCLWIN, Add, Reset Config,RFERSWIN
+Menu,REZWIN, Add,640 480, RESWARUN
+Menu,REZWIN, Add,720 480, RESWBRUN
+Menu,REZWIN, Add,1024 768, RESWCRUN
+Menu,REZWIN, Add,1280 720, RESWDRUN
+Menu,REZWIN, Add,1280 1024, RESWERUN
+Menu,REZWIN, Add,1920 1080, RESWFRUN
+Menu,REZRCLWIN, Add,Reset Config, RESRSRUN
+Menu,SHORTRUN, Add,Run With:=->, SQRUN
 Menu,SHORTRUN,Add,
-Menu, ARCSHORT, Add,Run With:=->, AQRUN
+Menu,ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add,
-Menu, ASOCRUN, Add, Assign to System, ASRUN
-Menu, ASOCRUN, Add, Launch Paramaters, ASEMUCFG
-Menu, ASOCRUN, Add, Delete Game Settings, DelCfg_Add
-Menu, ASOCRUN, Add, Open Game Settings, CfgBrowse
-Menu, ASOCRUN, Add, << game-override >>, ASEMUOVR
-Menu, ASOCRUN, Add, Run Emulator, ASLNEMU
-Menu, ARCGPCFG, Add, Configure Selected Game, ARCPCFG
-Menu, ARCSETB, Add, Reset-URL, ARCEDURL
-Menu, ARCSETB, Add,
-Menu, ARCSETB, Add, Reset-ALL Sources, ARCEDURA
-Menu, ARSOCCFG, Add, Configure Association, ARSCFG
-Menu, ARSOCCFG, Add,
-Menu, ARSOCCFG, Add, Reset Download/Run Paramaters, ARSRST
-Menu, ASOCCFG, Add, Configure Association, ASCFG
-Menu, ASOCCFG, Add, Refresh Directory, ASRLD
+Menu,ASOCRUN, Add, Assign to System, ASRUN
+Menu,ASOCRUN, Add, Launch Paramaters, ASEMUCFG
+Menu,ASOCRUN, Add, Delete Game Settings, DelCfg_Add
+Menu,ASOCRUN, Add, Open Game Settings, CfgBrowse
+Menu,ASOCRUN, Add, << game-override >>, ASEMUOVR
+Menu,ASOCRUN, Add, Run Emulator, ASLNEMU
+Menu,ARCGPCFG, Add, Configure Selected Game, ARCPCFG
+Menu,ARCSETB, Add, Reset-URL, ARCEDURL
+Menu,ARCSETB, Add,
+Menu,ARCSETB, Add, Reset-ALL Sources, ARCEDURA
+Menu,ARSOCCFG, Add, Configure Association, ARSCFG
+Menu,ARSOCCFG, Add,
+Menu,ARSOCCFG, Add, Reset Download/Run Paramaters, ARSRST
+Menu,ASOCCFG, Add, Configure Association, ASCFG
+Menu,ASOCCFG, Add, Refresh Directory, ASRLD
 Menu,ASOCCFG,Add,
 Gui,Font,Normal
 Menu,RUNMENU,Add,Open Folder..., SQOWTH
-Menu, PLEDTMENU, Add,Swap:=->, PLEDITCORE
-Menu, PLEDTMENU, Add, Download Assets >>, ARCGSNP
-Menu, ARCART, Add, Download Assets >>, ARCGSNP
-Menu, ARCART, Add, Open Download Folder, EXPLJK
-Gui, Add, StatusBar, vSTATUS, Helpy Helperton
+Menu,PLEDTMenu,Add,Swap:=->, PLEDITCORE
+Menu,PLEDTMenu,Add,Download Assets >>, ARCGSNP
+Menu,ARCART, Add, Download Assets >>, ARCGSNP
+Menu,ARCART, Add, Open Download Folder, EXPLJK
+Gui,Add,StatusBar, vSTATUS, Helpy Helperton
 Gui,Font,Bold
-Gui, Add, Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
+Gui,Add,Tab2, x0 y0 w765 h535 vTABMENU Bottom, Settings||:=: MAIN :=:|Emu:=:Sys|Playlists|Frontends|DAT:=:Repo|Jackets|Util|Netplay|Cores
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; [SETTINGS TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Tab, 1
+Gui,Tab, 1
 Gui Tab, Settings
-Gui, Add, GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
-Gui, Add, Link,x708 y428 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket/8.88">Donate</a>
+Gui,Add,GroupBox, x566 y14 w195 h184 vSKSUMGB, Summary
+Gui,Add,Link,x708 y428 w45 h18 vDONATELNK gDONATE, <a href="https://www.paypal.me/romjacket/8.88">Donate</a>
 Gui,Add,Text,x579 y484, ver %VERSION%
-Gui, Add, GroupBox, x4 y33 w560 h79 +0x400000
-Gui Add, GroupBox, x4 y107 w560 h102 +0x400000
-Gui Add, GroupBox, x4 y251 w560 h80 +0x400000
-Gui Add, GroupBox, x4 y326 w560 h87 +0x400000
-Gui Add, GroupBox, x4 y408 w560 h87 +0x400000
+Gui,Add,GroupBox, x4 y33 w560 h79 +0x400000
+Gui,Add,GroupBox, x4 y107 w560 h102 +0x400000
+Gui,Add,GroupBox, x4 y251 w560 h80 +0x400000
+Gui,Add,GroupBox, x4 y326 w560 h87 +0x400000
+Gui,Add,GroupBox, x4 y408 w560 h87 +0x400000
 gui,font, s16 bold
-Gui, Add, Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help</a>
+Gui,Add,Link,x579 y415 w75 h24 vHelpLink gHelp, <a href="site\index.html">Help</a>
 Gui,Font,Bold
-Gui, Font, %fontXmed%
-Gui, Add, Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
-Gui ,Add, Picture, x707 y448 w44 h48 ,site\key.png
-Gui, Add, Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
-Gui, Add, Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
-Gui, Add, Text, x18 y88 vSKSYSTXT, Systems Dir
-Gui, Add, Text, x18 y173 vSKEMUDTXT, Emulators Dir
+Gui,Font, %fontXmed%
+Gui,Add,Checkbox, x583 y176 vAUTOLNCH gAutoLaunch Checked, Auto-Launch
+Gui ,Add,Picture, x707 y448 w44 h48 ,site\key.png
+Gui,Add,Button, x18 y147 w43 h23 vSETEMUD gSETEMUD, SET
+Gui,Add,Button, x18 y62 w43 h23 vSETJKD gSETJKD, SET
+Gui,Add,Text, x18 y88 vSKSYSTXT, Systems Dir
+Gui,Add,Text, x18 y173 vSKEMUDTXT, Emulators Dir
 Gui,Font,Normal
-Gui, Add, CheckBox, x150 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
-Gui, Add, CheckBox, x399 y90 vRENONDET gRENONDET checked, Rename Detected
-Gui, Add, Button, x579 y460 w55 h18 vUpdateSK gUpdateSK, UPDATE
-Gui, Font, Bold
-Gui, Add, Slider, x579 y323 vTRANSLID gTRANSLID Range10-255,255
-Gui, Add, Checkbox, x579 y360 vDYNTRANS gDYNTRANS %DYNTRANSCHK%, Dynamic Transparency
-Gui, Add, Text, x18 y311, Playlists Dir
-Gui, Add, Button, x18 y286 w43 h23 vplaylset gplaylset,SET
-Gui, Font, normal
+Gui,Add,CheckBox, x150 y90 vFILT_UNSUP gFILT_UNSUP %filtmrk%, Filter Unsupported
+Gui,Add,CheckBox, x399 y90 vRENONDET gRENONDET checked, Rename Detected
+Gui,Add,Button, x579 y460 w55 h18 vUpdateSK gUpdateSK, UPDATE
+Gui,Font, Bold
+Gui,Add,Slider, x579 y323 vTRANSLID gTRANSLID Range10-255,255
+Gui,Add,Checkbox, x579 y360 vDYNTRANS gDYNTRANS %DYNTRANSCHK%, Dynamic Transparency
+Gui,Add,Text, x18 y311, Playlists Dir
+Gui,Add,Button, x18 y286 w43 h23 vplaylset gplaylset,SET
+Gui,Font, normal
 Gui,Add,text, hwndEdtHndl1 x61 y288 w490 h20 vplaylisttxt ReadOnly, %playlistloc%
-Gui, Font, Bold
-Gui Add, Text, x18 y390 w56 h13, HIstory File
-Gui Add, Button, x18 y364 w43 h23 vhistset ghistset,SET
-Gui, Font, normal
-Gui, Add, Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
+Gui,Font, Bold
+Gui,Add,Text, x18 y390 w56 h13, HIstory File
+Gui,Add,Button, x18 y364 w43 h23 vhistset ghistset,SET
+Gui,Font, normal
+Gui,Add,Checkbox, x399 y389 vHISAPND gHISAPND %HISAPNDCHK%, Append All
 Gui,Add,text, hwndEdtHndl2 x61 y366 w490 h20 vhisttxt ReadOnly, %historyloc%
-Gui, Add, Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
-Gui, Add, Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
-Gui, Add, Text, x581 y60 vSKDSETXT, Detected Emulators: %emunumtot%
-Gui, Add, Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported and %allsys% total
+Gui,Add,Button, x100 y87 w45 h18 vSYSDETECT gSysDetect, Detect
+Gui,Add,Button, x100 y171 w45 h18 vEMUDETECT gEmuDetect, Detect
+Gui,Add,Text, x581 y60 vSKDSETXT, Detected Emulators: %emunumtot%
+Gui,Add,Text, x581 y29 vSKDETSTXT, Detected Systems:`n    %totsys% supported and %allsys% total
 Gui,Add,DropDownList, hwndDplHndl1 x23 y8 w163 vSKRESDDL gSKRESDDL, All||Session|Jacket-Presets|Retroarch|Associations|Core-Cfgs|Playlist-DB
-Gui, Add, Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
+Gui,Add,Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,text, hwndEdtHndl3 x63 y65 w490 h20 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
-Gui, Add, Checkbox, x573 y76 vALWOTP gALWOTP, Always On Top
-Gui, Add, CheckBox, x573 y94 vLOGGING gLOGGING %logenable%, Logging
-;Gui, Add, CheckBox, x573 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
-Gui, Add, CheckBox, x573 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
+Gui,Add,Checkbox, x573 y76 vALWOTP gALWOTP, Always On Top
+Gui,Add,CheckBox, x573 y94 vLOGGING gLOGGING %logenable%, Logging
+;Gui,Add,CheckBox, x573 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
+Gui,Add,CheckBox, x573 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 Gui,Add,text, hwndEdtHndl4 x63 y149 w490 h20 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 Gui,Add,text, hwndEdtHndl5 x61 y453 w490 h20 vtmpdispl Multi ReadOnly, %cacheloc%
-Gui, Font, Bold
-Gui, Add, Text, x18 y476 vTMPDIRTXT, Temp/Cache Dir
-Gui, Add, Button, x18 y450 w43 h23 vSETTMPD gSETTMPD, SET
-Gui, Font, normal
+Gui,Font, Bold
+Gui,Add,Text, x18 y476 vTMPDIRTXT, Temp/Cache Dir
+Gui,Add,Button, x18 y450 w43 h23 vSETTMPD gSETTMPD, SET
+Gui,Font, normal
 /*  ;;[DEBUGOV]
-Gui Add, Text, x449 y10 w112 h15 vthemntxt, Theme
+Gui,Add,Text, x449 y10 w112 h15 vthemntxt, Theme
 Gui,Add,DropDownList, hwndDplHndl2 x344 y7 w102 vSKTHEMEN gSKTHEMEN,%skthemen%||Default|Gray|White|Blue|Black
 */  ;;[DEBUGOV]
 if (INITIAL = 1)
@@ -1315,314 +1178,314 @@ if (INITIAL = 1)
 		WinMove, skelprg,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)-70
 	}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; [MAIN TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-Gui, Tab, 2
+Gui,Tab, 2
 Gui Tab, :=: MAIN :=:
 Gui,Font,Bold
 Gui,Add,Text, cred x18 y4 w53 h15 vCFGSWITCH Center,
 Gui,Font, Normal
-Gui, Add, Radio, x10 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
-Gui, Add, Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
+Gui,Add,Radio, x10 y4 h16 vRUNPLRAD gRUNPLRAD, Playlist
+Gui,Add,Radio, x72 y4 h16 vRUNFLRAD gRUNFLRAD Checked, Folder
 Gui,Add,ComboBox, hwndCbxHndl1 x39 y24 w604 vRUNROMCBX gEDTFROM +0x2 +E0x5000 Right hidden,
-Gui Add, Button, x23 y25 w15 h17 vEDTROMBTN gEDTROMBTN,E
+Gui,Add,Button, x23 y25 w15 h17 vEDTROMBTN gEDTROMBTN,E
 Gui,Add,DropDownList, hwndDplHndl163 x39 y24 w377 vMORROM gEDTROM +0x2 +E0x5000 Right,
 gui,font,Bold
-Gui Add, Button, x720 y516 w42 h19 vFNDGUI gFndGui hidden,find
+Gui,Add,Button, x720 y516 w42 h19 vFNDGUI gFndGui hidden,find
 Gui,Font,Normal
-Gui, Add, Button, x745 y30 w16 h16 vMINISWITCH gMINISWITCH,-
-Gui, Add, CheckBox, x435 y4 w55 h15 vCustSwitchs gCustSwitchs hidden, switch
+Gui,Add,Button, x745 y30 w16 h16 vMINISWITCH gMINISWITCH,-
+Gui,Add,CheckBox, x435 y4 w55 h15 vCustSwitchs gCustSwitchs hidden, switch
 Gui,Add,ComboBox, hwndCbxHndl2 x459 y24 w100 vCUSTMOPTS gCustmOpts hidden, |%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl3 x560 y24 w85 vCUSTMARGS gCustmArgs hidden, |%INJARG%
-Gui, Add, Button, x418 y2 w15 h21 vGROM gGetROM,...
-Gui, Add, Button, x493 y2 w15 h17 vESWPLCRE gESWPLCRE,E
+Gui,Add,Button, x418 y2 w15 h21 vGROM gGetROM,...
+Gui,Add,Button, x493 y2 w15 h17 vESWPLCRE gESWPLCRE,E
 Gui,Add,ComboBox, x510 y2 w155 hwndRUNCORECBX vLCORECBX gLCoreCBX hidden,
 Gui,Add,DropDownList, x510 y2 w155 hwndRUNCORE vLCORE gLnchCore,
-Gui, Font, Bold
-Gui, Add, Button, x681 y2 w64 h29 vLNCHBUT gLNCH disabled,LAUNCH
-Gui, Add, Button, x745 y2 w16 h29 vRCLLNCH gRCLLNCH,>
+Gui,Font, Bold
+Gui,Add,Button, x681 y2 w64 h29 vLNCHBUT gLNCH disabled,LAUNCH
+Gui,Add,Button, x745 y2 w16 h29 vRCLLNCH gRCLLNCH,>
 gui,font,normal
-Gui, Add, Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
+Gui,Add,Button, x744 y34 w15 h15 vRETAL gRETAL hidden,>
 Gui,Add,DropDownList, hwndDplHndl4 x142 y2 w274 vRUNSYSDDL gRUNSYSDDL, :=:System List:=:||%initfldrs%
 Gui,Add,Combobox, hwndCbxHndl109 x142 y2 w274 vRUNSYSCBX gRUNSYSCBX +0x2 +E0x5000 Right hidden,:=:System List:=:||%initfldrs%
 Gui,Add,Button,x125 y4 w15 h17 vRUNSYSBTN gRUNSYSBTN,E	
 Gui,Font,Bold
-Gui, Add, GroupBox, x12 y50 w740 h452 Right vSRCHGRP, SEARCH
+Gui,Add,GroupBox, x12 y50 w740 h452 Right vSRCHGRP, SEARCH
 Gui,Font,Norm
 Gui,Add,listbox, x13 y111 w715 h400 HWNDlocalromp +HScroll1500 Multi vSRCHROMLBX gSRCHROMLBX hidden,
-Gui, Add, Radio, x125 y61 w53 h18 vSRCHFLRAD gSRCHFLRAD Checked, Folder
-Gui, Add, Radio, x186 y61 w60 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
-Gui, Add, CheckBox, x23 y61 w65 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
+Gui,Add,Radio, x125 y61 w53 h18 vSRCHFLRAD gSRCHFLRAD Checked, Folder
+Gui,Add,Radio, x186 y61 w60 h18 vSRCHPLRAD gSRCHPLRAD, Playlist
+Gui,Add,CheckBox, x23 y61 w65 h16 vSRCHRCRSCHK gSRCHRCRSCHK Checked, Recurse
 Gui,Add,Edit, hwndEdtHndl16 x329 y80 w368 h21 vSRCHROMEDT gSRCHROMEDT,
-Gui, Add, Button, x700 y79 w47 h23 vSRCHROMBUT gSRCHROMBUT,search
+Gui,Add,Button, x700 y79 w47 h23 vSRCHROMBUT gSRCHROMBUT,search
 Gui,Add,DropDownList, hwndDplHndl23 x20 y81 w300 vSRCHLOCDDL gSRCHLOCDDL, :=:System List:=:||%systmfldrs%
 emutog= Hide
 tmpvis= Hidden
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [INSTALL TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Tab, 3
+Gui,Tab, 3
 Gui Tab, Emu:=:Sys
 Gui,Font,Bold
-Gui, Add, GroupBox, x2 y15 w276 h470 vCACGRP,
+Gui,Add,GroupBox, x2 y15 w276 h470 vCACGRP,
 Gui,Font,Norm
 Gui,Font,Bold
-Gui, Add, GroupBox, x473 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
+Gui,Add,GroupBox, x473 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,Norm
-Gui, Add, Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%, AUTO
+Gui,Add,Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%, AUTO
 Gui,Add,Edit, hwndEdtHndl26 x5 y2 w210 vINSFLTR gINSFLTR,
-Gui, Add, Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
-Gui, Add, Text, x235 y5 h13 vINSFLTRX, Filter
+Gui,Add,Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
+Gui,Add,Text, x235 y5 h13 vINSFLTRX, Filter
 Gui,Add,listbox,x5 y23 w271 h463 HWNDtrxvail vPRGINSTLBX gPRGINSTLBX hidden,
 Gui,Add,listbox, Multi x5 y23 w271 h463 HWNDeavlbx vSYSINSTLBX gSYSINSTLBX, %allsupport%
-Gui, Add, Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS hidden, 0
+Gui,Add,Progress, x746 y8 w9 h465 Vertical -Smooth vDWNPRGRS hidden, 0
 Gui,Add,listbox, x282 y433 w175 h69 HWNDprisl vEMPRLST gEMPRLST hidden,
-Gui, Add, Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA hidden, +
+Gui,Add,Button, x422 y413 w16 h17 vEMPRBUTA gEMPRBUTA hidden, +
 Gui,Add,DropDownList, hwndDplHndl34 x283 y411 w125 vEMPRDDL gEMPRDDL hidden, Emulators|%runlist%
-Gui, Add, Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU hidden, P
-Gui, Add, Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX hidden, X
-Gui, Add, Button, x458 y481 w36 h17 vDELCFGPGC gDELCFGPGC hidden, Clean
-Gui, Font,Bold
-Gui, Add, GroupBox, x510 y409 w228 h97 vEMGRPF Right hidden, Pre Cmd/ Post Cmd
-Gui Add, GroupBox, x472 y362 w265 h43 vDSKMNTGRP hidden, Disc-Mounting
-Gui, Font, Normal
-Gui Add, CheckBox, x474 y38880 vDSKMNTCHK gDSKMNTCHK  hidden,Enable
-Gui,Add,DropDownList, hwndDplHndl35 x534 y378 w90 vDSKMNTDDL gDSKMNTDDL  hidden, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
-Gui Add, Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT  hidden, Disc...
-Gui Add, CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR  hidden, override
-Gui, Add, CheckBox, x514 y431 w45 h18 vEMCHKW gEMCHKW +0x20  hidden, Wait
-Gui,Add,DropDownList, hwndDplHndl36 x562 y430 w151 vEMDDLF gEMDDLF  hidden, Pre-Command||Post-Command
-Gui, Add, Button, x715 y429 w21 h23 vEMBUTG gEMBUTG  hidden, +
-Gui,Add,DropDownList, hwndDplHndl37 x570 y452 w143 vEMDDLP gEMDDLP +0x2 +E0x5000  hidden,
-Gui, Add, Button, x715 y451 w21 h23 vEMBUTH gEMBUTH  hidden, X ;PrePostDelete
-Gui,Add,ComboBox, hwndCbxHndl23 x280 y411 w156 vRepoSet gRepoSet hidden, %repoloc%||%repolst%
-Gui, Add, Text, x280 y436 h15 vSITEDTXT hidden, Remote Repository
-Gui, Add, Button, x440 y412 w23 h19 vAddRepo gAddRepo hidden, +
+Gui,Add,Button, x458 y433 w16 h17 vEMPRBUTU gEMPRBUTU hidden, P
+Gui,Add,Button, x458 y459 w16 h17 vEMPRBUTX gEMPRBUTX hidden, X
+Gui,Add,Button, x458 y481 w36 h17 vDELCFGPGC gDELCFGPGC hidden, Clean
 Gui,Font,Bold
-Gui, Add, Button,x370 y445 w15 h15 vUPDBTC gCLRNETP Hidden Disabled,-
+Gui,Add,GroupBox, x510 y409 w228 h97 vEMGRPF Right hidden, Pre Cmd/ Post Cmd
+Gui,Add,GroupBox, x472 y362 w265 h43 vDSKMNTGRP hidden, Disc-Mounting
+Gui,Font, Normal
+Gui,Add,CheckBox, x474 y38880 vDSKMNTCHK gDSKMNTCHK  hidden,Enable
+Gui,Add,DropDownList, hwndDplHndl35 x534 y378 w90 vDSKMNTDDL gDSKMNTDDL  hidden, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
+Gui,Add,Button, x625 y378 w44 h19 vDSKSELBUT gDSKSELBUT  hidden, Disc...
+Gui,Add,CheckBox, x671 y370 h16 vDSKMNTOVR gDSKMNTOVR  hidden, override
+Gui,Add,CheckBox, x514 y431 w45 h18 vEMCHKW gEMCHKW +0x20  hidden, Wait
+Gui,Add,DropDownList, hwndDplHndl36 x562 y430 w151 vEMDDLF gEMDDLF  hidden, Pre-Command||Post-Command
+Gui,Add,Button, x715 y429 w21 h23 vEMBUTG gEMBUTG  hidden, +
+Gui,Add,DropDownList, hwndDplHndl37 x570 y452 w143 vEMDDLP gEMDDLP +0x2 +E0x5000  hidden,
+Gui,Add,Button, x715 y451 w21 h23 vEMBUTH gEMBUTH  hidden, X ;PrePostDelete
+Gui,Add,ComboBox, hwndCbxHndl23 x280 y411 w156 vRepoSet gRepoSet hidden, %repoloc%||%repolst%
+Gui,Add,Text, x280 y436 h15 vSITEDTXT hidden, Remote Repository
+Gui,Add,Button, x440 y412 w23 h19 vAddRepo gAddRepo hidden, +
+Gui,Font,Bold
+Gui,Add,Button,x370 y445 w15 h15 vUPDBTC gCLRNETP Hidden Disabled,-
 Gui,Font,Normal
 Gui,Font,Bold
-Gui, Add, GroupBox, x278 y5 w185 h366 Center vCCGRP hidden, Installer
+Gui,Add,GroupBox, x278 y5 w185 h366 Center vCCGRP hidden, Installer
 Gui,Font,Norm
 Gui,Font,Bold
 Gui,Add,DropDownList, hwndDplHndl38 x65 y485 w110 vSaList gSaList,Systems||Emulators|Utilities|Frontends
-Gui, Add, Text, x9 y490 h15, \\\\\\\\\\
-Gui, Add, Text, x185 y490 h15, //////////
-Gui, Add, GroupBox, x465 y6 w275 h358 vSKRAstch hidden, Skeletonkey-System-Associations
+Gui,Add,Text, x9 y490 h15, \\\\\\\\\\
+Gui,Add,Text, x185 y490 h15, //////////
+Gui,Add,GroupBox, x465 y6 w275 h358 vSKRAstch hidden, Skeletonkey-System-Associations
 Gui,Font,Norm
 Gui,Add,DropDownList, hwndDplHndl39 x588 y477 w97 vLNCHPRDDL gLNCHPRDDL hidden,retroarch|Emulators|%addemu%
-Gui, Add, Button, x688 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
+Gui,Add,Button, x688 y477 w42 h22 vLNCHPT gLNCHPT hidden,Priority
 Gui,Add,DropDownList, hwndDplHndl40 x470 y26 w251 vADDCORE gAddCore hidden, Select_A_System||%allsupport%
-Gui, Add, Button, x723 y25 w12 vOPNSYS gOpnSyS hidden,+
-Gui, Add, Button, x723 y25 w12 vCnclOsys gCnclOsys hidden,-
+Gui,Add,Button, x723 y25 w12 vOPNSYS gOpnSyS hidden,+
+Gui,Add,Button, x723 y25 w12 vCnclOsys gCnclOsys hidden,-
 Gui,Add,ComboBox, hwndCbxHndl24 x471 y54 w264 vADDNSYS gAddNSys Hidden, %allsupport%
-Gui,Add, Edit, hwndEdtHnd200 x471 y54 w264 vRenOSys gRenOSys Hidden, 
-Gui, Add, Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
-Gui, Add, Button, x694 y79 w42 h19 vSAVOSYS gSavOSys Hidden, save
-Gui, Add, Text, x577 y75 h23 vOVSETTXT hidden, Extension-Override
+Gui,Add,Edit, hwndEdtHnd200 x471 y54 w264 vRenOSys gRenOSys Hidden, 
+Gui,Add,Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
+Gui,Add,Button, x694 y79 w42 h19 vSAVOSYS gSavOSys Hidden, save
+Gui,Add,Text, x577 y75 h23 vOVSETTXT hidden, Extension-Override
 Gui,Add,DropDownList, hwndDplHndl42 x550 y144 w184 vASCORE gASCore hidden, %corelist%
-Gui, Add, Button, x575 y167 w58 h19 vSELAPP gSelApp hidden, BROWSE
-Gui ,Add, Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
+Gui,Add,Button, x575 y167 w58 h19 vSELAPP gSelApp hidden, BROWSE
+Gui ,Add,Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
 Gui,Add,ComboBox, hwndCbxHndl25 x635 y166 w103 vSYSNICK gSysNick Limit32 Hidden,%preEmuCfg%
-Gui, Add, Button, x680 y197 w42 h17 vSVNICK gSvNick hidden, save
-Gui, Add, Button, x723 y146 w15 h15 vDELNICK gDelNick hidden,X
+Gui,Add,Button, x680 y197 w42 h17 vSVNICK gSvNick hidden, save
+Gui,Add,Button, x723 y146 w15 h15 vDELNICK gDelNick hidden,X
 Gui,Add,Edit, hwndEdtHndl28 x503 y96 w120 h21 vEXTINP gExtInp Hidden,
 Gui,Add,ComboBox, hwndCbxHndl26 x505 y192 w120 vAPPOPT gAppOpt Hidden,|[CUSTMOPT]|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl27 x505 y218 w120 vAPPARG gAppArg Hidden,|[CUSTMARG]|%INJARG%
-Gui, Add, Text, x633 y191 h23 vOPTTXT hidden, options
-Gui, Add, Text, x633 y215 h23 vARGTXT hidden, arguments
+Gui,Add,Text, x633 y191 h23 vOPTTXT hidden, options
+Gui,Add,Text, x633 y215 h23 vARGTXT hidden, arguments
 Gui,Add,Button,x501 y122 h20 w50 vGBLpgs gGBLpgs hidden,Global
-Gui, Add, CheckBox, x588 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Config Files
-Gui, Add, Radio, x490 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
-Gui, Add, Radio, x490 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
-Gui, Add, CheckBox, x490 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
-Gui, Add, CheckBox, x649 y283 h13 vEXTARUN gEXTARUN Hidden,Run-Extracted
-Gui, Add, CheckBox, x649 y244 h13 vOMITQ gOmitQ hidden, Omit-Quotes
-Gui, Add, CheckBox, x649 y261 h13 vOMITPTH gOmitPth Hidden, No-Path
+Gui,Add,CheckBox, x588 y122 h17 vEMUPGC gEmuPGC Checked hidden, Per-Game Config Files
+Gui,Add,Radio, x490 y241 h23 vERUN gERun Checked Hidden, RUN from emulator path
+Gui,Add,Radio, x490 y260 h23 vLRUN gLRun Hidden, RUN from ROM path
+Gui,Add,CheckBox, x490 y283 h17 vNoExtn gNoExtn Hidden, Omit extension at runtime
+Gui,Add,CheckBox, x649 y283 h13 vEXTARUN gEXTARUN Hidden,Run-Extracted
+Gui,Add,CheckBox, x649 y244 h13 vOMITQ gOmitQ hidden, Omit-Quotes
+Gui,Add,CheckBox, x649 y261 h13 vOMITPTH gOmitPth Hidden, No-Path
 Gui,Add,Edit, hwndEdtHndl29 x476 y305 +Wrap w256 h48 vEXDISPL disabled hidden,
-Gui, Add, Radio, x290 y254 h13 vUNIQLNK gUniqLnk Checked hidden, System Configs
+Gui,Add,Radio, x290 y254 h13 vUNIQLNK gUniqLnk Checked hidden, System Configs
 Gui,Add,DropDownList, hwndDplHndl43 x282 y27 w177 vINSTEMUDDL gInstEmuDDL hidden, %emuinstpop%
-Gui, Add, Button, x286 y170 w75 h23 vLOCEMUIN gLocEmuIn hidden, SELECT
-Gui, Add, Button, x382 y92 w75 h23 vMULTINST gMULTInst hidden, ASSIGN
-Gui, Add, Button, x740 y3 w15 h15 vEMUINSC gCLRNETP hidden,-
-Gui, Add, Button, x382 y92 w75 h23 vEMUINST gEmuInst hidden,Install
-Gui, Add, CheckBox, x350 y75 w120 h16 +0x20 vEMUASIGN gEmuAsign hidden, Assign to System
-Gui, Add, Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst hidden, Browse
-Gui, Add, Text, x298 y58 h13 Center vEINSTTXT hidden, Install Location
-Gui, Add, Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA hidden, Append to all systems
+Gui,Add,Button, x286 y170 w75 h23 vLOCEMUIN gLocEmuIn hidden, SELECT
+Gui,Add,Button, x382 y92 w75 h23 vMULTINST gMULTInst hidden, ASSIGN
+Gui,Add,Button, x740 y3 w15 h15 vEMUINSC gCLRNETP hidden,-
+Gui,Add,Button, x382 y92 w75 h23 vEMUINST gEmuInst hidden,Install
+Gui,Add,CheckBox, x350 y75 w120 h16 +0x20 vEMUASIGN gEmuAsign hidden, Assign to System
+Gui,Add,Button, x408 y55 w51 h18 vCHEMUINST gChEmuInst hidden, Browse
+Gui,Add,Text, x298 y58 h13 Center vEINSTTXT hidden, Install Location
+Gui,Add,Checkbox, x285 y75 h16 vEMUAUTOA gEMUAUTOA hidden, Append to all systems
 Gui,Add,Edit, hwndEdtHndl30 x286 y118 w171 h51 +0x400000 +ReadOnly vEINSTLOC hidden,
-Gui, Add, Button, x402 y207 w55 h23 vROMDLOC gRomDLoc hidden, ADD
-Gui, Add, Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
-Gui, Add, Text, x288 y212 h17 vROMDTXT hidden,=>ROM Dirs
+Gui,Add,Button, x402 y207 w55 h23 vROMDLOC gRomDLoc hidden, ADD
+Gui,Add,Button, x382 y207 w75 h23 vMROMDLOC gMRomDLoc hidden, MULTI-SET
+Gui,Add,Text, x288 y212 h17 vROMDTXT hidden,=>ROM Dirs
 Gui,Add,Listbox, hwndLbxHndl3 x285 y234 w171 h123 vROMDEDT Multi +HScroll hidden,
 ;;;;;;;;;;;;;;;;;;;  BSL ;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Font,Bold
-Gui, Add, GroupBox, x468 y50 w269 h140 Center vSKBSRLGRP hidden, BSL - (ROM-Jacket-Launcher)
+Gui,Add,GroupBox, x468 y50 w269 h140 Center vSKBSRLGRP hidden, BSL - (ROM-Jacket-Launcher)
 Gui,Font,Normal
-Gui, Add, CheckBox, x474 y124 w14 h18 vSKENBF gSKENBF disabled hidden
-Gui, Add, Button, x491 y123 w44 h19 vSKBEFCMD gSKBEFCMD disabled hidden, SET
-Gui, Add, Text, x540 y126 vSKRBFTXT disabled hidden, Run .cmd before
-Gui, Add, CheckBox, x474 y144 w14 h18 vSKENAF gSKENAF disabled hidden
-Gui, Add, Button, x491 y141 w44 h19 vSKAFTCMD gSKAFTCMD disabled hidden, SET
-Gui, Add, Text, x540 y144 vSKRAFTXT disabled hidden, Run .cmd after
-Gui, Add, CheckBox, x495 y168 h17 vDISCFG gDISCFG disabled hidden,Disable Jacket Configurations
-Gui, Add, CheckBox, x495 y83 h16 vSKOVRJM gSKOVRJM disabled hidden, override
-Gui, Add, Radio, x630 y83 h17 vSKXPADOV gSKXPADOV disabled hidden, Xpadder
-Gui, Add, Radio, x560 y83 h17 vSKAMOV gSKAMOV disabled checked hidden, Antimicro
-Gui, Add, Button, x696 y82 w38 h20 vSKPROFOV gSKPROFOV disabled hidden, profile
-Gui, Add, Text, x586 y62 vSKPRFJTXT hidden, Overrides
-Gui, Add, CheckBox, x495 y105 h16 vSKFROV gSKFROV disabled hidden, override
+Gui,Add,CheckBox, x474 y124 w14 h18 vSKENBF gSKENBF disabled hidden
+Gui,Add,Button, x491 y123 w44 h19 vSKBEFCMD gSKBEFCMD disabled hidden, SET
+Gui,Add,Text, x540 y126 vSKRBFTXT disabled hidden, Run .cmd before
+Gui,Add,CheckBox, x474 y144 w14 h18 vSKENAF gSKENAF disabled hidden
+Gui,Add,Button, x491 y141 w44 h19 vSKAFTCMD gSKAFTCMD disabled hidden, SET
+Gui,Add,Text, x540 y144 vSKRAFTXT disabled hidden, Run .cmd after
+Gui,Add,CheckBox, x495 y168 h17 vDISCFG gDISCFG disabled hidden,Disable Jacket Configurations
+Gui,Add,CheckBox, x495 y83 h16 vSKOVRJM gSKOVRJM disabled hidden, override
+Gui,Add,Radio, x630 y83 h17 vSKXPADOV gSKXPADOV disabled hidden, Xpadder
+Gui,Add,Radio, x560 y83 h17 vSKAMOV gSKAMOV disabled checked hidden, Antimicro
+Gui,Add,Button, x696 y82 w38 h20 vSKPROFOV gSKPROFOV disabled hidden, profile
+Gui,Add,Text, x586 y62 vSKPRFJTXT hidden, Overrides
+Gui,Add,CheckBox, x495 y105 h16 vSKFROV gSKFROV disabled hidden, override
 Gui,Add,DropDownList, hwndDplHndl44 x564 y103 w163 vSKFROVDD gSKFROVDD disabled hidden, FRONTENDS||
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [PLAYLISTS TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Tab, 4
-Gui, Tab, Playlists
+Gui,Tab, 4
+Gui,Tab, Playlists
 Gui,Add,DropDownList, hwndDplHndl167 x24 y22 w283 vDWNLPOS gPOPLDDL, :=:System List:=:||%systmfldrs%
-Gui, Add, CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
-Gui, Add, Text, x310 y31 w41 h13 vRECURTX,Recurse
-Gui, Add, Radio, x22 y46 vEXCLBOOL gEXCLBOOL hidden checked,exclude
-Gui, Add, Radio, x87 y46 vINCLBOOL gINCLBool hidden,include
-Gui, Add, CheckBox, x140 y46 h17 vPARSEALL gParseAll hidden, All
+Gui,Add,CheckBox, x325 y15 w15 h16 vRECURSE gRECURSE,
+Gui,Add,Text, x310 y31 w41 h13 vRECURTX,Recurse
+Gui,Add,Radio, x22 y46 vEXCLBOOL gEXCLBOOL hidden checked,exclude
+Gui,Add,Radio, x93 y46 vINCLBOOL gINCLBool hidden,include
+Gui,Add,CheckBox, x140 y46 h17 vPARSEALL gParseAll hidden, All
 Gui,Add,ComboBox, hwndCbxHndl57 x177 y44 w152 vEXTPARSED gExtParsed hidden, %omitxtv%
-Gui, Add, Button, x331 y45 w22 h21 vFLTXT gFltXt hidden,F
+Gui,Add,Button, x331 y45 w22 h21 vFLTXT gFltXt hidden,F
 Gui,Add,listbox, x24 y66 w316 h420 hwndLFTLSTBX vROMPOP gDragROM Multi +HScroll, %RomPLst%
-Gui, Add, GroupBox, x356 y140 w58 h91 vPLGBA
-Gui, Add, GroupBox, x391 y295 w58 h126 vPLGBB
+Gui,Add,GroupBox, x356 y140 w58 h91 vPLGBA
+Gui,Add,GroupBox, x391 y295 w58 h126 vPLGBB
 Gui,Add,listbox, x449 y100 w300 h394 HWNDinsel vCURPLST gCURPLST Multi +HScroll,
-Gui, Add, GroupBox, x362 y0 w81 h74 vAPNDTYPGRP
-Gui, Add, Radio, x365 y25 h13 vPLAPPND gPlaylistAppend, Append
-Gui, Add, Radio, x365 y10 h13 vPLOVR gPlaylistAppend Checked, Overwrte
-Gui, Add, CheckBox, x367 y43 h14 vZIPSEEK gZipSeek checked, Zip-Search
-Gui, Add, CheckBox, x367 y58 h14 vCRCENBL gCRCEnbl checked, CRC-Index
+Gui,Add,GroupBox, x362 y0 w81 h74 vAPNDTYPGRP
+Gui,Add,Radio, x365 y25 h13 vPLAPPND gPlaylistAppend, Append
+Gui,Add,Radio, x365 y10 h13 vPLOVR gPlaylistAppend Checked, Overwrte
+Gui,Add,CheckBox, x367 y43 h14 vZIPSEEK gZipSeek checked, Zip-Search
+Gui,Add,CheckBox, x367 y58 h14 vCRCENBL gCRCEnbl checked, CRC-Index
 Gui,Font,Bold
-Gui, Add, GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
-Gui, Add, GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
+Gui,Add,GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
+Gui,Add,GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,Bold
 Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w130 vPLISTTYP gPLISTYP,skeletonKeY||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl58 x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui,Add,ComboBox, hwndCbxHndl59 x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
-Gui, Add, CheckBox, x621 y52 h23 vDETECTCORE gDetectCore Checked, Detect
-Gui, Add, Button,x679 y77 w60 h21 vSVPLST gSaveToPl,Create
-Gui, Add, Button, x701 y30 w36 h23 vOPNPLST gOpnPlst,Open
-Gui, Add, CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
-Gui, Add, Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
-Gui, Add, Button, x453 y78 w58 h19 vSVAPLST gAltTempl,Template
-Gui Add, Text, x361 y79 w35 h15 vPLSELTXT, Select
-Gui Add, Button, x361 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
-Gui Add, Button, x361 y108 w35 h15 +0x100 vPLLISTN gPLLISTN, None
-Gui Add, Button, x416 y100 w32 h15 +0x200 vPLLISTSORT gPLLISTSORT, Sort
-Gui, Add, Button, x358 y150 w50 h18 vCPYPL gCopyToPl, +------>
-Gui, Add, Text, x360 y170 vPLADPTXT, Add
-Gui, Add, Button, x358 y191 w40 h19 vCLRPP gClearROMPop, 0=-->x
-Gui, Add, Text, x365 y211 vPLCLRPTXT, Clear
-Gui, Add, Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,^
-Gui, Add, Button,x428 y250 w17 h16 vMVPLOD gMVPLOD,v
-Gui, Add, Button,x392 y305 w55 h24 vBRADD gAddToPL, Open...>
-Gui, Add, Text, x391 y334 w59 h2 0x10 vFENWTXT
-Gui, Add, Button,x396 y339 w50 h18 vREMPL gRemFromPL, x---<---o
-Gui, Add, Text, x401 y357 vPLRMVTXT, Remove
-Gui, Add, Button, x403 y381 w40 h19 vCLRPL gClearCurList, x<--=0
-Gui, Add, Text, x416 y401 vPLCLRTXT, Clear
-Gui, Add, Button, x367 y457 w75 h23 vPLINIT gPlaylistInit, Rebuild DB
-Gui, Add, Text, x364 y483 h15 vPLDBTXT, Playlist Database
+Gui,Add,CheckBox, x621 y52 h23 vDETECTCORE gDetectCore Checked, Detect
+Gui,Add,Button,x679 y77 w60 h21 vSVPLST gSaveToPl,Create
+Gui,Add,Button, x701 y30 w36 h23 vOPNPLST gOpnPlst,Open
+Gui,Add,CheckBox, x521 y81 h14 vPGCONFG gPLPerGameConfig, Per-Game-Configs
+Gui,Add,Button, x703 y54 w35 h23 vSVASPLST gSaveToPl hidden, Save
+Gui,Add,Button, x453 y78 w58 h19 vSVAPLST gAltTempl,Template
+Gui,Add,Text, x361 y79 w35 h15 vPLSELTXT, Select
+Gui,Add,Button, x361 y94 w35 h15 +0x100 vPLLISTALL gPLLISTALL, All
+Gui,Add,Button, x361 y108 w35 h15 +0x100 vPLLISTN gPLLISTN, None
+Gui,Add,Button, x416 y100 w32 h15 +0x200 vPLLISTSORT gPLLISTSORT, Sort
+Gui,Add,Button, x358 y150 w50 h18 vCPYPL gCopyToPl, +------>
+Gui,Add,Text, x360 y170 vPLADPTXT, Add
+Gui,Add,Button, x358 y191 w40 h19 vCLRPP gClearROMPop, 0=-->x
+Gui,Add,Text, x365 y211 vPLCLRPTXT, Clear
+Gui,Add,Button,x428 y230 w17 h16 vMVPLOU gMVPLOU,^
+Gui,Add,Button,x428 y250 w17 h16 vMVPLOD gMVPLOD,v
+Gui,Add,Button,x392 y305 w55 h24 vBRADD gAddToPL, Open...>
+Gui,Add,Text, x391 y334 w59 h2 0x10 vFENWTXT
+Gui,Add,Button,x396 y339 w50 h18 vREMPL gRemFromPL, x---<---o
+Gui,Add,Text, x401 y357 vPLRMVTXT, Remove
+Gui,Add,Button, x403 y381 w40 h19 vCLRPL gClearCurList, x<--=0
+Gui,Add,Text, x416 y401 vPLCLRTXT, Clear
+Gui,Add,Button, x367 y457 w75 h23 vPLINIT gPlaylistInit, Rebuild DB
+Gui,Add,Text, x364 y483 h15 vPLDBTXT, Playlist Database
 Gui,Add,DropDownList, hwndDplHndl86 x451 y31 w90 vESPLCORE gESPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
-Gui, Add, CheckBox, x373 y52 h13 vESBACKUP gESBackupPl Checked hidden, Backup
+Gui,Add,CheckBox, x373 y52 h13 vESBACKUP gESBackupPl Checked hidden, Backup
 Gui,Font,Bold
-Gui, Add, Button,x678 y27 w60 h25 vESSVPL gESSavePl hidden, CREATE
+Gui,Add,Button,x678 y27 w60 h25 vESSVPL gESSavePl hidden, CREATE
 Gui,Font,Normal
 Gui,Add,ComboBox, hwndCbxHndl60 x450 y55 w252 vESPLXMP gEsPlaylistNames hidden, %systmfldrs%%escommon%
-Gui, Add, Button, x703 y54 w36 h23 vESOPENPL gEsOpenPl hidden, Open
+Gui,Add,Button, x703 y54 w36 h23 vESOPENPL gEsOpenPl hidden, Open
 Gui,Add,DropDownList, hwndDplHndl168 x24 y22 w283 vESDWNLPOS gESPopDownloads,%systmfldrs%
-Gui, Add, Radio, x22 y46 vESRPOPDL gESRPopJ hidden, Jackets
-Gui, Add, Radio, x85 y46 vESRPOPPL gESRPopMir hidden, Mirrors
-Gui, Add, Radio, x139 y46 vESRPOPROM gESRPopRom checked hidden, ROMs
+Gui,Add,Radio, x22 y46 vESRPOPDL gESRPopJ hidden, Jackets
+Gui,Add,Radio, x85 y46 vESRPOPPL gESRPopMir hidden, Mirrors
+Gui,Add,Radio, x139 y46 vESRPOPROM gESRPopRom checked hidden, ROMs
 Gui,Add,DropDownList, hwndDplHndl88 x195 y44 vESMIRSEL gESMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
-Gui, Add, Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, ...
-Gui, Add, Text, x230 y46 w125 h13 vESRRTXT hidden, NOT SET
-Gui Add, CheckBox, x34 y320 w68 h23 vESKIDG gESKIDG hidden, Kid-Game
-Gui Add, CheckBox, x124 y320 w55 h23 vESHIDDEN gESHIDDEN hidden, Hidden
-Gui Add, CheckBox, x334 y225 w64 h20 vESFAV gESFAV hidden, Favorite
-Gui, Add, Button, x662 y26 w75 h23 vESSAVEOPL gESSAVEOPL hidden, SAVE
-Gui, Add, Text, x16 y27 w120 h13 vESNAMTXT hidden,Name
+Gui,Add,Button, x197 y44 w25 h19 vESROMROOT gESROMROOT hidden, ...
+Gui,Add,Text, x230 y46 w125 h13 vESRRTXT hidden, NOT SET
+Gui,Add,CheckBox, x34 y320 w68 h23 vESKIDG gESKIDG hidden, Kid-Game
+Gui,Add,CheckBox, x124 y320 w55 h23 vESHIDDEN gESHIDDEN hidden, Hidden
+Gui,Add,CheckBox, x334 y225 w64 h20 vESFAV gESFAV hidden, Favorite
+Gui,Add,Button, x662 y26 w75 h23 vESSAVEOPL gESSAVEOPL hidden, SAVE
+Gui,Add,Text, x16 y27 w120 h13 vESNAMTXT hidden,Name
 Gui,Add,Edit, hwndEdtHndl36 x28 y41 w410 h21 vESNAMEDT gESNAMEDT hidden,
-Gui, Add, Text, x19 y64 w120 h13 vESPTHTXT hidden,Path
+Gui,Add,Text, x19 y64 w120 h13 vESPTHTXT hidden,Path
 Gui,Add,Edit, hwndEdtHndl37 x30 y79 w370 h21 vESPTHEDT gESPTHEDT hidden,
-Gui, Add, Button, x403 y79 w39 h20 vESROMPTHBUT gESROMPTHBUT hidden, . . .
-Gui, Add, Button, x457 y42 w59 h20 vESROMADDBUT gESROMADDBUT hidden, Add ROM
-Gui, Add, Button, x457 y65 w59 h20 vESFLDADDBUT gESFLDADDBUT hidden, Add PATH
-Gui, Add, Text, x20 y103 w120 h13 vESDESCTXT hidden,Description
+Gui,Add,Button, x403 y79 w39 h20 vESROMPTHBUT gESROMPTHBUT hidden, . . .
+Gui,Add,Button, x457 y42 w59 h20 vESROMADDBUT gESROMADDBUT hidden, Add ROM
+Gui,Add,Button, x457 y65 w59 h20 vESFLDADDBUT gESFLDADDBUT hidden, Add PATH
+Gui,Add,Text, x20 y103 w120 h13 vESDESCTXT hidden,Description
 Gui,Add,Edit, hwndEdtHndl38 x18 y120 w421 h99 vESDESCEDT gESDESCEDT hidden,
-Gui, Add, Text, x307 y376 w40 h13 vESIMGTXT hidden,Image
-Gui, Add, Button, x348 y389 w39 h19 vESIMGBUT gESIMGBUT hidden, . . .
-Gui, Add, Text, x16 y392 w332 h13 vESOPNIMGPTHTXT hidden, ImagePath
-Gui, Add, Text, x295 y411 w53 h13 vESTHMBTXT hidden, Thumbnail
-Gui, Add, Button, x348 y421 w39 h19 vESTHUMBBUT gESTHUMBBUT hidden, . . .
-Gui, Add, Text, x16 y425 w332 h13 vESTHUMBP hidden, ThumbnailPath
-Gui, Add, Text, x311 y470 w37 h13 vESVIDTXT hidden,Video
-Gui, Add, Button, x348 y480 w39 h19 vESVIDBUT gESVIDBUT hidden, . . .
-Gui, Add, Text, x16 y484 w332 h13 vESVIDPTHTXT hidden, VideoPath
-Gui, Add, Text, x298 y442 w50 h13 vESMARQTXT hidden,Marquee
-Gui, Add, Button, x348 y453 w39 h19 vESMARQBUT gESMARQBUT hidden, . . .
-Gui, Add, Text, x16 y456 w332 h13 vESMARQPTHTXT hidden, MarqueePath
-Gui, Add, Text, x16 y229 w120 h13 vESPUBTXT hidden,Publisher
+Gui,Add,Text, x307 y376 w40 h13 vESIMGTXT hidden,Image
+Gui,Add,Button, x348 y389 w39 h19 vESIMGBUT gESIMGBUT hidden, . . .
+Gui,Add,Text, x16 y392 w332 h13 vESOPNIMGPTHTXT hidden, ImagePath
+Gui,Add,Text, x295 y411 w53 h13 vESTHMBTXT hidden, Thumbnail
+Gui,Add,Button, x348 y421 w39 h19 vESTHUMBBUT gESTHUMBBUT hidden, . . .
+Gui,Add,Text, x16 y425 w332 h13 vESTHUMBP hidden, ThumbnailPath
+Gui,Add,Text, x311 y470 w37 h13 vESVIDTXT hidden,Video
+Gui,Add,Button, x348 y480 w39 h19 vESVIDBUT gESVIDBUT hidden, . . .
+Gui,Add,Text, x16 y484 w332 h13 vESVIDPTHTXT hidden, VideoPath
+Gui,Add,Text, x298 y442 w50 h13 vESMARQTXT hidden,Marquee
+Gui,Add,Button, x348 y453 w39 h19 vESMARQBUT gESMARQBUT hidden, . . .
+Gui,Add,Text, x16 y456 w332 h13 vESMARQPTHTXT hidden, MarqueePath
+Gui,Add,Text, x16 y229 w120 h13 vESPUBTXT hidden,Publisher
 Gui,Add,Edit, hwndEdtHndl39 x23 y245 w120 h21 vESPUBEDT gESPUBEDT hidden,
-Gui, Add, Text, x152 y229 w120 h13 vESDEVTXT hidden,Developer
+Gui,Add,Text, x152 y229 w120 h13 vESDEVTXT hidden,Developer
 Gui,Add,Edit, hwndEdtHndl40 x158 y244 w120 h21 vESDEVEDT gESDEVEDT hidden,
-Gui, Add, Text, x290 y228 w40 h13 vESRATTXT hidden, Rating
-Gui, Add, Slider, x284 y248 w120 h32 Range1-10 vESRATSLD gESRATSLD hidden, 0.5
-Gui, Add, Text, x17 y273 w120 h13 vESRLSDTXT hidden, ReleaseDate
-Gui, Add, DateTime, x44 y289 w100 h24 vESRLSDG gESRLSDG  hidden,
-Gui, Add, Text, x161 y270 w49 h13 vESGENTXT hidden,Genre
+Gui,Add,Text, x290 y228 w40 h13 vESRATTXT hidden, Rating
+Gui,Add,Slider, x284 y248 w120 h32 Range1-10 vESRATSLD gESRATSLD hidden, 0.5
+Gui,Add,Text, x17 y273 w120 h13 vESRLSDTXT hidden, ReleaseDate
+Gui,Add,DateTime, x44 y289 w100 h24 vESRLSDG gESRLSDG  hidden,
+Gui,Add,Text, x161 y270 w49 h13 vESGENTXT hidden,Genre
 Gui,Add,Edit, hwndEdtHndl41 x161 y289 w120 h21 vESGENEDT gESGENEDT hidden,
-Gui, Add, Text, x287 y291 w49 h13 vESPLNUMTXT hidden, Player#
+Gui,Add,Text, x287 y291 w49 h13 vESPLNUMTXT hidden, Player#
 Gui,Add,DropDownList, hwndDplHndl89 x342 y289 w35 vESDDPLNUM gESDDPLNUM hidden,1||2|3|4|5|6|7|8
 Gui,Add,DropDownList, hwndDplHndl94 x451 y31 w90 vRFPLCORE gRFPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
-Gui, Add, CheckBox, x373 y52 h13 vRFBACKUP gRFBackupPl Checked hidden, Backup
+Gui,Add,CheckBox, x373 y52 h13 vRFBACKUP gRFBackupPl Checked hidden, Backup
 Gui,Font,Bold
-Gui, Add, Button,x678 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
+Gui,Add,Button,x678 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
 Gui,Font,Normal
 Gui,Add,ComboBox, hwndCbxHndl62 x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%%escommon%
-Gui, Add, CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden checked, Use Scraped Assets
-Gui, Add, CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden checked, `& copy to home
+Gui,Add,CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden checked, Use Scraped Assets
+Gui,Add,CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden checked, `& copy to home
 Gui,Add,DropDownList, hwndDplHndl170 x24 y22 w283 vRFDWNLPOS gRFPopDownloads,%systmfldrs%
-Gui, Add, Radio, x22 y46 vRFRPOPDL gRFRPopJ hidden, Jackets
-Gui, Add, Radio, x85 y46 vRFRPOPPL gRFRPopMir hidden, Mirrors
-Gui, Add, Radio, x139 y46 vRFRPOPROM gRFRPopRom checked hidden, ROMs
+Gui,Add,Radio, x22 y46 vRFRPOPDL gRFRPopJ hidden, Jackets
+Gui,Add,Radio, x85 y46 vRFRPOPPL gRFRPopMir hidden, Mirrors
+Gui,Add,Radio, x139 y46 vRFRPOPROM gRFRPopRom checked hidden, ROMs
 Gui,Add,DropDownList, hwndDplHndl96 x195 y44 vRFMIRSEL gRFMIRSEL hidden,|%CMIR1%||%MIRDDLOC%
-Gui, Add, Button, x197 y44 w25 h19 vRFROMROOT gRFROMROOT hidden, .Dir.
-Gui, Add, Text, x230 y46 w125 h19 vRFRRTXT hidden, NOT SET
-Gui Add, CheckBox, x34 y320 w68 h23 vRFKIDG gRFKIDG hidden, Kid-Game
-Gui Add, CheckBox, x124 y320 w55 h23 vRFHIDDEN gRFHIDDEN hidden, Hidden
-Gui Add, CheckBox, x334 y225 w64 h20 vRFFAV gRFFAV hidden, Favorite
-Gui, Add, Button, x662 y26 w75 h23 vRFSAVEOPL gRFSAVEOPL hidden, SAVE
-Gui, Add, Text, x16 y27 w120 h13 vRFNAMTXT hidden,Name
+Gui,Add,Button, x197 y44 w25 h19 vRFROMROOT gRFROMROOT hidden, .Dir.
+Gui,Add,Text, x230 y46 w125 h19 vRFRRTXT hidden, NOT SET
+Gui,Add,CheckBox, x34 y320 w68 h23 vRFKIDG gRFKIDG hidden, Kid-Game
+Gui,Add,CheckBox, x124 y320 w55 h23 vRFHIDDEN gRFHIDDEN hidden, Hidden
+Gui,Add,CheckBox, x334 y225 w64 h20 vRFFAV gRFFAV hidden, Favorite
+Gui,Add,Button, x662 y26 w75 h23 vRFSAVEOPL gRFSAVEOPL hidden, SAVE
+Gui,Add,Text, x16 y27 w120 h13 vRFNAMTXT hidden,Name
 Gui,Add,Edit, hwndEdtHndl48 x28 y41 w410 h21 vRFNAMEDT gRFNAMEDT hidden,
-Gui, Add, Text, x19 y64 w120 h13 vRFPTHTXT hidden,Path
+Gui,Add,Text, x19 y64 w120 h13 vRFPTHTXT hidden,Path
 Gui,Add,Edit, hwndEdtHndl49 x30 y79 w370 h21 vRFPTHEDT gRFPTHEDT hidden,
-Gui, Add, Button, x403 y79 w39 h20 vRFROMPTHBUT gRFROMPTHBUT hidden, . . .
-Gui, Add, Button, x457 y42 w59 h20 vRFROMADDBUT gRFROMADDBUT hidden, Add ROM
-Gui, Add, Button, x457 y65 w59 h20 vRFFLDADDBUT gRFFLDADDBUT hidden, Add PATH
-Gui, Add, Text, x20 y103 w120 h13 vRFDESCTXT hidden,Description
+Gui,Add,Button, x403 y79 w39 h20 vRFROMPTHBUT gRFROMPTHBUT hidden, . . .
+Gui,Add,Button, x457 y42 w59 h20 vRFROMADDBUT gRFROMADDBUT hidden, Add ROM
+Gui,Add,Button, x457 y65 w59 h20 vRFFLDADDBUT gRFFLDADDBUT hidden, Add PATH
+Gui,Add,Text, x20 y103 w120 h13 vRFDESCTXT hidden,Description
 Gui,Add,Edit, hwndEdtHndl50 x18 y120 w421 h99 vRFDESCEDT gRFDESCEDT hidden,
-Gui, Add, Text, x307 y376 w40 h13 vRFIMGTXT hidden,Image
-Gui, Add, Button, x348 y389 w39 h19 vRFIMGBUT gRFIMGBUT hidden, . . .
-Gui, Add, Text, x16 y392 w332 h13 vRFOPNIMGPTHTXT hidden, ImagePath
-Gui, Add, Text, x295 y411 w53 h13 vRFTHMBTXT hidden, Thumbnail
-Gui, Add, Button, x348 y421 w39 h19 vRFTHUMBBUT gRFTHUMBBUT hidden, . . .
-Gui, Add, Text, x16 y425 w332 h13 vRFTHUMBP hidden, ThumbnailPath
-Gui, Add, Text, x311 y470 w37 h13 vRFVIDTXT hidden,Video
-Gui, Add, Button, x348 y480 w39 h19 vRFVIDBUT gRFVIDBUT hidden, . . .
-Gui, Add, Text, x16 y484 w332 h13 vRFVIDPTHTXT hidden, VideoPath
-Gui, Add, Text, x298 y442 w50 h13 vRFMARQTXT hidden,Marquee
-Gui, Add, Button, x348 y453 w39 h19 vRFMARQBUT gRFMARQBUT hidden, . . .
-Gui, Add, Text, x16 y456 w332 h13 vRFMARQPTHTXT hidden, MarqueePath
-Gui, Add, Text, x16 y229 w120 h13 vRFPUBTXT hidden,Publisher
+Gui,Add,Text, x307 y376 w40 h13 vRFIMGTXT hidden,Image
+Gui,Add,Button, x348 y389 w39 h19 vRFIMGBUT gRFIMGBUT hidden, . . .
+Gui,Add,Text, x16 y392 w332 h13 vRFOPNIMGPTHTXT hidden, ImagePath
+Gui,Add,Text, x295 y411 w53 h13 vRFTHMBTXT hidden, Thumbnail
+Gui,Add,Button, x348 y421 w39 h19 vRFTHUMBBUT gRFTHUMBBUT hidden, . . .
+Gui,Add,Text, x16 y425 w332 h13 vRFTHUMBP hidden, ThumbnailPath
+Gui,Add,Text, x311 y470 w37 h13 vRFVIDTXT hidden,Video
+Gui,Add,Button, x348 y480 w39 h19 vRFVIDBUT gRFVIDBUT hidden, . . .
+Gui,Add,Text, x16 y484 w332 h13 vRFVIDPTHTXT hidden, VideoPath
+Gui,Add,Text, x298 y442 w50 h13 vRFMARQTXT hidden,Marquee
+Gui,Add,Button, x348 y453 w39 h19 vRFMARQBUT gRFMARQBUT hidden, . . .
+Gui,Add,Text, x16 y456 w332 h13 vRFMARQPTHTXT hidden, MarqueePath
+Gui,Add,Text, x16 y229 w120 h13 vRFPUBTXT hidden,Publisher
 Gui,Add,Edit, hwndEdtHndl51 x23 y245 w120 h21 vRFPUBEDT gRFPUBEDT hidden,
-Gui, Add, Text, x152 y229 w120 h13 vRFDEVTXT hidden,Developer
+Gui,Add,Text, x152 y229 w120 h13 vRFDEVTXT hidden,Developer
 Gui,Add,Edit, hwndEdtHndl52 x158 y244 w120 h21 vRFDEVEDT gRFDEVEDT hidden,
-Gui, Add, Text, x290 y228 w40 h13 vRFRATTXT hidden, Rating
-Gui, Add, Slider, x284 y248 w120 h32 Range1-10 vRFRATSLD gRFRATSLD hidden, 0.5
-Gui, Add, Text, x17 y273 w120 h13 vRFRLSDTXT hidden, ReleaseDate
-Gui, Add, DateTime, x44 y289 w100 h24 vRFRLSDG gRFRLSDG  hidden,
-Gui, Add, Text, x161 y270 w49 h13 vRFGENTXT hidden,Genre
+Gui,Add,Text, x290 y228 w40 h13 vRFRATTXT hidden, Rating
+Gui,Add,Slider, x284 y248 w120 h32 Range1-10 vRFRATSLD gRFRATSLD hidden, 0.5
+Gui,Add,Text, x17 y273 w120 h13 vRFRLSDTXT hidden, ReleaseDate
+Gui,Add,DateTime, x44 y289 w100 h24 vRFRLSDG gRFRLSDG  hidden,
+Gui,Add,Text, x161 y270 w49 h13 vRFGENTXT hidden,Genre
 Gui,Add,Edit, hwndEdtHndl53 x161 y289 w120 h21 vRFGENEDT gRFGENEDT hidden,
-Gui, Add, Text, x287 y291 w49 h13 vRFPLNUMTXT hidden, Player#
+Gui,Add,Text, x287 y291 w49 h13 vRFPLNUMTXT hidden, Player#
 Gui,Add,DropDownList, hwndDplHndl97 x342 y289 w35 vRFDDPLNUM gRFDDPLNUM hidden,1||2|3|4|5|6|7|8
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [FRONTENDS TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Gui,Tab,5
@@ -1640,46 +1503,46 @@ Gui,Font,Normal
 fenam= Media
 fetog= Hide
 fevis= Hidden
-Gui, Add, Button, x128 y216 w75 h23 vfeBUTA gfeBUTA %fevis%, feBUTA
-Gui, Add, Button, x128 y240 w75 h23 vfeBUTB gfeBUTB %fevis%, feBUTB
-Gui, Add, Button, x128 y264 w75 h23 vfeBUTC gfeBUTC %fevis%, feBUTC
-Gui, Add, Button, x368 y120 w75 h23 vfeBUTG gfeBUTG %fevis%, feBUTG
-Gui, Add, Button, x368 y48 w75 h23 vfeBUTD gfeBUTD %fevis%, feBUTD
-Gui, Add, Button, x368 y72 w75 h23 vfeBUTE gfeBUTE %fevis%, feBUTE
-Gui, Add, Button, x368 y96 w75 h23 vfeBUTF gfeBUTF %fevis%, feBUTF
-Gui, Add, Button, x640 y120 w75 h23 vfeBUTH gfeBUTH %fevis%, feBUTH
-Gui, Add, Button, x640 y144 w75 h23 vfeBUTI gfeBUTI %fevis%, feBUTI
-Gui, Add, Button, x689 y480 w66 h23 vfeBUTJ gfeBUTJ %fevis%, feBUTJ
-Gui, Add, Button, x689 y480 w66 h23 vfeBUTK gfeBUTK %fevis%, feBUTK
-Gui, Add, Button, x689 y480 w66 h23 vfeBUTL gfeBUTL %fevis%, feBUTL
-Gui, Add, Button, x689 y480 w66 h23 vfeBUTM gfeBUTM %fevis%, feBUTM
-Gui, Add, Button, x689 y480 w66 h23 vfeBUTO gfeBUTO %fevis%, feBUTO
-Gui, Add, Picture, x0 y0 w1 h1 vfePICA gfePICA %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICB gfePICB %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICC gfePICC %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICD gfePICD %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICE gfePICE %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICF gfePICF %fevis%,
-Gui, Add, Picture, x0 y0 w1 h1 vfePICG gfePICG %fevis%,
-Gui, Add, Link, x0 y0 w1 h1 vfeLNKA gfeLNKA %fevis%,
-Gui, Add, Link, x0 y0 w1 h1 vfeLNKB gfeLNKB %fevis%,
-Gui, Add, CheckBox, x128 y120 vfeCHKD gfeCHKD %fevis%, feCHKD
-Gui, Add, CheckBox, x128 y144 vfeCHKE gfeCHKE %fevis%, feCHKE
-Gui, Add, CheckBox, x128 y168 vfeCHKF gfeCHKF %fevis%, feCHKF
-Gui, Add, CheckBox, x128 y192 vfeCHKG gfeCHKG %fevis%, feCHKG
-Gui, Add, CheckBox, x248 y72 vfeCHKH gfeCHKH %fevis%, feCHKH
-Gui, Add, CheckBox, x256 y384 vfeCHKI gfeCHKI %fevis%, feCHKI
-Gui, Add, CheckBox, x256 y408 vfeCHKJ gfeCHKJ %fevis%, feCHKJ
-Gui, Add, CheckBox, x256 y432 vfeCHKK gfeCHKK %fevis%, feCHKK
-Gui, Add, CheckBox, x256 y456 vfeCHKL gfeCHKL %fevis%, feCHKL
-Gui, Add, CheckBox, x520 y400 vfeCHKM gfeCHKM %fevis%, feCHKM
-Gui, Add, CheckBox, x376 y288 vfeCHKN gfeCHKN %fevis%, feCHKN
-Gui, Add, CheckBox, x624 y440 vfeCHKO gfeCHKO %fevis%, feCHKO
-Gui, Add, CheckBox, x624 y464 vfeCHKP gfeCHKP %fevis%, feCHKP
-Gui, Add, CheckBox, x640 y216 vfeCHKQ gfeCHKQ %fevis%, feCHKQ
-Gui, Add, CheckBox, x8 y440 vfeCHKA gfeCHKA %fevis%, feCHKA
-Gui, Add, CheckBox, x8 y464 vfeCHKB gfeCHKB %fevis%, feCHKB
-Gui, Add, CheckBox, x8 y490 vfeCHKC gfeCHKC %fevis%, feCHKC
+Gui,Add,Button, x128 y216 w75 h23 vfeBUTA gfeBUTA %fevis%, feBUTA
+Gui,Add,Button, x128 y240 w75 h23 vfeBUTB gfeBUTB %fevis%, feBUTB
+Gui,Add,Button, x128 y264 w75 h23 vfeBUTC gfeBUTC %fevis%, feBUTC
+Gui,Add,Button, x368 y120 w75 h23 vfeBUTG gfeBUTG %fevis%, feBUTG
+Gui,Add,Button, x368 y48 w75 h23 vfeBUTD gfeBUTD %fevis%, feBUTD
+Gui,Add,Button, x368 y72 w75 h23 vfeBUTE gfeBUTE %fevis%, feBUTE
+Gui,Add,Button, x368 y96 w75 h23 vfeBUTF gfeBUTF %fevis%, feBUTF
+Gui,Add,Button, x640 y120 w75 h23 vfeBUTH gfeBUTH %fevis%, feBUTH
+Gui,Add,Button, x640 y144 w75 h23 vfeBUTI gfeBUTI %fevis%, feBUTI
+Gui,Add,Button, x689 y480 w66 h23 vfeBUTJ gfeBUTJ %fevis%, feBUTJ
+Gui,Add,Button, x689 y480 w66 h23 vfeBUTK gfeBUTK %fevis%, feBUTK
+Gui,Add,Button, x689 y480 w66 h23 vfeBUTL gfeBUTL %fevis%, feBUTL
+Gui,Add,Button, x689 y480 w66 h23 vfeBUTM gfeBUTM %fevis%, feBUTM
+Gui,Add,Button, x689 y480 w66 h23 vfeBUTO gfeBUTO %fevis%, feBUTO
+Gui,Add,Picture, x0 y0 w1 h1 vfePICA gfePICA %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICB gfePICB %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICC gfePICC %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICD gfePICD %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICE gfePICE %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICF gfePICF %fevis%,
+Gui,Add,Picture, x0 y0 w1 h1 vfePICG gfePICG %fevis%,
+Gui,Add,Link, x0 y0 w1 h1 vfeLNKA gfeLNKA %fevis%,
+Gui,Add,Link, x0 y0 w1 h1 vfeLNKB gfeLNKB %fevis%,
+Gui,Add,CheckBox, x128 y120 vfeCHKD gfeCHKD %fevis%, feCHKD
+Gui,Add,CheckBox, x128 y144 vfeCHKE gfeCHKE %fevis%, feCHKE
+Gui,Add,CheckBox, x128 y168 vfeCHKF gfeCHKF %fevis%, feCHKF
+Gui,Add,CheckBox, x128 y192 vfeCHKG gfeCHKG %fevis%, feCHKG
+Gui,Add,CheckBox, x248 y72 vfeCHKH gfeCHKH %fevis%, feCHKH
+Gui,Add,CheckBox, x256 y384 vfeCHKI gfeCHKI %fevis%, feCHKI
+Gui,Add,CheckBox, x256 y408 vfeCHKJ gfeCHKJ %fevis%, feCHKJ
+Gui,Add,CheckBox, x256 y432 vfeCHKK gfeCHKK %fevis%, feCHKK
+Gui,Add,CheckBox, x256 y456 vfeCHKL gfeCHKL %fevis%, feCHKL
+Gui,Add,CheckBox, x520 y400 vfeCHKM gfeCHKM %fevis%, feCHKM
+Gui,Add,CheckBox, x376 y288 vfeCHKN gfeCHKN %fevis%, feCHKN
+Gui,Add,CheckBox, x624 y440 vfeCHKO gfeCHKO %fevis%, feCHKO
+Gui,Add,CheckBox, x624 y464 vfeCHKP gfeCHKP %fevis%, feCHKP
+Gui,Add,CheckBox, x640 y216 vfeCHKQ gfeCHKQ %fevis%, feCHKQ
+Gui,Add,CheckBox, x8 y440 vfeCHKA gfeCHKA %fevis%, feCHKA
+Gui,Add,CheckBox, x8 y464 vfeCHKB gfeCHKB %fevis%, feCHKB
+Gui,Add,CheckBox, x8 y490 vfeCHKC gfeCHKC %fevis%, feCHKC
 Gui,Add,ComboBox, hwndCbxHndl67 x248 y312 w124 vfeCBXE gfeCBXE %fevis%, feCBXE||
 Gui,Add,ComboBox, hwndCbxHndl68 x248 y336 w126 vfeCBXF gfeCBXF %fevis%, feCBXF||
 Gui,Add,ComboBox, hwndCbxHndl69 x248 y360 w126 vfeCBXG gfeCBXG %fevis%, feCBXG||
@@ -1706,119 +1569,119 @@ Gui,Add,Edit, hwndEdtHndl66 x128 y96 w88 vfeEDTD gfeEDTD %fevis%, feEDTD
 Gui,Add,Edit, hwndEdtHndl67 x256 y480 w120 vfeEDTE gfeEDTE %fevis%, feEDTE
 Gui,Add,Edit, hwndEdtHndl68 x368 y24 w88 vfeEDTF gfeEDTF %fevis%, feEDTF
 Gui,Add,Edit, hwndEdtHndl69 x560 y56 w120 vfeEDTG gfeEDTG %fevis%, feEDTG
-Gui, Add, UpDown, x454 y24 w17 h21 -16 %fevis% vfeUPDA gfeUPDA
+Gui,Add,UpDown, x454 y24 w17 h21 -16 %fevis% vfeUPDA gfeUPDA
 Gui,Add,Edit, hwndEdtHndl70 x560 y80 w120 vfeEDTH gfeEDTH %fevis%, feEDTH
-Gui, Add, UpDown, x726 y296 w17 h21 -16 %fevis% vfeUPDB gfeUPDB
+Gui,Add,UpDown, x726 y296 w17 h21 -16 %fevis% vfeUPDB gfeUPDB
 Gui,Add,Edit, hwndEdtHndl71 x640 y296 w88 vfeEDTI gfeEDTI %fevis%, feEDTI
-Gui, Add, UpDown, x214 y96 w17 h21 -16 %fevis% vfeUPDC gfeUPDC
+Gui,Add,UpDown, x214 y96 w17 h21 -16 %fevis% vfeUPDC gfeUPDC
 Gui,Font,Bold
-Gui, Add, GroupBox, x488 y24 w71 h29 vfeGRPA %fevis%, feGRPA
-Gui, Add, GroupBox, x488 y56 w70 h29 vfeGRPB %fevis%, feGRPB
-Gui, Add, GroupBox, x488 y88 w68 h29 vfeGRPC %fevis%, feGRPC
-Gui, Add, GroupBox, x496 y176 w88 h19 vfeGRPD %fevis%, feGRPD
-Gui, Add, GroupBox, x496 y200 w101 h19 vfeGRPE %fevis%, feGRPE
-Gui, Add, GroupBox, x496 y224 w94 h19 vfeGRPF %fevis%, feGRPF
-Gui, Add, GroupBox, x602 y392 w151 h45 vfeGRPG %fevis%, feGRPG
-Gui, Font, normal
-Gui, Add, Radio, x248 y96 vfeRad5A gfeRad5A %fevis%, feRad5A
-Gui, Add, Radio, x248 y120 vfeRad5B gfeRad5B %fevis%, feRad5B
-Gui, Add, Radio, x248 y144 vfeRad5C gfeRad5C %fevis%, feRad5C
-Gui, Add, Slider, x128 y288 w120 h32 Range0-100 vfeSLDA gfeSLDA  %fevis%, 50
-Gui, Add, Radio, x248 y24 vfeRad4A gfeRad4A %fevis%, feRad4A
-Gui, Add, Radio, x248 y48 vfeRad4B gfeRad4B %fevis%, feRad4B
-Gui, Add, Slider, x128 y320 w120 h32 Range0-100 vfeSLDB gfeSLDB %fevis%, 50
-Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vfeSLDD gfeSLDD %fevis%, 50
-Gui, Add, Radio, x376 y192 vfeRad6A gfeRad6A %fevis%, feRad6A
-Gui, Add, Radio, x376 y216 vfeRad6B gfeRad6B %fevis%, feRad6B
-Gui, Add, Radio, x376 y240 vfeRad6C gfeRad6C %fevis%, feRad6C
-Gui, Add, Radio, x376 y264 vfeRad6D gfeRad6D %fevis%, feRad6D
-Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vfeSLDE gfeSLDE %fevis%, 50
-Gui, Add, Radio, x376 y320 vfeRad7A gfeRad7A %fevis%, feRad7A
-Gui, Add, Radio, x376 y344 vfeRad7B gfeRad7B %fevis%, feRad7B
-Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vfeSLDC gfeSLDC %fevis%, 50
-Gui, Add, Radio, x376 y464 vfeRad8A gfeRad8A %fevis%, feRad8A
-Gui, Add, Radio, x376 y488 vfeRad8B gfeRad8B %fevis%, feRad8B
-Gui, Add, Progress, x504 y296 w120 h20 -Smooth vfePRGB %fevis%, 0
-Gui, Add, Radio, x504 y440 vfeRad9A gfeRad9A %fevis%, feRad9A
-Gui, Add, Radio, x504 y464 vfeRad9B gfeRad9B %fevis%, feRad9B
-Gui, Add, Radio, x504 y488 vfeRad9C gfeRad9C %fevis%, feRad9C
-Gui, Add, Progress, x504 y320 w120 h20 -Smooth vfePRGA cBlue Range0-600 %fevis%, 0
-Gui, Add, Radio, x640 y168 vfeRad10A gfeRad10A %fevis%, feRad10A
-Gui, Add, Radio, x640 y192 vfeRad10B gfeRad10B %fevis%, feRad10B
+Gui,Add,GroupBox, x488 y24 w71 h29 vfeGRPA %fevis%, feGRPA
+Gui,Add,GroupBox, x488 y56 w70 h29 vfeGRPB %fevis%, feGRPB
+Gui,Add,GroupBox, x488 y88 w68 h29 vfeGRPC %fevis%, feGRPC
+Gui,Add,GroupBox, x496 y176 w88 h19 vfeGRPD %fevis%, feGRPD
+Gui,Add,GroupBox, x496 y200 w101 h19 vfeGRPE %fevis%, feGRPE
+Gui,Add,GroupBox, x496 y224 w94 h19 vfeGRPF %fevis%, feGRPF
+Gui,Add,GroupBox, x602 y392 w151 h45 vfeGRPG %fevis%, feGRPG
+Gui,Font, normal
+Gui,Add,Radio, x248 y96 vfeRad5A gfeRad5A %fevis%, feRad5A
+Gui,Add,Radio, x248 y120 vfeRad5B gfeRad5B %fevis%, feRad5B
+Gui,Add,Radio, x248 y144 vfeRad5C gfeRad5C %fevis%, feRad5C
+Gui,Add,Slider, x128 y288 w120 h32 Range0-100 vfeSLDA gfeSLDA  %fevis%, 50
+Gui,Add,Radio, x248 y24 vfeRad4A gfeRad4A %fevis%, feRad4A
+Gui,Add,Radio, x248 y48 vfeRad4B gfeRad4B %fevis%, feRad4B
+Gui,Add,Slider, x128 y320 w120 h32 Range0-100 vfeSLDB gfeSLDB %fevis%, 50
+Gui,Add,Slider, x128 y352 w120 h32 Range0-100 vfeSLDD gfeSLDD %fevis%, 50
+Gui,Add,Radio, x376 y192 vfeRad6A gfeRad6A %fevis%, feRad6A
+Gui,Add,Radio, x376 y216 vfeRad6B gfeRad6B %fevis%, feRad6B
+Gui,Add,Radio, x376 y240 vfeRad6C gfeRad6C %fevis%, feRad6C
+Gui,Add,Radio, x376 y264 vfeRad6D gfeRad6D %fevis%, feRad6D
+Gui,Add,Slider, x504 y368 w120 h24 Range0-100 vfeSLDE gfeSLDE %fevis%, 50
+Gui,Add,Radio, x376 y320 vfeRad7A gfeRad7A %fevis%, feRad7A
+Gui,Add,Radio, x376 y344 vfeRad7B gfeRad7B %fevis%, feRad7B
+Gui,Add,Slider, x602 y408 w151 h25 Range0-100 vfeSLDC gfeSLDC %fevis%, 50
+Gui,Add,Radio, x376 y464 vfeRad8A gfeRad8A %fevis%, feRad8A
+Gui,Add,Radio, x376 y488 vfeRad8B gfeRad8B %fevis%, feRad8B
+Gui,Add,Progress, x504 y296 w120 h20 -Smooth vfePRGB %fevis%, 0
+Gui,Add,Radio, x504 y440 vfeRad9A gfeRad9A %fevis%, feRad9A
+Gui,Add,Radio, x504 y464 vfeRad9B gfeRad9B %fevis%, feRad9B
+Gui,Add,Radio, x504 y488 vfeRad9C gfeRad9C %fevis%, feRad9C
+Gui,Add,Progress, x504 y320 w120 h20 -Smooth vfePRGA cBlue Range0-600 %fevis%, 0
+Gui,Add,Radio, x640 y168 vfeRad10A gfeRad10A %fevis%, feRad10A
+Gui,Add,Radio, x640 y192 vfeRad10B gfeRad10B %fevis%, feRad10B
 Gui,Add,Listbox, hwndLbxHndl5 x128 y392 w120 h30 vfeLBXA gfeLBXA %fevis%, feLBXA||
-Gui, Add, Radio, x640 y240 vfeRad11A gfeRad11A %fevis%, feRad11A
-Gui, Add, Radio, x640 y264 vfeRad11B gfeRad11B %fevis%, feRad11B
+Gui,Add,Radio, x640 y240 vfeRad11A gfeRad11A %fevis%, feRad11A
+Gui,Add,Radio, x640 y264 vfeRad11B gfeRad11B %fevis%, feRad11B
 Gui,Add,Listbox, hwndLbxHndl6 x128 y448 w120 h30 vfeLBXB gfeLBXB %fevis% +HScroll1500, feLBXB||
-Gui, Add, Radio, x8 y24 vfeRad1A gfeRad1A %fevis%, feRad1A
-Gui, Add, Radio, x8 y48 vfeRad1B gfeRad1B %fevis%, feRad1B
+Gui,Add,Radio, x8 y24 vfeRad1A gfeRad1A %fevis%, feRad1A
+Gui,Add,Radio, x8 y48 vfeRad1B gfeRad1B %fevis%, feRad1B
 Gui,Add,ListView, x128 y424 w120 h19 -Hdr background%bgcolor% c%foreColor% hwndFELSTVA vfeLVA gfeLVA %fevis%, |
-Gui, Add, Radio, x8 y168 vfeRad2A gfeRad2A %fevis%, feRad2A
-Gui, Add, Radio, x8 y192 vfeRad2B gfeRad2B %fevis%, feRad2B
-Gui, Add, Radio, x8 y216 vfeRad2C gfeRad2C %fevis%, feRad2C
+Gui,Add,Radio, x8 y168 vfeRad2A gfeRad2A %fevis%, feRad2A
+Gui,Add,Radio, x8 y192 vfeRad2B gfeRad2B %fevis%, feRad2B
+Gui,Add,Radio, x8 y216 vfeRad2C gfeRad2C %fevis%, feRad2C
 Gui,Add,ListView, x128 y480 w121 h27 -Hdr background%bgcolor% c%foreColor% hwndFELSTVB vfeLVB gfeLVB %fevis%, |
-Gui, Add, Radio, x8 y344 vfeRad3A gfeRad3A %fevis%, feRad3A
-Gui, Add, Radio, x8 y368 vfeRad3B gfeRad3B %fevis%, feRad3B
-Gui, Add, Radio, x8 y392 vfeRad3C gfeRad3C %fevis%, feRad3C
-Gui, Add, Radio, x8 y416 vfeRad3D gfeRad3D %fevis%, feRad3D
+Gui,Add,Radio, x8 y344 vfeRad3A gfeRad3A %fevis%, feRad3A
+Gui,Add,Radio, x8 y368 vfeRad3B gfeRad3B %fevis%, feRad3B
+Gui,Add,Radio, x8 y392 vfeRad3C gfeRad3C %fevis%, feRad3C
+Gui,Add,Radio, x8 y416 vfeRad3D gfeRad3D %fevis%, feRad3D
 Gui,Add,ListView, x496 y120 w141 h53 -Hdr background%bgcolor% c%foreColor% hwndFELSTVC vfeLVC gfeLVC %fevis%, |
-Gui, Add, Text, x248 y240 vfeTXTA %fevis%, feTXTA
-Gui, Add, Text, x248 y264 vfeTXTB %fevis%, feTXTB
-Gui, Add, Text, x248 y288 vfeTXTC %fevis%, feTXTC
-Gui, Add, Text, x376 y368 vfeTXTD %fevis%, feTXTD
-Gui, Add, Text, x376 y392 vfeTXTE %fevis%, feTXTE
-Gui, Add, Text, x376 y416 vfeTXTF %fevis%, feTXTF
-Gui, Add, Text, x376 y440 vfeTXTG %fevis%, feTXTG
-Gui, Add, Text, x640 y344 vfeTXTH %fevis%, feTXTH
-Gui, Add, Text, x640 y368 vfeTXTI %fevis%, feTXTI
-Gui, Add, Text, x696 y344 vfeTXTJ %fevis%, feTXTJ
-Gui, Add, Text, x696 y368 vfeTXTK %fevis%, feTXTK
-Gui, Add, Text, x624 y488 vfeTXTL %fevis%, feTXTL
-Gui, Add, Text, x560 y24 vfeTXTM %fevis%, feTXTM
-Gui, Add, Text, x688 y24 vfeTXTN %fevis%, feTXTN
-Gui, Add, Text, x688 y48 vfeTXTO %fevis%, feTXTO
-Gui, Add, Text, x688 y72 vfeTXTP %fevis%, feTXTP
-Gui, Add, Text, x688 y96 vfeTXTQ %fevis%, feTXTQ
-Gui, Add, Text, x504 y416 vfeTXTS %fevis%,
-Gui, Add, Text, x504 y432 vfeTXTT %fevis%,
-Gui, Add, Text, x505 y400 vfeTXTR %fevis%,
+Gui,Add,Text, x248 y240 vfeTXTA %fevis%, feTXTA
+Gui,Add,Text, x248 y264 vfeTXTB %fevis%, feTXTB
+Gui,Add,Text, x248 y288 vfeTXTC %fevis%, feTXTC
+Gui,Add,Text, x376 y368 vfeTXTD %fevis%, feTXTD
+Gui,Add,Text, x376 y392 vfeTXTE %fevis%, feTXTE
+Gui,Add,Text, x376 y416 vfeTXTF %fevis%, feTXTF
+Gui,Add,Text, x376 y440 vfeTXTG %fevis%, feTXTG
+Gui,Add,Text, x640 y344 vfeTXTH %fevis%, feTXTH
+Gui,Add,Text, x640 y368 vfeTXTI %fevis%, feTXTI
+Gui,Add,Text, x696 y344 vfeTXTJ %fevis%, feTXTJ
+Gui,Add,Text, x696 y368 vfeTXTK %fevis%, feTXTK
+Gui,Add,Text, x624 y488 vfeTXTL %fevis%, feTXTL
+Gui,Add,Text, x560 y24 vfeTXTM %fevis%, feTXTM
+Gui,Add,Text, x688 y24 vfeTXTN %fevis%, feTXTN
+Gui,Add,Text, x688 y48 vfeTXTO %fevis%, feTXTO
+Gui,Add,Text, x688 y72 vfeTXTP %fevis%, feTXTP
+Gui,Add,Text, x688 y96 vfeTXTQ %fevis%, feTXTQ
+Gui,Add,Text, x504 y416 vfeTXTS %fevis%,
+Gui,Add,Text, x504 y432 vfeTXTT %fevis%,
+Gui,Add,Text, x505 y400 vfeTXTR %fevis%,
 gosub, feDDLJ
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [ARCHIVE TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
-Gui, Tab, 6
-Gui, Tab, DAT:=:Repo
+Gui,Tab, 6
+Gui,Tab, DAT:=:Repo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Add, Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
-Gui, Add, Radio, x9 y28 vSELSORT gSELSORT hidden disabled, Select
-Gui, Add, Checkbox, x110 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Ext
-Gui, Add, Checkbox, x280 y28 vDETHSHSZ gDETHSHSZ hidden, Limit Size
-gui, Add, Checkbox, x210 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
-Gui, Add, DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
-gui, Add, Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
-gui, Add, Checkbox, x114 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
-gui, Add, Checkbox, x215 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
-gui, Add, Checkbox, x9 y84 vSRCHDRP gSRCHDRP checked hidden, Search Compressed
-gui, Add, Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
-Gui, Add, Radio, x131 y98 vJAKBF gJAKBF hidden Checked disabled, Individuate
-Gui, Add, Radio, x218 y98 vJAKAFT gJAKAFT hidden disabled, Consolidate
-Gui, Add, ListBox, x9 y120 w329 h200 hwndDATLBX multi vDATLBX gDATLBX hidden,|
+Gui,Add,Radio, x9 y14 vDETSORT gDETSORT hidden Checked, Detect
+Gui,Add,Radio, x9 y28 vSELSORT gSELSORT hidden disabled, Select
+Gui,Add,Checkbox, x105 y28 vDETECTXTN gDETECTXTN disabled hidden, Detect Ext
+Gui,Add,Checkbox, x275 y28 vDETHSHSZ gDETHSHSZ hidden, Limit Size
+Gui,Add,Checkbox, x205 y28 vKNOWNDRP gKNOWNDRP hidden Checked, Limit Ext
+Gui,Add,DropDownList, hwndDplHndl172 x9 y46 w260 vDRPSEL gDRPSEL hidden disabled,Select a System||%allsupport%
+Gui,Add,Checkbox, x9 y70 vMOVDRP gMOVDRP checked hidden, Move Dropped
+Gui,Add,Checkbox, x114 y70 vRENMDRP gRENMDRP checked hidden, Rename ROM
+Gui,Add,Checkbox, x215 y70 vOVRWDRP gOVRWDRP checked hidden, Overwrite
+Gui,Add,Checkbox, x9 y84 vSRCHDRP gSRCHDRP checked hidden, Search Compressed
+Gui,Add,Checkbox, x9 y98 vJAKDRP gJAKDRP hidden, Jacketize Dropped
+Gui,Add,Radio, x136 y98 vJAKBF gJAKBF hidden Checked disabled, Individuate
+Gui,Add,Radio, x224 y98 vJAKAFT gJAKAFT hidden disabled, Consolidate
+Gui,Add,ListBox, x9 y120 w329 h200 hwndDATLBX multi vDATLBX gDATLBX hidden,|
 Gui,Add,Edit, x370 y2 w260 vSRTFLT gSRTFLT hidden,
 Gui,Add,Button,x350 y3 w15 h15 vSRTCLRFLT gSRTCLRFLT hidden,X
-Gui, Add, ListView,x350 y24 w388 h470 hwndLvwHnd4 vDRPLV gDRPLV hidden,|
-Gui Add, DropDownList, x8 y324 w283 hwndDplHndl173 vDATDRPD gDATDRPD hidden,%alldats%
-Gui Add, Button, x92 y348 w51 h19 vBRWSDAT gBRWSDAT hidden, Browse
+Gui,Add,ListView,x350 y24 w388 h470 hwndLvwHnd4 vDRPLV gDRPLV hidden,|
+Gui,Add,DropDownList, x8 y324 w283 hwndDplHndl173 vDATDRPD gDATDRPD hidden,%alldats%
+Gui,Add,Button, x92 y348 w51 h19 vBRWSDAT gBRWSDAT hidden, Browse
 Gui,Add,Radio, x8 y352 vTOSECDATYP gTOSECDATYP checked hidden, TOSEC
 Gui,Add,Radio, x8 y374 vMAMEDATYP gMAMEDATYP hidden, MAME
 Gui,Add,Radio, x8 y396 vNOINTDATYP gNOINTDATYP hidden, NO-INTRO
 Gui,Add,Radio, x8 y414 vRDUMPDATYP gRDUMPDATYP hidden, REDUMP
-Gui Add, Button, x295 y324 w43 h19 vADDATS gADDATS hidden, Add
-Gui, Font, Bold
-Gui, Add, Button,x290 y465 w53 h29 vHASHALLROMS gHASHALLROMS hidden, SORT
-Gui, Font, Normal
-Gui Add, Button, x695 y3 w43 h19 vADDSRTFILE gADDSRTFILE hidden, File
-Gui Add, Button, x640 y3 w51 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
-Gui, Add, Button, x740 y3 w15 h15 vHLTDATP gHLTDATP hidden,-
-Gui Add, DropDownList, x6 y481 w120 hwndDplHndl174 vDATREPO gDATREPO hidden,TOSEC||NO-INTRO|REDUMP|MAME
-Gui Add, Button, x135 y483 w73 h17 vGETDATREP gGETDATREP hidden, Download
-Gui, Add, Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
+Gui,Add,Button, x295 y324 w43 h19 vADDATS gADDATS hidden, Add
+Gui,Font, Bold
+Gui,Add,Button,x290 y465 w53 h29 vHASHALLROMS gHASHALLROMS hidden, SORT
+Gui,Font, Normal
+Gui,Add,Button, x695 y3 w43 h19 vADDSRTFILE gADDSRTFILE hidden, File
+Gui,Add,Button, x636 y3 w55 h19 vADDSRTDIR gADDSRTDIR hidden, Directory
+Gui,Add,Button, x740 y3 w15 h15 vHLTDATP gHLTDATP hidden,-
+Gui,Add,DropDownList, x6 y481 w120 hwndDplHndl174 vDATREPO gDATREPO hidden,TOSEC||NO-INTRO|REDUMP|MAME
+Gui,Add,Button, x135 y483 w73 h17 vGETDATREP gGETDATREP hidden, Download
+Gui,Add,Progress, x742 y20 w10 h465 Vertical -Smooth vARCDPRGRS, 0
 if (VERSION <> "[CURV]")
 	{
 		Loop,parse,SORTROMTAB,|
@@ -1828,10 +1691,10 @@ if (VERSION <> "[CURV]")
 		goto, GUIJAKLOC
 	}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Add, GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center,
+Gui,Add,GroupBox, x3 y2 w344 h284 +0x400000 vARCGSYS Center,
 Gui,Font,Bold
-Gui, Add, Radio, x130 y4 vSortROMS gSortROMS,Sort
-Gui, Add, Radio, x180 y4 vARCTAB gArcTab Checked,Repo
+Gui,Add,Radio, x130 y4 vSortROMS gSortROMS,Sort
+Gui,Add,Radio, x180 y4 vARCTAB gArcTab Checked,Repo
 Gui,Font,Normal
 Gui,Add,DropDownList, hwndDplHndl121 x24 y29 w260 vARCSYS gArchiveSystems, Select a System||%syslist%
 Gui,Add,ComboBox, hwndCbxHndl121 x26 y29 w260 vARCCBX gArchiveCBX +0x2 +E0x5000 Right hidden, Select a System||%syslist%
@@ -1839,234 +1702,234 @@ Gui,Add,Edit, x370 y2 w260 vARCMFLT gARCMFLT,
 Gui,Add,Button,x350 y3 w15 h15 vARCLRFLT gARCLRFLT,X
 Gui,Add,Button,x9 y32 w15 h17 vfltrRpoBtn gfltrRpoBtn,E
 Gui,Add,DropDownList, hwndDplHndl122 x24 y51 w138 vARCCORES gArcCores, Emu_Preset||%runlist%
-Gui, Add, Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
-Gui, Add, CheckBox, x178 y74 h13 vDOWNONLY gDownOnly, Download Only
-Gui, Add, CheckBox, x189 y78 h13 vstrmvid gSTRMVID hidden, Stream
-Gui, Add, Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
+Gui,Add,Checkbox, x169 y51 h10 vREDWN gReDownload, Redownload
+Gui,Add,CheckBox, x178 y74 h13 vDOWNONLY gDownOnly, Download Only
+Gui,Add,CheckBox, x189 y78 h13 vstrmvid gSTRMVID hidden, Stream
+Gui,Add,Button,  x265 y50 w75 h23 vARCLNCH gArcLaunch disabled,PLAY ::>
 Gui,Add,ComboBox, hwndCbxHndl77 x88 y78 w126 vCUSTMOPT gCustmOpt hidden,|%INJOPT%
 Gui,Add,ComboBox, hwndCbxHndl78 x218 y78 w123 vCUSTMARG gCustmArg hidden,|
-Gui, Add, CheckBox, x26 y75 w65 h17 vCUSTSWITCH gCustSwitch, switches
-Gui, Add, Checkbox, x280 y14 w25 vENHAK gENHAK,+hacks
-Gui, Add, Checkbox, x9 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
+Gui,Add,CheckBox, x26 y75 w65 h17 vCUSTSWITCH gCustSwitch, switches
+Gui,Add,Checkbox, x280 y14 w25 vENHAK gENHAK,+hacks
+Gui,Add,Checkbox, x9 y14 w25 vMAMESWCHK gMAMESWCHK,MAME
 Gui,Add,DropDownList, hwndDplHndl123 x28 y258 w225 vUrlTxt gREPOUrlEdt, %ArcSRC%||%ARCSRCS%Add Repository
-Gui, Add, Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
-Gui, Add, Button, x320 y259 h18 vADDRPOL gADDRPOL,F
+Gui,Add,Button, x255 y259 h18 vALTURLGET gALTURLGET,Download
+Gui,Add,Button, x320 y259 h18 vADDRPOL gADDRPOL,F
 Gui,Add,Edit, hwndEdtHndl74 x28 y302 w310 h21 vSRCHEDT gSearchInp %EULAOPT%,
 Gui,Font,Bold
-Gui, Add, Button, x42 y323 w75 h23 vSearchArc gSearchArc, SEARCH
+Gui,Add,Button, x42 y323 w75 h23 vSearchArc gSearchArc, SEARCH
 gui,Font,Normal
-gui, add, Radio, x32 y287 h13 vAincTog gAincTog checked,Include
-gui, add, Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
+Gui,Add,Radio, x32 y287 h13 vAincTog gAincTog checked,Include
+Gui,Add,Radio, x93 y287 h13 vAexcTog gAexcTog,exclude
 Gui,Add,DropDownList, hwndDplHndl124 x124 y324 w199 vSRCHDDL gSRCHDDL, All||%syslist%
-Gui, Add, Button, x329 y326 w15 h15 vExpndASrch gExpndASrch hidden,+
+Gui,Add,Button, x329 y326 w15 h15 vExpndASrch gExpndASrch hidden,+
 Gui,Add,listbox, x24 y346 w320 h147 +Multi +HScroll HWNDsrchpopu vSRCHRSLT gArcSrchRes hidden,
 Gui,Add,listbox, x350 y24 w388 h464 +Multi +HScroll HWNDarcpopu vARCPOP gArcPopulateList,
-Gui, Add, Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
-Gui, Add, CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
-Gui Add, CheckBox, x118 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
-Gui, Add, CheckBox, x185 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
-Gui, Add, Checkbox, x266 y100 h15 vArcMove gArcMove hidden,cleanup
-Gui, Add, Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
-Gui, Add, Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
-Gui, Add, Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
-Gui, Add, CheckBox, x26 y119 h15 vJACKETMODE gDWNINJACK,Jacketize
+Gui,Add,Button, x655 y3 w61 h15 vCLIPURL gClipURL, CLIP URL
+Gui,Add,CheckBox, x26 y100 h15 vEXTRURL gExtractURL,Extract ROM
+Gui,Add,CheckBox, x118 y100 h15 vEXTEXPLD gEXTEXPLD hidden, explode
+Gui,Add,CheckBox, x185 y100 h15 vRUNXTRACT gRunXtract Checked Hidden, Run ROM
+Gui,Add,Checkbox, x266 y100 h15 vArcMove gArcMove hidden,cleanup
+Gui,Add,Checkbox, x222 y138 h16 vArcCull gArcCull checked hidden,[ ( Consolidate ) ]
+Gui,Add,Checkbox, cred x242 y138 h15 vSortOverride gSortOverride +0x200 hidden, Global Override
+Gui,Add,Button, x25 y157 w59 h17 vSETOVD gSetOvd disabled, BROWSE
+Gui,Add,CheckBox, x26 y119 h15 vJACKETMODE gDWNINJACK,Jacketize
 Gui,Add,Edit, hwndEdtHndl75 x96 y116 h21 w218 vRNMJACK gRNMJACK hidden
-Gui, Add, CheckBox, x26 y138 h17 vOVDCHK gOvdChk, Override Save Directory
+Gui,Add,CheckBox, x26 y138 h17 vOVDCHK gOvdChk, Override Save Directory
 Gui,Add,DropDownList, hwndDplHndl125 x87 y155 w254 vOVDLDS gOvDlds disabled,|Matching||%systmfldrs%
 Gui,Add,Edit, hwndEdtHndl76 x23 y177 +Wrap w318 h35 vOVDTXT Disabled,
-Gui, Font,Bold
-Gui, Add, Text, cred x93 y495 w531 h15 vARCDET Center,
-Gui, Add, Button, x740 y3 w15 h15 vCLRNETP gCLRNETP,-
-gui, font,Normal
+Gui,Font,Bold
+Gui,Add,Text, cred x93 y495 w531 h15 vARCDET Center,
+Gui,Add,Button, x740 y3 w15 h15 vCLRNETP gCLRNETP,-
+Gui,font,Normal
 GUIJAKLOC:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [JACKETS TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Tab, 7
-Gui, Tab, Jackets
+Gui,Tab, 7
+Gui,Tab, Jackets
 Gui,Add,DropDownList, hwndDplHndl126 x14 y12 w245 vRJSYSDD gRJSYSDD disabled, Systems||%systmfldrs%
 Gui,Add,DropDownList, hwndDplHndl127 x13 y36 w64 vRJINCEXCL gRJINCEXCL disabled, All||A-Z|#
-Gui, Add, Button, x79 y35 w37 h23 vRJSETRANGE gRJSETRANGE hidden, Range
-Gui, Add, Text, x83 y40 h23 vRJRNGTXT, Range
+Gui,Add,Button, x79 y35 w37 h23 vRJSETRANGE gRJSETRANGE hidden, Range
+Gui,Add,Text, x83 y40 h23 vRJRNGTXT, Range
 Gui,Add,DropDownList, hwndDplHndl128 x126 y36 w100 vRJLSTYP gRJLSTYP disabled, Jackets+ROMs||Jackets ONLY|ROMs ONLY|All files
-Gui, Add, Button, x228 y35 w49 h23 vRJRFRSHLST gRJRFRSHLST disabled, Refresh
+Gui,Add,Button, x228 y35 w49 h23 vRJRFRSHLST gRJRFRSHLST disabled, Refresh
 Gui,Add,Edit, hwndEdtHndl77 x13 y61 w30 h21 Number vRJEDTD gRJEDTD hidden, 0
 Gui,Add,Edit, hwndEdtHndl78 x13 y61 w30 h21 Limit1 vRJEDTDN gRJEDTDN hidden, A
-Gui, Add, Text, x47 y65 h13 vRJTXTH hidden, to
+Gui,Add,Text, x47 y65 h13 vRJTXTH hidden, to
 Gui,Add,Edit, hwndEdtHndl79 x58 y61 w30 h21 Number vRJEDTB gRJEDTB hidden, 1000
 Gui,Add,Edit, hwndEdtHndl80 x58 y61 w30 h21 Limit1 vRJEDTBN gRJEDTBN hidden, Z
-Gui, Add, Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
+Gui,Add,Button, x91 y59 w31 h23 vRJFLTRLST gRJFLTRLST hidden, Filter
 Gui,Add,Edit, hwndEdtHndl81 x122 y60 w118 h21 vRJEDTC gRJEDTC disabled,
-Gui, Add, Button, x241 y59 w35 h23 vRJFNDINLST gRJFNDINLST disabled, Find
+Gui,Add,Button, x241 y59 w35 h23 vRJFNDINLST gRJFNDINLST disabled, Find
 Gui,Add,ListView, x12 y86 w254 h414 -Hdr -ReadOnly altsubmit Multi background%bgcolor% c%foreColor% vRJLSTV gRJLSTV hwndRJLV checked,|
 /*  ;;[DEBUGOV]
 RJRN1 := New LV_InCellEdit(RJLV)
 RJRN1.SetColumns(1)
 */  ;;[DEBUGOV]
-Gui, Add, Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS disabled, ALL
-Gui, Add, Text, x267 y143 h14 vRJTXTN,Selects All ROMs
-Gui, Add, GroupBox, x266 y155 w100 h113 vRJGRPN
-Gui, Add, CheckBox, x267 y165 h15 vRJCHKL gRJCHKL disabled, Launchers
-Gui, Add, CheckBox, x267 y180 h15 vRJCHKM gRJCHKM disabled, Config Files
-Gui, Add, CheckBox, x267 y195 h15 vRJCHKP gRJCHKP disabled, Joystick Profiles
-Gui, Add, CheckBox, x267 y210 h15 vRJCHKH gRJCHKH disabled, Logs
-Gui, Add, CheckBox, x271 y250 h15 vRJCHKI gRJCHKI disabled, Emulators
-Gui, Add, Button, x284 y226 w55 h21 vRJDELCOMP gRJDELCOMP Disabled, Delete
-Gui, Add, Text, x274 y270 h18 vRLSTOT,total item #
-Gui, Font, Bold
-Gui, Add, GroupBox, x278 y26 w107 h88 vRJGRPA, System Settings
+Gui,Add,Button, x267 y119 w56 h24 vRJSALITMS gRJSALITMS disabled, ALL
+Gui,Add,Text, x267 y143 h14 vRJTXTN,Selects All ROMs
+Gui,Add,GroupBox, x266 y155 w100 h113 vRJGRPN
+Gui,Add,CheckBox, x267 y165 h15 vRJCHKL gRJCHKL disabled, Launchers
+Gui,Add,CheckBox, x267 y180 h15 vRJCHKM gRJCHKM disabled, Config Files
+Gui,Add,CheckBox, x267 y195 h15 vRJCHKP gRJCHKP disabled, Joystick Profiles
+Gui,Add,CheckBox, x267 y210 h15 vRJCHKH gRJCHKH disabled, Logs
+Gui,Add,CheckBox, x271 y250 h15 vRJCHKI gRJCHKI disabled, Emulators
+Gui,Add,Button, x284 y226 w55 h21 vRJDELCOMP gRJDELCOMP Disabled, Delete
+Gui,Add,Text, x274 y270 h18 vRLSTOT,total item #
+Gui,Font, Bold
+Gui,Add,GroupBox, x278 y26 w107 h88 vRJGRPA, System Settings
 Gui,Font, Normal
-Gui, Add, CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked disabled, Auto-Pop
-Gui, Add, Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked disabled, Reset
-Gui, Add, Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD disabled, Default ;Settings
-Gui, Add, Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD disabled, Custom ;Settings
-Gui, Add, Button, x281 y91 w42 h20 vRJSYSLOAD gRJSYSLOAD disabled, Load ;Settings
-Gui, Add, Button, x326 y91 w42 h20 vRJSYSSAV gRJSYSSAV disabled, Save ;Settings
-Gui, Add, Button, x368 y95 w12 h14 +0x800 vRJSYSSAVAS gRJSYSSAVAS disabled, v ;Settings
-Gui, Font, Bold
-Gui, Add, GroupBox, x388 y6 w371 h109 vRJGRPG, Keymapper
+Gui,Add,CheckBox, x301 y12 h13 vRJCHKG gRJCHKG Checked disabled, Auto-Pop
+Gui,Add,Radio,x296 y45 h13 vRJSYSRADA gRJSYSRAD checked disabled, Reset
+Gui,Add,Radio, x296 y60 h13 vRJSYSRADB gRJSYSRAD disabled, Default ;Settings
+Gui,Add,Radio, x296 y76 h13 vRJSYSRADC gRJSYSRAD disabled, Custom ;Settings
+Gui,Add,Button, x281 y91 w42 h20 vRJSYSLOAD gRJSYSLOAD disabled, Load ;Settings
+Gui,Add,Button, x326 y91 w42 h20 vRJSYSSAV gRJSYSSAV disabled, Save ;Settings
+Gui,Add,Button, x368 y95 w12 h14 +0x800 vRJSYSSAVAS gRJSYSSAVAS disabled, v ;Settings
+Gui,Font, Bold
+Gui,Add,GroupBox, x388 y6 w371 h109 vRJGRPG, Keymapper
 Gui,Font, Normal
-Gui, Add, CheckBox, x398 y27 h13 vRJENMAP gRJENMAP disabled, Enable ;Mapper
-Gui, Add, Checkbox, x679 y15 h13 vRJOVKM gRJOVKM Disabled, Overwrite
-Gui, Add, Text, x513 y28 h13 vRJTXTC, JoyMapper
-Gui, Add, Text, x601 y28 h13 vRJTXTF, Return Profile
+Gui,Add,CheckBox, x398 y27 h13 vRJENMAP gRJENMAP disabled, Enable ;Mapper
+Gui,Add,Checkbox, x679 y15 h13 vRJOVKM gRJOVKM Disabled, Overwrite
+Gui,Add,Text, x513 y28 h13 vRJTXTC, JoyMapper
+Gui,Add,Text, x601 y28 h13 vRJTXTF, Return Profile
 Gui,Add,DropDownList, hwndDplHndl129 x398 y42 w167 vRJMAPDD gRJMAPDD Disabled, %keympr%||Antimicro|Xpadder|other
 Gui,Add,ComboBox, hwndCbxHndl79 x568 y42 w161 vRJMAPRET gRJMAPRET Disabled, %kmprd%\Mediacenter%kmprxtn%||%kmprd%\nolayout1%kmprxtn%
-Gui, Add, Button, x732 y41 w21 h23 vRJMAPRETOPN gRJMAPRETOPN Disabled, O ;bounceproflie
-Gui, Add, Radio, x398 y64 h13 vRJMAP1ROFTYPA gRJMAP1ROFTYPA Disabled, Joy 1
-Gui, Add, Radio, x398 y79 h13 vRJMAP1ROFTYPB gRJMAP1ROFTYPB Disabled Checked, Kb 1
-Gui, Add, Radio, x398 y95 h13 vRJMAP1ROFTYPC gRJMAP1ROFTYPC Disabled, Blank 1
-Gui, Add, Text, x504 y92 h13 vRJTXTD, Joy 1 Profile
+Gui,Add,Button, x732 y41 w21 h23 vRJMAPRETOPN gRJMAPRETOPN Disabled, O ;bounceproflie
+Gui,Add,Radio, x398 y64 h13 vRJMAP1ROFTYPA gRJMAP1ROFTYPA Disabled, Joy 1
+Gui,Add,Radio, x398 y79 h13 vRJMAP1ROFTYPB gRJMAP1ROFTYPB Disabled Checked, Kb 1
+Gui,Add,Radio, x398 y95 h13 vRJMAP1ROFTYPC gRJMAP1ROFTYPC Disabled, Blank 1
+Gui,Add,Text, x504 y92 h13 vRJTXTD, Joy 1 Profile
 Gui,Add,ComboBox, hwndCbxHndl80 x449 y70 w100 vRJMAP1PL gRJMAP1PL Disabled, Player1%kmprxtn%||%kmprd%\nolayout1%kmprxtn%
-Gui, Add, Button, x550 y68 w21 h23 vRJMAP1PLOPN gRJMAP1PLOPN Disabled, O ;player1profile
-Gui, Add, Radio, x579 y65 h13 vRJMAP2ROFTYPA gRJMAP2ROFTYPA Disabled, Joy 2
-Gui, Add, Radio, x579 y80 h13 vRJMAP2ROFTYPB gRJMAP2ROFTYPB Disabled Checked, Kb 2
-Gui, Add, Radio, x579 y96 h13 vRJMAP2ROFTYPC gRJMAP2ROFTYPC Disabled, Blank 2
-Gui, Add, Text, x689 y94 h13 vRJTXTE, Joy 2 Profile
+Gui,Add,Button, x550 y68 w21 h23 vRJMAP1PLOPN gRJMAP1PLOPN Disabled, O ;player1profile
+Gui,Add,Radio, x579 y65 h13 vRJMAP2ROFTYPA gRJMAP2ROFTYPA Disabled, Joy 2
+Gui,Add,Radio, x579 y80 h13 vRJMAP2ROFTYPB gRJMAP2ROFTYPB Disabled Checked, Kb 2
+Gui,Add,Radio, x579 y96 h13 vRJMAP2ROFTYPC gRJMAP2ROFTYPC Disabled, Blank 2
+Gui,Add,Text, x689 y94 h13 vRJTXTE, Joy 2 Profile
 Gui,Add,ComboBox, hwndCbxHndl81 x631 y70 w100 vRJMAP2PL gRJMAP2PL Disabled, Player2%kmprxtn%||%kmprd%\nolayout2%kmprxtn%
-Gui, Add, Button, x732 y69 w21 h23 vRJMAP2PLOPN gRJMAP2PLOPN Disabled, O ;player2profile
+Gui,Add,Button, x732 y69 w21 h23 vRJMAP2PLOPN gRJMAP2PLOPN Disabled, O ;player2profile
 Gui,Font,Bold
-Gui, Add, GroupBox, x371 y115 w191 h117 vRJGRPI, Launchers
+Gui,Add,GroupBox, x371 y115 w191 h117 vRJGRPI, Launchers
 Gui,Font,Normal
-Gui, Add, CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR disabled, Create ;Launcher Creation
-Gui, Add, CheckBox, x467 y122 w90 h20 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
-Gui, Add, Radio, x487 y144 h13 vRJRad4B gRJRad4B Disabled, Global
-Gui, Add, Radio, x487 y160 h13 vRJRad4A gRJRad4A checked  Disabled, Per-Game
-Gui, Add, Checkbox, x379 y149 vRJEXEB gRJEXEB disabled, Per-EXE
-Gui, Add, Text, x379 y163 vRJTXTBP, preset
+Gui,Add,CheckBox, x391 y132 h13 vRJENLNCHR gRJENLNCHR disabled, Create ;Launcher Creation
+Gui,Add,CheckBox, x467 y122 w90 h20 +0x20 vRJLNCHOVR gRJLNCHOVR Disabled, Overwrite ;Launchers
+Gui,Add,Radio, x487 y144 h13 vRJRad4B gRJRad4B Disabled, Global
+Gui,Add,Radio, x487 y160 h13 vRJRad4A gRJRad4A checked  Disabled, Per-Game
+Gui,Add,Checkbox, x379 y149 vRJEXEB gRJEXEB disabled, Per-EXE
+Gui,Add,Text, x379 y163 vRJTXTBP, preset
 Gui,Add,DropDownList, hwndDplHndl130 x379 y177 w156 vRJEMUPRECFG gRJEMUPRECFG Disabled, %emulist%
-Gui, Add, CheckBox, x379 y199 h21 w60 vRJCHKQ gRJCHKQ Disabled, Other
-Gui, Add, Button, x484 y199 w75 h23 vRJBUTM gRJBUTM Disabled, Browse
-Gui, Add, CheckBox, x384 y218 h23 +0x20 vRJCHKK gRJCHKK Disabled, Write ROM-Name to Launcher
+Gui,Add,CheckBox, x379 y199 h21 w60 vRJCHKQ gRJCHKQ Disabled, Other
+Gui,Add,Button, x484 y199 w75 h23 vRJBUTM gRJBUTM Disabled, Browse
+Gui,Add,CheckBox, x384 y218 h23 +0x20 vRJCHKK gRJCHKK Disabled, Write ROM-Name to Launcher
 Gui,Font,Bold
-Gui, Add, GroupBox, x567 y115 w192 h97 vRJGRPE, Jacketize
+Gui,Add,GroupBox, x567 y115 w192 h97 vRJGRPE, Jacketize
 Gui,Font,Normal
-Gui, Add, CheckBox, x572 y130 h13 vRJCHKA gRJCHKA disabled, Jacketize
-Gui, Add, Button, x740 y152 w16 h16 vRJADDSUBD gRJADDSUBD disabled, +
-Gui, Add, Button, x740 y167 w16 h16 vRJREMSUBD gRJREMSUBD disabled, X
+Gui,Add,CheckBox, x572 y130 h13 vRJCHKA gRJCHKA disabled, Jacketize
+Gui,Add,Button, x740 y152 w16 h16 vRJADDSUBD gRJADDSUBD disabled, +
+Gui,Add,Button, x740 y167 w16 h16 vRJREMSUBD gRJREMSUBD disabled, X
 Gui,Add,ComboBox, hwndCbxHndl82 x646 y156 w92 vRJSUBDCBX gRJSUBDCBX disabled, %SUBDLST%
-Gui, Add, Text, x608 y155 w33 h18 vRJTXTA1 +0x200, sub-dir
-Gui, Add, CheckBox, x684 y179 w58 h13 +0x20 vRJSUBDH gRJSUBDH checked disabled, Hidden
+Gui,Add,Text, x608 y155 w33 h18 vRJTXTA1 +0x200, sub-dir
+Gui,Add,CheckBox, x684 y179 w58 h13 +0x20 vRJSUBDH gRJSUBDH checked disabled, Hidden
 Gui,Add,DropDownList, hwndDplHndl131 x651 y125 w84 vRJCNSLDD gRJCNSLDD Disabled, ()[]||()|[]|Individuate
-Gui, Add, CheckBox,x741 y126 h13 w16 vRJENCNSLD gRJENCNSLD Disabled,  ;Consolidate Individuate
-Gui, Add, CheckBox, x569 y178 h13 vRJENXTRARC gRJENXTRARC Disabled, Extract Archives
-Gui, Add, Radio, x572 y192 h13 vRJXTRARCA gRJXTRARCA Disabled, Before
-Gui, Add, Radio, x572 y206 h13 vRJXTRARCB gRJXTRARCB checked  Disabled, After
-Gui, Add, Text, x627 y204 h13 vRJTXTK, and
+Gui,Add,CheckBox,x741 y126 h13 w16 vRJENCNSLD gRJENCNSLD Disabled,  ;Consolidate Individuate
+Gui,Add,CheckBox, x569 y178 h13 vRJENXTRARC gRJENXTRARC Disabled, Extract Archives
+Gui,Add,Radio, x572 y192 h13 vRJXTRARCA gRJXTRARCA Disabled, Before
+Gui,Add,Radio, x572 y206 h13 vRJXTRARCB gRJXTRARCB checked  Disabled, After
+Gui,Add,Text, x627 y204 h13 vRJTXTK, and
 Gui,Add,DropDownList, hwndDplHndl132 x649 y197 w100 vRJXTRARCDD gRJXTRARCDD Disabled, Store||Delete|Keep
-Gui, Font,Bold
-Gui, Add, GroupBox, x565 y227 w194 h112 right vRJGRPF, Pre Cmd/ Post Cmd
-Gui, Font,Normal
-Gui, Add, Button, x568 y282 w21 h23 vRJBUTV gRJBUTV disabled, ~ ;Edit Command
-Gui, Add, Radio, x642 y247 h13 vRJRad11A gRJRad11A disabled, Local
-Gui, Add, Radio, x694 y247 h13 vRJRad11B gRJRad11B checked disabled, Absolute
-Gui, Add, CheckBox, x571 y263 w43 h18 vRJCHKW gRJCHKW +0x20 disabled, Wait
+Gui,Font,Bold
+Gui,Add,GroupBox, x565 y227 w194 h112 right vRJGRPF, Pre Cmd/ Post Cmd
+Gui,Font,Normal
+Gui,Add,Button, x568 y282 w21 h23 vRJBUTV gRJBUTV disabled, ~ ;Edit Command
+Gui,Add,Radio, x642 y247 h13 vRJRad11A gRJRad11A disabled, Local
+Gui,Add,Radio, x694 y247 h13 vRJRad11B gRJRad11B checked disabled, Absolute
+Gui,Add,CheckBox, x571 y263 w43 h18 vRJCHKW gRJCHKW +0x20 disabled, Wait
 Gui,Add,DropDownList, hwndDplHndl133 x615 y261 w118 vRJDDLF gRJDDLF disabled, Pre-Command||Post-Command
-Gui, Add, Button, x735 y260 w16 h16 vRJBUTG gRJBUTG disabled, + ;PrePost Add
+Gui,Add,Button, x735 y260 w16 h16 vRJBUTG gRJBUTG disabled, + ;PrePost Add
 Gui,Add,ComboBox, hwndCbxHndl83 x590 y283 w143 vRJCBXH gRJCBXH +0x2 +E0x5000 Right hidden,
 Gui,Add,DropDownList, hwndDplHndl134 x590 y283 w143 vRJDDLP gRJDDLP +0x2 +E0x5000 Right disabled,
-Gui, Add, Button, x620 y308 w43 h23 vRJBUTO gRJBUTO hidden, Add
+Gui,Add,Button, x620 y308 w43 h23 vRJBUTO gRJBUTO hidden, Add
 Gui,Add,Edit, hwndEdtHndl82 x590 y308 w163 vRJEDTO gRJEDTO disabled,
-Gui, Add, Button, x735 y282 w16 h16 vRJBUTH gRJBUTH disabled, X ;PrePostDelete
+Gui,Add,Button, x735 y282 w16 h16 vRJBUTH gRJBUTH disabled, X ;PrePostDelete
 Gui,Font,Bold
-Gui, Add, GroupBox, x524 y340 w235 h86 vRJGRPD, Disk Mounting
+Gui,Add,GroupBox, x524 y340 w235 h86 vRJGRPD, Disk Mounting
 Gui,Font,Normal
-Gui, Add, CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT disabled, Enable ;Disc Mounting
+Gui,Add,CheckBox, x627 y349 h13 vRJENDMNT gRJENDMNT disabled, Enable ;Disc Mounting
 Gui,Add,DropDownList, hwndDplHndl135 x530 y364 w132 vRJDMNTDD gRJDMNTDD Disabled, DaemonTools||VirtualCloneDrive|WinCDEmu|%vdskwin%Other
-Gui, Add, Button, x706 y361 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
-Gui, Add, Radio, x530 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
-Gui, Add, Radio, x530 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
-Gui, Add, Checkbox, x661 y386 h17 vRJENDMOV +0x20 gRJENDMOV Disabled, Disk Override
+Gui,Add,Button, x706 y361 w47 h22 vRJDIMGET gRJDIMGET Disabled, Browse
+Gui,Add,Radio, x530 y390 h13 vRJRad8A gRJRad8A Disabled checked, pre-Emulator Run
+Gui,Add,Radio, x530 y406 h13 vRJRad8B gRJRad8B Disabled, post-Emulator Run
+Gui,Add,Checkbox, x661 y386 h17 vRJENDMOV +0x20 gRJENDMOV Disabled, Disk Override
 Gui,Font,Bold
-Gui, Add, GroupBox, x503 y430 w256 h77 vRJGRPC, Emulator Config Files
+Gui,Add,GroupBox, x503 y430 w256 h77 vRJGRPC, Emulator Config Files
 Gui,Font,Normal
-Gui, Add, Text, x510 y463 h18 vRJTXTL, Pre-Run
-Gui, Add, CheckBox, x627 y443 h13 vRJCHKF gRJCHKF Disabled, Create ;CfgCrea	tion
-Gui, Add, CheckBox, x687 y443 h13 vRJCHKO gRJCHKO Disabled, Overwrite
+Gui,Add,Text, x510 y463 h18 vRJTXTL, Pre-Run
+Gui,Add,CheckBox, x627 y443 h13 vRJCHKF gRJCHKF Disabled, Create ;CfgCrea	tion
+Gui,Add,CheckBox, x687 y443 h13 vRJCHKO gRJCHKO Disabled, Overwrite
 Gui,Add,ComboBox, hwndCbxHndl84 x557 y459 w158 vRJPRECFGCBX gRJPRECFGCBX disabled,
-Gui, Add, Button, x715 y458 w16 h16 vRJADDPRECFG gRJADDPRECFG disabled, + ;Add Pre Cfg Cmd
-Gui, Add, Button, x734 y458 w16 h16 vRJREMPRECFG gRJREMPRECFG disabled, - ;Remove Pre Cfg Cmd
-Gui, Add, Text, x505 y486 h18 vRJTXTM, Post-Run
+Gui,Add,Button, x715 y458 w16 h16 vRJADDPRECFG gRJADDPRECFG disabled, + ;Add Pre Cfg Cmd
+Gui,Add,Button, x734 y458 w16 h16 vRJREMPRECFG gRJREMPRECFG disabled, - ;Remove Pre Cfg Cmd
+Gui,Add,Text, x505 y486 h18 vRJTXTM, Post-Run
 Gui,Add,ComboBox, hwndCbxHndl85 x557 y481 w158 vRJPOSTCFGCBX gRJPOSTCFGCBX disabled,
-Gui, Add, Button, x715 y480 w16 h16 vRJADDPOSTCFG gRJADDPOSTCFG disabled, + ;Add Post Cfg Cmd
-Gui, Add, Button, x734 y480 w16 h16 vRJREMPOSTCFG gRJREMPOSTCFG disabled, - ;Remove Pre Cfg Cmd
-Gui, Add, CheckBox, x401 y269 h15 vRJCHKR gRJCHKR disabled, Multi-Disk
+Gui,Add,Button, x715 y480 w16 h16 vRJADDPOSTCFG gRJADDPOSTCFG disabled, + ;Add Post Cfg Cmd
+Gui,Add,Button, x734 y480 w16 h16 vRJREMPOSTCFG gRJREMPOSTCFG disabled, - ;Remove Pre Cfg Cmd
+Gui,Add,CheckBox, x401 y269 h15 vRJCHKR gRJCHKR disabled, Multi-Disk
 Gui,Add,ComboBox,x372 y247 w191 vRJCBXJ gRJCBXJ Disabled, (Disk 1 of||(Disk 1 of|(Disk A|Disk 1
-Gui, Add, Text, x484 y270 vRJTXTJ, disk identifiers
-Gui, Add, CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked disabled,
+Gui,Add,Text, x484 y270 vRJTXTJ, disk identifiers
+Gui,Add,CheckBox, x270 y290 h17 w13 vRJLNCHTYP gRJLNCHTYP checked disabled,
 Gui,Add,ComboBox, hwndCbxHndl87 x287 y289 w274 vRJEMUXTCBX gRJEMUXTCBX Disabled, .exe`,.cmd`,,bat||.bin`,.cue
-Gui, Add, Text, x275 y314 h16 vRJTXTG, ROM extensions
-Gui, Add, CheckBox, x374 y315 h17 vRJCHKU gRJCHKU checked Disabled, Quotes
-Gui, Add, CheckBox, x429 y315 h17 vRJCHKT gRJCHKT checked Disabled, Path
-Gui, Add, CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked Disabled, Extension
+Gui,Add,Text, x275 y314 h16 vRJTXTG, ROM extensions
+Gui,Add,CheckBox, x374 y315 h17 vRJCHKU gRJCHKU checked Disabled, Quotes
+Gui,Add,CheckBox, x429 y315 h17 vRJCHKT gRJCHKT checked Disabled, Path
+Gui,Add,CheckBox, x487 y315 h17 vRJCHKS gRJCHKS checked Disabled, Extension
 Gui,Add,ComboBox, hwndCbxHndl88 x284 y340 w158 vRJEOPTSCBX gRJEOPTSCBX Disabled, %rjemuopt%
-Gui, Add, Text, x454 y344 h17 vRJTXTZ, options
+Gui,Add,Text, x454 y344 h17 vRJTXTZ, options
 Gui,Add,ComboBox, hwndCbxHndl89 x284 y364 w158 vRRJEARGSCBX gRRJEARGSCBX Disabled, %rjemuarg%
-Gui, Add, Text, x456 y365 h17 vRJTXT1A, arguments
-Gui, Add, CheckBox, x435 y388 h17 vRJZJP gRJZJP checked disabled, Zip-Peek
-Gui, Add, Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked disabled, Run from Emulator Directory
-Gui, Add, Radio, x284 y397 h18  vRJRAD1B gRJRAD1B disabled, Run from ROM Directory
+Gui,Add,Text, x456 y365 h17 vRJTXT1A, arguments
+Gui,Add,CheckBox, x435 y388 h17 vRJZJP gRJZJP checked disabled, Zip-Peek
+Gui,Add,Radio, x284 y415 h18 vRJRAD1A gRJRAD1A checked disabled, Run from Emulator Directory
+Gui,Add,Radio, x284 y397 h18  vRJRAD1B gRJRAD1B disabled, Run from ROM Directory
 gui,add,Button, x278 y494 h18 vRJCHKJ gRJCHKJ disabled, Preview Queue
 Gui,Add,DropDownList, hwndDplHndl136 x273 y437 w199 vRJQLSTDD gRJQLSTDD Disabled, QUEUE||%SYSTMQ%
-Gui, Add, Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
-Gui, Add, Button, x477 y438 w16 h16 vRJREMQSYS gRJREMQSYS Disabled, X
-Gui, Add, Text, x340 y468 h15 v vRJTXTAB, %RJQNUM% Systems
+Gui,Add,Button, x276 y465 w60 h23 vRJADDQ gRJADDQ Disabled, ADD
+Gui,Add,Button, x477 y438 w16 h16 vRJREMQSYS gRJREMQSYS Disabled, X
+Gui,Add,Text, x340 y468 h15 v vRJTXTAB, %RJQNUM% Systems
 CNFRMT= Disabled
 if (RJQNUM > 0)
 {
 	CNFRMT=
 }
-Gui, Add, Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT% Disabled, CONFIRM %RJQNUM%
+Gui,Add,Button, x407 y460 w91 h40 vRJPROCQ gRJPROCQ %CNFRMT% Disabled, CONFIRM %RJQNUM%
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; [UTILITIES TAB] ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Gui, Tab, 8
-Gui, Tab, Util
+Gui,Tab, 8
+Gui,Tab, Util
 utltog= Hide
 utlvis= Hidden
-Gui, Add, Button, x128 y216 w75 h23 vutlBUTA gutlBUTA %utlvis%, utlBUTA
-Gui, Add, Button, x128 y240 w75 h23 vutlBUTB gutlBUTB %utlvis%, utlBUTB
-Gui, Add, Button, x128 y264 w75 h23 vutlBUTC gutlBUTC %utlvis%, utlBUTC
-Gui, Add, Button, x368 y120 w75 h23 vutlBUTG gutlBUTG %utlvis%, utlBUTG
-Gui, Add, Button, x368 y48 w75 h23 vutlBUTD gutlBUTD %utlvis%, utlBUTD
-Gui, Add, Button, x368 y72 w75 h23 vutlBUTE gutlBUTE %utlvis%, utlBUTE
-Gui, Add, Button, x368 y96 w75 h23 vutlBUTF gutlBUTF %utlvis%, utlBUTF
-Gui, Add, Button, x640 y120 w75 h23 vutlBUTH gutlBUTH %utlvis%, utlBUTH
-Gui, Add, Button, x640 y144 w75 h23 vutlBUTI gutlBUTI %utlvis%, utlBUTI
-Gui, Add, Button, x689 y480 w66 h23 vutlBUTJ gutlBUTJ %utlvis%, utlBUTJ
-Gui, Add, CheckBox, x128 y120 vutlCHKD gutlCHKD %utlvis%, utlCHKD
-Gui, Add, CheckBox, x128 y144 vutlCHKE gutlCHKE %utlvis%, utlCHKE
-Gui, Add, CheckBox, x128 y168 vutlCHKF gutlCHKF %utlvis%, utlCHKF
-Gui, Add, CheckBox, x128 y192 vutlCHKG gutlCHKG %utlvis%, utlCHKG
-Gui, Add, CheckBox, x248 y72 vutlCHKH gutlCHKH %utlvis%, utlCHKH
-Gui, Add, CheckBox, x256 y384 vutlCHKI gutlCHKI %utlvis%, utlCHKI
-Gui, Add, CheckBox, x256 y408 vutlCHKJ gutlCHKJ %utlvis%, utlCHKJ
-Gui, Add, CheckBox, x256 y432 vutlCHKK gutlCHKK %utlvis%, utlCHKK
-Gui, Add, CheckBox, x256 y456 vutlCHKL gutlCHKL %utlvis%, utlCHKL
-Gui, Add, CheckBox, x520 y400 vutlCHKM gutlCHKM %utlvis%, utlCHKM
-Gui, Add, CheckBox, x376 y288 vutlCHKN gutlCHKN %utlvis%, utlCHKN
-Gui, Add, CheckBox, x624 y440 vutlCHKO gutlCHKO %utlvis%, utlCHKO
-Gui, Add, CheckBox, x624 y464 vutlCHKP gutlCHKP %utlvis%, utlCHKP
-Gui, Add, CheckBox, x640 y216 vutlCHKQ gutlCHKQ %utlvis%, utlCHKQ
-Gui, Add, CheckBox, x8 y440 vutlCHKA gutlCHKA %utlvis%, utlCHKA
-Gui, Add, CheckBox, x8 y464 vutlCHKB gutlCHKB %utlvis%, utlCHKB
-Gui, Add, CheckBox, x8 y490 vutlCHKC gutlCHKC %utlvis%, utlCHKC
+Gui,Add,Button, x128 y216 w75 h23 vutlBUTA gutlBUTA %utlvis%, utlBUTA
+Gui,Add,Button, x128 y240 w75 h23 vutlBUTB gutlBUTB %utlvis%, utlBUTB
+Gui,Add,Button, x128 y264 w75 h23 vutlBUTC gutlBUTC %utlvis%, utlBUTC
+Gui,Add,Button, x368 y120 w75 h23 vutlBUTG gutlBUTG %utlvis%, utlBUTG
+Gui,Add,Button, x368 y48 w75 h23 vutlBUTD gutlBUTD %utlvis%, utlBUTD
+Gui,Add,Button, x368 y72 w75 h23 vutlBUTE gutlBUTE %utlvis%, utlBUTE
+Gui,Add,Button, x368 y96 w75 h23 vutlBUTF gutlBUTF %utlvis%, utlBUTF
+Gui,Add,Button, x640 y120 w75 h23 vutlBUTH gutlBUTH %utlvis%, utlBUTH
+Gui,Add,Button, x640 y144 w75 h23 vutlBUTI gutlBUTI %utlvis%, utlBUTI
+Gui,Add,Button, x689 y480 w66 h23 vutlBUTJ gutlBUTJ %utlvis%, utlBUTJ
+Gui,Add,CheckBox, x128 y120 vutlCHKD gutlCHKD %utlvis%, utlCHKD
+Gui,Add,CheckBox, x128 y144 vutlCHKE gutlCHKE %utlvis%, utlCHKE
+Gui,Add,CheckBox, x128 y168 vutlCHKF gutlCHKF %utlvis%, utlCHKF
+Gui,Add,CheckBox, x128 y192 vutlCHKG gutlCHKG %utlvis%, utlCHKG
+Gui,Add,CheckBox, x248 y72 vutlCHKH gutlCHKH %utlvis%, utlCHKH
+Gui,Add,CheckBox, x256 y384 vutlCHKI gutlCHKI %utlvis%, utlCHKI
+Gui,Add,CheckBox, x256 y408 vutlCHKJ gutlCHKJ %utlvis%, utlCHKJ
+Gui,Add,CheckBox, x256 y432 vutlCHKK gutlCHKK %utlvis%, utlCHKK
+Gui,Add,CheckBox, x256 y456 vutlCHKL gutlCHKL %utlvis%, utlCHKL
+Gui,Add,CheckBox, x520 y400 vutlCHKM gutlCHKM %utlvis%, utlCHKM
+Gui,Add,CheckBox, x376 y288 vutlCHKN gutlCHKN %utlvis%, utlCHKN
+Gui,Add,CheckBox, x624 y440 vutlCHKO gutlCHKO %utlvis%, utlCHKO
+Gui,Add,CheckBox, x624 y464 vutlCHKP gutlCHKP %utlvis%, utlCHKP
+Gui,Add,CheckBox, x640 y216 vutlCHKQ gutlCHKQ %utlvis%, utlCHKQ
+Gui,Add,CheckBox, x8 y440 vutlCHKA gutlCHKA %utlvis%, utlCHKA
+Gui,Add,CheckBox, x8 y464 vutlCHKB gutlCHKB %utlvis%, utlCHKB
+Gui,Add,CheckBox, x8 y490 vutlCHKC gutlCHKC %utlvis%, utlCHKC
 Gui,Add,ComboBox, hwndCbxHndl90 x248 y312 w124 vutlCBXE gutlCBXE %utlvis%, utlCBXE||
 Gui,Add,ComboBox, hwndCbxHndl91 x248 y336 w126 vutlCBXF gutlCBXF %utlvis%, utlCBXF||
 Gui,Add,ComboBox, hwndCbxHndl92 x248 y360 w126 vutlCBXG gutlCBXG %utlvis%, utlCBXG||
@@ -2094,82 +1957,82 @@ Gui,Add,Edit, hwndEdtHndl86 x128 y96 w88 vutlEDTD gutlEDTD %utlvis%, utlEDTD
 Gui,Add,Edit, hwndEdtHndl87 x256 y480 w120 vutlEDTE gutlEDTE %utlvis%, utlEDTE
 Gui,Add,Edit, hwndEdtHndl88 x368 y24 w88 vutlEDTF gutlEDTF %utlvis%, utlEDTF
 Gui,Add,Edit, hwndEdtHndl89 x560 y56 w120 vutlEDTG gutlEDTG %utlvis%, utlEDTG
-Gui, Add, UpDown, x454 y24 w17 h21 -16 %utlvis% vutlUPDA gutlUPDA
+Gui,Add,UpDown, x454 y24 w17 h21 -16 %utlvis% vutlUPDA gutlUPDA
 Gui,Add,Edit, hwndEdtHndl90 x560 y80 w120 vutlEDTH gutlEDTH %utlvis%, utlEDTH
-Gui, Add, UpDown, x726 y296 w17 h21 -16 %utlvis% vutlUPDB gutlUPDB
+Gui,Add,UpDown, x726 y296 w17 h21 -16 %utlvis% vutlUPDB gutlUPDB
 Gui,Add,Edit, hwndEdtHndl91 x640 y296 w88 vutlEDTI gutlEDTI %utlvis%, utlEDTI
-Gui, Add, UpDown, x214 y96 w17 h21 -16 %utlvis% vutlUPDC gutlUPDC
+Gui,Add,UpDown, x214 y96 w17 h21 -16 %utlvis% vutlUPDC gutlUPDC
 Gui,Font,Bold
-Gui, Add, GroupBox, x488 y24 w71 h29 vutlGRPA %utlvis%, utlGRPA
-Gui, Add, GroupBox, x488 y56 w70 h29 vutlGRPB %utlvis%, utlGRPB
-Gui, Add, GroupBox, x488 y88 w68 h29 vutlGRPC %utlvis%, utlGRPC
-Gui, Add, GroupBox, x496 y176 w88 h19 vutlGRPD %utlvis%, utlGRPD
-Gui, Add, GroupBox, x496 y200 w101 h19 vutlGRPE %utlvis%, utlGRPE
-Gui, Add, GroupBox, x496 y224 w94 h19 vutlGRPF %utlvis%, utlGRPF
-Gui, Add, GroupBox, x602 y392 w151 h45 vutlGRPG %utlvis%, utlGRPG
-Gui, Font, normal
+Gui,Add,GroupBox, x488 y24 w71 h29 vutlGRPA %utlvis%, utlGRPA
+Gui,Add,GroupBox, x488 y56 w70 h29 vutlGRPB %utlvis%, utlGRPB
+Gui,Add,GroupBox, x488 y88 w68 h29 vutlGRPC %utlvis%, utlGRPC
+Gui,Add,GroupBox, x496 y176 w88 h19 vutlGRPD %utlvis%, utlGRPD
+Gui,Add,GroupBox, x496 y200 w101 h19 vutlGRPE %utlvis%, utlGRPE
+Gui,Add,GroupBox, x496 y224 w94 h19 vutlGRPF %utlvis%, utlGRPF
+Gui,Add,GroupBox, x602 y392 w151 h45 vutlGRPG %utlvis%, utlGRPG
+Gui,Font, normal
 Gui,Add,listbox, x128 y392 w120 h30 hwndUTILBXA vutlLBXA gutlLBXA %utlvis%, utlLBXA||
 Gui,Add,listbox, x128 y448 w120 h30 hwndUTILBXB vutlLBXB gutlLBXB %utlvis%, utlLBXB||
 Gui,Add,ListView, x128 y424 w120 h19 -Hdr background%bgcolor% c%foreColor% hwndUTILVA vutlLVA gutlLVA %utlvis%, |
 Gui,Add,ListView, x128 y480 w121 h27 -Hdr background%bgcolor% c%foreColor% hwndUTILVB vutlLVB gutlLVB %utlvis%, |
 Gui,Add,ListView, x496 y120 w141 h53 -Hdr background%bgcolor% c%foreColor% hwndUTILVC vutlLVC gutlLVC %utlvis%, |
-Gui, Add, Progress, x504 y296 w120 h20 -Smooth vutlPRGB %utlvis%, 0
-Gui, Add, Progress, x504 y320 w120 h20 -Smooth vutlPRGA %utlvis%, 0
-Gui, Add, Radio, x248 y120 vutlRad5B gutlRad5B %utlvis%, utlRad5B
-Gui, Add, Radio, x248 y144 vutlRad5C gutlRad5C %utlvis%, utlRad5C
-Gui, Add, Radio, x248 y24 vutlRad4A gutlRad4A %utlvis%, utlRad4A
-Gui, Add, Radio, x248 y48 vutlRad4B gutlRad4B %utlvis%, utlRad4B
-Gui, Add, Radio, x248 y96 vutlRad5A gutlRad5A %utlvis%, utlRad5A
-Gui, Add, Radio, x376 y192 vutlRad6A gutlRad6A %utlvis%, utlRad6A
-Gui, Add, Radio, x376 y216 vutlRad6B gutlRad6B %utlvis%, utlRad6B
-Gui, Add, Radio, x376 y240 vutlRad6C gutlRad6C %utlvis%, utlRad6C
-Gui, Add, Radio, x376 y264 vutlRad6D gutlRad6D %utlvis%, utlRad6D
-Gui, Add, Radio, x376 y320 vutlRad7A gutlRad7A %utlvis%, utlRad7A
-Gui, Add, Radio, x376 y344 vutlRad7B gutlRad7B %utlvis%, utlRad7B
-Gui, Add, Radio, x376 y464 vutlRad8A gutlRad8A %utlvis%, utlRad8A
-Gui, Add, Radio, x376 y488 vutlRad8B gutlRad8B %utlvis%, utlRad8B
-Gui, Add, Radio, x504 y440 vutlRad9A gutlRad9A %utlvis%, utlRad9A
-Gui, Add, Radio, x504 y464 vutlRad9B gutlRad9B %utlvis%, utlRad9B
-Gui, Add, Radio, x504 y488 vutlRad9C gutlRad9C %utlvis%, utlRad9C
-Gui, Add, Radio, x640 y168 vutlRad10A gutlRad10A %utlvis%, utlRad10A
-Gui, Add, Radio, x640 y192 vutlRad10B gutlRad10B %utlvis%, utlRad10B
-Gui, Add, Radio, x640 y240 vutlRad11A gutlRad11A %utlvis%, utlRad11A
-Gui, Add, Radio, x640 y264 vutlRad11B gutlRad11B %utlvis%, utlRad11B
-Gui, Add, Radio, x8 y168 vutlRad2A gutlRad2A %utlvis%, utlRad2A
-Gui, Add, Radio, x8 y192 vutlRad2B gutlRad2B %utlvis%, utlRad2B
-Gui, Add, Radio, x8 y216 vutlRad2C gutlRad2C %utlvis%, utlRad2C
-Gui, Add, Radio, x8 y24 vutlRad1A gutlRad1A %utlvis%, utlRad1A
-Gui, Add, Radio, x8 y344 vutlRad3A gutlRad3A %utlvis%, utlRad3A
-Gui, Add, Radio, x8 y368 vutlRad3B gutlRad3B %utlvis%, utlRad3B
-Gui, Add, Radio, x8 y392 vutlRad3C gutlRad3C %utlvis%, utlRad3C
-Gui, Add, Radio, x8 y416 vutlRad3D gutlRad3D %utlvis%, utlRad3D
-Gui, Add, Radio, x8 y48 vutlRad1B gutlRad1B %utlvis%, utlRad1B
-Gui, Add, Slider, x128 y288 w120 h32 Range0-100 vutlSLDA gutlSLDA  %utlvis%, 50
-Gui, Add, Slider, x128 y320 w120 h32 Range0-100 vutlSLDB gutlSLDB %utlvis%, 50
-Gui, Add, Slider, x128 y352 w120 h32 Range0-100 vutlSLDD gutlSLDD %utlvis%, 50
-Gui, Add, Slider, x504 y368 w120 h24 Range0-100 vutlSLDE gutlSLDE %utlvis%, 50
-Gui, Add, Slider, x602 y408 w151 h25 Range0-100 vutlSLDC gutlSLDC %utlvis%, 50
-Gui, Add, Text, x248 y240 vutlTXTA %utlvis%, utlTXTA
-Gui, Add, Text, x248 y264 vutlTXTB %utlvis%, utlTXTB
-Gui, Add, Text, x248 y288 vutlTXTC %utlvis%, utlTXTC
-Gui, Add, Text, x376 y368 vutlTXTD %utlvis%, utlTXTD
-Gui, Add, Text, x376 y392 vutlTXTE %utlvis%, utlTXTE
-Gui, Add, Text, x376 y416 vutlTXTF %utlvis%, utlTXTF
-Gui, Add, Text, x376 y440 vutlTXTG %utlvis%, utlTXTG
-Gui, Add, Text, x504 y416 vutlTXTS %utlvis%,
-Gui, Add, Text, x504 y432 vutlTXTT %utlvis%,
-Gui, Add, Text, x505 y400 vutlTXTR %utlvis%,
-Gui, Add, Text, x560 y24 vutlTXTM %utlvis%, utlTXTM
-Gui, Add, Text, x640 y344 vutlTXTH %utlvis%, utlTXTH
-Gui, Add, Text, x640 y368 vutlTXTI %utlvis%, utlTXTI
-Gui, Add, Text, x688 y24 vutlTXTN %utlvis%, utlTXTN
-Gui, Add, Text, x688 y48 vutlTXTO %utlvis%, utlTXTO
-Gui, Add, Text, x688 y72 vutlTXTP %utlvis%, utlTXTP
-Gui, Add, Text, x688 y96 vutlTXTQ %utlvis%, utlTXTQ
-Gui, Add, Text, x696 y344 vutltTXTJ %utlvis%, utltTXTJ
-Gui, Add, Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
-Gui, Add, Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
-Gui, Add, Picture, x0 y0 w66 h66 vutlPICA %utlvis%, 
+Gui,Add,Progress, x504 y296 w120 h20 -Smooth vutlPRGB %utlvis%, 0
+Gui,Add,Progress, x504 y320 w120 h20 -Smooth vutlPRGA %utlvis%, 0
+Gui,Add,Radio, x248 y120 vutlRad5B gutlRad5B %utlvis%, utlRad5B
+Gui,Add,Radio, x248 y144 vutlRad5C gutlRad5C %utlvis%, utlRad5C
+Gui,Add,Radio, x248 y24 vutlRad4A gutlRad4A %utlvis%, utlRad4A
+Gui,Add,Radio, x248 y48 vutlRad4B gutlRad4B %utlvis%, utlRad4B
+Gui,Add,Radio, x248 y96 vutlRad5A gutlRad5A %utlvis%, utlRad5A
+Gui,Add,Radio, x376 y192 vutlRad6A gutlRad6A %utlvis%, utlRad6A
+Gui,Add,Radio, x376 y216 vutlRad6B gutlRad6B %utlvis%, utlRad6B
+Gui,Add,Radio, x376 y240 vutlRad6C gutlRad6C %utlvis%, utlRad6C
+Gui,Add,Radio, x376 y264 vutlRad6D gutlRad6D %utlvis%, utlRad6D
+Gui,Add,Radio, x376 y320 vutlRad7A gutlRad7A %utlvis%, utlRad7A
+Gui,Add,Radio, x376 y344 vutlRad7B gutlRad7B %utlvis%, utlRad7B
+Gui,Add,Radio, x376 y464 vutlRad8A gutlRad8A %utlvis%, utlRad8A
+Gui,Add,Radio, x376 y488 vutlRad8B gutlRad8B %utlvis%, utlRad8B
+Gui,Add,Radio, x504 y440 vutlRad9A gutlRad9A %utlvis%, utlRad9A
+Gui,Add,Radio, x504 y464 vutlRad9B gutlRad9B %utlvis%, utlRad9B
+Gui,Add,Radio, x504 y488 vutlRad9C gutlRad9C %utlvis%, utlRad9C
+Gui,Add,Radio, x640 y168 vutlRad10A gutlRad10A %utlvis%, utlRad10A
+Gui,Add,Radio, x640 y192 vutlRad10B gutlRad10B %utlvis%, utlRad10B
+Gui,Add,Radio, x640 y240 vutlRad11A gutlRad11A %utlvis%, utlRad11A
+Gui,Add,Radio, x640 y264 vutlRad11B gutlRad11B %utlvis%, utlRad11B
+Gui,Add,Radio, x8 y168 vutlRad2A gutlRad2A %utlvis%, utlRad2A
+Gui,Add,Radio, x8 y192 vutlRad2B gutlRad2B %utlvis%, utlRad2B
+Gui,Add,Radio, x8 y216 vutlRad2C gutlRad2C %utlvis%, utlRad2C
+Gui,Add,Radio, x8 y24 vutlRad1A gutlRad1A %utlvis%, utlRad1A
+Gui,Add,Radio, x8 y344 vutlRad3A gutlRad3A %utlvis%, utlRad3A
+Gui,Add,Radio, x8 y368 vutlRad3B gutlRad3B %utlvis%, utlRad3B
+Gui,Add,Radio, x8 y392 vutlRad3C gutlRad3C %utlvis%, utlRad3C
+Gui,Add,Radio, x8 y416 vutlRad3D gutlRad3D %utlvis%, utlRad3D
+Gui,Add,Radio, x8 y48 vutlRad1B gutlRad1B %utlvis%, utlRad1B
+Gui,Add,Slider, x128 y288 w120 h32 Range0-100 vutlSLDA gutlSLDA  %utlvis%, 50
+Gui,Add,Slider, x128 y320 w120 h32 Range0-100 vutlSLDB gutlSLDB %utlvis%, 50
+Gui,Add,Slider, x128 y352 w120 h32 Range0-100 vutlSLDD gutlSLDD %utlvis%, 50
+Gui,Add,Slider, x504 y368 w120 h24 Range0-100 vutlSLDE gutlSLDE %utlvis%, 50
+Gui,Add,Slider, x602 y408 w151 h25 Range0-100 vutlSLDC gutlSLDC %utlvis%, 50
+Gui,Add,Text, x248 y240 vutlTXTA %utlvis%, utlTXTA
+Gui,Add,Text, x248 y264 vutlTXTB %utlvis%, utlTXTB
+Gui,Add,Text, x248 y288 vutlTXTC %utlvis%, utlTXTC
+Gui,Add,Text, x376 y368 vutlTXTD %utlvis%, utlTXTD
+Gui,Add,Text, x376 y392 vutlTXTE %utlvis%, utlTXTE
+Gui,Add,Text, x376 y416 vutlTXTF %utlvis%, utlTXTF
+Gui,Add,Text, x376 y440 vutlTXTG %utlvis%, utlTXTG
+Gui,Add,Text, x504 y416 vutlTXTS %utlvis%,
+Gui,Add,Text, x504 y432 vutlTXTT %utlvis%,
+Gui,Add,Text, x505 y400 vutlTXTR %utlvis%,
+Gui,Add,Text, x560 y24 vutlTXTM %utlvis%, utlTXTM
+Gui,Add,Text, x640 y344 vutlTXTH %utlvis%, utlTXTH
+Gui,Add,Text, x640 y368 vutlTXTI %utlvis%, utlTXTI
+Gui,Add,Text, x688 y24 vutlTXTN %utlvis%, utlTXTN
+Gui,Add,Text, x688 y48 vutlTXTO %utlvis%, utlTXTO
+Gui,Add,Text, x688 y72 vutlTXTP %utlvis%, utlTXTP
+Gui,Add,Text, x688 y96 vutlTXTQ %utlvis%, utlTXTQ
+Gui,Add,Text, x696 y344 vutltTXTJ %utlvis%, utltTXTJ
+Gui,Add,Text, x696 y368 vutlTXTK %utlvis%, utlTXTK
+Gui,Add,Text, x624 y488 vutltTXTL %utlvis%, utltTXTL
+Gui,Add,Picture, x0 y0 w66 h66 vutlPICA %utlvis%, 
 ;;;;;;;;;;;;;;;;;        ----    END MENU SYSTEM    ----        ;;;;;;;;;;;;;;;;;;;
 Gui,Add,Listbox, hwndLbxHndl7 x488 y330 w50 h50 vDropHideLBX gGuiDropFiles Hidden, Drop ROM here
 gosub, DestroySplashGUI
@@ -7569,7 +7432,7 @@ Loop, %omitxtn0%
 			{
 				ay.insert(new)
 			}
-	}	
+	}
 SB_SetText("... Indexing Directory ...")
 poptadd=
 IniRead,kiv,SystemLocations.ini,LOCATIONS,%OPTYP%
@@ -8912,7 +8775,7 @@ Loop,parse,asiu,|
 		emuplst.= A_LoopField . "|"
 	}
 selfnd= %stemu1%
-guicontrol,,INSTEMUDDL,|%selfnd%||%emuplst%%runlist%Other
+guicontrol,,INSTEMUDDL,|%selfnd%||%emuplst%%emuinstpop%Other
 iniread,kfr,SystemLocations.ini,LOCATIONS,%SYSGOT%
 iniread,jkj,Apps.ini,EMULATORS,%selfnd%
 if ((jkj <> "")&&(jkj <> "ERROR"))
@@ -9293,10 +9156,12 @@ if (INSTLTYP = "Systems")
 			{
 				if ((supemu = "")or(supemu = "ERROR"))
 					{
+						supemu= %selfnd%
 					}
 				fndsy= %selfnd%	
 				noead= 
 				rewr= 
+				selxt=
 				Loop,parse,supemu,|
 					{
 						if (A_LoopField = "")
@@ -9306,19 +9171,30 @@ if (INSTLTYP = "Systems")
 						if (A_LoopField = selfnd)
 							{
 								iniread,ceurmu,Assignments.ini,OVERRIDES,%SYSINSTLBX%
-								Loop,parse,ceurmu,|
+								if (ceurmu = "")
 									{
-										if (A_LoopField = "")
-											{
-												continue
-											}
-										if (selfnd = A_LoopField)
-											{
-												continue
-											}
-										rewr.= A_LoopField . "|"
+										rewr= %selfnd%|
 									}
-								iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
+									else {
+										Loop,parse,ceurmu,|
+											{
+												if (A_LoopField = "")
+													{
+														continue
+													}
+												if (selfnd = A_LoopField)
+													{
+														selxt= 1
+														continue
+													}
+												rewr.= A_LoopField . "|"
+											}
+										if (selxt <> 1)
+											{
+												rewr:= selfnd . "|" . rewr
+											}
+										iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%										
+									}
 							}
 					}
 			}
@@ -9361,7 +9237,21 @@ if (EMUASIGN = 1)
 				goto, MultInst
 			}
 	}	
-gosub, PRGINSTLBX
+if (salist = "EMULATORS")
+	{
+		gosub, PRGINSTLBX	
+	}
+if (salist = "SYSTEMS")
+	{
+		prev_sys= 
+		gosub, SYSINSTLBX	
+	}
+iniread,reqbios,EmuCfgPresets.ini,%selfnd%,BIOS
+if (reqbios <> "")
+	{
+		SB_SetText("installing bios files")
+		gosub,BiosProc
+	}
 Loop,parse,EMUINSTITEMS,|
 	{
 		guicontrol,enable,%A_LoopField%
@@ -16575,6 +16465,11 @@ if (RENMDRP = 1)
 		romyu= %R_N%
 	}
 hsh_dest= %fldrnm%%romyu%
+iniread,hashsysfl,SystemLocations.ini,%SYS_K%
+if ((hashsysfl = "")or(hashsysfl = "ERROR"))
+	{
+		iniwrite,%RJSYSTEMS%\%SYS_K%|,SystemLocations.ini,%SYS_K%
+	}
 if (ZIPSEEK = 1)
 	{
 		if ((ApndCRC <> "-1")&&(ApndCRC <> 0000000))
@@ -32915,7 +32810,6 @@ gosub, CLRNETP
 return
 
 MediaFEBUTO:
-efbab=FECHKA|FECHKB|FECHKC|FECHKD|FECHKE|FECHKG|FECHKH|FECHKI|FECHKJ|FECHKK|FEDDLC|FECHKL|FECHKM|FECHKN 
 loop,parse,efbab,|
 	{
 		guicontrol,,%A_LoopField%,1

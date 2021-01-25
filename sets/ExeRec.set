@@ -1025,6 +1025,7 @@ FileInstall,src\HtmlDlg.ahk,src\HtmlDlg.ahk,1
 FileInstall,src\lbex.ahk,src\lbex.ahk,1
 FileInstall,src\LVA.ahk,src\LVA.ahk,1
 FileInstall,src\LV_InCellEdit.ahk,src\LV_InCellEdit.ahk,1
+FileInstall,src\sets.ahk,src\sets.ahk,1
 FileInstall,src\tf.ahk,src\tf.ahk,1
 FileInstall,rj\emucfgs\3doplay\config.xml.set,rj\emucfgs\3doplay\config.xml.set,1
 FileInstall,rj\emucfgs\4DO\Config.xml.set,rj\emucfgs\4DO\Config.xml.set,1
