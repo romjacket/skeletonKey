@@ -41,6 +41,7 @@ ifnotexist,%ARCORG%
 	{
 		fileCopy,sets\arcorg.set,arcorg.ini
 	}
+IniRead,BLDBOT,%ARCORG%,GLOBAL,BLDBOT
 IniRead,HOSTINGURL,%ARCORG%,GLOBAL,HOSTINGURL
 IniRead,DATHUB,%ARCORG%,GLOBAL,DATHUB
 tmpcvpth:
@@ -231,6 +232,7 @@ IfNotExist, emuCfgPresets.ini
 	{
 		FileRead,emuCfgPresets,sets\emuCfgPresets.set
 		stringreplace,emucfgpresets,emucfgpresets,[ARCH],%ARCH%,All
+		stringreplace,emucfgpresets,emucfgpresets,[BUILDBOT],%BLDBOT%,All
 		fileappend,%emucfgpresets%,EmuCfgPresets.ini
 	}
 IfNotExist, launchparams.ini
@@ -419,7 +421,7 @@ Loop,Parse,ArcSRCv,`n`r
 	}
 Loop,gam\*,2
 	{
-		ifinstring,ARCSRCS,%A_LoopFilename%
+		ifinstring,ARCSRCS,%A_LoopFileName%
 			{
 				continue
 			}
@@ -529,6 +531,7 @@ stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 iniread,PrgLst,sets\EmuCfgPresets.set,Programs
 iniRead, EmuPartSet,sets\EmuParts.set,EMULATORS
 stringreplace,EmuPartSet,EmuPartSet,[ARCH],%ARCH%,All
+stringreplace,EmuPartSet,EmuPartSet,[BUILDBOT],%BLDBOT%,All
 IniRead,repoloc,Settings.ini,GLOBAL,Emulator_Repository
 iniread,RASTABLE,%ARCORG%,GLOBAL,RASTABLE
 FileRead, RepoLst,RepoList.ini
@@ -973,6 +976,7 @@ if (INITIAL = 1)
 			}
 		fileread,EmuPartSet,sets\EmuParts.set
 		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
+		stringreplace,emupartset,emupartset,[BUILDBOT],%BLDBOT%,All
 		iniRead, FEPartSet,sets\EmuParts.set,FRONTENDS
 		stringreplace,FEPartSet,FEPartSet,[ARCH],%ARCH%,All
 		gosub, EmuDetect
@@ -1228,7 +1232,7 @@ Gui,Font,Norm
 Gui,Font,Bold
 Gui,Add,GroupBox, x473 y25 w263 h94 Center +0x400000 vGRPDROPBIOS hidden, Drop BIOS here
 Gui,Font,Norm
-Gui,Add,Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden %EULAOPT%, AUTO
+Gui,Add,Button, x480 y45 w240 h60 vAUTOBIOS gAUTOBIOS hidden, AUTO
 Gui,Add,Edit, hwndEdtHndl26 x5 y2 w210 vINSFLTR gINSFLTR,
 Gui,Add,Button, x217 y5 w15 h15 vCLRFLTR gCLRFLTR,X
 Gui,Add,Text, x235 y5 h13 vINSFLTRX, Filter
@@ -1279,7 +1283,6 @@ Gui,Add,Edit, hwndEdtHnd200 x471 y54 w264 vRenOSys gRenOSys Hidden,
 Gui,Add,Button, x694 y79 w42 h19 vSAVNSYS gSavNSys Hidden, save
 Gui,Add,Button, x694 y79 w42 h19 vSAVOSYS gSavOSys Hidden, save
 Gui,Add,Text, x577 y75 h23 vOVSETTXT hidden, Extension-Override
-Gui,Add,DropDownList, hwndDplHndl42 x550 y144 w184 vASCORE gASCore hidden, %corelist%
 Gui,Add,Button, x575 y167 w58 h19 vSELAPP gSelApp hidden, BROWSE
 Gui ,Add,Text, x643 y147 h17 vSYSIDENT hidden, System Identifier
 Gui,Add,ComboBox, hwndCbxHndl25 x635 y166 w103 vSYSNICK gSysNick Limit32 Hidden,%preEmuCfg%
@@ -2094,7 +2097,6 @@ ARCSYS_TT :="Select a System to populate ROMs"
 GBLpgs_TT :="Enables per-game settings for all presets."
 ARDCORE_TT :="Assigns an alternative retroArch core to the selected system."
 ART_TT :="Rate-Control"
-ASCORE_TT := "Core to assign to the specified system or extension set"
 AUTSYS_TT :="Auto Selects a system based upon the selected host's core."
 ASYNC_TT :="Syncs audio"
 RUNSYBTN_TT :="search the systems"
@@ -6329,6 +6331,7 @@ if (INITIAL = 1)
 	{
 		fileread,EmuPartSet,sets\EmuParts.set
 		stringreplace,emupartset,emupartset,[ARCH],%ARCH%,All
+		stringreplace,emupartset,emupartset,[BUILDBOT],%BLDBOT%,All
 		FileRead,FEPartSet,sets\Frontends.set
 	}
 gosub, emuDetect
@@ -6650,8 +6653,11 @@ ifnotexist, %sysdir%\
 	{
 		filecreatedir,%sysdir%
 	}
+
+
 IniRead,bsys,Apps.ini,EMULATORS
 kbemu=
+kbrmu=
 Loop, Parse, bsys,`n`r
 	{
 		if (A_LoopField = "")
@@ -6662,13 +6668,109 @@ Loop, Parse, bsys,`n`r
 		efi2=
 		stringsplit,efi,A_LoopField,=
 		kbemu.= A_LoopField . "`n"
+		kbrmu.= efi1 . "`n"
 	}
-biosnum= 0
+
+BiosProcX:
+biosnum:= 0
+biosh:= 0
+SB_SetText("searching " cacheloc "\" bios "")
 Loop, Files, %cacheloc%\bios\*,
 	{
 		ApndCRC=
 		CrCFLN= %A_LoopFileFullPath%
+		InFileName= %A_LoopFileName%
 		gosub, CRC32GET
+		Loop,parse,kbemu,`n`r
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				stringsplit,systj,A_LoopField,=,"
+				;"
+				ssu= %systj1%
+				splitpath,systj2,,syym
+				splitpath,systj2,,typth
+				iniread,bpth,emucfgpresets.ini,%ssu%,BIOSPTH
+				if ((bpth = "")or(bpth = "ERROR"))
+					{
+						bpth= %ssu%
+					}
+				stringreplace,typth,typth,%ssu%,%bpth%,All
+				stringreplace,typth,typth,|,,All
+				iniread,fmw,emucfgpresets.ini,%ssu%,FIRMWARE
+				if ((fmw = "")or(fmw = "ERROR"))
+					{
+						continue
+					}
+
+				if !instr(fmw,ApndCRC)
+					{
+						continue
+					}
+				stringsplit,ggx,fmw,|
+				loop,%ggx0%
+					{
+						bnx= % ggx%A_Index%
+						ggh1= 
+						ggh2= 
+						stringsplit,ggh,bnx,:
+						bnm= %ggh1%
+						splitpath,bnm,fmwf	
+						if ((ggh2 = "")or(ggh2 = "0000000"))
+							{
+								if (fmwf = InFileName)
+									{
+										biosnum+= 1
+										ifinstring,bnm,\
+											{
+												splitpath,bnm,,bnmpth
+												typth.= "\" . bnmpth
+												bnm= %fmwf%
+											}
+										ifnotexist,%typth%\
+											{
+												filecreatedir,%typth%
+											}
+										filecopy,%A_LoopFileFullPath%,%typth%\%bnm%
+										continue
+									}
+							}
+						Loop,%ggh0%
+							{
+								fine= % ggh%A_index%
+								if instr(fine,ApndCRC)
+									{
+										kbb= 
+										ifinstring,bnm,\
+											{
+												splitpath,bnm,,bnmpth
+												typth.= "\" . bnmpth
+												bnm= %fmwf%
+											}
+										ifnotexist,%typth%\
+											{
+												filecreatedir,%typth%
+											}
+										stringright,nej,fine,1
+										if (nej = ">")
+											{
+												biosnum+=1
+												filecopy,%A_LoopFileFullPath%,%typth%\%bnm%,1
+												SB_SetText("Found working bios for " ssu "")
+												break
+											}
+										filecopy,%A_LoopFileFullPath%,%typth%\%bnm%											
+										biosnum+=1
+										break
+									}
+							}
+							
+					}
+				
+			}
+		/*
 		Loop, Parse,BiosFSet,`n`r
 			{
 				if (A_LoopField = "")
@@ -6701,12 +6803,19 @@ Loop, Files, %cacheloc%\bios\*,
 						fileappend,%A_LoopFileFullPath%|%CRCM1%|%CRCMX%%prib%`n,crcs.ini
 					}
 			}
+			
+		*/	
 	}
+
+
+/*
 ifnotexist,crcs.ini
 	{
 		msgbox, ,,BIOS NOT FOUND
 		return
 	}
+	
+
 Fileread,curbios,crcs.ini
 Loop, Parse, curbios,`n`r
 	{
@@ -6799,10 +6908,13 @@ Loop, Parse, curbios,`n`r
 					}
 			}
 	}
-SB_SetText(" Found " biosnum " bios files ")
+*/	
+	
+SB_SetText(" Found " biosnum " bios files")
 return
 
 AUTOBIOS:
+guicontrol,disable,AUTOBIOS
 filecreatedir,%cacheloc%\firmware
 filecreatedir,%cacheloc%\bios
 gui,submit,nohide
@@ -6832,6 +6944,11 @@ if ((demul_file <> "ERROR")&&(demul_file <> ""))
 	{
 		splitpath,demul_file,,demul_path
 		filecreateDir,%demul_path%\roms
+	}
+if (EULAOPT = "disabled")
+	{
+		msgbox,8449,No Bios Index,The AutoBios was not found.
+		goto,BDWNCPL
 	}
 ifexist,%GAMSRCS%\AutoBios.set
 	{
@@ -6897,7 +7014,9 @@ ifexist,%GAMSRCS%\AutoBios.set
 					}
 			}
 	}
+BDWNCPL:
 gosub, BiosProc
+guicontrol,enable,AUTOBIOS
 guicontrol,enable,SYSINSTLBX
 guicontrol,enable,PRGINSTLBX
 guicontrol,enable,RAINSTLBX
@@ -8305,7 +8424,7 @@ if (SALIST = "Systems")
 if (SALIST = "Emulators")
 	{
 		guicontrol,,PRGINSTLBX,|%emuinstpop%
-		guicontrol,%AUTOBBUT%,AUTOBIOS
+		guicontrol,show,AUTOBIOS
 		guicontrol,,SKRAstch,Skeletonkey-Emulator-Associations
 		gosub, Dapp
 		Loop,Parse,PSETCFGITEMS,|
@@ -9174,6 +9293,8 @@ if (INSTLTYP = "Systems")
 								if (ceurmu = "")
 									{
 										rewr= %selfnd%|
+										iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
+										break
 									}
 									else {
 										Loop,parse,ceurmu,|
@@ -9185,16 +9306,17 @@ if (INSTLTYP = "Systems")
 												if (selfnd = A_LoopField)
 													{
 														selxt= 1
+														rewr.= A_LoopField . "|"
 														continue
 													}
 												rewr.= A_LoopField . "|"
 											}
+									}
 										if (selxt <> 1)
 											{
 												rewr:= selfnd . "|" . rewr
 											}
-										iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%										
-									}
+										iniwrite, "%rewr%",Assignments.ini,OVERRIDES,%SYSINSTLBX%
 							}
 					}
 			}
@@ -9241,16 +9363,17 @@ if (salist = "EMULATORS")
 	{
 		gosub, PRGINSTLBX	
 	}
-if (salist = "SYSTEMS")
-	{
-		prev_sys= 
-		gosub, SYSINSTLBX	
-	}
 iniread,reqbios,EmuCfgPresets.ini,%selfnd%,BIOS
 if (reqbios <> "")
 	{
 		SB_SetText("installing bios files")
-		gosub,BiosProc
+		kbrmu= %selfnd%
+		gosub,BiosProcx
+	}
+if (salist = "SYSTEMS")
+	{
+		prev_sys= 
+		gosub, SYSINSTLBX	
 	}
 Loop,parse,EMUINSTITEMS,|
 	{
@@ -9908,7 +10031,8 @@ Loop,parse,systmfldrs,|
 					}
 			}
 	}
-return	
+return
+
 EMPRLST:
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
@@ -9936,15 +10060,12 @@ ifinstring,emprcur,_libretro.dll
 				guicontrol,hide,%A_LoopField%
 			}
 	}	
-	else {
-		Loop,parse,systm_show,|
+	else {		
+		Loop,parse,systm_cfg,|
 			{
-				guicontrol,show,%A_LoopField%
+				guicontrol,show,%A_loopField%
 			}
-		Loop,parse,emu_params,|
-			{
-				guicontrol,enable,%A_LoopField%
-			}
+
 	}
 guicontrol,,SYSNICK,|%emprcur%||%preEmuCfg%
 gosub, SYSNICK
@@ -11055,7 +11176,6 @@ guicontrol,%instog%,OVLIST
 guicontrol,,EXDISPL,
 guicontrol,show,EXDISPL
 guicontrol,enable,OPNSYS
-guicontrol,,ASCORE,|%corelist%
 guicontrolget,ADDCORE,,ADDCORE
 if (ADDCORE = "Select_A_System")
 	{
@@ -11561,32 +11681,6 @@ gosub, AppParamPop
 gosub, SYSINSTLBX
 return
 
-ASCore:
-gui,submit,nohide
-guicontrolget,ASCORE,,ASCORE
-guicontrolget,ADDCORE,,ADDCORE
-if ((ADDCORE <> "Select_A_System")&&(ASCORE <> ""))
-	{
-		IniRead,akn,Assignments.ini,OVERRIDES,%ASCORE%
-		Loop,Parse,akn,|
-			{
-				if (A_LoopField = "")
-					{
-						continue
-					}
-				if (A_LoopField = rapc1)
-					{
-						continue
-					}
-				racinj.= A_LoopField . "|"
-			}
-		racinw= ASCORE . "|" . rapc1 . racinj . rapc2
-		iniwrite,"%racinw%",Assignments.ini,OVERRIDES,%ADDCORE%
-		iniwrite, "%ASCORE%",Assignments.ini,ASSIGNMENTS,%ADDCORE%
-		return
-	}
-return
-
 ExtInp:
 gui,submit,nohide
 extenlist=
@@ -11618,7 +11712,6 @@ if (ADDCORE <> "Select_A_System")
 	{
 		guicontrolget, SYSPOPD,,ADDCORE
 	}
-guicontrol,hide,ASCORE
 gosub, AppSetReset
 if (Salist = "Emulators")
 	{
@@ -11967,6 +12060,7 @@ if (tmpdf <> "ERROR")
 			}
 	}
 guicontrol, ,EXDISPL, "..\%ovfile%"%apopt%%qdisp%%pthdisp%ROM%xdisp%%qdisp%%aparg%, %runfr%
+
 return
 
 AppSetReset:
@@ -12586,7 +12680,6 @@ if (tev = "-")
 guicontrol,show,SAVNSYS
 guicontrol,show,ADDNSYS
 guicontrol,hide,OVLIST
-guicontrol,hide,ASCORE
 guicontrol,hide,APPOPT
 guicontrol,hide,SYSNICK
 guicontrol,hide,SVNICK
@@ -36780,7 +36873,7 @@ if (FERAD2C = 1)
 									}
 								if (A_Index = 1)
 									{
-										fibx= %A_LoopFilename%
+										fibx= %A_LoopFileName%
 									}
 								ARINNG.= A_LoopFileName . "|"
 							}
@@ -40878,7 +40971,7 @@ Loop, rj\*.jak
 												extm:= v
 												if (ext = extm)
 													{
-														ifinstring,A_LoopFilename,[!]
+														ifinstring,A_LoopFileName,[!]
 															{
 																if (enpri = "")
 																	{
@@ -42608,7 +42701,7 @@ Loop, rj\*_q.tdb
 	{
 		rjvarn=
 		rjmvr=
-		splitpath,A_LoopFilename,,,,rjmvr
+		splitpath,A_LoopFileName,,,,rjmvr
 		StringTrimRight,rjvarn,rjmvr,2
 		if (rjvarn = RJSYSDD)
 			{
@@ -46096,8 +46189,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%
 												{
-													FileRead,bncfg,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%
-													filedelete,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%
+													FileRead,bncfg,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%
+													filedelete,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%
 													if (ERRORLEVEL = 0)
 														{
 															stringreplace,bncfg,bncfg,[EMUPATH],%emupth%,All
@@ -46113,7 +46206,7 @@ if (EPGC = 1)
 															FileAppend,%bncfg%,%ptsp%\%cplp%
 														}
 														else, {
-															FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%,%ptsp%\%cplp%
+															FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%,%ptsp%\%cplp%
 														}
 												}
 										}
@@ -46127,8 +46220,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%
 												{
-													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.sstates\%A_LoopFilename%,%ptsp%\%cplp%,1
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.sstates\%A_LoopFileName%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -46141,8 +46234,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%
 												{
-													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%A_LoopFileName%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -46155,8 +46248,8 @@ if (EPGC = 1)
 											cplp= %A_LoopField%
 											Loop,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%
 												{
-													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%A_LoopFilename%,%ptsp%\%cplp%,1
-													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFilename%,%ptsp%\%cplp%,1
+													;;FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%A_LoopFileName%,%ptsp%\%cplp%,1
+													FileCopy,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%A_LoopFileName%,%ptsp%\%cplp%,1
 												}
 										}
 								}
@@ -46254,7 +46347,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFileName%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\%pgptf%,1
 							}
 					}
 			}
@@ -46266,7 +46359,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.sstates\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFileName%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.sstates\%pgptf%,1
 							}
 					}
 			}
@@ -46278,7 +46371,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFileName%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%pgptf%,1
 							}
 					}
 			}
@@ -46290,7 +46383,7 @@ if (EPGC = 1)
 						cplp= %A_LoopField%
 						Loop,%ptsp%\%A_LoopField%
 							{
-								FileCopy,%ptsp%\%A_LoopFilename%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%pgptf%,1
+								FileCopy,%ptsp%\%A_LoopFileName%,cfg\%ROMSYS%\%emucfgn%\%romtitle%\.Mem\%pgptf%,1
 							}
 					}
 			}
@@ -46934,7 +47027,6 @@ guicontrol,,LCORE,|%runlist%
 guicontrol,,EMPRDDL,|Emulators|%runlist%
 guicontrol,,ARCCORES,|Emu_Preset||%runlist%
 guicontrol,,PLCORE,|%lastcore%||%runlist%
-guicontrol,,ASCORE,|%corelist%
 return
 
 resetCORES:
@@ -46980,9 +47072,9 @@ loop, %GAMSRCS%\MAME - Systems\*.gam
 hacksyst=
 loop, %GAMSRCS%\*.gam
 	{
-		ifinstring,A_LoopFilename,#
+		ifinstring,A_LoopFileName,#
 			{
-				hacksyst.= A_LoopFilename . "|"
+				hacksyst.= A_LoopFileName . "|"
 				continue
 			}
 		nsys+=1
