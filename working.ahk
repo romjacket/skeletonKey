@@ -10169,7 +10169,10 @@ return
 EMPRBUTU:		
 gui,submit,nohide
 guicontrolget,emprcur,,EMPRLST
+semu= %ADDCORE%
 iniread,ksiv,Assignments.ini,OVERRIDES,%semu%
+stringreplace,ksiv,ksiv,|||,|,All
+stringreplace,ksiv,ksiv,||,|,All
 if (ksiv = "ERROR")
 	{
 		ksiv= 
