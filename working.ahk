@@ -7284,8 +7284,6 @@ ARCSYS=
 RJMEDNM=
 curmedINPT=
 indvcp=
-core_gui=
-loadedjoy=
 qmen=
 coreselv=
 librecore=
@@ -11347,7 +11345,6 @@ gosub,OmitQ
 gosub,OmitPth
 gosub,EXTARUN
 gosub,NoExtn
-gosub,EmuPGC
 gosub,LRun
 if (SALIST = "Systems")
 	{
@@ -11375,6 +11372,10 @@ if (SALIST = "Emulators")
 		IniWrite, "%ksvel%",Assignments.ini,ASSIGNMENTS,%sysni%
 	}
 srin=
+if (semu = "")
+	{
+		semu= %sysni%
+	}
 Loop, Parse, semu,|
 	{
 		if (A_LoopField = "")
@@ -11404,78 +11405,75 @@ Loop, Parse, semu,|
 			{
 				sysnitmp= 
 			}
-		;;if sysnitmp is not digit
-		;;	{
-				nwadmm=
-				Loop, Parse, sysnitmp,|
+		nwadmm=
+		Loop, Parse, sysnitmp,|
+			{
+				if (A_LoopField = "")
 					{
-						if (A_LoopField = "")
-							{
-								continue
-							}
-						if (A_LoopField = sysni)
-							{
-								continue
-							}
-						ifinstring,sysninj,%A_LoopField%|
-							{
-								continue
-							}
-						sysninj.= A_LoopField . "|"
+						continue
 					}
-				Loop, Parse, addemu,|
+				if (A_LoopField = sysni)
 					{
-						if (A_LoopField = "")
+						continue
+					}
+				ifinstring,sysninj,%A_LoopField%|
+					{
+						continue
+					}
+				sysninj.= A_LoopField . "|"
+			}
+		Loop, Parse, addemu,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				ahri=
+				if (A_LoopField = sysni)
+					{
+						ahri= 1
+						break
+					}
+			}
+		if (ahri = "")
+			{
+				nwadmm.= sysni . "|"
+				nwadmi:= sysninj . "|" . sysni
+				ifnotinstring,addemu,|%sysni%
+					{
+						iniread,admutst,Assignments.ini,ASSIGNMENTS,%sysni%
+						if ((admutst = "")or(admutst = "ERROR"))
 							{
 								continue
 							}
-						ahri=
-						if (A_LoopField = sysni)
-							{
-								ahri= 1
-								break
-							}
+						addemu.= "|" . sysni
 					}
-				if (ahri = "")
+				runlist:= corelist . "|" . addemu
+				stringreplace,runlist,runlist,||,|,All
+				stringreplace,runlist,runlist,||,|,All
+				stringleft,runltmp,runlist,1
+				if (runltmp = "|")
 					{
-						nwadmm.= sysni . "|"
-						nwadmi:= sysninj . "|" . sysni
-						ifnotinstring,addemu,|%sysni%
-							{
-								iniread,admutst,Assignments.ini,ASSIGNMENTS,%sysni%
-								if ((admutst = "")or(admutst = "ERROR"))
-									{
-										continue
-									}
-								addemu.= "|" . sysni
-							}
-						runlist:= corelist . "|" . addemu
-						stringreplace,runlist,runlist,||,|,All
-						stringreplace,runlist,runlist,||,|,All
-						stringleft,runltmp,runlist,1
-						if (runltmp = "|")
-							{
-								stringtrimleft,runlist,runlist,1
-							}
-						guicontrol,,LCORE,|%runlist%
-						guicontrol,,EMPRDDL,|Emulators||%runlist%
-						guicontrol,,PLCORE,|%runlist%
-						guicontrol,,ARCCORES,|Emu_Preset||%runlist%
+						stringtrimleft,runlist,runlist,1
 					}
-			;;}
-			EMPRLT:= sysni . "|"
-			Loop, parse, sysnitmp,|
-				{
-					if (A_LoopField = "")
-						{
-							continue
-						}
-					if (A_LoopField = srin)
-						{
-							continue
-						}
-					EMPRLT.= A_LoopField . "|"
-				}
+				guicontrol,,LCORE,|%runlist%
+				guicontrol,,EMPRDDL,|Emulators||%runlist%
+				guicontrol,,PLCORE,|%runlist%
+				guicontrol,,ARCCORES,|Emu_Preset||%runlist%
+			}
+		EMPRLT:= sysni . "|"
+		Loop, parse, sysnitmp,|
+			{
+				if (A_LoopField = "")
+					{
+						continue
+					}
+				if (A_LoopField = srin)
+					{
+						continue
+					}
+				EMPRLT.= A_LoopField . "|"
+			}
 		iniwrite, "%aparg%",AppParams.ini,%sysni%,arguments
 		iniwrite, "%NOEXTN%",AppParams.ini,%sysni%,extension
 		iniwrite, "%EMUPGC%",AppParams.ini,%sysni%,per_game_configurations
@@ -11893,15 +11891,15 @@ if (appasi <> "ERROR")
 	{
 		splitpath, appasi,ovfile
 	}
-emupgc=
-iniread, emupgc, AppParams.ini, %sysni%,per_game_configurations
-if (emupgc <> "ERROR")
+emupgcd=
+iniread,emupgcd, AppParams.ini,%sysni%,per_game_configurations
+if (emupgcd <> "ERROR")
 	{
-		if (emupgc = "")
+		if (emupgcd = "")
 			{
-				emupgc= 0
+				emupgcd= 0
 			}
-		guicontrol,,EMUPGC,%emupgc%
+		guicontrol,,EMUPGC,%emupgcd%
 	}
 apopt= %A_Space%
 iniread, apopt, AppParams.ini, %sysni%,options
@@ -14701,9 +14699,6 @@ topcore:= ARCCORES . recore
 INSCOR:
 guicontrol,,LCORE,|%topcore%
 guicontrol,,ARCCORES,|%topcore%%runlist%
-if (core_gui <> ARCCORES)
-	{
-	}
 return
 
 MatchSyst:
@@ -44475,7 +44470,7 @@ if (EXTID = 1)
 			{
 				goto, OVRAP
 			}
-		guicontrol,,LCORE,%coreselv%|
+		guicontrol,,LCORE,|%coreselv%||%runlist%
 	}
 if (ROMDRP = 1)
 	{
@@ -45726,6 +45721,7 @@ guicontrol,show,LCORE
 guicontrol,hide,LCORECBX
 guicontrol,,ESWPLCRE,E
 return	
+
 LCORECBX:
 guicontrolget,LCGRBX,,LCORECBX
 Sleep, 1100
@@ -45778,23 +45774,11 @@ guicontrol,,LCORECBX,|%COREGRBX%||%main_search%
 Control, ShowDropDown, , ,ahk_id %RUNCORECBX%
 return
 
-LnchCoreCBXr:
-gui,submit,nohide
-guicontrolget,LCORECBX,,LCORECBX
-if (LCORE = LCORECBX)
-	{
-		return
-	}
-guicontrol,,LCORE,|%LCORECBX%||
-guicontrol,hide,LCORECBX
-guicontrol,show,LCORE
-return
 
 LnchCore:
 gui,submit,nohide
 guicontrol,enable,LCORE
 guicontrolget,LCORE,,LCORE
-loadedjoy=
 curmedINPT=
 BCSTO=
 BCSTA=
@@ -45812,14 +45796,6 @@ ifinstring,corinjs,.dll
 	}
 	else {
 		guicontrol,show,CustSwitchs
-	}
-if ((core_gui <> LCORE)&&(LCORE <> ""))
-	{
-		guicontrol,,SWHOST,0
-		if instr(supgui,rcrinjs) && (rcrinjs <> "")
-			{
-			}
-		return	
 	}
 CoreAuto:
 Gui, Submit, NoHide
@@ -46335,6 +46311,7 @@ if (dmchk = 1)
 		Run, %comspec% /c "%dskmntexe%"%dskunmntopt%
 	}
 gosub, SKLPOST
+
 POSTEMULAUNCH:
 if (EPGC = 1)
 	{

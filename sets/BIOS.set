@@ -1,3 +1,4 @@
+
 prosystem=retroarch\system:7800 BIOS (U).rom:A010EDF
 prosystem=retroarch\system=bizhawk\firmware:7800 BIOS (U).rom?7800PALBIOS.bin:D5B61170
 prosystem=retroarch\system=bizhawk\firmware:7800 BIOS (U).rom?7800NTSCBIOS.bin:5D13730C>
