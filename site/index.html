@@ -56,7 +56,7 @@
                     <h1>n</h1>
                     <h1>K</h1>
                     <h1>e</h1>
-                    <h1>Y</h1>
+                    <h1>y</h1>
                 </div>
                 <a id="DOWNLOAD"></a>
                 <p>[TAGLINE]</p>
@@ -111,13 +111,12 @@
                                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item-1" />
                                 <label for="item-1" class="accordion-item-hd" align="center">↕ How Do I?<span class="accordion-item-hd-cta">&#9650;</span></label>
                                 <div class="accordion-item-bd" align="center">
-                                    <div id="detailsdiv" align="center">
+                                    <div id="detailsdiv" align="left">
                                         <div>
-                                            <p></p>
-                                            <p> Tutorials coming soon</p>
-                                            <img alt="" height="34" src="video.svg" width="34">
-                                            </a>
-                                            </h2>
+										<div align="center">
+										
+											<br>
+
                                             <!--    <div align="left">
 										<p>Enjoy.</p>
 										<a class="lightbox" href="https://www.youtube.com/embed/KqjwlBFwZHw?showinfo=0">
@@ -146,13 +145,14 @@
 										                  <div id="playerdiv"></div>
 										              </div>
 										          </div>
-										            -->
-										      </div>
+										            --><br>
+											  
                                         </div>
                                     </div>
                                     <br>
                                 </div>
-                            </li>
+                                </div>
+                    </div>
                     </div>
                 <br>
                 <div id="SectSeparate" align="center">
@@ -236,6 +236,13 @@
                             <p>As a ROM-Launcher, skeletonKey provides a robust interface needed to automate hundreds of emulators</p>
                             <p>As a configuration tool, skeletonKey can deploy a ROM-library that meets the expectations of users who desire a means to maintain the integrity of settings and assets indipendently of a frontend or emulator.
                             </p>
+							      <div align="center"><h3><a>Basic Overview &amp; General Quickstart</a></h3></div>
+						<p>Upon initialization, skeletonKey will prompt for locations of an existing ROM library.<br>Folders within this chosen directory 
+						are identified and users are given the option to rename and or ntfs-link via some fuzzy-matching.<br>
+						Emulators identified in the specified directory have a set of default preferences which are assigned as nicknames to their compatible, identified systems in your ROM Library</p>
+                        <p>After installing skeletonKey, use the <strong>"EMU :=: SYS"</strong> tab to import new systems, or download new emulators. </p>
+                        
+                        </p>
                         </div>
                     </div>
                 </div>
@@ -283,7 +290,7 @@
                                 </div>
                             </li>
                         </ul>
-        
+						<br>
                     </div>
                 </div>
                 <a id="MAIN"></a>
@@ -311,6 +318,7 @@
                                 </div>
                             </li>
                         </ul>
+						<br>
                         <p>The <u><strong>Global-Launch-Menu</strong></u> includes:</p>
                         <ul>
                             <li>a System List dropdown for directories &amp; toggle for playlists</li>
@@ -323,6 +331,7 @@
                             <!--<li>the "C" configure button</li>-->
                             <li>a split <strong><code>LAUNCH &gt;&gt;</code></strong> button</li>
                         </ul>
+						<br>
                         <ul class="accordion css-accordion" align="right">
                             <li class="accordion-item">
                                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item-gmid" />
@@ -364,9 +373,9 @@
                                 </div>
                             </li>
                         </ul>
+                        <p>&nbsp;</p>
                         <hr>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
+                        <br>
                         <div id="inner2">
                             <h3><a>Drag &amp; Drop</a></h3>
                             <p>Drag &amp; Drop a ROM into the Main tab and with the Auto-Launch option enabled, skeletonKey will detect the ROM and launch it using the system's associated emulator, or bring forth the menu if undetected/Auto-Launch is disabled.
@@ -387,55 +396,171 @@
                 </div>
                 <div align="left" id="outer">
                     <div id="inner">
-                        <h3><a>Basic Overview</a></h3>
-                        <p>After installing skeletonKey, use the <strong>"EMU :=: SYS"</strong> tab to import systems and emulators, or download new ones. </p>
-                        <h3><a>Systems, Emulators, Frontends &amp; Utilities</a></h3>
-                        <p>SkeletonKey can be used to quickly install emulators, frontends, <!--retroArch -->and utilities. The Install Tab is also used to associate skeletonKey's systems with emulators and control paramaters of the execution of the skeletonKey-launcher.
-                        </p>
-                        <div id="indent">
-                            <h4>Installing BIOS Files</h4>
-                            <p>
-                                Drag &amp; Drop BIOS files or a BIOS pack (.7z .zip .rar) to automatically install them to their proper places in supported emulators directories.
-                                <!-- An "AUTO" Button will appear for supported repositories which will download and install BIOS files for any emulators identified.</p>
-								<h4>Emulators-->
-                                </h4>
-                                <p>SkeletonKey can install hundreds of emulators. Supported emulators can be configured indipendently (for per-game settings too!!!) as they are launched by skeletonKey and as emulators assigned to ROM-Jackets. Each emulator
-                                    can be assigned via drag and drop.
-                                </p>
-                                <h4>Systems / ROM Directories</h4>
-                                <p>Selecting &quot;Systems&quot; from the dropdown menu will allow users to define directories containing ROMs. Users may append multiple ROM directories for a single system for over 400 recognized systems. Drag and drop is
-                                    supported for multiple selected systems and folders.
-                                </p>
-                        </div>
+						<h3><a>Systems, Emulators, Frontends &amp; Utilities</a></h3>
+                        <p>The EMU:=:SYS tab is used to install and associate skeletonKey's systems to emulator-nicknames and and control the options for them.<br>This tab may be brought forth automagically when 
+						attempting to launch ROMs from a system which has not yet been assigned to an emulator-nickname.
                         <br>
-                        <h3><a>Emulator &amp; System Associations</a></h3>
-                        <p>The Associations section of the Install tab can be used to change the association of a system to a core, an emulator or nickname.
-                        </p>
+						The Dropdown menu in the lower left hand corner of the tab contains sections of skeletonKey's installable and configurable components for emulators, systems frontends and utilties.</p><br>
+					 <ul class="accordion css-accordion" align="right">
+						<li class="accordion-item">
+							<input class="accordion-item-input" type="checkbox" name="accordion" id="item-felst" />
+							<label for="item-felst" class="accordion-item-hd" align="right">↕ Frontends<span class="accordion-item-hd-cta">&#9650;</span></label>
+							<div class="accordion-item-bd">
+								<div id="detailsdiv" align="left">
+								<h4>FRONTENDS</h4>
+								<p>SkeletonKey's supported and some unsupported frontends can be downloaded and installed here.<br>
+								Any detected frontends found in skeletonKey's Emulators directory will populate in this section, however the selectable frontends can be identified manaully by dragging and dropping the executable to the selection box, or by using the file-selection dialog.</p>
+								</div>
+							</div>
+						</li>
+						<br>
+					</ul>
+					<br>
                         <ul class="accordion css-accordion" align="right">
                             <li class="accordion-item">
-                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-asocdet" />
-                                <label for="item-asocdet" class="accordion-item-hd" align="right">↕ Association Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-drivdet" />
+                                <label for="item-drivdet" class="accordion-item-hd" align="right">↕ Utilities<span class="accordion-item-hd-cta">&#9650;</span></label>
                                 <div class="accordion-item-bd">
                                     <div id="detailsdiv" align="left">
                                         <div>
-                                            <p>Systems are defined in part by file-extensions exclusive to the system. Because an emulator may have multiple system-assocations, a unique &quot;system identifier&quot; nickname can be created to define exclusive
+                                            <h4>Visual C++</h4>
+                                            <p>Many emulators require these runtimes</p>
+                                            <br>
+                                            <h4>DirectX</h4>
+                                            <p>Required by many emulators.</p>
+                                            <br>
+                                            <h4>XBox360 Drivers</h4>
+                                            <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.
+                                            </p>
+                                            <br>
+                                            <h4>SCP Wrapper for Dualshock Joysticks</h4>
+                                            <p>The SCP Wrapper is a driver for bluetooth Sony Dualshock joysticks.</p>
+                                            <p>This is the most reliable and easiest way for DS3/4 users to use their joysticks in Windows 7/8x-10.
+                                            </p>
+                                            <br>
+                                            <h4>DS4Windows</h4>
+                                            <p>DS4Windows is a Sony DualShock 4 driver for windows. It is installed however the configuration of this driver is left to the user.
+                                            </p>
+                                            <br>
+                                            <h4>Display Changer</h4>
+                                            <p>This is a robust, command-line driven, preset-supporting <strong>display manager</strong><br> This tool works well with RoM-Jacket launchers.</p>
+                                            <br>
+											<h4>WinCDEmu</h4>
+                                            <p>This tool emulates a physical disc-drive.<br> Configuration is left to the user.</p>
+                                            <h4>Virtual CloneDrive</h4>
+                                            <p>This tool emulates a physical disc-drive.<br>
+                                                <p>Configuration is left to the user.</p>
+                                                <h4>Joy2Key</h4>
+                                                <p>Configuration is left to the user. Not fully integrated.
+                                                    <p>
+                                                        <h4>Daemon Tools: Consider alternatives.</h4>
+                                                        <span style="font-size: xx-small">
+														<p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program
+														through the command-line which will NOT install the included toolbar or any additional
+														software. Windows 10 users who need Daemon Tools should
+														download and install it separately.<br></p></span>
+																									<span style="font-size: xx-small">
+														<p>The Daemon Tools program may be needed by the SSF Sega Saturn emulator, the UNZ FM-Towns
+														emulator and any emulator which cannot directly read cd/dvd image files.
+														Mounting disc images with Daemon Tools is desireable
+														for users who wish to switch disks reliably or have disc-images in formats unreadable by an
+														emulator.
+														</p><span>
+														<p>!!!!IMPORTANT!!!!</p>
+														<p>Open the Daemon Tools program.</p>
+														<p>If you do not have a SCSI drive in the list, add a SCSI drive.</p>
+														<p>Right click on the new drive icon.</p>
+														<p>select Device Paramaters</p>
+														<p>Uncheck Auto insert notification</p>
+														</div>
+														</div>
+														<br>
+														</div>
+														</li>
+														<br>
+														</ul>
+														<br>
+						 <ul class="accordion css-accordion" align="right">
+                            <li class="accordion-item">
+                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-emasys" />
+                                <label for="item-emasys" class="accordion-item-hd" align="right">↕ Emulators<span class="accordion-item-hd-cta">&#9650;</span></label>
+                                <div class="accordion-item-bd">
+                                    <div id="detailsdiv" align="left">
+									<h4>OBTAINING EMULATORS</h4>
+									<p>Emulators installed through skeletonKey are automatically added to the identified emulators.<br>
+									Emulators which were not automatically detected, in locations outside the scope of your selected Emulators directory or have been <u>externally</u> installed after skeletonKey's detection can be added by SELECTing the emulator's name
+									from the list of Emulators in the EMU:=:SYS tab and dragging and dropping the exe into the selection BOX or selecting it through a file-selection dialog box.
+									<br>
+									  <p>
+										The Emulators dropdown in the EMU:=:SYS tab allows emulators to be assigned to their compatible systems individually by giving that emulator priority.<br>
+										Additionally, all emulators can be set to allow skeletonKey to store and load settings for each game on a global level.
+										<!-- <a class="lightbox" href="https://www.youtube.com/embed/NRw1f2hzGVY?showinfo=0">
+											<img alt="" height="14" src="video.svg" width="14">
+											<strong> VIDEO:</strong></a> -->
+									</p>
+									</p>
+									<h4>BIOS FILES</h4>
+									<p>The EMU:SYS Tab can be used to identify BIOS files for emulators.<br>
+									Switch to the Emulators dropdown.  Drag and drop BIOS file/s you wish to install.  Identified BIOS files will be moved to their default names and locations.<br>
+									The BIOS files can be re-indexed for any newly installed and identified emulators by clicking the ''AUTO'' button.<br>
+								<br>
+									<div align="center"><h4><u>UNIDENTIFIED EMULATORS</u></h4></div>
+									<p>Any emulator or system can be added to skeletonKey</p>										
+										<p>Adding a unique emulator to skeletonKey's index is achieved through a custom nickname.<br>
+										Select the System dropdown in the EMU:SYS tab and select the system you wish to associate your emulator with.<br>
+										In the lower-center column a list will appear containg emulator nicknames associated with the system.  If none are listed, assign any nickname by selecting the dropdown above it and press the [+] button beside it, then Select any of them and in the right hand column the properties should appear.<br>
+										Change the name/options to suit your emulator and use BROWSE button to select the exe.<br>
+										Click save to index the nicknamed emulator and it should appear as an populated option when launching the system's ROMs.
+										<br></p>
+                                    </div>
+                                </div>
+                            </li>
+							<br>
+                        </ul>
+						<br>
+						 <ul class="accordion css-accordion" align="right">
+                            <li class="accordion-item">
+                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-sysdets" />
+                                <label for="item-sysdets" class="accordion-item-hd" align="right">↕ Systems<span class="accordion-item-hd-cta">&#9650;</span></label>
+                                <div class="accordion-item-bd">
+                                    <div id="detailsdiv" align="left">
+                                        <div>
+                                            <p>Systems can be renamed by right-clicking on the upper right hand corner dropdown menu when selecting a system.</p>
+											<p><div align="center"><h4><u>UNIDENTIFIED SYSTEMS</u></h4></div>
+											<p>If, for some reason skeletonKey is unable to automatically identify your system, the EMU-SYS tab's system dropdown will allow you to assign the directory/s to the system through drag and drop or a directory selection browser.<br>
+										
+										<br>
+										Your unique system can be added by selecting the System dropdown on the EMU:SYS Tab.<br>
+										Select any system on the left side and in the upper-right hand corner a [+] button will appear. Clicking on this will expand the fields needed to add a custom system.<br>
+										<br>
+                                                  
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+						<br>
+                        <h3><a>Customizing &amp; Configuration</a></h3>
+                        </p>
+						<br>
+                        <ul class="accordion css-accordion" align="right">
+                            <li class="accordion-item">
+                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-asocdet" />
+                                <label for="item-asocdet" class="accordion-item-hd" align="right">↕ Assignment Details<span class="accordion-item-hd-cta">&#9650;</span></label>
+                                <div class="accordion-item-bd">
+                                    <div id="detailsdiv" align="left">
+                                        <div>
+                                            <p>Systems are initially detected and defined in part by file-extensions exclusive to the system. Because an emulator may have multiple system-assocations, a unique &quot;system identifier&quot; nickname can be created to define exclusive
                                                 paramaters.
                                             </p>
                                             <p>Skeletonkey can detect and assign emulators or a designated retroArch core to a system/s, however it may be desireable to create and configure systems and associations manually. A unique system-identifier or
                                                 &quot;nickname&quot; can be created to create custom systems and associated emulator-presets.
                                             </p>
-                                            <p>Associating an emulator to a system creates a unique set of preferences for the emulator and assigns this set a nickname which can also be assigned to other systems. A system may have multiple emulators associated
-                                                which populate the quick-launch/right-click buttons in the global-menu. Right clicking on the System and emu/core dropdowns will bring up menus to quickly configure or associate systems with emulators and
+                                            <p>A system may have multiple emulators assigned which populate the quick-launch/right-click buttons in the global-menu. Right clicking on the System and emu/core dropdowns in the global-menu will bring up menus to quickly configure or associate systems and individual ROMs with emulators and
                                                 cores.
                                             </p>
-                                            <p>The default association defines which emulator/core will automatically populate options in the main tab, and how skeletonKey will automatically launch ROMs (through drag'n drop etc) categorically, however the
-                                                right-click menu of the [C] button in the global-menu will allow any individual ROM to override this default.
-                                                <p>
-                                                    <p>
-                                                        <a class="lightbox" href="https://www.youtube.com/embed/NRw1f2hzGVY?showinfo=0">
-                                                            <img alt="" height="14" src="video.svg" width="14">
-                                                            <strong> VIDEO:</strong></a>
-                                                    </p>
+										<br>
+                                                  
                                         </div>
                                     </div>
                                 </div>
@@ -486,7 +611,7 @@
                                                 </p>
                                                 <p><code>\...\skeletonKey\cfg\System - Name\emu_nickname\ROM Title\config.ini</code></p>
                                                 <p>For retroArch, per-game settings are stored in:</p>
-                                                <p><code>retroarch-folder\config</code>\core name\ROM Title.cfg
+                                                <p><code>\retroarch\config\core name\ROM Title.cfg</code>
                                                 </p>
                                                 <p>ROMs dropped to the desktop icon which are not identified as belonging exclusively to a core/emulator will bring up a menu allowing users to quickly select a core/emulaor preset.
                                                 </p>
@@ -500,71 +625,6 @@
                     </div>
                 </div>
                 <div align="left" id="outer">
-                    <div id="inner">
-                        <h3><a>Drivers</a></h3>
-                        <p>Windows drivers and software needed by some hardware</p>
-                        <ul class="accordion css-accordion" align="right">
-                            <li class="accordion-item">
-                                <input class="accordion-item-input" type="checkbox" name="accordion" id="item-drivdet" />
-                                <label for="item-drivdet" class="accordion-item-hd" align="right">↕ Drivers Details<span class="accordion-item-hd-cta">&#9650;</span></label>
-                                <div class="accordion-item-bd">
-                                    <div id="detailsdiv" align="left">
-                                        <div>
-                                            <h4>Visual C++</h4>
-                                            <p>Many emulators require these runtimes</p>
-                                            <br>
-                                            <h4>DirectX</h4>
-                                            <p>Required by many emulators.</p>
-                                            <br>
-                                            <h4>XBox360 Drivers</h4>
-                                            <p>This installs the XBox 360 Joystick drivers from Microsoft. These are needed for Windows Vista and 7.
-                                            </p>
-                                            <br>
-                                            <h4>SCP Wrapper for Dualshock Joysticks</h4>
-                                            <p>The SCP Wrapper is a driver for bluetooth Sony Dualshock joysticks.</p>
-                                            <p>This is the most reliable and easiest way for DS3/4 users to use their joysticks in Windows 7/8x-10.
-                                            </p>
-                                            <br>
-                                            <h4>DS4Windows</h4>
-                                            <p>DS4Windows is a Sony DualShock 4 driver for windows. It is installed however the configuration of this driver is left to the user.
-                                            </p>
-                                            <br>
-                                            <h4>Display Changer</h4>
-                                            <p>This is a robust, command-line driven, preset-supporting <strong>display manager</strong><br> This tool works well with RoM-Jacket launchers.</p>
-                                            <h4>WinCDEmu</h4>
-                                            <p>This tool emulates a physical disc-drive.<br> Configuration is left to the user.</p>
-                                            <h4>Virtual CloneDrive</h4>
-                                            <p>This tool emulates a physical disc-drive.<br>
-                                                <p>Configuration is left to the user.</p>
-                                                <h4>Joy2Key</h4>
-                                                <p>Configuration is left to the user. Not fully integrated.
-                                                    <p>
-                                                        <h4>Daemon Tools: Consider alternatives.</h4>
-                                                        <span style="font-size: xx-small">
-			<p>For systems windowsXP-&gt;windows 8.x, skeletonKey can automatically install this program
-			through the command-line which will NOT install the included toolbar or any additional
-			software. Windows 10 users who need Daemon Tools should
-			download and install it separately.<br></p></span>
-                                                        <span style="font-size: xx-small">
-			<p>The Daemon Tools program may be needed by the SSF Sega Saturn emulator, the UNZ FM-Towns
-			emulator and any emulator which cannot directly read cd/dvd image files.
-			Mounting disc images with Daemon Tools is desireable
-			for users who wish to switch disks reliably or have disc-images in formats unreadable by an
-			emulator.
-			</p><span>
-			<p>!!!!IMPORTANT!!!!</p>
-			<p>Open the Daemon Tools program.</p>
-			<p>If you do not have a SCSI drive in the list, add a SCSI drive.</p>
-			<p>Right click on the new drive icon.</p>
-			<p>select Device Paramaters</p>
-			<p>Uncheck Auto insert notification</p>
-			</div>
-			</div>
-			<br>
-			</div>
-			</li>
-			</ul>
-			</div>
 			<br>
 			</div>
 			<div align="left" id="outer">
@@ -735,16 +795,22 @@
                                             <div id="detailsdiv" align="left">
                                                 <div>
                                                     <h4>DAT Repo Options</h4>
-                                                    <p>Users may drag and drop files and folders to this tab which will be parsed and matched against the hash databases added on the left side.<br> Identified ROMs are placed in the Systems Folder in the machine's
+													 <p>If you have obtained ROMS or ROM-sets which are known (catalogued) you can use the DAT-REPO Tab to identify and add them to your library 
+                                                    via drag and drop files or file/folder selection.<br>All subdirectories are traversed.<br>Files and Folders will be parsed and matched against the hash databases added on the left side.<br> Identified ROMs are placed in the Systems Folder in the machine's
                                                         subdirectory. If no corresponding supported system is identified, the name of the DAT is used.<br> MAME/MESS systems are supported, however MAME Arcade ROMs should not be sorted and are not currently
                                                         identified.
-                                                    </p>
+														<h4><strong><u>Your ROMs and BIOS files</u></strong></h4>
+											  <p>ROMs and BIOS files come in many forms and skeletonKey can identify many automatically, however several sites on the internet 
+											  host a multitude of free and open source ROMs developed for hundreds of popular consoles and computers.<br>
+											  If you have obtained open source / HOME-Brew ROMs or BIOS files you should consider cataloging these seperately within skeletonKey.</p><br>
+											  <br>
                                                 </div>
                                             </div>
                                             <br>
                                         </div>
                                     </li>
                                 </ul>
+								<br>
                             </div>
                             <br>
                         </div>
@@ -785,6 +851,7 @@
                                         </div>
                                     </li>
                                 </ul>
+								<br>
                             </div>
                             <br>
                             <div id="inner">
@@ -878,6 +945,7 @@
                                         </div>
                                     </li>
                                 </ul>
+								<br>
                             </div>
                             <br>
                           </div>
@@ -1282,6 +1350,7 @@
                                 </div>
                                 </li>
                                 </ul>
+								<br>
                             </div>
                             <br>
                             <div id="inner">
@@ -1335,14 +1404,16 @@
                                         </div>
                                     </li>
                                 </ul>
+								<br>
                             </div>
                             <br>
                             <a id="CLI"></a>
                             <div id="inner">
                                 <h3><a>Command-Line</a></h3>
-                                <p>An emulator-preset can be specified to override any default association from the command-line.</p>
-                                <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the ROM. Any options specified by the preset are respected.<br>
+                                <p>An emulator-preset can be specified to override any default association from the command-line.<br>
+								SkeletonKey launched from the command line <em>without</em> the -run= option functions identically to drag'n drop. </p>
                                 </p>
+								<br>
                                 <ul class="accordion css-accordion" align="right">
                                     <li class="accordion-item">
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-cli" />
@@ -1350,15 +1421,16 @@
                                         <div class="accordion-item-bd">
                                             <div id="detailsdiv" align="left">
                                                 <div>
-                                                    <p>SkeletonKey launched from the command line <em>without</em> the -run= option functions identically to drag'n drop. </p>
-                                                    <p><em>...nkey&gt;</em> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</p>
+                                                    <p><u>example:</u><br><code><em>...nkey&gt;</em> skeletonKey.exe -run=NickName &quot;C:\Library\Console Name\Rom Name\rom file.rom&quot;</code></p>
                                                     <p align="right">
                                                         <span style="font-size: x-small">**Nicknames must not contain spaces**</span></p>
                                                     <hr>
+													                                <p>SkeletonKey accepts the option <code>-run=</code> followed by the nickname of the emulator preset followed by the path to the ROM. Any options specified by the preset are respected.<br>
                                                     <h4>Options to reset and initialize skeletonKey:</h4>
+													<p>SkeletonKey can be completely initialized by simply deleting all files but the skeletonKey.exe file<br>
                                                     <p>-clearrj will reset the ROM-Jacket system-setup preferences and queue<br> -clearcfg will reset the per-game settings for all <strong>skeletonkey
 			launcher</strong> presets :: (not ROM-Jackets)<br> -clearset will reset the skeletonkey program settings<br> -clearexe will reset emulator executable settings<br> -clearscrape will delete scraped art
-                                                        and assets<br> adding a !q to the end of your clear command will override and assume yes on all deletion queries.<br> eg -clearra!q</p><br>
+                                                        and assets<br> adding a !q to the end of your clear command will override and assume yes on all deletion queries.<br> <u>example:</u><br> <code><em>...nkey&gt;</em>  skeletonKey.exe -clearscrape!q</code></p><br>
                                                     <hr>
                                                     <h4>The Skey-Deploy utility accepts the following:</h4>
                                                     <p>-reset command to reset the while keeping credentials for github.<br> -gituser=
@@ -1377,7 +1449,9 @@
                             </div>
                             <br>
                             <div id="inner">
-                                <ul class="accordion css-accordion" align="right">
+							<br>
+							<div  align="center">
+                                <ul class="accordion css-accordion" align="center">
                                     <li class="accordion-item">
                                         <input class="accordion-item-input" type="checkbox" name="accordion" id="item-indevl" />
                                         <label for="item-indevl" class="accordion-item-hd" align="right">↕ In Development<span class="accordion-item-hd-cta">&#9650;</span></label>
@@ -1398,7 +1472,11 @@
                                             </div>
                                             <br>
                                         </div>
+										</li>
+										<br>	
+										</ul>
                             </div>
+							</div>
                         </div>
                         <a id="FAQS"></a>
                         <div id="SectSeparate" align="center">
@@ -1409,6 +1487,8 @@
                                 <p><strong>Question: Android, Linux & MacOS?</strong></p>
                                 <p><strong>Answer: </strong>eh... It works under wine, but <span style="font-size: xx-small">pretty much windows only.</span>
                                 </p>
+                                <p><strong>Question: </strong> Can I install emulators en-masse?</p>
+								<p><strong>Answer: </strong>If you are in need of multiple emulators, consider installing the mednafen, retroarch, or bizhawk emulators.<br></p> 
                                 <p><strong>Question: </strong> How do I get games?
                                 </p>
                                 <p><strong>Answer: </strong>Developers of skeletonKeY are working ahk they possibly can to enable and facilitate the ease of access to integrated repositories

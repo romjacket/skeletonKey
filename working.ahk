@@ -11754,13 +11754,10 @@ return
 AppOpt:
 gui, submit, nohide
 guicontrolget, apopt,, APPOPT
-if (apopt = "")
+if ((apopt = "")or(apopt = ">")or(apopt = "ERROR"))
 	{
 		apopt= %A_Space%
-	}
-if (apopt = "ERROR")
-	{
-		apopt= %A_Space%
+		guicontrol,,APPOPT,%A_Space%
 	}
 guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%$ROM%xdisp%%qdisp%%aparg%, %runfr%
 return
@@ -11768,9 +11765,10 @@ return
 AppArg:
 gui, submit, nohide
 guicontrolget, aparg,, APPARG
-if (aparg = "")
+if ((aparg = "")or(aparg = ">")or(aparg = "ERROR"))
 	{
 		aparg= %A_Space%
+		guicontrol,,APPOPT,%A_Space%
 	}
 guicontrol,,EXDISPL,"..\%ovfile%"%apopt%%qdisp%%pthdisp%$ROM%xdisp%%qdisp%%aparg%, %runfr%
 return
