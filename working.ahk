@@ -318,6 +318,7 @@ If (playlistloctmp <> "ERROR")
 						playlistloc= %playlistloctmp%
 					}
 			}
+		gosub, resetPlaylists	
 	}
 If (playlistloctmp = "ERROR")
 	{
@@ -1090,12 +1091,13 @@ Menu,SHORTRUN, Add,Run With:=->, SQRUN
 Menu,SHORTRUN,Add,
 Menu,ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add,
-Menu,ASOCRUN, Add, Assign to System, ASRUN
-Menu,ASOCRUN, Add, Launch Paramaters, ASEMUCFG
-Menu,ASOCRUN, Add, Delete Game Settings, DelCfg_Add
-Menu,ASOCRUN, Add, Open Game Settings, CfgBrowse
-Menu,ASOCRUN, Add, << game-override >>, ASEMUOVR
-Menu,ASOCRUN, Add, Run Emulator, ASLNEMU
+Menu,ASOCRUN, Add,Assign to System, ASRUN
+Menu,ASOCRUN, Add,Assign to Game+, ASEMUOVR
+Menu,ASOCRUN, Add,Open Game Settings..., CfgBrowse
+Menu,ASOCRUN, Add,Launch Paramaters [], ASEMUCFG
+Menu,ASOCRUN, Add, Run Emulator without a ROM >, ASLNEMU
+Menu,ASOCRUN, Add, 
+Menu,ASOCRUN, Add,! Delete Game Settings, DelCfg_Add
 Menu,ARCGPCFG, Add, Configure Selected Game, ARCPCFG
 Menu,ARCSETB, Add, Reset-URL, ARCEDURL
 Menu,ARCSETB, Add,
@@ -1352,14 +1354,14 @@ Gui,Add,GroupBox, x391 y295 w58 h126 vPLGBB
 Gui,Add,listbox, x449 y100 w300 h394 HWNDinsel vCURPLST gCURPLST Multi +HScroll,
 Gui,Add,GroupBox, x362 y0 w81 h74 vAPNDTYPGRP
 Gui,Add,Radio, x365 y25 h13 vPLAPPND gPlaylistAppend, Append
-Gui,Add,Radio, x365 y10 h13 vPLOVR gPlaylistAppend Checked, Overwrte
+Gui,Add,Radio, x365 y10 h13 vPLOVR gPlaylistAppend Checked, Overwrite
 Gui,Add,CheckBox, x367 y43 h14 vZIPSEEK gZipSeek checked, Zip-Search
 Gui,Add,CheckBox, x367 y58 h14 vCRCENBL gCRCEnbl checked, CRC-Index
 Gui,Font,Bold
 Gui,Add,GroupBox, x447 y0 w304 h500 Right vPLGBC, Frontend
 Gui,Add,GroupBox, x11 y4 w346 h493 +0x400000 vPLGBD, Drag and Drop ROMs here
 Gui,Font,Bold
-Gui,Add,DropDownList, hwndDplHndl85 x457s y0 w130 vPLISTTYP gPLISTYP,skeletonKeY||EmulationStation|RetroFE  ;;to Add Pegasus
+Gui,Add,DropDownList, hwndDplHndl85 x557 y0 w130 vPLISTTYP gPLISTYP,skeletonKeY||EmulationStation|RetroFE  ;;to Add Pegasus
 Gui,Font,Norm
 Gui,Add,ComboBox, hwndCbxHndl58 x449 y31 w252 vPLNAMEDT gPlaylistEdit, %sysposb%
 Gui,Add,ComboBox, hwndCbxHndl59 x449 y53 w166 vPLCORE gPopulateCore disabled,||%runlist%
@@ -1441,10 +1443,10 @@ Gui,Add,DropDownList, hwndDplHndl89 x342 y289 w35 vESDDPLNUM gESDDPLNUM hidden,1
 Gui,Add,DropDownList, hwndDplHndl94 x451 y31 w90 vRFPLCORE gRFPOPCORE hidden,|Fuzzy-Match||Exact-Match|MAME-Match|
 Gui,Add,CheckBox, x373 y52 h13 vRFBACKUP gRFBackupPl Checked hidden, Backup
 Gui,Font,Bold
-Gui,Add,Button,x678 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
+Gui,Add,Button,x685 y27 w60 h25 vRFSVPL gRFSavePl hidden, CREATE
 Gui,Font,Normal
 Gui,Add,ComboBox, hwndCbxHndl62 x450 y55 w252 vRFPLXMP gRFPlaylistNames hidden, %systmfldrs%%escommon%
-Gui,Add,CheckBox, x547 y23 w125 h13 vRFUSESCR gRFUSESCR hidden checked, Use Scraped Assets
+Gui,Add,CheckBox, x546 y23 h13 vRFUSESCR gRFUSESCR hidden checked, Use Scraped Assets
 Gui,Add,CheckBox, x572 y40 w97 h13 vRFCPYSCR gRFCPYSCR hidden checked, `& copy to home
 Gui,Add,DropDownList, hwndDplHndl170 x24 y22 w283 vRFDWNLPOS gRFPopDownloads,%systmfldrs%
 Gui,Add,Radio, x22 y46 vRFRPOPDL gRFRPopJ hidden, Jackets
@@ -4731,20 +4733,21 @@ if (RUNPLRAD = 1)
 	{
 		ifinstring,RUNSYSDDL,.lpl
 			{
-				stringtrimright,RUNSYSDDX,RUNSYSDDL,4
-				RUNSYSDDL=
+				stringreplace,RUNSYSDDX,RUNSYSDDL,.lpl,,All
 				ifinstring,A_LoopField,%A_Space%-%A_Space%
-				Loop,parse,SysLLst,`n`r
 					{
-						if (A_LoopField = "")
+						Loop,parse,SysLLst,`n`r
 							{
-								continue
-							}
-						stringsplit,vir,A_LoopField,=
-						if (vir1 = RUNSYSDDX)
-							{
-								RUNSYSDDL= %A_LoopField%
-								break
+								if (A_LoopField = "")
+									{
+										continue
+									}
+								stringsplit,vir,A_LoopField,=
+								if (vir1 = RUNSYSDDX)
+									{
+										RUNSYSDDL= %A_LoopField%
+										break
+									}
 							}
 					}
 			}
@@ -7482,7 +7485,7 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
-		guicontrol,,LCORE,%coreselv%|
+		guicontrol,,LCORE,|%coreselv%||%runlist%
 		if (SRCHCOMPL = 1)
 			{
 				guicontrol,,SRCHPLRAD,1
@@ -7585,7 +7588,7 @@ Loop,Parse,kiv,|
 						poptadd .= krtn . "|"
 					}
 			}
-	}
+}
 SB_SetText("... Directory Indexed ...")
 guicontrol,,MORROM,|%romf%||%poptadd%
 if (SRCHCOMPL = 1)
@@ -7609,10 +7612,14 @@ if (coreselz <> "ERROR")
 	{
 		coreselve=
 		coreselvea= 
-		coreselp1=
-		stringsplit,coreselp,coreselz,|
+		Loop,20
+			{
+				coreselp%A_Index%=
+			}
 		ppl= 
-		Loop, %coreselp0%
+		snx= 
+		stringsplit,coreselp,coreselz,|
+		Loop,%coreselp0%
 			{
 				snx= % coreselp%A_Index%
 				if (snx = "")
@@ -7638,7 +7645,7 @@ if (coreselz <> "ERROR")
 							}
 					}
 			}
-		coreselve=%coreselv%|%coreselvea%
+		coreselve= %coreselv%|%coreselvea%
 	}
 emucin:
 if (coreselv = "")
@@ -7662,7 +7669,12 @@ if (coreselv = "")
 				Loop, parse, emulist,|
 					{
 						kva=
-						if (A_Index = 1)
+						if (A_LoopField = "")
+							{
+								continue
+							}
+						kva+=1
+						if (kva = 1)
 							{
 								guicontrol,,LCORE,|%A_LoopField%||
 								coreselx= %A_LoopField%|
@@ -12899,10 +12911,34 @@ PLISTYP:
 gui, submit, nohide
 guicontrolget,fenam,,PLISTTYP
 INPLAYL=
+
+if (fenam = "skeletonKeY")
+	{
+		xmbtog= show
+		opltog= hide
+		gosub,HideOtherFEPL
+		Loop,Parse,SKPLISTITEMS,|
+			{
+				guicontrol,%xmbtog%,%A_LoopField%
+			}
+		guicontrol,hide,EXCLBOOL
+		guicontrol,hide,INCLBOOL
+		guicontrol,hide,PARSEALL
+		guicontrol,hide,EXTPARSED
+		guicontrol,hide,FLTXT
+		guicontrol,hide,SVASPLST
+		guicontrol,,ROMPOP,|
+		guicontrol,,CURPLST,|
+		return
+	}
 if (fenam = "EmulationStation")
 	{
 		ofetog= show
 		pltog= hide
+		Loop,Parse,SKPLISTITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
 		Loop,Parse,PGPLITEMS,|
 			{
 				guicontrol,%pltog%,%A_LoopField%
@@ -12991,6 +13027,10 @@ if (fenam = "Pegasus")
 	{
 		ofetog= show
 		pltog= hide
+		Loop,Parse,SKPLISTITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
 		Loop,Parse,ESPLITEMS,|
 			{
 				guicontrol,%pltog%,%A_LoopField%
@@ -13090,6 +13130,10 @@ if (fenam = "RetroFE")
 	{
 		ofetog= show
 		pltog= hide
+		Loop,Parse,SKPLISTITEMS,|
+			{
+				guicontrol,%pltog%,%A_LoopField%
+			}
 		Loop,Parse,ESPLITEMS,|
 			{
 				guicontrol,%pltog%,%A_LoopField%
@@ -31900,12 +31944,12 @@ guicontrol,,FEBUTC,...
 guicontrol,move,FECHKA,x289 y403 w132 h13
 guicontrol,,FECHKA,Enable Boxart Icons
 guicontrol,,FECHKA,0
-guicontrol,move,FECHKB,x289 y453 w100 h13
+guicontrol,move,FECHKB,x289 y453 w120 h13
 guicontrol,,FECHKB,Overwrite Mirrors
 guicontrol,move,FECHKC,x289 y437 w100 h13
 guicontrol,,FECHKC,Overwrite Icons
 guicontrol,disable,FECHKC
-guicontrol,move,FECHKD,x289 y387 w170 h13
+guicontrol,move,FECHKD,x289 y387 w210 h13
 guicontrol,,FECHKD,Create Shortcut in ROM-Jacket
 guicontrol,disable,FECHKE
 guicontrol,move,FECHKE,x289 y420 w170 h13
@@ -45089,6 +45133,7 @@ ifnotinstring,KITLSN,:\
 	}
 guicontrol,,MORROM,|%KITLSN%||%lsrchpop%
 guicontrol,,hide,RUNROMCBX
+
 EDTROM:
 Gui, submit, nohide
 guicontrolget,OPTYP,,RUNSYSDDL
@@ -45159,6 +45204,10 @@ if (RUNPLRAD = 1)
 			{
 				Loop, Read, %selectedplaylist%
 					{
+						if (A_LoopReadLine = "")
+							{
+								continue
+							}
 						ttnf1=
 						ttnf2=
 						stringreplace,kif,A_LoopReadLine,%A_Space%,,All
@@ -45171,16 +45220,12 @@ if (RUNPLRAD = 1)
 						if (newPlF = 1)
 							{
 								ifinstring,A_LoopReadLine,"path":
-								;;Stringreplace,ttnf,A_LoopReadLine,"path":%A_Space%,,UseErrorLevel
-								if (ERRORLEVEL = 1)
 									{
 										lnumfnd:= A_Index+2
 										finumj:= A_Index+3
-										stringsplit,A_LoopReadLine,ttnx,"
+										stringsplit,ttnx,A_LoopReadLine,"
 										;"
-										;;stringtrimright,ttnf,ttnf,1
-										stringreplace,ttnf,ttnx3,\\,\,All
-										;;stringreplace,ttnf,ttnf,",,All
+										stringreplace,ttnf,ttnx4,\\,\,All
 										;"
 										rom_f= %ttnf%
 										ifinstring,ttnf,.zip#
@@ -45198,10 +45243,7 @@ if (RUNPLRAD = 1)
 										filereadline,coreselz,%selectedplaylist%,%lnumfnd%
 										stringsplit,corselspv,coreselz,"
 										;"
-										;;Stringreplace,coreselz,coreselz,"core_path":%A_Space%,,UseErrorLevel
-										;;stringtrimright,coreselz,coreselz,1
-										stringreplace,coreselz,corselspv3,\\,\,All
-										;;stringreplace,coreselz,coreselz,",,All
+										stringreplace,coreselz,corselspv4,\\,\,All
 										;"
 										splitpath,coreselz,coreselk,coreseld,corextnt,corselm
 										ifnotinstring,runlist,%corselm%
@@ -45361,7 +45403,7 @@ iniread,romnaov,GameOverrides.ini,%ROMSYS%,%romname%
 if ((romnaov <> "ERROR")&&(AUTOPGS = 1))
 	{
 		coreselv= %romnaov%
-		guicontrol,,LCORE,%coreselv%|
+		guicontrol,,LCORE,|%coreselv%|
 	}
 if ((FILT_UNSUP <> 1)&&(OPTYP <> "History"))
 	{
@@ -45379,11 +45421,11 @@ ifinstring,corinjs,.dll
 	else {
 		guicontrol,show,CustSwitchs
 	}
-if (coreselve = "")
+if ((coreselve = "")or(coreselve = "|"))
 	{
 		coreselve= %coreselv%|
 	}
-guicontrol,,LCORE,|%coreselve%
+guicontrol,,LCORE,|%coreselve%|
 r_noconf:
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 lnchui= enable
