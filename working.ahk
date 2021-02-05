@@ -19700,9 +19700,15 @@ guicontrolget,RUNSYSTST,,RUNSYSDDL
 guicontrolget,LCORE,,LCORE
 splitpath,RUNRTST,,,,ROMTOVR
 iniread,thebb,Assignments.ini,OVERRIDES,%RUNSYSTST%
+apt= 
 Loop,parse,thebb,|
 	{
-		if ((A_Index = 1)&&(A_LoopField = LCORE))
+		if (A_LoopField = "")
+			{
+				continue
+			}
+		apt+=1
+		if ((apt = 1)&&(A_LoopField = LCORE))
 			{
 				SB_SetText(" " LCORE " already assigned to " RUNSYSTST "")
 				return
@@ -45425,7 +45431,7 @@ if ((coreselve = "")or(coreselve = "|"))
 	{
 		coreselve= %coreselv%|
 	}
-guicontrol,,LCORE,|%coreselve%|
+guicontrol,,LCORE,|%coreselve%
 r_noconf:
 iniwrite, "%romf%",Settings.ini,GLOBAL,last_rom
 lnchui= enable
