@@ -1074,6 +1074,7 @@ Menu,REMDATSEL, Add, Clear All, REMADAT
 Menu,REMHSHSEL, Add, Remove Selection, REMHSH
 Menu,REMHSHSEL, Add, Clear All, REMAHSH
 Menu,REMHSHSEL, Add, Move to >, MOVEHSH
+Menu,MORROMDDLM, Add,Open Game Settings..., CfgBrowse
 Menu,MORROMDDLM, Add, Open Game Directory, MORROMDDLMENU
 Menu,RUNMenu,Add,Run Menu,RUNMENU
 Menu,RUNMenu,Add
@@ -1089,13 +1090,12 @@ Menu,REZWIN, Add,1920 1080, RESWFRUN
 Menu,REZRCLWIN, Add,Reset Config, RESRSRUN
 Menu,SHORTRUN, Add,Run With:=->, SQRUN
 Menu,SHORTRUN,Add,
+Menu,SHORTRUN, Add, Run Emulator without a ROM >, ASLNEMU
 Menu,ARCSHORT, Add,Run With:=->, AQRUN
 Menu,ARCSHORT,Add,
 Menu,ASOCRUN, Add,Assign to System, ASRUN
 Menu,ASOCRUN, Add,Assign to Game+, ASEMUOVR
-Menu,ASOCRUN, Add,Open Game Settings..., CfgBrowse
-Menu,ASOCRUN, Add,Launch Paramaters [], ASEMUCFG
-Menu,ASOCRUN, Add, Run Emulator without a ROM >, ASLNEMU
+Menu,ASOCRUN, Add,Launch Paramaters [ ], ASEMUCFG
 Menu,ASOCRUN, Add, 
 Menu,ASOCRUN, Add,! Delete Game Settings, DelCfg_Add
 Menu,ARCGPCFG, Add, Configure Selected Game, ARCPCFG
@@ -2259,7 +2259,6 @@ JXINDRV_TT :="xbox360/xbox one/ps3/ps4 and compatible joystick driver"
 KARC_TT :="Keep archives after downloading and extracting`n***   It is reccommended to keep this off   ***`Turning this on will prompt to overwrite any existing core archives while updating."
 KBGP_TT :="Enables using the keyboard as a gamepad"
 LANIPRAD_TT :="Local network address"
-OVEXTL_TT :="Extensions automatically identified by the selected system.`nSave the nickname to assign an emulator to the extension."
 LATENCY_TT :="Desired audio latency in milliseconds. Might not be honored if driver can't provide given latency."
 LCORE_TT :="Select an emulator/core"
 LNCHBUT_TT :="Launch the currently displayed ROM`nRight-Click for emulator-quick-select"
@@ -8855,7 +8854,6 @@ guicontrol,,ADDCORE,|%SYSINSTLBX%||
 guicontrol,,EMUASIGN,Assign to System
 guicontrol,,EMUINST,Install
 guicontrol,,EINSTLOC
-guicontrol,,OVEXTL,|All||
 guicontrol,,EMPRLST,|
 guicontrol,,EMPRDDL,|Emulators|%runlist%
 GuiControl,,EMUASIGN,1
@@ -11506,18 +11504,6 @@ Loop, Parse, semu,|
 		iniwrite, "%DSKMNTOVR%",AppParams.ini,%sysni%,DSKMNTOVR
 		iniwrite, "%DSKMNTPRG%",AppParams.ini,%sysni%,DSKMNTPRG
 	}
-if (SALIST = "Systems")
-	{
-		if (semu <> "")
-			{
-				guicontrolget,OVEXTL,,OVEXTL
-				if (OVEXTL <> "All")
-					{
-						stringtrimleft,OVEXTL,OVEXTL,1
-						IniWrite,%sysni%,AppParams.ini,%semu%,%OVEXTL%
-					}
-			}
-	}
 gosub, ResetRunList
 stringright,ttr,sysni,1
 if (ttr = "|")
@@ -12680,7 +12666,6 @@ guicontrolget,tev,,OpnSyS
 guicontrol,,OpnSyS,-
 if (tev = "-")
 	{
-		;;guicontrol,show,OVEXTL
 		guicontrol,hide,SAVNSYS
 		guicontrol,hide,ADDNSYS
 		guicontrol,show,OVLIST
@@ -19715,11 +19700,17 @@ Loop,parse,thebb,|
 			}
 		break
 	}
+iniread,emuovt,AppParams.ini,%LCORE%,per_game_configurations
+if ((emuovt = 0)or(emuovt = "ERROR")or(emuvt = ""))
+	{
+		SB_SetText("" LCORE " does not currently have per-game settings enabled.")
+		return
+	}	
 Menu, MASOCREA, Add,Create Emulator Override, ASOCREA
 Menu, MASOCREA, Add,Delete Emulator Override, ASOCDEL
-mousegetpos,Ngx,Ngy
-MENU_X:= ngx*(A_ScreenDPI/96)
-MENU_Y:= ngy*(A_ScreenDPI/96)
+
+MENU_X:= A_GuiX*(A_ScreenDPI/96)
+MENU_Y:= A_GuiY*(A_ScreenDPI/96)
 Menu,MASOCREA, Show, %MENU_X% %MENU_Y%
 Menu,MASOCREA,DeleteAll
 return
@@ -19758,9 +19749,8 @@ ifinstring,SYSLKUP,.lpl
 	}
 ContAddAssets:
 gosub, AddAssetType
-mousegetpos,Ngx,Ngy
-MENU_X:= ngx*(A_ScreenDPI/96)
-MENU_Y:= ngy*(A_ScreenDPI/96)
+MENU_X:= A_GuiX*(A_ScreenDPI/96)
+MENU_Y:= A_GuiY*(A_ScreenDPI/96)
 Menu,ARCGSNP, Show, %MENU_X% %MENU_Y%
 Menu,ARCGSNP,DeleteAll
 return
