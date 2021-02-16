@@ -2930,6 +2930,7 @@ CRCZI=
 ZPSZ=
 ZPSZI=
 ROMZ=
+partition=
 if (StdOut <> "")
 	{
 		xtnv=
@@ -2989,6 +2990,7 @@ return
 
 zpkproc:
 ZPSZ=
+partition=
 if (StdOut <> "")
 	{
 		xtnv=
@@ -8770,7 +8772,6 @@ if (SALIST = "Emulators")
 		SYSINSTLBX= %semu%
 		guicontrol,,EINSTLOC,%ksvel%
 		guicontrolget,SYSPOPD,,PRGINSTLBX
-		guicontrol,,SYSNICK,|%SYSPOPD%||%PreEmuCfg%
 		gosub, DApp
 		guicontrol, hide,ROMDTXT
 		guicontrol, hide,ROMDEDT
@@ -9397,6 +9398,10 @@ guicontrolget,PRGINSTLBX,,PRGINSTLBX
 EINSTLOC=
 OVRKND=
 guicontrolget, EINSTLOC,, EINSTLOC
+if ((PRGINSTLBX = "Emulators")&& fileExist(ksvel))
+	{
+		guicontrol,,EMUINST,Assign
+	}
 if (PRGINSTLBX = "Antimicro")
 {
 		if (EMUASIGN = 1)
