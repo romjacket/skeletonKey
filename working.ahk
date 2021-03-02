@@ -472,13 +472,6 @@ if (AUTOPGS <> 0)
 		AUTOPGSIO= Checked
 		AUTOPGS= 1
 	}
-SRCHCOMPLIO=
-IniRead, SRCHCOMPL,Settings.ini,GLOBAL,AutoPopulate_Search
-if (SRCHCOMPL <> 0)
-	{
-		SRCHCOMPLIO= Checked
-		SRCHCOMPL= 1
-	}
 ifNotExist, sys.ini
 	{
 		gosub, resetSYS
@@ -1164,7 +1157,6 @@ Gui,Add,Button, x187 y8 w55 h20 vSKRESET gSKRESET, RESET
 Gui,Add,text, hwndEdtHndl3 x63 y65 w490 h20 Multi ReadOnly vSKSYSDISP, %RJSYSTEMS%
 Gui,Add,Checkbox, x573 y76 vALWOTP gALWOTP, Always On Top
 Gui,Add,CheckBox, x573 y94 vLOGGING gLOGGING %logenable%, Logging
-;Gui,Add,CheckBox, x573 y158 vSRCHCOMPLIO gSRCHCOMPL %SRCHCOMPLIO%, Auto-Populate Search-Window
 Gui,Add,CheckBox, x573 y141 vAUTOPGS gAUTOPGS %AUTOPGSIO%, Auto-Load Per-Game Settings
 Gui,Add,text, hwndEdtHndl4 x63 y149 w490 h20 Multi ReadOnly vSKEMUDISP, %RJEMUD%
 Gui,Add,text, hwndEdtHndl5 x61 y453 w490 h20 vtmpdispl Multi ReadOnly, %cacheloc%
@@ -6529,16 +6521,6 @@ cachetmp=
 goto, cachereset
 return
 
-SRCHCOMPL:
-gui,submit,nohide
-if (SRCHCOMPL = 1)
-	{
-		iniwrite, 1,Settings.ini,GLOBAL,AutoPopulate_Search
-		return
-	}
-iniwrite, 0,Settings.ini,GLOBAL,AutoPopulate_Search
-return
-
 LOGGING:
 gui,submit,nohide
 iniwrite,%LOGGING%,Settings.ini,GLOBAL,Logging
@@ -7343,6 +7325,7 @@ if (RUNPLRAD = 1)
 		finumb=
 		finumj=
 		newPlF=
+		pplcr= 
 		Loop, Read, %selectedplaylist%
 			{
 				if (A_LoopReadLine = "")
@@ -7397,6 +7380,10 @@ if (RUNPLRAD = 1)
 									else {
 											romf= %romha%
 									}
+								if (poptadd = "")
+									{
+										poptadd:= romf . "||"
+									}	
 								poptadd.= romf . "|"
 								PLineAdd=
 								continue	
@@ -7426,9 +7413,13 @@ if (RUNPLRAD = 1)
 				toljr= %toljr%
 			}
 		splitpath,tolcr,coreselv,,corextnt,corejname
+		if (pplcr = "")
+			{
+				pplcr= %coreselv%
+			}
 		if (corextnt = "exe")
 			{
-				coreselv= %toljr%
+				pplcr= %corejname%
 			}
 		if (tolcr = "DETECT")
 			{
@@ -7486,19 +7477,14 @@ if (RUNPLRAD = 1)
 							}
 					}
 			}
-		guicontrol,,LCORE,|%coreselv%||%runlist%
-		if (SRCHCOMPL = 1)
-			{
-				guicontrol,,SRCHPLRAD,1
-				guicontrol,,SRCHLOCDDL,|%OPTYP%||History|%plistfiles%
-				guicontrol,,SRCHROMLBX,|
-				gosub, SRCHROMBUT
-			}
-			else {
-					guicontrol,,SRCHROMLBX,|%poptadd%			
-			}
+		guicontrol,,LCORE,|%pplcr%||%runlist%
+		guicontrol,,SRCHPLRAD,1
+		guicontrol,,SRCHLOCDDL,|%OPTYP%||History|%plistfiles%
+		guicontrol,,SRCHROMLBX,|
+		guicontrol,,SRCHROMEDT,%romf%
+		;;gosub, SRCHROMBUT
 		guicontrol,,MORROM,|%romf%||%poptadd%
-		gosub, EDTROM
+		;;gosub, EDTROM
 		SB_SetText(" ... Index generated ...")		
 		Loop,Parse,RUNBOXGUIITEMS,|
 			{
@@ -7592,13 +7578,10 @@ Loop,Parse,kiv,|
 }
 SB_SetText("... Directory Indexed ...")
 guicontrol,,MORROM,|%romf%||%poptadd%
-if (SRCHCOMPL = 1)
-	{
-		guicontrol,,SRCHFLRAD,1
-		guicontrol,,SRCHLOCDDL,|%OPTYP%||%knownfldrs%
-		guicontrol,,SRCHROMLBX,|
-		gosub, SRCHROMBUT
-	}
+guicontrol,,SRCHFLRAD,1
+guicontrol,,SRCHLOCDDL,|%OPTYP%||%knownfldrs%
+guicontrol,,SRCHROMLBX,|
+gosub, SRCHROMBUT
 if (Ident_sys = "")
 	{
 		goto, SkipCoreGet
@@ -7896,6 +7879,8 @@ if (SRCHPLRAD = 1)
 			}
 		lsrchpop=
 		plnuminc=
+		plpcr=
+		primrha=
 		Loop, Read, %playlistLoc%\%SRCHLOCDDL%
 			{
 				plnuminc+=1
@@ -7933,7 +7918,11 @@ if (SRCHPLRAD = 1)
 										stringreplace,ecnav,ecnav,",,All
 										;"
 										stringtrimright,ecnav,ecnav,1
-										splitpath,ecnav,ecnam,,,,ecnamg
+										splitpath,ecnav,ecnam,,,ecnay,ecnamg
+										if (plpcr = "")
+											{
+												plpcr= %ecnay%
+											}
 										lsrchpop.= romha . ">" . ecnam . "|"
 									}
 								plnuminc=
@@ -7955,6 +7944,7 @@ if (SRCHPLRAD = 1)
 				}
 			}
 		stringreplace,lsrchpop,lsrchpop,%RJSYSTEMS%\%SRCHLOCNM%\,,All
+		guicontrol,,LCORE,|%plpcr%||
 		guicontrol,,SRCHROMLBX, |%lsrchpop%
 		guicontrol,enable,SRCHROMBUT
 		return
@@ -45242,16 +45232,18 @@ if (RUNPLRAD = 1)
 												continue
 											}
 										filereadline,coreselz,%selectedplaylist%,%lnumfnd%
-										stringsplit,corselspv,coreselz,"
+										
+										stringreplace,coreselz,coreselz,"core_path":%A_Space%,,All
+										stringreplace,coreselz,coreselz,\\,\,All
+										stringreplace,coreselz,coreselz,",,All
 										;"
-										stringreplace,coreselz,corselspv4,\\,\,All
-										;"
-										splitpath,coreselz,coreselk,coreseld,corextnt,corselm
+										stringtrimright,coreselz,coreselz,1
+										splitpath,coreselz,coreselj,,,corselm
 										ifnotinstring,runlist,%corselm%
 											{
-												coreselk= DETECT
+												corselm= DETECT
 											}
-										coreselv= %coreselk%
+										coreselv= %corselm%
 										if (corextnt = "exe")
 											{
 												filereadline,coreselz,%selectedplaylist%,%finumj%
@@ -45477,6 +45469,7 @@ if (ttnf2 = "")
 	}
 SplitPath,ttnf2,,,inputext
 FileGetSize,romsz,%ttnf1%,K
+plpcr=
 if (RUNPLRAD = 1)
 	{
 		selectedplaylist= %playlistLoc%\%RSYSDL%
@@ -45588,9 +45581,13 @@ if (RUNPLRAD = 1)
 				;"
 			}
 		splitpath,tolcr,coreselv
+		if (plpcr = "")
+			{
+				plpcr:= coreselv
+			}
 		if (stcl <> "DETECT")
 			{
-				guicontrol,, LCORE,|%coreselv%||%runlist%
+				guicontrol,, LCORE,|%plpcr%||%runlist%
 				SB_SetText(" indexing detected playlist complete ")
 				return
 			}
