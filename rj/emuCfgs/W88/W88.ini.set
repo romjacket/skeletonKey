@@ -1,0 +1,21 @@
+[W88 for Windows]
+Directory=[EMUPATH]
+Flags=3
+CPUClock=4
+Speed=1000
+RefreshTiming=3
+BASICMode=2
+Sound=2
+Switches=1829
+SoundBuffer=200
+PadSensibility=16384
+VolumeFM=100
+VolumeSSG=100
+VolumeADPCM=100
+VolumeRhythm=100
+VolumeBD=100
+VolumeSD=100
+VolumeTOP=100
+VolumeHH=100
+VolumeTOM=100
+VolumeRIM=100

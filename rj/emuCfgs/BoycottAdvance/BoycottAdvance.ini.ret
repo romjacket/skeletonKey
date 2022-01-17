@@ -1,0 +1,83 @@
+################################
+## BoycottAdvance INI Settings #
+################################
+                         
+RomPath                  "[ROMPATH]\"
+BIOSPath                 "./Bios"
+BIOSRom                  "gbasys.bin"
+BIOSEnable               1
+BIOSFastBoot             0
+SkipIntros               0
+AutoRun                  1
+AutoSaveIniFile          1
+AllowROMWrites           0
+SoundEnable              1
+                         
+## Screen Features #############
+                         
+ScreenZoom               1
+MainWindowXpos           100
+MainWindowYpos           100
+ShowFPS                  0
+ShowFPSPercent           0
+AutoThrottle             1
+AutoFrameSkip            1
+FrameSkip                0
+Scanline                 0
+FitScreen                0
+CurrentFrameBufferID     0
+                         
+## Keyboard & Joystick Mapping ############
+                         
+KeyGBA_BUTTONA           90
+KeyGBA_BUTTONB           88
+KeyGBA_LS                65
+KeyGBA_RS                83
+KeyGBA_SELECT            37
+KeyGBA_START             39
+KeyGBA_LEFT              32
+KeyGBA_RIGHT             13
+KeyGBA_UP                38
+KeyGBA_DOWN              40
+                         
+JoyGBA_BUTTONA           0
+JoyGBA_BUTTONB           1
+JoyGBA_LS                3
+JoyGBA_RS                2
+JoyGBA_SELECT            88
+JoyGBA_START             83
+                         
+KeyGBA_AutoFire_BUTTONA  0
+KeyGBA_AutoFire_BUTTONB  0
+KeyGBA_AutoFire_BUTTONLS 0
+KeyGBA_AutoFire_BUTTONRS 0
+                         
+## Debugging Features ##########
+                         
+DebugMenuEnable          1
+DebugMenuUpdates         0
+DebugCPULog              0
+StatusWindowEnable       0
+StatusWindowXpos         120
+StatusWindowYpos         120
+ProgramWindowEnable      0
+ProgramWindowXpos        140
+ProgramWindowYpos        140
+BreakpointWindowEnable   0
+BreakpointWindowXpos     200
+BreakointWindowYpos      200
+MemoryWindowEnable       0
+MemoryWindowXpos         160
+MemoryWindowYpos         160
+CPURegWindowEnable       0
+CPURegWindowXpos         180
+CPURegWindowYpos         180
+ROMInfoWindowEnable      0
+ROMInfoWindowXpos        180
+ROMInfoWindowYpos        180
+WhatsNewWindowEnable     0
+WhatsNewWindowXpos       200
+WhatsNewWindowYpos       200
+DirectSoundAEnable       1
+DirectSoundBEnable       1
+GameboySoundEnable       1

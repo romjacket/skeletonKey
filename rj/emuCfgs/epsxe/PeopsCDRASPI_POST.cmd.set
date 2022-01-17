@@ -1,0 +1,1 @@
+for %%a in ("InterfaceMode" "Adapter" "Target" "LUN" "RType" "UseCaching" "UseDataCache" "UseSpeedLimit" "SpeedLimit" "NoWait" "MaxRetry" "ShowReadErr" "UsePPF" "UseSubReading" "PPFFile" "SCFile") do for /f "tokens=3 delims= " %%n in ('reg query "HKCU\Software\Vision Thing\PSEmu Pro\CDR\PeopsCDRASPI" /v "%%a"') do echo.SET %%~a=%%~n>>PeopsCDRASPI_SET.cmd

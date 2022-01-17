@@ -1,0 +1,20 @@
+#                  #
+# configuration Aug 21 2002 #
+#                  #
+
+Logdir       	" .\log\"
+Stadir       	" .\sta\"
+
+Language    	" .\\locale\\english.ini"
+Skin			" .\\skins\\default.jpg"
+SkinNfo			" .\\skins\\default.nfo"
+lastRom0		" "
+lastRom1		" "
+lastRom2		" "
+lastRom3		" "
+Frameskip    	0
+debugMode    	no
+firstTimeRun 	yes
+threadPriority  aboveNormal
+hardwareStretch 	no
+surfacesInSystemMemory yes

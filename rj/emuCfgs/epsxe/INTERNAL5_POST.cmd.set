@@ -1,0 +1,1 @@
+for /f "tokens=3 Delims= " %%a in ('REG QUERY "HKEY_CURRENT_USER\Software\epsxe\config" /v "Pad3"') do echo.set PAD5TYPE=%%~a>>INTERNAL5_SET.cmd

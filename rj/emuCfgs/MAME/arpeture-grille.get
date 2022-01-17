@@ -1,0 +1,88 @@
+#
+# DIRECT3D POST-PROCESSING OPTIONS
+#
+hlslpath                  hlsl
+hlsl_preset               arpeture-grille
+hlsl_enable               1
+hlsl_oversampling         1
+hlsl_write                auto
+hlsl_snap_width           1920
+hlsl_snap_height          1080
+shadow_mask_tile_mode     0
+shadow_mask_alpha         0.33
+shadow_mask_texture       aperture-grille.png
+shadow_mask_x_count       16
+shadow_mask_y_count       48
+shadow_mask_usize         1
+shadow_mask_vsize         1
+shadow_mask_uoffset       0
+shadow_mask_voffset       0
+distortion                0
+cubic_distortion          0
+distort_corner            0
+round_corner              0.02
+smooth_border             0.02
+reflection                0
+vignetting                0.1
+scanline_alpha            1
+scanline_size             1.0
+scanline_height           1.0
+scanline_variation        1.0
+scanline_bright_scale     1.4
+scanline_bright_offset    0.4
+scanline_jitter           0.2
+hum_bar_alpha             0.01
+defocus                   0.7,0.0
+converge_x                -0.4,0.0,0.0
+converge_y                0.0,0.0,0.0
+radial_converge_x         0.0,0.0,0.0
+radial_converge_y         0.0,0.0,0.0
+red_ratio                 1.0,0.0,0.0
+grn_ratio                 0.0,1.0,0.0
+blu_ratio                 0.0,0.0,1.0
+saturation                1
+offset                    -0.02,-0.02,-0.02
+scale                     0.98,0.99,1.02
+power                     1.3,1.3,1.3
+floor                     0.0,0.0,0.0
+phosphor_life             0.12,0.12,0.12
+
+#
+# NTSC POST-PROCESSING OPTIONS
+#
+yiq_enable                0
+yiq_jitter                0.0
+yiq_cc                    3.57954545
+yiq_a                     0.5
+yiq_b                     0.5
+yiq_o                     0.0
+yiq_p                     1.0
+yiq_n                     1.0
+yiq_y                     6.0
+yiq_i                     1.2
+yiq_q                     0.6
+yiq_scan_time             52.6
+yiq_phase_count           2
+
+#
+# VECTOR POST-PROCESSING OPTIONS
+#
+vector_beam_smooth        0.0
+vector_length_scale       0.5
+vector_length_ratio       0.5
+
+#
+# BLOOM POST-PROCESSING OPTIONS
+#
+bloom_blend_mode          0
+bloom_scale               0.05
+bloom_overdrive           1.00,1.00,1.00
+bloom_lvl0_weight         1.0
+bloom_lvl1_weight         1
+bloom_lvl2_weight         1
+bloom_lvl3_weight         1
+bloom_lvl4_weight         1
+bloom_lvl5_weight         0
+bloom_lvl6_weight         0
+bloom_lvl7_weight         0
+bloom_lvl8_weight         0

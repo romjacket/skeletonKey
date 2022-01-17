@@ -1,0 +1,13 @@
+[Configuration]
+WindowModeNo=3
+FullScreenNo=0
+[Other]
+Name=Whatever
+UCode=0
+FrameBuffer=-1
+FogEmulation=-1
+ForceDepth=-1
+[uCodeCRC]
+uCodeCRC-BD24F5CE=4
+[Other]
+Name=Whatever

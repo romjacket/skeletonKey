@@ -1,0 +1,30 @@
+###########################################################
+## skeletonKey.exe contains the required files, however ###
+#####   The original binary files can be found here:  ######
+#   https://github.com/romjacket/bin/raw/master/bin.7z    #
+#####   Extract to the skeletonKey directory.      ########	
+###########################################################
+###########################################################
+###########################################################
+###########################################################
+#####     The latest versions can be found here   #########
+###########################################################
+7za.exe  >  https://managedway.dl.sourceforge.net/project/sevenzip/7-Zip/19.00/7z1900-extra.7z
+aria2c.exe  >  https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0-win-32bit-build1.zip
+any2ico.exe  >  https://www.carifred.com/quick_any2ico/Quick_Any2Ico.exe
+7zsd.sfx  >  https://www.7-zip.org/a/lzma1900.7z
+chdman.exe  >  https://www.mamedev.org/release.html
+curl.exe  >  https://curl.haxx.se/windows/dl-7.70.0_2/curl-7.70.0_2-win32-mingw.zip
+rcedit.exe  >  https://github.com/electron/rcedit/releases/download/v1.1.1/rcedit-x86.exe
+unrar.exe  >  https://www.rarlab.com/rar/unrarw32.exe
+vdrive.exe  >  https://www.horstmuc.de/win/vdrive.zip
+wget.exe  >  http://downloads.sourceforge.net/gnuwin32/wget-1.11.4-1-bin.zip
+youtube-dl.exe  >  https://github.com/ytdl-org/youtube-dl/releases/download/2020.06.06/youtube-dl.exe
+Scraper.exe  >  https://github.com/sselph/scraper/releases/download/v1.4.6/scraper_windows_386.zip
+###########################################################
+###########################################################
+##########   ALL BINARY FILES SHOULD BE IN   ##############
+###########################################################
+###               ...\skeletonkey\bin                   ###
+###########################################################
+###########################################################

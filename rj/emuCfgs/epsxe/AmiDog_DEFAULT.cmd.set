@@ -1,0 +1,10 @@
+SET BrightScanlines=[BRIGHT]
+SET Display=1
+SET FullScreen=1
+SET FullScreenScaling=[FSTYPE]
+SET InterlaceHalfRate=[IHR]
+SET LimitFrameRate=[LIMIT]
+SET NewGPU=1
+SET NoScale=0
+SET ProgressiveDoubleScan=[PDS]
+SET TextureCache=[CACHE]

@@ -1,0 +1,8 @@
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Half Scan Lines" /t REG_SZ /d "[SCANL]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Hard Disk Enable" /t REG_SZ /d "[HARDDISK]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Joystick0 Emu Type" /t REG_SZ /d "[JOY1TYPE]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Joystick1 Emu Type" /t REG_SZ /d "[JOY2TYPE]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Configuration" /f /v "Video Emulation" /t REG_SZ /d "[VIDEO]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "HDV Starting Directory" /t REG_SZ /d "[ROMP]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Harddisk Image 1" /t REG_SZ /d "[DISKIMG1]"
+REG ADD "HKEY_CURRENT_USER\Software\AppleWin\CurrentVersion\Preferences" /f /v "Last Harddisk Image 2" /t REG_SZ /d "[DISKIMG2]"

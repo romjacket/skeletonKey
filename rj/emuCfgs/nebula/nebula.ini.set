@@ -1,0 +1,63 @@
+;Nebula special configuration file
+[Nebula]
+
+
+;Nebula process or emulation thread priority
+;Raising this value may cause a speedup in slower machines
+
+;Values: -15..15
+;Default=0
+ThreadPriority=0
+
+;Enable sprite masking
+;Default=1
+UseMasking=1
+
+
+
+;Size of the sound buffer (number of frames)
+;Increasing this value may reduce the sound problems with some SBPCI cards
+;but also increases the sound delay
+
+;Default=5
+SoundBufferCount=5
+
+
+;Automatic scanning of romsets on start. This enables/disables the automatic
+;romset analyzing. If disabled, you must use the Rescan Roms button in the
+;OTHER options screen to rescan your romsets.
+AutoAnalyze=0
+
+;Disable the GUI sounds
+NoGUISounds=0
+
+;Disable the ability to move the mouse cursor using the Joystick
+NoGUIJoyMove=0
+
+
+;Use strict MAME name conventions for romsets
+StrictRomsets=1
+
+;Enables the neogeo rasters
+EnableNGRasters=1
+
+;Show sound CPU codes sent
+ShowSoundCodes=0
+
+;Load the Neogeo Debug Bios (MAS) instead of the normal bios (need neogeod.zip)
+;NGDebugBios=1
+
+
+;Enable Transparency
+Transparency=1
+
+;Force Transparency Value (0=disabled, 1=25% 2=50%)
+ForceTrans=0
+
+;Transparency on all Sprites (0=disabled, 1=25%, 2=50%)
+GhostMode=0
+
+GUIMode=1
+EnableCPS2Rasters=1
+
+NoPGMMusic=0

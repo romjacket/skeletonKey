@@ -1,0 +1,11 @@
+      <mediaPath type="boxfront">[CONSOLEPATH]\%GAME%\Folder.*</mediaPath>
+      <mediaPath type="boxback">[CONSOLEPATH]\%GAME%\Back.*</mediaPath>
+      <mediaPath type="cartridge">[CONSOLEPATH]\%GAME%\Cart.*</mediaPath>
+      <mediaPath type="screenshot">[CONSOLEPATH]\%GAME%\snaps\*.*</mediaPath>
+      <mediaPath type="fanart">[CONSOLEPATH]\%GAME%\Backdrop*.*</mediaPath>
+      <imagePlacingMain>gameinfobig</imagePlacingMain>
+      <imagePlacingInfo>gameinfosmall</imagePlacingInfo>
+      <scraper name="thegamesdb.net" replaceKeyString="" replaceValueString="" />
+      <scraper name="mobygames.com" replaceKeyString="" replaceValueString="" />
+    </RomCollection>
+  </RomCollections>

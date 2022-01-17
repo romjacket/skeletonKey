@@ -1,0 +1,8 @@
+[BUILDENV]
+GIT_32=https://github.com/git-for-windows/git/releases/download/v2.27.0.windows.1/PortableGit-2.27.0-32-bit.7z.exe
+Github_Release_32=https://github.com/romjacket/github-release/raw/master/github-release.7z
+GIT_64=https://github.com/git-for-windows/git/releases/download/v2.27.0.windows.1/PortableGit-2.27.0-64-bit.7z.exe
+Github_Release_64=https://github.com/romjacket/github-release/raw/master/github-release-64.7z
+Autohotkey=https://autohotkey.com/download/ahk.zip
+NSIS=https://downloads.sourceforge.net/project/nsis/NSIS%203/3.04/nsis-3.04.zip
+SciTE4AutoHotkey=http://fincs.ahk4.net/scite4ahk/dl/s4ahk-portable.zip

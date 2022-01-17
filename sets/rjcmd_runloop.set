@@ -1,0 +1,39 @@
+for /f "delims=" %%a in ('dir /B /A-D [CMDLINEGET]') do (
+set ROMF=%%~a
+set ROM=%%~na
+set ROMX=%%~xa
+set ROMFN=%%~nxa
+if "%RUNROM%" NEQ "" call :REPROM
+CALL :RUN
+)
+exit /b
+
+[RUNVARS]
+GAMNAM="[GAMLST]"
+DAMVAR="[DAMVAR]"
+CMDLINE="[FRLOC]"
+CMDXTN="[CMDLINEGET]"
+RUNOPTS="[RUNOPTS]"
+RUNARGS="[RUNARGS]"
+ROMF="[ROMF]"
+ROM="[ROM]"
+ROMX="[ROMX]"
+ROMFN="[ROMFN]"
+
+[INIVARSEND]
+
+:REDEF
+exit /b
+
+:REPROM
+for %%a in ("%FETYPE%") do (
+set ROMF=%%~nxa
+set ROM=%%~na
+set GAMDIRP=%%~dpa
+)
+for /f "delims=" %%a in ("%GAMDIRP:~0,-1%") do set GAMDIR=%%~a
+exit /b
+
+:RUN
+%CCMDB%
+%RLOC%pushd "%EMUL%"

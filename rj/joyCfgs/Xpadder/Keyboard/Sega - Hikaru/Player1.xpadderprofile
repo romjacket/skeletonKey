@@ -1,0 +1,45 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=F
+Set1Button2Slots=Z
+Set1Button3Slots=A
+Set1Button4Slots=S
+Set1Button5Slots=D
+Set1Button6Slots=X
+Set1Button7Slots=5
+Set1Button7SetSelect=1
+Set1Button8Slots=1
+Set1DPadUpSlots=Arrow Up
+Set1DPadRightSlots=Arrow Right
+Set1DPadDownSlots=Arrow Down
+Set1DPadLeftSlots=Arrow Left
+Set1Stick1UpSlots=NumPad 8
+Set1Stick1RightSlots=NumPad 6
+Set1Stick1DownSlots=NumPad 2
+Set1Stick1LeftSlots=NumPad 4
+Set1Stick2UpSlots=H
+Set1Stick2RightSlots=M
+Set1Stick2DownSlots=N
+Set1Stick2LeftSlots=B
+Set1TriggerLeftSlots=C
+Set1TriggerRightSlots=V
+Set2Button7Slots=5
+Set2Button7SetSelect=0
+Set2Button8Slots=F7
+Set2Button9Slots=F2
+Set2Button10Slots=Escape
+Set2DPadUpSlots=NumPad *
+Set2DPadRightSlots=NumPad +
+Set2DPadDownSlots=NumPad /
+Set2DPadLeftSlots=NumPad -

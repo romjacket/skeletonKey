@@ -1,0 +1,46 @@
+[WindowSetting]
+WindowedWidth = [RESX]
+WindowedHeight = [RESY]
+FullscreenWidth = [RESX]
+FullscreenHeight = [RESY]
+FullScreenFrequency = 0
+ScreenScaleMode = 0
+
+
+[RenderSetting]
+DirectXDevice = 0
+DirectXAntiAliasingValue = [AAV]
+DirectXMaxFSAA = 8
+DirectXMaxAnisotropy = 16
+DirectXAnisotropyValue = [ANIS]
+NormalAlphaBlender = [ALPHAB]
+EnableFog = [FOG]
+WinFrameMode = 0
+MipMaps = [MIPMAP]
+EnableVertexShader = [VTXSHD]
+ForceSoftwareTnL = [FORCESOFT]
+
+
+[Texture Settings]
+CacheHiResTextures = [CACHEHI]
+ForceTextureFilter = [FORCETEXFILT]
+LoadHiResTextures = [LOADHI]
+DumpTexturesToFiles = [DUMPTEX]
+TextureEnhancement = [TEXENH]
+TextureEnhancementControl = [TEXENHCTRL]
+DoubleSizeForSmallTxtrBuf = [DOUBLETEX]
+
+
+[FrameBufferSettings]
+FrameBufferType = [FRAMEBUF]
+FrameBufferWriteBackControl = [WRITEBACK]
+RenderToTexture = [RENDERTOTEX]
+
+
+[MiscSettings]
+EnableHacks = [ENABLEHACKS]
+ScreenUpdateSetting = [SCREENUPD]
+FPSColor = -1
+DisplayTooltip = 0
+HideAdvancedOptions = 0
+DisplayOnscreenFPS = 0

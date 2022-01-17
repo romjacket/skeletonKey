@@ -1,0 +1,67 @@
+[Emulation]
+opt_emulation_speed=100
+opt_exit_msg=1
+opt_auto_load=0
+opt_auto_rewind=0
+opt_focus_on=0
+opt_spool_speed=8
+ 
+[Hardware]
+opt_model_type=0
+ 
+[Display]
+opt_GDI=1
+opt_DirectDraw=0
+opt_OpenGL=0
+opt_Direct3D=0
+opt_DrawMode=0
+opt_DrawSize=1
+opt_num_scanlines=0
+opt_colours=0
+opt_frameskip=1
+opt_border_size=0
+ 
+[Sound]
+opt_sound=1
+opt_snd_volume=40
+opt_stereo=1
+opt_freq=44100
+opt_soundbits=8
+opt_num_buffers=8
+ 
+[Debugger]
+opt_dis_rom=0
+opt_dis_sv=0
+ 
+[Folders]
+opt_current_sna_dir=[EMUPATH]\snapshots\  
+opt_current_tap_dir=[EMUPATH]\tapes\  
+opt_current_spool_dir=[EMUPATH]\spool\  
+ 
+[Window Placements]
+Main Window=400
+Main Window=400
+Window Size=1
+Debugger=300
+Debugger=200
+View Registers=400
+View Registers=300
+View Memory=200
+View Memory=200
+Edit Memory=300
+Edit Memory=300
+View Disassembly=600
+View Disassembly=200
+Calculator=400
+Calculator=400
+System Variables=300
+System Variables=200
+View PAD Space=400
+View PAD Space=200
+Tape Browser=300
+Tape Browser=300
+WAV Browser=300
+WAV Browser=300
+ 
+[End]
+-----Nothing Below This Line-----

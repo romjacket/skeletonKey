@@ -1,0 +1,21 @@
+    <RomCollection id="[COLNUM]" name="[CONSOLE]">
+      <gameclient />
+      <emulatorCmd>[EMUXE]</emulatorCmd>
+      <emulatorParams>[ROM]</emulatorParams>
+      <preCmd />
+      <postCmd />
+      <saveStatePath />
+      <saveStateParams />
+      <useBuiltinEmulator>False</useBuiltinEmulator>
+      <useEmuSolo>False</useEmuSolo>
+      <usePopen>False</usePopen>
+      <ignoreOnScan>[IGNORESCAN]</ignoreOnScan>
+      <allowUpdate>[ALLOWUPDATE]</allowUpdate>
+      <autoplayVideoMain>[AUTOVIDEO]</autoplayVideoMain>
+      <autoplayVideoInfo>[AUTOINFO]</autoplayVideoInfo>
+      <useFoldernameAsGamename>[FOLDERNAME]</useFoldernameAsGamename>
+      <maxFolderDepth>[MAXDEPTH]</maxFolderDepth>
+      <doNotExtractZipFiles>[NOEXTRACT]</doNotExtractZipFiles>
+      <makeLocalCopy>[COPYLOCAL]</makeLocalCopy>
+      <diskPrefix>[DISKPREFIX]</diskPrefix>
+      <romPath>[CONSOLEPATH]\*.[EXT]</romPath>

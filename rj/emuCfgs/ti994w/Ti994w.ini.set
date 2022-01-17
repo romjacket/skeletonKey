@@ -1,0 +1,442 @@
+;
+; This is the INI file used by Ti994W
+;
+
+[Ti994w]
+;
+; Automatically created
+;
+left=-1
+top=-1
+open=0
+fitalic=0
+fheight=-16
+fweight=700
+fname=Lucida Console
+vdpemul=0
+magnify=2
+autostart=1
+soundon=1
+noiseon=1
+scroffset=1
+unopint=0
+joystick1=1
+joystick2=0
+RS232/1=0 1 0 1 1 0 0 0
+RS232/2=0 2 2 1 1 0 0 0
+cputime=0
+directdraw=0
+vdp9938=0
+;
+; User options [read at power up]
+;
+; Give a warning when changing modules 
+resetwarning=0
+
+[Vdp]
+;
+; Automatically created
+;
+left=382
+top=523
+open=0
+
+[Cpu]
+;
+; Automatically created
+;
+left=673
+top=90
+open=0
+
+[Gpl]
+;
+; Automatically created
+;
+left=673
+top=234
+open=0
+
+[DbgToolWindow]
+;
+; Automatically created
+;
+left=30
+top=476
+open=1
+status=-2147483648
+width=600
+height=412
+
+[WatchToolWindow]
+;
+; Automatically created
+;
+left=32
+top=28
+width=355
+height=552
+open=0
+var00=CRU    1100 0404 0000
+var01=F=2866 2866 0141 0022
+var02=KBMODE 8374 0122 0028
+var03=ASCII  8375 0122 0028
+var04=-      0000 0122 0000
+var05=-      0000 0122 0000
+var06=STATUS 837c 0122 0000
+var07=-      0000 0122 0000
+var08=>83e5  83e5 0122 0000
+var09=>8379  8379 0122 0000
+var10=>834A  834a 0164 0008
+var11=>STACK 838a 0164 0006
+var12=>836d  836d 0124 0002
+var13=>8350  8350 0162 000a
+var14=-      0000 0104 0000
+var15=>8300  8300 0124 000a
+var16=Long1H a050 0124 0002
+var17=Long1L a052 0124 0002
+var18=Long2H a054 0124 0000
+var19=Long2L a056 0124 0000
+var20=CRU6   0000 0444 000a
+var21=-      0000 0104 0000
+var22=-      0000 0104 0000
+var23=-      0000 0104 0000
+var24=-      0000 0104 0000
+var25=-      0000 0104 0000
+var26=-      0000 0104 0000
+var27=-      0000 0104 0000
+var28=-      0000 0104 0000
+var29=-      0000 0104 0000
+var30=-      0000 0104 0000
+var31=-      0000 0104 0000
+var32=-      0000 0000 0000
+
+[DEF]
+;
+; These names are used while single-stepping.
+; If an address is found in this list, the symbolname is also
+; printed in the dissambled statement.
+;
+2100=GPLLNK
+2104=XMLLNK
+2108=KSCAN
+210C=VSBW
+2110=VMBW
+2114=VSBR
+2118=VMBR
+211C=VWTR
+2120=DSRLNK
+2124=LOADER
+2022=UTLTAB
+2024=FSTHI
+2026=LSTHI
+2028=FSTLOW
+202A=LSTLOW
+202C=CHKSAV
+202E=FLGPTR
+2030=SVGPRT
+2032=SAVCRU
+2034=SAVENT
+2036=SAVLEN
+2038=SAVPAB
+203A=SAVVER
+8800=VDPRD
+8802=VDPSTA
+8C00=VDPWD
+8C02=VDPWA
+9800=GRMRD
+9802=GRMRA
+9C00=GRMWD
+9C02=GRMWA
+8300=PAD
+83E0=GPLWS
+8400=SOUND
+9000=SPCHRD
+9400=SPCHWT
+000E=SCAN
+
+[PATCHES]
+;
+; Maximum of 99 patches
+; Format PATCHxx=ADRES DATAWORD
+;
+;Delay loop keyboard debounce
+PATCH01=0498 045B
+
+[VKEYS]
+;
+; Not all Virtual Keys #127 through #255 are defined in Windows or
+; have a no function in Ti994w.
+; However, if your keyboard doesn't send the right code for 
+; a particular key, you can define what code the emulator
+; should generate. You should use CTRL or the right ALT key
+; together with the key you want to define.
+; Open the debug window (menu Vieuw->Debug) and enter the
+; command KEY. Now if the TI-screen has the focus and you
+; press your key combination, i.e. CTRL-. a message like
+; "KEYBOARD KEY=.-190 Caps=off Shft=off Fnct=off Ctrl=on UNDEFINED"
+; appears. Now you can define your key by assigning a value to the
+; ascii code (190) of the key. The value consists of a 1-digit 
+; function code and a 3 digit decimal character code.
+; Ascii code is 127-255
+; Function code is the sum of 1=SHIFT + 2=FUNCTION + 4=CONTROL
+; Character code is 0-255
+; So to define 188 as CTRL-, and 190 as CTRL-. enter:
+;
+188=4044
+190=4046
+
+[SYSTEM]
+;
+; @xxxx defines start adres for .rom and .vdp (default is >0000)
+; .bin is a rom
+; .gpl is a grom
+; .vdp is a character file with 6 bytes header which is ignored
+; .pgm is an E/A program file with 6 bytes header and loaded at the 
+;         address defined in the header. The second, third and fourth
+;         pgm file are loaded automatically
+; .obj is an E/A object file (PC-format, autostart is disabled)
+;
+; The 994Arom.bin and 994Agrom.bin if V9T9 is ok!
+; Fdsr4w.obj is a facke DSR with DSK, DSK1, DSK2, DSk3,
+;            PIO, PIO/1, RS232, RS232/1 and RS232/2
+;
+LOAD01=.\system\994arom.bin@0000
+LOAD02=.\system\chara1.vdp@0800
+LOAD03=.\system\colortable.vdp@0380
+LOAD04=.\system\994agrom.gpl@0000
+;LOAD05=.\system\Fdsr4w.obj
+;
+;..
+;LOAD99=
+
+[DSR]
+;
+; Defines the device service routines
+; only >1000, >1100 and >1900 at the moment and the DSR's must be .bin
+; DO NOT CHANGE
+CRU1000=.\system\Dsr1000.bin
+CRU1100=.\system\Disk.bin
+CRU1600=.\system\Cf7a+.bin
+CRU1900=.\system\Video80.bin
+;
+; Cru >1200 is the IDE space  
+; DO NOT CHANGE
+CRU1200_P00L=.\system\IDE-P00L.bin
+CRU1200_BQ4852=.\system\IDE-BQ4852.bin
+CRU1200_P00H=.\system\IDE-P00H.bin
+CRU1200_P01H=.\system\IDE-P01H.bin
+CRU1200_P02H=.\system\IDE-P02H.bin
+CRU1200_P03H=.\system\IDE-P03H.bin
+CRU1200_P04H=.\system\IDE-P04H.bin
+CRU1200_P05H=.\system\IDE-P05H.bin
+CRU1200_P11H=.\system\IDE-P11H.bin
+CRU1200_P12H=.\system\IDE-P12H.bin
+CRU1200_P13H=.\system\IDE-P13H.bin
+CRU1200_P14H=.\system\IDE-P14H.bin
+;
+; cru >1500 is the test and debug space
+;CRU1500=.\system\Dsr1500.bin
+
+[MODULES]
+;
+; This is the module list from which a module menu-item will be created.
+; LOADMODULE tells the emulator wich is the default and is stored every
+; time another module os choosen from the menu. Overy item in this list
+; got an own entry with a grom (.gpl) and rom (.bin) list with exactly
+; the same name.
+;
+LOADMODULE=1
+MOD01=Editor Assembler
+MOD02=Extended Basic
+MOD03=Mini Memory
+MOD04=TI Writer
+MOD05=Demonstration
+MOD06=Diagnostic
+MOD07=Addition
+MOD08=Minus
+MOD09=Multiply
+MOD10=Division
+MOD11=Alligator
+MOD12=Dragon
+MOD13=Parsec
+MOD14=Shamus
+MOD15=Chess
+MOD16=Multiplan
+MOD17=Dm2k24
+MOD18=Du2k20
+mod19=mm2010
+
+[Editor Assembler]
+;Functional
+LOAD01=.\system\Edasm.gpl@6000
+
+[Extended Basicx]
+; Functional, you can place all groms in one file though!
+; NAME_B0 is bank0 of a banked prom
+; NAME_B1 is bank1 of a banked prom
+;
+LOAD01=.\system\Extbas.gpl@6000
+LOAD02=.\system\Extbas_B0.bin@6000
+LOAD03=.\system\Extbas_B1.bin@6000
+
+[Extended Basic]
+; Functional, you can also read al groms in their own space!
+; NAME_B0 is bank0 of a banked prom
+; NAME_B1 is bank1 of a banked prom
+;
+LOAD01=.\system\Exbas_G1.gpl@6000
+LOAD02=.\system\Exbas_G2.gpl@8000
+LOAD03=.\system\Exbas_G3.gpl@A000
+LOAD04=.\system\Exbas_G4.gpl@C000
+LOAD05=.\system\Exbas_B0.bin@6000
+LOAD06=.\system\Exbas_B1.bin@6000
+
+[Mini Memory]
+;Functional
+LOAD01=.\system\Minimem.gpl@6000
+LOAD02=.\system\Minimem.bin@6000
+
+[TI Writer]
+;Functional
+LOAD01=.\system\tiwriter.gpl@6000
+
+[Demonstration]
+;Functional
+LOAD01=.\system\demonstration.gpl@6000
+
+[Diagnostic]
+;Functional
+LOAD01=.\system\diagnostic.gpl@6000
+
+[Addition]
+;Functional
+LOAD01=.\system\addition.gpl@6000
+
+[Minus]
+;Returns to main (faulty grom?)
+LOAD01=.\system\minus.gpl@6000
+
+[Multiply]
+;Functional
+LOAD01=.\system\multiply.gpl@6000
+
+[Division]
+;Functional
+LOAD01=.\system\division.gpl@6000
+
+[Alligator]
+;Functional
+LOAD01=.\system\alligator.gpl@6000
+
+[Dragon]
+;Crashes the system
+LOAD01=.\system\dragon.gpl@6000
+LOAD02=.\system\dragon.bin@6000
+
+[Parsec]
+;Functional
+LOAD01=.\system\parsec.gpl@6000
+LOAD02=.\system\parsec.bin@6000
+
+[Shamus]
+;Different bankswitch scheme, who knows how?
+LOAD01=.\system\shamus_B0.bin@6000
+LOAD02=.\system\shamus_B1.bin@6000
+
+[Chess]
+;Functional
+LOAD01=.\system\Chess_G1.gpl@6000
+LOAD02=.\system\Chess_G2.gpl@8000
+LOAD03=.\system\Chess_G3.gpl@A000
+LOAD04=.\system\Chess_G4.gpl@C000
+LOAD05=.\system\Chess.bin@6000
+
+[Multiplan]
+;Need the original diskette and files and try again
+LOAD01=.\system\Multiplan_6.gpl@6000
+LOAD02=.\system\Multiplan_8.gpl@8000
+LOAD03=.\system\Multiplan_A.gpl@A000
+LOAD04=.\system\Multiplan_C.gpl@C000
+LOAD05=.\system\Multiplan_E.gpl@E000
+
+[Dm2k24]
+;Load a JohnGuidry style module with banked/paged
+;EPROM with a maximum of 4 banks. These modules
+;use an inverted banking/paging mechanism.
+;
+;If two banks then
+; MOV @>6000,@>6000 selects bank 1
+; MOV @>6002,@>6002 selects bank 0
+;
+;If four banks then
+; MOV @>6000,@>6000 selects bank 4
+; MOV @>6002,@>6002 selects bank 3
+; MOV @>6004,@>6002 selects bank 2
+; MOV @>6008,@>6002 selects bank 1
+;
+INVERTED=1
+LOAD01=.\system\Dm2k24_B0.bin@6000
+LOAD02=.\system\Dm2k24_B1.bin@6000
+LOAD03=.\system\Dm2k24_B2.bin@6000
+LOAD04=.\system\Dm2k24_B3.bin@6000
+
+[Du2k20]
+;Load a JohnGuidry style module with banked/paged
+;EPROM with a maximum of 4 banks. These modules
+;use an inverted banking/paging mechanism.
+;It is allowed to read a 32Kb (4 Banks of 8Kb) in
+;one go!
+;
+INVERTED=1
+LOAD01=.\system\Du2k20_B0.bin@6000
+
+[mm2010]
+INVERTED=1
+LOAD01=.\system\MM2010_B0.bin@6000
+[DEVICES]
+;
+; Automatically created when used menuoption [File]->[Foad and Doad]
+;
+; These are the DSK device. I don't want to implement SCSI and HDS yet.
+; You can create subdirs on these.
+; Files are in V9T9 format.
+; I do need a drive letter here, no relative paths!
+;
+DSK=C:\TI994W\DSK
+DSK1=C:\TI994W\DSK1
+DSK2=C:\TI994W\DSK2
+DSK3=C:\TI994W\DSK3
+;
+; These are the Disks on a Disk.
+; If DSKx_ENABLE=1 DSKx directory is selected
+; If DSKx_ENABLE=0 DOAD dsk-file is selected
+;
+DSK_ENABLE=0
+DSK1_ENABLE=1
+DSK2_ENABLE=1
+DSK3_ENABLE=1
+;
+DOAD1=C:\Ti994w\Doads\ed_asm_a.dsk
+DOAD2=C:\Ti994w\Doads\utils.dsk
+DOAD3=C:\Ti994w\Doads\DSK3.dsk
+;
+; These are the IDE images on a Disk.
+; IDE1 is the master and IDE2 is the slave device.
+; If IDEx_ENABLE=1 the IDE device is accesable.
+;
+IDE1=C:\Ti994w\Doads\test16mb.img
+IDE2=
+;
+IDE1_ENABLE=0
+IDE2_ENABLE=0
+;
+; These is the CF7A+ image on a Disk.
+; There is only a CF7A+ master.
+; If CF7A_ENABLE=1 the CF7A+ device is accesable.
+;
+CF7A=C:\Ti994w\Doads\Cf7a_64mb.cf7
+CF7A_ENABLE=0
+CF7A_DSK1_ENABLE=0
+CF7A_DSK2_ENABLE=0
+CF7A_DSK3_ENABLE=0

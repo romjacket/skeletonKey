@@ -1,0 +1,15 @@
+call SET.cmd
+if not exist SET.cmd call DEFAULT.cmd
+REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "VideoPlugin" /t REG_SZ /d "%GPUD%"
+REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "SoundPlugin" /t REG_SZ /d "%SPUD%"
+REG ADD "HKEY_CURRENT_USER\Software\epsxe\config" /f /v "ShaderDir" /t REG_SZ /d "%SHADERDIR%"
+call "%SPU%_PRE.cmd"
+call "%GPU%_PRE.cmd"
+call "INTERNAL1_PRE.cmd"
+call "INTERNAL2_PRE.cmd"
+call "INTERNAL3_PRE.cmd"
+call "INTERNAL4_PRE.cmd"
+call "INTERNAL5_PRE.cmd"
+call "INTERNAL6_PRE.cmd"
+call "INTERNAL7_PRE.cmd"
+call "INTERNAL8_PRE.cmd"

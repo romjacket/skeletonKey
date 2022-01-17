@@ -1,0 +1,23 @@
+﻿[main]
+transformZ = [TRANZ]
+listSorting = [SORT]
+modifier = [MODT]
+snapPng = true
+snapJpg = false
+rotate = 0
+DynamicVB = [DYNVB]
+disableFog = [FOGOFF]
+
+
+[resolution]
+wWidth = [REZX]
+wHeight = [REZY]
+fWidth = [REZX]
+fHeight = [REZY]
+frequency = 60
+
+[shader]
+effects = false
+mode = 0
+path = 
+name = 

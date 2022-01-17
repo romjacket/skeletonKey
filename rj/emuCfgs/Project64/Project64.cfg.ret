@@ -1,0 +1,26 @@
+[Plugin]
+Audio Dll Ver=Project64 Audio Plugin: 1.0.1.1131-g56fde2db
+Controller Dll Ver=N-Rage For PJ64: 2.5.3.1131-g56fde2db
+Graphics Dll Ver=Project64 Video Plugin: 2.2.0.1131-g56fde2db
+RSP Dll Ver=RSP Plugin 1.7.4.1131-g56fde2db
+
+[Settings]
+Basic Mode=0
+Current Language=English
+Unique Game Dir=1
+
+[Support Project64]
+Run Count=1
+
+[Defaults]
+RDRAM Size=8388608
+
+[Snap Shot Directory]
+Use Selected=1
+
+[Recent File]
+Recent Rom 0=[ROMPATH]\[ROMF]
+
+[Main Window]
+Left=355
+Top=114

@@ -1,0 +1,9 @@
+[4DOS]
+UMBLoad=No
+UMBEnvironment=No
+Win95LFN=Yes
+Win95SFNSearch=Yes
+BrightBG=Yes
+Environment=2048
+EditMode=Overstrike
+Swapping=XMS,EMS,.,C:\,None

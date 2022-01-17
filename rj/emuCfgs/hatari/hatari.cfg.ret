@@ -1,0 +1,217 @@
+[Log]
+sLogFileName = [EMUPATH]\stderr
+sTraceFileName = [EMUPATH]\stderr
+nTextLogLevel = 4
+nAlertDlgLogLevel = 1
+bConfirmQuit = TRUE
+
+[Debugger]
+nNumberBase = 10
+nDisasmLines = 8
+nMemdumpLines = 8
+
+[Screen]
+nMonitorType = 1
+nFrameSkips = 5
+bFullScreen = TRUE
+bKeepResolution = TRUE
+bKeepResolutionST = FALSE
+bAllowOverscan = TRUE
+nSpec512Threshold = 16
+nForceBpp = 0
+bAspectCorrect = TRUE
+bUseExtVdiResolutions = FALSE
+nVdiWidth = [REZX]
+nVdiHeight = [REZY]
+nVdiColors = 2
+bShowStatusbar = TRUE
+bShowDriveLed = FALSE
+bCrop = FALSE
+bForceMax = FALSE
+nMaxWidth = 832
+nMaxHeight = 576
+
+[Joystick0]
+nJoystickMode = 0
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 1
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Joystick1]
+nJoystickMode = 1
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 0
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Joystick2]
+nJoystickMode = 0
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 2
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Joystick3]
+nJoystickMode = 0
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 3
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Joystick4]
+nJoystickMode = 0
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 4
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Joystick5]
+nJoystickMode = 0
+bEnableAutoFire = FALSE
+bEnableJumpOnFire2 = FALSE
+nJoyId = 5
+nKeyCodeUp = 273
+nKeyCodeDown = 274
+nKeyCodeLeft = 276
+nKeyCodeRight = 275
+nKeyCodeFire = 305
+
+[Keyboard]
+bDisableKeyRepeat = FALSE
+nKeymapType = 0
+szMappingFileName =
+
+[ShortcutsWithModifiers]
+keyOptions = 111
+keyFullScreen = 102
+keyMouseMode = 109
+keyColdReset = 99
+keyWarmReset = 114
+keyScreenShot = 103
+keyBossKey = 105
+keyCursorEmu = 106
+keyFastForward = 120
+keyRecAnim = 97
+keyRecSound = 121
+keySound = 115
+keyPause = 0
+keyDebugger = 19
+keyQuit = 113
+keyLoadMem = 108
+keySaveMem = 107
+keyInsertDiskA = 100
+
+[ShortcutsWithoutModifiers]
+keyOptions = 293
+keyFullScreen = 292
+keyMouseMode = 0
+keyColdReset = 0
+keyWarmReset = 0
+keyScreenShot = 0
+keyBossKey = 0
+keyCursorEmu = 0
+keyFastForward = 0
+keyRecAnim = 0
+keyRecSound = 0
+keySound = 0
+keyPause = 19
+keyDebugger = 0
+keyQuit = 0
+keyLoadMem = 0
+keySaveMem = 0
+keyInsertDiskA = 0
+
+[Sound]
+bEnableMicrophone = TRUE
+bEnableSound = TRUE
+bEnableSoundSync = FALSE
+nPlaybackFreq = 44100
+nSdlAudioBufferSize = 0
+szYMCaptureFileName = [ROMPATH]\hatari.wav
+YmVolumeMixing = 2
+
+[Memory]
+nMemorySize = 14
+bAutoSave = TRUE
+szMemoryCaptureFileName = [ROMPATH]
+szAutoSaveFileName = [ROMPATH]\auto.sav
+
+[Floppy]
+bAutoInsertDiskB = TRUE
+FastFloppy = FALSE
+nWriteProtection = 0
+szDiskAZipPath =
+szDiskAFileName =
+szDiskBZipPath =
+szDiskBFileName =
+szDiskImageDirectory = [ROMPATH]\
+
+[HardDisk]
+bBootFromHardDisk = FALSE
+bUseHardDiskDirectory = FALSE
+szHardDiskDirectory = [ROMPATH]
+nWriteProtection = 0
+bUseHardDiskImage = FALSE
+szHardDiskImage = [ROMPATH]
+bUseIdeMasterHardDiskImage = FALSE
+bUseIdeSlaveHardDiskImage = FALSE
+szIdeMasterHardDiskImage = [ROMPATH]
+szIdeSlaveHardDiskImage = [ROMPATH]
+
+[ROM]
+szTosImageFileName = [EMUPATH]\tos.img
+bPatchTos = TRUE
+szCartridgeImageFileName = [ROMPATH]\[ASTROM]
+
+[RS232]
+bEnableRS232 = FALSE
+szOutFileName = [EMUPATH]\/dev/modem
+szInFileName = [EMUPATH]\/dev/modem
+
+[Printer]
+bEnablePrinting = FALSE
+szPrintToFileName = [EMUPATH]\hatari.prn
+
+[Midi]
+bEnableMidi = FALSE
+sMidiInFileName = ./dev/snd/midiC1D0
+sMidiOutFileName = ./dev/snd/midiC1D0
+
+[System]
+nCpuLevel = 0
+nCpuFreq = 8
+bCompatibleCpu = TRUE
+nMachineType = 0
+bBlitter = FALSE
+nDSPType = 0
+bRealTimeClock = TRUE
+bPatchTimerD = TRUE
+bFastBoot = TRUE
+bFastForward = FALSE
+
+[Video]
+AviRecordVcodec = 2
+AviRecordFps = 0
+AviRecordFile = [ROMPATH]\hatari.avi
+

@@ -1,0 +1,8 @@
+[settings-oml]
+#Wed Aug 03 16:13:08 PDT 2016
+openmsx-machines-path=[EMUPATHD]\\share\\machines
+showUpdateAllDatabases=false
+screenshots-path=
+default-database=openmsx1
+openmsx-path=[EMUPATHD]\\
+language=0

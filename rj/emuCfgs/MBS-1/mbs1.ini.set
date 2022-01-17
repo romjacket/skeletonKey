@@ -1,0 +1,171 @@
+
+; HITACHI MB-S1 model05 config file
+Name = MBS1
+Encording = UTF-8
+Version1 = 0x30
+Version2 = 7
+
+
+[control]
+CpuPower = 1
+NowPowerOff = false
+UsePowerOff = false
+DipSwitch = 0x3
+SystemMode = 0x7
+MemoryNoWait = false
+SyncIRQ = true
+ExtendedRamSize = 1
+FddType = 0
+IoPort = 0xcc0
+OriginalSettings = 0x0
+ShowMessage = true
+UseJoystick = 0
+EnableMouse = false
+ShowMessageUndefOpcode = true
+FpsNo = -1
+UseDirectInput = false
+
+
+[fdd]
+Path = 
+IgnoreDelay = 0
+
+
+[fdd0]
+MountWhenStartUp = true
+
+
+[fdd1]
+MountWhenStartUp = true
+
+
+[fdd2]
+MountWhenStartUp = false
+
+
+[fdd3]
+MountWhenStartUp = false
+
+
+[tape]
+Path = 
+RealMode = false
+LoadWavReverse = false
+LoadWavHalf = true
+LoadWavCorrect = false
+LoadWavCorrectType = 0
+SaveWavSampleRate = 3
+SaveWavSampleBits = 0
+
+
+[screen]
+WindowMode = 0
+DisplayDevice = 0
+ScreenWidth = 640
+ScreenHeight = 480
+StretchScreen = 0
+PixelAspect = 0
+CaptureType = 0
+ScanLine = 0
+AnalogRGB = false
+AfterImage = 0
+UseDirect3D = 0
+DisptmgSkew = 0
+CurdispSkew = 0
+VideoSize = 0
+D3DFilterType = 0
+
+
+[sound]
+FrequencyNo = 6
+LatencyNo = 1
+Volume = 80
+BeepVolume = 80
+6VoicePsgVolume = 80
+9VoicePsgVolume = 80
+RelayVolume = 80
+CmtVolume = 50
+FddVolume = 80
+PsgVolume = 80
+OPNFmVolume = 80
+OPNSSGVolume = 80
+Mute = false
+BeepMute = false
+6VoicePsgMute = false
+9VoicePsgMute = false
+RelayMute = false
+CmtMute = false
+FddMute = false
+PsgMute = false
+OPNFmMute = false
+OPNSSGMute = false
+
+
+[printer]
+Path = 
+
+
+[state]
+Path = 
+
+
+[autokey]
+Path = 
+
+
+[messageboard]
+InfoFontName = Segoe UI
+MessageFontName = Segoe UI
+InfoFontSize = 18
+MessageFontSize = 9
+
+
+[rom]
+Path = 
+
+
+[printer0]
+ServerHost = localhost
+ServerPort = 10200
+
+
+[printer1]
+ServerHost = localhost
+ServerPort = 10200
+
+
+[printer2]
+ServerHost = localhost
+ServerPort = 10200
+
+
+[comm0]
+DipSwitch = 1
+ServerHost = localhost
+ServerPort = 6890
+ThroughMode = false
+
+
+[comm1]
+DipSwitch = 1
+ServerHost = localhost
+ServerPort = 6891
+ThroughMode = false
+
+
+[snapshot]
+Path = 
+
+
+[ledbox]
+Show = true
+Inside = true
+Position = 0
+DistanceOnWindowX = 0
+DistanceOnWindowY = 0
+DistanceOnFullscreenX = 0
+DistanceOnFullscreenY = 0
+
+
+[font]
+File = 

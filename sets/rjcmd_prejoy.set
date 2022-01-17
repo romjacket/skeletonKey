@@ -1,0 +1,13 @@
+%JYX%%XPSTRT% "%XPADDER%" /m "[XPL1LOC]\%PLYRN1%.xpadderprofile" "[XPL2LOC]\%PLYRN2%.xpadderprofile"
+
+
+%XPALT%%JYX%pushd "%AMDIR%"
+%XPALT%%JYX%"%ANTIMIC%" -l>"%AMDIR%lst.ini"
+%XPALT%%JYX%for /f "tokens=1,2 delims=: " %%a in ('type "%AMDIR%lst.ini"') do if "%%~a"=="Index" set JNUM=%%~b&&if "%%~b" GEQ "2" for /f "tokens=1,2,3* delims= " %%i in ("--profile-controller 2 --profile [APL2LOC]\%PLYRN2%.amgp") do (
+%XPALT%%JYX%set AMCP2=%%~i %%~j %%~k
+%XPALT%%JYX%set AMCV=%%~l
+%XPALT%%JYX%)
+%XPALT%%JYX%if "%AMCV%" NEQ "" for %%a in ("%AMCV%") do set AMCV=%%a
+%XPALT%%JYX%%XPSTRT% "%ANTIMIC%" --hidden --profile-controller 1 --profile "[APL1LOC]\%PLYRN1%.amgp" %AMCP2% %AMCV%
+%XPALT%%JYX%popd
+

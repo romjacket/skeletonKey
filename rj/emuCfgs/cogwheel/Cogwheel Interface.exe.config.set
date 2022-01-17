@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="BeeDevelopment.Cogwheel.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+            <section name="CogwheelSlimDX.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <BeeDevelopment.Cogwheel.Properties.Settings>
+            <setting name="UrlBugReport" serializeAs="String">
+                <value>http://www.bee-dev.com/?go=cogwheel.bugs</value>
+            </setting>
+            <setting name="OptionSimulateGameGearLcdScaling" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="UrlWebsite" serializeAs="String">
+                <value>http://www.bee-dev.com/?go=cogwheel</value>
+            </setting>
+            <setting name="OptionLinearInterpolation" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="OptionEnableSound" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="StoredPathQuickLoad" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathState" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedCartridge" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedCartridgePatch" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedBios" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="OptionMaxMRUEntries" serializeAs="String">
+                <value>6</value>
+            </setting>
+            <setting name="StoredPathMRU" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="OptionMaintainAspectRatio" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionEnableFMSound" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="InputJoystickAxisThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputXInputAxisThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputXInputTriggerThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputSkipDuplicatedXInputJoysticks" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="Option3DGlasses" serializeAs="String">
+                <value>LeftEyeOnly</value>
+            </setting>
+            <setting name="Option3DGlassesLeftFilterColour" serializeAs="String">
+                <value>16711680</value>
+            </setting>
+            <setting name="Option3DGlassesRightFilterColour" serializeAs="String">
+                <value>65535</value>
+            </setting>
+            <setting name="Option3DGlassesLeftEyeFirst" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionRegionAutomatic" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionRegionJapanese" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionVideoStandardAutomatic" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionVideoStandardNtsc" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="StoredPathVgm" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="UrlVgmPlayerStub" serializeAs="String">
+                <value>http://www.smspower.org/maxim/smssoftware/vgmplayer.html</value>
+            </setting>
+        </BeeDevelopment.Cogwheel.Properties.Settings>
+        <CogwheelSlimDX.Properties.Settings>
+            <setting name="UrlBugReport" serializeAs="String">
+                <value>http://www.bee-dev.com/?go=cogwheel.bugs</value>
+            </setting>
+            <setting name="OptionSimulateGameGearLcdScaling" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="UrlWebsite" serializeAs="String">
+                <value>http://www.bee-dev.com/?go=cogwheel</value>
+            </setting>
+            <setting name="OptionLinearInterpolation" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="OptionEnableSound" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="StoredPathQuickLoad" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathState" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedCartridge" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedCartridgePatch" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="StoredPathAdvancedBios" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="OptionMaxMRUEntries" serializeAs="String">
+                <value>6</value>
+            </setting>
+            <setting name="StoredPathMRU" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="OptionMaintainAspectRatio" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="OptionEnableFMSound" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="SeenWarningFMSound" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="InputJoystickAxisThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputXInputAxisThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputXInputTriggerThreshold" serializeAs="String">
+                <value>0.3</value>
+            </setting>
+            <setting name="InputSkipDuplicatedXInputJoysticks" serializeAs="String">
+                <value>True</value>
+            </setting>
+        </CogwheelSlimDX.Properties.Settings>
+    </userSettings>
+</configuration>

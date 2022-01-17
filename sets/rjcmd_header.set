@@ -1,0 +1,81 @@
+CHCP 1252
+MODE CON: COLS=15 LINES=1
+TITLE LAUNCHER
+
+for /f "delims=" %%a in ("%~1") do (
+set FETYPE=%%~a
+set RUNROM=1
+)
+for /f "delims=" %%a in ("%~2") do set JYTYP=%%~a
+for /f "delims=" %%a in ("%~3") do set JYZ=%%~a
+for /f "delims=" %%a in ("%~4") do set DMT=%%~a
+for /f "delims=" %%a in ("%~5") do set CFG=%%~a
+for /f "delims=" %%a in ("%~6") do set CCMDA=%%~a
+for /f "delims=" %%a in ("%~7") do set CCMDB=%%~a
+for /f "delims=" %%a in ("%~8") do set CCMDY=%%~a
+for /f "delims=" %%a in ("%~9") do set CCMDZ=%%~a
+for %%a in ("[FRLOC]") do set FRLOC=%%~a
+set PLYRN1=[PLAYER1]
+set PLYRN2=[PLAYER2]
+
+if "%FETYPE%" NEQ "" call :REDEF
+if "%JYTP%"=="." set JYTP=[XPALT]
+if "%JYTP%"=="" set JYTP=[XPALT]
+if "%FETYPE%"=="" set FETYPE=[Mediacenter]
+if "%FETYPE%"=="." set FETYPE=[Mediacenter]
+SET JYX=[JOYENB]
+if "%JYZ%" NEQ "" set JYX=%JYX% && if "%JYTYP%" NEQ "." set JYX=
+SET DMX=REM 
+if "%DMT%"=="1" set DMX=
+SET XFG=REM 
+if "%CFG%"=="" set XFG=
+if "%CFG%"=="." set XFG=REM 
+SET RLOC=REM 
+if "%FRLOC%"=="" set RLOC=
+
+for %%a in ("cmd /c start """) do set XPSTRT=%%~a
+for %%a in ("start /w """) do set LAUNCH=%%~a
+for %%a in ("start """) do set LSTART=%%~a
+for /f "tokens=2 delims=[" %%a in ('ver') do if "%%~a"=="" set WINE=1
+if "%WINE%"=="1" for %%a in ("start /w") do set LAUNCH=%%~a
+if "%WINE%"=="1" set XPSTRT=
+
+set XPALT=REM 
+if "%JYTP%"=="1" set XPALT=
+
+pushd "%~dp0"
+
+for %%A in ("[EMUL]") do SET EMUL=%%~A&if not exist "%%~A" echo.NO EMULATOR>RJerror.log&EXIT /b
+for %%A in ("[EMUL]\[EMUZ]") do SET EMUZ=%%~nA&if not exist "%%~A" echo.NO EMULATOR EXE>RJerror.log&EXIT /b
+for %%A in ("%~dpn0") do SET GAMNAM=%%~A
+for %%A in ("%EMUL:~0,2%") do SET EMUDIR=%%~A
+for %%A in ("%CD%") do SET GAMDIR=%%~A
+%CCMDA%
+%XPALT%%JYX%for %%A in ("[AMC]") do (
+%XPALT%%JYX%SET ANTIMIC=%%~A
+%XPALT%%JYX%SET AMDIR=%%~dpA
+%XPALT%%JYX%)
+%XPALT%%JYX%for %%A in ("%ANTIMIC%") do if not exist "%%~A" echo.NO ANTIMICRO>RJerror.log& set XPALT=REM  
+%JYX%for %%A in ("[XPD]") do (
+%JYX%SET XPADDER=%%~A
+%JYX%XPDIR=%%~dpA
+%JYX%)
+%JYX%for %%A in ("%XPADDER%") do if not exist "%%~A" echo.NO XPADDER>RJerror.log& set JYX=REM  
+%DMX%for %%A in ("[DAMVAR]") do SET DAMVAR=%%~A
+%DMX%for %%A in ("%DAMVAR%") do if not exist "%%~A" echo.NO DAEMONTOOLS>>RJerror.log& set DMX=REM  
+If "%PLYRN1%"=="" SET PLYRN1=Player1
+If "%PLYRN2%"=="" SET PLYRN2=Player2
+
+%XPALT%FOR /F "tokens=2 delims= " %%A IN ('TASKLIST /FI "imagename eq antimicro.exe" /v^| find /i "antimicro"') DO if "%%~A" NEQ "" goto :CPY
+goto :CPY
+
+[INIVARS]
+EMUL="[EMUL]"
+EMUZ="[EMUZ]"
+ANTIMIC="[AMC]"
+XPADDER="[XPD]"
+PLYRN1="[PLAYER1]"
+PLYRN2="[PLAYER2]"
+[INIVAREND]
+
+:CPY

@@ -1,0 +1,139 @@
+#
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              auto
+bgfx_debug                0
+bgfx_screen_chains        default
+bgfx_shadow_mask          slot-mask.png
+bgfx_lut                  
+bgfx_avi_name             auto
+
+#
+# OpenGL-SPECIFIC OPTIONS
+#
+gl_forcepow2texture       0
+gl_notexturerect          0
+gl_vbo                    1
+gl_pbo                    1
+gl_glsl                   0
+gl_glsl_filter            1
+glsl_shader_mame0         none
+glsl_shader_mame1         none
+glsl_shader_mame2         none
+glsl_shader_mame3         none
+glsl_shader_mame4         none
+glsl_shader_mame5         none
+glsl_shader_mame6         none
+glsl_shader_mame7         none
+glsl_shader_mame8         none
+glsl_shader_mame9         none
+glsl_shader_screen0       none
+glsl_shader_screen1       none
+glsl_shader_screen2       none
+glsl_shader_screen3       none
+glsl_shader_screen4       none
+glsl_shader_screen5       none
+glsl_shader_screen6       none
+glsl_shader_screen7       none
+glsl_shader_screen8       none
+glsl_shader_screen9       none
+
+#
+# DIRECT3D POST-PROCESSING OPTIONS
+#
+hlslpath                  hlsl
+hlsl_preset               Off
+hlsl_enable               0
+hlsl_oversampling         0
+hlsl_write                auto
+hlsl_snap_width           2048
+hlsl_snap_height          1536
+shadow_mask_tile_mode     0
+shadow_mask_alpha         0.0
+shadow_mask_texture       shadow-mask.png
+shadow_mask_x_count       6
+shadow_mask_y_count       4
+shadow_mask_usize         0.1875
+shadow_mask_vsize         0.25
+shadow_mask_uoffset       0.0
+shadow_mask_voffset       0.0
+distortion                0.0
+cubic_distortion          0.0
+distort_corner            0.0
+round_corner              0.0
+smooth_border             0.0
+reflection                0.0
+vignetting                0.0
+scanline_alpha            0.0
+scanline_size             1.0
+scanline_height           1.0
+scanline_variation        1.0
+scanline_bright_scale     1.0
+scanline_bright_offset    0.0
+scanline_jitter           0.0
+hum_bar_alpha             0.0
+defocus                   0.0,0.0
+converge_x                0.0,0.0,0.0
+converge_y                0.0,0.0,0.0
+radial_converge_x         0.0,0.0,0.0
+radial_converge_y         0.0,0.0,0.0
+red_ratio                 1.0,0.0,0.0
+grn_ratio                 0.0,1.0,0.0
+blu_ratio                 0.0,0.0,1.0
+saturation                1.0
+offset                    0.0,0.0,0.0
+scale                     1.0,1.0,1.0
+power                     1.0,1.0,1.0
+floor                     0.0,0.0,0.0
+phosphor_life             0.0,0.0,0.0
+chroma_mode               3
+chroma_conversion_gain    0.299,0.587,0.114
+chroma_a                  0.64,0.33
+chroma_b                  0.30,0.60
+chroma_c                  0.15,0.06
+chroma_y_gain             0.2126,0.7152,0.0722
+
+#
+# NTSC POST-PROCESSING OPTIONS
+#
+yiq_enable                0
+yiq_jitter                0.0
+yiq_cc                    3.57954545
+yiq_a                     0.5
+yiq_b                     0.5
+yiq_o                     0.0
+yiq_p                     1.0
+yiq_n                     1.0
+yiq_y                     6.0
+yiq_i                     1.2
+yiq_q                     0.6
+yiq_scan_time             52.6
+yiq_phase_count           2
+
+#
+# VECTOR POST-PROCESSING OPTIONS
+#
+vector_beam_smooth        0.0
+vector_length_scale       0.5
+vector_length_ratio       0.5
+
+#
+# BLOOM POST-PROCESSING OPTIONS
+#
+bloom_blend_mode          0
+bloom_scale               0.0
+bloom_overdrive           1.0,1.0,1.0
+bloom_lvl0_weight         1.0
+bloom_lvl1_weight         0.64
+bloom_lvl2_weight         0.32
+bloom_lvl3_weight         0.16
+bloom_lvl4_weight         0.08
+bloom_lvl5_weight         0.06
+bloom_lvl6_weight         0.04
+bloom_lvl7_weight         0.02
+bloom_lvl8_weight         0.01
+lut_texture               
+lut_enable                0
+ui_lut_texture            
+ui_lut_enable             0

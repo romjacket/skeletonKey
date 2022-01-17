@@ -1,0 +1,64 @@
+	# FS-UAE example configuration file
+# The encoding of the configuration file must be UTF-8 (or ASCII)
+#
+# All paths can be either absolute, or relative to the current working
+# directory. The same is true for all paths in the configuration file.
+# Some relative paths will also be looked up relative to special
+# directories. For example, a relative floppy image path will also be
+# looked up relative to the FS-UAE Floppies dir.
+#
+# If you specify paths with backslash on Windows, you must escape them
+# (use \\ instead of just \ - c:\\path\\to\\file). You can also just use
+# forward slashes instead (c:/path/to/file).
+# 
+# You can start paths with ~/ or $HOME/ to refer to the user's home.
+# Example: ~/Documents/Floppies/example.adf
+#
+# There are many options available to configure FS-UAE.
+# See http://fengestad.no/fs-uae/options
+# for a complete list of configuration options with documentation
+
+[config]
+amiga_model = A500
+accuracy = 0
+floppy_drive_volume = 5
+floppy_drive_count = 2
+floppy_drive_speed = 800
+fsaa = 2
+video_sync_method = swap-finish
+video_sync = off
+fullscreen = 0
+keep_aspect = 1
+
+keyboard_key_shift_period = action_state_current
+keyboard_key_shift_backspace = action_state_rewind
+keyboard_key_shift_f5 = action_restore_state_1
+keyboard_key_shift_f7 = action_load_state_1
+joystick_port_0_autoswitch = 1
+joystick_port_0 = keyboard
+
+kickstart_file = 
+save_states_dir = [ROMPATH]
+screenshots_output_dir = [ROMPATH]
+
+hard_drive_0 = 
+
+floppy_drive_0 = 
+floppy_drive_1 = 
+floppy_image_0 = 
+floppy_image_1 = 
+floppy_image_2 = 
+floppy_image_3 = 
+floppy_image_4 = 
+floppy_image_6 = 
+floppy_image_7 = 
+floppy_image_8 = 
+floppy_image_9 = 
+floppy_image_10 = 
+floppy_image_11 = 
+floppy_image_12 = 
+floppy_image_13 = 
+floppy_image_14 = 
+floppy_image_15 = 
+base_dir = [ROMPATH]
+floppies_dir = [ROMPATH]

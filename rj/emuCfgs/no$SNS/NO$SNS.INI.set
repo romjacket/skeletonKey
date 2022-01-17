@@ -1,0 +1,90 @@
+;no$sns 1.6 generated config file - do not edit
+[no$sns]
+Emulation Speed, Frameskip == -Realtime, Auto
+Pixel Ratio == Square Pixels
+Color Depth == -Auto
+Frame Rate == Auto (cart header)
+Sound Output Mode == 16bit stereo
+Sound Volume Control == Hardware (mixer)
+Game Controllers == Auto (or one joypad)
+SNESpad Adapter == -None/Disabled (fast)
+Joysticks == -Stick A (slows down)
+Joystick A == -Stick A (slows down)
+Joystick B == -Stick B (slows down)
+
+Disassembler Syntax == -Nocash 80XX Style
+Symbolic Informations (TAB) == -Displayed
+When Loading No{sns == -Start in Emulation Mode
+Datazone Format == -Byte
+Datazone End Strategy == -Manually CTRL-D-entered
+Invalid Memory Accesses == -Ignore
+Illegal Opcodes == -Execute
+Autosave Options == -Save on Exit
+IIgame_size == normal
+Courier New Patch == Use Patched font (1<>L)
+HideUnusedWin == show both
+Debug Font == 7x15 Courier New
+Arrange == oldstyle
+Transmit Port == -None/Disabled
+Performance Indicator == -Show Timing only if <>100%
+Fast Idle Loops == Fast fast
+Image Stretching Type == MS DirectDraw (fastest)
+io10page == video1
+IIsym == all
+HelpView == SingleChapter
+tty_font == small
+tty_show == no
+hlp_show == no
+io10show == no
+vramviewshow == no
+Xboo Completion == -Auto-close Upload Box
+TTY Debug Message Limit == Stop logging after 1MB
+LogUser == yes
+LogMain == no
+LogSub == no
+SAV/SNA File Format == Compressed (good/lz)
+
+Hack_xloc == 00000113
+Hack_yloc == 000000C8
+Hack_ysiz == 00000019
+Data_ysiz == 00000006
+iXed_xloc == 00000014
+iXed_yloc == 00000014
+iXed_xsiz == 0000004F
+iXed_ysiz == 00000018
+Stat_xloc == 0000001E
+Stat_yloc == 0000001E
+Vram_xloc == 0000001E
+Vram_yloc == 0000001E
+Vram_xsiz == 00000000
+Vram_ysiz == 00000000
+TTY_xloc == 0000001E
+TTY_yloc == 0000001E
+TTY_xsiz == 00000050
+TTY_ysiz == 00000014
+Help_xloc == 00000014
+Help_yloc == 0000001E
+Help_xsiz == 00000230
+Help_ysiz == 00000320
+Game_xloc == 0000001E
+Game_yloc == 0000001E
+Game_xsiz == 00010000
+Game_ysiz == 00010000
+Mixer_vol == 0000BFFF
+
+KEYB_1 == 101E181939382D2C0F1C1D76
+KEYB_2 == A1A9A4A6524F501553752613
+KEYB_3 == 595959595959595959045959
+KEYB_4 == 595959595959595959055959
+KEYB_5 == 595959595959595959065959
+KEYB_6 == 595959595959595959075959
+KEYB_7 == 595959595959595959085959
+KEYB_8 == 595959595959595959095959
+JOYB_1 == 01010102030405060708
+JOYB_2 == 01020102030405060708
+JOYB_3 == 01030102030405060708
+JOYB_4 == 01040102030405060708
+JOYB_5 == 01050102030405060708
+JOYB_6 == 01060102030405060708
+JOYB_7 == 01070102030405060708
+JOYB_8 == 01080102030405060708

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>[ROM - Settings]</comment>
+<entry key="upper_6">none</entry>
+<entry key="upper_5">none</entry>
+<entry key="upper_4">none</entry>
+<entry key="upper_3">none</entry>
+<entry key="upper_2">none</entry>
+<entry key="upper_1">none</entry>
+<entry key="upper_0">BASIC1-1.ROM</entry>
+<entry key="upper_F">none</entry>
+<entry key="upper_E">none</entry>
+<entry key="upper_D">none</entry>
+<entry key="lower">OS6128.ROM</entry>
+<entry key="upper_C">none</entry>
+<entry key="upper_B">none</entry>
+<entry key="upper_A">none</entry>
+<entry key="upper_9">none</entry>
+<entry key="upper_8">none</entry>
+<entry key="upper_7">AMSDOS.ROM</entry>
+</properties>

@@ -1,0 +1,14 @@
+[Settings]
+region = 0
+#fullscreen = 1
+#video_mode = 1920x1080
+#scaling_mode = 3
+
+[AICA]
+volume = 100
+
+[PVR2]
+multithreaded = 1
+pixelcenter = -0.33
+forcetrilinear = 1
+anisotropy = 4

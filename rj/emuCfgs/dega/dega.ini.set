@@ -1,0 +1,108 @@
+// Dega v1.16, Doze core Config File
+
+// File
+RomFolder .
+
+// Setup
+SetupPal 0
+MastEx 0
+TryOverlay 2
+StartInFullscreen 0
+StatusMode 1
+MdrawOsdOptions 0
+MenuHideOnLoad 1
+
+// Sound
+DSoundSamRate 44100
+DpsgEnhance 0
+
+// Input
+UseJoystick 0
+
+// State
+StateFolder .
+AutoLoadSave 0
+VideoReadOnly 0
+SizeMultiplier 2
+
+// Keys
+Key0Mapping 90 0
+Key1Mapping 88 0
+Key2Mapping 38 0
+Key3Mapping 40 0
+Key4Mapping 37 0
+Key5Mapping 39 0
+Key6Mapping 67 0
+Key7Mapping 80 0
+Key8Mapping 79 0
+Key9Mapping 116 0
+Key10Mapping 117 0
+Key11Mapping 187 0
+Key12Mapping 189 0
+Key13Mapping 119 0
+Key14Mapping 48 0
+Key15Mapping 49 0
+Key16Mapping 50 0
+Key17Mapping 51 0
+Key18Mapping 52 0
+Key19Mapping 53 0
+Key20Mapping 54 0
+Key21Mapping 55 0
+Key22Mapping 56 0
+Key23Mapping 57 0
+Key24Mapping 0 0
+Key25Mapping 0 0
+Key26Mapping 0 0
+Key27Mapping 0 0
+Key28Mapping 0 0
+Key29Mapping 0 0
+Key30Mapping 0 0
+Key31Mapping 0 0
+Key32Mapping 0 0
+Key33Mapping 0 0
+Key34Mapping 0 0
+Key35Mapping 0 0
+Key36Mapping 0 0
+Key37Mapping 0 0
+Key38Mapping 0 0
+Key39Mapping 0 0
+Key40Mapping 0 0
+Key41Mapping 0 0
+Key42Mapping 0 0
+Key43Mapping 0 0
+Key44Mapping 0 0
+Key45Mapping 0 0
+Key46Mapping 0 0
+Key47Mapping 0 0
+Key48Mapping 0 0
+Key49Mapping 0 0
+Key50Mapping 0 0
+Key51Mapping 0 0
+Key52Mapping 0 0
+Key53Mapping 0 0
+Key54Mapping 0 0
+Key55Mapping 0 0
+Key56Mapping 0 0
+Key57Mapping 0 0
+Key58Mapping 0 0
+Key59Mapping 0 0
+Key60Mapping 0 0
+Key61Mapping 0 0
+Key62Mapping 0 0
+Key63Mapping 0 0
+Key64Mapping 0 0
+Key65Mapping 0 0
+Key66Mapping 0 0
+Key67Mapping 0 0
+Key68Mapping 0 0
+Key69Mapping 0 0
+Key70Mapping 0 0
+Key71Mapping 0 0
+Key72Mapping 0 0
+Key73Mapping 0 0
+Key74Mapping 0 0
+Key75Mapping 0 0
+Key76Mapping 0 0
+Key77Mapping 0 0
+Key78Mapping 0 0
+Key79Mapping 0 0

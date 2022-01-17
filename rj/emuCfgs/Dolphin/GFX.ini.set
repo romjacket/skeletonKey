@@ -1,0 +1,50 @@
+[Enhancements]
+ArbitraryMipmapDetection = True
+DisableCopyFilter = True
+ForceTrueColor = True
+ForceFiltering = False
+[Hacks]
+BBoxEnable = False
+DeferEFBCopies = True
+EFBEmulateFormatChanges = False
+EFBScaledCopy = True
+EFBToTextureEnable = True
+XFBToTextureEnable = True
+DisableCopyToVRAM = False
+EFBAccessDeferInvalidation = False
+EFBAccessEnable = True
+ImmediateXFBEnable = False
+VertexRounding = False
+[Hardware]
+VSync = False
+[Settings]
+BackendMultithreading = True
+FastDepthCalc = True
+InternalResolution = 1
+BorderlessFullscreen = False
+Crop = False
+DisableFog = False
+DumpEFBTarget = False
+DumpTextures = False
+EnableGPUTextureDecoding = False
+EnablePixelLighting = False
+EnableValidationLayer = False
+FreeLook = False
+HiresTextures = False
+InternalResolutionFrameDumps = False
+LogRenderTimeToFile = False
+OverlayStats = False
+SafeTextureCacheColorSamples = 128
+ShaderCompilationMode = 0
+ShowFPS = False
+ShowNetPlayMessages = False
+ShowNetPlayPing = False
+TexFmtOverlayEnable = False
+UseFFV1 = False
+WaitForShadersBeforeStarting = True
+wideScreenHack = False
+WireFrame = False
+SWDrawEnd = 100000
+SWDrawStart = 0
+[Stereoscopy]
+StereoSwapEyes = False

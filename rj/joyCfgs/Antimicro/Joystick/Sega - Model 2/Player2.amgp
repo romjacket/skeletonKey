@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gamecontroller configversion="18" appversion="2.17">
+	<!--The SDL name for a joystick is included for informational purposes only.-->
+	<sdlname>XBox 360 Controller</sdlname>
+	<guid>0</guid>
+	<sets>
+		<set index="1">
+			<button index="5">
+				<setselect>2</setselect>
+				<setselectcondition>while-held</setselectcondition>
+				<slots>
+				</slots>
+			</button>
+		</set>
+		<set index="2">
+			<button index="5">
+				<setselect>1</setselect>
+				<setselectcondition>while-held</setselectcondition>
+				<slots>
+				</slots>
+			</button>
+			<button index="8">
+				<slots>
+					<slot>
+						<code>0x1000031</code>
+						<mode>keyboard</mode>
+					</slot>
+				</slots>
+			</button>
+		</set>
+	</sets>
+</gamecontroller>

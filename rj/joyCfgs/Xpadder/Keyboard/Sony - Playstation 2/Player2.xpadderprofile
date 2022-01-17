@@ -1,0 +1,44 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=Left Square Bracket
+Set1Button2Slots=Right Square Bracket
+Set1Button3Slots=Minus
+Set1Button4Slots=Equals
+Set1Button5Slots=E
+Set1Button6Slots=T
+Set1Button7Slots=Backspace
+Set1Button7SetSelect=1
+Set1Button8Slots=2
+Set1Button9Slots=3
+Set1Button10Slots=5
+Set1DPadUpSlots=F
+Set1DPadRightSlots=B
+Set1DPadDownSlots=V
+Set1DPadLeftSlots=C
+Set1Stick1UpSlots=NumPad /
+Set1Stick1RightSlots=NumPad 9
+Set1Stick1DownSlots=NumPad 8
+Set1Stick1LeftSlots=NumPad 7
+Set1Stick2UpSlots=NumPad 2
+Set1Stick2RightSlots=NumPad 3
+Set1Stick2DownSlots=NumPad 0
+Set1Stick2LeftSlots=NumPad 1
+Set1TriggerLeftSlots=D
+Set1TriggerRightSlots=G
+Set2Button7SetSelect=0
+Set2Button8Slots=Left Control
+Set2DPadUpSlots=F2
+Set2DPadRightSlots=F3
+Set2DPadDownSlots=Left Shift,F2
+Set2DPadLeftSlots=F1

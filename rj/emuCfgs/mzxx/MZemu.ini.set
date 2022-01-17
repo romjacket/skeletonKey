@@ -1,0 +1,22 @@
+[CPRT]
+MZemu= V.1.93h              By M.Franzen
+[Position]
+EMU-TOP:=114
+EMU-left:=166
+MAIN-TOP:=43
+MAIN-left:=536
+[Path]
+MZ1R18=MZ700.qd
+Printfile=
+[FD1]
+FD-File=None
+[FD2]
+FD-File=None
+[Settings]
+Rate=1
+Size=0
+Speed=56210
+[SCREEN]
+SCREENMODE=1
+[keytranslate]
+x_late_key=0

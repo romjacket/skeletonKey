@@ -1,0 +1,17 @@
+up = Up, joyHat0Up
+down = Down, joyHat0Down
+left = Left, joyHat0Left
+right = Right, joyHat0Right
+pageUp = PageDown
+pageDown = PageUp
+letterUp = M
+letterDown = N
+favPlaylist = F
+nextPlaylist = Tab
+prevPlaylist = F1
+addPlaylist = I
+removePlaylist = O
+random = R
+select = Return, 1, joyButton10
+back = Backspace, Delete, joyButton6
+quit = Escape

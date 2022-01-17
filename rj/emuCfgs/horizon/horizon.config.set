@@ -1,0 +1,60 @@
+// ---------------------------------------------------------------------
+// Horizon Configuration File
+//
+// You can change socket & DIP settings whilst Horizon is running.
+// Power-up to re-read this config file.
+// All other settings are read only when Horizon starts up.
+// ---------------------------------------------------------------------
+
+// ---------------------------------------------------------------------
+// Socket configuration for ROMs and SWRAM (sideways RAM)
+// Note: BASIC should ideally be at ROM 15, DFS at ROM 14
+// Paths are from the Roms folder.
+// ---------------------------------------------------------------------
+
+SOCKET MOS MOS120.ROM
+
+SOCKET 15 ROM Basic2.ROM
+SOCKET 14 ROM DFS120.ROM
+
+
+/*
+Examples:
+SOCKET 14 SWRAM DFS E00dfs.rom
+SOCKET 0 SWRAM
+*/
+
+// ---------------------------------------------------------------------
+// Default Disk Drive Images. 
+// These will be inserted at startup.
+// Paths are from the Disks folder.
+// ---------------------------------------------------------------------
+
+DRIVE 0 demo\demo.ssd
+DRIVE 1 _blank.ssd
+
+
+// ---------------------------------------------------------------------
+// MENU settings
+// ---------------------------------------------------------------------
+
+SYSTEM SOUND 1 // 0: off 1: on
+DISPLAY SIZE 0 // 0: 640x512; 1: 960x768
+DISPLAY FRAMES 1 // 0: 25 fps; 1: 50 fps
+INPUT REMAPCOLON 1 // 0: leave ' key as is; 1: map : to ' key
+INPUT REMAPCOLONWHOLEKEY 1 // 0: leave ' key as is; 1: map : to ' and @ key
+DRIVE0 AUTOBOOT 0 // 0: off; 1: on
+TOOLSTRACE 0 // 0: off; 1: on
+
+// ---------------------------------------------------------------------
+// DIP switches (defaults are all zeroes)
+// ---------------------------------------------------------------------
+
+DIP 7 0 // not used
+DIP 6 0 // not used
+DIP 5 0 // disc drive speed
+DIP 4 0 // disc drive speed
+DIP 3 0 // shift+break action: 0=normal, 1=disable
+DIP 2 0 // screen mode at reset (e.g. setting bits 0,1,2 to 1 will give MODE 0 on power up)
+DIP 1 0 // screen mode at reset
+DIP 0 0 // screen mode at reset

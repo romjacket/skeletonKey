@@ -1,0 +1,893 @@
+
+prosystem=retroarch\system:7800 BIOS (U).rom:A010EDF
+prosystem=retroarch\system=bizhawk\firmware:7800 BIOS (U).rom?7800PALBIOS.bin:D5B61170
+prosystem=retroarch\system=bizhawk\firmware:7800 BIOS (U).rom?7800NTSCBIOS.bin:5D13730C>
+retroarch\system:bios_CD_U.bin:9F6F6276>
+
+Winx68k=XM6=retroarch\system\keropi:cgrom.dat:9F3195F1>
+Winx68k=XM6=retroarch\system\keropi:iplrom.dat:72BDF532>
+Winx68k=XM6=retroarch\system\keropi:BOOT.ROM:72BDF532>
+Winx68k=XM6=retroarch\system\keropi:keyconf.dat:DB9B5DB0>
+Winx68k=XM6=retroarch\system\keropi:SRAM.RAM:AF3B5C44>
+Winx68k=XM6=retroarch\system\keropi:X68000 IPL CG Rom (1987)(Sharp)[dat].dat:3B385EEC>
+Winx68k=XM6=retroarch\system\keropi:X68000 SRAM (1987)(Sharp)[dat].dat:5EDC1E7B>
+Winx68k=XM6=retroarch\system\keropi:X68000 SRAM (1987)(Sharp)[ram].ram:B809D38A>
+
+steem=retroarch\system:TOS.img:3B5CD0C5>
+
+XM7:Boot_bas.rom:C70F0C74>
+XM7:Boot_dos.rom:198614FF>
+XM7:DicRom.rom:B142ACBC>
+XM7:ExtSub.rom:0F7FCCE3>
+XM7:Fbasic30.rom:A96D19B6>
+XM7:Initiate.rom:785CB06C>
+XM7:KANJI [a].ROM:FE8F63B0>
+XM7:KANJI1.ROM:FE8F63B0
+XM7:Kanji.rom:62402AC9>
+XM7:Kanji1.rom:62402AC9>
+XM7:Kanji2.rom:38644251>
+XM7:SubsysCg.rom:E9F16C42>
+XM7:Subsys_a.rom:E8014FBB>
+XM7:Subsys_b.rom:9BE69FAC>
+XM7:Subsys_c.rom:24CEC93F>
+XM7:Userdic.dat:B42934350>
+
+Dolphin\Sys\GC:dsp_coef.bin:D2777C90>
+Dolphin\Sys\GC:dsp_rom.bin:47DAAA65>
+
+Tsugaru=UNZ:FMT_DIC.ROM:82D1DAA2>
+Tsugaru=UNZ:FMT_DOS.ROM:112872EE>
+Tsugaru=UNZ:FMT_F20.ROM:9F55A20C>
+Tsugaru=UNZ:FMT_FNT.ROM:DD6FD544>
+Tsugaru=UNZ:Fmt_sys [a].rom:842B72D8>
+Tsugaru=UNZ:FMT_SYS.ROM:AFE4EBCF>
+Tsugaru=UNZ:Marty.rom:39D81A66>
+
+
+kegs=kegs32:Rom03gd:DE7DDF29>
+kegs=kegs32:xgs.rom:42F124B0>
+
+retroarch\system=bizhawk\firmware:cx4.data.rom?cx4.rom:B6E76A6A>
+retroarch\system=bizhawk\firmware:cx4.rom:B6E76A6A>
+mednafen=fceux=mesen=retroarch\system:disksys.rom:1C7AE5D5
+mednafen=fceux=mesen=retroarch\system:disksys.rom:4DF24A6C
+mednafen=fceux=mesen=retroarch\system=bizhawk\firmware:disksys.rom?disksys-nintendo.rom:5E607DCF>
+retroarch\system:dsp1.data.rom:C8347CBD>
+retroarch\system:dsp1.program.rom:DB9A4C92>
+retroarch\system=bizhawk\firmware:dsp1.rom:E359F184>
+retroarch\system:dsp1b.data.rom:37A252C6>
+retroarch\system:dsp1b.program.rom:66A73998>
+retroarch\system=bizhawk\firmware:dsp1b.rom:465C4E1C>
+retroarch\system:dsp2.data.rom:B3893C70>
+retroarch\system:dsp2.program.rom:0C1CF838>
+retroarch\system=bizhawk\firmware:dsp2.rom:9A984974>
+retroarch\system:dsp3.data.rom:8B41A2BD>
+retroarch\system:dsp3.program.rom:F29BE51C>
+retroarch\system=bizhawk\firmware:dsp3.rom:D4A38EE7>
+retroarch\system:dsp4.data.rom:EFA8B9B2>
+retroarch\system:dsp4.program.rom:14B77AE3>
+retroarch\system=bizhawk\firmware:dsp4.rom:E15384C0>
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:eu_mcd1_9210.bin:34D3CCE1
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:eu_mcd1_9210.bin:4D5CB8DA
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:eu_mcd1_9210.bin:0507B590
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:eu_mcd1_9210.bin:D344F125
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:eu_mcd1_9210.bin:529AC15A>
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:2B19972F
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:D21FE71D
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:DD6CC972
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:jp_mcd1_9112.bin?jp_mcd1_9111.bin:9D2DA8F2
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:79F85384
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:F18DDE5B
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:00EEDB3A
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:jp_mcd1_9112.bin:550F30BB>
+retroarch\system:japan-j3.bin:DFF6D41F>
+
+VisualBoyAdvance=vgba=mednafen=retroarch\system:gba-jap [fastboot mode][h].bin:3363015D
+VisualBoyAdvance=vgba=mednafen=retroarch\system:gba-jap.bin:15E1F676
+
+byuu:SCD_U.bin:15E1F676
+byuu:SCD_U.bin:290F8E33
+byuu:SCD_U.bin:2E49D72C
+byuu:SCD_U.bin:9F6F6276
+byuu:SCD_U.bin:8AF65F58
+byuu:SCD_U.bin:E7E3AFE2
+byuu:SCD_U.bin:50CD3D23
+byuu:SCD_U.bin:3B10CF41
+
+
+byuu:SCD_J.bin:9D2DA8F2
+byuu:SCD_J.bin:550F30BB
+byuu:SCD_J.bin:DD6CC972
+byuu:SCD_J.bin:DFF6D41F
+
+byuu:SCD_E.bin:4D5CB8DA
+byuu:SCD_E.bin:0507B590
+byuu:SCD_E.bin:9B1FFC6F
+byuu:SCD_E.bin:4D5CB8DA
+byuu:SCD_E.bin:529AC15A
+byuu:SCD_E.bin:D344F125
+
+byuu:FDS.bin:1C7AE5D5
+byuu:FDS.bin:4DF24A6C
+byuu:FDS.bin:5E607DCF
+
+byuu:NEPKT.bin:6232DF8D
+byuu:NEOPKTC.bin:6EEB6F40
+
+VisualBoyAdvance-M=VisualBoyAdvance=vgba=mednafen=retroarch\system=bizhawk\firmware:gba_bios.bin?gbabios.rom:81977335>
+VisualBoyAdvance-M=vgba=mednafen=retroarch\system:gba-jap [fastboot mode][h].bin?gba_bios.bin:3363015D
+VisualBoyAdvance-M=vgba=mednafen=retroarch\system:gba-jap.bin?gba_bios.bin:15E1F676
+
+retroarch\system\neocd:front-sp1.bin:CAC62307>
+retroarch\system\neocd:top-sp1.bin:C36A47C0>
+retroarch\system\neocd=neoraine:neocd.bin:DF9DE490>
+retroarch\system\neocd=neoraine:uni-bioscd.rom:OFFB3127>
+retroarch\system\neocd:000-lo.lo:5A86CFF2>
+mednafen=retroarch\system=bizhawk\firmware:lynxboot.img:0D973C9D
+mednafen=retroarch\system:lynxboot.img:E1FFECB6
+mednafen=retroarch\system:lynxboot.img:B2AA7578
+mednafen=retroarch\system=bizhawk\firmware:lynxboot.img:0D973C9D>
+mame\roms\neogeo.zip:neo-epo.bin:D27A71F1
+mame\roms\neogeo.zip:neo-po.bin:16D0C132
+mame\roms\neogeo.zip:neodebug.bin:698EBB7D
+mame\roms\neogeo.zip:usa_2slt.bin:E72943DE>
+
+retroarch\system=bizhawk\firmware:o2rom.bin?Odyssey2.bin:8016A315>
+4DO=3doplay\BIOS=retroarch\system:panafz10.bin:C8C8FF89
+4DO=3doplay\BIOS=retroarch\system:panafz10.bin:58242CEE>
+4DO=3doplay\BIOS=retroarch\system:bios.rom:58242CEE
+4DO=3doplay\BIOS=retroarch\system:goldstar.bin:B6F5028B>
+4DO=3doplay\BIOS=retroarch\system:panafz10 [h].bin:230E6FEB
+4DO=3doplay\BIOS=retroarch\system:sanyotry.bin:D5CBC509>
+
+
+m88=retroarch\system\quasi88:disk.rom:2158D307
+m88=retroarch\system\quasi88:font.rom:56653188
+m88=retroarch\system\quasi88:kanji.rom:6178BD43>
+m88=retroarch\system\quasi88:kanji2.rom:154803CC>
+m88=retroarch\system\quasi88:n80.rom:5CB8B584
+m88=retroarch\system\quasi88:n88.rom:FFD68BEO
+m88=retroarch\system\quasi88:n88_0.rom:61984BAB
+m88=retroarch\system\quasi88:n88_1.rom:C0BD2AA6>
+m88=retroarch\system\quasi88:n88_2.rom:AF2B6EFA>
+m88=retroarch\system\quasi88:n88_3.rom:7713C519>
+m88=retroarch\system\quasi88:N88.ROM:A0FC0473
+m88=retroarch\system\quasi88:N88SUB.ROM:2158D307
+m88=retroarch\system\quasi88:N88N.ROM:27E1857D
+m88=retroarch\system\quasi88:N88EXT0.ROM:710A63EC
+m88=retroarch\system\quasi88:N88JISHO.ROM:BD6EB062
+
+
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIBAS.ROM:7D684184>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIOSB.ROM:3E28A1FE>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:ATARIXL.ROM:1F9CD270>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200.rom:4248D3E3>
+Altirra=Atari800=Atari800winplus\rom=Atariplusplus=retroarch\system:5200a.rom:C2BA2613>
+
+mednafen=retroarch\system:pcfx.rom:AC3ED590
+mednafen=retroarch\system=bizhawk\firmware:pcfx.bios?pcfx.rom?pcfxbios.bin:76FFB97A>
+
+retroarch\system=mednafen=fusion\BIOS:bios.gg:C611B498
+
+retroarch\system:rtc.ram:16CF848D>
+
+neko=retroarch\system\np2:BIOS.ROM:34A19A59>
+neko=retroarch\system\np2:font.bmp:D271798B>
+
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system:scph5500.bin:EC541CD0
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system:scph5500.bin:3B601FC8
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware:scph5500.bin?ps-30j.bin:FF3EEB8C>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system:scph5501.bin:502224B6
+mednafen=retroarch\system:scph5501.bin:37157331>
+psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra:scph1001.bin:37157331>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware:scph5501.bin?ps-30a.bin:8D8CB7E4>
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system:scph5502.bin:4D9E7C86
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system:scph5502.bin:318178BF
+mednafen=psxfin\BIOS=ePSXe\BIOS=duckstation\bios=pcsxr\BIOS=xebra=retroarch\system=bizhawk\firmware:scph5502.bin?ps-30e.bin:D786F0B9>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware:mpr-18811-mx.ic1?Ultraman.bin:B9644B52>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware:mpr-19367-mx.ic1?kof95.bin:90412E10>
+retroarch\system=bizhawk\firmware:mpr-17933.bin?saturn-1.00-(U+E).bin:4AFCF0FA>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system:saturn_bios.bin?mpr-17933.bin:224B752C
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system:sega1003.bin?sega_101.bin:B3C63C25
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware:sega_100.bin?sega_101.bin?saturn-1.00-(J).bin:2ABA43C2>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system:sega_100a.bin?mpr-17933.bin:F90F0089>
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system=bizhawk\firmware:sega_101.bin?saturn-1.00-(U+E).bin:4AFCF0FA
+mednafen=SSF\Setting\Saturn=yabause=retroarch\system:sega_101.bin:224B752C>
+SSF\Setting\STV:stv110.bin:3DFEDA92>
+SSF\Setting\STV:mp17954a.s:F77223AD>
+SSF\Setting\STV:mp17952a.s:D1BE2ADF>
+SSF\Setting\STV:epr19730.ic8:D0E0889D>
+SSF\Setting\STV:mp17953a.ic8:A4C47570>
+SSF\Setting\STV:20091.bin:59ED40F4>
+SSF\Setting\STV:mp17951a.s:2672F9D8>
+retroarch\system:sgb.boot.rom:EC8A83B9>
+retroarch\system:st010.data.rom:216081B2>
+retroarch\system:st010.program.rom:691CBB4F>
+retroarch\system=bizhawk\firmware:st010.rom:8FC29D4C>
+retroarch\system:st011.data.rom:803256A7>
+retroarch\system:st011.program.rom:A741E9FB>
+retroarch\system=bizhawk\firmware:st011.rom:84AAB2AE>
+retroarch\system:st018.data.rom:B5255459>
+retroarch\system:st018.program.rom:F73D5E10>
+retroarch\system=bizhawk\firmware:st018.rom:5C403CC5>
+mednafen=Ootake=retroarch\system:syscard3.pce:FF2A5EC3
+mednafen=Ootake=retroarch\system:syscard3.pce:2B5B75FE
+mednafen=Ootake=retroarch\system=bizhawk\firmware:syscard3.pce?pcecd-3.0-(J).pce:6D9A73EF
+mednafen=Ootake=retroarch\system:syscard3.pce:3F9F95A4
+mednafen=Ootake=retroarch\system:syscard3.pce:52520BC6
+mednafen=Ootake=retroarch\system:syscard3.pce:283B74E0
+mednafen=Ootake=retroarch\system:syscard3.pce:64F78E3C>
+
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:290F8E33
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:2E49D72C
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:8AF65F58
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:E7E3AFE2
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:50CD3D23
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:3B10CF41
+retroarch\system:us_scd1_9210.bin?bios_CD_U.bin:9F6F6276
+retroarch\system=bizhawk\firmware:us_scd1_9210.bin?bios_CD_U.bin?us_scd1_9210.bin:C6D10268>
+retroarch\system:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?bios_CD_E.bin:0507B590
+retroarch\system:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?bios_CD_E.bin:9B1FFC6F
+retroarch\system:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?bios_CD_E.bin:4D5CB8DA
+retroarch\system=bizhawk\firmware:Mega-CD (E) - Model 1 v1.00 (1992).bin?bios_CD_E.bin?eu_mcd1_9210.bin:529AC15A
+retroarch\system:eu_mcd2_9306.bin?bios_CD_E.bin:D344F125
+retroarch\system=bizhawk\firmware:Mega-CD (J) - Model 1 v1.00p (1991).bin?bios_CD_J.bin?jp_mcd1_9111.bin:9D2DA8F2
+retroarch\system:jp_mcd1_9112.bin?bios_CD_J.bin:550F30BB
+retroarch\system:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?bios_CD_J.bin:DD6CC972
+retroarch\system:japan-j3(jp).bin?bios_CD_J.bin:DFF6D41F
+retroarch\system=bizhawk\firmware:Sega CD (U) - Model 1 v1.10 (1992).bin?bios_CD_U.bin?us_scd1_9210.bin:C6D10268
+retroarch\system:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?bios_CD_U.bin:340B4BE4
+retroarch\system:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?bios_CD_U.bin:B0519ED3
+retroarch\system:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?bios_CD_U.bin:2E49D72C
+retroarch\system:Sega CDX (U) - v2.21x (1993) [b].bin?bios_CD_U.bin:4A940D4A
+retroarch\system:Sega CDX (U) - v2.21x (1993).bin?bios_CD_U.bin:D48C44B5
+retroarch\system:us_mcd_9208 [h].rom?bios_CD_U.bin:CE60984E
+retroarch\system:us_mcd_9306 [h].rom?bios_CD_U.bin:7F7677CC
+retroarch\system:us_scd2_9306.bin?bios_CD_U.bin:9F6F6276
+
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:290F8E33
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:2E49D72C
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:9F6F6276
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:8AF65F58
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:E7E3AFE2
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:50CD3D23
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:3B10CF41
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd1_9210.bin:9F6F6276
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware:us_scd1_9210.bin:C6D10268>
+
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:Datel CDX Pro BIOS v1.70 (199x) [b].bin:E7F3A492
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:Datel CDX Pro BIOS v1.8i (199x) [b].bin:D640553E
+
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:Datel CDX Pro BIOS v1.8i (199x).bin:170CA9DA
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:Flux for Mega CD (Eu)(Virgin).rom:2A1DA08C
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:JVC X'EYE (JUE) - v2.00.bin:290F8E33
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:Mega CD Formatted Ram cartridge.rom:9B017B7E
+
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu).bin?eu_mcd2_9306.bin:0507B590
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega Mega-CD Model 2 BIOS v2.00w (1993)(Sega)(Eu).bin?eu_mcd2_9306:4D5CB8DA
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega Mega-CD Model 2 BIOS v2.00 (1993)(Sega)(Eu)[b].bin?eu_mcd2_9306:9B1FFC6F
+
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:Mega-CD (E) - Model 1 v1.00 (1992).bin?eu_mcd2_9306.bin?eu_mcd1_9210.bin:529AC15A
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:eu_mcd2_9306.bin:D344F125
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware:Mega-CD (J) - Model 1 v1.00p (1991).bin?jp_mcd1_9112.bin?jp_mcd1_9111.bin:9D2DA8F2
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:jp_mcd1_9112.bin:550F30BB
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:[BIOS] Mega-CD 2 (Japan) (v2.00C).md?jp_mcd1_9112.bin:DD6CC972
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:japan-j3(jp).bin?jp_mcd1_9112.bin:DFF6D41F
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=bizhawk\firmware:Sega CD (U) - Model 1 v1.10 (1992).bin?us_scd1_9210.bin?us_scd1_9210.bin:C6D10268
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega CD (U) - Model 2 v2.00 (1993) [b].bin?us_scd1_9210.bin:340B4BE4
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega CD (U) - Model 2 v2.11x (1993) [b].bin?us_scd1_9210.bin:B0519ED3
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega CD (U) - Model 2 v2.11x (2.00) (1993).bin?us_scd1_9210.bin:2E49D72C
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega CDX (U) - v2.21x (1993) [b].bin?us_scd1_9210.bin:4A940D4A
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:Sega CDX (U) - v2.21x (1993).bin?us_scd1_9210.bin:D48C44B5
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_mcd_9208 [h].rom?us_scd1_9210.bin:CE60984E
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_mcd_9306 [h].rom?us_scd1_9210.bin:7F7677CC
+mednafen=gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS:us_scd2_9306.bin?us_scd1_9210.bin:9F6F6276
+
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:32X_M_BIOS.BIN:DD9C46B8
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:32X_S_BIOS.BIN:BFDA1FE5
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system=bizhawk\firmware:32X_G_BIOS.BIN:5C12EAE8
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:bios32xg.68k?32X_G_BIOS.BIN:4EF8231F
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:BIOS32XG.BIN?32X_G_BIOS.BIN:5D9017FA>
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:BIOS32XM.BIN?32X_M_BIOS.BIN:D3D57C39>
+gens\BIOS=gensgs\BIOS=genssplus\BIOS=fusion\BIOS=retroarch\system:BIOS32XS.BIN?32X_S_BIOS.BIN:FFB1B7FA>
+
+nostalgia=retroarch\system:exec.bin:CBCE86F7>
+nostalgia=retroarch\system=bizhawk\firmware:grom.bin:683A4158>
+nostalgia=retroarch\system=bizhawk\firmware:exec.bin?erom.bin:CBCE86F7>
+
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0101j-20000217.bin:211DFB6A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0101xd-20000224.bin:2FEF9FAF
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0110a-20000727.bin:9678AD6A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0110ad-20000727.bin:795578C1
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0120a-20000902.bin:1AE71E5D
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0120j-20001027-185015.bin:9B096622
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0120j-20001027-191435.bin:C1CCF3F6
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0150a-20001228.bin:BCE74746
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0150e-20001228.bin:1559FD43
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0150j-20010118.bin:4FC3B495
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160a-20010427.bin:4008AC18
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160e-20010704.bin:F1AC735F
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160e-20011004.bin:82AA5055
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160e-20020319.bin:2FE21E4D
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160h-20010730.bin:75F83C67
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0160j-20010427.bin:C268EF47
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0170a-20030325.bin:9A99E3F4
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0170e-20030227.bin:51B5FB8B
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0180j-20031028.bin:585FD27C
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0190a-20030623.bin:B3E87709
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0190c-20030623.bin:40D6C676
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0190e-20030623.bin:1752A52E
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0190h-20030623.bin:36B0580C
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0190r-20030623.bin:063A2368
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0220a-20050620.bin:D305A97A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0220a-20060905.bin:1C17EAFC
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0220e-20060905.bin:2D946DBF
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0220h-20060905.bin:2D6E09EA
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0230a-20080220.bin:286897C2
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-0230e-20080220.bin:19EB1081
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-110u.bin:95E51761
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-120e.bin:394E64E8
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-120u.bin:37A86C9E
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-130e.bin:11C77794
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-130u.bin:43683B3A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-200j.bin:6C1F070E
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-210e.bin:8741CC92
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-210j.bin:DB611D70
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-210u.bin:FB64B4A1
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-212g.bin:1428B7A1
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-212u.bin:5CC1A412
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-213e.bin:71026453
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-300e.bin:7A3208CE
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-300u.bin:5343A330
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-302e.bin:2BB87C5A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-302u.bin:A1092A68
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:ps2-dvd-310.bin:DF8F104F
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:rom1.bin:2C3BCD32
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:rom2.bin:B5FAD94A
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-30003_BIOS_Vx_PAL_120.bin:7B08C33B
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-30004.bin:9386A740
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-39001_BIOS_V7_USA_160.bin:A19E0BF5
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-39004_BIOS_V7_PAL_160.bin:1F2A283C
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-50000_BIOS_Vx_JAP_170.bin:9457F64E
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-50004_BIOS_V9_PAL_190.BIN:BFE41270
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-70000_BIOS_JAP_200.rom:2F314730
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-70004_BIOS_V12_PAL_200.bin:6F8E3C29
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-70006.bin:B57201BF
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-70008_BIOS_PAL_200.bin:92AA71A2
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-70012_BIOS_V12_USA_200.bin:7EBD68DE
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH-90006_BIOS_VX_HK _220.BIN:493C1E58
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:scph10000.bin:B7EF81A9>
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH50003.bin:A5860B09
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:SCPH77001.bin:1279FCE9>
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:Sony PlayStation 2 BIOS (E)(v2.0)(2004-06-14)[SCPH70008].bin:92887B09
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:Sony PlayStation 2 SCPH-18000 System ROM v5.0 build 01.20 (2000-10-27)(Sony)(JP).bin:0DCCE9D7
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:DTL-H10000_X_Dev_0101_20000224_v0_[8DCC8219].nvm:83301F23
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:DTL-H30001_BIOS_V2_USA_110.EROM:423292F8
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:DTL-H30001_BIOS_V2_USA_110.NVM:82A6B781
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:DTL-H30001_BIOS_V2_USA_110.ROM1:B7094978
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:erom.bin:6932E64C
+pcsx2\bios=retroarch\system\PCSX2\bios=play\bios:fps2bios.rom:BA45BD94
+
+gambatte=retroarch\system=mgba=bizhawk\firmware:dmg_boot.bin?GB_boot_ROM.gb:59C8598E>
+
+desmume=corgids=melonds=retroarch\system:biosdsi7.bin:9F1840D9>
+desmume=corgids=melonds=retroarch\system:biosdsi9.bin:3D64D498>
+desmume=corgids=melonds=retroarch\system:biosnds7.bin:1280F0D5>
+desmume=corgids=melonds=retroarch\system:biosnds9.bin:2AB23573>
+desmume=corgids=melonds=retroarch\system:dsfirmware.bin:62EFC03D>
+desmume=corgids=melonds=retroarch\system:dsifirmware.bin:6F6D289B>
+desmume=corgids=melonds=retroarch\system:dsinand.bin:8B79A73C>
+desmume=corgids=melonds=retroarch\system:BIOSGBA.ROM:81977335>
+desmume=corgids=melonds=retroarch\system:key.cfg:0D1C432B>
+
+desmume=corgids=melonds=retroarch\system:bios7.bin:1280F0D5>
+desmume=corgids=melonds=retroarch\system:bios9.bin:2AB23573>
+desmume=corgids=melonds=retroarch\system:firmware.bin:6133798D>
+desmume=corgids=melonds=retroarch\system:firmware 2006-01-21.nds:01D2B9E8
+desmume=corgids=melonds=retroarch\system:firmware 2006-02-20.nds:A82CB6A6
+desmume=corgids=melonds=retroarch\system:firmware.bin:945F9DC9
+desmume=corgids=melonds=retroarch\system:firmware.nds:34A169E1
+desmume=corgids=melonds=retroarch\system:firmware14d.ds.gba:343EA6F9
+desmume=corgids=melonds=retroarch\system:firmware14d.nds:DDC677F9
+desmume=corgids=melonds=retroarch\system:firmware_10a.ds.gba:491BD35A
+desmume=corgids=melonds=retroarch\system:firmware_10a.nds:734477D6
+desmume=corgids=melonds=retroarch\system:firmware_11.ds.gba:EA9A1D30
+desmume=corgids=melonds=retroarch\system:firmware_11.nds:98ADE713
+desmume=corgids=melonds=retroarch\system:firmware_13a.ds.gba:FCD7E15D
+desmume=corgids=melonds=retroarch\system:firmware_13a.nds:2CD94BB1
+desmume=corgids=melonds=retroarch\system:firmware_14b.ds.gba:532764E3
+desmume=corgids=melonds=retroarch\system:firmware_14b.nds:B48A644D
+desmume=corgids=melonds=retroarch\system:flashme - NDS-FW-V6.nds:FC1FD958
+desmume=corgids=melonds=retroarch\system:flashme v4 fix.ds.gba:0C2B79C8
+desmume=corgids=melonds=retroarch\system:flashme v4.ds.gba:9606CDC5
+desmume=corgids=melonds=retroarch\system:flashme v7.nds:A4FEA840
+desmume=corgids=melonds=retroarch\system:flashme_Lite_final.nds:597F2B69
+desmume=corgids=melonds=retroarch\system:flashme_Lite_final_stealth.nds:0D8B19AE
+desmume=corgids=melonds=retroarch\system:flashme_stealth - NDS-FW-V6.nds:DFAFF4F7
+desmume=corgids=melonds=retroarch\system:flashme_stealth v7.nds:19AF919B
+desmume=corgids=melonds=retroarch\system:installer.nds:87F6D64C
+desmume=corgids=melonds=retroarch\system:noflashme v4.ds.gba:3B320FDC
+
+redream\bios=flycast\data=demul\roms\dc.zip:1_01d_01.bin:89F2B1A1
+redream\bios=flycast\data=demul\roms\dc.zip:1_01d_02.bin:A2564FAD
+redream\bios=flycast\data=demul\roms\dc.zip:1_004_01.bin:545481F
+redream\bios=flycast\data=demul\roms\dc.zip:1_011_01.bin:2186E0E5
+redream\bios=flycast\data=demul\roms\dc.zip:1_022_01.bin:786168F9
+
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC - BIOS (All).bin:61D5613F
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC - Flash (All).bin:E0D202A2
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC - Utopia CD Loader V1.1.cdi>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC - Utopia CD Loader V1.1.nrg>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC - VMS BIOS (Full).bin:C7C77B3C>
+chankast:dc_bios.bin:C611B498
+chankast:dc_bios.bin:05EFF2BB
+chankast:dc_bios.bin:89F2B1A1>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC101d_us.bin:05EFF2BB>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC_boot.bin:89F2B1A1>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC_flash.bin:C611B498>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:DC_nvmem.bin:05EFF2BB>
+redream\bios=nullDC\data=reicast\data=flycast\data=retroarch\system\dc:fsca-table.bin:5D905DE4>
+
+
+redream\bios=flycast\data=retroarch\system\dc\naomi.zip:naomi_boot.bin:D2A1C6BF
+redream\bios=flycast\data=retroarch\system\dc:vmu_save_A1.bin:7EE8CDCD>
+
+yuzu\keys:prod.keys:DCAA7CAC>
+yuzu\keys:title.keys:7467A450>
+yuzu\sysdata:FontChineseSimplified.ttf:725c5a9a>
+yuzu\sysdata:FontChineseTraditional.ttf:9f579516>
+yuzu\sysdata:FontExtendedChineseSimplified.ttf:d5d7ce2f>
+yuzu\sysdata:FontKorean.ttf:eb2882a7>
+yuzu\sysdata:FontNintendoExtended.ttf:19bd72e8>
+yuzu\sysdata:FontNintendoExtended2.ttf:7f2a88f5>
+yuzu\sysdata:FontStandard.ttf:514c512b>
+
+
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip:bios.ic23:5D5687C7
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip:bios.ic23_l:E5693CE3
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip:bios0.ic23:719B2B0B
+redream\bios=flycast\data=demul\roms\awbios.zip=retroarch\system\dc\awbios.zip:bios1.ic23:D3E80A9F
+
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:dcnaodev.bios:7A50FAB9
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:eeprom-naomi-main-default.bin:FEA29CBB
+
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:eeprom-naomi-main-default.bin:FEA29CBB
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21576d.bin:3B2AFA7B
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21576e.bin:08C0ADD7
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21576g.bin:D2A1C6BF
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21576h.bin:D4895685
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21577d.bin:60DDCBBE
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21577e.bin:CF36E97B
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21577g.bin:25F64AF7
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21578d.bin:DFD5F42A
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21578e.bin:087F09A3
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21578g.ic27:55413214
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:epr-21578h.ic27:7B452946
+redream\bios=flycast\data=demul\roms\naomigd.zip=retroarch\system\dc\naomigd.zip:fpr-23489c.ic14:BC38BEA1
+
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21576.ic27:9DAD3495
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21576b.ic27:755A6E07
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21576d.ic27:3B2AFA7B
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21576e.ic27:08C0ADD7
+redream\bios=flycast\data=demul\roms\naomi.zi=retroarch\system\dc\naomi.zipp:epr-21576g.ic27:D2A1C6BF
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21576h.ic27:D4895685
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21577d.ic27:60DDCBBE
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21577e.ic27:CF36E97B
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21577g.ic27:25F64AF7
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21578b.ic27:6C9AAD83
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21578d.ic27:DFD5F42A
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21578e.ic27:087F09A3
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21578g.ic27:55413214
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-21578h.ic27:7B452946
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-22850.ic27:28AA539D
+redream\bios=flycast\data=demul\roms\naomi.zip=retroarch\system\dc\naomi.zip:epr-22851.ic27:62483677
+
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:eeprom-naomi-main-default.bin:FEA29CBB
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23605.bin:5731E446
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23605a.bin:7BC3FC2D
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23605b.bin:3A3242D4
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23605c.bin:297EA6ED
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23607.bin:2B55ADD2
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23607b.bin:F308C5E9
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23608.bin:929CC3A6
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23608b.bin:A554B1E3
+redream\bios=flycast\data=demul\roms\naomi2.zip=retroarch\system\dc\naomi2.zip:epr-23608c.bin:6EF1DD8E
+
+retroarch\system:ProSystem.dat:9402D164>
+
+retroarch\system\Databases:colecodb.xml:5C42B5D1>
+retroarch\system\Databases:msxcaswavdb.xml:4AE56BF2>
+retroarch\system\Databases:msxromdb.xml:ED4C6720>
+retroarch\system\Databases:msxsysromdb.xml:A11837C3>
+retroarch\system\Databases:segadb.xml:AD813665>
+retroarch\system\Databases:svidb.xml:84D48F54>
+retroarch\system\Machines\COL - Bit Corporation Dina:config.ini:AD177B1C>
+retroarch\system\Machines\COL - Bit Corporation Dina:czz50-1.rom:696C101A>
+retroarch\system\Machines\COL - Bit Corporation Dina:czz50-2.rom:6538DD32>
+retroarch\system\Machines\COL - ColecoVision=bizhawk\firmware:coleco.rom?ColecoBios.bin:3AA93EF3>
+retroarch\system\Machines\COL - ColecoVision:config.ini:D3DE69D9>
+retroarch\system\Machines\COL - ColecoVision with Opcode Memory Extension=bizhawk\firmware:coleco.rom?ColecoBios.bin:3AA93EF3>
+retroarch\system\Machines\COL - ColecoVision with Opcode Memory Extension:config.ini:4233F38D>
+retroarch\system\Machines\COL - Spectravideo SVI-603 Coleco:config.ini:F8B7F23B>
+retroarch\system\Machines\COL - Spectravideo SVI-603 Coleco:SVI603.ROM:19E91B82>
+retroarch\system\Machines\Forte II Games - Pesadelo:config.ini:BCD41DE3>
+retroarch\system\Machines\Forte II Games - Pesadelo:pesadelo.rom:1AE2F724>
+retroarch\system\Machines\MSX:config.ini:FB7EA5D9>
+retroarch\system\Machines\MSX - Al Alamiah AX-170:config.ini:F9FE3F94>
+retroarch\system\Machines\MSX - Arabic:config.ini:E0F1C37D>
+retroarch\system\Machines\MSX - Brazilian:config.ini:EAFC0CEB>
+retroarch\system\Machines\MSX - C-BIOS:cbios.txt:582C06D2>
+retroarch\system\Machines\MSX - C-BIOS:cbios_logo_msx1.rom:F969E424>
+retroarch\system\Machines\MSX - C-BIOS:cbios_main_msx1.rom:F0050785>
+retroarch\system\Machines\MSX - C-BIOS:config.ini:4C4104DD>
+retroarch\system\Machines\MSX - Canon V-10:config.ini:9AC28DE1>
+retroarch\system\Machines\MSX - Canon V-20:config.ini:A859DD0B>
+retroarch\system\Machines\MSX - Daewoo DPC-100:config.ini:77A5003F>
+retroarch\system\Machines\MSX - Daewoo DPC-180:config.ini:09B64445>
+retroarch\system\Machines\MSX - Daewoo DPC-200:config.ini:29B291CD>
+retroarch\system\Machines\MSX - Daewoo DPC-200E:config.ini:20643071>
+retroarch\system\Machines\MSX - Estonian:config.ini:C8F96701>
+retroarch\system\Machines\MSX - Frael Bruc 100-1:config.ini:135089A8>
+retroarch\system\Machines\MSX - French:config.ini:4A086035>
+retroarch\system\Machines\MSX - German:config.ini:FE7AA493>
+retroarch\system\Machines\MSX - Goldstar FC-200:config.ini:ACF2101E>
+retroarch\system\Machines\MSX - Gradiente Expert 1.0:config.ini:D6104239>
+retroarch\system\Machines\MSX - Gradiente Expert 1.1:config.ini:FB9E90B4>
+retroarch\system\Machines\MSX - Gradiente Expert 1.3:config.ini:B7F821ED>
+retroarch\system\Machines\MSX - Gradiente Expert DDPlus:config.ini:01F45D95>
+retroarch\system\Machines\MSX - Gradiente Expert Plus:config.ini:F15A946B>
+retroarch\system\Machines\MSX - Japanese:config.ini:6C4D184C>
+retroarch\system\Machines\MSX - JVC HC-7GB:config.ini:8A857A78>
+retroarch\system\Machines\MSX - Korean:config.ini:77CF5559>
+retroarch\system\Machines\MSX - Mitsubishi ML-F80:config.ini:D08091C7>
+retroarch\system\Machines\MSX - Mitsubishi ML-FX1:config.ini:70C19A2F>
+retroarch\system\Machines\MSX - National CF-1200:config.ini:AF296A1D>
+retroarch\system\Machines\MSX - National CF-2000:config.ini:E935AD5F>
+retroarch\system\Machines\MSX - National CF-2700:config.ini:1E1252FE>
+retroarch\system\Machines\MSX - National CF-3000:config.ini:C406C3DD>
+retroarch\system\Machines\MSX - National CF-3300:config.ini:B1FDB3B2>
+retroarch\system\Machines\MSX - National FS-1300:config.ini:9F3C19AD>
+retroarch\system\Machines\MSX - National FS-4000:config.ini:2CCAC7AE>
+retroarch\system\Machines\MSX - Olympia PHC-2:config.ini:B6EEB005>
+retroarch\system\Machines\MSX - Olympia PHC-28:config.ini:102592BF>
+retroarch\system\Machines\MSX - Panasonic CF-2700G:config.ini:0E77F49F>
+retroarch\system\Machines\MSX - Philips NMS-801:config.ini:302E63E8>
+retroarch\system\Machines\MSX - Philips VG-8000:config.ini:F88548E0>
+retroarch\system\Machines\MSX - Philips VG-8010:config.ini:960CAC22>
+retroarch\system\Machines\MSX - Philips VG-8010F:config.ini:51957B67>
+retroarch\system\Machines\MSX - Philips VG-8020-00:config.ini:111C72AF>
+retroarch\system\Machines\MSX - Philips VG-8020-20:config.ini:388304D6>
+retroarch\system\Machines\MSX - Philips VG-8020F:config.ini:FB6CAC1C>
+retroarch\system\Machines\MSX - Pioneer PX-7:config.ini:34A4A905>
+retroarch\system\Machines\MSX - Pioneer PX-V60:config.ini:1FCB7015>
+retroarch\system\Machines\MSX - Russian:config.ini:98863885>
+retroarch\system\Machines\MSX - Sanyo MPC-100:config.ini:C72BAE29>
+retroarch\system\Machines\MSX - Sanyo MPC-64:config.ini:1CE7A6AF>
+retroarch\system\Machines\MSX - Sanyo PHC-28L:config.ini:DFACBF5E>
+retroarch\system\Machines\MSX - Sanyo PHC-28S:config.ini:98842945>
+retroarch\system\Machines\MSX - Sanyo Wavy MPC-10:config.ini:41B32477>
+retroarch\system\Machines\MSX - Sharp Epcom HotBit 1.1:config.ini:CA568852>
+retroarch\system\Machines\MSX - Sharp Epcom HotBit 1.2:config.ini:22B6E359>
+retroarch\system\Machines\MSX - Sharp Epcom HotBit 1.3b:config.ini:BF6BEB70>
+retroarch\system\Machines\MSX - Sharp Epcom HotBit 1.3p:config.ini:E2677AF7>
+retroarch\system\Machines\MSX - Sony HB-10P:config.ini:ED471739>
+retroarch\system\Machines\MSX - Sony HB-201:config.ini:8FE12434>
+retroarch\system\Machines\MSX - Sony HB-201P:config.ini:6FAB5EE0>
+retroarch\system\Machines\MSX - Sony HB-20P:config.ini:B50F35DB>
+retroarch\system\Machines\MSX - Sony HB-501P:config.ini:301881E4>
+retroarch\system\Machines\MSX - Sony HB-55D:config.ini:9B6D45EA>
+retroarch\system\Machines\MSX - Sony HB-55P:config.ini:62D74324>
+retroarch\system\Machines\MSX - Sony HB-75D:config.ini:C7C00A93>
+retroarch\system\Machines\MSX - Sony HB-75P:config.ini:F7A2EB39>
+retroarch\system\Machines\MSX - Spanish:config.ini:0FE6F34C>
+retroarch\system\Machines\MSX - Spectravideo SVI-728:config.ini:3A44E91F>
+retroarch\system\Machines\MSX - Spectravideo SVI-738:config.ini:B123EB6D>
+retroarch\system\Machines\MSX - Spectravideo SVI-738 Henrik Gilvad:config.ini:5B607874>
+retroarch\system\Machines\MSX - Spectravideo SVI-738 Swedish:config.ini:9118AD4E>
+retroarch\system\Machines\MSX - Swedish:config.ini:779B3BAA>
+retroarch\system\Machines\MSX - Talent DPC-200:config.ini:075F91D6>
+retroarch\system\Machines\MSX - Talent DPC-200A:config.ini:4EAD381D>
+retroarch\system\Machines\MSX - Toshiba HX-10:config.ini:34C70DA4>
+retroarch\system\Machines\MSX - Toshiba HX-10S:config.ini:F77F58FD>
+retroarch\system\Machines\MSX - Toshiba HX-20:config.ini:6889993B>
+retroarch\system\Machines\MSX - Yamaha CX5M-1:config.ini:0039CBDE>
+retroarch\system\Machines\MSX - Yamaha CX5M-128:config.ini:B3E1ECAE>
+retroarch\system\Machines\MSX - Yamaha CX5M-2:config.ini:BFE16742>
+retroarch\system\Machines\MSX - Yamaha CX5MII:config.ini:BAA6720E>
+retroarch\system\Machines\MSX - Yamaha YIS303:config.ini:E3C8308D>
+retroarch\system\Machines\MSX - Yamaha YIS503:config.ini:513B3D55>
+retroarch\system\Machines\MSX - Yamaha YIS503F:config.ini:F5339B4D>
+retroarch\system\Machines\MSX - Yamaha YIS503II:config.ini:6B90864E>
+retroarch\system\Machines\MSX - Yamaha YIS503IIR:config.ini:3209D68F>
+retroarch\system\Machines\MSX - Yamaha YIS503IIR Estonian:config.ini:FCA636B9>
+retroarch\system\Machines\MSX - Yamaha YIS503M:config.ini:ED147BD7>
+retroarch\system\Machines\MSX - Yashica YC-64:config.ini:C581CC8F>
+retroarch\system\Machines\MSX - Yeno DPC-64:config.ini:DD81F0B1>
+retroarch\system\Machines\MSX - Yeno MX64:config.ini:B3F889B5>
+retroarch\system\Machines\MSX2:config.ini:11543FA2>
+retroarch\system\Machines\MSX2 - Al Alamiah AX-350:config.ini:42E63ED1>
+retroarch\system\Machines\MSX2 - Al Alamiah AX-370:config.ini:8A8E9736>
+retroarch\system\Machines\MSX2 - Arabic:config.ini:9C397EB5>
+retroarch\system\Machines\MSX2 - Brazilian:config.ini:B0259AB1>
+retroarch\system\Machines\MSX2 - C-BIOS:cbios.txt:582C06D2>
+retroarch\system\Machines\MSX2 - C-BIOS:cbios_logo_msx2.rom:4C5485AA>
+retroarch\system\Machines\MSX2 - C-BIOS:cbios_main_msx2.rom:EC2FE089>
+retroarch\system\Machines\MSX2 - C-BIOS:cbios_sub.rom:F7A597E1>
+retroarch\system\Machines\MSX2 - C-BIOS:config.ini:080B6B1E>
+retroarch\system\Machines\MSX2 - Daewoo CPC-300:config.ini:52530CCC>
+retroarch\system\Machines\MSX2 - Daewoo CPC-300E:config.ini:E2832AE3>
+retroarch\system\Machines\MSX2 - Daewoo CPC-400:config.ini:9AF2E00A>
+retroarch\system\Machines\MSX2 - Daewoo CPC-400S:config.ini:8D968A40>
+retroarch\system\Machines\MSX2 - Estonian:config.ini:19952725>
+retroarch\system\Machines\MSX2 - French:config.ini:A64FF87B>
+retroarch\system\Machines\MSX2 - German:config.ini:BCB1D3B4>
+retroarch\system\Machines\MSX2 - Gradiente Expert 2.0:config.ini:DF6DAF1A>
+retroarch\system\Machines\MSX2 - Japanese:config.ini:17FC45D5>
+retroarch\system\Machines\MSX2 - Korean:config.ini:F0F95424>
+retroarch\system\Machines\MSX2 - National FS-4500:config.ini:FDE93321>
+retroarch\system\Machines\MSX2 - National FS-4600:config.ini:E3EBCCED>
+retroarch\system\Machines\MSX2 - National FS-4700:config.ini:EC1468D3>
+retroarch\system\Machines\MSX2 - National FS-5000:config.ini:E611066F>
+retroarch\system\Machines\MSX2 - National FS-5500F1:config.ini:8D95D4E6>
+retroarch\system\Machines\MSX2 - National FS-5500F2:config.ini:7F8063E8>
+retroarch\system\Machines\MSX2 - Only PSG:config.ini:73100086>
+retroarch\system\Machines\MSX2 - Panasonic FS-A1:config.ini:8EB6EB2F>
+retroarch\system\Machines\MSX2 - Panasonic FS-A1 (a):config.ini:4A942A29>
+retroarch\system\Machines\MSX2 - Panasonic FS-A1F:config.ini:3499459A>
+retroarch\system\Machines\MSX2 - Panasonic FS-A1FM:config.ini:ADF5CAF0>
+retroarch\system\Machines\MSX2 - Panasonic FS-A1MK2:config.ini:D3CA7D2F>
+retroarch\system\Machines\MSX2 - Philips NMS-8220:config.ini:0EBE4397>
+retroarch\system\Machines\MSX2 - Philips NMS-8220 (a):config.ini:A93DE8C0>
+retroarch\system\Machines\MSX2 - Philips NMS-8245:config.ini:EC7F14C6>
+retroarch\system\Machines\MSX2 - Philips NMS-8245F:config.ini:7475B435>
+retroarch\system\Machines\MSX2 - Philips NMS-8250:config.ini:A1628665>
+retroarch\system\Machines\MSX2 - Philips NMS-8255:config.ini:C66C35F0>
+retroarch\system\Machines\MSX2 - Philips NMS-8280:config.ini:69A285B4>
+retroarch\system\Machines\MSX2 - Philips NMS-8280G:config.ini:0A2FE875>
+retroarch\system\Machines\MSX2 - Philips VG-8230:config.ini:DEA2D08E>
+retroarch\system\Machines\MSX2 - Philips VG-8235:config.ini:5AC10507>
+retroarch\system\Machines\MSX2 - Philips VG-8235F:config.ini:2EA76906>
+retroarch\system\Machines\MSX2 - Philips VG-8240:config.ini:87A1EE46>
+retroarch\system\Machines\MSX2 - Russian:config.ini:D599144F>
+retroarch\system\Machines\MSX2 - Sanyo Wavy MPC-25FD:config.ini:517437A9>
+retroarch\system\Machines\MSX2 - Sanyo Wavy PHC-23:config.ini:AC750030>
+retroarch\system\Machines\MSX2 - Sharp Epcom HotBit 2.0:config.ini:4028BD85>
+retroarch\system\Machines\MSX2 - Sony HB-F1:config.ini:3D4977E9>
+retroarch\system\Machines\MSX2 - Sony HB-F1II:config.ini:4C57996C>
+retroarch\system\Machines\MSX2 - Sony HB-F1XD:config.ini:ADCE47DD>
+retroarch\system\Machines\MSX2 - Sony HB-F1XDMK2:config.ini:9B54D48B>
+retroarch\system\Machines\MSX2 - Sony HB-F500:config.ini:6138ABF7>
+retroarch\system\Machines\MSX2 - Sony HB-F500P:config.ini:D284F5D7>
+retroarch\system\Machines\MSX2 - Sony HB-F700D:config.ini:C57083E9>
+retroarch\system\Machines\MSX2 - Sony HB-F700F:config.ini:CF0E9203>
+retroarch\system\Machines\MSX2 - Sony HB-F700P:config.ini:4D9BD42F>
+retroarch\system\Machines\MSX2 - Sony HB-F700S:config.ini:42DACD30>
+retroarch\system\Machines\MSX2 - Sony HB-F900:config.ini:6D1A1F65>
+retroarch\system\Machines\MSX2 - Sony HB-F900 (a):config.ini:5C0720A6>
+retroarch\system\Machines\MSX2 - Sony HB-F9P:config.ini:DAAC01C9>
+retroarch\system\Machines\MSX2 - Sony HB-F9P Russian:config.ini:70C34C64>
+retroarch\system\Machines\MSX2 - Sony HB-F9S:config.ini:29CDD686>
+retroarch\system\Machines\MSX2 - Sony HB-G900AP:config.ini:6255227F>
+retroarch\system\Machines\MSX2 - Sony HB-G900P:config.ini:B1590BFA>
+retroarch\system\Machines\MSX2 - Spanish:config.ini:E8135C5E>
+retroarch\system\Machines\MSX2 - Spectravideo SVI-738-2 CUC:config.ini:A8F63614>
+retroarch\system\Machines\MSX2 - Spectravideo SVI-738-2 JP Grobler:config.ini:608C4306>
+retroarch\system\Machines\MSX2 - Spectravideo SVI-738-2 LC Grosso:config.ini:1489EE4C>
+retroarch\system\Machines\MSX2 - Swedish:config.ini:DFA548EF>
+retroarch\system\Machines\MSX2 - Talent TPC-310:config.ini:8C4167EE>
+retroarch\system\Machines\MSX2 - Toshiba HX-23:config.ini:27723BF9>
+retroarch\system\Machines\MSX2 - Toshiba HX-23F:config.ini:425CE987>
+retroarch\system\Machines\MSX2 - Virtual Haesung Console:config.ini:62DBFCE5>
+retroarch\system\Machines\MSX2 - Yamaha CX7M:config.ini:9212C2DB>
+retroarch\system\Machines\MSX2 - Yamaha CX7M-128:config.ini:BB7DA292>
+retroarch\system\Machines\MSX2+:config.ini:8609E07E>
+retroarch\system\Machines\MSX2+ - Brazilian:config.ini:19FE4C08>
+retroarch\system\Machines\MSX2+ - C-BIOS:cbios.txt:582C06D2>
+retroarch\system\Machines\MSX2+ - C-BIOS:cbios_logo_msx2+.rom:1C7429C6>
+retroarch\system\Machines\MSX2+ - C-BIOS:cbios_main_msx2+.rom:AE23C039>
+retroarch\system\Machines\MSX2+ - C-BIOS:cbios_music.rom:15C6CE2B>
+retroarch\system\Machines\MSX2+ - C-BIOS:cbios_sub.rom:F7A597E1>
+retroarch\system\Machines\MSX2+ - C-BIOS:config.ini:463E6FFC>
+retroarch\system\Machines\MSX2+ - Ciel Expert 3 IDE:config.ini:8EA96669>
+retroarch\system\Machines\MSX2+ - Ciel Expert 3 Turbo:config.ini:7AB7592C>
+retroarch\system\Machines\MSX2+ - European:config.ini:390CA8FD>
+retroarch\system\Machines\MSX2+ - European:KANJI.rom:1F6406FB>
+retroarch\system\Machines\MSX2+ - European:Msx2pe.rom:76C46FE0>
+retroarch\system\Machines\MSX2+ - European:Msx2pexte.rom:2852B383>
+retroarch\system\Machines\MSX2+ - European:MSX2PMUS.rom:456E494E>
+retroarch\system\Machines\MSX2+ - European:MSXKANJI.rom:B4FC574D>
+retroarch\system\Machines\MSX2+ - European:PANASONICDISK.rom:17FA392B>
+retroarch\system\Machines\MSX2+ - European:XBASIC2.rom:2825B1A0>
+retroarch\system\Machines\MSX2+ - Gradiente Expert AC88+:config.ini:054C631D>
+retroarch\system\Machines\MSX2+ - Gradiente Expert DDX+:config.ini:746D1F27>
+retroarch\system\Machines\MSX2+ - MSXPLAYer 2003:config.ini:63683601>
+retroarch\system\Machines\MSX2+ - Panasonic FS-A1FX:config.ini:6FD91ED9>
+retroarch\system\Machines\MSX2+ - Panasonic FS-A1WSX:config.ini:C2C572FB>
+retroarch\system\Machines\MSX2+ - Panasonic FS-A1WX:config.ini:B2CFD854>
+retroarch\system\Machines\MSX2+ - Panasonic FS-A1WX (a):config.ini:3D191A4B>
+retroarch\system\Machines\MSX2+ - Sanyo Wavy PHC-35J:config.ini:D71D6C2A>
+retroarch\system\Machines\MSX2+ - Sanyo Wavy PHC-70FD1:config.ini:589092E3>
+retroarch\system\Machines\MSX2+ - Sanyo Wavy PHC-70FD2:config.ini:DA69E434>
+retroarch\system\Machines\MSX2+ - Sony HB-F1XDJ:config.ini:46EDD0BA>
+retroarch\system\Machines\MSX2+ - Sony HB-F1XV:config.ini:E079EDDD>
+retroarch\system\Machines\MSX2+ - Sony HB-F9S+:config.ini:C3B50B71>
+retroarch\system\Machines\MSXturboR:config.ini:1F62C680>
+retroarch\system\Machines\MSXturboR - European:config.ini:9435070A>
+retroarch\system\Machines\MSXturboR - Panasonic FS-A1GT:config.ini:5835F149>
+retroarch\system\Machines\MSXturboR - Panasonic FS-A1ST:config.ini:158717D0>
+retroarch\system\Machines\MSXturboR - Panasonic FS-A1ST (a):config.ini:3158CDF2>
+retroarch\system\Machines\MSXturboR - Panasonic FS-A1ST (b):config.ini:B72BEA18>
+retroarch\system\Machines\SEGA - SC-3000:config.ini:B74A08E6>
+retroarch\system\Machines\SEGA - SF-7000:config.ini:BA727732>
+retroarch\system\Machines\SEGA - SF-7000:sf7000.rom:D76810B8>
+retroarch\system\Machines\SEGA - SG-1000:config.ini:6C26E357>
+retroarch\system\Machines\Shared Roms:ARAB1.ROM:339CD1AA>
+retroarch\system\Machines\Shared Roms:ARABIC.rom:C0D8FC85>
+retroarch\system\Machines\Shared Roms:BEERIDE.ROM:584B1250>
+retroarch\system\Machines\Shared Roms:FMPAC.rom:0E84505D>
+retroarch\system\Machines\Shared Roms:GCVMX80.ROM:47B843CA>
+retroarch\system\Machines\Shared Roms:HANGUL.rom:B663C605>
+retroarch\system\Machines\Shared Roms:KANJI.rom:1F6406FB>
+retroarch\system\Machines\Shared Roms:MICROSOLDISK.ROM:232222BE>
+retroarch\system\Machines\Shared Roms:MOONSOUND.rom:2A9D8D43>
+retroarch\system\Machines\Shared Roms:MSX.rom:A317E6B4>
+retroarch\system\Machines\Shared Roms:MSX2.rom:6CDAF3A5>
+retroarch\system\Machines\Shared Roms:MSX2AR.ROM:EA306155>
+retroarch\system\Machines\Shared Roms:MSX2AREXT.ROM:7C7540B7>
+retroarch\system\Machines\Shared Roms:MSX2BR.rom:6BACDCE4>
+retroarch\system\Machines\Shared Roms:MSX2BREXT.rom:08CED880>
+retroarch\system\Machines\Shared Roms:MSX2EXT.rom:66237ECF>
+retroarch\system\Machines\Shared Roms:MSX2FR.rom:C0577A50>
+retroarch\system\Machines\Shared Roms:MSX2FREXT.rom:E235D5C8>
+retroarch\system\Machines\Shared Roms:MSX2G.rom:8FA060E2>
+retroarch\system\Machines\Shared Roms:MSX2GEXT.rom:41E36D03>
+retroarch\system\Machines\Shared Roms:MSX2HAN.rom:A8EAD5E3>
+retroarch\system\Machines\Shared Roms:MSX2J.rom:9B3E7B97>
+retroarch\system\Machines\Shared Roms:MSX2JEXT.rom:43E7A7FC>
+retroarch\system\Machines\Shared Roms:MSX2KR.rom:53850907>
+retroarch\system\Machines\Shared Roms:MSX2KREXT.rom:2BA104A3>
+retroarch\system\Machines\Shared Roms:MSX2P.rom:19771608>
+retroarch\system\Machines\Shared Roms:MSX2PEXT.rom:B8BA44D3>
+retroarch\system\Machines\Shared Roms:MSX2PMUS.rom:456E494E>
+retroarch\system\Machines\Shared Roms:MSX2R.rom:E7D08E29>
+retroarch\system\Machines\Shared Roms:MSX2R2.ROM:D0C20F54>
+retroarch\system\Machines\Shared Roms:MSX2REXT.rom:34D21778>
+retroarch\system\Machines\Shared Roms:MSX2SE.rom:5648EEEB>
+retroarch\system\Machines\Shared Roms:MSX2SP.rom:C2B889A5>
+retroarch\system\Machines\Shared Roms:MSX2SPEXT.rom:DC0951BD>
+retroarch\system\Machines\Shared Roms:MSXAR.ROM:BD95C436>
+retroarch\system\Machines\Shared Roms:MSXBR.rom:EFB4B972>
+retroarch\system\Machines\Shared Roms:MSXDOS23.ROM:D25FC001>
+retroarch\system\Machines\Shared Roms:MSXFR.rom:6E692FA1>
+retroarch\system\Machines\Shared Roms:MSXG.rom:7E2B32DD>
+retroarch\system\Machines\Shared Roms:MSXHAN.rom:938DB440>
+retroarch\system\Machines\Shared Roms:MSXJ.rom:071135E0>
+retroarch\system\Machines\Shared Roms:MSXKANJI.rom:B4FC574D>
+retroarch\system\Machines\Shared Roms:MSXKR.rom:3AB0CD3B>
+retroarch\system\Machines\Shared Roms:MSXR.rom:5095AE3D>
+retroarch\system\Machines\Shared Roms:MSXR2.ROM:67872F40>
+retroarch\system\Machines\Shared Roms:MSXSE.ROM:C8CCDAA0>
+retroarch\system\Machines\Shared Roms:MSXSP.rom:FED7506F>
+retroarch\system\Machines\Shared Roms:MSXTR.ROM:937C8DBB>
+retroarch\system\Machines\Shared Roms:MSXTREXT.ROM:70AEA0FE>
+retroarch\system\Machines\Shared Roms:MSXTRMUS.ROM:F5F93437>
+retroarch\system\Machines\Shared Roms:MSXTROPT.ROM:50D11F60>
+retroarch\system\Machines\Shared Roms:NATIONALDISK.rom:1E7D6512>
+retroarch\system\Machines\Shared Roms:NOVAXIS.rom:ECF385F2>
+retroarch\system\Machines\Shared Roms:nowindDos1.rom:0A7A7A5B>
+retroarch\system\Machines\Shared Roms:nowindDos2.rom:D64DEE77>
+retroarch\system\Machines\Shared Roms:PAINT.rom:18956E3A>
+retroarch\system\Machines\Shared Roms:PANASONICDISK.rom:17FA392B>
+retroarch\system\Machines\Shared Roms:PHILIPSDISK.rom:CA3307D3>
+retroarch\system\Machines\Shared Roms:RS232.ROM:3353DCC6>
+retroarch\system\Machines\Shared Roms:Shared.txt:71689EC0>
+retroarch\system\Machines\Shared Roms:SUNRISEIDE.rom:C3438B15>
+retroarch\system\Machines\Shared Roms:SWP.rom:076F40FC>
+retroarch\system\Machines\Shared Roms:XBASIC2.rom:2825B1A0>
+retroarch\system\Machines\SVI - Spectravideo SVI-318:config.ini:F05BF1E4>
+retroarch\system\Machines\SVI - Spectravideo SVI-318:svi318.rom:98D48655>
+retroarch\system\Machines\SVI - Spectravideo SVI-328:config.ini:89A71896>
+retroarch\system\Machines\SVI - Spectravideo SVI-328:svi328.rom:709904E9>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Column:config.ini:FDAED247>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Column:svi328a.rom:BC433DF6>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Column:svi806.rom:850BC232>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Swedish:config.ini:F12A70FD>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Swedish:svi328a.rom:BC433DF6>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 80 Swedish:svi806se.rom:DAEA8956>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2:config.ini:4F3F32BE>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2:svi328a.rom:BC433DF6>
+retroarch\system\Machines\SVI - Spectravideo SVI-328 MK2:svi806.rom:850BC232>
+
+retroarch\system\PPSSPP:ppge_atlas.zim:1E8709C1>
+retroarch\system\PPSSPP\flash0\font:arib.pgf:16493569>
+retroarch\system\PPSSPP\flash0\font:jpn0.pgf:428A1A18>
+retroarch\system\PPSSPP\flash0\font:kr0.pgf:640EC9CF>
+retroarch\system\PPSSPP\flash0\font:ltn0.pgf:63694424>
+retroarch\system\PPSSPP\flash0\font:ltn1.pgf:19F82761>
+retroarch\system\PPSSPP\flash0\font:ltn10.pgf:6A1C1701>
+retroarch\system\PPSSPP\flash0\font:ltn11.pgf:E3A63AE0>
+retroarch\system\PPSSPP\flash0\font:ltn12.pgf:0F2C3DFE>
+retroarch\system\PPSSPP\flash0\font:ltn13.pgf:EA735706>
+retroarch\system\PPSSPP\flash0\font:ltn14.pgf:2B6B3111>
+retroarch\system\PPSSPP\flash0\font:ltn15.pgf:4FEF9779>
+retroarch\system\PPSSPP\flash0\font:ltn2.pgf:6440B952>
+retroarch\system\PPSSPP\flash0\font:ltn3.pgf:CB843E28>
+retroarch\system\PPSSPP\flash0\font:ltn4.pgf:57E74B60>
+retroarch\system\PPSSPP\flash0\font:ltn5.pgf:B7ADC5AD>
+retroarch\system\PPSSPP\flash0\font:ltn6.pgf:649214C7>
+retroarch\system\PPSSPP\flash0\font:ltn7.pgf:8305B511>
+retroarch\system\PPSSPP\flash0\font:ltn8.pgf:48437F2D>
+retroarch\system\PPSSPP\flash0\font:ltn9.pgf:ACA2ABCE>
+retroarch\system\PPSSPP\flash0\font:zh_gb.pgf:8E873D4C>
+
+retroarch\system\_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero):data.rom:D3D26F16>
+retroarch\system\_Extras\SNES SPC1170 (Far East of Eden - Tengai Makyou Zero):Tengai Makyou Zero (Japan).srm:54E74103>
+retroarch\system\_Extras\SNES SPC1170 (Momotarou Dentetsu Happy):data.rom:ED1E5493>
+retroarch\system\_Extras\SNES SPC1170 (Momotarou Dentetsu Happy):Momotarou Dentetsu Happy (Japan).srm:9F978CFB>
+retroarch\system\_Extras\SNES SPC1170 (Super Power League 4):data.rom:E8A36E80>
+retroarch\system\_Extras\SNES SPC1170 (Super Power League 4):Super Power League 4 (Japan).srm:7F4243FD>
+
+fsuae=WinUAE:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:8E5B9A37
+fsuae=WinUAE:Amiga 1000 Bootstrap - 252179-01 (USA, Europe).rom:76BD46EC
+fsuae=WinUAE:Amiga 1000 Bootstrap - 252180-01 (USA, Europe).rom:DD516B6D
+fsuae=WinUAE:Kickstart - EVEN (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:1B64EA21
+fsuae=WinUAE:Kickstart - ODD (USA, Europe) (v3.0 Rev 39.065) (Beta) (A3000).rom:F2742238
+fsuae=WinUAE:Kickstart - 391304-02 (USA, Europe) (v2.05 Rev 37.350) (A600HD).rom:43B0DF7B
+fsuae=WinUAE:Kickstart - 391304-01 (USA, Europe) (v2.05 Rev 37.300) (A600HD).rom:64466C2A
+fsuae=WinUAE:Kickstart - 315093-02 (USA, Europe) (v1.3 Rev 34.005) (A500, A2000).rom:C4F0F55F
+fsuae=WinUAE:Kickstart - 391388-01 (USA, Europe) (v2.05 Rev 37.299) (A600).rom:83028FB5
+fsuae=WinUAE:Kickstart (USA, Europe) (v2.05 Rev 37.210) (Proto) (A600).rom:4C0C1603
+fsuae=WinUAE:Kickstart - 390629-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:7DB1332B
+fsuae=WinUAE:Kickstart - 390630-03 (USA, Europe) (v2.04 Rev 37.175) (A3000).rom:A245DBDF
+fsuae=WinUAE:Kickstart - 390979-01 (USA, Europe) (v2.04 Rev 37.175) (A500 Plus, A2000).rom:C3BDB240
+fsuae=WinUAE:Kickstart - 363968-01 (USA, Europe) (v2.04 Rev 37.175) (Proto) (A500 Plus, A2000).rom:8DA9BD72
+fsuae=WinUAE:Kickstart - 390629-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:58327536
+fsuae=WinUAE:Kickstart - 390630-02 (USA, Europe) (v1.4 Rev 36.016) (A3000).rom:FE2F7FB9
+fsuae=WinUAE:Kickstart - 315093-02 (USA, Europe) (v1.4 Rev 36.015) (Beta) (A500, A2000).rom:A3BA6116
+fsuae=WinUAE:Kickstart - 315093-01 (USA, Europe) (v1.2 Rev 33.180) (A500, A2000).rom:A6CE1636
+fsuae=WinUAE:Kickstart - 391657-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:0CA94F70
+fsuae=WinUAE:Kickstart - 391658-01 (USA, Europe) (v3.1 Rev 40.070) (A4000T).rom:DFE03120
+fsuae=WinUAE:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:286B9A0D
+fsuae=WinUAE:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A3000).rom:0B8CDE6A
+fsuae=WinUAE:Kickstart - 391523-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:C742A412
+fsuae=WinUAE:Kickstart - 391524-01 (USA, Europe) (v3.0 Rev 39.106) (A1200).rom:D55C6EC6
+fsuae=WinUAE:Kickstart (USA, Europe) (v3.1 Rev 40.068) (Proto) (A600).rom:8ECED804
+fsuae=WinUAE:Kickstart - 391773-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:08DBF275
+fsuae=WinUAE:Kickstart - 391774-01 (USA, Europe) (v3.1 Rev 40.068) (A1200).rom:16C07BF8
+fsuae=WinUAE:Kickstart - EVEN (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:6DCBB6DA
+fsuae=WinUAE:Kickstart - ODD (USA, Europe) (v3.1 Rev 40.055) (Beta) (A3000).rom:E1E0AD9F
+fsuae=WinUAE:Kickstart (USA, Europe) (v3.1 Rev 40.063) (A500, A600, A2000).rom:FC24AE0D
+fsuae=WinUAE:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:B2AF34F8
+fsuae=WinUAE:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.068) (A4000).rom:E65636A3
+fsuae=WinUAE:Kickstart - 391513-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:36F64DD0
+fsuae=WinUAE:Kickstart - 391514-02 (USA, Europe) (v3.0 Rev 39.106) (A4000).rom:17266A55
+fsuae=WinUAE:Kickstart - ROM0 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F9CBECC9
+fsuae=WinUAE:Kickstart - ROM1 (USA, Europe) (v3.1 Rev 40.070) (A4000).rom:F8248355
+fsuae=WinUAE:391640-03.u6a:D3837AE4
+fsuae=WinUAE:CD32 Extended-ROM rev 40.60 (1993)(Commodore)(CD32).rom:87746BE2
+fsuae=WinUAE:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000).rom:88136CA9
+fsuae=WinUAE:Kickstart v3.1 rev 40.63 (1993)(Commodore)(A500-A600-A2000)[h ShapeShifter].rom:B506177B
+fsuae=WinUAE:V1.3_34.5 A500-A2000 1987.rom:C4F0F55F
+fsuae=WinUAE:V3.1_40.60 CD32 1993.rom:1E62D4A5
+fsuae=WinUAE:Kickstart 1.3.rom:F6290043
+fsuae=WinUAE:Kickstart 3.1.rom:FC24AE0D
+
+bizhawk\firmware:7800highscore.bin:9BE408D3>
+bizhawk\firmware:AppleIIe.rom:1D70B193>
+bizhawk\firmware:c64-basic.bin:F833D117>
+bizhawk\firmware:c64-chargen.bin:EC4272EE>
+bizhawk\firmware:c64-kernal.bin:DBE3E7C7>
+bizhawk\firmware:DiskII.rom:CE7144F6>
+bizhawk\firmware:drive-1541.bin:57224CDE>
+bizhawk\firmware:drive-1541ii.bin:899FA3C5>
+bizhawk\firmware:fx-scsi.rom:F3E60E5E>
+bizhawk\firmware:GBC_boot_ROM.gb:41884E46>
+bizhawk\firmware:pentagon.rom:AA1CE4BD>
+bizhawk\firmware:PhillipsC52.bin:A318E8D6>
+bizhawk\firmware:sgb.sfc:8A4A174F>
+bizhawk\firmware:sms_jp_2.1.sms:48D44A13>
+bizhawk\firmware:sms_kr.sms:9C5BAD91>
+bizhawk\firmware:sms_us_1.3.sms:0072ED54>
+bizhawk\firmware:ti83_102.rom:7EE5D27B>
+bizhawk\firmware:trdos.rom:D8882A8C>

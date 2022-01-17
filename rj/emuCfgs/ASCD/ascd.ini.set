@@ -1,0 +1,27 @@
+;ASCD 1.00 configuration file - (c) by Aley Keprt
+;http://www.keprt.cz, aley@keprt.cz
+;type "ascd -help" to see complete list of options
+
+tape "tape.tap"	; <file> - tape file used for save (not load!)
+sync    	;-sync/nosync - synchronize emulation speed at 50 Hz (bool)
+zxmode 0	; <0|1|2> - emulation mode: 0=Sam, 1=48k, 2=128k
+sam512  	;-sam512/nosam512 - enables 512KB RAM for Sam (default: on) (bool)
+extmem 1	; <MB> - size of Sam external memory - can be 0,1,2,3,4 MB
+nouk      	;-uk/nouk - select UK keyboard (default: US keyboard) (bool)
+quickboot	;-quickboot/noquickboot - enables quick boot (i.e. faster computer startup after reset) (bool)
+flash   	;-flash/noflash - flash emulation (bool)
+pallines 0	; <num> - set PAL lines (default: 0 ==> emulator decides)
+nofullscreen	;-fullscreen/nofullscreen - set fullscreen mode (bool)
+hires   	;-hires/nohires - enable usage of high resolution graphics (640x240) (bool)
+d3d     	;-d3d/nod3d - enable usage of Direct3D (enabled by default) (bool)
+mouse 0	; Sam mouse: 0=off, 1=low res, 2=high resolution
+kempston -1	; <num> - kempston joystick: -1=off, 0=arrows+ctrl, 1+=real joy number
+sinclair1 -1	; <num> - sinclair joy (port 1): -1=off, 0=arrows+ctrl, 1+=real joy
+sinclair2 -1	; <num> - sinclair joy (port 2): -1=off, 0=arrows+ctrl, 1+=real joy
+cursor 0	; <num> - cursor joystick: -1=off, 0=arrows, 1+=real joy number
+fuller -1	; <num> - fuller joystick: -1=off, 0=arrows+ctrl, 1+=real joy number
+autofire -8	; <num> - autofire (num = speed, higher is slower, negative values turn it off)
+audio   	;-audio/noaudio - beeper & SAA1099 & AY8910 audio emulation (bool)
+log "ascd.log"	; <file> - log filename
+emuspeed 100	; <num> - emulation speed (per cent)
+bilinear	;-bilinear/nobilinear - enables bilinear filtering (needs DirectX 9) (bool)

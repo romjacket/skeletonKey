@@ -1,0 +1,2 @@
+del /q PeopsDSound_SET.cmd
+for %%a in ("UseXA" "Volume" "XAPitch" "Uecho.SETimer" "SPUIRQWait" "DebugMode" "RecordMode" "UseReverb" "UseInterpolation" "DisStereo" "DecodedBufIRQ") do for /f "tokens=3 delims= " %%n in ('reg query "HKCU\Software\Vision Thing\PSEmu Pro\SPU\PeopsSound" /v "%%~a"') do echo.SET %%~a=%%~n>>PeopsSound_SET.cmd

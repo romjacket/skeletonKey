@@ -1,0 +1,95 @@
+#
+# BGFX POST-PROCESSING OPTIONS
+#
+bgfx_path                 bgfx
+bgfx_backend              auto
+bgfx_debug                0
+bgfx_screen_chains        default
+bgfx_shadow_mask          slot-mask.png
+bgfx_avi_name             auto
+
+#
+# DIRECT3D POST-PROCESSING OPTIONS
+#
+hlsl_enable               1
+hlslpath                  hlsl
+hlsl_preset               slot-mask
+hlsl_prescale_x           6
+hlsl_prescale_y           6
+hlsl_write                1
+hlsl_snap_width           1920
+hlsl_snap_height          1080
+shadow_mask_tile_mode     0
+shadow_mask_alpha         0.15
+shadow_mask_texture       slot-mask.png
+shadow_mask_x_count       6
+shadow_mask_y_count       4
+shadow_mask_usize         0.1875
+shadow_mask_vsize         0.1875
+shadow_mask_uoffset       0.0
+shadow_mask_voffset       0.0
+curvature                 0.10
+round_corner              0.10
+smooth_border             0.03
+reflection                0.0
+vignetting                0.20
+scanline_alpha            1.50
+scanline_size             1.0
+scanline_height           1.0
+scanline_bright_scale     1.15
+scanline_bright_offset    0.0
+scanline_jitter           0.1
+hum_bar_alpha             0.0
+defocus                   0.20,0.0
+converge_x                0.25,0.00,-0.25
+converge_y                0.0,0.25,-0.25
+radial_converge_x         0.0,0.0,0.0
+radial_converge_y         0.0,0.0,0.0
+red_ratio                 1.0,0.0,0.0
+grn_ratio                 0.0,1.0,0.0
+blu_ratio                 0.0,0.0,1.0
+saturation                1.4
+offset                    0.0,0.0,0.0
+scale                     0.95,0.95,0.95
+power                     0.8,0.8,0.8
+floor                     0.01,0.01,0.01
+phosphor_life             0.4,0.4,0.4
+#
+# NTSC POST-PROCESSING OPTIONS
+#
+yiq_enable 0
+yiq_cc 3.59754545
+yiq_a 0.5
+yiq_b 0.5
+yiq_o 0.0
+yiq_p 1.0
+yiq_n 1.0
+yiq_y 6.0
+yiq_i 1.2
+yiq_q 0.6
+yiq_scan_time 52.6
+yiq_phase_count 2
+
+#
+# VECTOR POST-PROCESSING OPTIONS
+#
+vector_length_scale 0.8
+vector_length_ratio 500.0
+
+#
+# BLOOM POST-PROCESSING OPTIONS
+#
+bloom_blend_mode          0
+bloom_scale               0.28
+bloom_overdrive           1.0,1.0,1.0
+bloom_lvl0_weight         1.0
+bloom_lvl1_weight         0.64
+bloom_lvl2_weight         0.32
+bloom_lvl3_weight         0.16
+bloom_lvl4_weight         0.08
+bloom_lvl5_weight         0.04
+bloom_lvl6_weight         0.04
+bloom_lvl7_weight         0.02
+bloom_lvl8_weight         0.02
+bloom_lvl9_weight         0.01
+bloom_lvl10_weight        0.01

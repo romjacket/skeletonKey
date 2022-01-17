@@ -1,0 +1,413 @@
+# Auto generated DO NOT EDIT
+
+# Start up options
+
+Option	autoshrink  	on
+Option	autofill    	on
+Option	hoverscan   	off
+Option	voverscan   	off
+Option	rotate      	off
+Option	fullscreen  	off
+Option	mute        	off
+Option	lock        	on
+Option	visualizer  	off
+Option	sound       	on
+Option	keyboard    	on
+Option	joystick1   	off
+Option	joystick2   	off
+Option	joystick3   	off
+Option	joystick4   	off
+Option	joystick5   	off
+Option	joystick6   	off
+Option	controlbar  	on
+Option	statusbar   	on
+Option	speedcontrol	on
+Option	playback    	off
+Option	region      	0
+Option	aspect      	5
+Option	zoom        	0
+Option	render      	1
+Option	winmode     	1
+Option	scrmode     	1
+Option	srmode      	0
+Option	channels    	2
+Option	cwwidth     	640
+Option	cwheight    	480
+Option	cswidth     	640
+Option	csheight    	480
+Option	csrate      	48000
+Option	voll        	100
+Option	volr        	100
+Option	pbrate      	8
+Option	pbmemory    	128
+Option	mouse       	1
+Option	cddevice    	default
+Option	auddevice   	default
+Option	joy1device  	default
+Option	joy2device  	default
+Option	joy3device  	default
+Option	joy4device  	default
+Option	joy5device  	default
+Option	joy6device  	default
+
+# Keyboard bindings
+
+Key	1	up1         	Up
+Key	1	down1       	Down
+Key	1	left1       	Left
+Key	1	right1      	Right
+Key	1	up2         	Unmapped
+Key	1	down2       	Unmapped
+Key	1	left2       	Unmapped
+Key	1	right2      	Unmapped
+Key	1	up3         	Unmapped
+Key	1	down3       	Unmapped
+Key	1	left3       	Unmapped
+Key	1	right3      	Unmapped
+Key	1	start       	1
+Key	1	select      	2
+Key	1	button1     	a
+Key	1	button2     	s
+Key	1	button3     	d
+Key	1	button4     	f
+Key	1	button5     	q
+Key	1	button6     	w
+Key	1	button7     	e
+Key	1	button8     	r
+Key	1	button9     	Unmapped
+Key	1	button10    	Unmapped
+
+Key	2	up1         	Home
+Key	2	down1       	End
+Key	2	left1       	Delete
+Key	2	right1      	Page_Down
+Key	2	up2         	Unmapped
+Key	2	down2       	Unmapped
+Key	2	left2       	Unmapped
+Key	2	right2      	Unmapped
+Key	2	up3         	Unmapped
+Key	2	down3       	Unmapped
+Key	2	left3       	Unmapped
+Key	2	right3      	Unmapped
+Key	2	start       	3
+Key	2	select      	4
+Key	2	button1     	j
+Key	2	button2     	k
+Key	2	button3     	l
+Key	2	button4     	semicolon
+Key	2	button5     	u
+Key	2	button6     	i
+Key	2	button7     	o
+Key	2	button8     	p
+Key	2	button9     	Unmapped
+Key	2	button10    	Unmapped
+
+Key	3	up1         	Unmapped
+Key	3	down1       	Unmapped
+Key	3	left1       	Unmapped
+Key	3	right1      	Unmapped
+Key	3	up2         	Unmapped
+Key	3	down2       	Unmapped
+Key	3	left2       	Unmapped
+Key	3	right2      	Unmapped
+Key	3	up3         	Unmapped
+Key	3	down3       	Unmapped
+Key	3	left3       	Unmapped
+Key	3	right3      	Unmapped
+Key	3	start       	Unmapped
+Key	3	select      	Unmapped
+Key	3	button1     	Unmapped
+Key	3	button2     	Unmapped
+Key	3	button3     	Unmapped
+Key	3	button4     	Unmapped
+Key	3	button5     	Unmapped
+Key	3	button6     	Unmapped
+Key	3	button7     	Unmapped
+Key	3	button8     	Unmapped
+Key	3	button9     	Unmapped
+Key	3	button10    	Unmapped
+
+Key	4	up1         	Unmapped
+Key	4	down1       	Unmapped
+Key	4	left1       	Unmapped
+Key	4	right1      	Unmapped
+Key	4	up2         	Unmapped
+Key	4	down2       	Unmapped
+Key	4	left2       	Unmapped
+Key	4	right2      	Unmapped
+Key	4	up3         	Unmapped
+Key	4	down3       	Unmapped
+Key	4	left3       	Unmapped
+Key	4	right3      	Unmapped
+Key	4	start       	Unmapped
+Key	4	select      	Unmapped
+Key	4	button1     	Unmapped
+Key	4	button2     	Unmapped
+Key	4	button3     	Unmapped
+Key	4	button4     	Unmapped
+Key	4	button5     	Unmapped
+Key	4	button6     	Unmapped
+Key	4	button7     	Unmapped
+Key	4	button8     	Unmapped
+Key	4	button9     	Unmapped
+Key	4	button10    	Unmapped
+
+Key	5	up1         	Unmapped
+Key	5	down1       	Unmapped
+Key	5	left1       	Unmapped
+Key	5	right1      	Unmapped
+Key	5	up2         	Unmapped
+Key	5	down2       	Unmapped
+Key	5	left2       	Unmapped
+Key	5	right2      	Unmapped
+Key	5	up3         	Unmapped
+Key	5	down3       	Unmapped
+Key	5	left3       	Unmapped
+Key	5	right3      	Unmapped
+Key	5	start       	Unmapped
+Key	5	select      	Unmapped
+Key	5	button1     	Unmapped
+Key	5	button2     	Unmapped
+Key	5	button3     	Unmapped
+Key	5	button4     	Unmapped
+Key	5	button5     	Unmapped
+Key	5	button6     	Unmapped
+Key	5	button7     	Unmapped
+Key	5	button8     	Unmapped
+Key	5	button9     	Unmapped
+Key	5	button10    	Unmapped
+
+Key	6	up1         	Unmapped
+Key	6	down1       	Unmapped
+Key	6	left1       	Unmapped
+Key	6	right1      	Unmapped
+Key	6	up2         	Unmapped
+Key	6	down2       	Unmapped
+Key	6	left2       	Unmapped
+Key	6	right2      	Unmapped
+Key	6	up3         	Unmapped
+Key	6	down3       	Unmapped
+Key	6	left3       	Unmapped
+Key	6	right3      	Unmapped
+Key	6	start       	Unmapped
+Key	6	select      	Unmapped
+Key	6	button1     	Unmapped
+Key	6	button2     	Unmapped
+Key	6	button3     	Unmapped
+Key	6	button4     	Unmapped
+Key	6	button5     	Unmapped
+Key	6	button6     	Unmapped
+Key	6	button7     	Unmapped
+Key	6	button8     	Unmapped
+Key	6	button9     	Unmapped
+Key	6	button10    	Unmapped
+
+# Joystick bindings
+
+Joy	1	up1         	-1
+Joy	1	down1       	+1
+Joy	1	left1       	-0
+Joy	1	right1      	+0
+Joy	1	up2         	-3
+Joy	1	down2       	+3
+Joy	1	left2       	-2
+Joy	1	right2      	+2
+Joy	1	up3         	-5
+Joy	1	down3       	+5
+Joy	1	left3       	-4
+Joy	1	right3      	+4
+Joy	1	start       	10
+Joy	1	select      	11
+Joy	1	button1     	0
+Joy	1	button2     	1
+Joy	1	button3     	2
+Joy	1	button4     	3
+Joy	1	button5     	4
+Joy	1	button6     	5
+Joy	1	button7     	6
+Joy	1	button8     	7
+Joy	1	button9     	8
+Joy	1	button10    	9
+
+Joy	2	up1         	-1
+Joy	2	down1       	+1
+Joy	2	left1       	-0
+Joy	2	right1      	+0
+Joy	2	up2         	-3
+Joy	2	down2       	+3
+Joy	2	left2       	-2
+Joy	2	right2      	+2
+Joy	2	up3         	-5
+Joy	2	down3       	+5
+Joy	2	left3       	-4
+Joy	2	right3      	+4
+Joy	2	start       	10
+Joy	2	select      	11
+Joy	2	button1     	0
+Joy	2	button2     	1
+Joy	2	button3     	2
+Joy	2	button4     	3
+Joy	2	button5     	4
+Joy	2	button6     	5
+Joy	2	button7     	6
+Joy	2	button8     	7
+Joy	2	button9     	8
+Joy	2	button10    	9
+
+Joy	3	up1         	-1
+Joy	3	down1       	+1
+Joy	3	left1       	-0
+Joy	3	right1      	+0
+Joy	3	up2         	-3
+Joy	3	down2       	+3
+Joy	3	left2       	-2
+Joy	3	right2      	+2
+Joy	3	up3         	-5
+Joy	3	down3       	+5
+Joy	3	left3       	-4
+Joy	3	right3      	+4
+Joy	3	start       	10
+Joy	3	select      	11
+Joy	3	button1     	0
+Joy	3	button2     	1
+Joy	3	button3     	2
+Joy	3	button4     	3
+Joy	3	button5     	4
+Joy	3	button6     	5
+Joy	3	button7     	6
+Joy	3	button8     	7
+Joy	3	button9     	8
+Joy	3	button10    	9
+
+Joy	4	up1         	-1
+Joy	4	down1       	+1
+Joy	4	left1       	-0
+Joy	4	right1      	+0
+Joy	4	up2         	-3
+Joy	4	down2       	+3
+Joy	4	left2       	-2
+Joy	4	right2      	+2
+Joy	4	up3         	-5
+Joy	4	down3       	+5
+Joy	4	left3       	-4
+Joy	4	right3      	+4
+Joy	4	start       	10
+Joy	4	select      	11
+Joy	4	button1     	0
+Joy	4	button2     	1
+Joy	4	button3     	2
+Joy	4	button4     	3
+Joy	4	button5     	4
+Joy	4	button6     	5
+Joy	4	button7     	6
+Joy	4	button8     	7
+Joy	4	button9     	8
+Joy	4	button10    	9
+
+Joy	5	up1         	-1
+Joy	5	down1       	+1
+Joy	5	left1       	-0
+Joy	5	right1      	+0
+Joy	5	up2         	-3
+Joy	5	down2       	+3
+Joy	5	left2       	-2
+Joy	5	right2      	+2
+Joy	5	up3         	-5
+Joy	5	down3       	+5
+Joy	5	left3       	-4
+Joy	5	right3      	+4
+Joy	5	start       	10
+Joy	5	select      	11
+Joy	5	button1     	0
+Joy	5	button2     	1
+Joy	5	button3     	2
+Joy	5	button4     	3
+Joy	5	button5     	4
+Joy	5	button6     	5
+Joy	5	button7     	6
+Joy	5	button8     	7
+Joy	5	button9     	8
+Joy	5	button10    	9
+
+Joy	6	up1         	-1
+Joy	6	down1       	+1
+Joy	6	left1       	-0
+Joy	6	right1      	+0
+Joy	6	up2         	-3
+Joy	6	down2       	+3
+Joy	6	left2       	-2
+Joy	6	right2      	+2
+Joy	6	up3         	-5
+Joy	6	down3       	+5
+Joy	6	left3       	-4
+Joy	6	right3      	+4
+Joy	6	start       	10
+Joy	6	select      	11
+Joy	6	button1     	0
+Joy	6	button2     	1
+Joy	6	button3     	2
+Joy	6	button4     	3
+Joy	6	button5     	4
+Joy	6	button6     	5
+Joy	6	button7     	6
+Joy	6	button8     	7
+Joy	6	button9     	8
+Joy	6	button10    	9
+
+# Mouse bindings
+
+Mouse	1	up1         	Unmapped
+Mouse	1	down1       	Unmapped
+Mouse	1	left1       	Unmapped
+Mouse	1	right1      	Unmapped
+Mouse	1	up2         	Unmapped
+Mouse	1	down2       	Unmapped
+Mouse	1	left2       	Unmapped
+Mouse	1	right2      	Unmapped
+Mouse	1	up3         	Unmapped
+Mouse	1	down3       	Unmapped
+Mouse	1	left3       	Unmapped
+Mouse	1	right3      	Unmapped
+Mouse	1	start       	Unmapped
+Mouse	1	select      	Unmapped
+Mouse	1	button1     	1
+Mouse	1	button2     	2
+Mouse	1	button3     	3
+Mouse	1	button4     	Unmapped
+Mouse	1	button5     	Unmapped
+Mouse	1	button6     	Unmapped
+Mouse	1	button7     	Unmapped
+Mouse	1	button8     	Unmapped
+Mouse	1	button9     	Unmapped
+Mouse	1	button10    	Unmapped
+
+# Module bindings
+
+Module	sg	cart	sg1000
+Module	nes	cart	famicom
+Module	sms	cart	mark3
+Module	pce	cart	pcengine
+Module	sgx	cart	pcengine
+Module	gen	cart	megadrive
+Module	smd	cart	megadrive
+Module	md	cart	megadrive
+Module	sfc	cart	superfamicom
+Module	smc	cart	superfamicom
+Module	ng	cart	neogeo
+Module	cps	cart	cpschanger
+Module	gb	cart	gameboy
+Module	gg	cart	gamegear
+Module	gbc	cart	gameboy
+Module	ngp	cart	neopocket
+Module	ngc	cart	neopocket
+Module	npc	cart	neopocket
+Module	ws	cart	wonderswan
+Module	wsc	cart	wonderswan
+Module	gba	cart	gbadvance
+Module	fds	disk	famicom
+Module	ffd	disk	marty
+Module	pcd	disc	pcengine
+Module	mcd	disc	megadrive
+Module	ncd	disc	neocd
+Module	fcd	disc	marty
+Module	fx	disc	pcfx

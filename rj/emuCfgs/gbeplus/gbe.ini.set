@@ -1,0 +1,135 @@
+//Use GB BIOS file : 1 to enable, 0 to disable
+[#use_bios:0]
+
+//Emulated system type
+//0 - Auto, 1 - Game Boy (DMG), 2 - Game Boy Color, 3 - Game Boy Advance
+[#system_type:0]
+
+//Emulated DMG palette
+//0 - Regular grayscale
+//1 - GBC Boot ROM Colors - No input during boot logo
+//2-5 - GBC Boot ROM Colors - UP, DOWN, LEFT, RIGHT during boot logo
+//6-9 - GBC Boot ROM Colors - UP+A, DOWN+A, LEFT+A, RIGHT+A during boot logo
+//10-13 - GBC BOOT ROM Colors - UP+B, DOWN+B, LEFT+B, RIGHT+B during boot logo
+//14 - DMG "Classic" Green
+[#dmg_on_gbc_pal:0]
+
+//File location of the various BIOS files
+//Set it like [#dmg_bios_path:'C:\My whatever\dmg_bootrom.bin']
+//Single quotes required.
+[#dmg_bios_path]
+[#gbc_bios_path]
+[#agb_bios_path]
+
+//Location for saving screenshots
+//Set it like [#screen_path:'C:\My whatever\random folder\']
+//Single quotes required. Be sure to add the last forward or backslash to the path!
+[#screenshot_path]
+
+//Use OpenGL hardware acceleration for surface drawing : 1 to enable, 0 to disable
+[#use_opengl:0]
+
+//Scaling Filter
+//1 - 10
+//1x, 2x, 3x, 4x, and so on
+//This only works if OpenGL is enabled 
+[#scaling_factor:1]
+
+//Maintains aspect ratio when scaling the window (Qt-only) : 1 to enable, 0 to disable
+[#maintain_aspect_ratio:0]
+
+//Joystick Dead Zone
+//0 - 32767
+[#dead_zone:16000]
+
+//Volume
+//0 - 128
+[#volume:128]
+
+//Mute sound
+//0 - Play sound, 1 - Mute sound
+[#mute:0]
+
+//Sampe rate
+//1 - 48000
+//Lower = worst sound quality, higher = better. Do not change unless you know what you're doing
+[#sample_rate:44000]
+
+//GB-GBC keyboard bindings : Order = A, B, START, SELECT, LEFT, RIGHT, UP, DOWN
+//Numbers are based on SDL 1.2 Keycodes
+//
+//Defaults : A = z, B = x, START = enter, SELECT = space, DPAD = arrow keys
+[#dmg_key_controls:122:120:13:32:276:275:273:274]
+
+//GBA keyboard bindings : Order = A, B, START, SELECT, LEFT, RIGHT, UP, DOWN, LTRIGGER, RTRIGGER
+//Numbers are based on SDL 1.2 Keycodes
+//
+//Defaults : A = z, B = x, START = enter, SELECT = space, DPAD = arrow key,
+//Defaults : LTRIGGER = a, RTRIGGER = s
+[#agb_key_controls:122:120:13:32:276:275:273:274:115:97]
+
+//The following numbers are based on the Gekko Pads system
+//100-199 = Joystick buttons 0 through 99 (button number layout varies from controller to controller)
+//
+//200-299 = Joystick axes 0 - 24. Numbering goes left, right, up, down
+//For example, 200 is left for the first axis, 201 is right for first axis, 202 is up, 203 is down
+//The next axis would have 204 for left, 205 for right, 206 for up, 207 for down
+//
+//300-399 = Joystick hats (aka DPads). Numbering goes left, right, up, down
+//Follows the same pattern as axes (see above)
+//First hat's left is 300, right is 301, up is 302, down is 303
+//
+//For simplicity's sake, the defaults below work for the XBOX 360 controller.
+
+//GB-GBC gamepad bindings : Order = A, B, START, SELECT, LEFT, RIGHT, UP, DOWN
+[#dmg_joy_controls:100:101:107:106:200:201:202:203]
+
+//GBA gamepad bindings : Order = A, B, START, SELECT, LEFT, RIGHT, UP, DOWN, LTRIGGER, RTRIGGER
+[#agb_joy_controls:100:101:107:106:200:201:202:203:104:105]
+
+//Gyroscope keyboard bindings : Order = LEFT, RIGHT, UP, DOWN
+//Defaults: LEFT = 4 (numpad), RIGHT = 6 (numpad), UP = 8 (numpad), DOWN = 2 (numpad)
+//IMPORTANT - Some keyboards are weird with their numpads. They might not have specific inputs for the pad itself
+//For example, when press NumLock, the "4" on the numpad may be indistinguishable from the "4" on the main keyboard
+//In that case, values like 52:54:56:50 should work in all situations
+[#gyro_key_controls:260:262:264:258]
+
+//Gyroscope keyboard bindings : Order = LEFT, RIGHT, UP, DOWN
+//Defaults: 2nd axis
+[#gyro_joy_controls:204:205:206:207]
+
+//Hotkey keyboard bindings
+//Defaults: Turbo = TAB
+[#hotkeys:9]
+
+//Use Custom Graphics (CGFX) : 1 to enable, 0 to disable
+[#use_cgfx:0]
+
+//CGFX manifest file path
+//Set it like [#manifest_path:'C:\My whatever\manifest_file_thing.txt']
+//Single quotes required.
+[#manifest_path]
+
+//CGFX BG Tile dump folder
+//Set it like [#dump_bg_path:'C:\My whatever\random folder\']
+//Single quotes required. Be sure to add the last forward or backslash to the path!
+//If this is not set, it defaults to Dump\BG
+[#dump_bg_path:'Dump/BG/']
+
+//CGFX OBJ Tile dump folder
+//Set it like [#dump_obj_path:'C:\My whatever\random folder\']
+//Single quotes required. Be sure to add the last forward or backslash to the path!
+//If this is not set, it defaults to Dump\OBJ
+[#dump_obj_path:'Dump/OBJ/']
+
+//CGFX Scale
+//1 - 10
+//Determines the size of CGFX, e.g. 1:1 (1x original size), 2:1 (2x original size) and so on
+//IMPORTANT - This scaling is applied IN ADDITION TO any other scaling 
+//So having the Scaling Filter to 2x and this to 2x produces a 4x image
+[#cgfx_scaling_factor:1]
+
+//CGFX Transparency
+//32-bit ARGB value, e.g. 0xFF00FF00 - Format MUST be "0xFF00FF00" not "$FF00FF00", not "#FF00FF00"
+//Determines what color is used as the transparency when loading CGFX, default is ugly green
+[#cgfx_transparency:0xFF00FF00]

@@ -1,0 +1,43 @@
+#                             #
+# Calice32 configuration file #
+#                             #
+
+Romdir       	" [ROMPATH]\"
+AlternateRomdir1       	" .\roms\"
+AlternateRomdir2       	" "
+AlternateRomdir3       	" "
+Logdir       	" .\log\"
+Drvdir       	" .\drv\"
+Epmdir       	" .\epm\"
+Stadir       	" .\states\"
+
+Frameskip    	0
+VerifyRoms   	no
+debugMode    	yes
+continueMode 	yes
+demoSounds   	yes
+videoFlip    	no
+freezeScreen 	no
+freePlay     	no
+fastPc       	yes
+firstTimeRun 	no
+threadPriority  aboveNormal
+rasterEffects 	no
+Language    	0
+controllerDll	" .\plugins\controllers\unified.dll"
+videoDll	" .\plugins\video\wzoom2xscanlines.dll"
+vsync        	yes
+ym2151Enabled 	yes
+qsoundEnabled 	yes
+adpcmEnabled 	yes
+QMixer      	DirectSound
+QFeature      	2D
+displayCps1      	yes
+displayCps2      	yes
+displayZn1      	no
+displayZn2      	no
+displayNeoGeo      	no
+displaySystem16      	no
+displayOnlyAvailableGames no
+hardwareStretch 	no
+surfacesInSystemMemory yes

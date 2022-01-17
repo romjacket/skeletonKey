@@ -1,0 +1,12 @@
+[default]
+bootPath=\jagulator\boot\
+romPath=[ROMPATH]\
+fullBoot=0
+ntscEnabled=1
+
+[audio]
+enabled=0
+
+[video]
+enabled=1
+

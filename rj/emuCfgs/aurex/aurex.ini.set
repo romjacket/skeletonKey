@@ -1,0 +1,16 @@
+# This file is a alternative file for FILER.INI
+#
+# format:
+# "*.extend" "executable program path(virtual path)"
+#
+# Follow lines are examples.
+#
+*.txt \SYSTEM\APPS\txtVIEW.EXF
+*.tbl \SYSTEM\APPS\TBLVIEW.EXF
+*.scl \SYSTEM\APPS\SCLVIEW.EXF
+*.adr \SYSTEM\APPS\ADRVIEW.EXF
+*.dfm \SYSTEM\APPS\DFMVIEW.EXF
+*.txm \SYSTEM\APPS\TXMVIEW.EXF
+*.tdo \SYSTEM\APPS\TDOVIEW.EXF
+*.mmp \SYSTEM\APPS\mmpVIEW.EXF
+*.snd \SYSTEM\APPS\SNDVIEW.EXF

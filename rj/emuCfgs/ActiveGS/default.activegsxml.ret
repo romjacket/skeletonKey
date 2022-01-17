@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config version="2">
+	   <name>Nucleus</name>
+	   <desc url="http://www.freetoolsassociation.com">Nucleus by FTA</desc>
+    <notes/>   
+    <format >2GS</format>
+	    <year>1989</year>
+	    <publisher url="http://www.freetoolsassociation.com">Free Tools Association</publisher>
+   <image slot="5" disk="1" icon="">nucleus.zip</image>
+    <speed>2</speed>
+    <bootslot>5</bootslot>
+    <bramparam>background:dark-blue;border:dark-blue</bramparam>
+ </config>

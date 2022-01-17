@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <CpuClockHertz>12500000</CpuClockHertz>
+  <GameRomLastDirectory>[ROMPATH]</GameRomLastDirectory>
+  <WindowImageSmoothing>True</WindowImageSmoothing>
+  <AudioBufferMilliseconds>100</AudioBufferMilliseconds>
+  <GameRomSourceType>0</GameRomSourceType>
+  <AudioVolume>1</AudioVolume>
+  <BiosRom2File>
+  </BiosRom2File>
+  <WindowScalingAlgorithm>0</WindowScalingAlgorithm>
+  <GameRomDrive>
+  </GameRomDrive>
+  <WindowHeight>552</WindowHeight>
+  <LastPauseStatus>False</LastPauseStatus>
+  <InactiveIgnoreKeyboard>False</InactiveIgnoreKeyboard>
+  <WindowSnapSize>True</WindowSnapSize>
+  <WindowWidth>648</WindowWidth>
+  <WindowPreseveRatio>True</WindowPreseveRatio>
+  <AutoOpenGameFile>True</AutoOpenGameFile>
+  <SaveStateSlot>0</SaveStateSlot>
+  <WindowFullScreenDevice>0</WindowFullScreenDevice>
+  <BiosRomFile>[EMUPATH]\</BiosRomFile>
+  <AutoLoadLastSave>True</AutoLoadLastSave>
+  <WindowAutoCrop>False</WindowAutoCrop>
+  <RenderHighResolution>False</RenderHighResolution>
+  <VoidAreaBorder>False</VoidAreaBorder>
+  <SelectedOptionTab>1</SelectedOptionTab>
+  <GameRomFile>[ROMPATH]\[ROMF]
+  </GameRomFile>
+  <VoidAreaPattern>0</VoidAreaPattern>
+  <Language>
+  </Language>
+  <WindowFullScreen>False</WindowFullScreen>
+  <InactivePauseEmulation>False</InactivePauseEmulation>
+</Settings>

@@ -1,0 +1,105 @@
+;---------------------------;
+;                           ;
+; Emukon configuration file ;
+;                           ;
+;---------------------------;
+
+; Video
+resolution_x           = 1280
+resolution_y           = 720
+win_resolution_x       = 640
+win_resolution_y       = 480
+depth                  = 32
+windowed               = 1
+vsync                  = 1
+stretching             = 0
+fullscreen_video_mode  = normal
+fullscreen_motion_blur = 0
+gui_video_mode         = normal
+gui_motion_blur        = 0
+bg_picture             = ""
+bg_picture2            = ""
+win_picture            = ""
+
+; Sound
+sound_enabled        = 1
+sound_volume         = 75
+sound_reverse_stereo = 0
+
+; Colors
+color_background          = $80C0FF
+color_background2         = $6090C0
+color_background3         = $000000
+color_background4         = $000000
+color_window              = $C0D0E0
+color_window_bar          = $CCDCFF
+color_window_bar_inactive = $98A8DC
+color_menu                = $FFFFFF
+color_menu_selected       = $FFFF80
+color_gadget              = $B8B8D8
+color_gadget_selected     = $FFFF80
+color_gadget_rollover     = $B8D8F8
+color_list_gadget         = $FFFFFF
+color_input_gadget        = $FFFFFF
+color_mouse_cursor        = $C04040
+
+; Controller configuration
+key_1_left   = 32
+key_1_right  = 34
+key_1_up     = 19
+key_1_down   = 33
+key_1_a      = 29
+key_1_b      = 56
+key_1_l      = 16
+key_1_r      = 17
+key_1_start  = 57
+key_1_select = 42
+key_2_left   = 203
+key_2_right  = 205
+key_2_up     = 200
+key_2_down   = 208
+key_2_a      = 157
+key_2_b      = 184
+key_2_l      = 24
+key_2_r      = 25
+key_2_start  = 28
+key_2_select = 54
+
+; Emulation
+sprite_flickering  = 1
+vram_access_wait   = 1
+link               = 0
+ntsc_pal           = ntsc
+country            = european
+codemasters_mapper = 0
+
+; Directories
+rom_directory = "[EMUPATH]"
+vgm_directory = "[EMUPATH]"
+
+; Windows
+win_game_x                   = 313
+win_game_y                   = 223
+win_system_options_x         = 183
+win_system_options_y         = 163
+win_video_options_x          = 193
+win_video_options_y          = 6
+
+win_system_options_opened    = 1
+
+; Debugger
+var_overwrite = 0
+
+; Misc
+filerequester_rom_close_after_load = 1
+filerequester_vgm_close_after_load = 1
+break_points_address_absolute      = 1
+labels_address_absolute            = 1
+auto_frameskipping                 = 1
+constant_frameskipping             = 1
+multiple_screenshots               = 0
+multiple_screenshots_time          = 2
+screenshots_capture_game_only      = 1
+
+; BIOS files
+bios0000 = ""

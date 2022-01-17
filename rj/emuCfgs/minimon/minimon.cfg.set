@@ -1,0 +1,37 @@
+<config>
+	<gui>
+		</lastrom file="">
+		</video filter=0 gray=0>
+		</enable show=0>
+		</size width=584 height=438>
+	</gui>
+	<palette>
+		</color index=#0 value=#bedca0>
+		</fill start=#d0 end=#ff color=#0>
+		</gradient start=#0 end=#d0>
+	</palette>
+	<input>
+		</bind address=0 button=45 device="1864182625-298833312-1162135487-21587">
+		</bind address=1 button=44 device="1864182625-298833312-1162135487-21587">
+		</bind address=2 button=46 device="1864182625-298833312-1162135487-21587">
+		</bind address=3 button=200 device="1864182625-298833312-1162135487-21587">
+		</bind address=4 button=208 device="1864182625-298833312-1162135487-21587">
+		</bind address=5 button=203 device="1864182625-298833312-1162135487-21587">
+		</bind address=6 button=205 device="1864182625-298833312-1162135487-21587">
+		</bind address=7 button=28 device="1864182625-298833312-1162135487-21587">
+		</bind address=8 button=31 device="1864182625-298833312-1162135487-21587">
+		</bind address=9 button=15 device="1864182625-298833312-1162135487-21587">
+		</inputmap address=0 press=#402 release=#403 lParam=#1 title="A">
+		</inputmap address=1 press=#402 release=#403 lParam=#2 title="B">
+		</inputmap address=2 press=#402 release=#403 lParam=#4 title="C">
+		</inputmap address=3 press=#402 release=#403 lParam=#8 title="Up">
+		</inputmap address=4 press=#402 release=#403 lParam=#10 title="Down">
+		</inputmap address=5 press=#402 release=#403 lParam=#20 title="Left">
+		</inputmap address=6 press=#402 release=#403 lParam=#40 title="Right">
+		</inputmap address=7 press=#402 release=#403 lParam=#80 title="Power">
+		</inputmap address=8 press=#402 release=#403 lParam=#100 title="Shock">
+		</inputmap address=9 press=146 release=#403 lParam=0 title="Reset">
+		</inputmap address=10 press=#402 release=#403 lParam=#200 title="Throttle">
+		</bind address=10 button=41 device="1864182625-298833312-1162135487-21587">
+	</input>
+</config>

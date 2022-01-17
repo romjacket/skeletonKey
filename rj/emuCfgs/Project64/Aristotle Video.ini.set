@@ -1,0 +1,11 @@
+[Aristotle Video]
+{5b8b6b91a4850b78-45}
+Name=SMASH BROTHERS
+FastLoadTile
+IncTexRectEdge
+UseCIWidthAndRatio=1
+FullTMEM=1
+AlternativeTxtSizeMethod=1
+EnableTxtLOD=1
+RenderToTexture=2
+

@@ -1,0 +1,51 @@
+
+[Sound]
+pce.cdpsgvolume=100
+pce.cddavolume=100
+pce.adpcmvolume=100
+[Video]
+aspectratio=0
+pcejin.windowSize=1
+[Main]
+Muted=0
+WndX=0
+WndY=0
+[RamWatch]
+AutoRWLoad=0
+SaveWindowPos=0
+WindowX=0
+WindowY=0
+[Watches]
+Recent Watch 1=
+Recent Watch 2=
+Recent Watch 3=
+Recent Watch 4=
+Recent Watch 5=
+[General]
+Recent ROM 1=
+Recent ROM 2=
+Recent ROM 3=
+Recent ROM 4=
+Recent ROM 5=
+Recent ROM 6=
+Recent ROM 7=
+Recent ROM 8=
+AutoloadROM=0
+Recent Movie 1=
+Recent Movie 2=
+Recent Movie 3=
+Recent Movie 4=
+Recent Movie 5=
+Recent Movie 6=
+Recent Movie 7=
+Recent Movie 8=
+AutoloadMovie=0
+Recent Lua 1=
+Recent Lua 2=
+Recent Lua 3=
+Recent Lua 4=
+Recent Lua 5=
+Recent Lua 6=
+Recent Lua 7=
+Recent Lua 8=
+AutoloadLua=0

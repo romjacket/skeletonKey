@@ -1,0 +1,18 @@
+[GLOBAL]
+CLOUDLOC=
+HOSTINGURL=[HOSTINGURL]
+DATHUB=[DATHUB]
+ALTHOST=[ALTHOST]
+SOURCEHOST=[SOURCEHOST]
+IP_LOOKUP=[IPLK]
+UPDATEFILE=[UPDATEFILE]
+RASTABLE=1.9.0
+
+[SOURCES]
+
+[REPOSITORIES]
+buildBotCore=http://buildbot.libretro.com
+BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
+imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
+SHADERHOST= http://raw.githubusercontent.com/libretro/shader-previews/master/
+curlobby= http://lobby.libretro.com/list|http://playarch.online/list

@@ -1,0 +1,56 @@
+version 0x029739
+input  "P1 Coin"          switch 0x06
+input  "P1 Start"         switch 0x02
+input  "P1 Up"            switch 0xC8
+input  "P1 Down"          switch 0xD0
+input  "P1 Left"          switch 0xCB
+input  "P1 Right"         switch 0xCD
+input  "P1 Weak Punch"    switch 0x1E
+input  "P1 Medium Punch"  switch 0x1F
+input  "P1 Strong Punch"  switch 0x20
+input  "P1 Weak Kick"     switch 0x2C
+input  "P1 Medium Kick"   switch 0x2D
+input  "P1 Strong Kick"   switch 0x2E
+input  "P2 Coin"          switch 0x07
+input  "P2 Start"         switch 0x03
+input  "P2 Up"            switch 0xC8
+input  "P2 Down"          switch 0xD0
+input  "P2 Left"          switch 0xCB
+input  "P2 Right"         switch 0xCD
+input  "P2 Weak Punch"    switch 0x1E
+input  "P2 Medium Punch"  switch 0x1F
+input  "P2 Strong Punch"  switch 0x20
+input  "P2 Weak Kick"     switch 0x2C
+input  "P2 Medium Kick"   switch 0x2D
+input  "P2 Strong Kick"   switch 0x2E
+input  "Reset"            switch 0x3D
+input  "Diagnostic"       switch 0x3C
+input  "Service"          switch 0x0A
+input  "Volume Up"        undefined
+input  "Volume Down"      undefined
+
+macro  "System Pause"     undefined
+macro  "System FFWD"      undefined
+macro  "System Load State" undefined
+macro  "System Save State" undefined
+macro  "System UNDO State" undefined
+macro  "P1 Auto-Fire Button 1" undefined
+macro  "P1 Auto-Fire Button 2" undefined
+macro  "P1 Auto-Fire Button 3" undefined
+macro  "P1 Auto-Fire Button 4" undefined
+macro  "P1 Auto-Fire Button 5" undefined
+macro  "P1 Auto-Fire Button 6" undefined
+macro  "P1 Auto-Fire Button 7" undefined
+macro  "P1 Auto-Fire Button 8" undefined
+macro  "P2 Auto-Fire Button 1" undefined
+macro  "P2 Auto-Fire Button 2" undefined
+macro  "P2 Auto-Fire Button 3" undefined
+macro  "P2 Auto-Fire Button 4" undefined
+macro  "P2 Auto-Fire Button 5" undefined
+macro  "P2 Auto-Fire Button 6" undefined
+macro  "P2 Auto-Fire Button 7" undefined
+macro  "P2 Auto-Fire Button 8" undefined
+macro  "P1 3× Punch"      switch 0x21
+macro  "P1 3× Kick"       switch 0x2F
+macro  "P2 3× Punch"      switch 0x21
+macro  "P2 3× Kick"       switch 0x2F

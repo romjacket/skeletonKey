@@ -1,0 +1,10 @@
+for %%a in ("%GAMDIR%") do set LOCAL=%%~a
+for %%a in ("[TOUHUFDD]") do set DISK=%%~a
+for %%a in ("[TOUHUHDD]") do set HDISK=%%~a
+for %%a in ("7d 01 00 00 b6 00 00 00 90 01 00 00 89 01 00") do set CFGWIN=%%~a
+for %%a in ("[JOYVAL]") do set JOYSTK=%%~a
+for %%a in ("03 00 00 00 00 00 00") do set STARTYPE=%%~a
+for %%a in ("[WINDOW]") do set WINDOW=%%~a
+for %%a in ("[WMODE]") do set WMODE=%%~a
+for %%a in ("[setting]") do set SETTING=%%~a
+for %%a in ("[video]") do set VIDEO=%%~a

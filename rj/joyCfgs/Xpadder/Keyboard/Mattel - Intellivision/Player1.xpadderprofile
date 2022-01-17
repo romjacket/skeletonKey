@@ -1,0 +1,45 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+Set1Stick2Mode=EightWay
+Set2Stick2Mode=EightWay
+[Assignments]
+Set1Button2Slots=Page Down
+Set1Button3Slots=Delete
+Set1Button4Slots=Home
+Set1Button5Slots=NumPad 0
+Set1Button6Slots=NumPad Enter
+Set1Button7SetSelect=1
+Set1Button8Slots=F9
+Set1Button9Slots=NumPad Dot
+Set1Button10Slots=NumPad 5
+Set1Stick1UpSlots=Arrow Up
+Set1Stick1RightSlots=Arrow Right
+Set1Stick1DownSlots=Arrow Down
+Set1Stick1LeftSlots=Arrow Left
+Set1Stick2UpSlots=NumPad 2
+Set1Stick2RightSlots=NumPad 6
+Set1Stick2DownSlots=NumPad 8
+Set1Stick2LeftSlots=NumPad 4
+Set1Stick2UpRightSlots=NumPad 3
+Set1Stick2DownRightSlots=NumPad 9
+Set1Stick2DownLeftSlots=NumPad 7
+Set1Stick2UpLeftSlots=NumPad 1
+Set2Button1Slots=Enter
+Set2Button3Slots=NumPad 0
+Set2Button5Slots=NumPad 9
+Set2Button6Slots=NumPad Dot
+Set2Button7SetSelect=0
+Set2Button9Slots=F11
+Set2DPadRightSlots=F7
+Set2DPadLeftSlots=F5
+Set2TriggerRightSlots=F12

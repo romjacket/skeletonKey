@@ -1,0 +1,627 @@
+<mameconfig version="10">
+<system name="default">
+<input>
+	<port type="P1_JOYSTICK_UP">
+		<newseq type="standard">
+			[P1SET1PADUP]
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICK_DOWN">
+		<newseq type="standard">
+			[P1SET1PADDOWN]
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICK_LEFT">
+		<newseq type="standard">
+			[P1SET1PADLEFT]
+		</newseq>
+	</port>
+		<port type="P1_JOYSTICK_DOWN">
+		<newseq type="standard">
+			[P1SET1PADDOWN]
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICK_RIGHT">
+		<newseq type="standard">
+			[P1SET1PADRIGHT]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON1">
+		<newseq type="standard">
+			[P1SET1BUT1]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON2">
+		<newseq type="standard">
+			[P1SET1BUT2]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON3">
+		<newseq type="standard">
+			[P1SET1BUT3]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON4">
+		<newseq type="standard">
+			[P1SET1BUT4]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON5">
+		<newseq type="standard">
+			[P1SET1BUT5]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON6">
+		<newseq type="standard">
+			[P1SET1BUT6]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON7">
+		<newseq type="standard">
+			[P1SET1BUT9]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON8">
+		<newseq type="standard">
+			[P1SET1BUT10]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON9">
+		<newseq type="standard">
+			[P1SET1TRIGLEFT]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON10">
+		<newseq type="standard">
+			[P1SET1TRIGRIGHT]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON11">
+		<newseq type="standard">
+			[P1SET2BUT1]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON12">
+		<newseq type="standard">
+			[P1SET2BUT2]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON13">
+		<newseq type="standard">
+			[P1SET2BUT3]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON14">
+		<newseq type="standard">
+			[P1SET2BUT4]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON15">
+		<newseq type="standard">
+			[P1SET2BUT5]
+		</newseq>
+	</port>
+	<port type="P1_BUTTON16">
+		<newseq type="standard">
+			[P1SET2BUT6]
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICK_UP">
+		<newseq type="standard">
+			[P2SET1PADUP]
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICK_DOWN">
+		<newseq type="standard">
+			[P2SET1PADDOWN]
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICK_LEFT">
+		<newseq type="standard">
+			[P2SET1PADLEFT]
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICK_RIGHT">
+		<newseq type="standard">
+			[P2SET1PADRIGHT]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON1">
+		<newseq type="standard">
+			[P2SET1BUT1]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON2">
+		<newseq type="standard">
+			[P2SET1BUT2]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON3">
+		<newseq type="standard">
+			[P2SET1BUT3]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON4">
+		<newseq type="standard">
+			[P2SET1BUT4]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON5">
+		<newseq type="standard">
+			[P2SET1BUT5]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON6">
+		<newseq type="standard">
+			[P2SET1BUT6]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON7">
+		<newseq type="standard">
+			[P2SET1BUT9]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON8">
+		<newseq type="standard">
+			[P2SET1BUT10]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON9">
+		<newseq type="standard">
+			[P2SET1TRIGLEFT]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON10">
+		<newseq type="standard">
+			[P2SET1TRIGRIGHT]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON11">
+		<newseq type="standard">
+			[P2SET2BUT1]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON12">
+		<newseq type="standard">
+			[P2SET2BUT2]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON13">
+		<newseq type="standard">
+			[P2SET2BUT3]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON14">
+		<newseq type="standard">
+			[P2SET2BUT4]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON15">
+		<newseq type="standard">
+			[P2SET2BUT5]
+		</newseq>
+	</port>
+	<port type="P2_BUTTON16">
+		<newseq type="standard">
+			[P2SET2BUT6]
+		</newseq>
+	</port>
+	<port type="P1_PEDAL">
+		<newseq type="st
+			andard">NONE
+		</newseq>
+		<newseq type="increment">
+			[P1SET1BUT1]
+		</newseq>
+	</port>
+	<port type="P1_PEDAL2">
+		<newseq type="standard">
+			NONE
+		</newseq>
+		<newseq type="increment">
+			[P1SET1BUT2]
+		</newseq>
+	</port>
+	<port type="P1_PEDAL3">
+		<newseq type="increment">
+			[P1SET1BUT3]
+		</newseq>
+	</port>
+	<port type="UI_UP">
+		<newseq type="standard">
+			[P1SET1PADUP]
+		</newseq>
+	</port>
+	<port type="UI_DOWN">
+		<newseq type="standard">
+			[P1SET1PADDOWN]
+		</newseq>
+	</port>
+	<port type="UI_LEFT">
+		<newseq type="standard">
+			[P1SET1PADLEFT]
+		</newseq>
+	</port>
+	<port type="UI_RIGHT">
+		<newseq type="standard">
+			[P1SET1PADRIGHT]
+		</newseq>
+	</port>
+	<port type="UI_SELECT">
+		<newseq type="standard">
+			[P1SET1BUT1]
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKRIGHT_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKLEFT_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKLEFT_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKRIGHT_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKRIGHT_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKLEFT_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKRIGHT_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P1_JOYSTICKLEFT_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKRIGHT_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKLEFT_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKLEFT_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKRIGHT_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKRIGHT_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKLEFT_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKRIGHT_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P2_JOYSTICKLEFT_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="START3">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="SERVICE3">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="OSD_3">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_JOYSTICK_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_BUTTON2">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_DIAL_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PEDAL_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PADDLE_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_TRACKBALL_X_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_TRACKBALL_Y_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_AD_STICK_X_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_AD_STICK_Y_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PADDLE_V_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PADDLE">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_DIAL">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_DIAL_V_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_TRACKBALL_X">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PEDAL">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_JOYSTICK_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_BUTTON1">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_BUTTON4">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_TRACKBALL_Y">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_AD_STICK_X">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_AD_STICK_Y">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_JOYSTICK_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_JOYSTICK_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_BUTTON3">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_PADDLE_V">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P3_DIAL_V">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="COIN4">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="OSD_4">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="SERVICE4">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_JOYSTICK_LEFT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_BUTTON2">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PADDLE_V">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_DIAL_V">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_TRACKBALL_X">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_AD_STICK_X">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_TRACKBALL_Y">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_AD_STICK_Y">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_JOYSTICK_UP">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_JOYSTICK_RIGHT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_BUTTON3">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_AD_STICK_Y_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_AD_STICK_X_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_TRACKBALL_Y_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_JOYSTICK_DOWN">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_BUTTON1">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_BUTTON4">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PEDAL_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PADDLE_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_DIAL_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_TRACKBALL_X_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PADDLE_V_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_DIAL">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_DIAL_V_EXT">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PEDAL">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+	<port type="P4_PADDLE">
+		<newseq type="standard">
+			NONE
+		</newseq>
+	</port>
+</input>
+</system>
+</mameconfig>

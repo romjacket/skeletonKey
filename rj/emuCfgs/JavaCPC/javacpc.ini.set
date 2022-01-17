@@ -1,0 +1,25 @@
+#Mon Dec 25 13:30:48 PST 2017
+#[Settings]
+32_roms_enabled=false
+brightness=0
+cpce95_output=false
+double_size=false
+firstrun=false
+ga_type=40008
+hacker_kay_II_output=false
+hacker_kay_output=true
+language=EN_US
+large=true
+linear_sound=false
+lion_output=false
+lowperformance=false
+on_top=false
+quadro_size=false
+ramdisk_available=false
+samplerate=1
+system=CUSTOM
+triple_size=false
+version=2.9m
+vertical_hold=00000023
+vsoft_output=false
+z80_turbo=false

@@ -1,0 +1,138 @@
+!ifdef NOCOMPRESS
+SetCompress on
+!endif
+
+Name "skeletonKey"
+Caption "Universal ROM-Library Interface Kit"
+Icon "[SOURCE]\img\Install.ico"
+OutFile "[DBP]\skeletonkey[INSTYP].exe"
+AllowRootDirInstall true
+AutoCloseWindow true
+SetDateSave on
+SetDatablockOptimize on
+SilentInstall normal
+BGGradient off
+InstallColors /windows
+XPStyle off
+
+VIAddVersionKey "ProductName" "skeletonKey"
+VIAddVersionKey "Comments" "unified ROM environment"
+VIAddVersionKey "CompanyName" "RoM-Jacket"
+VIAddVersionKey "LegalTrademarks" "All Rights Reserved"
+VIAddVersionKey "LegalCopyright" "© RoM-Jacket"
+VIAddVersionKey "FileDescription" "skeletonKey Binary"
+VIAddVersionKey "FileVersion" "[CURV]"
+VIProductVersion [CURV]
+VIFileVersion [CURV]
+
+InstallDir "$DOCUMENTS\skeletonKey"
+InstallDirRegKey HKLM "Software\skeletonKey" "Install_Dir"
+
+
+LicenseText "Anon, I" "I Agree"
+LicenseData "[SOURCE]\ReadMe.md"
+
+RequestExecutionLevel none
+
+Function .onInit
+System::Call 'kernel32::CreateMutex(p 0, i 0, t "skeletonKey-installer") p .r1 ?e'
+ Pop $R0
+ 
+ StrCmp $R0 0 +3
+   MessageBox MB_OK|MB_ICONEXCLAMATION "The installer is already running."
+   Abort
+   NoAbort:
+ FunctionEnd
+		
+Page license
+Page components
+Page directory
+Page instfiles
+
+UninstPage uninstConfirm
+UninstPage instfiles
+
+!ifndef NOINSTTYPES ; only if not defined
+  ;InstType /NOCUSTOM
+  InstType /COMPONENTSONLYONCUSTOM
+!endif
+
+AutoCloseWindow true
+ShowInstDetails show
+
+
+Section "" ; empty string makes it hidden, so would starting with -
+
+  ; write reg info
+  StrCpy $1 "Installation"
+  DetailPrint "Installing... $1"
+  WriteRegStr HKLM "SOFTWARE\skeletonKey" "Install_Dir" "$INSTDIR"
+
+  ; write uninstall strings
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\skeletonKey" "skeletonKey" "skeletonKey (remove only)"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\skeletonKey" "UninstallString" '"$INSTDIR\skeletonKey-uninst.exe"'
+
+  SetOutPath $INSTDIR
+
+  File "[DBP]\skeletonKey.exe"
+  WriteUninstaller "skeletonKey-uninst.exe"  
+  Nop ; for fun
+
+SectionEnd
+
+Section "Desktop Shortcuts"
+
+  CreateShortCut "$DESKTOP\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe" "" "$INSTDIR\site\key.ico"
+
+SectionEnd
+
+Section "!skeletonKey"
+
+SectionIn RO
+
+Call CSCTest
+
+  ExecWait '"$INSTDIR\skeletonKey.exe"'
+  Sleep 500
+  BringToFront
+
+SectionEnd
+
+Function "CSCTest"
+  
+  CreateDirectory "$SMPROGRAMS\skeletonKey"
+  SetOutPath $INSTDIR ; for working directory
+  CreateShortCut "$SMPROGRAMS\skeletonKey\Uninstall skeletonKey.lnk" "$INSTDIR\skeletonKey-uninst.exe" ; use defaults for parameters, icon, etc.
+  CreateShortCut "$SMPROGRAMS\skeletonKey\skeletonKey.lnk" "$INSTDIR\skeletonKey.exe"
+  CreateShortCut "$SMPROGRAMS\skeletonKey\Update.lnk" "$INSTDIR\Update.exe"
+  CreateShortCut "$SMPROGRAMS\skeletonKey\PortableUtil.lnk" "$INSTDIR\bin\PortableUtil.exe"
+
+FunctionEnd
+
+
+;--------------------------------
+
+; Uninstaller
+
+UninstallText "This will uninstall skeletonKey. Hit next to continue."
+;UninstallIcon "${NSISDIR}\Contrib\Graphics\Icons\nsis1-uninstall.ico"
+
+Section "Uninstall"
+
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\skeletonKey"
+  DeleteRegKey HKLM "SOFTWARE\skeletonKey"
+  Delete "$DESKTOP\skeletonKey.lnk"
+    Delete "$SMPROGRAMS\skeletonKey\*.*"
+  RMDir "$SMPROGRAMS\skeletonKey"
+  
+  MessageBox MB_YESNO|MB_ICONQUESTION "Would you like to remove the directory $INSTDIR?" IDNO NoDelete
+    Delete "$INSTDIR\*.*"
+    RMDir /r "$INSTDIR" ; skipped if no
+  NoDelete:
+  
+
+  IfFileExists "$INSTDIR" 0 NoErrorMsg
+    MessageBox MB_OK "Note: $INSTDIR could not be removed!" IDOK 0 ; skipped if file doesn't exist
+  NoErrorMsg:
+
+SectionEnd

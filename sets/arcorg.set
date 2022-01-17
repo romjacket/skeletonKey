@@ -1,0 +1,38 @@
+[GLOBAL]
+CLOUDLOC=
+HOSTINGURL=http://github.com/romjacket
+DATHUB=https://github.com/romjacket/dat_hub/releases/download
+ALTHOST=http://github.com/romjacket
+SOURCEHOST=http://raw.githubusercontent.com/romjacket/skeletonkey/master/site/version.txt
+IP_LOOKUP=http://www.netikus.net/show_ip.html
+UPDATEFILE=https://github.com/romjacket/skeletonKey/releases/download/portable/skeletonKey.zip
+RASTABLE=1.9.0
+
+[SOURCES]
+Archive=Archive
+Archive:SET=https://github.com/romjacket/repo_hub/releases/download/ARCHIVE/Archive.7z
+archive_fullsets=archive_fullsets
+archive_fullsets:SET=https://github.com/romjacket/repo_hub/releases/download/ARCHIVE_FULLSETS/archive_fullsets.7z
+edgeemu=edgeemu
+edgeemu:SET=https://github.com/romjacket/repo_hub/releases/download/EDGEEMU/edgeemu.7z
+OD_fullsets=OD_fullsets
+OD_fullsets:SET=https://github.com/romjacket/repo_hub/releases/download/OD_FULLSETS/OD_fullsets.7z
+portalroms=portalroms
+portalroms:SET=https://github.com/romjacket/repo_hub/releases/download/PORTALROMS/portalroms.7z
+Public_Domain=Public_Domain
+Public_Domain:SET=https://github.com/romjacket/repo_hub/releases/download/PUBLIC_DOMAIN/Public_Domain.7z
+THE_EYE=THE_EYE
+THE_EYE:SET=https://github.com/romjacket/repo_hub/releases/download/THE_EYE/THE_EYE.7z
+various=various
+various:SET=https://github.com/romjacket/repo_hub/releases/download/VARIOUS/various.7z
+various2=various2
+various2:SET=https://github.com/romjacket/repo_hub/releases/download/VARIOUS2/various2.7z
+various_fullsets=various_fullsets
+various_fullsets:SET=https://github.com/romjacket/repo_hub/releases/download/VARIOUS_FULLSETS/various_fullsets.7z
+
+[REPOSITORIES]
+buildBotCore=http://buildbot.libretro.com
+BLDBOT= http://buildbot.libretro.com/nightly/windows/x86%ARCHR%
+imgrepo= http://raw.githubusercontent.com/libretro/libretro-thumbnails/master
+SHADERHOST= http://raw.githubusercontent.com/libretro/shader-previews/master/
+curlobby= http://lobby.libretro.com/list|http://playarch.online/list

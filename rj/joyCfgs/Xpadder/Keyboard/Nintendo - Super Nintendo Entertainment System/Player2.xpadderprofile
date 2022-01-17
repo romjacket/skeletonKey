@@ -1,0 +1,37 @@
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set1TriggerDeadZones=35,32
+Set2StickDeadZones=103,103
+Set2TriggerDeadZones=31,34
+Set3StickDeadZones=103,103
+Set4StickDeadZones=103,103
+Set5StickDeadZones=103,103
+Set6StickDeadZones=103,103
+Set7StickDeadZones=103,103
+Set8StickDeadZones=103,103
+
+[Assignments]
+Set1Button1Slots=G
+Set1Button2Slots=H
+Set1Button3Slots=F
+Set1Button4Slots=T
+Set1Button5Slots=Y
+Set1Button6Slots=U
+Set1Button7Slots=O
+Set1Button7SetSelect=1
+Set1Button8Slots=P
+Set1DPadUpSlots=I
+Set1DPadRightSlots=L
+Set1DPadDownSlots=K
+Set1DPadLeftSlots=J
+Set2Button7Slots=O
+Set2Button7SetSelect=0
+Set2Button8Slots=P
+Set2Button9Slots=Left Shift,Left Shift,R
+Set2DPadUpSlots=Left Shift,Equals
+Set2DPadRightSlots=F7
+Set2DPadDownSlots=Left Shift,Minus
+Set2DPadLeftSlots=F5
+Set2TriggerRightSlots=F12

@@ -1,0 +1,261 @@
+#Rom Directory:
+[EMUPATH]\gest
+
+#Save Directory:
+[EMUPATH]\save
+
+#Save State Directory:
+[EMUPATH]\state
+
+#Halt on unknown opcode:
+1
+
+#Reduce cpu usage:
+1
+
+#On speedup skip 9 frames:
+0
+
+#On speedup sound off:
+0
+
+#GBC SGB border:
+0
+
+#Video size:
+3
+
+#Video mix frames:
+1
+
+#Video GB color palette:
+0
+
+#Video GBC/GBA real colors:
+1
+
+#Video auto frameskip:
+0
+
+#Video frame skip:
+0
+
+#Video sprite limit:
+1
+
+#Video LCD off clear screen:
+1
+
+#Video filter:
+0
+
+#Video SGB border filter:
+0
+
+#Video filter use MMX:
+1
+
+#Video visual rumble:
+1
+
+#Sound on:
+1
+
+#Sound reverse stereo:
+0
+
+#Sound lowpass filter:
+0
+
+#Sound volume:
+1
+
+#Controls opposite directions allowed:
+0
+
+#Controls use joystick input for:
+-1
+
+#Player 1 A button:
+44
+
+#Player 1 B button:
+45
+
+#Player 1 START button:
+28
+
+#Player 1 SELECT button:
+14
+
+#Player 1 Autofire A button:
+30
+
+#Player 1 Autofire B button:
+31
+
+#Player 1 Autofire START button:
+0
+
+#Player 1 Autofire SELECT button:
+0
+
+#Player 1 UP button:
+200
+
+#Player 1 DOWN button:
+208
+
+#Player 1 LEFT button:
+203
+
+#Player 1 RIGHT button:
+205
+
+#Player 2 A button:
+0
+
+#Player 2 B button:
+0
+
+#Player 2 START button:
+0
+
+#Player 2 SELECT button:
+0
+
+#Player 2 Autofire A button:
+0
+
+#Player 2 Autofire B button:
+0
+
+#Player 2 Autofire START button:
+0
+
+#Player 2 Autofire SELECT button:
+0
+
+#Player 2 UP button:
+0
+
+#Player 2 DOWN button:
+0
+
+#Player 2 LEFT button:
+0
+
+#Player 2 RIGHT button:
+0
+
+#Player 3 A button:
+0
+
+#Player 3 B button:
+0
+
+#Player 3 START button:
+0
+
+#Player 3 SELECT button:
+0
+
+#Player 3 Autofire A button:
+0
+
+#Player 3 Autofire B button:
+0
+
+#Player 3 Autofire START button:
+0
+
+#Player 3 Autofire SELECT button:
+0
+
+#Player 3 UP button:
+0
+
+#Player 3 DOWN button:
+0
+
+#Player 3 LEFT button:
+0
+
+#Player 3 RIGHT button:
+0
+
+#Player 4 A button:
+0
+
+#Player 4 B button:
+0
+
+#Player 4 START button:
+0
+
+#Player 4 SELECT button:
+0
+
+#Player 4 Autofire A button:
+0
+
+#Player 4 Autofire B button:
+0
+
+#Player 4 Autofire START button:
+0
+
+#Player 4 Autofire SELECT button:
+0
+
+#Player 4 UP button:
+0
+
+#Player 4 DOWN button:
+0
+
+#Player 4 LEFT button:
+0
+
+#Player 4 RIGHT button:
+0
+
+#L button:
+16
+
+#R button:
+17
+
+#Speedup button:
+57
+
+#Sensor LEFT button:
+75
+
+#Sensor RIGHT button:
+77
+
+#Sensor UP button:
+72
+
+#Sensor DOWN button:
+80
+
+#Joystick A button:
+0
+
+#Joystick B button:
+1
+
+#Joystick START button:
+2
+
+#Joystick SELECT button:
+3
+
+#Joystick Autofire A button:
+4
+
+#Joystick Autofire B button:
+5
+

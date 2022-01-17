@@ -1,0 +1,346 @@
+; Gens configuration file
+
+; configuration file information
+[Application]
+Name=Gens+
+Version=0.0.9.61
+
+; general options
+[General]
+File Type Index=1
+State Number=0
+Language=0
+Window X=800
+Window Y=410
+Intro Style=4
+Intro Color=16777215
+Compress Save States=1
+Compress Screen Shots=1
+Compress Movies=1
+Multiple Control Config=0
+Multiple Instances=0
+State Preview=1
+Auto Fix Checksum=0
+Auto Pause=0
+LED=1
+Use Last Open Rom Dir=1
+Switch Full Screen=1
+Disable screen saver=1
+Turbo Speed=8
+Show Menu=1
+Rom 0=
+Rom Type 0=0
+Rom 1=
+Rom Type 1=0
+Rom 2=
+Rom Type 2=0
+Rom 3=
+Rom Type 3=0
+Rom 4=
+Rom Type 4=0
+Rom 5=
+Rom Type 5=0
+Rom 6=
+Rom Type 6=0
+Rom 7=
+Rom Type 7=0
+Rom 8=
+Rom Type 8=0
+
+; gens directories
+[Directories]
+Roms=.\Roms\
+Saved States=.\Save\
+RAM Backup=.\RAM\
+Sound Dump=.\Dump\
+Screen Shots=.\Shots\
+Patches=.\Patch\
+IPS Patches=.\Patch\
+Cheats=.\Cheats\
+Config=.\Config\
+Plugin=.\Plugins\
+
+; gens files
+[Files]
+Genesis Bios=.\Genesis_OS_ROM.bin
+USA CD Bios=.\us_scd1_9210.bin
+EUROPE CD Bios=.\eu_mcd2_9306.bin
+JAPAN CD Bios=.\jp_mcd1_9112.bin
+32X 68000 Bios=.\32X_G_bios.bin
+32X Master SH2 Bios=.\32X_M_bios.bin
+32X Slave SH2 Bios=.\32X_S_bios.bin
+GCOfline=.\GCOffline.chm
+Gens Manual=.\manual.exe
+
+; interface options
+[Interface]
+Show FPS=0
+Transparent FPS=0
+FPS Font=1
+Show Message=1
+Transparent Message=0
+Message Font=1
+Font1 Name=Out Run
+Font1 Body Color=16777215
+Font1 Border Color=0
+Font2 Name=Shining Force 2
+Font2 Color=0
+Font3 Name=Default
+Font3 Color=0
+
+; graphics options
+[Graphics]
+Switch To 16bpp On Start=0
+Full Screen=0
+Full Screen Res X=640
+Full Screen Res Y=480
+Full Screen VSync=0
+Window VSync=0
+Render Windowed=0
+Render Fullscreen=1
+Window Stretch=0
+Full Screen Stretch=0
+Software Blit=0
+Contrast=100
+Brightness=100
+Greyscale=0
+Invert=0
+Sprite Limit=1
+Frame Skip=-1
+Fast Blur=0
+Full Screen Device=1
+Window Device=0
+Direct3D Filter Window=0
+Direct3D Filter Full Screen=0
+Draw Pixel P0=1
+Draw Pixel P1=1
+Draw Sprite Pixel=1
+
+; sound options
+[Sound]
+State=1
+Rate=22050
+Stereo=1
+Volume=100
+Lowpass Filter=0
+Echo=0
+Z80 State=1
+YM2612 State=1
+PSG State=1
+PSG Improvement=0
+DAC State=1
+DAC Improvement=0
+PCM State=1
+PWM State=1
+CDDA State=1
+YM2612 Improvement=0
+YM2612 SSGEG=0
+Compress GSR=1
+GSR DAC Precision=16
+
+; CPU
+[CPU]
+Country=-1
+Prefered Country 1=0
+Prefered Country 2=1
+Prefered Country 3=2
+Perfect Synchro=0
+Main SH2 Speed=100
+Slave SH2 Speed=100
+
+[System]
+CD Drive=0
+Ram Cart Size=3
+
+[Master System]
+Use bright palette=1
+Enable YM2413=1
+YM2413 high quality=0
+Show Logo=0
+
+; gens keys configuration
+[Input]
+; joystick 1
+P1.Type=0
+P1.Up=200
+P1.Down=208
+P1.Left=203
+P1.Right=205
+P1.Start=28
+P1.A=30
+P1.B=31
+P1.C=32
+P1.Mode=54
+P1.X=44
+P1.Y=45
+P1.Z=46
+P1.HotKey1=0
+P1.HotKey2=0
+P1.HotKey3=0
+P1.HotKey4=0
+P1.HotKey Buttons1=0
+P1.HotKey Buttons2=0
+P1.HotKey Buttons3=0
+P1.HotKey Buttons4=0
+P1.Turbo=0
+; joystick 2
+P2.Type=0
+P2.Up=21
+P2.Down=35
+P2.Left=34
+P2.Right=36
+P2.Start=22
+P2.A=37
+P2.B=38
+P2.C=50
+P2.Mode=20
+P2.X=23
+P2.Y=24
+P2.Z=25
+P2.HotKey1=0
+P2.HotKey2=0
+P2.HotKey3=0
+P2.HotKey4=0
+P2.HotKey Buttons1=0
+P2.HotKey Buttons2=0
+P2.HotKey Buttons3=0
+P2.HotKey Buttons4=0
+P2.Turbo=0
+; joystick 1B
+P1B.Type=0
+P1B.Up=0
+P1B.Down=0
+P1B.Left=0
+P1B.Right=0
+P1B.Start=0
+P1B.A=0
+P1B.B=0
+P1B.C=0
+P1B.Mode=0
+P1B.X=0
+P1B.Y=0
+P1B.Z=0
+P1B.HotKey1=0
+P1B.HotKey2=0
+P1B.HotKey3=0
+P1B.HotKey4=0
+P1B.HotKey Buttons1=0
+P1B.HotKey Buttons2=0
+P1B.HotKey Buttons3=0
+P1B.HotKey Buttons4=0
+P1B.Turbo=0
+; joystick 1C
+P1C.Type=0
+P1C.Up=0
+P1C.Down=0
+P1C.Left=0
+P1C.Right=0
+P1C.Start=0
+P1C.A=0
+P1C.B=0
+P1C.C=0
+P1C.Mode=0
+P1C.X=0
+P1C.Y=0
+P1C.Z=0
+P1C.HotKey1=0
+P1C.HotKey2=0
+P1C.HotKey3=0
+P1C.HotKey4=0
+P1C.HotKey Buttons1=0
+P1C.HotKey Buttons2=0
+P1C.HotKey Buttons3=0
+P1C.HotKey Buttons4=0
+P1C.Turbo=0
+; joystick 1D
+P1D.Type=0
+P1D.Up=0
+P1D.Down=0
+P1D.Left=0
+P1D.Right=0
+P1D.Start=0
+P1D.A=0
+P1D.B=0
+P1D.C=0
+P1D.Mode=0
+P1D.X=0
+P1D.Y=0
+P1D.Z=0
+P1D.HotKey1=0
+P1D.HotKey2=0
+P1D.HotKey3=0
+P1D.HotKey4=0
+P1D.HotKey Buttons1=0
+P1D.HotKey Buttons2=0
+P1D.HotKey Buttons3=0
+P1D.HotKey Buttons4=0
+P1D.Turbo=0
+; joystick 2B
+P2B.Type=0
+P2B.Up=0
+P2B.Down=0
+P2B.Left=0
+P2B.Right=0
+P2B.Start=0
+P2B.A=0
+P2B.B=0
+P2B.C=0
+P2B.Mode=0
+P2B.X=0
+P2B.Y=0
+P2B.Z=0
+P2B.HotKey1=0
+P2B.HotKey2=0
+P2B.HotKey3=0
+P2B.HotKey4=0
+P2B.HotKey Buttons1=0
+P2B.HotKey Buttons2=0
+P2B.HotKey Buttons3=0
+P2B.HotKey Buttons4=0
+P2B.Turbo=0
+; joystick 2C
+P2C.Type=0
+P2C.Up=0
+P2C.Down=0
+P2C.Left=0
+P2C.Right=0
+P2C.Start=0
+P2C.A=0
+P2C.B=0
+P2C.C=0
+P2C.Mode=0
+P2C.X=0
+P2C.Y=0
+P2C.Z=0
+P2C.HotKey1=0
+P2C.HotKey2=0
+P2C.HotKey3=0
+P2C.HotKey4=0
+P2C.HotKey Buttons1=0
+P2C.HotKey Buttons2=0
+P2C.HotKey Buttons3=0
+P2C.HotKey Buttons4=0
+P2C.Turbo=0
+; joystick 2D
+P2D.Type=0
+P2D.Up=0
+P2D.Down=0
+P2D.Left=0
+P2D.Right=0
+P2D.Start=0
+P2D.A=0
+P2D.B=0
+P2D.C=0
+P2D.Mode=0
+P2D.X=0
+P2D.Y=0
+P2D.Z=0
+P2D.HotKey1=0
+P2D.HotKey2=0
+P2D.HotKey3=0
+P2D.HotKey4=0
+P2D.HotKey Buttons1=0
+P2D.HotKey Buttons2=0
+P2D.HotKey Buttons3=0
+P2D.HotKey Buttons4=0
+P2D.Turbo=0

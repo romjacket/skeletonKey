@@ -1,0 +1,55 @@
+[General]
+Main_x=0
+Main_y=0
+FrameCounter=0
+AllDisplay=1
+InputDisplay=0
+AnalogDisplay=0
+AnalogHack=0
+Recent CD 1=
+Recent CD 2=
+Recent CD 3=
+Recent CD 4=
+Recent CD 5=
+Recent CD 6=
+Recent CD 7=
+Recent CD 8=
+AutoloadCD=0
+Recent Movie 1=
+Recent Movie 2=
+Recent Movie 3=
+Recent Movie 4=
+Recent Movie 5=
+Recent Movie 6=
+Recent Movie 7=
+Recent Movie 8=
+AutoloadMovie=0
+Recent Lua 1=
+Recent Lua 2=
+Recent Lua 3=
+Recent Lua 4=
+Recent Lua 5=
+Recent Lua 6=
+Recent Lua 7=
+Recent Lua 8=
+AutoloadLua=0
+[RamWatch]
+AutoLoad=0
+RWSaveWindowPos=0
+ramw_x=0
+ramw_y=0
+[Watches]
+Recent Watch 1=
+Recent Watch 2=
+Recent Watch 3=
+Recent Watch 4=
+Recent Watch 5=
+[Sound]
+UseXA=1
+iVolume=3
+iXAPitch=0
+iSoundMode=1
+iSynchMethod=0
+iRecordMode=0
+iUseReverb=1
+iUseInterpolation=2

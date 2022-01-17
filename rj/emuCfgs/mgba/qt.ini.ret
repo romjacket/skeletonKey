@@ -1,0 +1,9 @@
+[General]
+windowPos=@Point(442 197)
+audioDriver=1
+displayDriver=1
+cameraDriver=0
+camera=
+
+[shortcutKey]
+recordOutput=Ctrl+F12

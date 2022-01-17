@@ -1,0 +1,11 @@
+SET UseXA=0x1
+SET Volume=0x3
+SET XAPitch=0x1
+SET UseTimer=0x1
+SET SPUIRQWait=0x0
+SET DebugMode=0x0
+SET RecordMode=0x0
+SET UseReverb=0x2
+SET UseInterpolation=0x2
+SET DisStereo=0x0
+SET DecodedBufIRQ=0x0

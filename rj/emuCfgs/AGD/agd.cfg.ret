@@ -1,0 +1,7 @@
+Register Format	2
+Memory Format	2
+ROM search directory	./
+Run app mode switch	1
+grid	0
+Video Height	480
+Video Width	640

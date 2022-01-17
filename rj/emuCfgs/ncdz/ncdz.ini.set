@@ -1,0 +1,117 @@
+;----------------------------------------
+; NEOGEO CDZ Emulator ver.2005.12.25.5
+;----------------------------------------
+
+[Path and File Settings]
+ScreenShotDirectory = snap
+
+[Machine Settings]
+RegionSwitch = 0
+CDRomDrive = auto
+CDRomSpeedLimit = 0
+
+[Video Settings]
+FullScreen = no
+SoftwareStretch2x = yes
+Scanlines = no
+ScanlineBrightness = 0
+HardwareStretch = 0
+TripleBuffer = yes
+WaitVsync = yes
+DirectDrawHEL = no
+UseSystemMemory = no
+RefreshRate = 1
+
+[Audio Settings]
+SampleRate = 44100
+SoundVolume = 100
+SoundLatency = 4
+EnableCDDA = yes
+CDDAVolume = -1
+
+[Other Settings]
+AutoPause = yes
+EnableMMX = yes
+EnableSSE = yes
+SleepTime = -1
+OutputLog = no
+
+[Player1 Keyboard]
+P1KeyUp = KEYCODE_UP
+P1KeyDown = KEYCODE_DOWN
+P1KeyLeft = KEYCODE_LEFT
+P1KeyRight = KEYCODE_RIGHT
+P1KeyButtonA = KEYCODE_LCONTROL
+P1KeyButtonB = KEYCODE_LALT
+P1KeyButtonC = KEYCODE_SPACE
+P1KeyButtonD = KEYCODE_LSHIFT
+P1KeyStart = KEYCODE_1
+P1KeySelect = KEYCODE_5
+P1KeyHotkey1 = KEYCODE_UNKNOWN
+P1KeyHotkey2 = KEYCODE_UNKNOWN
+P1KeyHotkey3 = KEYCODE_UNKNOWN
+P1KeyHotkey4 = KEYCODE_UNKNOWN
+
+[Player2 Keyboard]
+P2KeyUp = KEYCODE_R
+P2KeyDown = KEYCODE_F
+P2KeyLeft = KEYCODE_D
+P2KeyRight = KEYCODE_G
+P2KeyButtonA = KEYCODE_A
+P2KeyButtonB = KEYCODE_S
+P2KeyButtonC = KEYCODE_Q
+P2KeyButtonD = KEYCODE_W
+P2KeyStart = KEYCODE_2
+P2KeySelect = KEYCODE_6
+P2KeyHotkey1 = KEYCODE_UNKNOWN
+P2KeyHotkey2 = KEYCODE_UNKNOWN
+P2KeyHotkey3 = KEYCODE_UNKNOWN
+P2KeyHotkey4 = KEYCODE_UNKNOWN
+
+[Player1 Joystick]
+P1JoyID = 0
+P1JoyUp = JOY_AXIS_Y_NEG
+P1JoyDown = JOY_AXIS_Y_POS
+P1JoyLeft = JOY_AXIS_X_NEG
+P1JoyRight = JOY_AXIS_X_POS
+P1JoyButtonA = JOY_BUTTON1
+P1JoyButtonB = JOY_BUTTON2
+P1JoyButtonC = JOY_BUTTON3
+P1JoyButtonD = JOY_BUTTON4
+P1JoyStart = JOY_BUTTON5
+P1JoySelect = JOY_BUTTON6
+P1JoyHotkey1 = JOY_BUTTON7
+P1JoyHotkey2 = JOY_BUTTON8
+P1JoyHotkey3 = JOY_BUTTON9
+P1JoyHotkey4 = JOY_BUTTON10
+
+[Player2 Joystick]
+P2JoyID = 1
+P2JoyUp = JOY_AXIS_Y_NEG
+P2JoyDown = JOY_AXIS_Y_POS
+P2JoyLeft = JOY_AXIS_X_NEG
+P2JoyRight = JOY_AXIS_X_POS
+P2JoyButtonA = JOY_BUTTON1
+P2JoyButtonB = JOY_BUTTON2
+P2JoyButtonC = JOY_BUTTON3
+P2JoyButtonD = JOY_BUTTON4
+P2JoyStart = JOY_BUTTON5
+P2JoySelect = JOY_BUTTON6
+P2JoyHotkey1 = JOY_BUTTON7
+P2JoyHotkey2 = JOY_BUTTON8
+P2JoyHotkey3 = JOY_BUTTON9
+P2JoyHotkey4 = JOY_BUTTON10
+
+[Player1 Hotkey]
+P1Hotkey1 = 0
+P1Hotkey2 = 0
+P1Hotkey3 = 0
+P1Hotkey4 = 0
+P1AutofireInterval = 0
+
+[Player2 Hotkey]
+P2Hotkey1 = 0
+P2Hotkey2 = 0
+P2Hotkey3 = 0
+P2Hotkey4 = 0
+P2AutofireInterval = 0

@@ -1,0 +1,299 @@
+;=== PC6001VW configuration ===
+;TAB:4
+
+[CONFIG]
+system=0				;system flag
+model=60				;Model(60:6001, 61:6001A, 62:mk2, 64:mk2SR, 66:6601, 68:6601SR)
+compatible=off			;Compatible ROM (on:use, off:non-use)
+ext_ram=on				;Extend RAM (on:use, off:non-use)
+mega_rom=0				;MEGA-ROM type (0:non-use, 1:soldier, 2:normal, 3:new-soldier)
+mega_rom_port=0x7f		;MEGA-ROM port number (0x70-0x7F) [def:0x7F]
+sound_use=1				;Sound device (0:no_sound, 1:DirectSound, 2:WaveOut, 3:GIMIC)
+sound_rate=44100		;Sampling rate (44100/22050/11025 Hz)
+master_volume=100		;Master volume
+psg_volume=100			;PSG volume
+fm_volume=40			;FM volume
+sound_buff=60			;Secondary buffer (20-200 ms) [def:60]
+sound_mechanical=1		;Mechanical noise (0:silence, 1:noisy)
+sound_snap=off			;Rap phenomenon(on:enable, off:disable)
+sound_stereo=off			;Pseudo stereo (on:enable, off:disable)
+sound_pan0=64			;PAN PSG-CH1 (L:0--64--128:R)
+sound_pan1=0			;PAN PSG-CH2
+sound_pan2=128			;PAN PSG-CH3
+sound_pan3=64			;PAN FM-CH1
+sound_pan4=0			;PAN FM-CH2
+sound_pan5=128			;PAN FM-CH3
+sound_pan6=128			;PAN SCC-CH1
+sound_pan7=0			;PAN SCC-CH2
+sound_pan8=128			;PAN SCC-CH3
+sound_pan9=0			;PAN SCC-CH4
+sound_pan10=128			;PAN SCC-CH5
+sound_wave_buff=4		;WaveOut buffer size (2-16 ms) [def:4]
+sound_wave_block=16		;WaveOut buffer blocks (3-20 blks) [def:16]
+sound_gimic_interval=500	;output interval (100-16000 us) [def:500]
+sound_gimic_commands=100	;number of commands outputted at once (1-1000) [def:100]
+sound_gimic_opna_pll_clock=8000000	;OPNA:PLL Clock (1000000-16000000 Hz) [def:8000000]
+sound_gimic_opna_ssg_volume=100	;OPNA:SSG Volume (0-100) [def:100]
+sound_gimic_ssg_volume=100	;SSG Volume (0-500) [def:100]
+sound_gimic_fm_volume=100	;FM Volume (0-500) [def:100]
+fm_cartridge=off		;FM-Cartridge (on:use, off:non-use)
+mode4_color=0			;N60-SC4 fringe effect color set
+						; (0:monochrome, 1:red/blue, 2:blue/red, 3:pink/green, 4:green/pink)
+mode4_edge=1			;N60-SC4 drawing method
+mode1_edge=0			;N60-SC1 drawing method
+sys_adj=100				;System speed adjustment (50-150 %)
+cpu_adj=100				;CPU speed adjustment (50-150 %)
+clock_adj=100			;Z80 clock adjustment (50-150 %)
+vsync=60				;VSYNC frequency (1-60 Hz)
+frame_skip=0			;Frame skip (0-9)
+tape_counter=on		;TAPE-counter (on:show, off:hide)
+fps_counter=on			;FPS-counter (on:show, off:hide)
+func_disp=on			;Function guide (on:show, off:hide)
+scanline=0				;Scanline (0:disable, 1:currently_frame, 2:previous_frame)
+scanline_brightness=65		;Scanline brightness (0-100 %) [def:65]
+fd_drive=0				;FDD (0-2)
+fd_type_64=3			;mkII/SR FDD-type
+						;(1:Non-Intelli[1D],2:Non-Intelli[1DD],3:Intelli[1D],4:Intelli[1DD]
+tape_monitor=10			;Tape volume (0-100) [def:10]
+key_repeat_1st=600		;1st KeyRepeat interval (0-1000 ms)
+key_repeat=130			;KeyRepeat interval (0-1000 ms)
+screen_width=640		;Horizontal resolution [def:320]
+screen_height=496		;Vertical resolution [def:240]
+directx_device=0		;DirectX device (0:Direct3D, 1:DirectDraw)
+direct3d_screen=0		;Direct3D buffer (0:Texture, 1:System Memory)
+screen_rotate=0			;Screen rotation angle (0:0, 1:90, 2:180, 3:240 deg)
+screen_rotate_cursor=0		;Cursor rotation
+tv43=0					;TV4:3 mode (on:enable, off:disable)
+baudrate=1000			;Tape baudrate (600-1200 baud)
+roman_kana=on			;Kana/Roman input (on:enable, off:disable)
+jimaku=1				;Subtitles (0:enable, 1:disable)
+overdrive=2				;Fixed speed magnification (0:30%, 1:60%, 2-9:x100%)
+device=0				;device
+tape_overdrive=off		;High-Speed tape reading (on:enable, off:disable)
+voice_record=off			;Voice recording (on:enable, off:disable)
+voice_volume=50			;Voice volume (0-100)
+clipboard=16			;Clipboard buffer (1-64 KB) [def:4]
+joy_exchange=off			;Exchange joystick 1 and 2 (on:enable, off:disable)
+stop_screen_saver=off	;Prohibit the screen saver (on:enable, off:disable)
+pos_x=0				;Window positon
+pos_y=0				;
+drop_confirm=off		;Show a confirmation dialog after the drag && drop. (on:enable, off:disable)
+screen_margin=4			;Window Margin (0-8)
+screen_magni=100		;Window magnification (25-300 %)
+screen_brightness=100	;Window brightness (0-500 %)
+key_win=1				;Keyboard layout (0:DOS, 1:Windows)
+trouble=0				;Trouble shooting flag
+debug_log=0				;Debug log
+						;  (1:FILE-IO, 2:SUB-CPU, 4:INTR, 8:SND, 16:TIMER, 32:I/O)
+screenshot_format=0		;Screenshot image type (0:BMP, 1:JPG, 2:PNG, 3:GIF)
+bus_req_off=off			;Models other than SR also accept the BusRequest-OFF. (on:enable, off:disable)
+font_size[0]=12
+font_face[0]=monospace
+font_size[1]=12
+font_face[1]=monospace
+font_size[2]=12
+font_face[2]=monospace
+font_size[3]=10
+font_face[3]=monospace
+font_size[4]=0
+font_face[4]=monospace
+font_size[5]=0
+font_face[5]=monospace
+joy1_trig_a=0			;Button number assigned to joystick1 trigger A
+joy1_trig_b=1			;Button number assigned to joystick1 trigger B
+joy2_trig_a=0			;Button number assigned to joystick2 trigger A
+joy2_trig_b=1			;Button number assigned to joystick2 trigger B
+
+language="jp"
+vga=off					;VGA Adaptor (on:enable, off:disable)
+vga_dbg=0x00000000		;VGA debug flag
+boss=off					;BOSS mode (on:enable, off:disable)
+multi_window=0			;Monitor mode type (0:Single window, 1:Multi window)
+sysmenu_small=0			;Reduce system menu.
+async_draw=0			;Asynchronous screen drawing.
+
+
+[PALETTE]
+;6001:black(all modes)
+rgb_common_black=0x202020
+
+;6001:SC1:white(green-bg),green,white(orange-bg),orange
+rgb_mode1_css0[0]=0x18FF18
+rgb_mode1_css0[1]=0x008010
+rgb_mode1_css1[0]=0xFF8020
+rgb_mode1_css1[1]=0xA81000
+
+;6001:SC2:green,yellow,blue,red,white,cyan,magenta,orange
+rgb_mode2[0]=0x18FF18
+rgb_mode2[1]=0xF0E820
+rgb_mode2[2]=0x5838FF
+rgb_mode2[3]=0xE80808
+rgb_mode2[4]=0xF0E0FF
+rgb_mode2[5]=0x20B8F0
+rgb_mode2[6]=0xFF20FF
+rgb_mode2[7]=0xFF7008
+
+;6001:SC3:green,yellow,blue,red,white,cyan,magenta,orange
+rgb_mode3_css0[0]=0x00E000
+rgb_mode3_css0[1]=0xF0FF20
+rgb_mode3_css0[2]=0x4010FF
+rgb_mode3_css0[3]=0xE81000
+rgb_mode3_css1[0]=0xF0E0F8
+rgb_mode3_css1[1]=0x38D0E8
+rgb_mode3_css1[2]=0xF820E0
+rgb_mode3_css1[3]=0xFF6010
+
+;6001:SC4:black(green_pal),green,black(white_pal),white
+rgb_mode4_css0[0]=0x088000
+rgb_mode4_css0[1]=0x00E000
+rgb_mode4_css1[0]=0x202020
+rgb_mode4_css1[1]=0xF0E8C8
+
+;Fringe effect green color set 1:red,blue
+rgb_css0_set1[0]=0xFF3828
+rgb_css0_set1[1]=0x1080FF
+
+;Fringe effect green color set 2:orange,yellow
+rgb_css0_set2[0]=0xFF28B0
+rgb_css0_set2[1]=0xE8FF28
+
+;Fringe effect white color set 1:red,light-blue
+rgb_css1_set1[0]=0xFF3000
+rgb_css1_set1[1]=0x50A0FF
+
+;Fringe effect white color set 2:orange,green
+rgb_css1_set2[0]=0xFF40E8
+rgb_css1_set2[1]=0x40F010
+
+;mkII/66/SR:transparency(black), orange, blue-green, yellow-green
+;             ,blue-purple, red-purple, light-blue, gray
+;             ,black, red, green, yellow
+;             ,blue, magenta, cyan, white
+rgb_mode5[0]=0x141414
+rgb_mode5[1]=0xFFAC00
+rgb_mode5[2]=0x00FFAC
+rgb_mode5[3]=0xACFF00
+rgb_mode5[4]=0xAC00FF
+rgb_mode5[5]=0xFF00AC
+rgb_mode5[6]=0x00ACFF
+rgb_mode5[7]=0xACACAC
+rgb_mode5[8]=0x141414
+rgb_mode5[9]=0xFF0000
+rgb_mode5[10]=0x00FF00
+rgb_mode5[11]=0xFFFF00
+rgb_mode5[12]=0x0000FF
+rgb_mode5[13]=0xFF00FF
+rgb_mode5[14]=0x00FFFF
+rgb_mode5[15]=0xFFFFFF
+
+
+[MONITOR]
+; (EscapeSequence: "\p"=PCreg ,"\r"=Enter)
+f1=""
+f2="<system reserved>"
+f3="<system reserved>"
+f4=""
+f5="g\r
+"
+f6=""
+f7="b c "
+f8="b pc \p "
+f9="b pc 0x"
+f10="S\r
+"
+f11="s\r
+"
+f12=""
+
+;RealTimeMonitro.
+realtime_monitor=off
+;(HIWORD=ItemType, LOWORD=Address)
+;(ItemType = 0:none, 1:RAM(byte), 2:RAM(word), 3:I/O port)
+watch_1=0x00000000
+watch_2=0x00000000
+watch_3=0x00000000
+watch_4=0x00000000
+watch_5=0x00000000
+watch_6=0x00000000
+watch_7=0x00000000
+watch_8=0x00000000
+watch_9=0x00000000
+watch_10=0x00000000
+watch_11=0x00000000
+watch_12=0x00000000
+watch_13=0x00000000
+watch_14=0x00000000
+watch_15=0x00000000
+watch_16=0x00000000
+
+
+[FILES]
+;Windows standard dialog (file selection) (on:use, off:non-use)
+use_commdlg=off
+;Number of extension filter  for state-load.
+doko_filter=1
+
+;Extended ROM file
+extrom_file=
+
+;Printer output file
+printer=printer.txt
+
+;Serial output file
+;serial=serial.txt
+
+;Save-Tape file(automounted)
+save=
+
+;Load-Tape file(automounted)
+tape=
+
+;Disk1 file(automounted)
+disk[0]=
+
+;Disk2 file(automounted)
+disk[1]=
+
+;Function guide image file
+func_img=[EMUPATH]\lang\func.bmp
+
+
+[PATH]
+;Extended ROM path
+extrom_path=[EMUPATH]\extrom\
+
+;State Save path
+doko_path=[EMUPATH]\save\
+
+;System ROM path
+rom_path=[EMUPATH]\rom\
+
+;Load-Tape path
+tape_path=[EMUPATH]\tape\
+
+;Save-Tape path
+save_path=[EMUPATH]\tape\
+
+;Disk1 path
+disk_path[0]=[EMUPATH]\disk\
+
+;Disk2 path
+disk_path[1]=[EMUPATH]\disk\
+
+;Screenshot path
+img_path=[EMUPATH]\img\
+
+;Development path
+dev_path=[EMUPATH]\dev\
+
+;Log path
+log_path=C:\Users\sudopinion\Desktop\
+
+;Sound effect path
+se_path=[EMUPATH]\wav\
+
+;Audio output path
+wavout_path=[EMUPATH]\wav\
+
+;Language DLL path
+lang_path=[EMUPATH]\lang\

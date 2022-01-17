@@ -1,0 +1,39 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=5.3
+
+[Profile Settings]
+
+[Set Settings]
+Set1StickDeadZones=103,103
+Set2StickDeadZones=103,103
+Set1TriggerDeadZones=25,25
+Set2TriggerDeadZones=25,25
+
+[Assignments]
+Set1Button1Slots=Z
+Set1Button2Slots=S
+Set1Button3Slots=X
+Set1Button4Slots=A
+Set1Button5Slots=Left Shift
+Set1Button6Slots=Right Shift
+Set1Button7Slots=Space
+Set1Button7SetSelect=1
+Set1Button8Slots=Enter
+Set1Button9Slots=Insert
+Set1Button10Slots=Delete
+Set1DPadUpSlots=Arrow Up
+Set1DPadRightSlots=Arrow Right
+Set1DPadDownSlots=Arrow Down
+Set1DPadLeftSlots=Arrow Left
+Set1Stick1UpSlots=End
+Set1Stick1LeftSlots=End
+Set1Stick2UpSlots=Page Down
+Set1Stick2LeftSlots=Page Up
+Set1TriggerLeftSlots=Left Control
+Set1TriggerRightSlots=Right Control
+Set2Button7SetSelect=0
+Set2Button10Slots=Escape
+Set2DPadRightSlots=F1
+Set2DPadLeftSlots=F6
+Set2Stick2RightSlots=Backspace

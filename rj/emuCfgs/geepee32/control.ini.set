@@ -1,0 +1,197 @@
+[AZERTY]
+16="A"
+17="Z"
+18="E"
+19="R"
+20="T"
+21="Y"
+22="U"
+23="I"
+24="O"
+25="P"
+30="Q"
+31="S"
+32="D"
+33="F"
+34="G"
+35="H"
+36="J"
+37="K"
+38="L"
+44="W"
+45="X"
+46="C"
+47="V"
+48="B"
+49="N"
+50="M"
+200="UP"
+203="LEFT"
+205="RIGHT"
+208="DOWN"
+default=16,48,38,19,31,32,203,205,200,208
+type=keyboard
+
+[QWERTY]
+16="Q"
+17="W"
+18="E"
+19="R"
+20="T"
+21="Y"
+22="U"
+23="I"
+24="O"
+25="P"
+30="A"
+31="S"
+32="D"
+33="F"
+34="G"
+35="H"
+36="J"
+37="K"
+38="L"
+44="Z"
+45="X"
+46="C"
+47="V"
+48="B"
+49="N"
+50="M"
+200="UP"
+203="LEFT"
+205="RIGHT"
+208="DOWN"
+default=30,48,38,19,31,32,203,205,200,208
+type=keyboard
+
+[Generic Gamepad]
+1="BUTTON 1"
+2="BUTTON 2"
+3="BUTTON 3"
+4="BUTTON 4"
+5="BUTTON 5"
+6="BUTTON 6"
+7="BUTTON 7"
+8="BUTTON 8"
+9="BUTTON 9"
+10="BUTTON 10"
+11="BUTTON 11"
+12="BUTTON 12"
+13="BUTTON 13"
+14="BUTTON 14"
+15="BUTTON 15"
+16="BUTTON 16"
+17="BUTTON 17"
+18="BUTTON 18"
+19="BUTTON 19"
+20="BUTTON 20"
+21="BUTTON 21"
+22="BUTTON 22"
+23="BUTTON 23"
+24="BUTTON 24"
+25="BUTTON 25"
+26="BUTTON 26"
+27="BUTTON 27"
+28="BUTTON 28"
+29="BUTTON 29"
+30="BUTTON 30"
+31="BUTTON 31"
+32="BUTTON 32"
+default=1,2,3,4,5,6
+type=gamepad
+
+[Ednet Gamepad]
+1="1"
+2="2"
+3="3"
+4="4"
+5="5"
+6="6"
+7="7"
+8="8"
+default=1,2,7,8,4,5
+type=gamepad
+
+[Logitech Thunderpad Digital]
+1="A"
+2="B"
+3="C"
+4="D"
+5="L"
+6="R"
+7="*"
+8="**"
+default=1,2,5,6,7,8
+type=gamepad
+
+[Microsoft SideWinder]
+1="A"
+2="B"
+3="C"
+4="X"
+5="Y"
+6="Z"
+7="L"
+8="R"
+9="START"
+10="M"
+default=1,2,7,8,9,10
+type=gamepad
+
+[Playstation Controller (Smart Joy USB Adapter)]
+1="TRIANGLE"
+2="CIRCLE"
+3="CROSS"
+4="SQUARE"
+5="L2"
+6="R2"
+7="L1"
+8="R1"
+9="SELECT"
+10="START"
+default=2,3,7,8,10,9
+type=gamepad
+
+[Playstation Controller (Unknown USB Adapter)]
+1="TRIANGLE"
+2="CIRCLE"
+3="CROSS"
+4="SQUARE"
+5="L2"
+6="R2"
+7="L1"
+8="R1"
+9="SELECT"
+12="START"
+13="UP"
+14="RIGHT"
+15="DOWN"
+16="LEFT"
+default=2,3,7,8,12,9
+type=gamepad
+
+[Trust Thunder Wheel 3D]
+1="R2"
+2="R1"
+3="L2"
+4="L1"
+default=1,2,3,4,0,0
+type=wheel
+
+[Trust Sight Fighter Digital Plus]
+1="A"
+2="B"
+3="C"
+4="X"
+5="Y"
+6="Z"
+7="L"
+8="R"
+9="3"
+10="ARROW"
+11="2"
+12="1"
+default=1,2,7,8,10,4
+type=gamepad

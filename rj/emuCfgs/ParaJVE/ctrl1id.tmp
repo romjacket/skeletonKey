@@ -1,0 +1,11 @@
+        <controller id="">
+			<direction mode="axis" horizontal="+x.XAxis" vertical="+y.YAxis">
+				<response active="false">
+					<curve x="0.5" y="0.5" />
+				</response>
+			</direction>
+			<button index="1" id="0.Button0" />
+			<button index="2" id="1.Button1" />
+			<button index="3" id="2.Button2" />
+			<button index="4" id="3.Button3" />
+		</controller>
